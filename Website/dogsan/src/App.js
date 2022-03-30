@@ -1,7 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+/* import logo from './logo.svg'; */
+import './css/styles.css';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <div id="homepage">
@@ -21,8 +21,8 @@ function App() {
           <rect id="Rectangle_9" rx="0" ry="0" x="0" y="0" width="1920" height="130">
           </rect>
         </svg>
-        <img id="healthcare-medical-concept-med" src="healthcare-medical-concept-med.png" srcset="healthcare-medical-concept-med.png 1x, healthcare-medical-concept-med@2x.png 2x">
-
+{/*         <img id="healthcare-medical-concept-med" src="healthcare-medical-concept-med.png" srcset="healthcare-medical-concept-med.png 1x, healthcare-medical-concept-med@2x.png 2x">
+ */}
           <div id="emilebilir" className="emilebilir">
             <svg className="Rectangle_3">
               <rect id="Rectangle_3" rx="0" ry="0" x="0" y="0" width="190" height="130">
@@ -102,12 +102,12 @@ function App() {
             </div>
           </div>
           <div onclick="application.goToTargetView(event)" id="anastomoz_kopya" className="anastomoz_kopya">
-            <img id="anastomoz_kopya_bh" src="anastomoz_kopya_bh.png" srcset="anastomoz_kopya_bh.png 1x, anastomoz_kopya_bh@2x.png 2x">
-
+{/*             <img id="anastomoz_kopya_bh" src="anastomoz_kopya_bh.png" srcset="anastomoz_kopya_bh.png 1x, anastomoz_kopya_bh@2x.png 2x">
+ */}
           </div>
           <div id="ohsad-ingilizce" className="ohsad_ingilizce">
-            <img id="ohsad-ingilizce_bj" src="ohsad-ingilizce_bj.png" srcset="ohsad-ingilizce_bj.png 1x, ohsad-ingilizce_bj@2x.png 2x">
-
+{/*             <img id="ohsad-ingilizce_bj" src="ohsad-ingilizce_bj.png" srcset="ohsad-ingilizce_bj.png 1x, ohsad-ingilizce_bj@2x.png 2x">
+ */}
           </div>
           <div id="n_7_Mart_stanbul_Beiktata_bulu">
             <span>27 Mart İstanbul, Beşiktaş’ta bulunan Doğsan Eğitim Salonunda düzenlenecek olan «Diş Hekimliği Sütür, Flep Kaplama Eğitimi» Yüz yüze veya Online eğitim seçenekleriyle sizi bekliyor.</span>
@@ -226,8 +226,8 @@ function App() {
           </svg>
           <div id="Group_17">
             <div id="Group_16">
-              <img id="Ekran_Resmi_2022-03-26_162337" src="Ekran_Resmi_2022-03-26_162337.png" srcset="Ekran_Resmi_2022-03-26_162337.png 1x, Ekran_Resmi_2022-03-26_162337@2x.png 2x">
-
+{/*               <img id="Ekran_Resmi_2022-03-26_162337" src="Ekran_Resmi_2022-03-26_162337.png" srcset="Ekran_Resmi_2022-03-26_162337.png 1x, Ekran_Resmi_2022-03-26_162337@2x.png 2x">
+ */}
                 <svg className="Path_23_cm" viewBox="58.5 562.991 31.871 36.803">
                   <linearGradient id="Path_23_cm" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
                     <stop offset="0" stop-color="#fff" stop-opacity="1"></stop>
@@ -244,8 +244,8 @@ function App() {
             </svg>
           </div>
           <div id="Group_16_co">
-            <img id="Ekran_Resmi_2022-03-26_162337_cp" src="Ekran_Resmi_2022-03-26_162337_cp.png" srcset="Ekran_Resmi_2022-03-26_162337_cp.png 1x, Ekran_Resmi_2022-03-26_162337_cp@2x.png 2x">
-
+{/*             <img id="Ekran_Resmi_2022-03-26_162337_cp" src="Ekran_Resmi_2022-03-26_162337_cp.png" srcset="Ekran_Resmi_2022-03-26_162337_cp.png 1x, Ekran_Resmi_2022-03-26_162337_cp@2x.png 2x">
+ */}
               <svg className="Path_23_cr" viewBox="58.5 562.991 31.871 36.803">
                 <linearGradient id="Path_23_cr" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
                   <stop offset="0" stop-color="#fff" stop-opacity="1"></stop>
@@ -261,21 +261,21 @@ function App() {
             </rect>
           </svg>
           <div id="Group_19">
-            <img id="Group_18" src="Group_18.png" srcset="Group_18.png 1x, Group_18@2x.png 2x">
-
-            </svg>
-          </div>
+{/*             <img id="Group_18" src="Group_18.png" srcset="Group_18.png 1x, Group_18@2x.png 2x">
+ */}
+{/*             </svg>
+ */}          </div>
           <div id="Group_21">
-            <img id="Group_18_cw" src="Group_18_cw.png" srcset="Group_18_cw.png 1x, Group_18_cw@2x.png 2x">
-
-            </svg>
-          </div>
+{/*             <img id="Group_18_cw" src="Group_18_cw.png" srcset="Group_18_cw.png 1x, Group_18_cw@2x.png 2x">
+ */}
+{/*             </svg>
+ */}          </div>
           <div id="UBAT_2022">
             <span>ŞUBAT 2022</span>
           </div>
           <div id="Group_16_cy">
-            <img id="Ekran_Resmi_2022-03-26_162337_cz" src="Ekran_Resmi_2022-03-26_162337_cz.png" srcset="Ekran_Resmi_2022-03-26_162337_cz.png 1x, Ekran_Resmi_2022-03-26_162337_cz@2x.png 2x">
-
+{/*             <img id="Ekran_Resmi_2022-03-26_162337_cz" src="Ekran_Resmi_2022-03-26_162337_cz.png" srcset="Ekran_Resmi_2022-03-26_162337_cz.png 1x, Ekran_Resmi_2022-03-26_162337_cz@2x.png 2x">
+ */}
               <svg className="Path_23_da" viewBox="58.5 562.991 31.871 36.803">
                 <linearGradient id="Path_23_da" spreadMethod="pad" x1="0.5" x2="0.5" y1="0" y2="1">
                   <stop offset="0" stop-color="#fff" stop-opacity="1"></stop>
@@ -292,10 +292,10 @@ function App() {
               </rect>
             </svg>
             <div id="Group_20">
-              <img id="Group_18_c" src="Group_18_c.png" srcset="Group_18_c.png 1x, Group_18_c@2x.png 2x">
-
-              </svg>
-            </div>
+{/*               <img id="Group_18_c" src="Group_18_c.png" srcset="Group_18_c.png 1x, Group_18_c@2x.png 2x">
+ */}
+{/*               </svg>
+ */}            </div>
             <div id="MART_2022">
               <span>MART 2022</span>
             </div>
@@ -304,8 +304,8 @@ function App() {
             <span>NİSAN-MAYIS<br />2022</span>
           </div>
           <div onclick="application.goToTargetView(event)" id="n_9-mart" className="19_mart">
-            <img id="n_9-mart_c" src="n_9-mart_c.png" srcset="n_9-mart_c.png 1x, n_9-mart_c@2x.png 2x">
-
+{/*             <img id="n_9-mart_c" src="n_9-mart_c.png" srcset="n_9-mart_c.png 1x, n_9-mart_c@2x.png 2x">
+ */}
           </div>
           <div id="Group_24">
             <svg className="Rectangle_10_dc">
@@ -336,10 +336,10 @@ function App() {
               <span>İLETİŞİM</span>
             </div>
             <div id="Group_3">
-              <img id="Group_2" src="Group_2.png" srcset="Group_2.png 1x, Group_2@2x.png 2x">
-
-              </svg>
-            </div>
+{/*               <img id="Group_2" src="Group_2.png" srcset="Group_2.png 1x, Group_2@2x.png 2x">
+ */}
+{/*               </svg>
+ */}            </div>
             <div id="TR__EN">
               <span>TR | EN</span>
             </div>
@@ -349,4 +349,4 @@ function App() {
   );
 }
 
-export default App;
+ 
