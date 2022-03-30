@@ -4,8 +4,7 @@ import './css/styles.css';
 import React, {Image } from 'react'
 
  
-import image from "./img/healthcare-medical-concept-med.png";
-
+ 
 export default function App() {
   return (
     <div className="App">
@@ -26,7 +25,7 @@ export default function App() {
           <rect id="Rectangle_9" rx="0" ry="0" x="0" y="0" width="1920" height="130">
           </rect>
         </svg>
-        <img src={image} />
+        <img src={require("./img/healthcare-medical-concept-med.png")} />
  
           <div id="emilebilir" className="emilebilir">
             <svg className="Rectangle_3">
