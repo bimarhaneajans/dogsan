@@ -1,6 +1,11 @@
 /* import logo from './logo.svg'; */
 import './css/styles.css';
 
+import React, {Image } from 'react'
+
+ 
+import image from "./img/healthcare-medical-concept-med.png";
+
 export default function App() {
   return (
     <div className="App">
@@ -21,8 +26,8 @@ export default function App() {
           <rect id="Rectangle_9" rx="0" ry="0" x="0" y="0" width="1920" height="130">
           </rect>
         </svg>
-{/*         <img id="healthcare-medical-concept-med" src="healthcare-medical-concept-med.png" srcset="healthcare-medical-concept-med.png 1x, healthcare-medical-concept-med@2x.png 2x">
- */}
+        <img src={image} />
+ 
           <div id="emilebilir" className="emilebilir">
             <svg className="Rectangle_3">
               <rect id="Rectangle_3" rx="0" ry="0" x="0" y="0" width="190" height="130">
