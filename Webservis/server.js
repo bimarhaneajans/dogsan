@@ -19,8 +19,7 @@ const db = require("./app/models");
 const Role = db.role;
 require("./app/routes/user.routes")(app);
 require("./app/routes/admin.routes")(app);
-require("./app/routes/moderator.routes")(app);
-
+ 
 
 mongoose
   .connect("mongodb+srv://", {
@@ -63,15 +62,7 @@ function initial() {
         console.log("added 'user' to roles collection");
       });
 
-      new Role({
-        name: "moderator"
-      }).save(err => {
-        if (err) {
-          console.log("error", err);
-        }
-
-        console.log("added 'moderator' to roles collection");
-      });
+  
 
       new Role({
         name: "admin"
