@@ -17,7 +17,10 @@ app.use(cors(corsOptions));
 
 const db = require("./app/models");
 const Role = db.role;
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/user.routes")(app);
+require("./app/routes/admin.routes")(app);
+require("./app/routes/moderator.routes")(app);
+
 
 mongoose
   .connect("mongodb+srv://", {
