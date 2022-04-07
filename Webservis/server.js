@@ -16,7 +16,7 @@ var csrfProtection = csrf({ cookie: true })
 
 const app = express();
 var corsOptions = {
-  origin: "http://status.madilink.net/"
+  origin: "http://37.77.4.139:3000"
 };
 
 app.use(cors(corsOptions));
