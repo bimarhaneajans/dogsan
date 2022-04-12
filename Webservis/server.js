@@ -12,7 +12,21 @@ var csrf = require('csurf')
 var csrfProtection = csrf({ cookie: true })
 const dbConfig = require("./src/config/db.config");
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the reques>
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS') {
+    res.send(200);
+  } else {
+    next();
+  }
+});
 
+app.use(helmet.hidePoweredBy());
+app.use(hpp());
+app.use(xXssProtection());
+app.disable('x-powered-by');
 
 const app = express();
 var corsOptions = {
@@ -47,36 +61,16 @@ app.use(cors(corsOptions));
     console.log("Cannot connect to the database!", err);
     process.exit();
   });
-
- app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the reques>
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-  if (req.method === 'OPTIONS') {
-    res.send(200);
-  } else {
-    next();
-  }
-});
-
-app.use(helmet.hidePoweredBy());
-app.use(hpp());
-app.use(xXssProtection());
-app.disable('x-powered-by');
-
-
-
-
+  
 /*  db.sequelize.sync({force: true}).then(() => {
   console.log('Drop and Resync Database with { force: true }');
   initial();
  }); */
+ 
 
 require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
-/* require("./routes/customer.routes")(app);
- */
- const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
