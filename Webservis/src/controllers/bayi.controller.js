@@ -1,10 +1,8 @@
 const db = require("../models");
 const Bayi = db.bayis;
 
-// Create and Save a new Tutorial
-exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.baslik) {
+ exports.create = (req, res) => {
+   if (!req.body.baslik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
@@ -25,14 +23,14 @@ exports.create = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial."
+          err.message || "Some error occurred while creating the bayi."
       });
     });
 };
 
  exports.findAll = (req, res) => {
-  const title = req.query.title;
-  var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
+  const baslik = req.query.baslik;
+  var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
   Bayi.find(condition)
     .then(data => {
@@ -41,7 +39,7 @@ exports.create = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving bayis."
       });
     });
 };
@@ -52,13 +50,13 @@ exports.create = (req, res) => {
   Bayi.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found Tutorial with id " + id });
+        res.status(404).send({ message: "Not found bayi with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving Tutorial with id=" + id });
+        .send({ message: "Error retrieving bayi with id=" + id });
     });
 };
 
@@ -75,13 +73,13 @@ exports.create = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found!`
+          message: `Cannot update bayi with id=${id}. Maybe bayi was not found!`
         });
-      } else res.send({ message: "Tutorial was updated successfully." });
+      } else res.send({ message: "bayi was updated successfully." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating Tutorial with id=" + id
+        message: "Error updating bayi with id=" + id
       });
     });
 };
@@ -93,17 +91,17 @@ exports.create = (req, res) => {
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
         });
       } else {
         res.send({
-          message: "Tutorial was deleted successfully!"
+          message: "bayi was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete Tutorial with id=" + id
+        message: "Could not delete bayi with id=" + id
       });
     });
 };
@@ -112,13 +110,13 @@ exports.create = (req, res) => {
   Bayi.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} Tutorials were deleted successfully!`
+        message: `${data.deletedCount} bayis were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all tutorials."
+          err.message || "Some error occurred while removing all bayis."
       });
     });
 };
@@ -131,7 +129,7 @@ exports.create = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving bayis."
       });
     });
 };
