@@ -77,9 +77,10 @@ app.use(hpp());
 app.use(xXssProtection());
 app.disable('x-powered-by');
 
- require("./src/routes/auth.routes")(app);
+require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
 require("./src/routes/bayi.routes")(app);
+require("./src/routes/blog.routes")(app);
 
 
  const PORT = process.env.PORT || 3000;

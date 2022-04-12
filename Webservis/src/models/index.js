@@ -15,10 +15,6 @@ db.blogs = require("./blog.model.js")(mongoose);
 db.duyurus = require("./duyuru.model.js")(mongoose);
 db.etkinliks = require("./etkinlik.model.js")(mongoose);
 db.hakkimizdas = require("./hakkimizda.model.js")(mongoose);
-db.degers = require("./deger.model.js")(mongoose);
-
-
-
-db.ROLES = ["user", "admin"];
-
+db.degers = require("./deger.model.js")(mongoose); 
+db.ROLES = ["user", "admin"]; 
 module.exports = db;
