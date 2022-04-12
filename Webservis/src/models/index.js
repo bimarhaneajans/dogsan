@@ -10,7 +10,7 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.user = require("./user.model");
 db.role = require("./role.model");
-db.bayi = require("./bayi.model.js");
+db.bayis = require("./bayi.model.js")(mongoose);;
 
 db.ROLES = ["user", "admin"];
 

@@ -1,21 +1,21 @@
 module.exports = app => {
-    const bayis = require("../controllers/bayi.controller.js");
+    const bayi = require("../controllers/bayi.controller.js");
   
     var router = require("express").Router();
   
-     router.post("/", bayis.create);
+     router.post("/", bayi.create);
   
-     router.get("/", bayis.findAll);
+     router.get("/", bayi.findAll);
   
-     router.get("/published", bayis.findAllPublished);
+     router.get("/published", bayi.findAllPublished);
   
-     router.get("/:id", bayis.findOne);
+     router.get("/:id", bayi.findOne);
   
-     router.put("/:id", bayis.update);
+     router.put("/:id", bayi.update);
   
-     router.delete("/:id", bayis.delete);
+     router.delete("/:id", bayi.delete);
   
-     router.delete("/", bayis.deleteAll);
+     router.delete("/", bayi.deleteAll);
   
-    app.use("/api/bayi", router);
+    app.use("/bayi", router);
   };
