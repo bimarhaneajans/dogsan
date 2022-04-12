@@ -13,7 +13,7 @@ const Deger = db.degers;
     published: req.body.published ? req.body.published : false
   });
 
-  bayi
+  deger
     .save(deger)
     .then(data => {
       res.send(data);

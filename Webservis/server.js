@@ -81,6 +81,7 @@ require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
 require("./src/routes/bayi.routes")(app);
 require("./src/routes/blog.routes")(app);
+require("./src/routes/deger.routes")(app);
 
 
  const PORT = process.env.PORT || 3000;

@@ -1,21 +1,21 @@
 module.exports = app => {
-    const blogs = require("../controllers/blog.controller.js");
+    const blog = require("../controllers/blog.controller.js");
   
     var router = require("express").Router();
   
-     router.post("/", blogs.create);
+     router.post("/", blog.create);
   
-     router.get("/", blogs.findAll);
+     router.get("/", blog.findAll);
   
-     router.get("/published", blogs.findAllPublished);
+     router.get("/published", blog.findAllPublished);
   
-     router.get("/:id", blogs.findOne);
+     router.get("/:id", blog.findOne);
   
-     router.put("/:id", blogs.update);
+     router.put("/:id", blog.update);
   
-     router.delete("/:id", blogs.delete);
+     router.delete("/:id", blog.delete);
   
-     router.delete("/", blogs.deleteAll);
+     router.delete("/", blog.deleteAll);
   
     app.use("/blog", router);
   };
