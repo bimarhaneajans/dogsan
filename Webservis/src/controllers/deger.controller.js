@@ -1,5 +1,5 @@
 const db = require("../models");
-const Bayi = db.bayis;
+const Deger = db.degers;
 
  exports.create = (req, res) => {
    if (!req.body.baslik) {
@@ -7,16 +7,14 @@ const Bayi = db.bayis;
     return;
   }
 
-   const bayi  = new Bayi({
+   const deger  = new Deger({
     baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik,
+    Content:req.body.Content, 
     published: req.body.published ? req.body.published : false
   });
 
   bayi
-    .save(bayi)
+    .save(deger)
     .then(data => {
       res.send(data);
     })
@@ -32,7 +30,7 @@ const Bayi = db.bayis;
   const baslik = req.query.baslik;
   var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  Deger.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -47,7 +45,7 @@ const Bayi = db.bayis;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+  Deger.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found bayi with id " + id });
@@ -69,7 +67,7 @@ const Bayi = db.bayis;
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Deger.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -87,7 +85,7 @@ const Bayi = db.bayis;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+  Deger.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -107,7 +105,7 @@ const Bayi = db.bayis;
 };
 
  exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  Deger.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} bayis were deleted successfully!`
@@ -122,7 +120,7 @@ const Bayi = db.bayis;
 };
 
  exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+  Deger.find({ published: true })
     .then(data => {
       res.send(data);
     })
