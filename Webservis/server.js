@@ -10,7 +10,7 @@ const rateLimit = require("express-rate-limit");
 var xssFilters = require('xss-filters');
 var csrf = require('csurf')
 var csrfProtection = csrf({ cookie: true })
-
+const dbConfig = require("./src/config/db.config");
 
 
 
@@ -30,7 +30,25 @@ app.use(cors(corsOptions));
  app.get("/", (req, res) => {
   res.json({ message: "Dogsan" });
 });
-app.use(function (req, res, next) {
+
+ //db.sequelize.sync({force: true})
+ const db = require("./src/models");
+ const Role = db.role;
+
+ db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Connected to the database!");
+  })
+  .catch(err => {
+    console.log("Cannot connect to the database!", err);
+    process.exit();
+  });
+
+ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the reques>
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
@@ -45,10 +63,32 @@ app.use(helmet.hidePoweredBy());
 app.use(hpp());
 app.use(xXssProtection());
 app.disable('x-powered-by');
-require("./routes/customer.routes")(app);
 
+
+
+
+/*  db.sequelize.sync({force: true}).then(() => {
+  console.log('Drop and Resync Database with { force: true }');
+  initial();
+ }); */
+
+require("./src/routes/auth.routes")(app);
+require("./src/routes/user.routes")(app);
+/* require("./routes/customer.routes")(app);
+ */
  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
+
+function initial() {
+  Role.create({
+    id: 2,
+    name: "user"
+  }); 
+  Role.create({
+    id: 1,
+    name: "admin"
+  });
+}
