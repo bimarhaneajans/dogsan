@@ -17,5 +17,5 @@ module.exports = app => {
   
      router.delete("/", blogs.deleteAll);
   
-    app.use("/blogs", router);
+    app.use("/blog", router);
   };
