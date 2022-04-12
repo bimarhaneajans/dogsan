@@ -23,7 +23,7 @@
     "mongoose": "^6.2.10",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.15",
-    "sequelize": "^5.21.3",
+    "sequelize": "^5.22.5",
     "x-xss-protection": "^2.0.0",
     "xss-clean": "^0.1.1",
     "xss-filters": "^1.2.7"

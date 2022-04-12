@@ -50,15 +50,14 @@ db.mongoose
   })
   .then(() => {
     console.log("Successfully connect to DB.");
-    //initial();
+   initial();
   })
   .catch(err => {
     console.error("Connection error", err);
     process.exit();
   });
 
-// simple route
-app.get("/", (req, res) => {
+ app.get("/", (req, res) => {
   res.json({ message: "Dogsan" });
 });
 
@@ -78,12 +77,12 @@ app.use(hpp());
 app.use(xXssProtection());
 app.disable('x-powered-by');
 
-// routes
-require("./src/routes/auth.routes")(app);
+ require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
+require("./src/routes/bayi.routes")(app);
 
-// set port, listen for requests
-const PORT = process.env.PORT || 3000;
+
+ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
