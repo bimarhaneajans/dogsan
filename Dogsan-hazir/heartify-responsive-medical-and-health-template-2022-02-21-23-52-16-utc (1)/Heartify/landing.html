@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5 Template" />
+	<meta name="description" content="Heartify - Responsive HTML5 Landing Page">
+	<meta name="author" content="">
+
+	<title>Heartify - Responsive Single Page Bootstrap Template</title>
+
+	<!-- Mobile Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+
+	<!-- Website fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+	<!-- Vendor CSS Sheets -->
+	<link rel="stylesheet" href="assets/css/fonts/font-awesome.min.css">
+	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/responsive-styling.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/vendor/owl-carousel/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" href="assets/vendor/owl-carousel/owl-carousel/owl.theme.css">
+
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+<div class="landing-wrap">
+
+	<div class="col-md-6 landing-left">
+
+		<div class="col-md-10 col-md-offset-1">
+			<h4 class="title">Appointments form</h4>
+			<h6>Lorem ipsum dolor sit amet</h6>
+			<div class="clearfix"></div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm.</p>
+			<p class="small">Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor incidid. Sed ut perspiciatis unde omnis iste natus error sit voluptate.</p>
+			<form class="appointment-form">
+				<h4>Order Doctor Appointment</h4>
+				<label>NAME AND SURNAME</label>
+				<input type="text" placeholder="Enter your name and surname">
+				<label>CONTACT PHONE NUMBER</label>
+				<input type="text" placeholder="Enter phone number">
+				<label>PATIENT NUMBER</label>
+				<input type="text" placeholder="Enter patient number">
+				<div class="row">
+					<div class="col-md-6">
+						<label>DATE FROM</label>
+						<div class='input-group date'>
+							<input type='text' class="form-control" placeholder="30.01.2013" />
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label>DATE TO</label>
+						<div class='input-group date'>
+							<input type='text' class="form-control" placeholder="30.01.2013" />
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="space20"></div>
+				<label>HOURLY PREFERENCES</label>
+				<ul class="hpref">
+					<li class="active"><a>Morning</a></li>
+					<li><a>Lunch</a></li>
+					<li><a>Evening</a></li>
+				</ul>
+				<div class="space20"></div>
+				<div class="clearfix"></div>
+				<div class="space20"></div>
+				<div class="submit-wrap row">
+					<div class="col-md-7 cbox">
+						<input type="checkbox"><span>send me copy of message</span>
+					</div>
+					<div class="col-md-5">
+						<button type="submit">Send Message</button>
+					</div>
+				</div>
+			</form>
+			<p class="copy">Copyrights &copy;2014: Heartify - Responsive Medical and Health Template</p>
+		</div>
+	</div>
+
+	<div class="col-md-6 landing-right">
+		<a class="back-to-home" href="./index.html"><i class="a fa-home"></i> Back to home</a>
+	</div>
+</div>
+
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery-1.9.1.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/vendor/owl-carousel/owl-carousel/owl.carousel.js"></script>
+<script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/waypoint-sticky-nav/waypoints.js"></script>
+<script src="assets/vendor/waypoint-sticky-nav/waypoints-sticky.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script src="assets/js/custom-scripts.js"></script>
+
+<!-- Google Maps -->
+<script type="text/javascript">
+	// The following example creates a marker in Stockholm, Sweden
+	// using a DROP animation. Clicking on the marker will toggle
+	// the animation between a BOUNCE animation and no animation.
+
+	var stockholm = new google.maps.LatLng(59.32522, 18.07002);
+	var parliament = new google.maps.LatLng(59.327383, 18.06747);
+	var marker;
+	var map;
+
+	function initialize() {
+	  var mapOptions = {
+	    zoom: 13,
+	    center: stockholm
+	  };
+
+	  map = new google.maps.Map(document.getElementById('map-canvas'),
+	          mapOptions);
+	
+	  marker = new google.maps.Marker({
+	    map:map,
+	    draggable:true,
+	    animation: google.maps.Animation.DROP,
+	    position: parliament
+	  });
+	  google.maps.event.addListener(marker, 'click', toggleBounce);
+	}
+
+	function toggleBounce() {
+	  if (marker.getAnimation() != null) {
+	    marker.setAnimation(null);
+	  } else {
+	    marker.setAnimation(google.maps.Animation.BOUNCE);
+	  }
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+</body>
+</html>
+
+

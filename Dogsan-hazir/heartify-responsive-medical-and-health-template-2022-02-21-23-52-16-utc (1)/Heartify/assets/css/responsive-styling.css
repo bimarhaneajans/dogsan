@@ -1,0 +1,1431 @@
+
+/*Small Resolution Mobile Version*/
+
+@media only screen and (min-width: 240px) and (max-width: 319px) {
+
+.logo img {
+	width: 100px;
+	margin: 20px 50px;
+	font-size: .9em;
+}
+
+.main-slider-caption {
+	margin-top: 55%;
+	margin-left: 0px;
+}
+
+.main-slider-caption h1 {
+	font-size: .8em;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.top-slogan {
+	color: #0eb2e7;
+	font-size: .6em;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.price-slogan {
+	font-size: .6em;
+	font-weight: bold;
+	margin-top: -15px;
+}
+
+#home .main-header {
+	margin-top: 24%;
+}
+
+.main-header .main-logo {
+	font-size: .7em;
+}
+
+nav.navbar-default {
+	background: none;
+	border: 0px;
+	margin-top: 20px;
+}
+
+nav.navbar-default .collapse {
+	position: relative;
+	background: white;
+	border: 1px solid #eaeaea;
+	width: 200px;
+	float: left;
+	margin-top: 10px;
+	right: 70px;
+}
+
+nav.navbar-default .navbar-nav li {
+	width: 100px;
+}
+
+#about .information .info-col {
+	padding-bottom: 10px;
+}
+
+#about #time-plan {
+	position: relative;
+	width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	margin: -17px -5px 0px -31px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin: -17px -5px 0px -104px;
+}
+
+#insurance-types .insurance-stat h5:after {
+	margin-left: 100px;
+	margin-top: -5px;
+}
+
+ul.doctor-list {
+	margin: 5px;
+}
+
+#twitter-feed {
+	height: 350px;
+}
+
+#twitter-feed p.lead:after {
+	margin-left: 100px;
+}
+
+#team .team-stat h5:after {
+	margin-left: 100px;
+}
+
+#team .team-member img, #team .team-member2 img, #team .team-member3 img, #team .team-member4 img {
+	width: 40%;
+	height: 70%;
+}
+
+#team .team-member {
+	width: 290px;
+	height: 267px;
+	margin-left: 0px;
+	top: 10px;
+}
+
+#team .team-member2 {
+	width: 290px;
+	height: 267px;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#team .team-member3 {
+	width: 290px;
+	height: 267px;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#team .team-member4 {
+	width: 290px;
+	height: 267px;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#team .member-social {
+	position: absolute;
+	display: inline-block;
+	padding: 10px 0px 0px 0px;
+	width: 100%;
+	left: -20px;
+	font-size: .9em;
+	border-top: 2px solid #eaeaea;
+	margin-top: 13px;
+	margin-left: 0px;
+}
+
+#team .member-social h6 {
+	width: 50%;
+	color: black;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-weight: 600;
+	font-size: .8em;
+}
+
+#team .member-social ul.social {
+	margin-top: -17px;
+	position: relative;
+	left: 6px;
+}
+
+#team .member-social ul.social li {
+	margin-right: 0px;
+	margin-top: 0px;
+}
+
+#team .member-social ul.social li a {
+	color: #9a9a9a;
+	padding: 17px 20px 17px 15px;
+	border-right: 1px solid #eaeaea;
+	position: relative;
+	top: 0px;
+	margin-right: -13px;
+}
+
+#team .member-social ul.social li a:hover {
+	color: #ffffff;
+	background: #0eb2e7;
+	text-decoration: none;
+}
+
+.pagination-section {
+	margin-top: 100px;
+}
+
+#job .client-section {
+	background-size: 100% 100%;
+}
+
+#job .client-section .client-stat {
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px;
+}
+
+#job .client-section .client-stat h3:after {
+	margin-left: 60px;
+}
+
+#job .client-section .client-stat p {
+	font-size: .9em;
+}
+
+#job .apply-btn {
+	position: relative;
+	margin-top: 20px;
+	left: 100px;
+}
+
+.pricing-plans .plan {
+	margin: 20px auto;
+}
+
+#team .team-filter-nav {
+	width: 300px;
+	margin: 0px;
+}
+
+#team .team-filter-nav li {
+	margin-top: 20px;
+}
+
+#team .team-filter-nav li a {
+	color: black;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 1px;
+	padding: 10px 10px;
+	top: 50px;
+	border: 1px solid #eaeaea;
+	font-size: .8em;
+}
+
+#blog-posts .blog-post {
+	margin-top: 20px;
+}
+
+#blog-posts .blog-post img.ab-icon {
+	top: 36.6%;
+}
+
+#blog-posts .blog-post ul.post-nav li {
+	margin-right: 0px;
+	padding: 0px;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-family: 'Open sans','sans-serif';
+	letter-spacing: 0px;
+	font-weight: bold;
+}
+
+#blog-posts .blog-post ul.post-nav li:nth-child(1) {
+	border-right: 1px solid #eaeaea;
+	padding-right: 10px;
+}
+
+#g-map {
+	background: url(../img/general/map.jpg) no-repeat;
+	background-size: 100% 60%;
+	padding: 0px;
+}
+
+#foot-log {
+	margin-top: 200px;
+}
+
+#foot-log .copy-social {
+	position: relative;
+	top: 60px;
+	padding: 0px;
+	margin-left: -20px;
+}
+    
+}
+
+@media only screen and (min-width: 320px) and (max-width: 360px) {
+
+.logo img {
+	width: 100px;
+	margin: 20px 100px;
+	font-size: .9em;
+}
+
+.main-slider-caption {
+	margin-top: 50%;
+	margin-left: 0px;
+}
+
+.main-slider-caption h1 {
+	font-size: 1em;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.top-slogan {
+	color: #0eb2e7;
+	font-size: .6em;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.price-slogan {
+	font-size: .6em;
+	font-weight: bold;
+	margin-top: -15px;
+}
+
+#home .main-header {
+	margin-top: 44%;
+}
+
+.main-header .main-logo a {
+	font-size: .6em;
+}
+
+nav.navbar-default {
+	background: none;
+	border: 0px;
+	margin-top: 10px;
+}
+
+nav.navbar-default .collapse {
+	position: relative;
+	background: white;
+	border: 1px solid #eaeaea;
+	width: 200px;
+	float: left;
+	margin-top: 10px;
+	right: 70px;
+}
+
+nav.navbar-default .navbar-nav li {
+	width: 100px;
+}
+
+#about .information .info-col {
+	padding-bottom: 10px;
+}
+
+#about #time-plan {
+	position: relative;
+	width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	margin: -17px -5px 0px -69px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin: -17px -5px 0px -144px;
+}
+
+#insurance-types .insurance-stat h5:after {
+	margin-left: 100px;
+	margin-top: -5px;
+}
+
+ul.doctor-list {
+	margin: 5px;
+}
+
+#twitter-feed {
+	height: 350px;
+}
+
+#twitter-feed p.lead:after {
+	margin-left: 100px;
+}
+
+#team .team-stat h5:after {
+	margin-left: 100px;
+}
+
+#team .team-member img, #team .team-member2 img, #team .team-member3 img, #team .team-member4 img {
+	width: 40%;
+	height: 70%;
+}
+
+#team .team-member {
+	width: 300px;
+	height: 267px;
+	margin-left: 0px;
+	top: 10px;
+}
+
+#team .team-member2 {
+	width: 300px;
+	height: 267px;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#team .team-member3 {
+	width: 300px;
+	height: 267px;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#team .team-member4 {
+	width: 300px;
+	height: 267px;
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+#team .member-social {
+	position: absolute;
+	display: inline-block;
+	padding: 10px 0px 0px 0px;
+	width: 100%;
+	left: -20px;
+	font-size: .9em;
+	border-top: 2px solid #eaeaea;
+	margin-top: 13px;
+	margin-left: 0px;
+}
+
+#team .member-social h6 {
+	width: 50%;
+	color: black;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-weight: 600;
+	font-size: .8em;
+}
+
+#team .member-social ul.social {
+	margin-top: -17px;
+	position: relative;
+	left: 6px;
+}
+
+#team .member-social ul.social li {
+	margin-right: 0px;
+	margin-top: 0px;
+}
+
+#team .member-social ul.social li a {
+	color: #9a9a9a;
+	padding: 17px 20px 17px 15px;
+	border-right: 1px solid #eaeaea;
+	position: relative;
+	top: 0px;
+	margin-right: -13px;
+}
+
+#team .member-social ul.social li a:hover {
+	color: #ffffff;
+	background: #0eb2e7;
+	text-decoration: none;
+}
+
+.pagination-section {
+	margin-top: 100px;
+}
+
+#job .client-section {
+	background-size: 100% 100%;
+}
+
+#job .client-section .client-stat {
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px;
+}
+
+#job .client-section .client-stat h3:after {
+	margin-left: 60px;
+}
+
+#job .client-section .client-stat p {
+	font-size: .9em;
+}
+
+#job .apply-btn {
+	margin-top: 20px;
+}
+
+.pricing-plans .plan {
+	margin: 20px auto;
+}
+
+#team .team-filter-nav {
+	width: 300px;
+	margin: 0px;
+}
+
+#team .team-filter-nav li {
+	margin-top: 20px;
+}
+
+#team .team-filter-nav li a {
+	color: black;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 1px;
+	padding: 10px 10px;
+	top: 50px;
+	border: 1px solid #eaeaea;
+	font-size: .8em;
+}
+
+#blog-posts .blog-post {
+	margin-top: 20px;
+}
+
+#blog-posts .blog-post img.ab-icon {
+	top: 36.6%;
+}
+
+#blog-posts .blog-post ul.post-nav li {
+	margin-right: 0px;
+	padding: 10px 10px;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-family: 'Open sans','sans-serif';
+	letter-spacing: 0px;
+	font-weight: bold;
+}
+
+#blog-posts .blog-post ul.post-nav li:nth-child(1) {
+	border-right: 1px solid #eaeaea;
+	padding-right: 40px;
+}
+
+#g-map {
+	background: url(../img/general/map.jpg) no-repeat;
+	background-size: 100% 60%;
+	padding: 0px;
+}
+
+#foot-log {
+	margin-top: 200px;
+}
+
+#foot-log .copy-social {
+	position: relative;
+	top: 60px;
+	padding: 0px;
+	margin-left: -20px;
+}
+
+}
+
+
+@media only screen and (min-width: 361px) and (max-width: 480px) {
+
+.logo img {
+	width: 100px;
+	margin: 20px 170px;
+	font-size: .9em;
+}
+
+.main-slider-caption {
+	margin-top: 50%;
+	margin-left: 0px;
+}
+
+.main-slider-caption h1 {
+	font-size: 1.7em;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.top-slogan {
+	color: #0eb2e7;
+	font-size: .9em;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.price-slogan {
+	font-size: .8em;
+	font-weight: bold;
+	margin-top: -15px;
+}
+
+#home .main-header {
+	margin-top: 44%;
+}
+
+.main-header .main-logo a {
+	font-size: .6em;
+}
+
+nav.navbar-default {
+	background: none;
+	border: 0px;
+	margin-top: 10px;
+}
+
+nav.navbar-default .collapse {
+	position: relative;
+	background: white;
+	border: 1px solid #eaeaea;
+	width: 200px;
+	float: left;
+	margin-top: 10px;
+	right: 70px;
+}
+
+nav.navbar-default .navbar-nav li {
+	width: 100px;
+}
+
+#about .information .info-col {
+	padding-bottom: 10px;
+}
+
+#about #time-plan {
+	position: relative;
+	width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	margin: -17px -5px 0px -149px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin: -17px -5px 0px -225px;
+}
+
+#insurance-types .insurance-stat h5:after {
+	margin-left: 100px;
+	margin-top: -5px;
+}
+
+ul.doctor-list {
+	margin: 5px;
+}
+
+#twitter-feed {
+	height: 350px;
+}
+
+#twitter-feed p.lead:after {
+	margin-left: 150px;
+}
+
+#team .team-stat h5:after {
+	margin-left: 150px;
+}
+
+#team .team-member img, #team .team-member2 img, #team .team-member3 img, #team .team-member4 img {
+	width: 40%;
+	height: 79%;
+}
+
+#team .team-member2 {
+	margin-left: 20px;
+}
+
+#team .team-member {
+	width: 365px;
+	height: 227px;
+	margin-left: 20px;
+}
+
+#team .team-member2 {
+	width: 365px;
+	height: 227px;
+	margin-left: 20px;
+}
+
+#team .team-member3 {
+	margin-left: 20px;
+	width: 365px;
+	height: 227px;
+}
+
+#team .team-member4 {
+	width: 365px;
+	height: 227px;
+	margin-left: 20px;
+}
+
+#team .member-details {
+	position: relative;
+	padding: 20px;
+	left: 20px;
+	font-size: .9em;
+	color: #bcbcbc;
+	font-weight: 500;
+}
+
+#team .member-social {
+	position: absolute;
+	display: inline-block;
+	padding: 10px 0px 0px 0px;
+	width: 100%;
+	left: -20px;
+	font-size: .9em;
+	border-top: 2px solid #eaeaea;
+	margin-top: 30px;
+	margin-left: 0px;
+}
+
+#team .member-social h6 {
+	width: 50%;
+	color: black;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-weight: 600;
+}
+
+#team .member-social ul.social {
+	margin-top: -28px;
+	position: relative;
+	left: 6px;
+}
+
+#team .member-social ul.social li {
+	margin-right: 0px;
+	margin-top: 0px;
+}
+
+#job {
+	background-size: 100% 100%;
+}
+
+#job .client-section {
+	background-size: 100% 100%;
+}
+
+#job .client-section .client-stat {
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px;
+}
+
+#job .client-section .client-stat h3:after {
+	margin-left: 130px;
+}
+
+#job .client-section .client-stat p {
+	font-size: .9em;
+}
+
+#job .apply-btn {
+	margin-top: 20px;
+}
+
+.pricing-plans .plan {
+	margin: 20px auto;
+}
+
+#team .team-filter-nav {
+	width: 300px;
+	margin: 0px;
+}
+
+#team .team-filter-nav li {
+	margin-top: 20px;
+}
+
+#team .team-filter-nav li a {
+	color: black;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 1px;
+	padding: 10px 10px;
+	top: 50px;
+	border: 1px solid #eaeaea;
+	font-size: .8em;
+}
+
+#blog-posts .blog-post {
+	margin-top: 20px;
+}
+
+#blog-posts .blog-post img.ab-icon {
+	top: 40%;
+}
+
+#blog-posts .blog-post ul.post-nav li {
+	margin-right: 0px;
+	padding: 10px 10px;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-family: 'Open sans','sans-serif';
+	letter-spacing: 0px;
+	font-weight: bold;
+}
+
+#g-map {
+	background: url(../img/general/map.jpg) no-repeat;
+	background-size: 100% 100%;
+	height: 600px;
+	padding: 40px;
+}
+
+#foot-log {
+	margin-top: 0px;
+}
+
+#foot-log .copy-social {
+	position: relative;
+	top: 60px;
+	padding: 0px;
+	margin-left: 30px;
+}
+    
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 640px) {
+    
+.logo img {
+	width: 200px;
+	margin: 20px 200px;
+	font-size: .9em;
+}
+
+.main-slider-caption {
+	margin-top: 50%;
+	margin-left: -30px;
+}
+
+.main-slider-caption h1 {
+	font-size: 2em;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.top-slogan {
+	color: #0eb2e7;
+	font-size: .9em;
+	font-weight: bold;
+}
+
+.main-slider-caption h6.price-slogan {
+	font-size: .8em;
+	font-weight: bold;
+	margin-top: -15px;
+}
+
+#home .main-header {
+	margin-top: 44%;
+}
+
+.main-header .main-logo a {
+	font-size: .6em;
+}
+
+nav.navbar-default {
+	background: none;
+	border: 0px;
+	margin-top: 10px;
+}
+
+nav.navbar-default .collapse {
+	position: relative;
+	background: white;
+	border: 1px solid #eaeaea;
+	width: 200px;
+	float: left;
+	margin-top: 10px;
+	right: 70px;
+}
+
+nav.navbar-default .navbar-nav li {
+	width: 100px;
+}
+
+#about .information .info-col {
+	padding-bottom: 10px;
+}
+
+#about #time-plan {
+	position: relative;
+	width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	margin: -17px -5px 0px -229px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin: -17px -5px 0px -305px;
+}
+
+#insurance-types .insurance-stat h5:after {
+	margin-left: 100px;
+	margin-top: -5px;
+}
+
+ul.doctor-list {
+	margin: 5px;
+}
+
+#twitter-feed {
+	height: 350px;
+}
+
+#twitter-feed p.lead:after {
+	margin-left: 150px;
+}
+
+#team .team-stat h5:after {
+	margin-left: 150px;
+}
+
+#team .team-member img, #team .team-member2 img, #team .team-member3 img, #team .team-member4 img {
+	width: 40%;
+	height: 79%;
+}
+
+#team .team-member2 {
+	margin-left: 20px;
+}
+
+#team .team-member {
+	width: 450px;
+	height: 227px;
+	margin-left: 20px;
+}
+
+#team .team-member2 {
+	width: 450px;
+	height: 227px;
+	margin-left: 20px;
+}
+
+#team .team-member3 {
+	margin-left: 20px;
+	width: 450px;
+	height: 227px;
+}
+
+#team .team-member4 {
+	width: 450px;
+	height: 227px;
+	margin-left: 20px;
+}
+
+#team .member-details {
+	position: relative;
+	padding: 20px;
+	left: 20px;
+	font-size: .9em;
+	color: #bcbcbc;
+	font-weight: 500;
+}
+
+#team .member-social {
+	position: absolute;
+	display: inline-block;
+	padding: 10px 0px 0px 0px;
+	width: 100%;
+	left: -20px;
+	font-size: .9em;
+	border-top: 2px solid #eaeaea;
+	margin-top: 30px;
+	margin-left: 0px;
+}
+
+#team .member-social h6 {
+	width: 50%;
+	color: black;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-weight: 600;
+}
+
+#team .member-social ul.social {
+	margin-top: -28px;
+	position: relative;
+	left: 6px;
+}
+
+#team .member-social ul.social li {
+	margin-right: 0px;
+	margin-top: 0px;
+}
+
+#job {
+	background-size: 100% 100%;
+}
+
+#job .client-section {
+	background-size: 100% 100%;
+}
+
+#job .client-section .client-stat {
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px;
+}
+
+#job .client-section .client-stat h3:after {
+	margin-left: 130px;
+}
+
+#job .client-section .client-stat p {
+	font-size: .9em;
+}
+
+#job .apply-btn {
+	margin-top: 20px;
+}
+
+.pricing-plans .plan {
+	margin: 20px auto;
+}
+
+#team .team-filter-nav {
+	width: 300px;
+	margin: 0px;
+}
+
+#team .team-filter-nav li {
+	margin-top: 20px;
+}
+
+#team .team-filter-nav li a {
+	color: black;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 1px;
+	padding: 10px 10px;
+	top: 50px;
+	border: 1px solid #eaeaea;
+	font-size: .8em;
+}
+
+#blog-posts .blog-post {
+	margin-top: 20px;
+}
+
+#blog-posts .blog-post img.ab-icon {
+	top: 42%;
+}
+
+#blog-posts .blog-post ul.post-nav li {
+	margin-right: 0px;
+	padding: 10px 10px;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-family: 'Open sans','sans-serif';
+	letter-spacing: 0px;
+	font-weight: bold;
+}
+
+#g-map {
+	background: url(../img/general/map.jpg) no-repeat;
+	background-size: 100% 100%;
+	height: 600px;
+	padding: 40px;
+}
+
+#foot-log {
+	margin-top: 0px;
+}
+
+#foot-log .copy-social {
+	position: relative;
+	top: 60px;
+	padding: 0px;
+	margin-left: 30px;
+}
+    
+}
+
+@media only screen and (min-width: 280px) and (max-width: 767px) {
+
+.client-section {
+	background: url(../img/general/job-background.jpg) no-repeat center;
+	background-size: auto 120%;
+}
+
+.inner-content {
+	background: url(../../assets/img/bg/2.jpg) no-repeat center center;
+	background-size:auto 100%;
+}
+
+}
+
+/*Small Resolution Devices*/
+
+@media only screen and (min-width: 641px) and (max-width: 767px) {
+
+ .top-header .top-navigation .top-nav li {
+	margin-left: 20px;
+}
+
+.main-slider-caption {
+	margin-top: 50%;
+	margin-left: 5%;
+}
+
+.main-slider-caption p {
+	padding: 0px 10px;
+	line-height: 1.4em;
+}
+
+.main-slider-caption h1 {
+	font-size: 2em;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+#home .main-header {
+	margin-top: 48%;
+}
+
+#home .main-navigation .main-nav li {
+	height: 80px;
+	padding-top: 30px;
+	border-right: 1px solid #e6e6e6;
+	margin-right: -5px;
+}
+
+#home .main-navigation .main-nav li:nth-child(1) {
+	border-left: 1px solid #e6e6e6;
+}
+
+#home .main-navigation .main-nav li a {
+	font-size: .8em;
+	padding: 0px 15px 30px 15px;
+}
+
+#about #time-plan {
+	position: relative;
+	width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	margin: -17px -5px 0px -129px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin: -17px -5px 0px -204px;
+}
+
+#team .team-member2 {
+	margin-left: 0px;
+}
+
+#team .team-member4 {
+	margin-left: 0px;
+}
+
+#job .client-section .client-stat {
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px;
+}
+
+#job .client-section .client-stat h3:after {
+	margin-left: 180px;
+}
+
+#job .client-section .client-stat p {
+	font-size: .9em;
+}
+
+.pricing-plans .plan {
+	margin: 20px auto;
+}
+
+#blog-posts .blog-post {
+	margin-top: 20px;
+}
+
+#blog-posts .blog-post img.ab-icon {
+	top: 38.6%;
+}
+
+#blog-posts .blog-post ul.post-nav li {
+	margin-right: 0px;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-family: 'Open sans','sans-serif';
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+#blog-posts .blog-post ul.post-nav li:nth-child(1) {
+	border-right: 1px solid #eaeaea;
+	padding-right: 40px;
+}
+
+#g-map {
+	background: url(../img/general/map.jpg) no-repeat;
+	background-size: 100% 60%;
+	height: 100%;
+	padding: 30px;
+}
+
+#foot-log {
+	margin-top: -415px;
+}
+
+#foot-log .copy-social {
+	position: relative;
+	top: 60px;
+	padding: 20px;
+}
+    
+}
+
+/*Tablet Styling*/
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+.top-header .top-navigation .top-nav li {
+	margin-left: 20px;
+}
+
+.main-slider-caption {
+	margin-top: 50%;
+	margin-left: 5%;
+}
+
+.main-slider-caption p {
+	padding: 0px 10px;
+	line-height: 1.4em;
+}
+
+.main-slider-caption h1 {
+	font-size: 2em;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+#home .main-header {
+	margin-top: 48%;
+}
+
+#home .main-navigation {
+}
+
+#home .main-navigation .main-nav li {
+	height: 80px;
+	padding-top: 30px;
+	border-right: 1px solid #e6e6e6;
+	margin-right: -5px;
+}
+
+#home .main-navigation .main-nav li:nth-child(1) {
+	border-left: 1px solid #e6e6e6;
+}
+
+#home .main-navigation .main-nav li a {
+	font-size: .8em;
+	padding: 0px 15px 30px 15px;
+}
+
+#about #time-plan {
+	position: relative;
+	width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	margin: -17px -5px 0px -129px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin: -17px -5px 0px -204px;
+}
+
+#team .team-member2 {
+	margin-left: 0px;
+}
+
+#team .team-member4 {
+	margin-left: 0px;
+}
+
+#job .client-section .client-stat {
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px;
+}
+
+#job .client-section .client-stat h3:after {
+	margin-left: 180px;
+}
+
+#job .client-section .client-stat p {
+	font-size: .9em;
+}
+
+.pricing-plans .plan {
+	margin: 20px auto;
+}
+
+#blog-posts .blog-post {
+	margin-top: 20px;
+}
+
+#blog-posts .blog-post img.ab-icon {
+	top: 38.6%;
+}
+
+#blog-posts .blog-post ul.post-nav li {
+	margin-right: 0px;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-family: 'Open sans','sans-serif';
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+#blog-posts .blog-post ul.post-nav li:nth-child(1) {
+	border-right: 1px solid #eaeaea;
+	padding-right: 40px;
+}
+
+#g-map {
+	background: url(../img/general/map.jpg) no-repeat;
+	background-size: 100% 60%;
+	height: 100%;
+	padding: 30px;
+}
+
+#foot-log {
+	margin-top: -415px;
+}
+
+#foot-log .copy-social {
+	position: relative;
+	top: 60px;
+	padding: 20px;
+}
+    
+}
+
+@media only screen and (min-width: 980px) and (max-width: 1024px) {
+
+.top-header .top-navigation .top-nav li {
+	margin-left: 20px;
+}
+
+#home .main-header {
+	margin-top: 52.8%;
+}
+
+#home .main-navigation .main-nav li a {
+	font-size: .8em;
+	padding: 0px 15px 30px 15px;
+}
+
+#about #time-plan {
+	position: relative;
+	width: 100%;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	margin: -17px -5px 0px -130px;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev {
+	margin: -17px -5px 0px -205px;
+}
+
+#team .team-member2 {
+	margin-left: 0px;
+}
+
+#team .team-member4 {
+	margin-left: 0px;
+}
+
+#job .client-section .client-stat {
+	margin: 10px auto;
+	background-color: white;
+	padding: 20px;
+}
+
+#job .client-section .client-stat h3:after {
+	margin-left: 180px;
+}
+
+#job .client-section .client-stat p {
+	font-size: .9em;
+}
+
+.pricing-plans .plan {
+	margin: 20px auto;
+}
+
+.pricing-plans .plan li.plan-name h1 {
+	font-size: 2em;
+}
+
+#services .polygon, #services4 .polygon {
+	left: 300px;
+}
+
+#blog-posts .blog-post {
+	margin-top: 20px;
+}
+
+#blog-posts .blog-post img.ab-icon {
+	top: 38.5%;
+}
+
+#blog-posts .blog-post ul.post-nav li {
+	margin-right: 0px;
+	padding: 10px 5px;
+	text-transform: uppercase;
+	font-size: .8em;
+	font-family: 'Open sans','sans-serif';
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+#g-map {
+	background: url(../img/general/map.jpg) no-repeat;
+	background-size: 100% 80%;
+	height: 100%;
+	padding: 30px;
+}
+
+#foot-log {
+	margin-top: -155px;
+}
+
+#foot-log .copy-social {
+	position: relative;
+	top: 60px;
+	padding: 20px;
+}
+
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+}
