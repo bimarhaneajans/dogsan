@@ -59,10 +59,12 @@ const MongoClient = mongodb.MongoClient;
 }); */
 
   db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}?replicaSet=myRepl&w=majority&wtimeoutMS=5000`, {
+  .connect(`mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000`, 
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    connectTimeoutMS:1000
+   // connectTimeoutMS:1000,
+    //options,
   })
   .then(() => {
     console.log("Successfully connect to DB.");
