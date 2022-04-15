@@ -48,7 +48,7 @@ const MongoClient = mongodb.MongoClient;
 
  
  
-MongoClient.connect(connectionString, {autoReconnect: true,connectTimeoutMS:1000}, (err, database) => {
+/* MongoClient.connect(connectionString, {autoReconnect: true,connectTimeoutMS:1000}, (err, database) => {
   
   if (err) {
     console.log('Failed to connect.', err.message);
@@ -56,13 +56,14 @@ MongoClient.connect(connectionString, {autoReconnect: true,connectTimeoutMS:1000
     process.exit(1);
   }
   console.log('Connected!')
-});
+}); */
 
-/* db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  db.mongoose
+  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}?replicaSet=myRepl&w=majority&wtimeoutMS=1000`, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+    useUnifiedTopology: true,
+    autoReconnect: true,
+   })
   .then(() => {
     console.log("Successfully connect to DB.");
    initial();
@@ -70,7 +71,7 @@ MongoClient.connect(connectionString, {autoReconnect: true,connectTimeoutMS:1000
   .catch(err => {
     console.error("Connection error", err);
     process.exit();
-  }); */
+  }); 
 
  app.get("/", (req, res) => {
   res.json({ message: "Dogsan" });
