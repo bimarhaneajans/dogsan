@@ -11,7 +11,7 @@ const rateLimit = require("express-rate-limit");
 var xssFilters = require('xss-filters');
 var csrf = require('csurf')
 var csrfProtection = csrf({ cookie: true })
-
+const mongodb = require ('mongodb');
 const dbConfig = require("./src/config/db.config");
 
 const app = express();
@@ -43,7 +43,18 @@ app.use(express.urlencoded({ extended: true }));
 const db = require("./src/models");
 const Role = db.role;
 
-db.mongoose
+
+const MongoClient = mongodb.MongoClient;
+const connectionString = 'mongodb://localhost/dogsadb ';
+MongoClient.connect(connectionString, {autoReconnect: true}, (err, database) => {
+  if (err) {
+    console.log('Failed to connect.', err.message);
+    process.exit(1);
+  }
+  console.log('Connected!')
+});
+
+/* db.mongoose
   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -55,7 +66,7 @@ db.mongoose
   .catch(err => {
     console.error("Connection error", err);
     process.exit();
-  });
+  }); */
 
  app.get("/", (req, res) => {
   res.json({ message: "Dogsan" });
