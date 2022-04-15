@@ -48,17 +48,19 @@ const MongoClient = mongodb.MongoClient;
 
  
  
-/* MongoClient.connect(connectionString, {autoReconnect: true,connectTimeoutMS:1000}, (err, database) => {
-  
-  if (err) {
-    console.log('Failed to connect.', err.message);
-    
-    process.exit(1);
-  }
-  console.log('Connected!')
-}); */
+var url = "mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000";
+ 
+// A Client to MongoDB
+var MongoClient = require('mongodb').MongoClient;
+ 
+// Make a connection to MongoDB Service
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  console.log("Connected to MongoDB!");
+  db.close();
+});
 
-  db.mongoose
+  /* db.mongoose
   .connect(`mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000`, 
   {
     useNewUrlParser: true,
@@ -73,7 +75,7 @@ const MongoClient = mongodb.MongoClient;
   .catch(err => {
     console.error("Connection error", err);
     process.exit();
-  }); 
+  });  */
 
  app.get("/", (req, res) => {
   res.json({ message: "Dogsan" });
