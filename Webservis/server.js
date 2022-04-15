@@ -45,10 +45,14 @@ const Role = db.role;
 
 
 const MongoClient = mongodb.MongoClient;
-const connectionString = 'mongodb://localhost/dogsadb ';
-MongoClient.connect(connectionString, {autoReconnect: true}, (err, database) => {
+
+ 
+ 
+MongoClient.connect(connectionString, {autoReconnect: true,connectTimeoutMS:1000}, (err, database) => {
+  
   if (err) {
     console.log('Failed to connect.', err.message);
+    
     process.exit(1);
   }
   console.log('Connected!')
