@@ -39,16 +39,30 @@ app.use(express.urlencoded({ extended: true }));
     httpOnly: true
   })
 ); 
-
 const db = require("./src/models");
+
+console.log(db.url);
+
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Connected to the database!");
+  })
+  .catch(err => {
+    console.log("Cannot connect to the database!", err);
+    process.exit();
+  });
 const Role = db.role;
 
 
-const MongoClient = mongodb.MongoClient;
+//const MongoClient = mongodb.MongoClient;
 
  
  
-var url = "mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000";
+/* var url = "mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000";
  
 // A Client to MongoDB
 var MongoClient = require('mongodb').MongoClient;
@@ -58,24 +72,8 @@ MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   console.log("Connected to MongoDB!");
   db.close();
-});
-
-  /* db.mongoose
-  .connect(`mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000`, 
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-   // connectTimeoutMS:1000,
-    //options,
-  })
-  .then(() => {
-    console.log("Successfully connect to DB.");
-   initial();
-  })
-  .catch(err => {
-    console.error("Connection error", err);
-    process.exit();
-  });  */
+}); */
+ 
 
  app.get("/", (req, res) => {
   res.json({ message: "Dogsan" });
