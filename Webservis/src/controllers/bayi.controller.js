@@ -9,9 +9,12 @@ const Bayi = db.bayis;
 
    const bayi  = new Bayi({
     baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik,
+    
+        adres:  req.body.adres,
+        telefon:  req.body.telefon,
+        enlem:  req.body.enlem,
+        boylam:  req.body.boylam,
+
     published: req.body.published ? req.body.published : false
   });
 

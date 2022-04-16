@@ -2,9 +2,11 @@ module.exports = mongoose => {
     var schema = mongoose.Schema(
       {
         baslik: String,
-        Konum: String,
-        Konumlinki: String,
-        icerik: String,
+        adres: String,
+        telefon: String,
+        enlem: String,
+        boylam: String,
+
         published: Boolean
       },
       { timestamps: true }

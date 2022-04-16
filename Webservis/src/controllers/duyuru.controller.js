@@ -1,17 +1,18 @@
 const db = require("../models");
 const Duyuru = db.duyurus;
 
- exports.create = (req, res) => {
-   if (!req.body.baslik) {
+exports.create = (req, res) => {
+  if (!req.body.baslik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
-   const duyuru  = new Duyuru({
+  const duyuru = new Duyuru({
     baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik,
+    icerik: req.body.icerik,
+    kisaaciklama: req.body.kisaaciklama,
+    YoutubeVideoURL: req.body.YoutubeVideoURL,
+    Tarih: req.body.Tarih,
     published: req.body.published ? req.body.published : false
   });
 
@@ -28,7 +29,7 @@ const Duyuru = db.duyurus;
     });
 };
 
- exports.findAll = (req, res) => {
+exports.findAll = (req, res) => {
   const baslik = req.query.baslik;
   var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
@@ -44,7 +45,7 @@ const Duyuru = db.duyurus;
     });
 };
 
- exports.findOne = (req, res) => {
+exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Bayi.findById(id)
@@ -60,7 +61,7 @@ const Duyuru = db.duyurus;
     });
 };
 
- exports.update = (req, res) => {
+exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
       message: "Data to update can not be empty!"
@@ -84,7 +85,7 @@ const Duyuru = db.duyurus;
     });
 };
 
- exports.delete = (req, res) => {
+exports.delete = (req, res) => {
   const id = req.params.id;
 
   Bayi.findByIdAndRemove(id, { useFindAndModify: false })
@@ -106,7 +107,7 @@ const Duyuru = db.duyurus;
     });
 };
 
- exports.deleteAll = (req, res) => {
+exports.deleteAll = (req, res) => {
   Bayi.deleteMany({})
     .then(data => {
       res.send({
@@ -121,7 +122,7 @@ const Duyuru = db.duyurus;
     });
 };
 
- exports.findAllPublished = (req, res) => {
+exports.findAllPublished = (req, res) => {
   Bayi.find({ published: true })
     .then(data => {
       res.send(data);
