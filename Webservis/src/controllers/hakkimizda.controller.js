@@ -2,16 +2,15 @@ const db = require("../models");
 const Hakkimizda = db.hakkimizdas;
 
  exports.create = (req, res) => {
-   if (!req.body.baslik) {
+   if (!req.body.AnaIcerik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
    const hakkimizda  = new Hakkimizda({
-   /*  baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik, */
+    AnaIcerik: req.body.AnaIcerik,
+    BelgeselIcerigi: req.body.BelgeselIcerigi, 
+    BelgeselVideoUrl:req.body.BelgeselVideoUrl, 
     published: req.body.published ? req.body.published : false
   });
 
@@ -29,8 +28,8 @@ const Hakkimizda = db.hakkimizdas;
 };
 
  exports.findAll = (req, res) => {
-  const baslik = req.query.baslik;
-  var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
+  const AnaIcerik = req.query.AnaIcerik;
+  var condition = AnaIcerik ? { AnaIcerik: { $regex: new RegExp(AnaIcerik), $options: "i" } } : {};
 
   Hakkimizda.find(condition)
     .then(data => {
