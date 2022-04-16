@@ -1,5 +1,5 @@
 const db = require("../models");
-const Bayi = db.bayis;
+const Hakkimizda = db.hakkimizdas;
 
  exports.create = (req, res) => {
    if (!req.body.baslik) {
@@ -7,23 +7,23 @@ const Bayi = db.bayis;
     return;
   }
 
-   const bayi  = new Bayi({
-    baslik: req.body.baslik,
+   const hakkimizda  = new Hakkimizda({
+   /*  baslik: req.body.baslik,
     Konum: req.body.Konum,
     Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik,
+    icerik:req.body.icerik, */
     published: req.body.published ? req.body.published : false
   });
 
-  bayi
-    .save(bayi)
+  hakkimizda
+    .save(hakkimizda)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the bayi."
+          err.message || "Some error occurred while creating the hakkimizda."
       });
     });
 };
@@ -32,14 +32,14 @@ const Bayi = db.bayis;
   const baslik = req.query.baslik;
   var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  Hakkimizda.find(condition)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving hakkimizdas."
       });
     });
 };
@@ -47,16 +47,16 @@ const Bayi = db.bayis;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+  Hakkimizda.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found bayi with id " + id });
+        res.status(404).send({ message: "Not found hakkimizda with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving bayi with id=" + id });
+        .send({ message: "Error retrieving hakkimizda with id=" + id });
     });
 };
 
@@ -69,17 +69,17 @@ const Bayi = db.bayis;
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Hakkimizda.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update bayi with id=${id}. Maybe bayi was not found!`
+          message: `Cannot update hakkimizda with id=${id}. Maybe hakkimizda was not found!`
         });
-      } else res.send({ message: "bayi was updated successfully." });
+      } else res.send({ message: "hakkimizda was updated successfully." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating bayi with id=" + id
+        message: "Error updating hakkimizda with id=" + id
       });
     });
 };
@@ -87,49 +87,49 @@ const Bayi = db.bayis;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+  Hakkimizda.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
+          message: `Cannot delete hakkimizda with id=${id}. Maybe hakkimizda was not found!`
         });
       } else {
         res.send({
-          message: "bayi was deleted successfully!"
+          message: "hakkimizda was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete bayi with id=" + id
+        message: "Could not delete hakkimizda with id=" + id
       });
     });
 };
 
  exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  Hakkimizda.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} bayis were deleted successfully!`
+        message: `${data.deletedCount} hakkimizdas were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all bayis."
+          err.message || "Some error occurred while removing all hakkimizdas."
       });
     });
 };
 
  exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+  Hakkimizda.find({ published: true })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving hakkimizdas."
       });
     });
 };

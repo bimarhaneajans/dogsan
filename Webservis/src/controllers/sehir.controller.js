@@ -7,15 +7,13 @@ exports.create = (req, res) => {
     return;
   }
 
-  const sehir = new Sehir({
-   /*  ismi: req.body.baslik,
-    slidetipi: req.body.slidetipi,
-    siralama: req.body.siralama, */
+  const sehir = new Sehir({ 
+    sehirAdi: req.body.sehirAdi,
     published: req.body.published ? req.body.published : false
   });
 
-  slider
-    .save(slider)
+  sehir
+    .save(sehir)
     .then(data => {
       res.send(data);
     })
@@ -28,10 +26,10 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const ismi = req.query.ismi; 
-  var condition = ismi ? { ismi: { $regex: new RegExp(ismi), $options: "i" } } : {};
+  const sehirAdi = req.query.sehirAdi; 
+  var condition = sehirAdi ? { ismi: { $regex: new RegExp(sehirAdi), $options: "i" } } : {};
 
-  Slider.find(condition)
+  Sehir.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -46,7 +44,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Slider.findById(id)
+  Sehir.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found slider with id " + id });
@@ -68,7 +66,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Slider.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Sehir.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -86,7 +84,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Slider.findByIdAndRemove(id, { useFindAndModify: false })
+  Sehir.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -106,7 +104,7 @@ exports.delete = (req, res) => {
 };
 
 exports.deleteAll = (req, res) => {
-  Slider.deleteMany({})
+  Sehir.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} sliders were deleted successfully!`
@@ -121,7 +119,7 @@ exports.deleteAll = (req, res) => {
 };
 
 exports.findAllPublished = (req, res) => {
-  Slider.find({ published: true })
+  Sehir.find({ published: true })
     .then(data => {
       res.send(data);
     })
