@@ -1,18 +1,18 @@
 const db = require("../models");
 const Kategori = db.kategoris;
 
- exports.create = (req, res) => {
-   if (!req.body.baslik) {
+exports.create = (req, res) => {
+  if (!req.body.baslik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
- 
-   const kategori  = new Kategori({
-     adi: req.body.adi,
+
+  const kategori = new Kategori({
+    adi: req.body.adi,
     uzunisim: req.body.uzunisim,
-    bolumrenkkodu:req.body.bolumrenkkodu, 
-    siralama:req.body.siralama, 
-    seourl:req.body.seourl,   
+    bolumrenkkodu: req.body.bolumrenkkodu,
+    siralama: req.body.siralama,
+    seourl: req.body.seourl,
     published: req.body.published ? req.body.published : false
   });
 
@@ -29,7 +29,7 @@ const Kategori = db.kategoris;
     });
 };
 
- exports.findAll = (req, res) => {
+exports.findAll = (req, res) => {
   const adi = req.query.adi;
   var condition = adi ? { adi: { $regex: new RegExp(adi), $options: "i" } } : {};
 
@@ -45,7 +45,7 @@ const Kategori = db.kategoris;
     });
 };
 
- exports.findOne = (req, res) => {
+exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Kategori.findById(id)
@@ -61,7 +61,7 @@ const Kategori = db.kategoris;
     });
 };
 
- exports.update = (req, res) => {
+exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
       message: "Data to update can not be empty!"
@@ -85,7 +85,7 @@ const Kategori = db.kategoris;
     });
 };
 
- exports.delete = (req, res) => {
+exports.delete = (req, res) => {
   const id = req.params.id;
 
   Kategori.findByIdAndRemove(id, { useFindAndModify: false })
@@ -107,7 +107,7 @@ const Kategori = db.kategoris;
     });
 };
 
- exports.deleteAll = (req, res) => {
+exports.deleteAll = (req, res) => {
   Kategori.deleteMany({})
     .then(data => {
       res.send({
@@ -122,7 +122,7 @@ const Kategori = db.kategoris;
     });
 };
 
- exports.findAllPublished = (req, res) => {
+exports.findAllPublished = (req, res) => {
   Kategori.find({ published: true })
     .then(data => {
       res.send(data);
