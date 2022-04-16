@@ -3,7 +3,7 @@ module.exports = mongoose => {
       {
         baslik: String,
         Content: String,
-         
+        kisaaciklama: String,
         published: Boolean
       },
       { timestamps: true }
@@ -15,7 +15,7 @@ module.exports = mongoose => {
       return object;
     });
   
-    const Blog = mongoose.model("deger", schema);
-    return Blog;
+    const Deger = mongoose.model("deger", schema);
+    return Deger;
   };
  

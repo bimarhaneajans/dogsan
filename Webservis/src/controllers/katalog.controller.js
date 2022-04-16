@@ -1,5 +1,5 @@
 const db = require("../models");
-const Bayi = db.bayis;
+const Katalog = db.katalogs;
 
  exports.create = (req, res) => {
    if (!req.body.baslik) {
@@ -7,39 +7,36 @@ const Bayi = db.bayis;
     return;
   }
 
-   const bayi  = new Bayi({
-    baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik,
+   const katalog  = new Katalog({
+    katalogadi: req.body.katalogadi,
     published: req.body.published ? req.body.published : false
   });
 
-  bayi
-    .save(bayi)
+  katalog
+    .save(katalog)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the bayi."
+          err.message || "Some error occurred while creating the katalog."
       });
     });
 };
 
  exports.findAll = (req, res) => {
-  const baslik = req.query.baslik;
-  var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
+  const katalogadi = req.query.katalogadi;
+  var condition = katalogadi ? { katalogadi: { $regex: new RegExp(katalogadi), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  Katalog.find(condition)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving katalogs."
       });
     });
 };
@@ -47,16 +44,16 @@ const Bayi = db.bayis;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+  Katalog.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found bayi with id " + id });
+        res.status(404).send({ message: "Not found katalog with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving bayi with id=" + id });
+        .send({ message: "Error retrieving katalog with id=" + id });
     });
 };
 
@@ -69,17 +66,17 @@ const Bayi = db.bayis;
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Katalog.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update bayi with id=${id}. Maybe bayi was not found!`
+          message: `Cannot update katalog with id=${id}. Maybe katalog was not found!`
         });
-      } else res.send({ message: "bayi was updated successfully." });
+      } else res.send({ message: "katalog was updated successfully." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating bayi with id=" + id
+        message: "Error updating katalog with id=" + id
       });
     });
 };
@@ -87,49 +84,49 @@ const Bayi = db.bayis;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+  Katalog.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
+          message: `Cannot delete katalog with id=${id}. Maybe katalog was not found!`
         });
       } else {
         res.send({
-          message: "bayi was deleted successfully!"
+          message: "katalog was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete bayi with id=" + id
+        message: "Could not delete katalog with id=" + id
       });
     });
 };
 
  exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  Katalog.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} bayis were deleted successfully!`
+        message: `${data.deletedCount} katalogs were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all bayis."
+          err.message || "Some error occurred while removing all katalogs."
       });
     });
 };
 
  exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+  Katalog.find({ published: true })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving katalogs."
       });
     });
 };

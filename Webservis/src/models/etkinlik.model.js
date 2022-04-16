@@ -7,9 +7,6 @@ module.exports = mongoose => {
       konum: String,
       baslangicTarihi: Date,
       bitisTarihi: Date,
-
-      YoutubeVideoURL: String,
-      Tarih: Date,
       published: Boolean
     },
     { timestamps: true }

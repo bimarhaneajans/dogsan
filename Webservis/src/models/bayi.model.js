@@ -5,8 +5,7 @@ module.exports = mongoose => {
         adres: String,
         telefon: String,
         enlem: String,
-        boylam: String,
-
+        boylam: String, 
         published: Boolean
       },
       { timestamps: true }

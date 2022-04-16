@@ -1,5 +1,5 @@
 const db = require("../models");
-const Bayi = db.bayis;
+const Slider = db.sliders;
 
  exports.create = (req, res) => {
    if (!req.body.baslik) {
@@ -8,10 +8,10 @@ const Bayi = db.bayis;
   }
 
    const bayi  = new Bayi({
-    baslik: req.body.baslik,
+   /*  baslik: req.body.baslik,
     Konum: req.body.Konum,
     Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik,
+    icerik:req.body.icerik, */
     published: req.body.published ? req.body.published : false
   });
 
@@ -29,10 +29,10 @@ const Bayi = db.bayis;
 };
 
  exports.findAll = (req, res) => {
-  const baslik = req.query.baslik;
-  var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
+  const ismi = req.query.ismi; // burayı kontrol et
+  var condition = ismi ? { ismi: { $regex: new RegExp(ismi), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  Slider.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -47,7 +47,7 @@ const Bayi = db.bayis;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+  Slider.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found bayi with id " + id });
@@ -69,7 +69,7 @@ const Bayi = db.bayis;
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Slider.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -87,7 +87,7 @@ const Bayi = db.bayis;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+  Slider.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -107,7 +107,7 @@ const Bayi = db.bayis;
 };
 
  exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  Slider.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} bayis were deleted successfully!`
@@ -122,7 +122,7 @@ const Bayi = db.bayis;
 };
 
  exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+  Slider.find({ published: true })
     .then(data => {
       res.send(data);
     })

@@ -10,6 +10,8 @@ const Deger = db.degers;
    const deger  = new Deger({
     baslik: req.body.baslik,
     Content:req.body.Content, 
+    kisaaciklama:req.body.kisaaciklama, 
+
     published: req.body.published ? req.body.published : false
   });
 

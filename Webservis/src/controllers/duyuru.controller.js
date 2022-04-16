@@ -17,14 +17,14 @@ exports.create = (req, res) => {
   });
 
   duyuru
-    .save(bayi)
+    .save(duyuru)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the bayi."
+          err.message || "Some error occurred while creating the duyuru."
       });
     });
 };
@@ -33,14 +33,14 @@ exports.findAll = (req, res) => {
   const baslik = req.query.baslik;
   var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  duyuru.find(condition)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving duyurus."
       });
     });
 };
@@ -48,16 +48,16 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+  duyuru.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found bayi with id " + id });
+        res.status(404).send({ message: "Not found duyuru with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving bayi with id=" + id });
+        .send({ message: "Error retrieving duyuru with id=" + id });
     });
 };
 
@@ -70,17 +70,17 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  duyuru.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update bayi with id=${id}. Maybe bayi was not found!`
+          message: `Cannot update duyuru with id=${id}. Maybe duyuru was not found!`
         });
-      } else res.send({ message: "bayi was updated successfully." });
+      } else res.send({ message: "duyuru was updated successfully." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating bayi with id=" + id
+        message: "Error updating duyuru with id=" + id
       });
     });
 };
@@ -88,49 +88,49 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+  duyuru.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
+          message: `Cannot delete duyuru with id=${id}. Maybe duyuru was not found!`
         });
       } else {
         res.send({
-          message: "bayi was deleted successfully!"
+          message: "duyuru was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete bayi with id=" + id
+        message: "Could not delete duyuru with id=" + id
       });
     });
 };
 
 exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  duyuru.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} bayis were deleted successfully!`
+        message: `${data.deletedCount} duyurus were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all bayis."
+          err.message || "Some error occurred while removing all duyurus."
       });
     });
 };
 
 exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+  duyuru.find({ published: true })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving duyurus."
       });
     });
 };
