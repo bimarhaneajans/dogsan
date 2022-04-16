@@ -100,6 +100,21 @@ require("./src/routes/user.routes")(app);
 require("./src/routes/bayi.routes")(app);
 require("./src/routes/blog.routes")(app);
 require("./src/routes/deger.routes")(app);
+require("./src/routes/duyuru.routes")(app);
+require("./src/routes/etkinlik.routes")(app);
+require("./src/routes/hakkimizda.routes")(app);
+require("./src/routes/igne.routes")(app);
+require("./src/routes/iletisim.routes")(app);
+require("./src/routes/katalog.routes")(app);
+require("./src/routes/mesaj.routes")(app);
+require("./src/routes/sehir.routes")(app);
+require("./src/routes/slider.routes")(app);
+require("./src/routes/sosyalsorumluluk.routes")(app);
+require("./src/routes/Tarihce.routes")(app);
+require("./src/routes/TarihceGarleri.routes")(app);
+require("./src/routes/urun.routes")(app);
+ 
+ 
 
 
  const PORT = process.env.PORT || 3000;
