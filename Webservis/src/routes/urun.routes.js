@@ -1,21 +1,21 @@
 module.exports = app => {
-    const sosyalsorumluluk = require("../controllers/sosyalsorumluluk.controller.js");
+    const urun = require("../controllers/urun.controller.js");
   
     var router = require("express").Router();
   
-     router.post("/", sosyalsorumluluk.create);
+     router.post("/", urun.create);
   
-     router.get("/", sosyalsorumluluk.findAll);
+     router.get("/", urun.findAll);
   
-     router.get("/published", sosyalsorumluluk.findAllPublished);
+     router.get("/published", urun.findAllPublished);
   
-     router.get("/:id", sosyalsorumluluk.findOne);
+     router.get("/:id", urun.findOne);
   
-     router.put("/:id", sosyalsorumluluk.update);
+     router.put("/:id", urun.update);
   
-     router.delete("/:id", sosyalsorumluluk.delete);
+     router.delete("/:id", urun.delete);
   
-     router.delete("/", sosyalsorumluluk.deleteAll);
+     router.delete("/", urun.deleteAll);
   
-    app.use("/sosyalsorumluluk", router);
+    app.use("/urun", router);
   }; 

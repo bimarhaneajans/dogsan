@@ -1,21 +1,21 @@
 module.exports = app => {
-    const mesaj = require("../controllers/mesaj.controller.js");
+    const hakkimizda = require("../controllers/hakkimizda.controller.js");
   
     var router = require("express").Router();
   
-     router.post("/", mesaj.create);
+     router.post("/", hakkimizda.create);
   
-     router.get("/", mesaj.findAll);
+     router.get("/", hakkimizda.findAll);
   
-     router.get("/published", mesaj.findAllPublished);
+     router.get("/published", hakkimizda.findAllPublished);
   
-     router.get("/:id", mesaj.findOne);
+     router.get("/:id", hakkimizda.findOne);
   
-     router.put("/:id", mesaj.update);
+     router.put("/:id", hakkimizda.update);
   
-     router.delete("/:id", mesaj.delete);
+     router.delete("/:id", hakkimizda.delete);
   
-     router.delete("/", mesaj.deleteAll);
+     router.delete("/", hakkimizda.deleteAll);
   
-    app.use("/mesaj", router);
+    app.use("/hakkimizda", router);
   };

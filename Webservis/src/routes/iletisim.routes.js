@@ -1,21 +1,21 @@
 module.exports = app => {
-    const sosyalsorumluluk = require("../controllers/sosyalsorumluluk.controller.js");
+    const iletisim = require("../controllers/iletisim.controller.js");
   
     var router = require("express").Router();
   
-     router.post("/", sosyalsorumluluk.create);
+     router.post("/", iletisim.create);
   
-     router.get("/", sosyalsorumluluk.findAll);
+     router.get("/", iletisim.findAll);
   
-     router.get("/published", sosyalsorumluluk.findAllPublished);
+     router.get("/published", iletisim.findAllPublished);
   
-     router.get("/:id", sosyalsorumluluk.findOne);
+     router.get("/:id", iletisim.findOne);
   
-     router.put("/:id", sosyalsorumluluk.update);
+     router.put("/:id", iletisim.update);
   
-     router.delete("/:id", sosyalsorumluluk.delete);
+     router.delete("/:id", iletisim.delete);
   
-     router.delete("/", sosyalsorumluluk.deleteAll);
+     router.delete("/", iletisim.deleteAll);
   
-    app.use("/sosyalsorumluluk", router);
+    app.use("/iletisim", router);
   }; 
