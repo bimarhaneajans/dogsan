@@ -18,4 +18,4 @@ module.exports = app => {
      router.delete("/", slider.deleteAll);
   
     app.use("/slider", router);
-  };
+  };//sosyalsorumluluk.
