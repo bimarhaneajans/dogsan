@@ -11,7 +11,7 @@ const Mesaj = db.mesajs;
     Subject: req.body.Subject,
     email: req.body.email,
     Content: req.body.Content,
-     published: req.body.published ? req.body.published : false
+    published: req.body.published ? req.body.published : false
   });
 
   mesaj

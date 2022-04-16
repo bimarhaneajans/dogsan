@@ -1,5 +1,5 @@
 const db = require("../models");
-const Bayi = db.bayis;
+const Tarihce = db.Tarihces;
 
  exports.create = (req, res) => {
    if (!req.body.baslik) {
@@ -7,11 +7,11 @@ const Bayi = db.bayis;
     return;
   }
 
-   const bayi  = new Bayi({
-    baslik: req.body.baslik,
+   const tarihce  = new Tarihce({
+   /*  baslik: req.body.baslik,
     Konum: req.body.Konum,
     Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik,
+    icerik:req.body.icerik, */
     published: req.body.published ? req.body.published : false
   });
 
