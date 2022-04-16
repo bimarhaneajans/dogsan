@@ -13,6 +13,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("sehir", schema);
-  return Blog;
+  const Sehir = mongoose.model("sehir", schema);
+  return Sehir;
 };

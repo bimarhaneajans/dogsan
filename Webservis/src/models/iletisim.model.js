@@ -17,6 +17,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("iletisim", schema);
-  return Blog;
+  const Iletisim = mongoose.model("iletisim", schema);
+  return Iletisim;
 };

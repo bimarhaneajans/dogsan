@@ -18,6 +18,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("etkinlik", schema);
-  return Blog;
+  const Etkinlik = mongoose.model("etkinlik", schema);
+  return Etkinlik;
 };

@@ -17,6 +17,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("TarihceGarleri", schema);
-  return Blog;
+  const TarihceGarleri = mongoose.model("TarihceGarleri", schema);
+  return TarihceGarleri;
 };

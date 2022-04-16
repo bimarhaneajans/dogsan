@@ -17,6 +17,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("duyuru", schema);
-  return Blog;
+  const Duyuru = mongoose.model("duyuru", schema);
+  return Duyuru;
 };

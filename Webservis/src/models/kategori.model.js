@@ -17,6 +17,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("katalog", schema);
-  return Blog;
+  const Kategori = mongoose.model("kategori", schema);
+  return Kategori;
 };

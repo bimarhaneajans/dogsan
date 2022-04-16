@@ -15,6 +15,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("urun", schema);
-  return Blog;
+  const Urun = mongoose.model("urun", schema);
+  return Urun;
 };

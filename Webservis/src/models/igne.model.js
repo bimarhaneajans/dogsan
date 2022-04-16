@@ -15,6 +15,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("igne", schema);
-  return Blog;
+  const Igne = mongoose.model("igne", schema);
+  return Igne;
 };

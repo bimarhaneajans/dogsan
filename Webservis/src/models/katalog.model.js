@@ -13,6 +13,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("katalog", schema);
-  return Blog;
+  const Katalog = mongoose.model("katalog", schema);
+  return Katalog;
 };

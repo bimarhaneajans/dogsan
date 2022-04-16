@@ -15,6 +15,6 @@ module.exports = mongoose => {
     return object;
   });
 
-  const Blog = mongoose.model("mesaj", schema);
-  return Blog;
+  const Mesaj = mongoose.model("mesaj", schema);
+  return Mesaj;
 };
