@@ -1,5 +1,5 @@
 const db = require("../models");
-const Katalog = db.katalogs;
+const Igne = db.ignes;
 
  exports.create = (req, res) => {
    if (!req.body.baslik) {
@@ -7,13 +7,13 @@ const Katalog = db.katalogs;
     return;
   }
 
-   const katalog  = new Katalog({
+   const igne  = new igne({
     katalogadi: req.body.katalogadi,
     published: req.body.published ? req.body.published : false
   });
 
-  katalog
-    .save(katalog)
+  igne
+    .save(igne)
     .then(data => {
       res.send(data);
     })
@@ -29,7 +29,7 @@ const Katalog = db.katalogs;
   const katalogadi = req.query.katalogadi;
   var condition = katalogadi ? { katalogadi: { $regex: new RegExp(katalogadi), $options: "i" } } : {};
 
-  Katalog.find(condition)
+  Igne.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -44,7 +44,7 @@ const Katalog = db.katalogs;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Katalog.findById(id)
+  Igne.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found katalog with id " + id });
@@ -66,7 +66,7 @@ const Katalog = db.katalogs;
 
   const id = req.params.id;
 
-  Katalog.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Igne.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -84,7 +84,7 @@ const Katalog = db.katalogs;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Katalog.findByIdAndRemove(id, { useFindAndModify: false })
+  Igne.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -104,7 +104,7 @@ const Katalog = db.katalogs;
 };
 
  exports.deleteAll = (req, res) => {
-  Katalog.deleteMany({})
+  Igne.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} katalogs were deleted successfully!`
@@ -119,7 +119,7 @@ const Katalog = db.katalogs;
 };
 
  exports.findAllPublished = (req, res) => {
-  Katalog.find({ published: true })
+  Igne.find({ published: true })
     .then(data => {
       res.send(data);
     })
