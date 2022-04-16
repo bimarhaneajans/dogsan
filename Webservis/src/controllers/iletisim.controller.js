@@ -1,5 +1,5 @@
 const db = require("../models");
-const Katalog = db.katalogs;
+const Iletisim = db.iletisims;
 
  exports.create = (req, res) => {
    if (!req.body.baslik) {
@@ -7,9 +7,14 @@ const Katalog = db.katalogs;
     return;
   }
 
-   const katalog  = new Katalog({
-    katalogadi: req.body.katalogadi,
-    published: req.body.published ? req.body.published : false
+   const iletisim  = new Iletisim({
+   
+    baslik: req.body.baslik,
+    adres: req.body.adres,
+    telefon: req.body.telefon,
+    haritaurl: req.body.haritaurl,
+    siralama: req.body.siralama, 
+     published: req.body.published ? req.body.published : false
   });
 
   katalog
@@ -26,10 +31,10 @@ const Katalog = db.katalogs;
 };
 
  exports.findAll = (req, res) => {
-  const katalogadi = req.query.katalogadi;
-  var condition = katalogadi ? { katalogadi: { $regex: new RegExp(katalogadi), $options: "i" } } : {};
+  const baslik = req.query.baslik;
+  var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
-  Katalog.find(condition)
+  Iletisim.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -44,7 +49,7 @@ const Katalog = db.katalogs;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Katalog.findById(id)
+  Iletisim.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found katalog with id " + id });
@@ -66,7 +71,7 @@ const Katalog = db.katalogs;
 
   const id = req.params.id;
 
-  Katalog.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Iletisim.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -84,7 +89,7 @@ const Katalog = db.katalogs;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Katalog.findByIdAndRemove(id, { useFindAndModify: false })
+  Iletisim.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -104,7 +109,7 @@ const Katalog = db.katalogs;
 };
 
  exports.deleteAll = (req, res) => {
-  Katalog.deleteMany({})
+    Iletisim.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} katalogs were deleted successfully!`
@@ -119,7 +124,7 @@ const Katalog = db.katalogs;
 };
 
  exports.findAllPublished = (req, res) => {
-  Katalog.find({ published: true })
+    Iletisim.find({ published: true })
     .then(data => {
       res.send(data);
     })
