@@ -2,44 +2,41 @@ const db = require("../models");
 const TarihceGarleri = db.TarihceGarleris;
 
  exports.create = (req, res) => {
-   if (!req.body.baslik) {
+   if (!req.body.Galeribaslik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
    const tarihceGarleri  = new TarihceGarleri({
-   /*  baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik, */
+    Galeribaslik: req.body.Galeribaslik ,
     published: req.body.published ? req.body.published : false
   });
 
-  bayi
-    .save(bayi)
+  tarihceGarleri
+    .save(tarihceGarleri)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the bayi."
+          err.message || "Some error occurred while creating the TarihceGarleri."
       });
     });
 };
 
  exports.findAll = (req, res) => {
-  const baslik = req.query.baslik;
-  var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
+  const Galeribaslik = req.query.Galeribaslik;
+  var condition = Galeribaslik ? { Galeribaslik: { $regex: new RegExp(Galeribaslik), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  TarihceGarleri.find(condition)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving Tarihce Garleri."
       });
     });
 };
@@ -47,7 +44,7 @@ const TarihceGarleri = db.TarihceGarleris;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+  TarihceGarleri.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found bayi with id " + id });
@@ -69,7 +66,7 @@ const TarihceGarleri = db.TarihceGarleris;
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  TarihceGarleri.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -87,7 +84,7 @@ const TarihceGarleri = db.TarihceGarleris;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+  TarihceGarleri.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -107,29 +104,29 @@ const TarihceGarleri = db.TarihceGarleris;
 };
 
  exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  TarihceGarleri.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} bayis were deleted successfully!`
+        message: `${data.deletedCount} Tarihce Garleri were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all bayis."
+          err.message || "Some error occurred while removing all Tarihce Garleri."
       });
     });
 };
 
  exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+  TarihceGarleri.find({ published: true })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving bayis."
+          err.message || "Some error occurred while retrieving Tarihce Garleri."
       });
     });
 };

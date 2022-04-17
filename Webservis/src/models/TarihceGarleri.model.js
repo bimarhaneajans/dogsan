@@ -1,11 +1,7 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
-      baslik: String,
-      icerik: String,
-      kisaaciklama: String,
-      YoutubeVideoURL: String,
-      Tarih: Date, 
+      Galeribaslik: String,
       published: Boolean
     },
     { timestamps: true }
