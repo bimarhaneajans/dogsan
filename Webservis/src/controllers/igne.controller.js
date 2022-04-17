@@ -2,13 +2,15 @@ const db = require("../models");
 const Igne = db.ignes;
 
  exports.create = (req, res) => {
-   if (!req.body.baslik) {
+   if (!req.body.igneadi) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
-   const igne  = new igne({
-    katalogadi: req.body.katalogadi,
+   const igne  = new Igne({
+    igneadi: req.body.igneadi,
+   siralama: req.body.ignedi,
+
     published: req.body.published ? req.body.published : false
   });
 
@@ -26,8 +28,8 @@ const Igne = db.ignes;
 };
 
  exports.findAll = (req, res) => {
-  const katalogadi = req.query.katalogadi;
-  var condition = katalogadi ? { katalogadi: { $regex: new RegExp(katalogadi), $options: "i" } } : {};
+  const igneadi = req.query.igneadi;
+  var condition = igneadi ? { igneadi: { $regex: new RegExp(igneadi), $options: "i" } } : {};
 
   Igne.find(condition)
     .then(data => {
