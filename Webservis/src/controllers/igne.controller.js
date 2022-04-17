@@ -10,7 +10,6 @@ exports.create = (req, res) => {
   const igne = new Igne({
     igneadi: req.body.igneadi,
     siralama: req.body.siralama,
-
     published: req.body.published ? req.body.published : false
   });
 

@@ -1,22 +1,27 @@
 module.exports = mongoose => {
-    var schema = mongoose.Schema(
+  var schema = mongoose.Schema(
+    {
+      baslik: String,
+      adres: String,
+      telefon: String,
+      enlem: String,
+      boylam: String,
+      img:
       {
-        baslik: String,
-        adres: String,
-        telefon: String,
-        enlem: String,
-        boylam: String, 
-        published: Boolean
+        data: Buffer,
+        contentType: String
       },
-      { timestamps: true }
-    );
- 
-    schema.method("toJSON", function() {
-      const { __v, _id, ...object } = this.toObject();
-      object.id = _id;
-      return object;
-    });
-  
-    const Bayi = mongoose.model("bayi", schema);
-    return Bayi;
-  };
+      published: Boolean
+    },
+    { timestamps: true }
+  );
+
+  schema.method("toJSON", function () {
+    const { __v, _id, ...object } = this.toObject();
+    object.id = _id;
+    return object;
+  });
+
+  const Bayi = mongoose.model("bayi", schema);
+  return Bayi;
+};
