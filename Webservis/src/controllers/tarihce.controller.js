@@ -2,37 +2,35 @@ const db = require("../models");
 const Tarihce = db.Tarihces;
 
  exports.create = (req, res) => {
-   if (!req.body.baslik) {
+   if (!req.body.Yil) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
-   const tarihce  = new Tarihce({
-   /*  baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik, */
+   const tarihce  = new Tarihce({ 
+    Yil: req.body.Yil,
+    icerik: req.body.icerik,
     published: req.body.published ? req.body.published : false
   });
 
-  bayi
-    .save(bayi)
+  tarihce
+    .save(tarihce)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the bayi."
+          err.message || "Some error occurred while creating the Tarihce."
       });
     });
 };
 
  exports.findAll = (req, res) => {
-  const baslik = req.query.baslik;
-  var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
+  const Yil = req.query.Yil;
+  var condition = Yil ? { Yil: { $regex: new RegExp(Yil), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  Tarihce.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -47,7 +45,7 @@ const Tarihce = db.Tarihces;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+  Tarihce.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found bayi with id " + id });
@@ -69,7 +67,7 @@ const Tarihce = db.Tarihces;
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Tarihce.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -87,7 +85,7 @@ const Tarihce = db.Tarihces;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+  Tarihce.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -107,7 +105,7 @@ const Tarihce = db.Tarihces;
 };
 
  exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  Tarihce.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} bayis were deleted successfully!`
@@ -122,7 +120,7 @@ const Tarihce = db.Tarihces;
 };
 
  exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+  Tarihce.find({ published: true })
     .then(data => {
       res.send(data);
     })
