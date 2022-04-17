@@ -2,13 +2,13 @@ const db = require("../models");
 const Slider = db.sliders;
 
 exports.create = (req, res) => {
-  if (!req.body.baslik) {
+  if (!req.body.ismi) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
   const slider = new Slider({
-    ismi: req.body.baslik,
+    ismi: req.body.ismi,
     slidetipi: req.body.slidetipi,
     siralama: req.body.siralama,
     published: req.body.published ? req.body.published : false

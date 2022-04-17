@@ -2,7 +2,7 @@ const db = require("../models");
 const Mesaj = db.mesajs;
 
  exports.create = (req, res) => {
-   if (!req.body.baslik) {
+   if (!req.body.Subject) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }

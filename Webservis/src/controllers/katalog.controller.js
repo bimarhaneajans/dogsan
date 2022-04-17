@@ -2,7 +2,7 @@ const db = require("../models");
 const Katalog = db.katalogs;
 
  exports.create = (req, res) => {
-   if (!req.body.baslik) {
+   if (!req.body.katalogadi) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
