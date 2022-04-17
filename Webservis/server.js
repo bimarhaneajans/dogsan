@@ -80,7 +80,6 @@ app.use(helmet.hidePoweredBy());
 app.use(hpp());
 app.use(xXssProtection());
 app.disable('x-powered-by');
-
 require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
 require("./src/routes/bayi.routes")(app);
@@ -93,14 +92,13 @@ require("./src/routes/igne.routes")(app);
 require("./src/routes/iletisim.routes")(app);
 require("./src/routes/katalog.routes")(app);
 require("./src/routes/kategori.routes")(app);
-
 require("./src/routes/mesaj.routes")(app);
 require("./src/routes/sehir.routes")(app);
 require("./src/routes/slider.routes")(app);
 require("./src/routes/sosyalsorumluluk.routes")(app);
 require("./src/routes/Tarihce.routes")(app);
-require("./src/routes/TarihceGarleri.routes")(app);
-require("./src/routes/urun.routes")(app); 
+/* require("./src/routes/TarihceGarleri.routes")(app);
+ */require("./src/routes/urun.routes")(app); 
 
  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
