@@ -1,5 +1,5 @@
 module.exports = app => {
-    const TarihceGarleri = require("../controllers/TarihceGarleri.controller.js");
+    const TarihceGarleri = require("../controllers/tarihceGarleri.controller.js");
   
     var router = require("express").Router();
   
