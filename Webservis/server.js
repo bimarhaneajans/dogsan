@@ -12,8 +12,6 @@ var xssFilters = require('xss-filters');
 var csrf = require('csurf')
 var csrfProtection = csrf({ cookie: true })
 const mongodb = require ('mongodb');
-const dbConfig = require("./src/config/db.config");
-
 const app = express();
 
 var corsOptions = {
@@ -50,6 +48,8 @@ db.mongoose
   })
   .then(() => {
     console.log("Connected to the database!");
+        //initial();
+
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);
@@ -58,25 +58,11 @@ db.mongoose
 const Role = db.role;
 
 
-//const MongoClient = mongodb.MongoClient;
-
  
- 
-/* var url = "mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000";
- 
-// A Client to MongoDB
-var MongoClient = require('mongodb').MongoClient;
- 
-// Make a connection to MongoDB Service
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  console.log("Connected to MongoDB!");
-  db.close();
-}); */
  
 
  app.get("/", (req, res) => {
-  res.json({ message: "Dogsan" });
+  res.json({ message: "Dogsan Server is Working ! " });
 });
 
 app.use(function (req, res, next) {
@@ -112,10 +98,7 @@ require("./src/routes/slider.routes")(app);
 require("./src/routes/sosyalsorumluluk.routes")(app);
 require("./src/routes/Tarihce.routes")(app);
 require("./src/routes/TarihceGarleri.routes")(app);
-require("./src/routes/urun.routes")(app);
- 
- 
-
+require("./src/routes/urun.routes")(app); 
 
  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
