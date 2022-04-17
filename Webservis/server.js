@@ -97,8 +97,8 @@ require("./src/routes/sehir.routes")(app);
 require("./src/routes/slider.routes")(app);
 require("./src/routes/sosyalsorumluluk.routes")(app);
 require("./src/routes/Tarihce.routes")(app);
-/* require("./src/routes/TarihceGarleri.routes")(app);
- */require("./src/routes/urun.routes")(app); 
+require("./src/routes/TarihceGarleri.routes")(app);
+require("./src/routes/urun.routes")(app); 
 
  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
