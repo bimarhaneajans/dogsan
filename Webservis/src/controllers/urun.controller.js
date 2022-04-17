@@ -2,7 +2,7 @@ const db = require("../models");
 const Urun = db.Uruns;
 
  exports.create = (req, res) => {
-   if (!req.body.baslik) {
+   if (!req.body.Adi) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
