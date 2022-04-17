@@ -2,7 +2,7 @@ const db = require("../models");
 const Kategori = db.kategoris;
 
 exports.create = (req, res) => {
-  if (!req.body.baslik) {
+  if (!req.body.adi) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }

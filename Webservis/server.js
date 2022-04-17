@@ -92,6 +92,8 @@ require("./src/routes/hakkimizda.routes")(app);
 require("./src/routes/igne.routes")(app);
 require("./src/routes/iletisim.routes")(app);
 require("./src/routes/katalog.routes")(app);
+require("./src/routes/kategori.routes")(app);
+
 require("./src/routes/mesaj.routes")(app);
 require("./src/routes/sehir.routes")(app);
 require("./src/routes/slider.routes")(app);

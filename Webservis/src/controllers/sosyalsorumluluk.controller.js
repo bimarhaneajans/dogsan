@@ -8,22 +8,20 @@ const Sosyalsorumluluk = db.sosyalsorumluluks;
   }
 
    const sosyalsorumluluk  = new Sosyalsorumluluk({
-   /*  baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
-    icerik:req.body.icerik, */
+     baslik: req.body.baslik, 
+    icerik:req.body.icerik, 
     published: req.body.published ? req.body.published : false
   });
 
-  bayi
-    .save(bayi)
+  sosyalsorumluluk
+    .save(sosyalsorumluluk)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the bayi."
+          err.message || "Some error occurred while creating theSosyalsorumluluk."
       });
     });
 };
@@ -32,7 +30,7 @@ const Sosyalsorumluluk = db.sosyalsorumluluks;
   const baslik = req.query.baslik;
   var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
-  Bayi.find(condition)
+ Sosyalsorumluluk.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -47,7 +45,7 @@ const Sosyalsorumluluk = db.sosyalsorumluluks;
  exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findById(id)
+ Sosyalsorumluluk.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found bayi with id " + id });
@@ -69,7 +67,7 @@ const Sosyalsorumluluk = db.sosyalsorumluluks;
 
   const id = req.params.id;
 
-  Bayi.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+ Sosyalsorumluluk.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -87,7 +85,7 @@ const Sosyalsorumluluk = db.sosyalsorumluluks;
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Bayi.findByIdAndRemove(id, { useFindAndModify: false })
+ Sosyalsorumluluk.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -107,7 +105,7 @@ const Sosyalsorumluluk = db.sosyalsorumluluks;
 };
 
  exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+ Sosyalsorumluluk.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} bayis were deleted successfully!`
@@ -122,7 +120,7 @@ const Sosyalsorumluluk = db.sosyalsorumluluks;
 };
 
  exports.findAllPublished = (req, res) => {
-  Bayi.find({ published: true })
+ Sosyalsorumluluk.find({ published: true })
     .then(data => {
       res.send(data);
     })
