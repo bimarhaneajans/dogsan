@@ -1,15 +1,15 @@
 const db = require("../models");
 const Igne = db.ignes;
 
- exports.create = (req, res) => {
-   if (!req.body.igneadi) {
+exports.create = (req, res) => {
+  if (!req.body.igneadi) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
-   const igne  = new Igne({
+  const igne = new Igne({
     igneadi: req.body.igneadi,
-   siralama: req.body.ignedi,
+    siralama: req.body.siralama,
 
     published: req.body.published ? req.body.published : false
   });
@@ -22,12 +22,12 @@ const Igne = db.ignes;
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the katalog."
+          err.message || "Some error occurred while creating the igne."
       });
     });
 };
 
- exports.findAll = (req, res) => {
+exports.findAll = (req, res) => {
   const igneadi = req.query.igneadi;
   var condition = igneadi ? { igneadi: { $regex: new RegExp(igneadi), $options: "i" } } : {};
 
@@ -38,28 +38,28 @@ const Igne = db.ignes;
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving katalogs."
+          err.message || "Some error occurred while retrieving ignes."
       });
     });
 };
 
- exports.findOne = (req, res) => {
+exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Igne.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found katalog with id " + id });
+        res.status(404).send({ message: "Not found igne with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving katalog with id=" + id });
+        .send({ message: "Error retrieving igne with id=" + id });
     });
 };
 
- exports.update = (req, res) => {
+exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
       message: "Data to update can not be empty!"
@@ -72,55 +72,55 @@ const Igne = db.ignes;
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update katalog with id=${id}. Maybe katalog was not found!`
+          message: `Cannot update igne with id=${id}. Maybe igne was not found!`
         });
-      } else res.send({ message: "katalog was updated successfully." });
+      } else res.send({ message: "igne was updated successfully." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating katalog with id=" + id
+        message: "Error updating igne with id=" + id
       });
     });
 };
 
- exports.delete = (req, res) => {
+exports.delete = (req, res) => {
   const id = req.params.id;
 
   Igne.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete katalog with id=${id}. Maybe katalog was not found!`
+          message: `Cannot delete igne with id=${id}. Maybe igne was not found!`
         });
       } else {
         res.send({
-          message: "katalog was deleted successfully!"
+          message: "igne was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete katalog with id=" + id
+        message: "Could not delete igne with id=" + id
       });
     });
 };
 
- exports.deleteAll = (req, res) => {
+exports.deleteAll = (req, res) => {
   Igne.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} katalogs were deleted successfully!`
+        message: `${data.deletedCount} ignes were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all katalogs."
+          err.message || "Some error occurred while removing all ignes."
       });
     });
 };
 
- exports.findAllPublished = (req, res) => {
+exports.findAllPublished = (req, res) => {
   Igne.find({ published: true })
     .then(data => {
       res.send(data);
@@ -128,7 +128,7 @@ const Igne = db.ignes;
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving katalogs."
+          err.message || "Some error occurred while retrieving ignes."
       });
     });
 };
