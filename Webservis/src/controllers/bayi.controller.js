@@ -67,11 +67,13 @@ exports.uploadFiles = async (req, res) => {
 };
 
 exports.create = (req, res) => {
- 
+ console.log(req)
   if (!req.body.baslik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   } 
+ 
+  var file=fs.readFileSync(path.normalize(req.file.path));
   let bayi = new Bayi({
     baslik: req.body.baslik,
     adres: req.body.adres,
@@ -79,8 +81,9 @@ exports.create = (req, res) => {
     enlem: req.body.enlem,
     boylam: req.body.boylam,
     published: req.body.published ? req.body.published : false,
+  
     img: {
-      data: fs.readFileSync(path.join(__dirname.replace("src\\controllers\\","") + '\\uploads\\' + req.file.filename)),
+      data:file ,
       contentType: 'image/png'
     }
   });
