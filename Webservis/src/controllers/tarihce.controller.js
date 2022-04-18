@@ -1,4 +1,10 @@
 const db = require("../models");
+const upload = require("../middlewares/upload");
+const dbConfig = require("../config/db.config");
+var multer = require('multer');
+var fs = require('fs');
+var path = require('path');
+var mime = require('mime');
 const Tarihce = db.Tarihces;
 
  exports.create = (req, res) => {
@@ -12,7 +18,12 @@ const Tarihce = db.Tarihces;
     icerik: req.body.icerik,
     published: req.body.published ? req.body.published : false
   });
-
+  var file = fs.readFileSync(path.normalize(req.file.path));
+  var contenttype=mime.getType(path.normalize(req.file.path));
+  tarihce.img = {
+    data: file,
+    contentType: contenttype     
+  }
   tarihce
     .save(tarihce)
     .then(data => {

@@ -4,7 +4,13 @@ module.exports = mongoose => {
         baslik: String,
         Content: String,
         kisaaciklama: String,
+        img:
+        {
+          data: Buffer,
+          contentType: String
+        },
         published: Boolean
+        
       },
       { timestamps: true }
     );

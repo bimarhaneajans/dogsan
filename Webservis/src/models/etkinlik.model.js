@@ -7,6 +7,11 @@ module.exports = mongoose => {
       konum: String,
       baslangicTarihi: Date,
       bitisTarihi: Date,
+      img:
+      {
+        data: Buffer,
+        contentType: String
+      },
       published: Boolean
     },
     { timestamps: true }

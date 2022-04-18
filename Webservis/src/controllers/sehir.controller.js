@@ -1,4 +1,10 @@
 const db = require("../models");
+const upload = require("../middlewares/upload");
+const dbConfig = require("../config/db.config");
+var multer = require('multer');
+var fs = require('fs');
+var path = require('path');
+var mime = require('mime');
 const Sehir = db.sehirs;
 
 exports.create = (req, res) => {
@@ -11,7 +17,12 @@ exports.create = (req, res) => {
     sehirAdi: req.body.sehirAdi,
     published: req.body.published ? req.body.published : false
   });
-
+  var file = fs.readFileSync(path.normalize(req.file.path));
+  var contenttype=mime.getType(path.normalize(req.file.path));
+  sehir.img = {
+    data: file,
+    contentType: contenttype     
+  }
   sehir
     .save(sehir)
     .then(data => {

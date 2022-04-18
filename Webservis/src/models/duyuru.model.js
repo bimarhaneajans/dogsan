@@ -6,6 +6,11 @@ module.exports = mongoose => {
       kisaaciklama: String,
       YoutubeVideoURL: String,
       Tarih: Date, 
+       img:
+      {
+        data: Buffer,
+        contentType: String
+      },
       published: Boolean
     },
     { timestamps: true }

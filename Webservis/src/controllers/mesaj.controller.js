@@ -1,4 +1,10 @@
 const db = require("../models");
+const upload = require("../middlewares/upload");
+const dbConfig = require("../config/db.config");
+var multer = require('multer');
+var fs = require('fs');
+var path = require('path');
+var mime = require('mime');
 const Mesaj = db.mesajs;
 
  exports.create = (req, res) => {
@@ -13,7 +19,12 @@ const Mesaj = db.mesajs;
     Content: req.body.Content,
     published: req.body.published ? req.body.published : false
   });
-
+  var file = fs.readFileSync(path.normalize(req.file.path));
+  var contenttype=mime.getType(path.normalize(req.file.path));
+  mesaj.img = {
+    data: file,
+    contentType: contenttype     
+  }
   mesaj
     .save(mesaj)
     .then(data => {

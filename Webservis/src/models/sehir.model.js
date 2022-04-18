@@ -2,6 +2,11 @@ module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
       sehirAdi: String,
+      img:
+      {
+        data: Buffer,
+        contentType: String
+      },
       published: Boolean
     },
     { timestamps: true }

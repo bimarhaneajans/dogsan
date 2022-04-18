@@ -8,7 +8,7 @@ var mime = require('mime');
 const Bayi = db.bayis;
 
 
-exports.uploadFiles = async (req, res) => {
+/* exports.uploadFiles = async (req, res) => {
 
   try {
     await upload(req, res);
@@ -63,8 +63,8 @@ exports.uploadFiles = async (req, res) => {
        message:
          err.message || "Some error occurred while creating the bayi."
      });
-   }); */
-};
+   }); 
+}; */
 
 exports.create = (req, res) => { 
   if (!req.body) {

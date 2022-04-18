@@ -4,6 +4,11 @@ module.exports = mongoose => {
       ismi: String,
       slidetipi: String,
       siralama: Number,
+      img:
+      {
+        data: Buffer,
+        contentType: String
+      },
       published: Boolean
     },
     { timestamps: true }
