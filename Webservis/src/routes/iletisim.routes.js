@@ -15,7 +15,7 @@ module.exports = app => {
     });
     var router = require("express").Router();
   
-     router.post("/", iletisim.create);
+     router.post("/", upload.single('file'),  iletisim.create);
   
      router.get("/", iletisim.findAll);
   

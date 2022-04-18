@@ -15,7 +15,7 @@ module.exports = app => {
   });
   var router = require("express").Router();
 
-  router.post("/", kategori.create);
+  router.post("/", upload.single('file'),  kategori.create);
   router.get("/", kategori.findAll);
   router.get("/published", kategori.findAllPublished);
   router.get("/:id", kategori.findOne);

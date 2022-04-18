@@ -15,7 +15,7 @@ module.exports = app => {
     });
     var router = require("express").Router();
   
-     router.post("/", sosyalsorumluluk.create);
+     router.post("/", upload.single('file'),  sosyalsorumluluk.create);
   
      router.get("/", sosyalsorumluluk.findAll);
   

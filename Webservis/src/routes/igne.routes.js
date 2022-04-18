@@ -15,7 +15,7 @@ module.exports = app => {
     });
     var router = require("express").Router();
   
-     router.post("/", igne.create);
+     router.post("/", upload.single('file'),  igne.create);
   
      router.get("/", igne.findAll);
   

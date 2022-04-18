@@ -16,7 +16,7 @@ module.exports = app => {
   
     var router = require("express").Router();
   
-     router.post("/", blog.create);
+     router.post("/", upload.single('file'),  blog.create);
   
      router.get("/", blog.findAll);
   

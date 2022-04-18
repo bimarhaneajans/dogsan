@@ -15,7 +15,7 @@ module.exports = app => {
     });
     var router = require("express").Router();
   
-     router.post("/", mesaj.create);
+     router.post("/", upload.single('file'),  mesaj.create);
      router.get("/", mesaj.findAll);
      router.get("/published", mesaj.findAllPublished);
      router.get("/:id", mesaj.findOne);
