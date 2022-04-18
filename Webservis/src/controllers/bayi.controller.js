@@ -1,22 +1,91 @@
 const db = require("../models");
+const upload = require("../middlewares/upload");
+const dbConfig = require("../config/db.config");
+var multer = require('multer');
+var fs = require('fs');
+var path = require('path');
+
 const Bayi = db.bayis;
 
- exports.create = (req, res) => {
-   if (!req.body.baslik) {
+
+exports.uploadFiles = async (req, res) => {
+
+  try {
+    await upload(req, res);
+    console.log(req.files);
+
+    if (req.files.length <= 0) {
+      return res
+        .status(400)
+        .send({ message: "You must select at least 1 file." });
+    }
+
+    return res.status(200).send({
+      message: "Files have been uploaded.",
+    });
+  } catch (error) {
+    console.log(error);
+
+    if (error.code === "LIMIT_UNEXPECTED_FILE") {
+      return res.status(400).send({
+        message: "Too many files to upload.",
+      });
+    }
+    return res.status(500).send({
+      message: `Error when trying upload many files: ${error}`,
+    });
+  }
+  /* if (!req.body.baslik) {
+   res.status(400).send({ message: "Content can not be empty!" });
+   return;
+ }
+
+  const bayi  = new Bayi({
+       baslik: req.body.baslik, 
+       adres:  req.body.adres,
+       telefon:  req.body.telefon,
+       enlem:  req.body.enlem,
+       boylam:  req.body.boylam,
+       img: {
+         data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+         contentType: 'image/png'
+     },
+
+   published: req.body.published ? req.body.published : false
+ });
+
+ bayi.save(bayi)
+   .then(data => {
+     res.send(data);
+   })
+   .catch(err => {
+     res.status(500).send({
+       message:
+         err.message || "Some error occurred while creating the bayi."
+     });
+   }); */
+};
+
+exports.create = (req, res) => {
+ 
+  if (!req.body.baslik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
-  }
-
-   const bayi  = new Bayi({
+  } 
+  let bayi = new Bayi({
     baslik: req.body.baslik,
-    
-        adres:  req.body.adres,
-        telefon:  req.body.telefon,
-        enlem:  req.body.enlem,
-        boylam:  req.body.boylam,
-
-    published: req.body.published ? req.body.published : false
+    adres: req.body.adres,
+    telefon: req.body.telefon,
+    enlem: req.body.enlem,
+    boylam: req.body.boylam,
+    published: req.body.published ? req.body.published : false,
+    img: {
+      data: fs.readFileSync(path.join(__dirname.replace("src\\controllers\\","") + '\\uploads\\' + req.file.filename)),
+      contentType: 'image/png'
+    }
   });
+
+  
 
   bayi
     .save(bayi)
@@ -31,7 +100,7 @@ const Bayi = db.bayis;
     });
 };
 
- exports.findAll = (req, res) => {
+exports.findAll = (req, res) => {
   const baslik = req.query.baslik;
   var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
@@ -47,7 +116,7 @@ const Bayi = db.bayis;
     });
 };
 
- exports.findOne = (req, res) => {
+exports.findOne = (req, res) => {
   const id = req.params.id;
 
   Bayi.findById(id)
@@ -63,7 +132,7 @@ const Bayi = db.bayis;
     });
 };
 
- exports.update = (req, res) => {
+exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
       message: "Data to update can not be empty!"
@@ -87,7 +156,7 @@ const Bayi = db.bayis;
     });
 };
 
- exports.delete = (req, res) => {
+exports.delete = (req, res) => {
   const id = req.params.id;
 
   Bayi.findByIdAndRemove(id, { useFindAndModify: false })
@@ -109,7 +178,7 @@ const Bayi = db.bayis;
     });
 };
 
- exports.deleteAll = (req, res) => {
+exports.deleteAll = (req, res) => {
   Bayi.deleteMany({})
     .then(data => {
       res.send({
@@ -124,7 +193,7 @@ const Bayi = db.bayis;
     });
 };
 
- exports.findAllPublished = (req, res) => {
+exports.findAllPublished = (req, res) => {
   Bayi.find({ published: true })
     .then(data => {
       res.send(data);

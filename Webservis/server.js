@@ -17,18 +17,19 @@ const app = express();
 var corsOptions = {
   origin: "http://37.77.4.139:3000"
 };
-
+  
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 // parse requests of content-type - application/json
 app.use(express.json());
+ 
 
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
 
   app.use(
   cookieSession({
