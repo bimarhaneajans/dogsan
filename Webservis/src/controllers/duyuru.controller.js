@@ -22,10 +22,10 @@ exports.create = (req, res) => {
     published: req.body.published ? req.body.published : false
   });
   var file = fs.readFileSync(path.normalize(req.file.path));
-  var contenttype=mime.getType(path.normalize(req.file.path));
+  var contenttype = mime.getType(path.normalize(req.file.path));
   duyuru.img = {
     data: file,
-    contentType: contenttype     
+    contentType: contenttype
   }
   duyuru
     .save(duyuru)
