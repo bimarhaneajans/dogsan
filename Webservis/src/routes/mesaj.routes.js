@@ -14,7 +14,8 @@ module.exports = app => {
       }
     });
     var router = require("express").Router();
-  
+    var upload = multer({ storage: storage }); 
+
      router.post("/", upload.single('file'),  mesaj.create);
      router.get("/", mesaj.findAll);
      router.get("/published", mesaj.findAllPublished);
