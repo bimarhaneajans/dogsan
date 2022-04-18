@@ -25,7 +25,6 @@ var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
 app.use(express.urlencoded({ extended: false }));
 
 // parse requests of content-type - application/json
-app.use(express.json());
  
 
 app.use(express.static('public'));

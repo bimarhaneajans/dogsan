@@ -4,7 +4,7 @@ const dbConfig = require("../config/db.config");
 var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
-
+var mime = require('mime');
 const Bayi = db.bayis;
 
 
@@ -66,14 +66,11 @@ exports.uploadFiles = async (req, res) => {
    }); */
 };
 
-exports.create = (req, res) => {
- console.log(req)
-  if (!req.body.baslik) {
+exports.create = (req, res) => { 
+  if (!req.body) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
-  } 
- 
-  var file=fs.readFileSync(path.normalize(req.file.path));
+  }
   let bayi = new Bayi({
     baslik: req.body.baslik,
     adres: req.body.adres,
@@ -81,13 +78,15 @@ exports.create = (req, res) => {
     enlem: req.body.enlem,
     boylam: req.body.boylam,
     published: req.body.published ? req.body.published : false,
-  
-    img: {
-      data:file ,
-      contentType: 'image/png'
-    }
-  });
 
+  }); 
+ 
+    var file = fs.readFileSync(path.normalize(req.file.path));
+    var contenttype=mime.getType(path.normalize(req.file.path));
+    bayi.img = {
+      data: file,
+      contentType: contenttype     
+    }
   
 
   bayi
