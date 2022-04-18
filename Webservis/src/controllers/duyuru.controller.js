@@ -44,7 +44,7 @@ exports.findAll = (req, res) => {
   const baslik = req.query.baslik;
   var condition = baslik ? { baslik: { $regex: new RegExp(baslik), $options: "i" } } : {};
 
-  duyuru.find(condition)
+  Duyuru.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -59,7 +59,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  duyuru.findById(id)
+  Duyuru.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found duyuru with id " + id });
@@ -81,7 +81,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  duyuru.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Duyuru.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -99,7 +99,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  duyuru.findByIdAndRemove(id, { useFindAndModify: false })
+  Duyuru.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -119,7 +119,7 @@ exports.delete = (req, res) => {
 };
 
 exports.deleteAll = (req, res) => {
-  duyuru.deleteMany({})
+  Duyuru.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} duyurus were deleted successfully!`
@@ -134,7 +134,7 @@ exports.deleteAll = (req, res) => {
 };
 
 exports.findAllPublished = (req, res) => {
-  duyuru.find({ published: true })
+  Duyuru.find({ published: true })
     .then(data => {
       res.send(data);
     })
