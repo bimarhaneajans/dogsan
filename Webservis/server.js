@@ -3,7 +3,7 @@ const cors = require("cors");
 const cookieSession = require("cookie-session");
 const session = require('express-session');
 const bodyParser = require("body-parser");
-
+const db = require("./src/models");
 const xXssProtection = require("x-xss-protection");
 const helmet = require("helmet");
 const hpp = require("xss-clean");
@@ -14,11 +14,23 @@ var csrfProtection = csrf({ cookie: true })
 const mongodb = require ('mongodb');
 const app = express();
 
-var corsOptions = {
-  origin: "http://37.77.4.139:3000"
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Methods", "*");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+/* var corsOptions = {
+  origin: "https://bavrim.madilink.net"
 };
   
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); */
 app.use(bodyParser.json());
 
 var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
@@ -30,14 +42,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 
-  app.use(
+/*   app.use(
   cookieSession({
     name: "dogsan-session",
     secret: "dogsanwebsite", // should use as secret environment variable
     httpOnly: true
   })
-); 
-const db = require("./src/models");
+);  */
+
 
 console.log(db.url);
 
@@ -65,21 +77,14 @@ const Role = db.role;
   res.json({ message: "Dogsan Server is Working ! " });
 });
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");  
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-  if (req.method === 'OPTIONS') {
-    res.send(200);
-  } else {
-    next();
-  }
-});
+
 
 app.use(helmet.hidePoweredBy());
 app.use(hpp());
 app.use(xXssProtection());
 app.disable('x-powered-by');
+app.use(cors());
+
 require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
 require("./src/routes/bayi.routes")(app);
