@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://bavrim.madilink.net:3000/api/test/";
+const API_URL = "https://bavrim.madilink.net/api/test/";
 
 class UserService {
   getPublicContent() {
