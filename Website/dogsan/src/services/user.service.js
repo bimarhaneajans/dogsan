@@ -9,7 +9,7 @@ class UserService {
     let config = {
       method: 'get',
       url: 'https://bavrim.madilink.net/api/test/all',
-      headers: {}
+      headers: {"Access-Control-Allow-Origin": "*"}
     };
     return axios(config);
   }
