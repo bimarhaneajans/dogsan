@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   }
 });
   var corsOptions = {
-  origin: "https://bavrim.madilink.net"
+  origin: "http://bavrim.madilink.net"
 };
   
 app.use(cors(corsOptions));  
