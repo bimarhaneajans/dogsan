@@ -15,28 +15,35 @@ const mongodb = require ('mongodb');
 const app = express();
 
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Headers", "*");
-  res.setHeader("Access-Control-Allow-Methods", "*");
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  if (req.method === 'OPTIONS') {
-    res.sendStatus(200);
-  } else {
-    next();
-  }
-});
-  var corsOptions = {
+ 
+/*   var corsOptions = {
   origin: "http://bavrim.madilink.net"
 };
   
-app.use(cors(corsOptions));  
+app.use(cors(corsOptions));   */
+
+app.use(
+  cors({
+     origin:"https://dogsan.madilink.net/", //corsOptions)),
+      })
+);
 app.use(bodyParser.json());
 
-var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
-app.use(express.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS"
+  );
+  next();
+});
 
-// parse requests of content-type - application/json
+var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
+app.use(express.urlencoded({ extended: false })); 
  
 
 app.use(express.static('public'));
