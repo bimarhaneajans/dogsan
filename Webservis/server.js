@@ -26,11 +26,11 @@ app.use((req, res, next) => {
     next();
   }
 });
-/* var corsOptions = {
+  var corsOptions = {
   origin: "https://bavrim.madilink.net"
 };
   
-app.use(cors(corsOptions)); */
+app.use(cors(corsOptions));  
 app.use(bodyParser.json());
 
 var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
