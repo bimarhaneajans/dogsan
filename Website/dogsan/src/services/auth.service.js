@@ -1,12 +1,11 @@
 import axios from "axios";
-
-  const API_URL = "http://bavrim.madilink.net/api/auth/";
+   //const API_URL = "https://bavrim.madilink.net/api/auth/";
  //const API_URL = "http://localhost:8081/api/auth/";
 
 class AuthService {
   login(username, password) {
     return axios
-      .post(API_URL + "signin", {
+      .post("https://bavrim.madilink.net/api/auth/signin", {
         username,
         password
       })
@@ -24,7 +23,7 @@ class AuthService {
   }
 
   register(username, email, password) {
-    return axios.post(API_URL + "signup", {
+    return axios.post("https://bavrim.madilink.net/api/auth/signup", {
       username,
       email,
       password

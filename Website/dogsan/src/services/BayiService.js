@@ -1,31 +1,66 @@
 import http from "../http-common";
+import axios from "axios";
 
 const getAll = () => {
-  return http.get("/bayi");
+  return axios.get("/bayi");
 };
 
 const get = (id) => {
-  return http.get(`/bayi/${id}`);
+  return axios.get(`/bayi/${id}`,
+  {
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded"
+    }
+  }
+  );
 };
 
 const create = (data) => {
-  return http.post("/bayi", data);
+  return axios.post("/bayi", data,
+  {
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded"
+    }
+  }
+  );
 };
 
 const update = (id, data) => {
-  return http.put(`/bayi/${id}`, data);
+  return axios.put(`/bayi/${id}`, data,
+  {
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded"
+    }
+  }
+  );
 };
-
 const remove = (id) => {
-  return http.delete(`/bayi/${id}`);
+  return axios.delete(`/bayi/${id}`,
+  {
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded"
+    }
+  }
+  );
 };
 
 const removeAll = () => {
-  return http.delete(`/bayi`);
+  return axios.delete(`/bayi`,
+  {
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded"
+    }
+  }
+  );
 };
 
 const findByTitle = (baslik) => {
-  return http.get(`/bayi?baslik=${baslik}`);
+  return axios.get(`/bayi?baslik=${baslik}`,
+  {
+    headers:{
+      "Content-Type":"application/x-www-form-urlencoded"
+    }
+  });
 };
 
 const bayiservice = {
