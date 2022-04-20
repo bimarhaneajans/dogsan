@@ -22,27 +22,26 @@ const app = express();
   
 app.use(cors(corsOptions));   */
 
-/* app.use(
+  app.use(
   cors({
      origin:"https://dogsan.madilink.net/", //corsOptions)),
       })
-); */
+); 
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://dogsan.madilink.net"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
+  res.setheader("Access-Control-Allow-Origin", "https://dogsan.madilink.net"); 
+  res.setheader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type,Accept,DNT,User-Agent,If-Modified-Since,Cache-Control,Range"
     
   );
  
-  res.header(
+  res.setheader(
     "Access-Control-Allow-Methods",
     "GET, POST, PATCH, DELETE, OPTIONS"
   );
-  res.header(
+  res.setheader(
     "Access-Control-Expose-Headers",
     "Content-Length,Content-Range"
   );
