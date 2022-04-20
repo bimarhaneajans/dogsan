@@ -5,7 +5,13 @@ const API_URL = "https://bavrim.madilink.net/api/test/";
 
 class UserService {
   getPublicContent() {
-    return axios.get(API_URL + "all");
+    const axios = require('axios');
+    let config = {
+      method: 'get',
+      url: 'https://bavrim.madilink.net/api/test/all',
+      headers: {}
+    };
+    return axios(config);
   }
 
   getUserBoard() {
@@ -20,5 +26,7 @@ class UserService {
     return axios.get(API_URL + "admin", { headers: authHeader() });
   }
 }
+
+
 
 export default new UserService();
