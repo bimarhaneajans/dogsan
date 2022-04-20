@@ -1,10 +1,10 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "https://bavrim.madilink.net/api/test/";
+const API_URL = "https://46.4.116.218:3000/api/test/";
 
 class UserService {
-  getPublicContent() {
+/*   getPublicContent() {
     const axios = require('axios');
     let config = {
       method: 'get',
@@ -12,6 +12,9 @@ class UserService {
       headers: {"Access-Control-Allow-Origin": "*"}
     };
     return axios(config);
+  } */
+  getPublicContent() {
+    return axios.get(API_URL + 'all');
   }
 
   getUserBoard() {
