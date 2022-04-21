@@ -28,7 +28,7 @@ export default function team() {
               <div className="team-member">
                 <a data-toggle="modal" data-target="#myModal">
                   <div className="team-img">
-                    <img src="assets/img/team/team-member1.jpg" className="img-responsive" alt="" />
+                    <img src="./assets/img/team/team-member1.jpg" className="img-responsive" alt="" />
                   </div>
                 </a>
                 <div className="member-details">
@@ -51,7 +51,7 @@ export default function team() {
               <div className="team-member">
                 <a data-toggle="modal" data-target="#myModal">
                   <div className="team-img">
-                    <img src="assets/img/team/team-member2.jpg" className="img-responsive" alt="" />
+                    <img src="./assets/img/team/team-member2.jpg" className="img-responsive" alt="" />
                   </div>
                 </a>
                 <div className="member-details">
@@ -74,7 +74,7 @@ export default function team() {
               <div className="team-member">
                 <a data-toggle="modal" data-target="#myModal">
                   <div className="team-img">
-                    <img src="assets/img/team/team-member3.jpg" className="img-responsive" alt="" />
+                    <img src="./assets/img/team/team-member3.jpg" className="img-responsive" alt="" />
                   </div>
                 </a>
                 <div className="member-details">
@@ -97,7 +97,7 @@ export default function team() {
               <div className="team-member">
                 <a data-toggle="modal" data-target="#myModal">
                   <div className="team-img">
-                    <img src="assets/img/team/team-member4.jpg" className="img-responsive" alt="" />
+                    <img src="./assets/img/team/team-member4.jpg" className="img-responsive" alt="" />
                   </div>
                 </a>
                 <div className="member-details">

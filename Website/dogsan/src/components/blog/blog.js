@@ -16,8 +16,8 @@ export default function blog() {
           <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <div className="blog-post">
               <div className="post-img">
-                <img src="assets/img/blog/post-img1.jpg" className="img-responsive" alt="" />
-                <img className="ab-icon" src="assets/img/blog/post-icon.png" alt="" />
+                <img src="./assets/img/blog/post-img1.jpg" className="img-responsive" alt="" />
+                <img className="ab-icon" src="./assets/img/blog/post-icon.png" alt="" />
               </div>
               <div className="info-col">
                 <a href="./single_post.html">
@@ -34,8 +34,8 @@ export default function blog() {
           <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <div className="blog-post">
               <div className="post-img">
-                <img src="assets/img/blog/post-img2.jpg" className="img-responsive" alt="" />
-                <img className="ab-icon" src="assets/img/blog/post-icon.png" alt="" />
+                <img src="./assets/img/blog/post-img2.jpg" className="img-responsive" alt="" />
+                <img className="ab-icon" src="./assets/img/blog/post-icon.png" alt="" />
               </div>
               <div className="info-col">
                 <a href="./single_post.html">
@@ -52,8 +52,8 @@ export default function blog() {
           <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <div className="blog-post">
               <div className="post-img">
-                <img src="assets/img/blog/post-img3.jpg" className="img-responsive" alt="" />
-                <img className="ab-icon" src="assets/img/blog/post-icon.png" alt="" />
+                <img src="./assets/img/blog/post-img3.jpg" className="img-responsive" alt="" />
+                <img className="ab-icon" src="./assets/img/blog/post-icon.png" alt="" />
               </div>
               <div className="info-col">
                 <a href="./single_post.html">

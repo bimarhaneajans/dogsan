@@ -3,7 +3,7 @@ import React from 'react'
 export default function footer() {
   return (
     <div><div className="footer2">
-    <img src="assets/img/logo/heartify-logo-lite.png" alt="" />
+    <img src="./assets/img/logo/heartify-logo-lite.png" alt="" />
   </div>
 
 
@@ -21,7 +21,7 @@ export default function footer() {
           <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
         </ul>
       </div>
-      <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
+      <a href="javascript:void(0)" className="bttop"><img src="./assets/img/backtotop.jpg" alt="" /></a>
     </div>
   </div></div>
   )

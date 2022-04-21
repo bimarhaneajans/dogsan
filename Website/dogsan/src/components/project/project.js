@@ -19,7 +19,7 @@ export default function project() {
         <div className="bottom-space-50"></div>
         <ul className="projects-wrap">
           <li>
-            <img src="assets/img/projects/1.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/1.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>
@@ -29,7 +29,7 @@ export default function project() {
             </div>
           </li>
           <li>
-            <img src="assets/img/projects/2.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/2.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>
@@ -39,7 +39,7 @@ export default function project() {
             </div>
           </li>
           <li>
-            <img src="assets/img/projects/3.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/3.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>
@@ -49,7 +49,7 @@ export default function project() {
             </div>
           </li>
           <li>
-            <img src="assets/img/projects/4.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/4.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>
@@ -59,7 +59,7 @@ export default function project() {
             </div>
           </li>
           <li>
-            <img src="assets/img/projects/5.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/5.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>
@@ -69,7 +69,7 @@ export default function project() {
             </div>
           </li>
           <li>
-            <img src="assets/img/projects/6.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/6.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>
@@ -79,7 +79,7 @@ export default function project() {
             </div>
           </li>
           <li>
-            <img src="assets/img/projects/7.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/7.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>
@@ -89,7 +89,7 @@ export default function project() {
             </div>
           </li>
           <li>
-            <img src="assets/img/projects/8.jpg" className="img-responsive" alt="" />
+            <img src="./assets/img/projects/8.jpg" className="img-responsive" alt="" />
             <div className="overlay">
               <div className="overlay-inner">
                 <h4>Clinic office <span>Durning work</span></h4>

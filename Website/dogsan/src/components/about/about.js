@@ -15,28 +15,28 @@ export default function about() {
           <div className="information">
             <div className="row">
               <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                <img className="pull-center icon" src="assets/img/icons/icon-1.png" alt="icon" />
+                <img className="pull-center icon" src="./assets/img/icons/icon-1.png" alt="icon" />
                 <div className="info-col">
                   <h5>Health Information</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                 </div>
               </div>
               <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                <img className="pull-center icon" src="assets/img/icons/icon-2.png" alt="icon" />
+                <img className="pull-center icon" src="./assets/img/icons/icon-2.png" alt="icon" />
                 <div className="info-col">
                   <h5>Medical Education</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                 </div>
               </div>
               <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                <img className="pull-center icon" src="assets/img/icons/icon-3.png" alt="icon" />
+                <img className="pull-center icon" src="./assets/img/icons/icon-3.png" alt="icon" />
                 <div className="info-col">
                   <h5>Symptom Check</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                 </div>
               </div>
               <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                <img className="pull-center icon" src="assets/img/icons/icon-4.png" alt="icon" />
+                <img className="pull-center icon" src="./assets/img/icons/icon-4.png" alt="icon" />
                 <div className="info-col">
                   <h5>Qualified Doctors</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>

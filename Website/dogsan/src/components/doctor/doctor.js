@@ -63,28 +63,28 @@ export default function doctor() {
               <div className="col-md-4">
                 <div className="row">
                   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                    <img className="pull-left icon" src="assets/img/icons/icon-1.png" alt="icon" />
+                    <img className="pull-left icon" src="./assets/img/icons/icon-1.png" alt="icon" />
                     <div className="info-col">
                       <h5>call center 24/7</h5>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                     </div>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                    <img className="pull-left icon" src="assets/img/icons/icon-5.png" alt="icon" />
+                    <img className="pull-left icon" src="./assets/img/icons/icon-5.png" alt="icon" />
                     <div className="info-col">
                       <h5>best specialist</h5>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                     </div>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                    <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
+                    <img className="pull-left icon" src="./assets/img/icons/icon-6.png" alt="icon" />
                     <div className="info-col">
                       <h5>modern clinic</h5>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                     </div>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                    <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
+                    <img className="pull-left icon" src="./assets/img/icons/icon-6.png" alt="icon" />
                     <div className="info-col">
                       <h5>modern clinic</h5>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>

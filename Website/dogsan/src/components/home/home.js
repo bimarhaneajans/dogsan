@@ -83,7 +83,7 @@ export default function home() {
                   </h6>
                 </div>
                 <div className="ls-slide" data-ls={{slidedelay:"9500",transition2d:"5",timeshift:"-1500"}}>
-                  <img src="assets/img/slider/slide2.jpg" className="ls-bg" alt="Slide background" />
+                  <img src="./assets/img/slider/slide2.jpg" className="ls-bg" alt="Slide background" />
                   <h6 className="ls-l" style={{
                       top:"310px",
                       left:"636px",

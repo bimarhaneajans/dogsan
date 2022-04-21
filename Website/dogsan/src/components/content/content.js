@@ -10,7 +10,7 @@ export default function content() {
             <div className="row">
               <div className="col-md-12">
                 <div className="col-md-6 no-padding">
-                  <img src="assets/img/team/1.png" className="img-responsive" alt="" />
+                  <img src="./assets/img/team/1.png" className="img-responsive" alt="" />
                 </div>
                 <div className="col-md-6 team-pop-info">
                   <button data-dismiss="modal" className="m-close"></button>
