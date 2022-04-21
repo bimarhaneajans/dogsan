@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
-import SuiAvatar from "components/SuiAvatar";
-import SuiBadge from "components/SuiBadge";
+import SuiBox from "../../../components/SuiBox";
+import SuiTypography from "../../../components/SuiTypography";
+import SuiAvatar from "../../../components/SuiAvatar";
+import SuiBadge from "../../../components/SuiBadge";
 
 // Images
-import team2 from "./assets/images/team-2.jpg";
-import team3 from "./assets/images/team-3.jpg";
-import team4 from "./assets/images/team-4.jpg";
+import team2 from "../../../assets/images/team-2.jpg";
+import team3 from "../../../assets/images/team-3.jpg";
+import team4 from "../../../assets/images/team-4.jpg";
 
 function Author({ image, name, email }) {
   return (

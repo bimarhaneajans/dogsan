@@ -19,32 +19,32 @@ import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
+import SuiBox from "../../components/SuiBox";
+import SuiTypography from "../../components/SuiTypography";
 
 // Soft UI Dashboard React examples
-import DashboardLayout from "./examples/LayoutContainers/DashboardLayout";
-import DashboardNavbar from "./examples/Navbars/DashboardNavbar";
-import Footer from "./examples/Footer";
-import MiniStatisticsCard from "./examples/Cards/StatisticsCards/MiniStatisticsCard";
-import ReportsBarChart from "./examples/Charts/BarCharts/ReportsBarChart";
-import GradientLineChart from "./examples/Charts/LineCharts/GradientLineChart";
+import DashboardLayout from "../../examples/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "../../examples/Navbars/DashboardNavbar";
+import Footer from "../../examples/Footer";
+import MiniStatisticsCard from "../../examples/Cards/StatisticsCards/MiniStatisticsCard";
+import ReportsBarChart from "../../examples/Charts/BarCharts/ReportsBarChart";
+import GradientLineChart from "../../examples/Charts/LineCharts/GradientLineChart";
 
 // Soft UI Dashboard React base styles
-import typography from "./assets/theme/base/typography";
+import typography from "../../assets/theme/base/typography";
 
 // RTL layout components
-import BuildByDevelopers from "./layouts/rtl/components/BuildByDevelopers";
-import WorkWithTheRockets from "./layouts/rtl/components/WorkWithTheRockets";
-import Projects from "./layouts/rtl/components/Projects";
-import OrderOverview from "./layouts/rtl/components/OrderOverview";
+import BuildByDevelopers from "../../layouts/rtl/components/BuildByDevelopers";
+import WorkWithTheRockets from "../../layouts/rtl/components/WorkWithTheRockets";
+import Projects from "../../layouts/rtl/components/Projects";
+import OrderOverview from "../../layouts/rtl/components/OrderOverview";
 
 // Data
-import reportsBarChartData from "./layouts/rtl/data/reportsBarChartData";
-import gradientLineChartData from "./layouts/rtl/data/gradientLineChartData";
+import reportsBarChartData from "../../layouts/rtl/data/reportsBarChartData";
+import gradientLineChartData from "../../layouts/rtl/data/gradientLineChartData";
 
 // Soft UI Dashboard React contexts
-import { useSoftUIController, setDirection } from "context";
+import { useSoftUIController, setDirection } from "../../context";
 
 function RTL() {
   const [, dispatch] = useSoftUIController();

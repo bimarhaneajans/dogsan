@@ -3,17 +3,17 @@
 import Icon from "@mui/material/Icon";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
-import SuiProgress from "components/SuiProgress";
+import SuiBox from "../../../components/SuiBox";
+import SuiTypography from "../../../components/SuiTypography";
+import SuiProgress from "../../../components/SuiProgress";
 
 // Images
-import logoSpotify from "./assets/images/small-logos/logo-spotify.svg";
-import logoInvesion from "./assets/images/small-logos/logo-invision.svg";
-import logoJira from "./assets/images/small-logos/logo-jira.svg";
-import logoSlack from "./assets/images/small-logos/logo-slack.svg";
-import logoWebDev from "./assets/images/small-logos/logo-webdev.svg";
-import logoXD from "./assets/images/small-logos/logo-xd.svg";
+import logoSpotify from "../../../assets/images/small-logos/logo-spotify.svg";
+import logoInvesion from "../../../assets/images/small-logos/logo-invision.svg";
+import logoJira from "../../../assets/images/small-logos/logo-jira.svg";
+import logoSlack from "../../../assets/images/small-logos/logo-slack.svg";
+import logoWebDev from "../../../assets/images/small-logos/logo-webdev.svg";
+import logoXD from "../../../assets/images/small-logos/logo-xd.svg";
 
 function Completion({ value, color }) {
   return (
