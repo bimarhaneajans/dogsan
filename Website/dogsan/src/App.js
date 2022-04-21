@@ -13,6 +13,7 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 
+
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
 
@@ -70,7 +71,8 @@ class App extends Component {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
     return (
-      <Router history={history}>
+
+       <Router history={history}>
         <div>
           <nav className="navbar navbar-expand navbar-dark bg-dark">
             <Link to={"/"} className="navbar-brand">
@@ -152,7 +154,7 @@ class App extends Component {
 
           {/* <AuthVerify logOut={this.logOut}/> */}
         </div>
-      </Router>
+      </Router> 
     );
   }
 }

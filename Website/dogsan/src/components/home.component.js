@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
+import Header from "../components/header/header";
 
 export default class Home extends Component {
   constructor(props) {
@@ -32,9 +33,10 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-        </header>
+      {/*   <header className="jumbotron">
+           <h3>{this.state.content}</h3> 
+        </header> */} 
+        <Header/>
       </div>
     );
   }
