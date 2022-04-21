@@ -1,17 +1,4 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
+ 
 
 import { useState, useEffect } from "react";
 
@@ -23,24 +10,24 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
-import SuiAvatar from "components/SuiAvatar";
+import SuiBox from "../../../../components/SuiBox";
+import SuiTypography from "../../../../components/SuiTypography";
+import SuiAvatar from "../../../../components/SuiAvatar";
 
 // Soft UI Dashboard React examples
-import DashboardNavbar from "./examples/Navbars/DashboardNavbar";
+import DashboardNavbar from "../../../../examples/Navbars/DashboardNavbar";
 
 // Soft UI Dashboard React icons
-import Cube from "./examples/Icons/Cube";
-import Document from "./examples/Icons/Document";
-import Settings from "./examples/Icons/Settings";
+import Cube from "../../../../examples/Icons/Cube";
+import Document from "../../../../examples/Icons/Document";
+import Settings from "../../../../examples/Icons/Settings";
 
 // Soft UI Dashboard React base styles
-import breakpoints from "./assets/theme/base/breakpoints";
+import breakpoints from "../../../../assets/theme/base/breakpoints";
 
 // Images
-import burceMars from "./assets/images/bruce-mars.jpg";
-import curved0 from "./assets/images/curved-images/curved0.jpg";
+import burceMars from "../../../../assets/images/bruce-mars.jpg";
+import curved0 from "../../../../assets/images/curved-images/curved0.jpg";
 
 function Header() {
   const [tabsOrientation, setTabsOrientation] = useState("horizontal");
