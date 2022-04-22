@@ -78,7 +78,7 @@ const setOpenConfigurator = (dispatch, value) => dispatch({ type: "OPEN_CONFIGUR
 const setDirection = (dispatch, value) => dispatch({ type: "DIRECTION", value });
 const setLayout = (dispatch, value) => dispatch({ type: "LAYOUT", value });
 
-export default {
+export {
   SoftUIControllerProvider,
   useSoftUIController,
   setMiniSidenav,
