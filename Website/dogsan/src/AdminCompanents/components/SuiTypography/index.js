@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 // Custom styles for SuiTypography
-import SuiTypographyRoot from "components/SuiTypography/SuiTypographyRoot";
+import SuiTypographyRoot from "./SuiTypographyRoot";
 
 const SuiTypography = forwardRef(
   (

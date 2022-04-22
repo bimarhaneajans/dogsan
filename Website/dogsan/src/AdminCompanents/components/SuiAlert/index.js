@@ -1,17 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { useState } from "react";
 
@@ -22,11 +8,11 @@ import PropTypes from "prop-types";
 import Fade from "@mui/material/Fade";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
+import SuiBox from "../SuiBox";
 
 // Custom styles for the SuiAlert
-import SuiAlertRoot from "components/SuiAlert/SuiAlertRoot";
-import SuiAlertCloseIcon from "components/SuiAlert/SuiAlertCloseIcon";
+import SuiAlertRoot from "../SuiAlert/SuiAlertRoot";
+import SuiAlertCloseIcon from "../SuiAlert/SuiAlertCloseIcon";
 
 function SuiAlert({ color, dismissible, children, ...rest }) {
   const [alertStatus, setAlertStatus] = useState("mount");

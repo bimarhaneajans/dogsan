@@ -1,17 +1,4 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { forwardRef } from "react";
 
@@ -19,10 +6,10 @@ import { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 // Soft UI Dashboard React components
-import SuiTypography from "components/SuiTypography";
+import SuiTypography from "../SuiTypography";
 
 // Custom styles for SuiProgress
-import SuiProgressRoot from "components/SuiProgress/SuiProgressRoot";
+import SuiProgressRoot from "./SuiProgressRoot";
 
 const SuiProgress = forwardRef(({ variant, color, value, label, ...rest }, ref) => (
   <>

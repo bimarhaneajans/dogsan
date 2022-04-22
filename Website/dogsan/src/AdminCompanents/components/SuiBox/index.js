@@ -6,7 +6,7 @@ import { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 // Custom styles for SuiBox
-import SuiBoxRoot from "components/SuiBox/SuiBoxRoot";
+import SuiBoxRoot from "../SuiBox/SuiBoxRoot";
 
 const SuiBox = forwardRef(
   ({ variant, bgColor, color, opacity, borderRadius, shadow, ...rest }, ref) => (

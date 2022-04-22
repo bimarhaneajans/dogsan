@@ -14,11 +14,11 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React base styles
-import borders from "./assets/s/s/s/s/theme/base/borders";
-import colors from "./assets/s/s/s/s/theme/base/colors";
+import borders from "../../base/borders";
+import colors from "../../base/colors";
 
 // Soft UI Dashboard React helper functions
-import pxToRem from "./assets/s/s/s/s/theme/functions/pxToRem";
+import pxToRem from "../../functions/pxToRem";
 
 const { borderWidth } = borders;
 const { light } = colors;

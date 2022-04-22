@@ -1,17 +1,4 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { useState } from "react";
 
@@ -22,14 +9,14 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
+import SuiBox from "../../../../components/SuiBox";
+import SuiTypography from "../../../../components/SuiTypography";
 
 // Soft UI Dashboard Materail-UI example components
-import Table from "./examples/Tables/Table";
+import Table from "../../../../examples/Tables/Table";
 
 // Data
-import data from "./layouts/dashboard/components/Projects/data";
+import data from "../../../../layouts/dashboard/components/Projects/data";
 
 function Projects() {
   const { columns, rows } = data();

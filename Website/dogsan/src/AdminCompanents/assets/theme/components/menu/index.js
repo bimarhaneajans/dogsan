@@ -1,26 +1,12 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-pro-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 // Soft UI Dashboard React base styles
-import boxShadows from "./assets/s/theme/base/boxShadows";
-import typography from "./assets/s/theme/base/typography";
-import colors from "./assets/s/theme/base/colors";
-import borders from "./assets/s/theme/base/borders";
+import boxShadows from "../../base/boxShadows";
+import typography from "../../base/typography";
+import colors from "../../base/colors";
+import borders from "../../base/borders";
 
 // Soft UI Dashboard React helper functions
-import pxToRem from "./assets/s/theme/functions/pxToRem";
+import pxToRem from "../../functions/pxToRem";
 
 const { lg } = boxShadows;
 const { size } = typography;

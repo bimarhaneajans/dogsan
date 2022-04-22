@@ -1,5 +1,5 @@
 // Images
-import backgroundImage from "./assets/images/curved-images/white-curved.jpeg";
+import backgroundImage from "../../../assets/images/curved-images/white-curved.jpeg";
 
 function card(theme, ownerState) {
   const { borders, functions, transitions, breakpoints } = theme;

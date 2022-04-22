@@ -1,28 +1,14 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 // @mui material components
 import Card from "@mui/material/Card";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
-import SuiButton from "components/SuiButton";
+import SuiBox from "../../../../components/SuiBox";
+import SuiTypography from "../../../../components/SuiTypography";
+import SuiButton from "../../../../components/SuiButton";
 
 // Billing page components
-import Invoice from "./layouts/billing/components/Invoice";
+import Invoice from "../../../../layouts/billing/components/Invoice";
 
 function Invoices() {
   return (

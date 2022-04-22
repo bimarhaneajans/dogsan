@@ -1,17 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
@@ -20,18 +6,18 @@ import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
+import SuiBox from "../../../../components/SuiBox";
+import SuiTypography from "../../../../components/SuiTypography";
 
 // Soft UI Dashboard React examples
-import DefaultNavbar from "./examples/Navbars/DefaultNavbar";
-import PageLayout from "./examples/LayoutContainers/PageLayout";
+import DefaultNavbar from "../../../../examples/Navbars/DefaultNavbar";
+import PageLayout from "../../../../examples/LayoutContainers/PageLayout";
 
 // Soft UI Dashboard React page layout routes
 import pageRoutes from "page.routes";
 
 // Images
-import pattern from "./assets/images/shapes/pattern-lines.svg";
+import pattern from "../../../../assets/images/shapes/pattern-lines.svg";
 
 function IllustrationLayout({ color, header, title, description, illustration, children }) {
   return (

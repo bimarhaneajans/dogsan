@@ -14,8 +14,8 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React base styles
-import borders from "./assets/s/theme/base/borders";
-import colors from "./assets/s/theme/base/colors";
+import borders from "../../base/borders";
+import colors from "../../base/colors";
 
 const { dark } = colors;
 const { borderWidth, borderColor } = borders;

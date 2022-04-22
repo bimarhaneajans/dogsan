@@ -14,7 +14,7 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React base styles
-import colors from "./assets/s/s/theme/base/colors";
+import colors from "../../base/colors";
 
 const { dark } = colors;
 

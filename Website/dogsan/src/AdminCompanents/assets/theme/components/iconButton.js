@@ -14,7 +14,7 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React Base Styles
-import colors from "./assets/theme/base/colors";
+import colors from "../base/colors";
 
 const { transparent } = colors;
 

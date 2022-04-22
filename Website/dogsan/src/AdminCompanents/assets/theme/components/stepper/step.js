@@ -14,7 +14,7 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React helper functions
-import pxToRem from "./assets/s/s/s/s/theme/functions/pxToRem";
+import pxToRem from "../../functions/pxToRem";
 
 const step = {
   styleOverrides: {

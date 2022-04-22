@@ -1,17 +1,4 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { forwardRef } from "react";
 
@@ -23,11 +10,11 @@ import MenuItem from "@mui/material/MenuItem";
 import Icon from "@mui/material/Icon";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
+import SuiBox from "../../../components/SuiBox";
+import SuiTypography from "../../../components/SuiTypography";
 
 // custom styles for the NotificationItem
-import { menuItem, menuImage } from "./examples/Items/NotificationItem/styles";
+import { menuItem, menuImage } from "../../../examples/Items/NotificationItem/styles";
 
 const NotificationItem = forwardRef(({ color, image, title, date, ...rest }, ref) => (
   <MenuItem {...rest} ref={ref} sx={(theme) => menuItem(theme)}>

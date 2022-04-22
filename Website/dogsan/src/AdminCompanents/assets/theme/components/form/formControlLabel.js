@@ -14,11 +14,11 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React base styles
-import colors from "./assets/s/s/s/theme/base/colors";
-import typography from "./assets/s/s/s/theme/base/typography";
+import colors from "../../base/colors";
+import typography from "../../base/typography";
 
 // Soft UI Dashboard React helper functions
-import pxToRem from "./assets/s/s/s/theme/functions/pxToRem";
+import pxToRem from "../../functions/pxToRem";
 
 const { dark } = colors;
 const { size, fontWeightBold } = typography;

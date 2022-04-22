@@ -11,9 +11,9 @@ import Card from "@mui/material/Card";
 import MuiLink from "@mui/material/Link";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
-import SuiAvatar from "components/SuiAvatar";
+import SuiBox from "../../../../components/SuiBox";
+import SuiTypography from "../../../../components/SuiTypography";
+import SuiAvatar from "../../../../components/SuiAvatar";
 
 function DefaultBlogCard({ image, category, title, description, author, action }) {
   return (

@@ -1,8 +1,8 @@
  
-import colors from "./assets/theme/base/colors";
+import colors from "../base/colors";
 
 // Soft UI Dashboard React Helper Functions
-import pxToRem from "./assets/theme/functions/pxToRem";
+import pxToRem from "../functions/pxToRem";
 
 const { grey } = colors;
 

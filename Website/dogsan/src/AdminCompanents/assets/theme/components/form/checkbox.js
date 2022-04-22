@@ -14,12 +14,12 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React base styles
-import borders from "./assets/s/s/s/theme/base/borders";
-import colors from "./assets/s/s/s/theme/base/colors";
+import borders from "../../base/borders";
+import colors from "../../base/colors";
 
 // Soft UI Dashboard React helper functions
-import pxToRem from "./assets/s/s/s/theme/functions/pxToRem";
-import linearGradient from "./assets/s/s/s/theme/functions/linearGradient";
+import pxToRem from "../../functions/pxToRem";
+import linearGradient from "../../functions/linearGradient";
 
 const { borderWidth, borderColor } = borders;
 const { transparent, gradients, info } = colors;

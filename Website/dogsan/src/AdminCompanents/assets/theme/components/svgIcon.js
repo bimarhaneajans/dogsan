@@ -14,7 +14,7 @@ Coded by www.creative-tim.com
 */
 
 // Soft UI Dashboard React helper functions
-import pxToRem from "./assets/theme/functions/pxToRem";
+import pxToRem from "../functions/pxToRem";
 
 const svgIcon = {
   defaultProps: {
