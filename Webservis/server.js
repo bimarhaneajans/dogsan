@@ -10,7 +10,8 @@ const app = express();
 
 var corsOptions = {
 //  origin: "http://localhost:8081" // websäte
-origin: "https://dogsan.madilink.com" // websäte
+//origin: "https://dogsan.madilink.com" // websäte
+ origin: "*" // websäte
 };
 
 app.use(cors(corsOptions));
