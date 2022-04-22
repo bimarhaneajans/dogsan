@@ -16,6 +16,7 @@
     "cors": "^2.8.5",
     "csurf": "^1.11.0",
     "dotenv": "^9.0.2",
+    "env": "^0.0.2",
     "express": "^4.17.3",
     "express-rate-limit": "^6.3.0",
     "express-session": "^1.17.2",
