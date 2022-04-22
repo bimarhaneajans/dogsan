@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 
 // react-router-dom components
@@ -18,7 +16,7 @@ import Footer from "../../../../examples/Footer";
 import Sidenav from "../../../../examples/Sidenav";
 
 // Soft UI Dashboard React context
-import { useSoftUIController, setMiniSidenav, setLayout, setTransparentSidenav } from "../../../../context";
+import { useSoftUIController, setMiniSidenav, setLayout, setTransparentSidenav } from "../../../../../reducers/adminreducer";
 
 // Soft UI Dashboard React routes
 import routes from "../../../../routes";

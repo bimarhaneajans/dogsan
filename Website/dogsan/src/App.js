@@ -12,6 +12,8 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import testAdmin from "./AdminCompanents/App";
+
 
 
 import { logout } from "./actions/auth";
@@ -142,7 +144,7 @@ class App extends Component {
 
           <div className="container mt-3">
             <Switch>
-              <Route exact path={["/", "/home"]} component={Home} />
+              <Route exact path={["/", "/home"]} component={testAdmin} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profile" component={Profile} />

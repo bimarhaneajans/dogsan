@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 import SuiBox from "../../../components/SuiBox";
 
 // Soft UI Dashboard React context
-import { useSoftUIController, setLayout } from "../../../context";
+import { useSoftUIController, setLayout } from "../../../../reducers/adminreducer";
 
 function DashboardLayout({ children }) {
   const [controller, dispatch] = useSoftUIController();

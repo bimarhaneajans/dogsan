@@ -12,7 +12,7 @@ import SuiInputIconBoxRoot from "../SuiInput/SuiInputIconBoxRoot";
 import SuiInputIconRoot from "../SuiInput/SuiInputIconRoot";
 
 // Soft UI Dashboard React contexts
-import { useSoftUIController } from "../../context";
+import { useSoftUIController } from "../../../reducers/adminreducer";
 
 const SuiInput = forwardRef(({ size, icon, error, success, disabled, ...rest }, ref) => {
   let template;

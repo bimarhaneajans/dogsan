@@ -1,7 +1,6 @@
- 
-
 import { createContext, useContext, useReducer, useMemo } from "react"; 
 import PropTypes from "prop-types"; 
+
 const SoftUI = createContext(null);
 
 SoftUI.displayName = "SoftUIContext";

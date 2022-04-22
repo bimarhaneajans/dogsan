@@ -28,7 +28,7 @@ import SidenavRoot from "../../examples/Sidenav/SidenavRoot";
 import sidenavLogoLabel from "../../examples/Sidenav/styles/sidenav";
 
 // Soft UI Dashboard React context
-import { useSoftUIController, setMiniSidenav } from "../../context";
+import { useSoftUIController, setMiniSidenav } from "../../../reducers/adminreducer";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const [controller, dispatch] = useSoftUIController();

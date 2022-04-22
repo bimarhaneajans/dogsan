@@ -38,7 +38,7 @@ import {
   setTransparentNavbar,
   setMiniSidenav,
   setOpenConfigurator,
-} from "../../../context";
+} from "../../../../reducers/adminreducer";
 
 // Images
 import team2 from "../../../assets/images/team-2.jpg";

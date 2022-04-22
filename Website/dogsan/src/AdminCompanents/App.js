@@ -1,15 +1,12 @@
  
 import { useState, useEffect, useMemo } from "react";
-
-// react-router components
+ 
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-
-// @mui material components
+ 
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
-
-// Soft UI Dashboard React components
+ 
 import SuiBox from "./components/SuiBox";
 
  import Sidenav from "././examples/Sidenav";
@@ -22,12 +19,11 @@ import themeRTL from "./assets/theme/theme-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
- import routes from "../AdminCompanents/routes";
+ import routes from "../AdminCompanents/routes"; 
 
-// Soft UI Dashboard React contexts
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "../reducers/adminreducer";
 
-// Images
+ 
 import brand from "./assets/images/logo-ct.png";
 
 export default function App() {

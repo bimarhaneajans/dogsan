@@ -31,7 +31,7 @@ import {
   setTransparentSidenav,
   setFixedNavbar,
   setSidenavColor,
-} from "../../context";
+} from "../../../reducers/adminreducer";
 
 function Configurator() {
   const [controller, dispatch] = useSoftUIController();
