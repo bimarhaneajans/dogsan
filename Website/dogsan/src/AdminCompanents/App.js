@@ -22,7 +22,7 @@ import themeRTL from "./assets/theme/theme-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
- import routes from "./routes";
+ import routes from "../AdminCompanents/routes";
 
 // Soft UI Dashboard React contexts
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "./context";

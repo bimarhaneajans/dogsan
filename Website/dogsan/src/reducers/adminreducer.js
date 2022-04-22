@@ -1,17 +1,11 @@
  
 
-import { createContext, useContext, useReducer, useMemo } from "react";
-
-// prop-types is a library for typechecking of props
-import PropTypes from "prop-types";
-
-// The Soft UI Dashboard PRO Material main context
+import { createContext, useContext, useReducer, useMemo } from "react"; 
+import PropTypes from "prop-types"; 
 const SoftUI = createContext(null);
 
-// Setting custom name for the context which is visible on react dev tools
 SoftUI.displayName = "SoftUIContext";
 
-// Soft UI Dashboard React reducer
 function reducer(state, action) {
   switch (action.type) {
     case "MINI_SIDENAV": {
@@ -44,8 +38,7 @@ function reducer(state, action) {
   }
 }
 
-// Soft UI Dashboard React context provider
-function SoftUIControllerProvider({ children }) {
+ function SoftUIControllerProvider({ children }) {
   const initialState = {
     miniSidenav: false,
     transparentSidenav: true,
@@ -63,8 +56,7 @@ function SoftUIControllerProvider({ children }) {
 
   return <SoftUI.Provider value={value}>{children}</SoftUI.Provider>;
 }
-
-// Soft UI Dashboard React custom hook for using context
+ 
 function useSoftUIController() {
   const context = useContext(SoftUI);
 
@@ -74,13 +66,10 @@ function useSoftUIController() {
 
   return context;
 }
-
-// Typechecking props for the SoftUIControllerProvider
+ 
 SoftUIControllerProvider.propTypes = {
   children: PropTypes.node.isRequired,
-};
-
-// Context module functions
+}; 
 const setMiniSidenav = (dispatch, value) => dispatch({ type: "MINI_SIDENAV", value });
 const setTransparentSidenav = (dispatch, value) => dispatch({ type: "TRANSPARENT_SIDENAV", value });
 const setSidenavColor = (dispatch, value) => dispatch({ type: "SIDENAV_COLOR", value });
@@ -90,7 +79,7 @@ const setOpenConfigurator = (dispatch, value) => dispatch({ type: "OPEN_CONFIGUR
 const setDirection = (dispatch, value) => dispatch({ type: "DIRECTION", value });
 const setLayout = (dispatch, value) => dispatch({ type: "LAYOUT", value });
 
-export {
+export default {
   SoftUIControllerProvider,
   useSoftUIController,
   setMiniSidenav,
