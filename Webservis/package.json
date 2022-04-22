@@ -17,7 +17,7 @@
     "csurf": "^1.11.0",
     "dotenv": "^9.0.2",
     "express": "^4.17.3",
-     "express-rate-limit": "^6.3.0",
+    "express-rate-limit": "^6.3.0",
     "express-session": "^1.17.2",
     "gridfs-stream": "^1.1.1",
     "helmet": "^5.0.2",
@@ -35,6 +35,7 @@
     "xss-filters": "^1.2.7"
   },
   "devDependencies": {
+    "node-env-run": "^4.0.2",
     "nodemon": "^2.0.15"
   }
 }

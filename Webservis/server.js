@@ -43,6 +43,17 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to dogsan application." });
 });
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS') {
+    res.send(200);
+  } else {
+    next();
+  }
+});
+
 // routes
 require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
