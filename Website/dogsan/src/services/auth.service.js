@@ -1,40 +1,39 @@
 import axios from "axios";
-  const API_URL = "https://bavrim.madilink.net/api/auth/";
- 
-class AuthService {
-  login(username, password) {
-    return axios
-      .post(API_URL + "signin", {
-        username,
-        password
-      })
-      .then(response => {
-        if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
 
-        return response.data;
-      });
-  }
+const API_URL = "https://bavrim.madilink.net/api/auth/";
 
-  logout() {
-    localStorage.removeItem("user");
-  }
+const register = (username, email, password) => {
+  return axios.post(API_URL + "signup", {
+    username,
+    email,
+    password,
+  });
+};
 
-  register(username, email, password) {
-    return axios.post(API_URL + "signup", {
+const login = (username, password) => {
+  return axios
+    .post(API_URL + "signin", {
       username,
-      email,
-      password
+      password,
+    })
+    .then((response) => {
+      if (response.data.accessToken) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+
+      return response.data;
     });
-  }
+};
 
-  getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
-  }
-}
+const logout = () => {
+  localStorage.removeItem("user");
+};
 
-export default new AuthService();
+export default {
+  register,
+  login,
+  logout,
+};
 
 //8080 dedigi webservis 
-//8081 websesite
+//8081 websesite 
