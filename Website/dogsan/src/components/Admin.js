@@ -9,14 +9,14 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 
 // Soft UI Dashboard React components
-import SuiBox from "components/SuiBox";
+import SuiBox from "./SuiBox";
 
 // Soft UI Dashboard React examples
-import Sidenav from "examples/Sidenav";
+import Sidenav from "./examples/Sidenav";
 import Configurator from "examples/Configurator";
 
 // Soft UI Dashboard React themes
-import theme from "assets/theme";
+import theme from "../assets/theme";
 import themeRTL from "assets/theme/theme-rtl";
 
 // RTL plugins
