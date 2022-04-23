@@ -1,8 +1,5 @@
 import axios from "axios";
- //const API_URL = "https://46.4.116.218:3000/api/auth/";
- const API_URL = "https://bavrim.madilink.net/api/auth/";
-
-//https://46.4.116.218:3000/api/test/
+  const API_URL = "https://bavrim.madilink.net/api/auth/";
  
 class AuthService {
   login(username, password) {
