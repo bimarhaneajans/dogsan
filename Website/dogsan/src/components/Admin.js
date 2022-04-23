@@ -25,7 +25,7 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
 // Soft UI Dashboard React routes
-import routes from "routes";
+import routes from "./routes";
 
 // Images
 import brand from "assets/images/logo-ct.png";
