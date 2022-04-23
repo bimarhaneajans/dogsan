@@ -7,7 +7,7 @@ import "./App.css";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Home from "./components/Admin";
+import Home from "./components/adminindex";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
