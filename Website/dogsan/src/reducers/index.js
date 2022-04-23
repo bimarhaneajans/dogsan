@@ -7,5 +7,5 @@ import adminreducer from "./adminreducer";
 export default combineReducers({
   auth,
   message,
-  adminreducer
+  //adminreducer
 });
