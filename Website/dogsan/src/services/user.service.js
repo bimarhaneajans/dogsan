@@ -4,15 +4,7 @@ import authHeader from "./auth-header";
 const API_URL = "https://bavrim.madilink.net/api/test/";
 
 class UserService {
-/*   getPublicContent() {
-    const axios = require('axios');
-    let config = {
-      method: 'get',
-      url: 'https://bavrim.madilink.net/api/test/all',
-      headers: {"Access-Control-Allow-Origin": "*"}
-    };
-    return axios(config);
-  } */
+
   getPublicContent() {
     return axios.get(API_URL + 'all');
   }
