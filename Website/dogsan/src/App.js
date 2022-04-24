@@ -1,18 +1,23 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Router, Switch, Route, Link } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import BoardUser from "./components/";
+import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
+
 import { history } from "./helpers/history";
+
 // import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
 
