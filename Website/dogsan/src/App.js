@@ -7,7 +7,7 @@ import "./App.css";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Home from "./components/adminindex";
+import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
@@ -61,7 +61,7 @@ const App = () => {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            Dogsan
+            bezKoder
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">

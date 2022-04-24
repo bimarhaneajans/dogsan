@@ -1,3 +1,18 @@
+/**
+=========================================================
+* Soft UI Dashboard React - v3.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
 import { useState } from "react";
 
 // react-router-dom components
@@ -21,29 +36,10 @@ import Separator from "layouts/authentication/components/Separator";
 // Images
 import curved6 from "assets/images/curved-images/curved14.jpg";
 
-import { register } from "service/auth";
-
 function SignUp() {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    email: "",
-  });
-
   const [agreement, setAgremment] = useState(true);
 
   const handleSetAgremment = () => setAgremment(!agreement);
-
-  const onChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleRegister = () => {
-    const response = register(formData);
-  };
 
   return (
     <BasicLayout
@@ -64,18 +60,13 @@ function SignUp() {
         <SuiBox pt={2} pb={3} px={3}>
           <SuiBox component="form" role="form">
             <SuiBox mb={2}>
-              <SuiInput placeholder="Username" name="username" onChange={onChange} />
+              <SuiInput placeholder="Name" />
             </SuiBox>
             <SuiBox mb={2}>
-              <SuiInput type="email" placeholder="Email" name="email" onChange={onChange} />
+              <SuiInput type="email" placeholder="Email" />
             </SuiBox>
             <SuiBox mb={2}>
-              <SuiInput
-                type="password"
-                placeholder="Password"
-                name="password"
-                onChange={onChange}
-              />
+              <SuiInput type="password" placeholder="Password" />
             </SuiBox>
             <SuiBox display="flex" alignItems="center">
               <Checkbox checked={agreement} onChange={handleSetAgremment} />
@@ -92,7 +83,7 @@ function SignUp() {
               </SuiTypography>
             </SuiBox>
             <SuiBox mt={4} mb={1}>
-              <SuiButton variant="gradient" color="dark" fullWidth onClick={handleRegister}>
+              <SuiButton variant="gradient" color="dark" fullWidth>
                 sign up
               </SuiButton>
             </SuiBox>
@@ -101,7 +92,7 @@ function SignUp() {
                 Already have an account?&nbsp;
                 <SuiTypography
                   component={Link}
-                  to="/login"
+                  to="/authentication/sign-in"
                   variant="button"
                   color="dark"
                   fontWeight="bold"

@@ -1,40 +1,42 @@
+/**
+=========================================================
+* Soft UI Dashboard React - v3.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
 import { useState } from "react";
+
+// react-router-dom components
 import { Link } from "react-router-dom";
+
+// @mui material components
 import Switch from "@mui/material/Switch";
+
+// Soft UI Dashboard React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiInput from "components/SuiInput";
 import SuiButton from "components/SuiButton";
+
+// Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
+
+// Images
 import curved9 from "assets/images/curved-images/curved-6.jpg";
-import { login } from "service/auth";
-import { LOGIN_SUCCESS } from "redux/actions/types";
-import { useDispatch } from "react-redux";
 
 function SignIn() {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-  });
-
-  const dispatch = useDispatch();
-
   const [rememberMe, setRememberMe] = useState(true);
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
-
-  const onChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleLogin = () => {
-    const response = login(formData);
-
-    dispatch({ type: LOGIN_SUCCESS, payload: response });
-  };
 
   return (
     <CoverLayout
@@ -49,7 +51,7 @@ function SignIn() {
               Email
             </SuiTypography>
           </SuiBox>
-          <SuiInput type="email" placeholder="Email" onChange={onChange} name="username" />
+          <SuiInput type="email" placeholder="Email" />
         </SuiBox>
         <SuiBox mb={2}>
           <SuiBox mb={1} ml={0.5}>
@@ -57,7 +59,7 @@ function SignIn() {
               Password
             </SuiTypography>
           </SuiBox>
-          <SuiInput type="password" placeholder="Password" onChange={onChange} name="password" />
+          <SuiInput type="password" placeholder="Password" />
         </SuiBox>
         <SuiBox display="flex" alignItems="center">
           <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -71,7 +73,7 @@ function SignIn() {
           </SuiTypography>
         </SuiBox>
         <SuiBox mt={4} mb={1}>
-          <SuiButton variant="gradient" color="info" fullWidth onClick={handleLogin}>
+          <SuiButton variant="gradient" color="info" fullWidth>
             sign in
           </SuiButton>
         </SuiBox>
@@ -80,7 +82,7 @@ function SignIn() {
             Don&apos;t have an account?{" "}
             <SuiTypography
               component={Link}
-              to="/register"
+              to="/authentication/sign-up"
               variant="button"
               color="info"
               fontWeight="medium"
