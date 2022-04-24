@@ -48,7 +48,7 @@ const vpassword = (value) => {
   }
 };
 
-const Register = () => {
+function Register  ()  {
   const form = useRef();
   const checkBtn = useRef();
 

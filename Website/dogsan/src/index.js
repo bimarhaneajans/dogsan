@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import store, { persistor } from "./store";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Home from "./layouts/dashboard";
+import Home from "./components/Home";
+
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";

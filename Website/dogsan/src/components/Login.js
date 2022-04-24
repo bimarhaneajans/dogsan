@@ -31,13 +31,13 @@ function Login(props) {
   const dispatch = useDispatch();
 
   const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+    const usernames = e.target.value;
+    setUsername(usernames);
   };
 
   const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
+    const passwords = e.target.value;
+    setPassword(passwords);
   };
 
   const handleLogin = (e) => {

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://bavrim.madilink.net/api/auth/";
 
-const register = (username, email, password) => {
+function register  (username, email, password)  {
   return axios.post(API_URL + "signup", {
     username,
     email,
@@ -10,7 +10,7 @@ const register = (username, email, password) => {
   });
 };
 
-const login = (username, password) => {
+function login  (username, password)  {
   return axios
     .post(API_URL + "signin", {
       username,
@@ -25,7 +25,7 @@ const login = (username, password) => {
     });
 };
 
-const logout = () => {
+function logout  ()   {
   localStorage.removeItem("user");
 };
 
