@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/soft-ui-dashboard-react/static/css/main.aa1c068d.css",
+    "main.js": "/soft-ui-dashboard-react/static/js/main.1713205f.js",
+    "index.html": "/soft-ui-dashboard-react/index.html",
+    "main.aa1c068d.css.map": "/soft-ui-dashboard-react/static/css/main.aa1c068d.css.map",
+    "main.1713205f.js.map": "/soft-ui-dashboard-react/static/js/main.1713205f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa1c068d.css",
+    "static/js/main.1713205f.js"
+  ]
+}
