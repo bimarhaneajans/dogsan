@@ -7,6 +7,7 @@ module.exports = mongoose => {
       telefon: String,
       enlem: String,
       boylam: String,
+      
       img:
       {
         data: Buffer,
