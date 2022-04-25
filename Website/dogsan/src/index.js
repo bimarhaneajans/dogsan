@@ -12,6 +12,8 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+import Kataloglar from "./components/kataloglar/kataloglar";
+import Kvc from "./components/kvc/kvc";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,6 +25,9 @@ ReactDOM.render(
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/Kvc" element={<Kvc />} />
+
+          <Route path="/Kataloglar" element={<Kataloglar />} />
           <Route path="/user" element={<BoardUser />} />
           <Route path="/mod" element={<BoardModerator />} />
           <Route path="/admin" element={<BoardAdmin />} />

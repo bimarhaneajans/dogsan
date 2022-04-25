@@ -359,6 +359,14 @@
 	top: 1156px;
 	overflow: visible;
 }
+#LGN_CARD {
+	position: absolute;
+	width: 246px;
+	height: 56px;
+	left: 837px;
+	top: 1156px;
+	overflow: visible;
+}
 #DUYURULAR {
 	left: 0px;
 	top: 0px;
@@ -1129,7 +1137,7 @@
 	font-style: normal;
 	font-weight: bold;
 	font-size: 15px;
-	color: rgba(0,129,195,1);
+	color: rgba(0,0,0,1);
 }
 #KATALOGLAR {
 	left: 568px;
@@ -1189,6 +1197,21 @@
 }
 #LETM {
 	left: 1398px;
+	top: 97px;
+	position: absolute;
+	overflow: visible;
+	width: 65px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 15px;
+	color: rgba(0,0,0,1);
+}
+
+#LGN {
+	left: 1490px;
 	top: 97px;
 	position: absolute;
 	overflow: visible;
