@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-
+import "../css/styles.css"
 import { login } from "../actions/auth";
 
 const required = (value) => {
@@ -66,6 +66,7 @@ function Login(props) {
   }
 
   return (
+ 
     <div className="col-md-12">
       <div className="card card-container">
         <img
@@ -73,10 +74,11 @@ function Login(props) {
           alt="profile-img"
           className="profile-img-card"
         />
-
+        
         <Form onSubmit={handleLogin} ref={form}>
-          <div className="form-group">
+        <div className="input-container">
             <label htmlFor="username">Username</label>
+            
             <Input
               type="text"
               className="form-control"
@@ -87,7 +89,7 @@ function Login(props) {
             />
           </div>
 
-          <div className="form-group">
+          <div className="input-container">
             <label htmlFor="password">Password</label>
             <Input
               type="password"
@@ -104,6 +106,7 @@ function Login(props) {
               {loading && <span className="spinner-border spinner-border-sm"></span>}
               <span>Login</span>
             </button>
+            <input type="submit" />
           </div>
 
           {message && (
@@ -117,6 +120,7 @@ function Login(props) {
         </Form>
       </div>
     </div>
+   
   );
 }
 
