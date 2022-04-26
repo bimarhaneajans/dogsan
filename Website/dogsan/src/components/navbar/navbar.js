@@ -8,7 +8,7 @@ export default function navbar() {
             <div className="row">
             <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4 pull-left">
 						<div class="main-logo">
-							<a href="index.html"><img src="./assets/img/logo/heartify-logo.png" alt="Heartify" /><span>HEARTIFY</span></a>
+							<a href="index.html"><img src="./assets/img/logo/heartify-logo.png" alt="Heartify" /></a>
 						</div>
 					</div>
                 <div className="col-xs-4 col-sm-8 col-md-8 col-lg-8">
