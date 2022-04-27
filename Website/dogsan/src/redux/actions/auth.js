@@ -7,7 +7,7 @@ import {
   SET_MESSAGE,
 } from "./types";
 
-import AuthService from "../../redux/store";
+import AuthService from "../../store";
 
 export const register = (username, email, password) => (dispatch) => {
   return AuthService.register(username, email, password).then(

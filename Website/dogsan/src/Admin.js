@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 
 // react-router components
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, Link } from "react-router-dom";
 
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
@@ -27,17 +27,24 @@ import createCache from "@emotion/cache";
 // Soft UI Dashboard React routes
 import routes from "routes";
 
-// Soft UI Dashboard React contexts
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
-
 // Images
 import brand from "assets/images/logo-ct.png";
 
+import { useSelector, useDispatch } from "react-redux";
+import { MINI_SIDENAV } from "redux/actions/types";
+import { OPEN_CONFIGURATOR } from "redux/actions/types";
+
 export default function App() {
-  const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const dispatch = useDispatch();
+
+  const state = useSelector((state) => state.admin);
+
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = state;
+
   const [onMouseEnter, setOnMouseEnter] = useState(false);
+
   const [rtlCache, setRtlCache] = useState(null);
+
   const { pathname } = useLocation();
 
   // Cache for the rtl
@@ -50,10 +57,15 @@ export default function App() {
     setRtlCache(cacheRtl);
   }, []);
 
+  const handleMiniSideNav = (value) => {
+    console.log("GİRİSAd", value);
+    dispatch({ type: MINI_SIDENAV, value });
+  };
+
   // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
-      setMiniSidenav(dispatch, false);
+      handleMiniSideNav(false);
       setOnMouseEnter(true);
     }
   };
@@ -61,13 +73,14 @@ export default function App() {
   // Close sidenav when mouse leave mini sidenav
   const handleOnMouseLeave = () => {
     if (onMouseEnter) {
-      setMiniSidenav(dispatch, true);
+      handleMiniSideNav(true);
       setOnMouseEnter(false);
     }
   };
 
   // Change the openConfigurator state
-  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
+  const handleConfiguratorOpen = () =>
+    dispatch({ type: OPEN_CONFIGURATOR, value: !openConfigurator });
 
   // Setting the dir attribute for the body element
   useEffect(() => {
@@ -167,4 +180,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
- 
