@@ -38,22 +38,18 @@ import SuiButton from "components/SuiButton";
 import ConfiguratorRoot from "examples/Configurator/ConfiguratorRoot";
 
 // Soft UI Dashboard React context
-import { setTransparentSidenav, setFixedNavbar, setSidenavColor } from "context";
-
-import { useDispatch, useSelector } from "react-redux";
-import { OPEN_CONFIGURATOR } from "redux/actions/types";
-import { TRANSPARENT_SIDENAV } from "redux/actions/types";
-import { FIXED_NAVBAR } from "redux/actions/types";
+import {
+  useSoftUIController,
+  setOpenConfigurator,
+  setTransparentSidenav,
+  setFixedNavbar,
+  setSidenavColor,
+} from "context";
 
 function Configurator() {
-  const dispatch = useDispatch();
-
-  const { openConfigurator, transparentSidenav, fixedNavbar, sidenavColor } = useSelector(
-    (state) => state.admin
-  );
-
+  const [controller, dispatch] = useSoftUIController();
+  const { openConfigurator, transparentSidenav, fixedNavbar, sidenavColor } = controller;
   const [disabled, setDisabled] = useState(false);
-
   const sidenavColors = ["primary", "dark", "info", "success", "warning", "error"];
 
   // Use the useEffect hook to change the button state for the sidenav type based on window size.
@@ -73,10 +69,10 @@ function Configurator() {
     return () => window.removeEventListener("resize", handleDisabled);
   }, []);
 
-  const handleCloseConfigurator = () => dispatch({ type: OPEN_CONFIGURATOR, value: false });
-  const handleTransparentSidenav = () => dispatch({ type: TRANSPARENT_SIDENAV, value: true });
-  const handleWhiteSidenav = () => dispatch({ type: TRANSPARENT_SIDENAV, value: false });
-  const handleFixedNavbar = () => dispatch({ type: FIXED_NAVBAR, value: !fixedNavbar });
+  const handleCloseConfigurator = () => setOpenConfigurator(dispatch, false);
+  const handleTransparentSidenav = () => setTransparentSidenav(dispatch, true);
+  const handleWhiteSidenav = () => setTransparentSidenav(dispatch, false);
+  const handleFixedNavbar = () => setFixedNavbar(dispatch, !fixedNavbar);
 
   // sidenav type buttons styles
   const sidenavTypeButtonsStyles = ({

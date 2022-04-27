@@ -1,3 +1,17 @@
+/**
+=========================================================
+* Soft UI Dashboard React - v3.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
 import { useEffect } from "react";
 
 // @mui material components
@@ -29,21 +43,20 @@ import OrderOverview from "layouts/rtl/components/OrderOverview";
 import reportsBarChartData from "layouts/rtl/data/reportsBarChartData";
 import gradientLineChartData from "layouts/rtl/data/gradientLineChartData";
 
-import { useDispatch } from "react-redux";
-import { DIRECTION } from "redux/actions/types";
+// Soft UI Dashboard React contexts
+import { useSoftUIController, setDirection } from "context";
 
 function RTL() {
-  const dispatch = useDispatch();
-
+  const [, dispatch] = useSoftUIController();
   const { size } = typography;
   const { chart, items } = reportsBarChartData;
 
   // Changing the direction to rtl
   useEffect(() => {
-    dispatch({ type: DIRECTION, value: "rtl" });
+    setDirection(dispatch, "rtl");
 
-    return () => dispatch({ type: DIRECTION, value: "ltr" });
-  }, [dispatch]);
+    return () => setDirection(dispatch, "ltr");
+  }, []);
 
   return (
     <DashboardLayout>

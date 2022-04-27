@@ -1,3 +1,18 @@
+/**
+=========================================================
+* Soft UI Dashboard React - v3.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
 import { useEffect } from "react";
 
 // react-router-dom components
@@ -26,23 +41,21 @@ import SidenavRoot from "examples/Sidenav/SidenavRoot";
 import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
 
 // Soft UI Dashboard React context
-import { MINI_SIDENAV } from "redux/actions/types";
-import { useDispatch, useSelector } from "react-redux";
+import { useSoftUIController, setMiniSidenav } from "context";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
-  const dispatch = useDispatch();
-
-  const { miniSidenav, transparentSidenav } = useSelector((state) => state.admin);
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, transparentSidenav } = controller;
   const location = useLocation();
   const { pathname } = location;
   const collapseName = pathname.split("/").slice(1)[0];
 
-  const closeSidenav = () => dispatch({ type: MINI_SIDENAV, value: true });
+  const closeSidenav = () => setMiniSidenav(dispatch, true);
 
   useEffect(() => {
     // A function that sets the mini state of the sidenav.
     function handleMiniSidenav() {
-      dispatch({ type: MINI_SIDENAV, value: window.innerWidth < 1200 });
+      setMiniSidenav(dispatch, window.innerWidth < 1200);
     }
 
     /** 
@@ -58,67 +71,61 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   }, [dispatch, location]);
 
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
-  const renderRoutes = routes.map(
-    ({ type, name, icon, title, noCollapse, key, route, href, isPrivate }) => {
-      let returnValue;
+  const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, route, href }) => {
+    let returnValue;
 
-      if (!isPrivate) {
-        return null;
-      }
-
-      if (type === "collapse") {
-        returnValue = href ? (
-          <Link
-            href={href}
+    if (type === "collapse") {
+      returnValue = href ? (
+        <Link
+          href={href}
+          key={key}
+          target="_blank"
+          rel="noreferrer"
+          sx={{ textDecoration: "none" }}
+        >
+          <SidenavCollapse
+            color={color}
+            name={name}
+            icon={icon}
+            active={key === collapseName}
+            noCollapse={noCollapse}
+          />
+        </Link>
+      ) : (
+        <NavLink to={route} key={key}>
+          <SidenavCollapse
+            color={color}
             key={key}
-            target="_blank"
-            rel="noreferrer"
-            sx={{ textDecoration: "none" }}
-          >
-            <SidenavCollapse
-              color={color}
-              name={name}
-              icon={icon}
-              active={key === collapseName}
-              noCollapse={noCollapse}
-            />
-          </Link>
-        ) : (
-          <NavLink to={route} key={key}>
-            <SidenavCollapse
-              color={color}
-              key={key}
-              name={name}
-              icon={icon}
-              active={key === collapseName}
-              noCollapse={noCollapse}
-            />
-          </NavLink>
-        );
-      } else if (type === "title") {
-        returnValue = (
-          <SuiTypography
-            key={key}
-            display="block"
-            variant="caption"
-            fontWeight="bold"
-            textTransform="uppercase"
-            opacity={0.6}
-            pl={3}
-            mt={2}
-            mb={1}
-            ml={1}
-          >
-            {title}
-          </SuiTypography>
-        );
-      } else if (type === "divider") {
-        returnValue = <Divider key={key} />;
-      }
-
-      return returnValue;
+            name={name}
+            icon={icon}
+            active={key === collapseName}
+            noCollapse={noCollapse}
+          />
+        </NavLink>
+      );
+    } else if (type === "title") {
+      returnValue = (
+        <SuiTypography
+          key={key}
+          display="block"
+          variant="caption"
+          fontWeight="bold"
+          textTransform="uppercase"
+          opacity={0.6}
+          pl={3}
+          mt={2}
+          mb={1}
+          ml={1}
+        >
+          {title}
+        </SuiTypography>
+      );
+    } else if (type === "divider") {
+      returnValue = <Divider key={key} />;
     }
-  );
+
+    return returnValue;
+  });
 
   return (
     <SidenavRoot {...rest} variant="permanent" ownerState={{ transparentSidenav, miniSidenav }}>
@@ -150,7 +157,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       </SuiBox>
       <Divider />
       <List>{renderRoutes}</List>
-      {/* <SuiBox pt={2} my={2} mx={2} mt="auto">
+      <SuiBox pt={2} my={2} mx={2} mt="auto">
         <SidenavCard />
         <SuiBox mt={2}>
           <SuiButton
@@ -165,7 +172,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
             upgrade to pro
           </SuiButton>
         </SuiBox>
-      </SuiBox> */}
+      </SuiBox>
     </SidenavRoot>
   );
 }
