@@ -46,23 +46,25 @@ import {
   navbarMobileMenu,
 } from "examples/Navbars/DashboardNavbar/styles";
 
-// Soft UI Dashboard React context
-import {
-  useSoftUIController,
-  setTransparentNavbar,
-  setMiniSidenav,
-  setOpenConfigurator,
-} from "context";
-
 // Images
 import team2 from "assets/images/team-2.jpg";
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { MINI_SIDENAV } from "redux/actions/types";
+import { OPEN_CONFIGURATOR } from "redux/actions/types";
+import { TRANSPARENT_NAVBAR } from "redux/actions/types";
 
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
-  const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
+
+  const dispatch = useDispatch();
+
+  const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = useSelector(
+    (state) => state.admin
+  );
+
   const [openMenu, setOpenMenu] = useState(false);
+
   const route = useLocation().pathname.split("/").slice(1);
 
   useEffect(() => {
@@ -75,7 +77,11 @@ function DashboardNavbar({ absolute, light, isMini }) {
 
     // A function that sets the transparent state of the navbar.
     function handleTransparentNavbar() {
-      setTransparentNavbar(dispatch, (fixedNavbar && window.scrollY === 0) || !fixedNavbar);
+      // setTransparentNavbar(dispatch, (fixedNavbar && window.scrollY === 0) || !fixedNavbar);
+
+      const value = (fixedNavbar && window.scrollY === 0) || !fixedNavbar;
+
+      dispatch({ type: TRANSPARENT_NAVBAR, value });
     }
 
     /** 
@@ -91,9 +97,13 @@ function DashboardNavbar({ absolute, light, isMini }) {
     return () => window.removeEventListener("scroll", handleTransparentNavbar);
   }, [dispatch, fixedNavbar]);
 
-  const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
-  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
+  const handleMiniSidenav = () => dispatch({ type: MINI_SIDENAV, value: !miniSidenav });
+
+  const handleConfiguratorOpen = () =>
+    dispatch({ type: OPEN_CONFIGURATOR, value: !openConfigurator });
+
   const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
+
   const handleCloseMenu = () => setOpenMenu(false);
 
   // Render the notifications menu
@@ -154,7 +164,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
               />
             </SuiBox>
             <SuiBox color={light ? "white" : "inherit"}>
-              <Link to="/authentication/sign-in">
+              {/* <Link to="/login">
                 <IconButton sx={navbarIconButton} size="small">
                   <Icon
                     sx={({ palette: { dark, white } }) => ({
@@ -171,7 +181,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                     Sign in
                   </SuiTypography>
                 </IconButton>
-              </Link>
+              </Link> */}
               <IconButton
                 size="small"
                 color="inherit"

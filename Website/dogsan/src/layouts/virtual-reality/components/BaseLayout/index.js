@@ -30,9 +30,6 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import Sidenav from "examples/Sidenav";
 
-// Soft UI Dashboard React context
-import { useSoftUIController, setMiniSidenav, setLayout, setTransparentSidenav } from "context";
-
 // Soft UI Dashboard React routes
 import routes from "routes";
 
@@ -46,16 +43,23 @@ import {
 // Images
 import brand from "assets/images/logo-ct.png";
 
+import { useSelector, useDispatch } from "react-redux";
+import { MINI_SIDENAV } from "redux/actions/types";
+import { LAYOUT } from "redux/actions/types";
+import { TRANSPARENT_SIDENAV } from "redux/actions/types";
+
 function BaseLayout({ children }) {
-  const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav, sidenavColor } = controller;
+  const dispatch = useDispatch();
+
+  const { miniSidenav, sidenavColor } = useSelector((state) => state.admin);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const { pathname } = useLocation();
 
   // Open sidenav when mouse enter on mini sidenav
   const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
-      setMiniSidenav(dispatch, false);
+      dispatch({ type: MINI_SIDENAV, value: false });
+
       setOnMouseEnter(true);
     }
   };
@@ -63,16 +67,19 @@ function BaseLayout({ children }) {
   // Close sidenav when mouse leave mini sidenav
   const handleOnMouseLeave = () => {
     if (onMouseEnter) {
-      setMiniSidenav(dispatch, true);
+      dispatch({ type: MINI_SIDENAV, value: true });
       setOnMouseEnter(false);
     }
   };
 
   // Change the document layout to VR for the VR view
   useEffect(() => {
-    setLayout(dispatch, "vr");
-    setTransparentSidenav(dispatch, false);
-  }, [pathname]);
+    // setLayout(dispatch, "vr");
+    dispatch({ type: LAYOUT, value: "vr" });
+    dispatch({ type: TRANSPARENT_SIDENAV, value: false });
+
+    // setTransparentSidenav(dispatch, false);
+  }, [pathname, dispatch]);
 
   return (
     <SuiBox sx={baseLayout}>

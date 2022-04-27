@@ -34,12 +34,10 @@ import {
   collapseText,
 } from "examples/Sidenav/styles/sidenavCollapse";
 
-// Soft UI Dashboard React context
-import { useSoftUIController } from "context";
+import { useSelector } from "react-redux";
 
 function SidenavCollapse({ color, icon, name, children, active, noCollapse, open, ...rest }) {
-  const [controller] = useSoftUIController();
-  const { miniSidenav, transparentSidenav } = controller;
+  const { miniSidenav, transparentSidenav } = useSelector((state) => state.admin);
 
   return (
     <>

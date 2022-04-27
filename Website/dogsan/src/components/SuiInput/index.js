@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props
@@ -23,14 +8,13 @@ import SuiInputRoot from "components/SuiInput/SuiInputRoot";
 import SuiInputWithIconRoot from "components/SuiInput/SuiInputWithIconRoot";
 import SuiInputIconBoxRoot from "components/SuiInput/SuiInputIconBoxRoot";
 import SuiInputIconRoot from "components/SuiInput/SuiInputIconRoot";
-
-// Soft UI Dashboard React contexts
-import { useSoftUIController } from "context";
+import { useSelector } from "react-redux";
 
 const SuiInput = forwardRef(({ size, icon, error, success, disabled, ...rest }, ref) => {
   let template;
-  const [controller] = useSoftUIController();
-  const { direction } = controller;
+
+  const { direction } = useSelector((state) => state.admin);
+
   const iconDirection = icon.direction;
 
   if (icon.component && icon.direction === "left") {

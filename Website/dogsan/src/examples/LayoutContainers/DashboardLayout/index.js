@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useEffect } from "react";
 
 // react-router-dom components
@@ -24,17 +9,21 @@ import PropTypes from "prop-types";
 // Soft UI Dashboard React components
 import SuiBox from "components/SuiBox";
 
-// Soft UI Dashboard React context
-import { useSoftUIController, setLayout } from "context";
+import { useSelector, useDispatch } from "react-redux";
+import { LAYOUT } from "redux/actions/types";
 
 function DashboardLayout({ children }) {
-  const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav } = controller;
+  const dispatch = useDispatch();
+
+  const { miniSidenav } = useSelector((state) => state.admin);
+
   const { pathname } = useLocation();
 
   useEffect(() => {
-    setLayout(dispatch, "dashboard");
-  }, [pathname]);
+    // setLayout(dispatch, "dashboard");
+
+    dispatch({ type: LAYOUT, value: "dashboard" });
+  }, [pathname, dispatch]);
 
   return (
     <SuiBox

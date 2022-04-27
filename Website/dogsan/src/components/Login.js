@@ -4,8 +4,8 @@ import { Navigate } from "react-router-dom";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-// import "../css/styles.css"
-import { login } from "../actions/auth";
+
+import { login } from "../redux/actions/auth";
 
 const required = (value) => {
   if (!value) {
@@ -31,13 +31,13 @@ function Login(props) {
   const dispatch = useDispatch();
 
   const onChangeUsername = (e) => {
-    const usernames = e.target.value;
-    setUsername(usernames);
+    const username = e.target.value;
+    setUsername(username);
   };
 
   const onChangePassword = (e) => {
-    const passwords = e.target.value;
-    setPassword(passwords);
+    const password = e.target.value;
+    setPassword(password);
   };
 
   const handleLogin = (e) => {
@@ -66,7 +66,6 @@ function Login(props) {
   }
 
   return (
- 
     <div className="col-md-12">
       <div className="card card-container">
         <img
@@ -74,11 +73,10 @@ function Login(props) {
           alt="profile-img"
           className="profile-img-card"
         />
-        
+
         <Form onSubmit={handleLogin} ref={form}>
-        <div className="input-container">
+          <div className="form-group">
             <label htmlFor="username">Username</label>
-            
             <Input
               type="text"
               className="form-control"
@@ -89,7 +87,7 @@ function Login(props) {
             />
           </div>
 
-          <div className="input-container">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
             <Input
               type="password"
@@ -106,7 +104,6 @@ function Login(props) {
               {loading && <span className="spinner-border spinner-border-sm"></span>}
               <span>Login</span>
             </button>
-            <input type="submit" />
           </div>
 
           {message && (
@@ -120,7 +117,6 @@ function Login(props) {
         </Form>
       </div>
     </div>
-   
   );
 }
 

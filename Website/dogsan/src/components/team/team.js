@@ -1,11 +1,8 @@
 import React from 'react'
-import Header from '../header/header'
+
 export default function team() {
-  return (<div>
-    <Header  />
-    <div style={{paddingTop:"10px"}} class="main-wrapper">
-    <div id="home" >
-    <section id="team" style={{ marginTop: "150px" }}>
+  return (
+    <div><section id="team">
     <div className="container">
       <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
@@ -140,6 +137,6 @@ export default function team() {
             </div>
           </div>
         </div>
-      </section></div></div></div>
+      </section></div>
   )
 }
