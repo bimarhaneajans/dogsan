@@ -61,7 +61,7 @@ function App() {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">
-          bezKoder
+          Dogsan
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
