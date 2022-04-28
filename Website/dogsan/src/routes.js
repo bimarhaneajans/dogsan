@@ -1,22 +1,16 @@
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
-import Billing from "layouts/billing";
-import VirtualReality from "layouts/virtual-reality";
-import RTL from "layouts/rtl";
-import Profile from "layouts/profile";
-import SignIn from "layouts/authentication/sign-in";
-import SignUp from "layouts/authentication/sign-up";
+import Billing from "layouts/billing"; 
+import Profile from "layouts/profile"; 
 
 // Soft UI Dashboard React icons
 import Shop from "examples/Icons/Shop";
-import Office from "examples/Icons/Office";
-import Settings from "examples/Icons/Settings";
-import Document from "examples/Icons/Document";
-import SpaceShip from "examples/Icons/SpaceShip";
+import Office from "examples/Icons/Office"; 
 import CustomerSupport from "examples/Icons/CustomerSupport";
-import CreditCard from "examples/Icons/CreditCard";
-import Cube from "examples/Icons/Cube";
+import CreditCard from "examples/Icons/CreditCard"; 
 
+ import Bayi from "layouts/Bayi"
+ 
 const routes = [
    
   {
@@ -27,7 +21,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Bayi",
+    name: "dashboard",
     key: "dashboard",
     route: "/dashboard",
     icon: <Shop size="12px" />,
@@ -43,11 +37,11 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Blog",
-    key: "tables",
-    route: "/tables",
-    icon: <Office size="12px" />,
-    component: <Tables />,
+    name: "Bayi",
+    key: "Bayi",
+    route: "/Bayi",
+    icon: <CustomerSupport size="12px" />,
+    component: <Bayi />,
     noCollapse: true,
     isPrivate: true,
   },
@@ -62,7 +56,7 @@ const routes = [
     name: "Deger",
     key: "Deger",
     route: "/billing",
-    icon: <CreditCard size="12px" />,
+    icon: <CustomerSupport size="12px" />,
     component: <Billing />,
     noCollapse: true,
     isPrivate: true,
@@ -76,9 +70,9 @@ const routes = [
   {
     type: "collapse",
     name: "Duyuru",
-    key: "Deger",
+    key: "Duyuru",
     route: "/billing",
-    icon: <CreditCard size="12px" />,
+    icon: <CustomerSupport size="12px" />,
     component: <Billing />,
     noCollapse: true,
     isPrivate: true,
@@ -93,7 +87,7 @@ const routes = [
   {
     type: "collapse",
     name: "Etkinlik",
-    key: "profile",
+    key: "Etkinlik",
     route: "/profile",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
@@ -110,8 +104,8 @@ const routes = [
   {
     type: "collapse",
     name: "Hakkımızda",
-    key: "profile",
-    route: "/profile",
+    key: "Hakkımızda",
+    route: "/Hakkımızda",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -127,8 +121,8 @@ const routes = [
   {
     type: "collapse",
     name: "İğne",
-    key: "profile",
-    route: "/profile",
+    key: "igne",
+    route: "/igne",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -144,8 +138,8 @@ const routes = [
   {
     type: "collapse",
     name: "İletişim",
-    key: "profile",
-    route: "/profile",
+    key: "iletim",
+    route: "/iletim",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -161,8 +155,8 @@ const routes = [
   {
     type: "collapse",
     name: "Katalog",
-    key: "profile",
-    route: "/profile",
+    key: "Katalog",
+    route: "/Katalog",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -178,8 +172,8 @@ const routes = [
   {
     type: "collapse",
     name: "Kategori",
-    key: "profile",
-    route: "/profile",
+    key: "Kategori",
+    route: "/Kategori",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -195,8 +189,8 @@ const routes = [
   {
     type: "collapse",
     name: "Mesajlar",
-    key: "profile",
-    route: "/profile",
+    key: "Mesajlar",
+    route: "/Mesajlar",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -212,8 +206,8 @@ const routes = [
   {
     type: "collapse",
     name: "Şehir",
-    key: "profile",
-    route: "/profile",
+    key: "sehir",
+    route: "/sehir",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -229,8 +223,8 @@ const routes = [
   {
     type: "collapse",
     name: "Slider",
-    key: "profile",
-    route: "/profile",
+    key: "Slider",
+    route: "/Slider",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -246,8 +240,8 @@ const routes = [
   {
     type: "collapse",
     name: "Sosyal Sorumluluk",
-    key: "profile",
-    route: "/profile",
+    key: "Sosyals",
+    route: "/Sosyalss",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -263,8 +257,8 @@ const routes = [
   {
     type: "collapse",
     name: "Tarihçe",
-    key: "profile",
-    route: "/profile",
+    key: "tarihce",
+    route: "/tarihce",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,
@@ -280,7 +274,7 @@ const routes = [
   {
     type: "collapse",
     name: "Tarihi Galeri",
-    key: "profile",
+    key: "tarihcegi",
     route: "/profile",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
@@ -297,8 +291,8 @@ const routes = [
   {
     type: "collapse",
     name: "Urun",
-    key: "profile",
-    route: "/profile",
+    key: "Urun",
+    route: "/Urun",
     icon: <CustomerSupport size="12px" />,
     component: <Profile />,
     noCollapse: true,

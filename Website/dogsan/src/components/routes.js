@@ -55,6 +55,8 @@ import CustomerSupport from "examples/Icons/CustomerSupport";
 import CreditCard from "examples/Icons/CreditCard";
 import Cube from "examples/Icons/Cube";
 
+import Bayi from "../components/adminsayfaları/Bayi";
+
 const routes = [
  
   {
