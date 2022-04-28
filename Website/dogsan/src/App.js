@@ -12,6 +12,8 @@ import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
+import Admin from "./Admin"
+import { SoftUIControllerProvider } from "context";
 
 import { logout } from "./redux/actions/auth";
 import { clearMessage } from "./redux/actions/message";
@@ -59,7 +61,7 @@ const App = () => {
   return (
     
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+   <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
             bezKoder
           </Link>
@@ -117,8 +119,8 @@ const App = () => {
               </li>
 
               <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
+                <Link to={"/admin"} className="nav-link">
+                 admin
                 </Link>
               </li>
             </div>
@@ -127,14 +129,16 @@ const App = () => {
 
         <div className="container mt-3">
         
-        </div>
+        </div>  
 
-        <Routes>
-        <Route path="/login" element={<Home />} />
+         <Routes>
+        <Route path="/dashboard/" element={<BoardAdmin />} />
        
-      </Routes>
+      </Routes> 
 
-        {/* <AuthVerify logOut={logOut}/> */}
+        
+
+        
       </div>
      
   );

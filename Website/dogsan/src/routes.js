@@ -18,29 +18,16 @@ import CreditCard from "examples/Icons/CreditCard";
 import Cube from "examples/Icons/Cube";
 
 const routes = [
+   
   {
-    type: "collapse",
-    name: "Sign In",
-    key: "sign-in",
-    route: "/login",
-    icon: <Document size="12px" />,
-    component: <SignIn />,
-    noCollapse: true,
-    isPrivate: false,
+    type: "title",
+    title: "Bayi işlemleri",
+    key: "account-pages1",
+    isPrivate: true
   },
   {
     type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
-    route: "/register",
-    icon: <SpaceShip size="12px" />,
-    component: <SignUp />,
-    noCollapse: true,
-    isPrivate: false,
-  },
-  {
-    type: "collapse",
-    name: "Dashboard",
+    name: "Bayi",
     key: "dashboard",
     route: "/dashboard",
     icon: <Shop size="12px" />,
@@ -49,8 +36,14 @@ const routes = [
     isPrivate: true,
   },
   {
+    type: "title",
+    title: "Blog İşlemleri",
+    key: "account-pages2",
+    isPrivate: true
+  },
+  {
     type: "collapse",
-    name: "Tables",
+    name: "Blog",
     key: "tables",
     route: "/tables",
     icon: <Office size="12px" />,
@@ -59,9 +52,15 @@ const routes = [
     isPrivate: true,
   },
   {
+    type: "title",
+    title: "Değer işlemleri",
+    key: "account-pages3",
+    isPrivate: true
+  },
+  {
     type: "collapse",
-    name: "Billing",
-    key: "billing",
+    name: "Deger",
+    key: "Deger",
     route: "/billing",
     icon: <CreditCard size="12px" />,
     component: <Billing />,
@@ -69,29 +68,235 @@ const routes = [
     isPrivate: true,
   },
   {
+    type: "title",
+    title: "Duyuru işlemleri",
+    key: "account-pages4",
+    isPrivate: true
+  },
+  {
     type: "collapse",
-    name: "Virtual Reality",
-    key: "virtual-reality",
-    route: "/virtual-reality",
-    icon: <Cube size="12px" />,
-    component: <VirtualReality />,
+    name: "Duyuru",
+    key: "Deger",
+    route: "/billing",
+    icon: <CreditCard size="12px" />,
+    component: <Billing />,
     noCollapse: true,
     isPrivate: true,
   },
   {
+    type: "title",
+    title: "Etkinlik İşlemleri",
+    key: "account-pages6",
+    isPrivate: true
+  },
+ 
+  {
     type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    route: "/rtl",
-    icon: <Settings size="12px" />,
-    component: <RTL />,
+    name: "Etkinlik",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
     noCollapse: true,
     isPrivate: true,
   },
-  { type: "title", title: "Account Pages", key: "account-pages", isPrivate: true },
+  {
+    type: "title",
+    title: "Hakkımızda İşlemleri",
+    key: "account-pages7",
+    isPrivate: true
+  },
+ 
   {
     type: "collapse",
-    name: "Profile",
+    name: "Hakkımızda",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "İğne İşlemleri",
+    key: "account-pages8",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "İğne",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "İletişim İşlemleri",
+    key: "account-pages9",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "İletişim",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Katalog İşlemleri",
+    key: "account-pages10",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Katalog",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Kategori İşlemleri",
+    key: "account-pages11",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Kategori",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Mesajlar",
+    key: "account-pages12",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Mesajlar",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Şehir İşlemleri",
+    key: "account-pages13",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Şehir",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Slider İşlemleri",
+    key: "account-pages14",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Slider",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Sosyal Sorumluluk İşlemleri",
+    key: "account-pages15",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Sosyal Sorumluluk",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Tarihçe İşlemleri",
+    key: "account-pages16",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Tarihçe",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Tarihçe Galeri İşlemleri",
+    key: "account-pages17",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Tarihi Galeri",
+    key: "profile",
+    route: "/profile",
+    icon: <CustomerSupport size="12px" />,
+    component: <Profile />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Ürün İşlemleri",
+    key: "account-pages18",
+    isPrivate: true
+  },
+ 
+  {
+    type: "collapse",
+    name: "Urun",
     key: "profile",
     route: "/profile",
     icon: <CustomerSupport size="12px" />,

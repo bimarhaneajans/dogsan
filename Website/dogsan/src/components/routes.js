@@ -56,26 +56,7 @@ import CreditCard from "examples/Icons/CreditCard";
 import Cube from "examples/Icons/Cube";
 
 const routes = [
-  {
-    type: "collapse",
-    name: "Sign In",
-    key: "sign-in",
-    route: "/login",
-    icon: <Document size="12px" />,
-    component: <SignIn />,
-    noCollapse: true,
-    isPrivate: false,
-  },
-  {
-    type: "collapse",
-    name: "Sign Up",
-    key: "sign-up",
-    route: "/register",
-    icon: <SpaceShip size="12px" />,
-    component: <SignUp />,
-    noCollapse: true,
-    isPrivate: false,
-  },
+ 
   {
     type: "collapse",
     name: "Dashboard",
@@ -96,6 +77,8 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
+  { type: "title", title: "Account Pages", key: "account-pages", isPrivate: true },
+
   {
     type: "collapse",
     name: "Billing",
@@ -106,6 +89,8 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
+  { type: "title", title: "Account Pages 2", key: "account-pages 11", isPrivate: true },
+
   {
     type: "collapse",
     name: "Virtual Reality",
@@ -116,6 +101,8 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
+  { type: "title", title: "Account Pages 3", key: "account-pages 1", isPrivate: true },
+
   {
     type: "collapse",
     name: "RTL",
