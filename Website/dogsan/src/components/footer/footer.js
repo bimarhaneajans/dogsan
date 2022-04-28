@@ -1,16 +1,16 @@
 import React from 'react'
-
+import Logo from  "./Group_2.png";
 export default function footer() {
   return (
     <div><div className="footer2">
-    <img src="./assets/img/logo/heartify-logo-lite.png" alt="" />
+    <img src={Logo} alt="" />
   </div>
 
 
   <div className="footer2-bottom">
     <div className="container">
       <div className="col-md-6">
-        <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
+        <p>www.dogsan.com.tr</p>
       </div>
       <div className="col-md-6">
         <ul className="footer-social">
