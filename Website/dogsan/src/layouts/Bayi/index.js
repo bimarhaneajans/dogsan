@@ -1,20 +1,24 @@
- 
+
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { updateTutorial, deleteTutorial } from "../../redux/actions/bayi";
 import BayiDataService from "../../services/BayiService";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
- 
+
 
 // Overview page components
 import Header from "layouts/profile/components/Header";
-  
 
-const Overview  = (props) => {
+
+const Overview = (props) => {
   const initialTutorialState = {
     id: null,
-    title: "",
-    description: "",
+    baslik: "",
+    adres: "",
+    telefon: "",
+    enlem: "",
+    boylam: "",
+
     published: false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -32,21 +36,24 @@ const Overview  = (props) => {
         console.log(e);
       });
   };
-
-/*   useEffect(() => {
+ /*
+  useEffect(() => {
     getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
+  }, [props.match.params.id]); */
 
   const handleInputChange = event => {
     const { name, value } = event.target;
     setCurrentTutorial({ ...currentTutorial, [name]: value });
-  }; */
+  };
 
   const updateStatus = status => {
     const data = {
       id: currentTutorial.id,
-      title: currentTutorial.title,
-      description: currentTutorial.description,
+      baslik: currentTutorial.baslik,
+      adres: currentTutorial.adres,
+      telefon: currentTutorial.telefon,
+      enlem: currentTutorial.enlem,
+      boylam: currentTutorial.boylam,
       published: status
     };
 
@@ -85,81 +92,115 @@ const Overview  = (props) => {
   return (
     <DashboardLayout>
       <Header />
+      <br />
       <div>
-      {currentTutorial ? (
-        <div className="edit-form">
-          <h4>Tutorial</h4>
-          <form>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                className="form-control"
-                id="title"
-                name="title"
-                value={currentTutorial.title}
-              /*   onChange={handleInputChange} */
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                className="form-control"
-                id="description"
-                name="description"
-                value={currentTutorial.description}
-              /*   onChange={handleInputChange} */
-              />
-            </div>
+        {currentTutorial ? (
+          <div className="edit-form">
 
-            <div className="form-group">
-              <label>
-                <strong>Status:</strong>
-              </label>
-              {currentTutorial.published ? "Published" : "Pending"}
-            </div>
-          </form>
+            <form>
+              <div className="form-group">
+                <label htmlFor="title">Başlık </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="baslik"
+                  name="baslik"
+                  value={currentTutorial.baslik}
+                  onChange={handleInputChange}  
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">Adres </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="adres"
+                  name="adres"
+                  value={currentTutorial.adres}
+                 onChange={handleInputChange}  
+                />
+              </div>
+               <div className="form-group">
+                <label htmlFor="description">Telefon </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="telefon"
+                  name="telefon"
+                  value={currentTutorial.telefon}
+                 onChange={handleInputChange}  
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">Enlem </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="enlem"
+                  name="enlem"
+                  value={currentTutorial.enlem}
+               onChange={handleInputChange}  
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="description">Boylam </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="boylam"
+                  name="boylam"
+                  value={currentTutorial.boylam}
+               onChange={handleInputChange} 
+                />
+              </div>
 
-          {currentTutorial.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updateStatus(false)}
-            >
-              UnPublish
+              <div className="form-group">
+                <label>
+                  <strong>Durum :</strong>
+                </label>
+                {currentTutorial.published ? "Published" : "Pending"}
+              </div>
+            </form>
+
+            {currentTutorial.published ? (
+              <button
+                className="badge badge-primary mr-2"
+                onClick={() => updateStatus(false)}
+              >
+                Yayında  
+              </button> 
+            ) : (
+              <button
+                className="badge badge-primary mr-2"
+                onClick={() => updateStatus(true)}
+              >
+                Yayında Değil
+              </button>
+              
+            )}
+
+            <button className="badge badge-danger mr-2" onClick={removeTutorial}>
+              Sil
             </button>
-          ) : (
+
             <button
-              className="badge badge-primary mr-2"
-              onClick={() => updateStatus(true)}
+              type="submit"
+              className="badge badge-success"
+              onClick={updateContent}
             >
-              Publish
+              Güncelle
             </button>
-          )}
-
-          <button className="badge badge-danger mr-2" onClick={removeTutorial}>
-            Delete
-          </button>
-
-          <button
-            type="submit"
-            className="badge badge-success"
-            onClick={updateContent}
-          >
-            Update
-          </button>
-          <p>{message}</p>
-        </div>
-      ) : (
-        <div>
-          <br />
-          <p>Please click on a Tutorial...</p>
-        </div>
-      )}
-    </div>
+            <p>{message}</p>
+          </div>
+        ) : (
+          <div>
+            <br />
+            <p>Please click on a Tutorial...</p>
+          </div>
+        )}
+      </div>
     </DashboardLayout>
   );
 }
 
 export default Overview;
- 
