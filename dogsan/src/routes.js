@@ -1,42 +1,92 @@
 import Dashboard from "layouts/dashboard";
-import Tables from "layouts/tables";
-import Billing from "layouts/billing";
-import Profile from "layouts/profile";
-
-// Soft UI Dashboard React icons
-import Shop from "examples/Icons/Shop";
-import Office from "examples/Icons/Office";
 import CustomerSupport from "examples/Icons/CustomerSupport";
-import CreditCard from "examples/Icons/CreditCard";
 
-import Bayiliste from "./layouts/Bayi/bayiliste"
 import Bayiekle from "./layouts/Bayi/Bayiekle"
+import Bayiliste from "./layouts/Bayi/bayiliste"
 import Bayiguncellle from "./layouts/Bayi/Bayiguncelle"
 
+import Blogekle from "./layouts/Blog/Blogekle"
+import Blogliste from "./layouts/Blog/Blogliste"
+import Blogguncelle from "./layouts/Blog/Blogguncelle"
 
-import Deger from "./layouts/Deger"
-import Etkinlik from "./layouts/Etkinlik"
-import Duyuru from "./layouts/Duyuru"
-import Hakkimizda from "./layouts/Hakkimizda"
-import Igne from "./layouts/igne"
-import Katalog from "./layouts/Katalog"
-import Kategori from "./layouts/Kategori"
-import Mesajlar from "./layouts/Mesajlar"
-import Sehir from "./layouts/Sehir"
-import Slider from "./layouts/Slider"
-import Iletisim from "./layouts/İletisim"
-import Sosyalss from "./layouts/Sosyalss"
-import Tarihce from "./layouts/Tarihce"
-import Tarihcegi from "./layouts/TarihiGaleri"
-import Urun from "./layouts/Urun"
 
+import Degerekle from "./layouts/Deger/Degerekle"
+import Degerliste from "./layouts/Deger/Degerliste"
+import Degerguncelle  from "./layouts/Deger/Degerguncelle"
+ 
+
+import Duyuruekle from "./layouts/Duyuru/Duyuruekle"
+import Duyuruliste from "./layouts/Duyuru/Duyuruliste"
+import Duyuruguncelle  from "./layouts/Duyuru/Duyuruguncellle"
+
+
+import Etkinlikekle from "./layouts/Etkinlik/Etkinlikekle"
+import Etkinlikliste from "./layouts/Etkinlik/Etkinlikliste"
+import Etkinlikguncellle  from "./layouts/Etkinlik/Etkinlikguncellle"
+
+import Hakkimizdaekle from "./layouts/Hakkimizda/Hakkimizdaekle"
+import Hakkimizdaliste from "./layouts/Hakkimizda/Hakkimizdaliste"
+import Hakkimizdaguncelle  from "./layouts/Hakkimizda/Hakkimizdaguncellle"
+
+
+import Iletisimekle from "./layouts/İletisim/Iletisimekle"
+import Iletisimliste from "./layouts/İletisim/Iletisimliste"
+import Iletisimguncelle  from "./layouts/İletisim/Iletisimguncellle"
+
+import Igneekle from "./layouts/igne/Igneekle"
+import Igneliste from "./layouts/igne/Igneekle"
+import Igneguncelle  from "./layouts/igne/Igneekle"
+
+import Katalogekle from "./layouts/Katalog/Katalogekle"
+import Katalogliste from "./layouts/Katalog/Katalogliste"
+import Katalogguncelle  from "./layouts/Katalog/Katalogguncellle"
+
+
+import Kategoriekle from "./layouts/Kategori/Kategoriekle"
+import Kategoriliste from "./layouts/Kategori/Kategoriliste"
+import Kategoriguncelle  from "./layouts/Kategori"
+
+import Mesajlarekle from "./layouts/Mesajlar/Mesajlarekle"
+import Mesajlarliste from "./layouts/Mesajlar/Mesajlarliste"
+import Mesajlarguncelle  from "./layouts/Mesajlar/Mesajlarguncellle"
+
+import Sehirekle from "./layouts/Sehir/Sehirekle"
+import Sehirliste from "./layouts/Sehir/Sehirliste"
+import Sehirguncelle  from "./layouts/Sehir/Sehirguncellle"
+
+import Sliderekle from "./layouts/Slider/Sliderekle"
+import Sliderliste from "./layouts/Slider/Sliderliste"
+import Sliderguncelle  from "./layouts/Slider/Sliderguncellle"
+
+
+import Sosyalssekle from "./layouts/Sosyalssekle"
+import Sosyalssliste from "./layouts/Sosyalssliste"
+import Sosyalssguncelle  from "./layouts/Sosyalssguncelle"
+
+
+import Tarihceekle from "./layouts/Tarihce/Tarihceekle"
+import Tarihceliste from "./layouts/Tarihce/Tarihceliste"
+import Tarihceguncelle  from "./layouts/Tarihce/Tarihceguncelle"
+
+
+import Tarihcegiekle from "./layouts/TarihiGaleri/Tarihcegiekle"
+import Tarihcegiliste from "./layouts/TarihiGaleri/Tarihcegiliste"
+import Tarihcegiguncelle  from "./layouts/TarihiGaleri"
+
+
+import Urunekle from "./layouts/Urun/Urunekle"
+import Urunliste from "./layouts/Urun/Urunliste"
+import Urunguncelle  from "./layouts/Urun/Urunguncelle"
+
+
+//16 tane olmalı
 const routes = [
   {
     type: "collapse",
     name: "dashboard",
     key: "dashboard",
     route: "/dashboard",
-    icon: <Shop size="12px" />,
+    icon: <CustomerSupport size="12px" />,
     component: <Dashboard />,
     noCollapse: true,
     isPrivate: true,
@@ -86,6 +136,46 @@ const routes = [
     isPrivate: true
   },
   {
+    type: "collapse",
+    name: "Blog Ekle",
+    key: "Blogekle",
+    route: "/Blogekle",
+    icon: <CustomerSupport size="12px" />,
+    component: <Blogekle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Blog Listele",
+    key: "Blogelistele",
+    route: "/Blogliste",
+    icon: <CustomerSupport size="12px" />,
+    component: <Blogliste />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Blog Liste",
+    key: "Blogliste",
+    route: "/Blogguncelle/:id",
+    icon: <CustomerSupport size="12px" />,
+    component: <Blogguncelle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Blog Guncelle",
+    key: "Blogguncelle",
+    route: "/Blogguncelle/:id",
+    icon: <CustomerSupport size="12px" />,
+    component: <Blogguncelle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
     type: "title",
     title: "Değer işlemleri",
     key: "account-pages3",
@@ -94,10 +184,30 @@ const routes = [
   {
     type: "collapse",
     name: "Deger",
-    key: "Deger",
-    route: "/Deger",
+    key: "Degerekle",
+    route: "/Degerekle",
     icon: <CustomerSupport size="12px" />,
-    component: <Deger />,
+    component: <Degerekle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Deger Listele",
+    key: "Degerlistele",
+    route: "/Degerlistele",
+    icon: <CustomerSupport size="12px" />,
+    component: <Degerliste />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+    {
+    type: "collapse",
+    name: "Deger Guncelle",
+    key: "Degerguncelle",
+    route: "/Degerguncelle",
+    icon: <CustomerSupport size="12px" />,
+    component: <Degerguncelle />,
     noCollapse: true,
     isPrivate: true,
   },
