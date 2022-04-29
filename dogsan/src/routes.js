@@ -51,7 +51,7 @@ import Mesajlarliste from "./layouts/Mesajlar/Mesajlarliste"
 import Mesajlarguncelle  from "./layouts/Mesajlar/Mesajlarguncelle"
 
 import Sehirekle from "./layouts/Sehir/Sehirekle"
-import Sehirliste from "./layouts/Sehir/Sehirliste"
+import Sehirliste from "./layouts/Sehir/Sehiriste"
 import Sehirguncelle from "./layouts/Sehir/Sehirguncelle"
 
 import Sliderekle from "./layouts/Slider/Sliderekle"
@@ -59,9 +59,9 @@ import Sliderliste from "./layouts/Slider/Sliderliste"
 import Sliderguncelle  from "./layouts/Slider/Sliderguncelle"
 
 
-import Sosyalssekle from "./layouts/Sosyalssekle"
-import Sosyalssliste from "./layouts/Sosyalssliste"
-import Sosyalssguncelle  from "./layouts/Sosyalssguncelle"
+import Sosyalssekle from "./layouts/Sosyalss/Sosyalssekle"
+import Sosyalssliste from "./layouts/Sosyalss/Sosyalssliste"
+import Sosyalssguncelle  from "./layouts/Sosyalss/Sosyalssguncelle"
 
 
 import Tarihceekle from "./layouts/Tarihce/Tarihceekle"
