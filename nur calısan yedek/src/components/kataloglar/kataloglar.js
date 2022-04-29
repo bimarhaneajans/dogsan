@@ -1,16 +1,13 @@
 import React from 'react';
 import "./styles.css";
 
-import ExamplePdfViewer from "./ExamplePDFViewer";
-
+ 
 export default function kataloglar() {
 
   return (
     <div className="Katalog">
       1
-      <ExamplePdfViewer />
-      2
-      <ExamplePdfViewer />
+     
       
       </div>
     //   <div className="container">

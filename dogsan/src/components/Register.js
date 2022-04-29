@@ -6,7 +6,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
-import { register } from "../actions/auth";
+import { register } from "../redux/actions/auth";
 
 const required = (value) => {
   if (!value) {
@@ -48,7 +48,7 @@ const vpassword = (value) => {
   }
 };
 
-function Register  ()  {
+const Register = () => {
   const form = useRef();
   const checkBtn = useRef();
 

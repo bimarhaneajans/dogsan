@@ -3,7 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
 import storageSession from "redux-persist/es/storage/session";
-import rootReducer from "./reducers";
+import rootReducer from "./redux/reducers";
 
 const persistConfig = {
   key: "root",

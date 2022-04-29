@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.eb15888c.css",
+    "main.js": "/static/js/main.06c981a4.js",
+    "static/media/dental-suturler-single.jpg": "/static/media/dental-suturler-single.3b392eb378b902185d8c.jpg",
+    "static/media/veterinerlik-single.jpg": "/static/media/veterinerlik-single.f001b18fd9821953f254.jpg",
+    "static/media/slide2.jpg": "/static/media/slide2.afe5f2b647deffd75983.jpg",
+    "static/media/slide-b-bg.jpg": "/static/media/slide-b-bg.eda775a902a07cb2df91.jpg",
+    "static/media/kvc_politer.png": "/static/media/kvc_politer.6c009d6ee40ae2ff9b62.png",
+    "static/media/kvc_tektel.png": "/static/media/kvc_tektel.1cad88e5ecfd563e79f7.png",
+    "static/media/dopace.png": "/static/media/dopace.79c9627c915c7eddbc52.png",
+    "static/media/daxton.png": "/static/media/daxton.c2b71f06edc6c2761a21.png",
+    "static/media/kanstat_36c807a6f5.jpg": "/static/media/kanstat_36c807a6f5.4c82e9a8c292cb462434.jpg",
+    "static/media/top_image_58f83656bf.jpg": "/static/media/top_image_58f83656bf.a7ad1219b013ca9ae511.jpg",
+    "static/media/pegelak_rapid_96cbb96267.jpg": "/static/media/pegelak_rapid_96cbb96267.c64cb14dc1013a066618.jpg",
+    "static/media/pegesorb_rapid_863339e5eb.jpg": "/static/media/pegesorb_rapid_863339e5eb.5153d195b3dd13963414.jpg",
+    "static/media/pegesorb_d81849bab8.jpg": "/static/media/pegesorb_d81849bab8.9238a469618efeaec7d4.jpg",
+    "static/media/pedesente_51f39fbbfa.jpg": "/static/media/pedesente_51f39fbbfa.696ed2299008c033891b.jpg",
+    "static/media/yuvarlak_cb5282c131.jpg": "/static/media/yuvarlak_cb5282c131.4fa9ab8568237f2b3782.jpg",
+    "static/media/dis_keskin_3e7041238c.jpg": "/static/media/dis_keskin_3e7041238c.63b503850e4a011c4f91.jpg",
+    "static/media/propilen.png": "/static/media/propilen.62b47e029b42942768b1.png",
+    "static/media/ic_keskin_1f8f558118.jpg": "/static/media/ic_keskin_1f8f558118.9b91852da212596944b8.jpg",
+    "static/media/kd_4669ca9edc.jpg": "/static/media/kd_4669ca9edc.63f95f96d2ade4cfd42b.jpg",
+    "static/media/propilen_6ceb679e93.jpg": "/static/media/propilen_6ceb679e93.0baa2aa9a3ada6f3a1f9.jpg",
+    "static/media/politer_7431a053f7.jpg": "/static/media/politer_7431a053f7.016d3cd0250dbe2aa40b.jpg",
+    "static/media/ipek_30a8b2253a.jpg": "/static/media/ipek_30a8b2253a.cad309cc4dc2aa7aa3a6.jpg",
+    "static/media/daylon_858e4c77d9.jpg": "/static/media/daylon_858e4c77d9.25b9018ebf05146ae93a.jpg",
+    "static/media/kalite.jpg": "/static/media/kalite.a41376d5a618a737eeb4.jpg",
+    "static/media/sosyal.jpg": "/static/media/sosyal.70d61e972e79b90f7324.jpg",
+    "static/media/surekli.jpg": "/static/media/surekli.b0999a20d468f1e6d675.jpg",
+    "static/media/takim.jpg": "/static/media/takim.a0fae9e1d8624c85704f.jpg",
+    "static/media/musteri.jpg": "/static/media/musteri.d4b97ebb38a1172f4b58.jpg",
+    "static/media/1970-tr.svg": "/static/media/1970-tr.7ffeb1a82d9d0bd15d9994882d216b4f.svg",
+    "index.html": "/index.html",
+    "main.eb15888c.css.map": "/static/css/main.eb15888c.css.map",
+    "main.06c981a4.js.map": "/static/js/main.06c981a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb15888c.css",
+    "static/js/main.06c981a4.js"
+  ]
+}
