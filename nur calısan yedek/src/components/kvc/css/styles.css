@@ -708,21 +708,6 @@
 	font-size: 15px;
 	color: rgba(82,82,82,1);
 }
-#Cerrahi_paslanmaz_elik_tel_emii {
-	margin-bottom: auto;
-	left: 533px;
-	top: 386px;
-	position: absolute;
-	overflow: visible;
-	width: 434px;
-	height: 34px;
-	text-align: left;
-	font-family: Helvetica Neue, arial;
-	font-style: normal;
-	font-weight: lighter;
-	font-size: 15px;
-	color: rgba(82,82,82,1);
-}
 #TEKTEL_batn_yaralarnn_kapanmas {
 	left: 533px;
 	top: 482px;
@@ -790,20 +775,6 @@
 	font-size: 15px;
 	color: rgba(0,129,195,1);
 }
-#KLNK_PERFORMANS_ZELLKLERR {
-	left: 533px;
-	top: 350px;
-	position: absolute;
-	overflow: visible;
-	width: 264px;
-	white-space: nowrap;
-	text-align: left;
-	font-family: Helvetica Neue, arial;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 15px;
-	color: rgba(0,129,195,1);
-}
 #KLNK_FAYDA {
 	left: 533px;
 	top: 446px;
@@ -817,37 +788,6 @@
 	font-weight: bold;
 	font-size: 15px;
 	color: rgba(0,129,195,1);
-}
-#KLNK_FAYDAA {
-
-	margin-top:250px;
-	left: 533px;
-	top: 446px;
-	position: absolute;
-	overflow: visible;
-	width: 105px;
-	white-space: nowrap;
-	text-align: left;
-	font-family: Helvetica Neue, arial;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 15px;
-	color: rgba(0,129,195,1);
-}
-#TEKTEL_batn_yaralarnn_kapanmass {
-	margin-top:270px;
-	left: 533px;
-	top: 482px;
-	position: absolute;
-	overflow: visible;
-	width: 434px;
-	height: 68px;
-	text-align: left;
-	font-family: Helvetica Neue, arial;
-	font-style: normal;
-	font-weight: lighter;
-	font-size: 15px;
-	color: rgba(82,82,82,1);
 }
 #tektel {
 	left: 534px;
@@ -1100,21 +1040,6 @@
 	color: rgba(0,129,195,1);
 }
 #KLNK_PERFORMANS_ZELLKLER_cv {
-	left: 913px;
-	top: 1726px;
-	position: absolute;
-	overflow: visible;
-	width: 264px;
-	white-space: nowrap;
-	text-align: left;
-	font-family: Helvetica Neue, arial;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 15px;
-	color: rgba(0,129,195,1);
-}
-#KLNK_PERFORMANS_ZELLKLER_cvv {
-	/* margin-bottom: auto; */
 	left: 913px;
 	top: 1726px;
 	position: absolute;

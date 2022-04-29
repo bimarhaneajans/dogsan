@@ -7,12 +7,12 @@ export default function navbar() {
             <div className="sticky-header">
                 <div className="container">
                     <div className="row">
-                        <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4 pull-left">
+                        <div class="col-xs-4 pull-left">
                             <div class="main-logo">
                                 <a href="/home"><img src={Logo} alt="Heartify" /></a>
                             </div>
                         </div>
-                        <div className="col-xs-4 col-sm-8 col-md-8 col-lg-8">
+                        <div className="pull-right navbarDgsn" >
                             <div className="main-navigation hidden-xs">
                                 <ul className="main-nav list-unstyled list-inline pull-right">
                                     <li className="active"><Link to={"/EmilebilirSuturler"} className="nav-link">Emilebilir Sütürler</Link></li>

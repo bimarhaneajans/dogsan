@@ -13,7 +13,7 @@ export default function EmilebilirSuturler() {
             <Navbar />
             <div className='container'>
             <div id="urunlarbaslık">
-                    <span>EMİLEBİLİR SÜTÜRLER</span></div>
+                    {/* <span>EMİLEBİLİR SÜTÜRLER</span></div> */}
             {/* <div style={{ paddingTop: "10px" }} class="main-wrapper">
                     <div style={{ marginTop: "150px" }}> */}
                     
@@ -27,10 +27,10 @@ export default function EmilebilirSuturler() {
                                 <div id="Cerrahi_paslanmaz_elik_tel_yar">
                                     <span>PEDESENTE sütürler genel olarak yumuşak doku yaklaştırması ve/veya bağlanmasında, büyümenin beklendiği pediatrik kardiyovasküler dokularda ve göz cerrahisinde (oftalmoloji) ve emilebilir sütür ve uzun süreli (6 haftaya kadar) yara desteği gereken dokularda kullanılır.Sadece tek kullanımlıktır.</span>
                                 </div>
-                                <div id="Cerrahi_paslanmaz_elik_tel_emii">
+                                <div id="Cerrahi_paslanmaz_elik_tel_emi">
                                     <span>PEDESENTE minimum doku reaksiyonu ve lifli bağlantı dokularının içten büyümesine sebep olur.PEDESENTE sütürlerde mukavemet kaybı ve emilim aşamalı hidrolizle olur. Polimer monomerlerine ayrışır, sonunda emilir ve vücut tarafından atılır. Emilim prosesi kopma mukavemetinin azalması ile başlar ve kütle kaybı ile devam eder. Çalışmalar PEDESENTE'nin dokuya implante edildikten 2 hafta sonra orijinal kopma mukavemetinin yaklaşık %75'ini muhafaza ettiğini gösterir. lmplantasyon sonrası 4.haftada orijinal kopma mukavemetinin yaklaşık % 60'ını korur. Farelerde emilim testeri ve in vitro hidroliz çalışmaları PEDESENTE'nin implantasyon sonrası 90. günde emilimin minimal olduğunu ve tamamen emilimin 180 ile 210 gün arasında tamamlandığını gösterir.</span>
                                 </div>
-                                <div id="TEKTEL_batn_yaralarnn_kapanmass">
+                                <div id="TEKTEL_batn_yaralarnn_kapanmas">
                                     <span>PEDESENTE emilene kadar, güvenli bir yumuşak doku yaklaştırılması ve / veya bağlanması sağlar. Pediatrik kardiyovasküler doku ve göz cerrahisi(oftalmoloji) dahil olmak üzere geniş bir uygulaması vardır. Yara desteği 2 hafta sonra %75, 4 hafta sonra %60'dır ve 180 ile 210 gün arasında tamamıyla emilir.</span>
                                 </div>
                                 <div id="TANIM">
@@ -39,10 +39,10 @@ export default function EmilebilirSuturler() {
                                 <div id="KULLANIM_AMACI">
                                     <span>KULLANIM AMACI</span>
                                 </div>
-                                <div id="KLNK_PERFORMANS_ZELLKLERR">
+                                <div id="KLNK_PERFORMANS_ZELLKLER">
                                     <span>KLİNİK PERFORMANS ÖZELLİKLERİ</span>
                                 </div>
-                                <div id="KLNK_FAYDAA">
+                                <div id="KLNK_FAYDA">
                                     <span>KLİNİK FAYDA</span>
                                 </div>
                                 <div id="tektel">
