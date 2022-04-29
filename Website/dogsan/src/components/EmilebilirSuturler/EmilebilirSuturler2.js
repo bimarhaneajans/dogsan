@@ -25,7 +25,7 @@ export default function EmilebilirSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={pedesente} alt="icon" />
                                 <div className="info-col">
                                     <h5>Pedesente</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p className="lead">PEDESENTE steril, emilebilir monofilaman cerrahi ameliyat ipliğidir. Sütür polidioksanon'dan mamuldür ve ampirik formülü (-O-CH2-CH2-OCH2-CO-)n. Polidioksanon polimeri antijen ve pirojen değildir, emilim sırasında sadece hafif doku reaksiyonu ortaya çıkar. ...</p>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ export default function EmilebilirSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={pegelak} alt="icon" />
                                 <div className="info-col">
                                     <h5>pegelak</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>%90 glikolit ve %10 L-laktit (glikolik asit ve laktik asitten hazırlanmıştır) kopolimerlerinden sentez edilmiş esnek iplerden mamul PEGELAK rapid sentetik, emilebilir, cerrahi ameliyat iplikleri yumuşak doku yaklaştırmalarında kullanılır....</p>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ export default function EmilebilirSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={pegesorb} alt="icon" />
                                 <div className="info-col">
                                     <h5>pegesorb</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>PEGESORB steril, emilebilir, örgülü ve kaplanmış cerrahi ameliyat ipliğidir. Ameliyat ipliği poliglikolik asitten imal edilir. Poliglikolik asitin formülü (-O-CH2-CO-O-CH2-CO-)n'dır. Sütürün örgülü yapısı kaplanmıştır....</p>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ export default function EmilebilirSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={pegesorbrapid} alt="icon" />
                                 <div className="info-col">
                                     <h5>pegesorb rapid</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>PEGESORB rapid steril, emilebilir, örgülü ve kaplanmış cerrahi ameliyat ipliğidir. Ameliyat ipliği poliglikolik asitten imal edilir. Poliglikolik asitin formülü (-O-CH2-CO-O-CH2-CO-)n'dır....</p>
                                 </div>
                             </div>

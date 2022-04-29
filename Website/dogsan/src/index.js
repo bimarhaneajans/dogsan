@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
  import Admin from "./Admin"
  import store, { persistor } from "./store";
  import { SoftUIControllerProvider } from "context";
-
+import "../assets/css/style.css"
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>

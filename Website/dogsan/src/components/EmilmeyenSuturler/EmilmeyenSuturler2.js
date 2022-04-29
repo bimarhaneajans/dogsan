@@ -25,7 +25,7 @@ export default function EmilmeyenSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={daylon} alt="icon" />
                                 <div className="info-col">
                                     <h5>Daylon</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p className="lead">DAYLON, uzun zincirli alifatik polimerlerden poliamid den elde edilmiş sentetik ve emilmeyen steril cerrahi monofilaman bir ipliktir. DAYLON mavi(FD&C Blue 2) veya siyah (Hematein Logwood siyah ) renktedir....</p>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ export default function EmilmeyenSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={ipek} alt="icon" />
                                 <div className="info-col">
                                     <h5>ipek</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>İPEK iplik, fibroin adı verilen organik proteinden elde edilmiş, emilmeyen, steril cerrahi bir ipliktir....</p>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ export default function EmilmeyenSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={politer} alt="icon" />
                                 <div className="info-col">
                                     <h5>politer</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>POLİTER® örgülü, absorbe olmayan, silikon kaplı, polyesterden (polietilen terafitalat) imal edilmiş steril cerrahi iplik malzemesidir. Cerrahi iplik çok ince filamanların örülmesi ve sonra silikon karışımı ile kaplanmasıyla elde edilir....</p>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ export default function EmilmeyenSuturler2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={propilen} alt="icon" />
                                 <div className="info-col">
                                     <h5>propilen</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>PROPİLEN sentetik, emilmeyen, steril monofilaman cerrahi ipliktir. Yüksek molekül ağırlığında izotaktik polipropilen polimerinden oluşmuştur....</p>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@ export default function kvc2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={kvc_tektel} alt="icon" />
                                 <div className="info-col">
                                     <h5>tektel</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p className="lead">TEKTEL, steril ISO 5832 Bölüm-1 "Cerrahi İmplantlar için metalik malzemeler" standardına uygun 316L sınıfı paslanmaz çelik telden oluşan, emilebilir olmayan steril cerrahi paslanmaz çelik tel sütürdur...</p>
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ export default function kvc2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={kvc_politer} alt="icon" />
                                 <div className="info-col">
                                     <h5>politer</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>Polyester filamentinin örülmesinden elde edilen sütur kapilaritenin azalması için kaplanmıştır...</p>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ export default function kvc2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={dopace} alt="icon" />
                                 <div className="info-col">
                                     <h5>dopace</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>DOPACE geçici epikradiyal kalp pili veya kalp pili ile izleme için harici bir pacemaker ile miyokard arasında iletken bir bağlantı sağlar ve geçici pace sonlandırıldıktan sonra kolayca çıkarılabilir...</p>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@ export default function kvc2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={daxton} alt="icon" />
                                 <div className="info-col">
                                     <h5>daxton</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p>daxton®-D genel olarak yumuşak doku yakınlaştırması ve/veya bağlanmasında, kardiyovasküler, cerrahide ve dura mater onarımında güvenli kullanım sağlar. daxton®-D dokuda minimum inflamasyon reaksiyonuna yol açmayı amaçlar...</p>
                                 </div>
                             </div>

@@ -31,8 +31,8 @@ import Sidenav from "examples/Sidenav";
 import Configurator from "examples/Configurator";
 
 // Soft UI Dashboard React themes
-import theme from "assets/theme";
-import themeRTL from "assets/theme/theme-rtl";
+import theme from "../src/assets/theme";
+import themeRTL from "../src/assets/theme/theme-rtl";
 
 // RTL plugins
 import rtlPlugin from "stylis-plugin-rtl";

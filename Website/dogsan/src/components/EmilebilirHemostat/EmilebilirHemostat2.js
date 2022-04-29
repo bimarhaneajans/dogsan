@@ -23,7 +23,7 @@ export default function EmilebilirHemostat2() {
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={kanstat} alt="icon" />
                                 <div className="info-col">
                                     <h5>kanstat®</h5>
-                                    <h7>Tanım</h7>
+                                    <h6>Tanım</h6>
                                     <p className="lead">kanstat® emilebilir hemostat, rejenere selülozun kontrollü oksitlenmesiyle hazırlanan steril emilebilir tıbbi tekstil malzemesidir. Beyaz uçuk sarı gölgeli renktedir ve karamele benzer hafif bir kokusu vardır....</p>
                                 </div>
                             </div>

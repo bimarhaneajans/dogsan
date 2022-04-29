@@ -39,6 +39,8 @@ import Degerler from "./components/kurumsal/degerler";
 import SosyalSorumluluk from "./components/kurumsal/SosyalSorumluluk";
 import Tarihce from "./components/kurumsal/tarihce";
 import Igneler from "./components/igneler/igneler";
+import "../src/css/styles.css"
+import "../src/App.css"
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -176,12 +178,7 @@ const App = () => {
         <Route path="/user" element={<BoardUser />} />
         <Route path="/mod" element={<BoardModerator />} />
         <Route path="/admin" element={<BoardAdmin />} />
-      </Routes>
-
-
-
-
-
+      </Routes> 
     </div>
 
   );
