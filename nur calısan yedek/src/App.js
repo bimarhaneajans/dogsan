@@ -171,6 +171,7 @@ function App() {
           <Route path="/Igneler" element={<Igneler />} />
           <Route path="/user" element={<BoardUser />} />
           <Route path="/mod" element={<BoardModerator />} />
+          
           <Route path="/admin" element={<BoardAdmin />} />
         </Routes>
 
