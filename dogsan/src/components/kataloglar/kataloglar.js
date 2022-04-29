@@ -4,4 +4,4 @@ export default function kataloglar() {
   return (
     <div>kataloglar</div>
   )
-}
+
