@@ -22,41 +22,41 @@ import Duyuruguncelle  from "./layouts/Duyuru/Duyuruguncelle"
 
 import Etkinlikekle from "./layouts/Etkinlik/Etkinlikekle"
 import Etkinlikliste from "./layouts/Etkinlik/Etkinlikliste"
-import Etkinlikguncellle  from "./layouts/Etkinlik/Etkinlikguncellle"
+import Etkinlikguncelle  from "./layouts/Etkinlik/Etkinlikguncelle"
 
 import Hakkimizdaekle from "./layouts/Hakkimizda/Hakkimizdaekle"
 import Hakkimizdaliste from "./layouts/Hakkimizda/Hakkimizdaliste"
-import Hakkimizdaguncelle  from "./layouts/Hakkimizda/Hakkimizdaguncellle"
+import Hakkimizdaguncelle  from "./layouts/Hakkimizda/Hakkimizdaguncelle"
 
 
-import Iletisimekle from "./layouts/İletisim/Iletisimekle"
-import Iletisimliste from "./layouts/İletisim/Iletisimliste"
-import Iletisimguncelle  from "./layouts/İletisim/Iletisimguncellle"
+import Iletisimekle from "./layouts/İletisim/İletisimekle"
+import Iletisimliste from "./layouts/İletisim/İletisimliste"
+import Iletisimguncelle  from "./layouts/İletisim/İletisimguncelle"
 
-import Igneekle from "./layouts/igne/Igneekle"
-import Igneliste from "./layouts/igne/Igneekle"
-import Igneguncelle  from "./layouts/igne/Igneekle"
+import Igneekle from "./layouts/igne/igneekle"
+import Igneliste from "./layouts/igne/igneliste"
+import Igneguncelle  from "./layouts/igne/igneguncelle"
 
 import Katalogekle from "./layouts/Katalog/Katalogekle"
 import Katalogliste from "./layouts/Katalog/Katalogliste"
-import Katalogguncelle  from "./layouts/Katalog/Katalogguncellle"
+import Katalogguncelle  from "./layouts/Katalog/Katalogguncelle"
 
 
 import Kategoriekle from "./layouts/Kategori/Kategoriekle"
-import Kategoriliste from "./layouts/Kategori/Kategoriliste"
-import Kategoriguncelle  from "./layouts/Kategori"
+import Kategoriliste from "./layouts/Kategori/Katalogliste"
+import Kategoriguncelle  from "./layouts/Kategori/Kategoriguncelle"
 
 import Mesajlarekle from "./layouts/Mesajlar/Mesajlarekle"
 import Mesajlarliste from "./layouts/Mesajlar/Mesajlarliste"
-import Mesajlarguncelle  from "./layouts/Mesajlar/Mesajlarguncellle"
+import Mesajlarguncelle  from "./layouts/Mesajlar/Mesajlarguncelle"
 
 import Sehirekle from "./layouts/Sehir/Sehirekle"
 import Sehirliste from "./layouts/Sehir/Sehirliste"
-import Sehirguncelle  from "./layouts/Sehir/Sehirguncellle"
+import Sehirguncelle from "./layouts/Sehir/Sehirguncelle"
 
 import Sliderekle from "./layouts/Slider/Sliderekle"
 import Sliderliste from "./layouts/Slider/Sliderliste"
-import Sliderguncelle  from "./layouts/Slider/Sliderguncellle"
+import Sliderguncelle  from "./layouts/Slider/Sliderguncelle"
 
 
 import Sosyalssekle from "./layouts/Sosyalssekle"
@@ -266,21 +266,21 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Etkinlik Ekle",
-    key: "Etkinlikekle",
-    route: "/Etkinlikekle",
+    name: "Etkinlik Liste",
+    key: "Etkinlikliste",
+    route: "/Etkinlikliste",
     icon: <CustomerSupport size="12px" />,
-    component: <Etkinlikekle />,
+    component: <Etkinlikliste />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "Etkinlik Ekle",
-    key: "Etkinlikekle",
-    route: "/Etkinlikekle",
+    name: "Etkinlik  Guncelle",
+    key: "Etkinlikguncelle",
+    route: "/Etkinlikguncelle",
     icon: <CustomerSupport size="12px" />,
-    component: <Etkinlikekle />,
+    component: <Etkinlikguncelle />,
     noCollapse: true,
     isPrivate: true,
   },
@@ -293,31 +293,31 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Hakkımızda",
-    key: "Hakkımızda",
-    route: "/Hakkimizda",
+    name: "Hakkimizda Ekle",
+    key: "Hakkimizdaekle",
+    route: "/Hakkimizdaekle",
     icon: <CustomerSupport size="12px" />,
-    component: <Hakkimizda />,
+    component: <Hakkimizdaekle />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "Hakkımızda",
-    key: "Hakkımızda",
-    route: "/Hakkimizda",
+    name: "HakkimizdaLliste",
+    key: "Hakkimizda Liste",
+    route: "/Hakkimizdaliste",
     icon: <CustomerSupport size="12px" />,
-    component: <Hakkimizda />,
+    component: <Hakkimizdaliste />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "Hakkımızda",
-    key: "Hakkımızda",
-    route: "/Hakkimizda",
+    name: "Hakkimizda Guncelle",
+    key: "Hakkimizdaguncelle",
+    route: "/Hakkimizdaguncelle",
     icon: <CustomerSupport size="12px" />,
-    component: <Hakkimizda />,
+    component: <Hakkimizdaguncelle />,
     noCollapse: true,
     isPrivate: true,
   },
@@ -334,27 +334,27 @@ const routes = [
     key: "igne",
     route: "/igne",
     icon: <CustomerSupport size="12px" />,
-    component: <Igne />,
+    component: <Igneekle />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "İğne",
-    key: "igne",
-    route: "/igne",
+    name: "Igne liste",
+    key: "Igneliste",
+    route: "/Igneliste",
     icon: <CustomerSupport size="12px" />,
-    component: <Igne />,
+    component: <Igneliste />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "İğne",
-    key: "igne",
-    route: "/igne",
+    name: "Igne guncelle",
+    key: "Igneguncelle",
+    route: "/Igneguncelle",
     icon: <CustomerSupport size="12px" />,
-    component: <Igne />,
+    component: <Igneguncelle />,
     noCollapse: true,
     isPrivate: true,
   },
@@ -368,30 +368,30 @@ const routes = [
   {
     type: "collapse",
     name: "İletişim",
-    key: "iletim",
-    route: "/iletim",
+    key: "iletimekle",
+    route: "/iletimekle",
     icon: <CustomerSupport size="12px" />,
-    component: <Iletisim />,
+    component: <Iletisimekle />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
     name: "İletişim",
-    key: "iletim",
-    route: "/iletim",
+    key: "Iletisimliste",
+    route: "/Iletisimliste",
     icon: <CustomerSupport size="12px" />,
-    component: <Iletisim />,
+    component: <Iletisimliste />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "İletişim",
-    key: "iletim",
-    route: "/iletim",
+    name: "Iletisimg guncelle",
+    key: "Iletisimguncelle",
+    route: "/Iletisimguncelle",
     icon: <CustomerSupport size="12px" />,
-    component: <Iletisim />,
+    component: <Iletisimguncelle />,
     noCollapse: true,
     isPrivate: true,
   },
@@ -404,31 +404,31 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Katalog",
-    key: "Katalog",
-    route: "/Katalog",
+    name: "Katalogekle",
+    key: "Katalogekle",
+    route: "/Katalogekle",
     icon: <CustomerSupport size="12px" />,
-    component: <Katalog />,
+    component: <Katalogekle />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "Katalog",
-    key: "Katalog",
-    route: "/Katalog",
+    name: "Katalogliste",
+    key: "Katalogliste",
+    route: "/Katalogliste",
     icon: <CustomerSupport size="12px" />,
-    component: <Katalog />,
+    component: <Katalogliste />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
-    name: "Katalog",
-    key: "Katalog",
-    route: "/Katalog",
+    name: "Katalogguncelle",
+    key: "Katalogguncelle",
+    route: "/Katalogguncelle",
     icon: <CustomerSupport size="12px" />,
-    component: <Katalog />,
+    component: <Katalogguncelle />,
     noCollapse: true,
     isPrivate: true,
   },
@@ -445,27 +445,27 @@ const routes = [
     key: "Kategori",
     route: "/Kategori",
     icon: <CustomerSupport size="12px" />,
-    component: <Kategori />,
+    component: <Kategoriekle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Kategoriliste",
+    key: "Kategoriliste",
+    route: "/Kategoriliste",
+    icon: <CustomerSupport size="12px" />,
+    component: <Kategoriliste />,
     noCollapse: true,
     isPrivate: true,
   },
   {
     type: "collapse",
     name: "Kategori",
-    key: "Kategori",
-    route: "/Kategori",
+    key: "Kategoriguncelle",
+    route: "/Kategoriguncelle",
     icon: <CustomerSupport size="12px" />,
-    component: <Kategori />,
-    noCollapse: true,
-    isPrivate: true,
-  },
-  {
-    type: "collapse",
-    name: "Kategori",
-    key: "Kategori",
-    route: "/Kategori",
-    icon: <CustomerSupport size="12px" />,
-    component: <Kategori />,
+    component: <Kategoriguncelle />,
     noCollapse: true,
     isPrivate: true,
   },
