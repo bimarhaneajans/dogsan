@@ -30,3 +30,18 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.list .action {
+  cursor: pointer;
+}
+
+.submit-form {
+  max-width: 600px;
+  margin: "center";
+   
+}
+
+.edit-form {
+  max-width: 600px;
+  margin: "center";
+ }

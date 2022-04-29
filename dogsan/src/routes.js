@@ -1,43 +1,36 @@
 import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
-import Billing from "layouts/billing"; 
-import Profile from "layouts/profile"; 
+import Billing from "layouts/billing";
+import Profile from "layouts/profile";
 
 // Soft UI Dashboard React icons
 import Shop from "examples/Icons/Shop";
-import Office from "examples/Icons/Office"; 
+import Office from "examples/Icons/Office";
 import CustomerSupport from "examples/Icons/CustomerSupport";
-import CreditCard from "examples/Icons/CreditCard"; 
+import CreditCard from "examples/Icons/CreditCard";
 
- import Bayi from "./layouts/Bayi"
- import Deger from "./layouts/Deger" 
- import Etkinlik from "./layouts/Etkinlik" 
- import Duyuru from "./layouts/Duyuru" 
- import Hakkimizda from "./layouts/Hakkimizda" 
- import Igne from "./layouts/igne" 
-  import Katalog from "./layouts/Katalog" 
- import Kategori from "./layouts/Kategori" 
- import Mesajlar from "./layouts/Mesajlar" 
- import Sehir from "./layouts/Sehir" 
- import Slider from "./layouts/Slider" 
- import Iletisim from "./layouts/İletisim" 
- import Sosyalss from "./layouts/Sosyalss" 
- import Tarihce from "./layouts/Tarihce" 
- import Tarihcegi from "./layouts/TarihiGaleri" 
- import Urun from "./layouts/Urun" 
+import Bayiliste from "./layouts/Bayi/bayiliste"
+import Bayiekle from "./layouts/Bayi/Bayiekle"
+import Bayiguncellle from "./layouts/Bayi/Bayiguncelle"
 
 
+import Deger from "./layouts/Deger"
+import Etkinlik from "./layouts/Etkinlik"
+import Duyuru from "./layouts/Duyuru"
+import Hakkimizda from "./layouts/Hakkimizda"
+import Igne from "./layouts/igne"
+import Katalog from "./layouts/Katalog"
+import Kategori from "./layouts/Kategori"
+import Mesajlar from "./layouts/Mesajlar"
+import Sehir from "./layouts/Sehir"
+import Slider from "./layouts/Slider"
+import Iletisim from "./layouts/İletisim"
+import Sosyalss from "./layouts/Sosyalss"
+import Tarihce from "./layouts/Tarihce"
+import Tarihcegi from "./layouts/TarihiGaleri"
+import Urun from "./layouts/Urun"
 
-
- 
 const routes = [
-   
-  {
-    type: "title",
-    title: "Bayi işlemleri",
-    key: "account-pages1",
-    isPrivate: true
-  },
   {
     type: "collapse",
     name: "dashboard",
@@ -50,19 +43,47 @@ const routes = [
   },
   {
     type: "title",
-    title: "Blog İşlemleri",
-    key: "account-pages2",
+    title: "Bayi işlemleri",
+    key: "account-pages1",
     isPrivate: true
+  },
+
+  {
+    type: "collapse",
+    name: "Bayi Ekle",
+    key: "BayiEkle",
+    route: "/Bayiekle",
+    icon: <CustomerSupport size="12px" />,
+    component: <Bayiekle />,
+    noCollapse: true,
+    isPrivate: true,
   },
   {
     type: "collapse",
-    name: "Bayi",
-    key: "Bayi",
-    route: "/Bayi",
+    name: "Bayi Listesi",
+    key: "Bayiliste",
+    route: "/Bayiliste",
     icon: <CustomerSupport size="12px" />,
-    component: <Bayi />,
+    component: <Bayiliste />,
     noCollapse: true,
     isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Bayi Guncelle",
+    key: "Bayiguncelle",
+    route: "/Bayiguncellle/:id",
+    icon: <CustomerSupport size="12px" />,
+    component: <Bayiguncellle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+
+  {
+    type: "title",
+    title: "Blog İşlemleri",
+    key: "account-pages2",
+    isPrivate: true
   },
   {
     type: "title",
@@ -102,7 +123,7 @@ const routes = [
     key: "account-pages6",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Etkinlik",
@@ -119,7 +140,7 @@ const routes = [
     key: "account-pages7",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Hakkımızda",
@@ -136,7 +157,7 @@ const routes = [
     key: "account-pages8",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "İğne",
@@ -153,7 +174,7 @@ const routes = [
     key: "account-pages9",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "İletişim",
@@ -170,7 +191,7 @@ const routes = [
     key: "account-pages10",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Katalog",
@@ -187,7 +208,7 @@ const routes = [
     key: "account-pages11",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Kategori",
@@ -204,7 +225,7 @@ const routes = [
     key: "account-pages12",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Mesajlar",
@@ -221,7 +242,7 @@ const routes = [
     key: "account-pages13",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Şehir",
@@ -238,7 +259,7 @@ const routes = [
     key: "account-pages14",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Slider",
@@ -255,7 +276,7 @@ const routes = [
     key: "account-pages15",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Sosyal Sorumluluk",
@@ -272,7 +293,7 @@ const routes = [
     key: "account-pages16",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Tarihçe",
@@ -289,7 +310,7 @@ const routes = [
     key: "account-pages17",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Tarihi Galeri",
@@ -306,7 +327,7 @@ const routes = [
     key: "account-pages18",
     isPrivate: true
   },
- 
+
   {
     type: "collapse",
     name: "Urun",

@@ -3,25 +3,33 @@ import authHeader from "./auth-header";
 
 const API_URL = "https://bavrim.madilink.net/api/test/";
 
-const getPublicContent = () => {
-  return axios.get(API_URL + "all");
-};
+class UserService {
+/*   getPublicContent() {
+    const axios = require('axios');
+    let config = {
+      method: 'get',
+      url: 'https://bavrim.madilink.net/api/test/all',
+      headers: {"Access-Control-Allow-Origin": "*"}
+    };
+    return axios(config);
+  } */
+  getPublicContent() {
+    return axios.get(API_URL + 'all');
+  }
 
-const getUserBoard = () => {
-  return axios.get(API_URL + "user", { headers: authHeader() });
-};
+  getUserBoard() {
+    return axios.get(API_URL + "user", { headers: authHeader() });
+  }
 
-const getModeratorBoard = () => {
-  return axios.get(API_URL + "mod", { headers: authHeader() });
-};
+  getModeratorBoard() {
+    return axios.get(API_URL + "mod", { headers: authHeader() });
+  }
 
-const getAdminBoard = () => {
-  return axios.get(API_URL + "admin", { headers: authHeader() });
-};
+  getAdminBoard() {
+    return axios.get(API_URL + "admin", { headers: authHeader() });
+  }
+}
 
-export default {
-  getPublicContent,
-  getUserBoard,
-  getModeratorBoard,
-  getAdminBoard,
-};
+
+
+export default new UserService();

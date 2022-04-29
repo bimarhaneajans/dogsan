@@ -66,10 +66,10 @@ function reducer(state, action) {
 function SoftUIControllerProvider({ children }) {
   const initialState = {
     miniSidenav: false,
-    transparentSidenav: true,
+    transparentSidenav: false,
     sidenavColor: "info",
-    transparentNavbar: true,
-    fixedNavbar: true,
+    transparentNavbar: false,
+    fixedNavbar: false,
     openConfigurator: false,
     direction: "ltr",
     layout: "dashboard",
