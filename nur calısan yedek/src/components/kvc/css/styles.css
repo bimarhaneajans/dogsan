@@ -789,6 +789,36 @@
 	font-size: 15px;
 	color: rgba(0,129,195,1);
 }
+#KLNK_FAYDAA {
+	
+	left: 0px;
+	top: 600px;
+	position: absolute;
+	overflow: visible;
+	width: 105px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue, arial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 15px;
+	color: rgba(0,129,195,1);
+}
+#Cerrahi_paslanmaz_elik_tel_yarr {
+	left: 0px;
+	top: 650px;
+	position: absolute;
+	overflow: visible;
+	width: 434px;
+	height: 102px;
+	text-align: left;
+	font-family: Helvetica Neue, arial;
+	font-style: normal;
+	font-weight: lighter;
+	font-size: 15px;
+	color: rgba(82,82,82,1);
+}
+
 #tektel {
 	left: 534px;
 	top: 15px;

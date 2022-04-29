@@ -11,7 +11,7 @@ export default function EmilebilirHemostat() {
             <Navbar />
             <div className='container'>
             <div id="urunlarbaslık">
-                    <span>EMİLEBİLİR SÜTÜRLER</span></div>
+                    <span></span></div>
             {/* <div style={{ paddingTop: "10px" }} class="main-wrapper">
                     <div style={{ marginTop: "150px" }}> */}
                     

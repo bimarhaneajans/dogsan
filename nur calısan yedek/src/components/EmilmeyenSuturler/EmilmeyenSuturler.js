@@ -9,8 +9,7 @@ export default function EmilmeyenSuturler() {
         <div >
             <Navbar />
             <div className='container'>
-            <div id="urunlarbaslık">
-                    <span>EMİLMEYEN SÜTÜRLER</span></div>
+           
             {/* <div style={{ paddingTop: "10px" }} class="main-wrapper">
                     <div style={{ marginTop: "150px" }}> */}
                     
@@ -27,7 +26,7 @@ export default function EmilmeyenSuturler() {
                                 <div id="Cerrahi_paslanmaz_elik_tel_emi">
                                     <span>DAYLON, bağ doku lifleri tarafından ipliğin yavaş yavaş kapsülleşmesi sonucunda dokuda minimum akut reaksiyona yol açar. Poliamid absorbe edilmediği halde, vücuttaki hidroliz ilerlemesi zamanla gerilme kuvvetinin yavaş yavaş kaybetmesi ile sonuçlanabilir.</span>
                                 </div>
-                                <div id="TEKTEL_batn_yaralarnn_kapanmas">
+                                <div id="Cerrahi_paslanmaz_elik_tel_yarr">
                                     <span>DAYLON sütürler, açık yaraları dikmek için kullanıldığında enfeksiyonu sınırladığı için dokuları yaklaştırmak için kullanılır. DAYLON sütürler ayrıca yumuşak dokular veya diğer cihazlar için bir fiksasyon sistemi olarak kullanılır.DAYLON, dokuda minimum inflamasyon reaksiyonuna yol açar. Kullanım kolaylığı ve şişmenin az olmasından dolayı, DAYLON tüm deri kapamaları için idealdir.</span>
                                 </div>
                                 <div id="TANIM">
@@ -39,7 +38,7 @@ export default function EmilmeyenSuturler() {
                                 <div id="KLNK_PERFORMANS_ZELLKLER">
                                     <span>KLİNİK PERFORMANS ÖZELLİKLERİ</span>
                                 </div>
-                                <div id="KLNK_FAYDA">
+                                <div id="KLNK_FAYDAA">
                                     <span>KLİNİK FAYDA</span>
                                 </div>
                                 <div id="tektel">
