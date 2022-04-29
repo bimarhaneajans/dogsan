@@ -18,12 +18,14 @@ export default function hakkimizda() {
               <div className="row">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
-                    <img id="pull-center icon" src={top} alt="icon" />
+                    <img id="pull-center icon" style={{width:"900px"}}src={top} alt="icon" />
                     <br />
                     <br />
 
-                    <div>
-                    <ReactPlayer   url='https://www.youtube.com/watch?v=WzP6rGRNzWw' />
+                  {/*   margin-left: 150px */}
+
+                    <div className="reactPly" >
+                    <ReactPlayer  url='https://www.youtube.com/watch?v=WzP6rGRNzWw' />
                     </div>
                     <h5>1970'den Beri</h5>
                     <p className="lead">Türkiye, Ortadoğu ve Balkanlar’daki ilk sütür üreticisi olan Doğsan, 1970 yılında kurulmuştur ve sütür üretiminde köklü bir geçmişe sahiptir.

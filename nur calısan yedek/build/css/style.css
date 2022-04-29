@@ -383,11 +383,11 @@ body {
 .main-navigation .main-nav li a {
 	text-transform: uppercase;
 	font-size: .9em;
-	font-weight: 600;
+	font-weight: 400;
 	letter-spacing: 1px;
 	color: #a6a6a6;
-	width: 100%;
-	padding: 0px 30px 29px 30px;
+	width: 50%;
+	padding: 0px 20px 30px 20px;
 	border-bottom: 3px solid transparent;
 }
 

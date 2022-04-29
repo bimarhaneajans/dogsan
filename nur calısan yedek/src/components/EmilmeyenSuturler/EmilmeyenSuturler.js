@@ -24,10 +24,10 @@ export default function EmilmeyenSuturler() {
                                 <div id="Cerrahi_paslanmaz_elik_tel_yar">
                                     <span>DAYLON, genel yumuşak doku yakınlaştırması ve/veya bağlanmasında, oftalmik, nörolojik ve kardiovasküler cerrahi kullanım da dahil olmak üzere kullanılır. DAYLON, ameliyat sırasında diğer iplikleri tutturmada ve işaretlemede de kullanılır.DAYLON’un, USP 8/0 (EP 0.4)’dan USP 11/0 (EP 0.1)’a kadar olan ince iplikleri mikro cerrahi ve göz cerrahisi için özellikle uygundur.Sadece tek kullanımlıktır.</span>
                                 </div>
-                                <div id="Cerrahi_paslanmaz_elik_tel_emi">
+                                <div id="Cerrahi_paslanmaz_elik_tel_emii">
                                     <span>DAYLON, bağ doku lifleri tarafından ipliğin yavaş yavaş kapsülleşmesi sonucunda dokuda minimum akut reaksiyona yol açar. Poliamid absorbe edilmediği halde, vücuttaki hidroliz ilerlemesi zamanla gerilme kuvvetinin yavaş yavaş kaybetmesi ile sonuçlanabilir.</span>
                                 </div>
-                                <div id="TEKTEL_batn_yaralarnn_kapanmas">
+                                <div id="TEKTEL_batn_yaralarnn_kapanmass">
                                     <span>DAYLON sütürler, açık yaraları dikmek için kullanıldığında enfeksiyonu sınırladığı için dokuları yaklaştırmak için kullanılır. DAYLON sütürler ayrıca yumuşak dokular veya diğer cihazlar için bir fiksasyon sistemi olarak kullanılır.DAYLON, dokuda minimum inflamasyon reaksiyonuna yol açar. Kullanım kolaylığı ve şişmenin az olmasından dolayı, DAYLON tüm deri kapamaları için idealdir.</span>
                                 </div>
                                 <div id="TANIM">
@@ -36,10 +36,10 @@ export default function EmilmeyenSuturler() {
                                 <div id="KULLANIM_AMACI">
                                     <span>KULLANIM AMACI</span>
                                 </div>
-                                <div id="KLNK_PERFORMANS_ZELLKLER">
+                                <div id="KLNK_PERFORMANS_ZELLKLERR">
                                     <span>KLİNİK PERFORMANS ÖZELLİKLERİ</span>
                                 </div>
-                                <div id="KLNK_FAYDA">
+                                <div id="KLNK_FAYDAA">
                                     <span>KLİNİK FAYDA</span>
                                 </div>
                                 <div id="tektel">

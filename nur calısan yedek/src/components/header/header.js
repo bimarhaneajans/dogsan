@@ -11,7 +11,7 @@ export default function header() {
 						<div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
 							<div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={Logo} alt="Heartify" /></a></div>
 
-							<div className="top-header hidden-xs">
+							<div className="top-header hidden-xxl ">
 								<div className="top-navigation">
 									<ul className="top-nav list-unstyled list-inline">
 									
