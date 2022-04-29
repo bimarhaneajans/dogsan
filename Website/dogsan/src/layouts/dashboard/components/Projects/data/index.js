@@ -14,7 +14,6 @@ import logoSlack from "assets/images/small-logos/logo-slack.svg";
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 import logoJira from "assets/images/small-logos/logo-jira.svg";
 import logoInvesion from "assets/images/small-logos/logo-invision.svg";
-
 import team1 from "assets/images/team-1.jpg";
 import team2 from "assets/images/team-2.jpg";
 import team3 from "assets/images/team-3.jpg";
@@ -78,7 +77,6 @@ export default function data() {
           </SuiBox>
         ),
       },
-
       {
         companies: [logoAtlassian, "Add Progress Track"],
         members: (
@@ -148,12 +146,7 @@ export default function data() {
         companies: [logoJira, "Add the New Pricing Page"],
         members: (
           <SuiBox display="flex" py={1}>
-            {
-            avatars([
-              [team4, "Jessica Doe"],
-              [team4, "Taner Erkan"],
-            ])
-            }
+            {avatars([[team4, "Jessica Doe"]])}
           </SuiBox>
         ),
         budget: (

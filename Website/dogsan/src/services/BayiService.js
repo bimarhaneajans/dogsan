@@ -1,41 +1,64 @@
-import http from "../../src/http-common";
+import http from "../http-common";
+import axios from "axios";
 
 const getAll = () => {
-  return http.get("/bayi");
+  return axios.get("/bayi");
 };
 
-const get = id => {
-  return http.get(`/bayi/${id}`);
+const get = (id) => {
+  return axios.get(`/bayi/${id}`,
+  {
+    headers:{ }
+  }
+  );
 };
 
-const create = data => {
-  return http.post("/bayi", data);
+const create = (data) => {
+  return axios.post("/bayi", data,
+  {
+    headers:{ }
+  }
+  );
 };
 
 const update = (id, data) => {
-  return http.put(`/bayi/${id}`, data);
+  return axios.put(`/bayi/${id}`, data,
+  {
+    headers:{}
+  }
+  );
 };
-
-const remove = id => {
-  return http.delete(`/bayi/${id}`);
+const remove = (id) => {
+  return axios.delete(`/bayi/${id}`,
+  {
+    headers:{}
+  }
+  );
 };
 
 const removeAll = () => {
-  return http.delete(`/bayi`);
+  return axios.delete(`/bayi`,
+  {
+    headers:{}
+  }
+  );
 };
 
-const findByTitle = baslik => {
-  return http.get(`/bayi?baslik=${baslik}`);
+const findByTitle = (baslik) => {
+  return axios.get(`/bayi?baslik=${baslik}`,
+  {
+    headers:{}
+  });
 };
 
-const bayiService = {
+const bayiservice = {
   getAll,
   get,
   create,
   update,
   remove,
   removeAll,
-  findByTitle
+  findByTitle,
 };
 
-export default bayiService;
+export default bayiservice;
