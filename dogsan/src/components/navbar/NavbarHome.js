@@ -15,7 +15,7 @@ export default function NavbarHome() {
                         </div> */}
                     <div className="col-xs-12">
                         <div className="main-navigation hidden-xs">
-                            <ul className="main-nav list-unstyled list-inline pull-right">
+                            <ul className="main-nav list-unstyled list-inline">
                                 <li className="active"><a href="#EmilebilirSuturler2">Emilebilir Sütürler</a></li>
                                 <li><a href="#EmilmeyenSuturler2">Emilmeyen Sütürler</a></li>
                                 <li><a href="#kvc2">Kvc</a></li>

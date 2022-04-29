@@ -12,10 +12,10 @@ ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
      <BrowserRouter>
-        <SoftUIControllerProvider>  
+       {/*  <SoftUIControllerProvider>  
         <Admin />
-      </SoftUIControllerProvider>   
-    {/*  <App />   */}
+      </SoftUIControllerProvider>  */}  
+     <App />   
    </BrowserRouter>  
     </PersistGate>
   </Provider>,

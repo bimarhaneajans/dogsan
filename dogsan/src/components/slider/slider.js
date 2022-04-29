@@ -13,28 +13,28 @@ export default function slider() {
                 <div id="bg-slider-home">
                     <div id="slider-wrapper">
                         <div id="full-slider-wrapper">
-                            <div id="layerslider" style={{ width: "100 %", height: "720px", maxWidth: "100%", color: "red" }}>
-                                <div style={{alignSelf:"center",justifyContent:"center",margin:"center",padding:"center"}}>
+                            <div>
+                                <div >
                                     <Carousel
                                         autoPlay={true}
                                         dynamicHeight={true}
                                         stopOnHover={false}
                                         interval={3000}
-                                        width={500}
+                                        width={1160}
                                         height={500}
                                         infiniteLoop
                                         showThumbs={false}
                                         showArrows={false}
                                         showIndicators={false}
-                                        
+                               
                                     >
                                         <div>
                                             <img src={silide2} />
-                                            <p className="legend">Legend 1</p>
+                                            {/* <p className="legend">Legend 1</p> */}
                                         </div>
                                         <div>
                                             <img src={slidebbg} />
-                                            <p className="legend">Legend 2</p>
+                                            {/* <p className="legend">Legend 2</p> */}
                                         </div>
 
                                     </Carousel>
