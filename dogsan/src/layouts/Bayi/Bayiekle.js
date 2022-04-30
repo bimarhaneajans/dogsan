@@ -26,21 +26,20 @@ const AddTutorial = () => {
 
   const saveTutorial = () => {
     var data = {
-      title: tutorial.title,
-      description: tutorial.description
+      baslik: tutorial.baslik,
+      adres: tutorial.adres
     };
 
     BayiDataService.create(data)
       .then(response => {
         setTutorial({
-          id: response.data.id,
-
+         // id: response.data.id,
           baslik: response.data.baslik,
           adres: response.data.adres,
-          telefon: response.data.telefon,
+       /*    telefon: response.data.telefon,
           enlem: response.data.enlem,
-          boylam: response.data.boylam,
-          published: response.data.published
+          boylam: response.data.boylam, */
+          published: true
         });
         setSubmitted(true);
         console.log(response.data);
@@ -75,11 +74,11 @@ const AddTutorial = () => {
               <input
                 type="text"
                 className="form-control"
-                id="title"
+                id="baslik"
                 required
-                value={tutorial.title}
+                value={tutorial.baslik}
                 onChange={handleInputChange}
-                name="title"
+                name="baslik"
               />
             </div>
 
@@ -88,11 +87,11 @@ const AddTutorial = () => {
               <input
                 type="text"
                 className="form-control"
-                id="description"
+                id="adres"
                 required
-                value={tutorial.description}
+                value={tutorial.adres}
                 onChange={handleInputChange}
-                name="description"
+                name="adres"
               />
             </div>
 
