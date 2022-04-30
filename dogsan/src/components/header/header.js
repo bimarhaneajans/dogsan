@@ -23,7 +23,8 @@ export default function header() {
 										<li><Link to={"/duyurular"} className="nav-link">Duyurular</Link></li>
 										<li><Link to={"/blog"} className="nav-link">Blog</Link></li>
 										<li><Link to={"/iletisim"} className="nav-link">İletişim</Link></li>
-						
+										<li><Link to={"/dashboard"} className="nav-link">Admin</Link></li>
+										
 
 									</ul>
 								</div>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -26,12 +28,12 @@ import Veterinerlik from "./components/Veterinerlik/Veterinerlik";
 import Veterinerlik2 from "./components/Veterinerlik/Veterinerlik2";
 import HeaderKurumsal from "./components/kurumsal/header/HeaderKurumsal";
 import Kurumsal from "./components/kurumsal/kurumsal";
-import Hakkimizda from  "./components/kurumsal/hakkimizda";
-import Degerler from  "./components/kurumsal/degerler";
-import SosyalSorumluluk from  "./components/kurumsal/SosyalSorumluluk";
+import Hakkimizda from "./components/kurumsal/hakkimizda";
+import Degerler from "./components/kurumsal/degerler";
+import SosyalSorumluluk from "./components/kurumsal/SosyalSorumluluk";
 import Tarihce from "./components/kurumsal/tarihce";
-import Igneler from  "./components/igneler/igneler";
-import Admin from "./Admin"
+import Igneler from "./components/igneler/igneler";
+import Admin from "../src/admin/App"
 import { SoftUIControllerProvider } from "context";
 
 import { logout } from "./redux/actions/auth";
@@ -79,8 +81,8 @@ const App = () => {
 
   return (
 
-   <div>
-    {/*    <nav className="navbar navbar-expand navbar-dark bg-dark">
+    <div>
+      {/*    <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
           bezKoder
         </Link>
@@ -150,43 +152,45 @@ const App = () => {
 
       </div> */}
 
- 
-      <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/kvc" element={<Kvc />} />
-          <Route exact path="/kvc2" element={<Kvc2/>} />
-          <Route exact path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />
-          <Route exact path="/EmilebilirSuturler2" element={<EmilebilirSuturler2/>} />
-          <Route exact path="/EmilmeyenSuturler" element={<EmilmeyenSuturler />} />
-          <Route exact path="/EmilmeyenSuturler2" element={<EmilmeyenSuturler2/>} />
-          <Route exact path="/EmilebilirHemostat" element={<EmilebilirHemostat />} />
-          <Route exact path="/EmilebilirHemostat2" element={<EmilebilirHemostat2/>} />
-          <Route exact path="/DentalSuturler" element={<DentalSuturler />} />
-          <Route exact path="/DentalSuturler2" element={<DentalSuturler2/>} />
-          <Route exact path="/Veterinerlik" element={<Veterinerlik />} />
-          <Route exact path="/Veterinerlik2" element={<Veterinerlik2/>} />
-          <Route path="/Kataloglar" element={<Kataloglar />} />
-          <Route path="/HeaderKurumsal" element={<HeaderKurumsal />} />
-          <Route path="/Kurumsal" element={<Kurumsal />} />
-          <Route path="/hakkimizda" element={<Hakkimizda />} />
-          <Route path="/Degerler" element={<Degerler />} />
-          <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
-          <Route path="/Tarihce" element={<Tarihce />} />
-          <Route path="/Igneler" element={<Igneler />} />
-          <Route path="/user" element={<BoardUser />} />
-          <Route path="/mod" element={<BoardModerator />} />
-          <Route path="/admin" element={<BoardAdmin />} />
-        </Routes>
 
-      {/*  <SoftUIControllerProvider>
-        <Routes>
-        <Route path="/dashboard" element={ <Admin />} />
-         
-        </Routes>
-      </SoftUIControllerProvider>  
- */}
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/kvc" element={<Kvc />} />
+        <Route exact path="/kvc2" element={<Kvc2 />} />
+        <Route exact path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />
+        <Route exact path="/EmilebilirSuturler2" element={<EmilebilirSuturler2 />} />
+        <Route exact path="/EmilmeyenSuturler" element={<EmilmeyenSuturler />} />
+        <Route exact path="/EmilmeyenSuturler2" element={<EmilmeyenSuturler2 />} />
+        <Route exact path="/EmilebilirHemostat" element={<EmilebilirHemostat />} />
+        <Route exact path="/EmilebilirHemostat2" element={<EmilebilirHemostat2 />} />
+        <Route exact path="/DentalSuturler" element={<DentalSuturler />} />
+        <Route exact path="/DentalSuturler2" element={<DentalSuturler2 />} />
+        <Route exact path="/Veterinerlik" element={<Veterinerlik />} />
+        <Route exact path="/Veterinerlik2" element={<Veterinerlik2 />} />
+        <Route path="/Kataloglar" element={<Kataloglar />} />
+        <Route path="/HeaderKurumsal" element={<HeaderKurumsal />} />
+        <Route path="/Kurumsal" element={<Kurumsal />} />
+        <Route path="/hakkimizda" element={<Hakkimizda />} />
+        <Route path="/Degerler" element={<Degerler />} />
+        <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
+        <Route path="/Tarihce" element={<Tarihce />} />
+        <Route path="/Igneler" element={<Igneler />} />
+        <Route path="/user" element={<BoardUser />} />
+        <Route path="/mod" element={<BoardModerator />} />
+      
+        <Route path="/dashboard" element={<Admin />} />
+       
+      </Routes>
+
+      {/* <BrowserRouter>
+        <SoftUIControllerProvider>
+        <Route path="/admin" element={<Admin />} />
+        </SoftUIControllerProvider>
+
+      </BrowserRouter> */}
+
 
 
 
