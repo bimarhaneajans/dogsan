@@ -8,12 +8,12 @@ import SuiTypography from "components/SuiTypography";
 import SuiProgress from "components/SuiProgress";
 
 // Images
-import logoSpotify from ".../../../../src/assets/images/small-logos/logo-spotify.svg";
-import logoInvesion from "../../../../src/assets/images/small-logos/logo-invision.svg";
-import logoJira from "../../../../src/assets/images/small-logos/logo-jira.svg";
-import logoSlack from "../../../../src/assets/images/small-logos/logo-slack.svg";
-import logoWebDev from "../../../../src/assets/images/small-logos/logo-webdev.svg";
-import logoXD from "../../../../src/assets/images/small-logos/logo-xd.svg";
+import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
+import logoInvesion from "assets/images/small-logos/logo-invision.svg";
+import logoJira from "assets/images/small-logos/logo-jira.svg";
+import logoSlack from "assets/images/small-logos/logo-slack.svg";
+import logoWebDev from "assets/images/small-logos/logo-webdev.svg";
+import logoXD from "assets/images/small-logos/logo-xd.svg";
 
 function Completion({ value, color }) {
   return (

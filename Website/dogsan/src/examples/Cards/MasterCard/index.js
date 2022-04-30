@@ -25,8 +25,8 @@ import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 
 // Images
-import curved14 from "../src/assets/images/curved-images/curved14.jpg";
-import masterCardLogo from "../src/assets/images/logos/mastercard.png";
+import curved14 from "assets/images/curved-images/curved14.jpg";
+import masterCardLogo from "assets/images/logos/mastercard.png";
 
 function MasterCard({ color, number, holder, expires }) {
   const numbers = [...`${number}`];

@@ -1,147 +1,184 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {  Routes,Route, Link } from "react-router-dom";
+/**
+=========================================================
+* Soft UI Dashboard React - v3.1.0
+=========================================================
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
 
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Home from "./components/Home";
-import Profile from "./components/Profile";
-import BoardUser from "./components/BoardUser";
-import BoardModerator from "./components/BoardModerator";
-import BoardAdmin from "./components/BoardAdmin";
-import Admin from "./Admin"
-import { SoftUIControllerProvider } from "context";
+Coded by www.creative-tim.com
 
-import { logout } from "./redux/actions/auth";
-import { clearMessage } from "./redux/actions/message";
+ =========================================================
 
-import { history } from "./helpers/history";
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
 
-// import AuthVerify from "./common/AuthVerify";
-import EventBus from "./common/EventBus";
+import { useState, useEffect, useMemo } from "react";
 
-const App = () => {
-  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
+// react-router components
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
-  const { user: currentUser } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
+// @mui material components
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Icon from "@mui/material/Icon";
 
-  useEffect(() => {
-    history.listen((location) => {
-      dispatch(clearMessage()); // clear message when changing location
+// Soft UI Dashboard React components
+import SuiBox from "components/SuiBox";
+
+// Soft UI Dashboard React examples
+import Sidenav from "examples/Sidenav";
+import Configurator from "examples/Configurator";
+
+// Soft UI Dashboard React themes
+import theme from "assets/theme";
+import themeRTL from "assets/theme/theme-rtl";
+
+// RTL plugins
+import rtlPlugin from "stylis-plugin-rtl";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+
+// Soft UI Dashboard React routes
+import routes from "routes";
+
+// Soft UI Dashboard React contexts
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
+
+// Images
+import brand from "assets/images/logo-ct.png";
+
+export default function App() {
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
+
+  // Cache for the rtl
+  useMemo(() => {
+    const cacheRtl = createCache({
+      key: "rtl",
+      stylisPlugins: [rtlPlugin],
     });
-  }, [dispatch]);
 
-  const logOut = useCallback(() => {
-    dispatch(logout());
-  }, [dispatch]);
+    setRtlCache(cacheRtl);
+  }, []);
 
-  useEffect(() => {
-    if (currentUser) {
-      setShowModeratorBoard(currentUser.roles.includes("ROLE_MODERATOR"));
-      setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
-    } else {
-      setShowModeratorBoard(false);
-      setShowAdminBoard(false);
+  // Open sidenav when mouse enter on mini sidenav
+  const handleOnMouseEnter = () => {
+    if (miniSidenav && !onMouseEnter) {
+      setMiniSidenav(dispatch, false);
+      setOnMouseEnter(true);
     }
+  };
 
-    EventBus.on("logout", () => {
-      logOut();
+  // Close sidenav when mouse leave mini sidenav
+  const handleOnMouseLeave = () => {
+    if (onMouseEnter) {
+      setMiniSidenav(dispatch, true);
+      setOnMouseEnter(false);
+    }
+  };
+
+  // Change the openConfigurator state
+  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
+
+  // Setting the dir attribute for the body element
+  useEffect(() => {
+    document.body.setAttribute("dir", direction);
+  }, [direction]);
+
+  // Setting page scroll to 0 when changing the route
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+  }, [pathname]);
+
+  const getRoutes = (allRoutes) =>
+    allRoutes.map((route) => {
+      if (route.collapse) {
+        return getRoutes(route.collapse);
+      }
+
+      if (route.route) {
+        return <Route exact path={route.route} element={route.component} key={route.key} />;
+      }
+
+      return null;
     });
 
-    return () => {
-      EventBus.remove("logout");
-    };
-  }, [currentUser, logOut]);
-
-  return (
-    
-      <div>
-   <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/"} className="navbar-brand">
-            bezKoder
-          </Link>
-          <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                Home
-              </Link>
-            </li>
-
-            {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )}
-
-            {showAdminBoard && (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Board
-                </Link>
-              </li>
-            )}
-
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
-                </Link>
-              </li>
-            )}
-          </div>
-
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={logOut}>
-                  LogOut
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                 admin
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
-
-        <div className="container mt-3">
-        
-        </div>  
-
-         <Routes>
-        <Route path="/dashboard/" element={<BoardAdmin />} />
-       
-      </Routes> 
-
-        
-
-        
-      </div>
-     
+  const configsButton = (
+    <SuiBox
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="3.5rem"
+      height="3.5rem"
+      bgColor="white"
+      shadow="sm"
+      borderRadius="50%"
+      position="fixed"
+      right="2rem"
+      bottom="2rem"
+      zIndex={99}
+      color="dark"
+      sx={{ cursor: "pointer" }}
+      onClick={handleConfiguratorOpen}
+    >
+      <Icon fontSize="default" color="inherit">
+        settings
+      </Icon>
+    </SuiBox>
   );
-};
 
-export default App;
+  return direction === "rtl" ? (
+    <CacheProvider value={rtlCache}>
+      <ThemeProvider theme={themeRTL}>
+        <CssBaseline />
+        {layout === "dashboard" && (
+          <>
+            <Sidenav
+              color={sidenavColor}
+              brand={brand}
+              brandName="Soft UI Dashboard"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            />
+            <Configurator />
+            {configsButton}
+          </>
+        )}
+        {layout === "vr" && <Configurator />}
+        <Routes>
+          {getRoutes(routes)}
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+        </Routes>
+      </ThemeProvider>
+    </CacheProvider>
+  ) : (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {layout === "dashboard" && (
+        <>
+          <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes}
+            onMouseEnter={handleOnMouseEnter}
+            onMouseLeave={handleOnMouseLeave}
+          />
+          <Configurator />
+          {configsButton}
+        </>
+      )}
+      {layout === "vr" && <Configurator />}
+      <Routes>
+        {getRoutes(routes)}
+        <Route path="*" element={<Navigate to="/dashboard" />} />
+      </Routes>
+    </ThemeProvider>
+  );
+}

@@ -1,43 +1,31 @@
+/**
+=========================================================
+* Soft UI Dashboard React - v3.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
- import App from "./App";
- import Admin from "./Admin"
- import store, { persistor } from "./store";
- import { SoftUIControllerProvider } from "context";
-import "../assets/css/style.css"
+import { BrowserRouter } from "react-router-dom";
+import App from "App";
+
+// Soft UI Dashboard React Context Provider
+import { SoftUIControllerProvider } from "context";
+
 ReactDOM.render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-     <BrowserRouter>
-     {/*     <SoftUIControllerProvider>     */}
-        <App />
-    {/*   </SoftUIControllerProvider>     */} 
-    {/*  <App />   */}
-   </BrowserRouter>  
-    </PersistGate>
-  </Provider>,
+  <BrowserRouter>
+    <SoftUIControllerProvider>
+      <App />
+    </SoftUIControllerProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
-
-
-//admin kismi  BrowserRouter
-/*
-ReactDOM.render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
-     <BrowserRouter>
-       <SoftUIControllerProvider> 
-      <Admin />
-     </SoftUIControllerProvider>  
-   
-    </BrowserRouter>  
-    </PersistGate>
-  </Provider>,
-  document.getElementById("root")
-);
-
-
-*/
