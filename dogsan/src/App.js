@@ -10,9 +10,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import BoardUser from "./components/BoardUser";
-import BoardModerator from "./components/BoardModerator";
-import BoardAdmin from "./components/BoardAdmin";
+ 
 import Kataloglar from "./components/kataloglar/kataloglar";
 import Kvc from "./components/kvc/kvc";
 import Kvc2 from "./components/kvc/kvc2";
@@ -177,8 +175,7 @@ const App = () => {
         <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
         <Route path="/Tarihce" element={<Tarihce />} />
         <Route path="/Igneler" element={<Igneler />} />
-        <Route path="/user" element={<BoardUser />} />
-        <Route path="/mod" element={<BoardModerator />} />
+         
       
         <Route path="/dashboard" element={<Admin />} />
        
