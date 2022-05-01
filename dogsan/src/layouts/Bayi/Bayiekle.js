@@ -1,12 +1,26 @@
-import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+ 
 import React, { useState } from "react";
-import BayiDataService from "../../services/BayiService";
+// react-router components
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 
+import BayiDataService from "../../services/BayiService";
+ import routes from "routes";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
 // Overview page components
 import Header from "layouts/profile/components/Header";
+import brand from "assets/images/logo-ct.png";
+// Soft UI Dashboard React examples
+ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
+import Footer from "examples/Footer";
+import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCard";
+import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
+import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
+import Sidenav from "examples/Sidenav";
+import typography from "assets/theme/base/typography";
 
-const AddTutorial = () => {
+function Bayiekle()  {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -18,7 +32,13 @@ const AddTutorial = () => {
   };
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
-
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
+  const { size } = typography;
+ 
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -56,6 +76,14 @@ const AddTutorial = () => {
 
   return (
     <DashboardLayout>
+      <Sidenav
+              color={sidenavColor}
+              brand={brand}
+              brandName="Dogsan"
+              routes={routes}
+     
+            /> 
+      <DashboardNavbar />
 
       <Header />
       <br />
@@ -105,4 +133,4 @@ const AddTutorial = () => {
   );
 };
 
-export default AddTutorial;
+export default Bayiekle;
