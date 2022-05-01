@@ -6,15 +6,12 @@ import { SoftUIControllerProvider } from "../context";
  const App = () => {
  
 
-  return (
-
-    <div> 
+  return ( 
             <SoftUIControllerProvider>
              <Admin /> 
             </SoftUIControllerProvider> 
 
-    </div>
-
+ 
   );
 };
 
