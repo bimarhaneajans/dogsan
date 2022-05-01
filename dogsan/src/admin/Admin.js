@@ -110,7 +110,8 @@ export default function App() {
 
  
 
-  return <CacheProvider value={rtlCache}>
+  return direction === "rtl" ? (
+    <CacheProvider value={rtlCache}>
       <ThemeProvider theme={themeRTL}>
         <CssBaseline />
         {layout === "dashboard" && (
@@ -132,5 +133,27 @@ export default function App() {
         </Routes>
       </ThemeProvider>
     </CacheProvider>
-  
+  ) : (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {layout === "dashboard" && (
+        <>
+          <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Doğsan Panel"
+            routes={routes}
+            onMouseEnter={handleOnMouseEnter}
+            onMouseLeave={handleOnMouseLeave}
+          />
+       
+        </>
+      )}
+      {layout === "vr"  }
+      <Routes>
+        {getRoutes(routes)}
+        <Route path="*" element={<Navigate to="/dashboard" />} />
+      </Routes>
+    </ThemeProvider>
+  );
 }

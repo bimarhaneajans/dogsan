@@ -170,7 +170,7 @@ function App() {
           <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
           <Route path="/Tarihce" element={<Tarihce />} />
           <Route path="/Igneler" element={<Igneler />} />
-                    <Route path="/dashboard" element={<Admin />} />
+           <Route path="/dashboard" element={<Admin />} />
 
     {/*       <Route path="/user" element={<BoardUser />} />
           <Route path="/mod" element={<BoardModerator />} />
