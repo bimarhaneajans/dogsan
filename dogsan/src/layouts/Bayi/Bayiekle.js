@@ -33,13 +33,13 @@ const AddTutorial = () => {
     BayiDataService.create(data)
       .then(response => {
         setTutorial({
-         // id: response.data.id,
+         id: response.data.id,
           baslik: response.data.baslik,
           adres: response.data.adres,
-       /*    telefon: response.data.telefon,
+          telefon: response.data.telefon,
           enlem: response.data.enlem,
-          boylam: response.data.boylam, */
-          published: true
+          boylam: response.data.boylam, 
+          published: response.data.published
         });
         setSubmitted(true);
         console.log(response.data);
