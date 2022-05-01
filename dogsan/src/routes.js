@@ -1,4 +1,5 @@
 import Dashboard from "layouts/dashboard";
+import Home from "../src/components/Home"
 import CustomerSupport from "examples/Icons/CustomerSupport";
 
 import Bayiekle from "./layouts/Bayi/Bayiekle"
@@ -81,6 +82,16 @@ import Urunguncelle  from "./layouts/Urun/Urunguncelle"
 
 //16 tane olmalı
 const routes = [
+  {
+    type: "collapse",
+    name: "Home",
+    key: "Home",
+    route: "/",
+    icon: <CustomerSupport size="12px" />,
+    component: <Home />,
+    noCollapse: true,
+    isPrivate: true,
+  },
   {
     type: "collapse",
     name: "dashboard",

@@ -41,6 +41,10 @@ import createCache from "@emotion/cache";
 
 // Soft UI Dashboard React routes
 import routes from "../routes";
+import Bayiekle from "../layouts/Bayi/Bayiekle"
+import Bayiliste from "../layouts/Bayi/bayiliste"
+import Bayiguncellle from "../layouts/Bayi/Bayiguncelle"
+import Dashboard from "layouts/dashboard";
 
 // Soft UI Dashboard React contexts
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -120,18 +124,22 @@ export default function App() {
             brand={brand}
             brandName="Doğsan Panel"
             routes={routes}
+          
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
           />
-       
+        
         </>
       )}
 
       <Routes>
-        {getRoutes(routes)}
-        <Route path="/dashboard/*" element={<Navigate to="/dashboard" />} />
-      </Routes>
+        {getRoutes(routes)} 
+        
+      </Routes>  
        
     </ThemeProvider>
+    
   );
+  
 }
+console.log(routes);

@@ -25,6 +25,7 @@ import "../assets/assets/css/responsive-styling.css"
 import "../assets/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css"
 import "../assets/assets/vendor/owl-carousel/owl-carousel/owl.theme.css"
 import "../assets/assets/vendor/bootstrap/css/bootstrap.min.css"
+
 /* import "../assets/assets/css/YTPlayer.css"
  */function Home() {
   const [content, setContent] = useState("");
@@ -49,9 +50,10 @@ import "../assets/assets/vendor/bootstrap/css/bootstrap.min.css"
     <div className="container">
   
 
-
+         
       
         <Header/>
+       
         <Slider/>
         <NavbarHome/>
         <EmilebilirSuturler2/>
