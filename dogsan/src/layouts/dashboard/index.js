@@ -1,19 +1,7 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v3.1.0
-=========================================================
+import { useState, useEffect, useMemo } from "react";
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// @mui material components
+// react-router components
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
 
@@ -28,6 +16,7 @@ import Footer from "examples/Footer";
 import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCard";
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
+import Sidenav from "examples/Sidenav";
 
 // Soft UI Dashboard React base styles
 import typography from "assets/theme/base/typography";
@@ -37,17 +26,32 @@ import BuildByDevelopers from "layouts/dashboard/components/BuildByDevelopers";
 import WorkWithTheRockets from "layouts/dashboard/components/WorkWithTheRockets";
 import Projects from "layouts/dashboard/components/Projects";
 import OrderOverview from "layouts/dashboard/components/OrderOverview";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboard/data/gradientLineChartData";
+import brand from "assets/images/logo-ct.png";
+import routes from "routes";
 
 function Dashboard() {
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
   const { size } = typography;
   const { chart, items } = reportsBarChartData;
 
   return (
     <DashboardLayout>
+      <Sidenav
+              color={sidenavColor}
+              brand={brand}
+              brandName="Dogsan"
+              routes={routes}
+     
+            /> 
       <DashboardNavbar />
       <SuiBox py={3}>
          
