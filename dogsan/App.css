@@ -30,3 +30,18 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.submit-form {
+   margin-left: 150px;
+}
+
+.edit-form {
+  max-width: 300px;
+  margin: auto;
+}

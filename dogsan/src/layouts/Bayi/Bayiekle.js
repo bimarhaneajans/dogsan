@@ -1,26 +1,22 @@
- 
+
 import React, { useState } from "react";
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 
 import BayiDataService from "../../services/BayiService";
- import routes from "routes";
+import routes from "routes";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
 // Overview page components
 import Header from "layouts/profile/components/Header";
 import brand from "assets/images/logo-ct.png";
 // Soft UI Dashboard React examples
- import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Footer from "examples/Footer";
-import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCard";
-import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
-import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Sidenav from "examples/Sidenav";
 import typography from "assets/theme/base/typography";
 
-function Bayiekle()  {
+function Bayiekle() {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -38,7 +34,7 @@ function Bayiekle()  {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
- 
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -53,12 +49,12 @@ function Bayiekle()  {
     BayiDataService.create(data)
       .then(response => {
         setTutorial({
-         id: response.data.id,
+          id: response.data.id,
           baslik: response.data.baslik,
           adres: response.data.adres,
           telefon: response.data.telefon,
           enlem: response.data.enlem,
-          boylam: response.data.boylam, 
+          boylam: response.data.boylam,
           published: response.data.published
         });
         setSubmitted(true);
@@ -75,59 +71,55 @@ function Bayiekle()  {
   };
 
   return (
-    <DashboardLayout>
-      <Sidenav
-              color={sidenavColor}
-              brand={brand}
-              brandName="Dogsan"
-              routes={routes}
-     
-            /> 
-      <DashboardNavbar />
+    <DashboardLayout> 
+      <div style={{ marginLeft: "100px" }}> 
+        <Header />
+      </div>
 
-      <Header />
-      <br />
-      <div className="submit-form">
-        {submitted ? (
-          <div>
-            <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={newTutorial}>
-              Add
-            </button>
-          </div>
-        ) : (
-          <div>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                className="form-control"
-                id="baslik"
-                required
-                value={tutorial.baslik}
-                onChange={handleInputChange}
-                name="baslik"
-              />
+      <div style={{ width: "300px", marginLeft: "100px" }}>
+        <br />
+        <div className="submit-form">
+          {submitted ? (
+            <div>
+              <h4>You submitted successfully!</h4>
+              <button className="btn btn-success" onClick={newTutorial}>
+                Add
+              </button>
             </div>
+          ) : (
+            <div>
+              <div className="form-group">
+                <label htmlFor="title">Title</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="baslik"
+                  required
+                  value={tutorial.baslik}
+                  onChange={handleInputChange}
+                  name="baslik"
+                />
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                className="form-control"
-                id="adres"
-                required
-                value={tutorial.adres}
-                onChange={handleInputChange}
-                name="adres"
-              />
+              <div className="form-group">
+                <label htmlFor="description">Description</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="adres"
+                  required
+                  value={tutorial.adres}
+                  onChange={handleInputChange}
+                  name="adres"
+                />
+              </div>
+
+              <button onClick={saveTutorial} className="btn btn-success">
+                Submit
+              </button>
             </div>
-
-            <button onClick={saveTutorial} className="btn btn-success">
-              Submit
-            </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </DashboardLayout>
   );
