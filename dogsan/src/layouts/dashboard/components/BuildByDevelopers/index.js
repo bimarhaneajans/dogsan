@@ -33,47 +33,10 @@ function BuildByDevelopers() {
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
             <SuiBox display="flex" flexDirection="column" height="100%">
-              <SuiBox pt={1} mb={0.5}>
-                <SuiTypography variant="body2" color="text" fontWeight="medium">
-                  Build by developers
-                </SuiTypography>
-              </SuiBox>
-              <SuiTypography variant="h5" fontWeight="bold" gutterBottom>
-                Soft UI Dashboard
-              </SuiTypography>
-              <SuiBox mb={6}>
-                <SuiTypography variant="body2" color="text">
-                  From colors, cards, typography to complex elements, you will find the full
-                  documentation.
-                </SuiTypography>
-              </SuiBox>
-              <SuiTypography
-                component="a"
-                href="#"
-                variant="button"
-                color="text"
-                fontWeight="medium"
-                sx={{
-                  mt: "auto",
-                  mr: "auto",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  cursor: "pointer",
-
-                  "& .material-icons-round": {
-                    fontSize: "1.125rem",
-                    transform: `translate(2px, -0.5px)`,
-                    transition: "transform 0.2s cubic-bezier(0.34,1.61,0.7,1.3)",
-                  },
-
-                  "&:hover .material-icons-round, &:focus  .material-icons-round": {
-                    transform: `translate(6px, -0.5px)`,
-                  },
-                }}
-              >
-                Read More
-                <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-              </SuiTypography>
+               
+              
+              
+          
             </SuiBox>
           </Grid>
           <Grid item xs={12} lg={5} sx={{ position: "relative", ml: "auto" }}>
