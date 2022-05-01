@@ -31,7 +31,7 @@ import Degerler from  "./components/kurumsal/degerler";
 import SosyalSorumluluk from  "./components/kurumsal/SosyalSorumluluk";
 import Tarihce from "./components/kurumsal/tarihce";
 import Igneler from  "./components/igneler/igneler";
-import Admin from  "./admin/App";
+import Admin from  "./admin/Admin";
 
 
 import { logout } from "./actions/auth";
@@ -170,7 +170,7 @@ function App() {
           <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
           <Route path="/Tarihce" element={<Tarihce />} />
           <Route path="/Igneler" element={<Igneler />} />
-                    <Route path="/dashboard" element={<Admin />} />
+          <Route path="/dashboard" element={<Admin />} />
 
     {/*       <Route path="/user" element={<BoardUser />} />
           <Route path="/mod" element={<BoardModerator />} />
