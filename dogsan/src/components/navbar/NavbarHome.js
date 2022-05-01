@@ -1,8 +1,7 @@
-import {React,useState} from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
 import Logo from  "./Group_2.png";
-function NavbarHome() {
-    const [main,setMain] = useState('EmilebilirSuturler2');
+export default function NavbarHome() {
     return (
         <div className="main-header">
         <div className="sticky-header">
@@ -17,12 +16,12 @@ function NavbarHome() {
                     <div className="col-xs-12">
                         <div className="main-navigation hidden-xs">
                             <ul className="main-nav list-unstyled list-inline">
-                                <li className="active"><a href="#EmilebilirSuturler2" onClick={()=> setMain('EmilebilirSuturler2')}>Emilebilir Sütürler</a></li>
-                                <li><a href="#EmilmeyenSuturler2" onClick={()=> setMain('EmilmeyenSuturler2')} >Emilmeyen Sütürler</a></li>
-                                <li><a href="#kvc2" onClick={()=> setMain('kvc2')}>Kvc {main} </a></li>
-                                <li><a href="#EmilebilirHemostat2" onClick={()=> setMain('EmilebilirHemostat2')}>Emilebilir Hemostat</a></li>
-                                <li><a href="#DentalSuturler" onClick={()=> setMain('DentalSuturler')} >Dental Sütürler</a></li>
-                                <li><a href="#Veterinerlik" onClick={()=> setMain('Veterinerlik')}>Veterinerlik</a></li>
+                                <li className="active"><a href="#EmilebilirSuturler2">Emilebilir Sütürler</a></li>
+                                <li><a href="#EmilmeyenSuturler2">Emilmeyen Sütürler</a></li>
+                                <li><a href="#kvc2">Kvc</a></li>
+                                <li><a href="#EmilebilirHemostat2">Emilebilir Hemostat</a></li>
+                                <li><a href="#DentalSuturler">Dental Sütürler</a></li>
+                                <li><a href="#Veterinerlik">Veterinerlik</a></li>
                             </ul>
                         </div>
                    
@@ -58,6 +57,3 @@ function NavbarHome() {
   
     )
 }
-export default NavbarHome(
-    
-);
