@@ -55,8 +55,14 @@ const AddTutorial = () => {
     setSubmitted(false);
   };
 
-  return (
-    <DashboardLayout> 
+   return (
+    <DashboardLayout>
+      <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          /> 
       <div style={{ marginLeft: "100px" }}> 
         <Header />
       </div>

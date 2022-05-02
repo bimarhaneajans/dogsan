@@ -51,8 +51,14 @@ import team3 from "assets/images/team-3.jpg";
 import team4 from "assets/images/team-4.jpg";
 
 function Overview() {
-  return (
+   return (
     <DashboardLayout>
+      <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          />
       <Header />
       <SuiBox mt={5} mb={3}>
         <Grid container spacing={3}>

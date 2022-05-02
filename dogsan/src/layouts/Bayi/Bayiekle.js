@@ -9,11 +9,7 @@ import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
-import { Link } from "react-router-dom";
-
-// Soft UI Dashboard React contexts
- 
-// Images
+import { Link } from "react-router-dom"; 
 import brand from "assets/images/logo-ct.png";
 
 function Bayiekle() {

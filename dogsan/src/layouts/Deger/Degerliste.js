@@ -1,23 +1,26 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-
-
-import { useTable } from "react-table";
-
-import { updateTutorial, deleteTutorial } from "../../redux/actions/bayi";
-import BayiDataService from "../../services/BayiService";
+import React, {useState,useEffect,useMemo, useRef  } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import { Link } from "react-router-dom";
-
-
-// Overview page components
+import BayiDataService from "../../services/BayiService";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
-import Bayiekle from "layouts/Bayi/Bayiekle"
+import typography from "assets/theme/base/typography";
+import Sidenav from "examples/Sidenav";
+import routes from "../../routes";
+import { Link } from "react-router-dom";
+import brand from "assets/images/logo-ct.png";
 const Overview = (props) => {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
-
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
+  const { size } = typography;
   useEffect(() => {
     retrieveTutorials();
   }, []);
@@ -73,6 +76,12 @@ const Overview = (props) => {
 
   return (
     <DashboardLayout>
+      <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          />
       <div style={{ marginLeft: "100px" }}>
         <Header />
       </div>

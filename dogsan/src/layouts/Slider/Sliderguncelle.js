@@ -1,18 +1,14 @@
 import React, {useState,useEffect,useMemo, useRef  } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
-
- 
-import { useTable } from "react-table";
-
- import { updateTutorial, deleteTutorial } from "../../redux/actions/bayi";
-import BayiDataService from "../../services/BayiService";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-
-
-// Overview page components
+import BayiDataService from "../../services/BayiService";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
-import Bayiekle from "layouts/Bayi/Bayiekle"
-
+import typography from "assets/theme/base/typography";
+import Sidenav from "examples/Sidenav";
+import routes from "../../routes";
+import brand from "assets/images/logo-ct.png";
 const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
@@ -107,8 +103,14 @@ const Overview = props => {
       });
   };
 
-  return (
+   return (
     <DashboardLayout>
+      <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          />
 
     <Header />
     <br />

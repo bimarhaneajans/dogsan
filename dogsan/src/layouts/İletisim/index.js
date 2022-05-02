@@ -7,8 +7,14 @@ import Header from "layouts/profile/components/Header";
   
 
 function Overview() {
-  return (
+   return (
     <DashboardLayout>
+      <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          />
       <Header />
     
     </DashboardLayout>

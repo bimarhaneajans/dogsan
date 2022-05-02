@@ -34,8 +34,14 @@ function Tables() {
   const { columns, rows } = authorsTableData;
   const { columns: prCols, rows: prRows } = projectsTableData;
 
-  return (
+   return (
     <DashboardLayout>
+      <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          />
       <DashboardNavbar />
       <SuiBox py={3}>
         <SuiBox mb={3}>

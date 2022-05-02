@@ -10,7 +10,6 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
- 
 import brand from "assets/images/logo-ct.png";
 const Overview = (props) => {
   const [tutorials, setTutorials] = useState([]);
