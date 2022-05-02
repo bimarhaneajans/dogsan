@@ -45,6 +45,7 @@ import Bayiekle from "../layouts/Bayi/Bayiekle"
 import Bayiliste from "../layouts/Bayi/bayiliste"
 import Bayiguncellle from "../layouts/Bayi/Bayiguncelle"
 import Dashboard from "layouts/dashboard";
+import Home from "../components/Home"
 
 // Soft UI Dashboard React contexts
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -116,8 +117,8 @@ export default function App() {
 
   return  (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {layout === "dashboard" && (
+    {/*   <CssBaseline />  
+    {layout === "dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
@@ -135,8 +136,8 @@ export default function App() {
       <Routes>
         {getRoutes(routes)} 
         
-      </Routes>  
-       
+      </Routes>    */}
+       <Home/> 
     </ThemeProvider>
     
   );
