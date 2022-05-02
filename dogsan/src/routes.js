@@ -82,16 +82,16 @@ import Urunguncelle  from "./layouts/Urun/Urunguncelle"
 
 //16 tane olmalı
 const routes = [
-   {
+     {
     type: "collapse",
     name: "Home",
     key: "Home",
     route: "/",
     icon: <CustomerSupport size="12px" />,
     component: <Home />,
-    noCollapse: false,
+    noCollapse: true,
     isPrivate: false,
-  },  
+  },   
   {
     type: "collapse",
     name: "dashboard",
@@ -100,7 +100,7 @@ const routes = [
     icon: <CustomerSupport size="12px" />,
     component: <Dashboard />,
     noCollapse: true,
-    isPrivate: true,
+    isPrivate: false,
   },
   {
     type: "title",
