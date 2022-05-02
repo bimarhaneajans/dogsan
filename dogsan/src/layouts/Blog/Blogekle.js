@@ -1,10 +1,17 @@
+
+import React, {useState,useEffect,useMemo, useRef  } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import React, { useState } from "react";
 import BayiDataService from "../../services/BayiService";
-
-
-// Overview page components
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
+import typography from "assets/theme/base/typography";
+import Sidenav from "examples/Sidenav";
+import routes from "../../routes";
+import { Link } from "react-router-dom";
+ 
+import brand from "assets/images/logo-ct.png";
 
 const AddTutorial = () => {
   const initialTutorialState = {
@@ -16,8 +23,19 @@ const AddTutorial = () => {
     boylam: "",
     published: false
   };
+
+
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
+   const [currentTutorial, setCurrentTutorial] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [searchTitle, setSearchTitle] = useState("");
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
+  const { size } = typography;
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -57,6 +75,12 @@ const AddTutorial = () => {
 
   return (
     <DashboardLayout> 
+       <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          />
     <div style={{ marginLeft: "100px" }}> 
       <Header />
     </div>

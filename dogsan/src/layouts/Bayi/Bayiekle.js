@@ -1,6 +1,7 @@
 
-import React, { useState } from "react";
+import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import BayiDataService from "../../services/BayiService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -8,7 +9,7 @@ import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
- 
+import { Link } from "react-router-dom";
 
 // Soft UI Dashboard React contexts
  
