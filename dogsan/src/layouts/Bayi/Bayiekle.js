@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import BayiDataService from "../../services/BayiService";
- import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 
@@ -40,7 +40,7 @@ function Bayiekle() {
     BayiDataService.create(data)
       .then(response => {
         setTutorial({
-          id: response.data.id,
+          id: response.data._id,
           baslik: response.data.baslik,
           adres: response.data.adres,
           telefon: response.data.telefon,
@@ -62,13 +62,13 @@ function Bayiekle() {
   };
 
   return (
-    <DashboardLayout> 
-      <div style={{ marginLeft: "100px" }}> 
+    <DashboardLayout>
+      <div style={{ marginLeft: "100px" }}>
         <Header />
       </div>
 
       <div style={{ width: "300px", marginLeft: "100px" }}>
-        
+
         <br />
         <div className="submit-form">
           {submitted ? (
