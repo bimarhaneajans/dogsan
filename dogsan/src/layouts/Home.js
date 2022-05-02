@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
  
 import UserService from "../services/user.service";
 import Header from "../components/header/header";
-import Slider from "./slider/slider";
+import Slider from "../layouts/Slider/slider";
 import Navbar from "../components/navbar/navbar";
 import NavbarHome from "../components/navbar/NavbarHome";
 import Footer from "../components/footer/footer";

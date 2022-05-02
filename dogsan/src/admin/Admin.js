@@ -25,7 +25,6 @@ import Icon from "@mui/material/Icon";
 
 // Soft UI Dashboard React components
 import SuiBox from "components/SuiBox";
-import Home from "components/Home";
 
 // Soft UI Dashboard React examples
 import Sidenav from "examples/Sidenav";
@@ -41,7 +40,9 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
 // Soft UI Dashboard React routes
-import routes from "routes";
+import routes from "../routes";
+import Home from "../layouts/Home";
+
 
 // Soft UI Dashboard React contexts
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -109,13 +110,77 @@ export default function App() {
       return null;
     });
 
+  const configsButton = (
+    <SuiBox
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="3.5rem"
+      height="3.5rem"
+      bgColor="white"
+      shadow="sm"
+      borderRadius="50%"
+      position="fixed"
+      right="2rem"
+      bottom="2rem"
+      zIndex={99}
+      color="dark"
+      sx={{ cursor: "pointer" }}
+      onClick={handleConfiguratorOpen}
+    >
+      <Icon fontSize="default" color="inherit">
+        settings
+      </Icon>
+    </SuiBox>
+  );
 
-  return <ThemeProvider theme={theme}>
-    {layout === "home"}
-    <Routes>
-      {/* {getRoutes(routes)} */}
-      <Route path="/" element={<Home/>} />
-    </Routes>
-  </ThemeProvider>
-
+  return direction === "rtl" ? (
+    <CacheProvider value={rtlCache}>
+      <ThemeProvider theme={themeRTL}>
+        <CssBaseline />
+        {layout === "dashboard" && (
+          <>
+            <Sidenav
+              color={sidenavColor}
+              brand={brand}
+              brandName="Soft UI Dashboard"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+            />
+            <Configurator />
+            {configsButton}
+          </>
+        )}
+        {layout === "dashboard" && <Configurator />}
+        <Routes>
+          
+          <Route path="*" element={<Navigate to="/dashboard" />} />
+        </Routes>
+      </ThemeProvider>
+    </CacheProvider>
+  ) : (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {layout === "home" && (
+        <>
+          <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes}
+            onMouseEnter={handleOnMouseEnter}
+            onMouseLeave={handleOnMouseLeave}
+          />
+          <Configurator />
+          {configsButton}
+        </>
+      )}
+      {layout === "Home"}
+      <Routes>
+        {getRoutes(routes)}
+        <Route path="/" element={<Home/>} />
+      </Routes>
+    </ThemeProvider>
+  );
 }
