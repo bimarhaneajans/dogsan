@@ -25,6 +25,7 @@ import Icon from "@mui/material/Icon";
 
 // Soft UI Dashboard React components
 import SuiBox from "components/SuiBox";
+import Home from "components/Home";
 
 // Soft UI Dashboard React examples
 import Sidenav from "examples/Sidenav";
@@ -110,24 +111,10 @@ export default function App() {
 
 
   return <ThemeProvider theme={theme}>
-    {layout === "dashboard" && (
-      <>
-        <Sidenav
-          color={sidenavColor}
-          brand={brand}
-          brandName="Soft UI Dashboard"
-          routes={routes}
-
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-        />
-
-      </>
-    )}
-
+    {layout === "home"}
     <Routes>
-      {getRoutes(routes)}
-      <Route path="/home" element={<Navigate to="/home" />} />
+      {/* {getRoutes(routes)} */}
+      <Route path="/" element={<Home/>} />
     </Routes>
   </ThemeProvider>
 
