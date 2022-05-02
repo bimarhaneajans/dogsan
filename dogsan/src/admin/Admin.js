@@ -150,8 +150,8 @@ export default function App() {
 
   return  (
     <ThemeProvider theme={theme}>
-    {/*   <CssBaseline />  
-    {layout === "dashboard" && (
+     <CssBaseline />  
+    {layout === "/dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
@@ -169,7 +169,7 @@ export default function App() {
       <Routes>
         {getRoutes(routes)} 
         
-      </Routes>    */}
+      </Routes>    
       {/*  <Home/>  */}
 
          <Routes>
