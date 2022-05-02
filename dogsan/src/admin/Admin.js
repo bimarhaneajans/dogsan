@@ -139,7 +139,8 @@ export default function App() {
         return getRoutes(route.collapse);
       }
 
-      if (route.route) {
+      if (route.route) 
+      {
         return <Route exact path={route.route} element={route.component} key={route.key} />;
       }
 
@@ -151,7 +152,7 @@ export default function App() {
   return  (
     <ThemeProvider theme={theme}>
      <CssBaseline />  
-    {layout === "/dashboard" && (
+ {/*    {Routes.path === "dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
@@ -164,7 +165,10 @@ export default function App() {
           />
         
         </>
-      )}
+      )} */}
+      
+
+      
 
       <Routes>
         {getRoutes(routes)} 
