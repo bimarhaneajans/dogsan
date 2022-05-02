@@ -9,16 +9,16 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
+import { Link } from "react-router-dom";
 
-// Overview page components
-import Header from "layouts/profile/components/Header";
-import Bayiekle from "layouts/Bayi/Bayiekle"
 const Overview = (props) => {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
-
+  
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
   useEffect(() => {
     retrieveTutorials();
   }, []);

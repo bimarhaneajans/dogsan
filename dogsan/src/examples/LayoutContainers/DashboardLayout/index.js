@@ -28,9 +28,9 @@ import SuiBox from "components/SuiBox";
 import { useSoftUIController, setLayout } from "context";
 
 function DashboardLayout({ children }) {
-  const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav } = controller;
-  const { pathname } = useLocation();
+   const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+   const { pathname } = useLocation();
 
   useEffect(() => {
     setLayout(dispatch, "dashboard");

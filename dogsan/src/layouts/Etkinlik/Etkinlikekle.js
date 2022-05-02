@@ -1,11 +1,15 @@
+import React, {useState,useEffect,useMemo, useRef  } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import React, { useState } from "react";
 import BayiDataService from "../../services/BayiService";
-
-
-// Overview page components
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
-
+import typography from "assets/theme/base/typography";
+import Sidenav from "examples/Sidenav";
+import routes from "../../routes";
+import brand from "assets/images/logo-ct.png";
+ 
 const AddTutorial = () => {
   const initialTutorialState = {
     id: null,
@@ -18,7 +22,8 @@ const AddTutorial = () => {
   };
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
-
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });

@@ -23,6 +23,8 @@ const Overview = props => {
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
+  const [controller, dispatch] = useSoftUIController();
+  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
 
 /*   const getTutorial = id => {
     BayiDataService.get(id)
