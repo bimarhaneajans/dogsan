@@ -107,50 +107,28 @@ export default function App() {
 
       return null;
     });
- 
 
-  return direction === "rtl" ? (
-    <CacheProvider value={rtlCache}>
-      <ThemeProvider theme={themeRTL}>
-        <CssBaseline />
-        {layout === "dashboard" && (
-          <>
-            <Sidenav
-              color={sidenavColor}
-              brand={brand}
-              brandName="Soft UI Dashboard"
-              routes={routes}
-              
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
-            />
-            
-          </>
-        )}
-       
-      </ThemeProvider>
-    </CacheProvider>
-  ) : (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {/* {layout === "dashboard" && (
-        <>
-          <Sidenav
-            color={sidenavColor}
-            brand={brand}
-            brandName="Soft UI Dashboard"
-            routes={routes}
-            onMouseEnter={handleOnMouseEnter}
-            onMouseLeave={handleOnMouseLeave}
-          />
-       
-        </>
-      )} */}
-     
-      <Routes>
-        {getRoutes(routes)}
-        <Route path="*" element={<Navigate to="/Home" />} />
-      </Routes>
-    </ThemeProvider>
-  );
+
+  return <ThemeProvider theme={theme}>
+    {layout === "dashboard" && (
+      <>
+        <Sidenav
+          color={sidenavColor}
+          brand={brand}
+          brandName="Soft UI Dashboard"
+          routes={routes}
+
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+        />
+
+      </>
+    )}
+
+    <Routes>
+      {getRoutes(routes)}
+      <Route path="/home" element={<Navigate to="/home" />} />
+    </Routes>
+  </ThemeProvider>
+
 }
