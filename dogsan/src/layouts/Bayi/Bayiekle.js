@@ -6,6 +6,14 @@ import BayiDataService from "../../services/BayiService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
+import Sidenav from "examples/Sidenav";
+import routes from "../../routes";
+ 
+
+// Soft UI Dashboard React contexts
+ 
+// Images
+import brand from "assets/images/logo-ct.png";
 
 function Bayiekle() {
   const initialTutorialState = {
@@ -26,6 +34,7 @@ function Bayiekle() {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -63,6 +72,12 @@ function Bayiekle() {
 
   return (
     <DashboardLayout>
+      <Sidenav
+            color={sidenavColor}
+            brand={brand}
+            brandName="Soft UI Dashboard"
+            routes={routes} 
+          />
       <div style={{ marginLeft: "100px" }}>
         <Header />
       </div>
