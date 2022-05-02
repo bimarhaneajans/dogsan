@@ -45,7 +45,7 @@ import Bayiekle from "../layouts/Bayi/Bayiekle"
 import Bayiliste from "../layouts/Bayi/bayiliste"
 import Bayiguncellle from "../layouts/Bayi/Bayiguncelle"
 import Dashboard from "layouts/dashboard";
- import Login from "../components/Login";
+import Login from "../components/Login";
 import Register from "../components/Register";
 import Home from "../components/Home";
 import Profile from "../components/Profile";
@@ -69,11 +69,11 @@ import Veterinerlik from "../components/Veterinerlik/Veterinerlik";
 import Veterinerlik2 from "../components/Veterinerlik/Veterinerlik";
 import HeaderKurumsal from "../components/kurumsal/header/HeaderKurumsal";
 import Kurumsal from "../components/kurumsal/kurumsal";
-import Hakkimizda from  "../components/kurumsal/hakkimizda";
-import Degerler from  "../components/kurumsal/degerler";
-import SosyalSorumluluk from  "../components/kurumsal/SosyalSorumluluk";
+import Hakkimizda from "../components/kurumsal/hakkimizda";
+import Degerler from "../components/kurumsal/degerler";
+import SosyalSorumluluk from "../components/kurumsal/SosyalSorumluluk";
 import Tarihce from "../components/kurumsal/tarihce";
-import Igneler from  "../components/igneler/igneler";
+import Igneler from "../components/igneler/igneler";
 import "../assets/assets/css/style.css"
 import "../assets/assets/css/responsive-styling.css"
 import "../assets/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css"
@@ -139,20 +139,19 @@ export default function App() {
         return getRoutes(route.collapse);
       }
 
-      if (route.route) 
-      {
+      if (route.route) {
         return <Route exact path={route.route} element={route.component} key={route.key} />;
       }
 
       return null;
     });
 
- 
 
-  return  (
+
+  return (
     <ThemeProvider theme={theme}>
-     <CssBaseline />  
- {/*    {Routes.path === "dashboard" && (
+      <CssBaseline />
+      {/*    {Routes.path === "dashboard" && (
         <>
           <Sidenav
             color={sidenavColor}
@@ -166,50 +165,42 @@ export default function App() {
         
         </>
       )} */}
-      
 
-      
 
-      <Routes>
+
+
+      {/*  <Routes>
         {getRoutes(routes)} 
         
-      </Routes>    
+      </Routes>  */}
       {/*  <Home/>  */}
 
-         <Routes>
-         <Route exact path="/" element={<Home />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/kvc" element={<Kvc />} />
-          <Route exact path="/kvc2" element={<Kvc2/>} />
-          <Route exact path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />
-          <Route exact path="/EmilebilirSuturler2" element={<EmilebilirSuturler2/>} />
-          <Route exact path="/EmilmeyenSuturler" element={<EmilmeyenSuturler />} />
-          <Route exact path="/EmilmeyenSuturler2" element={<EmilmeyenSuturler2/>} />
-          <Route exact path="/EmilebilirHemostat" element={<EmilebilirHemostat />} />
-          <Route exact path="/EmilebilirHemostat2" element={<EmilebilirHemostat2/>} />
-          <Route exact path="/DentalSuturler" element={<DentalSuturler />} />
-          <Route exact path="/DentalSuturler2" element={<DentalSuturler2/>} />
-          <Route exact path="/Veterinerlik" element={<Veterinerlik />} />
-          <Route exact path="/Veterinerlik2" element={<Veterinerlik2/>} />
-          <Route path="/Kataloglar" element={<Kataloglar />} />
-          <Route path="/HeaderKurumsal" element={<HeaderKurumsal />} />
-          <Route path="/Kurumsal" element={<Kurumsal />} />
-          <Route path="/hakkimizda" element={<Hakkimizda />} />
-          <Route path="/Degerler" element={<Degerler />} />
-          <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
-          <Route path="/Tarihce" element={<Tarihce />} />
-          <Route path="/Igneler" element={<Igneler />} />
-         
- 
-    {/*       <Route path="/user" element={<BoardUser />} />
+      <Routes>
+        {/*   */}
+
+
+
+
+
+
+
+        {Route.path == "/dashboard"
+          ? <Route path="/dashboard" element={<Dashboard />} />
+          :
+          <><Route exact path="/" element={<Home />} /><Route exact path="/home" element={<Home />} /><Route exact path="/login" element={<Login />} /><Route exact path="/kvc" element={<Kvc />} /><Route exact path="/kvc2" element={<Kvc2 />} /><Route exact path="/EmilebilirSuturler" element={<EmilebilirSuturler />} /><Route exact path="/EmilebilirSuturler2" element={<EmilebilirSuturler2 />} /><Route exact path="/EmilmeyenSuturler" element={<EmilmeyenSuturler />} /><Route exact path="/EmilmeyenSuturler2" element={<EmilmeyenSuturler2 />} /><Route exact path="/EmilebilirHemostat" element={<EmilebilirHemostat />} /><Route exact path="/EmilebilirHemostat2" element={<EmilebilirHemostat2 />} /><Route exact path="/DentalSuturler" element={<DentalSuturler />} /><Route exact path="/DentalSuturler2" element={<DentalSuturler2 />} /><Route exact path="/Veterinerlik" element={<Veterinerlik />} /><Route exact path="/Veterinerlik2" element={<Veterinerlik2 />} /><Route path="/Kataloglar" element={<Kataloglar />} /><Route path="/HeaderKurumsal" element={<HeaderKurumsal />} /><Route path="/Kurumsal" element={<Kurumsal />} /><Route path="/hakkimizda" element={<Hakkimizda />} /><Route path="/Degerler" element={<Degerler />} /><Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} /><Route path="/Tarihce" element={<Tarihce />} /><Route path="/Igneler" element={<Igneler />} /></>
+
+        }
+
+
+
+        {/*       <Route path="/user" element={<BoardUser />} />
           <Route path="/mod" element={<BoardModerator />} />
           
           <Route path="/admin" element={<BoardAdmin />} /> */}
-        </Routes>
+      </Routes>
     </ThemeProvider>
-    
+
   );
-  
+
 }
 console.log(routes);
