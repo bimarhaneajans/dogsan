@@ -168,16 +168,6 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Blog Liste",
-    key: "Blogliste",
-    route: "/Blogguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Blogguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  },
-  {
-    type: "collapse",
     name: "Blog Guncelle",
     key: "Blogguncelle",
     route: "/Blogguncelle",
@@ -186,6 +176,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
+ 
   {
     type: "title",
     title: "Değer işlemleri",

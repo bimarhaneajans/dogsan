@@ -56,10 +56,12 @@ const AddTutorial = () => {
   };
 
   return (
-    <DashboardLayout>
-
+    <DashboardLayout> 
+    <div style={{ marginLeft: "100px" }}> 
       <Header />
-      <br />
+    </div>
+
+    <div style={{ width: "300px", marginLeft: "100px" }}>
       <div className="submit-form">
         {submitted ? (
           <div>
@@ -101,6 +103,7 @@ const AddTutorial = () => {
             </button>
           </div>
         )}
+      </div>
       </div>
     </DashboardLayout>
   );

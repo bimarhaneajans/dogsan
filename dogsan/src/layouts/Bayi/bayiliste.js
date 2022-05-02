@@ -72,10 +72,13 @@ const Overview = (props) => {
   };
 
   return (
-    <DashboardLayout>
-
+    <DashboardLayout> 
+    <div style={{ marginLeft: "100px" }}> 
       <Header />
-      <br />
+    </div>
+
+    <div style={{ width: "300px", marginLeft: "275px",marginTop:"20px" }}>
+   
       <div className="list row">
         <div className="col-md-8">
           <div className="input-group mb-3">
@@ -177,6 +180,7 @@ const Overview = (props) => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </DashboardLayout>
   );

@@ -1,19 +1,10 @@
 
 import React, { useState } from "react";
-// react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-
 import BayiDataService from "../../services/BayiService";
-import routes from "routes";
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
-
-// Overview page components
+ import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
-import brand from "assets/images/logo-ct.png";
-// Soft UI Dashboard React examples
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Sidenav from "examples/Sidenav";
 import typography from "assets/theme/base/typography";
 
 function Bayiekle() {
@@ -77,6 +68,7 @@ function Bayiekle() {
       </div>
 
       <div style={{ width: "300px", marginLeft: "100px" }}>
+        
         <br />
         <div className="submit-form">
           {submitted ? (

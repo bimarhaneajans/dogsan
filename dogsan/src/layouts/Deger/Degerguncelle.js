@@ -108,9 +108,12 @@ const Overview = props => {
   };
 
   return (
-    <DashboardLayout>
+    <DashboardLayout> 
+    <div style={{ marginLeft: "100px" }}> 
+      <Header />
+    </div>
 
-    <Header />
+    <div style={{ width: "300px", marginLeft: "100px" }}>
     <br />
     <div>
       {currentTutorial ? (
@@ -217,7 +220,7 @@ const Overview = props => {
         </div>
       )}
     </div>
-  
+    </div>
 
 </DashboardLayout>
 );

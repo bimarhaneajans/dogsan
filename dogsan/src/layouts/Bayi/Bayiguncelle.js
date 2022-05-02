@@ -108,11 +108,12 @@ const Overview = props => {
   };
 
   return (
-    <DashboardLayout>
+    <DashboardLayout> 
+    <div style={{ marginLeft: "100px" }}> 
+      <Header />
+    </div>
 
-    <Header />
-    <br />
-    <div>
+    <div style={{ width: "300px", marginLeft: "100px" }}>
       {currentTutorial ? (
         <div className="edit-form">
       
