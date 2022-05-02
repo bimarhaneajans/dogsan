@@ -241,7 +241,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Duyuru listele",
+    name: "Duyuru Guncelle",
     key: "Duyuruguncelle",
     route: "/Duyuruguncelle",
     icon: <CustomerSupport size="12px" />,

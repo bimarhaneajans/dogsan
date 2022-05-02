@@ -73,109 +73,113 @@ const Overview = (props) => {
 
   return (
     <DashboardLayout>
+      <div style={{ marginLeft: "100px" }}>
+        <Header />
+      </div>
 
-      <Header />
-      <br />
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by title"
-              value={searchTitle}
-              onChange={onChangeSearchTitle}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={findByTitle}
-              >
-                Ara
-              </button>
+      <div style={{ width: "300px", marginLeft: "275px", marginTop: "20px" }}>
+        <br />
+        <div className="list row">
+          <div className="col-md-8">
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search by title"
+                value={searchTitle}
+                onChange={onChangeSearchTitle}
+              />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={findByTitle}
+                >
+                  Ara
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-6">
+          <div className="col-md-6">
 
 
-          <ul className="list-group">
-            {tutorials &&
-              tutorials.map((tutorial, index) => (
-                <li
-                  className={
-                    "list-group-item " + (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => setActiveTutorial(tutorial, index)}
-                  key={index}
+            <ul className="list-group">
+              {tutorials &&
+                tutorials.map((tutorial, index) => (
+                  <li
+                    className={
+                      "list-group-item " + (index === currentIndex ? "active" : "")
+                    }
+                    onClick={() => setActiveTutorial(tutorial, index)}
+                    key={index}
+                  >
+                    {tutorial.baslik}
+                  </li>
+                ))}
+            </ul>
+
+            <button
+              className="m-3 btn btn-sm btn-danger"
+              onClick={removeAllTutorials}
+            >
+              Tümünü Sil
+            </button>
+          </div>
+          <div className="col-md-6">
+            {currentTutorial ? (
+              <div>
+                <strong>Başlık:</strong>
+                <div>
+                  <label>
+
+                  </label>{" "}
+                  {currentTutorial.baslik}
+                </div>
+                <div>
+                  <label>
+                    <strong>Adres:</strong>
+                  </label>{" "}
+                  {currentTutorial.adres}
+                </div>
+                <div>
+                  <label>
+                    <strong>Enlem:</strong>
+                  </label>{" "}
+                  {currentTutorial.enlem}
+                </div>
+                <div>
+                  <label>
+                    <strong>Telefon:</strong>
+                  </label>{" "}
+                  {currentTutorial.telefon}
+                </div>
+                <div>
+                  <label>
+                    <strong>Boylam:</strong>
+                  </label>{" "}
+                  {currentTutorial.boylam}
+                </div>
+                <div>
+                  <label>
+                    <strong>Durum:</strong>
+                  </label>{" "}
+                  {currentTutorial.published ? "Published" : "Pending"}
+                </div>
+
+                <Link
+                  to={"/bayiguncelle/" + currentTutorial._id}
+                  className="m-6 btn btn-lm btn-warning"
                 >
-                  {tutorial.baslik}
-                </li>
-              ))}
-          </ul>
-
-          <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={removeAllTutorials}
-          >
-            Tümünü Sil       
-             </button>
-        </div>
-        <div className="col-md-6">
-          {currentTutorial ? (
-            <div>
-              <strong>Başlık:</strong>
-              <div>
-                <label>
-
-                </label>{" "}
-                {currentTutorial.baslik}
-              </div>
-              <div>
-                <label>
-                  <strong>Adres:</strong>
-                </label>{" "}
-                {currentTutorial.adres}
-              </div>
-              <div>
-                <label>
-                  <strong>Enlem:</strong>
-                </label>{" "}
-                {currentTutorial.enlem}
-              </div>
-              <div>
-                <label>
-                  <strong>Telefon:</strong>
-                </label>{" "}
-                {currentTutorial.telefon}
-              </div>
-              <div>
-                <label>
-                  <strong>Boylam:</strong>
-                </label>{" "}
-                {currentTutorial.boylam}
-              </div>
-              <div>
-                <label>
-                  <strong>Durum:</strong>
-                </label>{" "}
-                {currentTutorial.published ? "Published" : "Pending"}
-              </div>
-
-              <Link
-                to={"/bayiguncelle/" + currentTutorial._id}
-                className="m-6 btn btn-lm btn-warning"
-              >
-                Düzenle
+                  Düzenle
                 </Link>
-            </div>
-          ) : (
-            <div>
-              <br />
-              <p>Bir Bayi Seçin...</p>
-            </div>
-          )}
+              </div>
+            ) : (
+              <div>
+                <br />
+                <p>Bir Bayi Seçin...</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </DashboardLayout>
