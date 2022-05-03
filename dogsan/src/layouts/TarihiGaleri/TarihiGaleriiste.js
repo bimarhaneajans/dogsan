@@ -1,3 +1,4 @@
+
 import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -9,6 +10,7 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
+ 
 import brand from "assets/images/logo-ct.png";
 const Overview = (props) => {
   const [tutorials, setTutorials] = useState([]);
@@ -22,6 +24,8 @@ const Overview = (props) => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+
+
   useEffect(() => {
     retrieveTutorials();
   }, []);
@@ -77,7 +81,7 @@ const Overview = (props) => {
 
   return (
     <DashboardLayout>
-      <Sidenav
+       <Sidenav
             color={sidenavColor}
             brand={brand}
             brandName=" DOĞSAN PANEL "
@@ -88,7 +92,6 @@ const Overview = (props) => {
       </div>
 
       <div style={{ width: "300px", marginLeft: "275px",marginTop:"20px" }}>
-        <br />
         <div className="list row">
           <div className="col-md-8">
             <div className="input-group mb-3">
