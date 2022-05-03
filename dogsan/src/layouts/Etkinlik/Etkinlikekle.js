@@ -1,3 +1,4 @@
+
 import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -8,46 +9,33 @@ import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
+import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
- 
-const AddTutorial = () => {
-  const initialTutorialState = {
-    id: null,
-    baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
-    published: false
-  };
-  const [tutorial, setTutorial] = useState(initialTutorialState);
-  const [submitted, setSubmitted] = useState(false);
-  const [controller, dispatch] = useSoftUIController();
+const Overview = (props) => {
+  const [tutorials, setTutorials] = useState([]);
+  const [currentTutorial, setCurrentTutorial] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [searchTitle, setSearchTitle] = useState("");
+   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setTutorial({ ...tutorial, [name]: value });
+   const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
+  const { size } = typography;
+
+  useEffect(() => {
+    retrieveTutorials();
+  }, []);
+
+  const onChangeSearchTitle = e => {
+    const searchTitle = e.target.value;
+    setSearchTitle(searchTitle);
   };
 
-  const saveTutorial = () => {
-    var data = {
-      title: tutorial.title,
-      description: tutorial.description
-    };
-
-    BayiDataService.create(data)
+  const retrieveTutorials = () => {
+    BayiDataService.getAll()
       .then(response => {
-        setTutorial({
-          id: response.data.id,
-
-          baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
-          published: response.data.published
-        });
-        setSubmitted(true);
+        setTutorials(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -55,66 +43,158 @@ const AddTutorial = () => {
       });
   };
 
-  const newTutorial = () => {
-    setTutorial(initialTutorialState);
-    setSubmitted(false);
+  const refreshList = () => {
+    retrieveTutorials();
+    setCurrentTutorial(null);
+    setCurrentIndex(-1);
   };
 
-   return (
-    <DashboardLayout>
-      <Sidenav
+  const setActiveTutorial = (tutorial, index) => {
+    setCurrentTutorial(tutorial);
+    setCurrentIndex(index);
+  };
+
+  const removeAllTutorials = () => {
+    BayiDataService.removeAll()
+      .then(response => {
+        console.log(response.data);
+        refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  const findByTitle = () => {
+    BayiDataService.findByTitle(searchTitle)
+      .then(response => {
+        setTutorials(response.data);
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  return (
+    <DashboardLayout> 
+         <Sidenav
             color={sidenavColor}
             brand={brand}
             brandName="Soft UI Dashboard"
             routes={routes} 
           />
-
+    <div style={{ marginLeft: "100px" }}> 
       <Header />
-      <br />
-      <div className="submit-form">
-        {submitted ? (
-          <div>
-            <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={newTutorial}>
-              Add
-            </button>
-          </div>
-        ) : (
-          <div>
-            <div className="form-group">
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                className="form-control"
-                id="title"
-                required
-                value={tutorial.title}
-                onChange={handleInputChange}
-                name="title"
-              />
-            </div>
+    </div>
 
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                className="form-control"
-                id="description"
-                required
-                value={tutorial.description}
-                onChange={handleInputChange}
-                name="description"
-              />
+    <div style={{ width: "300px", marginLeft: "275px",marginTop:"20px" }}>
+   
+      <div className="list row">
+        <div className="col-md-8">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search by title"
+              value={searchTitle}
+              onChange={onChangeSearchTitle}
+            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-outline-secondary"
+                type="button"
+                onClick={findByTitle}
+              >
+                Ara
+              </button>
             </div>
-
-            <button onClick={saveTutorial} className="btn btn-success">
-              Submit
-            </button>
           </div>
-        )}
+        </div>
+        <div className="col-md-6">
+
+
+          <ul className="list-group">
+            {tutorials &&
+              tutorials.map((tutorial, index) => (
+                <li
+                  className={
+                    "list-group-item " + (index === currentIndex ? "active" : "")
+                  }
+                  onClick={() => setActiveTutorial(tutorial, index)}
+                  key={index}
+                >
+                  {tutorial.baslik}
+                </li>
+              ))}
+          </ul>
+
+          <button
+            className="m-3 btn btn-sm btn-danger"
+            onClick={removeAllTutorials}
+          >
+            Tümünü Sil       
+             </button>
+        </div>
+        <div className="col-md-6">
+          {currentTutorial ? (
+            <div>
+              <strong>Başlık:</strong>
+              <div>
+                <label>
+
+                </label>{" "}
+                {currentTutorial.baslik}
+              </div>
+              <div>
+                <label>
+                  <strong>Adres:</strong>
+                </label>{" "}
+                {currentTutorial.adres}
+              </div>
+              <div>
+                <label>
+                  <strong>Enlem:</strong>
+                </label>{" "}
+                {currentTutorial.enlem}
+              </div>
+              <div>
+                <label>
+                  <strong>Telefon:</strong>
+                </label>{" "}
+                {currentTutorial.telefon}
+              </div>
+              <div>
+                <label>
+                  <strong>Boylam:</strong>
+                </label>{" "}
+                {currentTutorial.boylam}
+              </div>
+              <div>
+                <label>
+                  <strong>Durum:</strong>
+                </label>{" "}
+                {currentTutorial.published ? "Published" : "Pending"}
+              </div>
+
+              <Link
+                to={"/bayiguncelle/" + currentTutorial._id}
+                className="m-6 btn btn-lm btn-warning"
+              >
+                Düzenle
+                </Link>
+            </div>
+          ) : (
+            <div>
+              <br />
+              <p>Bir Bayi Seçin...</p>
+            </div>
+          )}
+        </div>
+      </div>
       </div>
     </DashboardLayout>
   );
 };
 
-export default AddTutorial;
+export default Overview;

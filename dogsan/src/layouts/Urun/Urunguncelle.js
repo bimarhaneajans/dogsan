@@ -1,3 +1,4 @@
+
 import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -9,7 +10,6 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
- 
 
 const Overview = props => {
   const { id }= useParams();
@@ -25,9 +25,16 @@ const Overview = props => {
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
+  const [tutorial, setTutorial] = useState(initialTutorialState);
+  const [submitted, setSubmitted] = useState(false);
   
-  const [controller, dispatch] = useSoftUIController();
+   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+   const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [rtlCache, setRtlCache] = useState(null);
+  const { pathname } = useLocation();
+  const { size } = typography;
+
 /*   const getTutorial = id => {
     BayiDataService.get(id)
       .then(response => {
@@ -107,18 +114,19 @@ const Overview = props => {
       });
   };
 
-   return (
-    <DashboardLayout>
-      <Sidenav
+  return (
+    <DashboardLayout> 
+        <Sidenav
             color={sidenavColor}
             brand={brand}
             brandName="Soft UI Dashboard"
             routes={routes} 
           />
+    <div style={{ marginLeft: "100px" }}> 
+      <Header />
+    </div>
 
-    <Header />
-    <br />
-    <div>
+    <div style={{ width: "300px", marginLeft: "100px" }}>
       {currentTutorial ? (
         <div className="edit-form">
       

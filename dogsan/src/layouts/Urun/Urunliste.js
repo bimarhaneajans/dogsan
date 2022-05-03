@@ -73,15 +73,18 @@ const Overview = (props) => {
   };
 
    return (
-    <DashboardLayout>
-      <Sidenav
-            color={sidenavColor}
-            brand={brand}
-            brandName="Soft UI Dashboard"
-            routes={routes} 
-          />
+    <DashboardLayout> 
+    <Sidenav
+       color={sidenavColor}
+       brand={brand}
+       brandName="Soft UI Dashboard"
+       routes={routes} 
+     />
+<div style={{ marginLeft: "100px" }}> 
+ <Header />
+</div>
 
-      <Header />
+<div style={{ width: "300px", marginLeft: "275px",marginTop:"20px" }}>
       <br />
       <div className="list row">
         <div className="col-md-8">
@@ -184,6 +187,7 @@ const Overview = (props) => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </DashboardLayout>
   );
