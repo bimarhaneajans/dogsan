@@ -63,7 +63,7 @@ const AddTutorial = () => {
       <Sidenav
             color={sidenavColor}
             brand={brand}
-            brandName="Soft UI Dashboard"
+            brandName=" DOĞSAN PANEL "
             routes={routes} 
           />
 
