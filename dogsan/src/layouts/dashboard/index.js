@@ -28,6 +28,7 @@ import Projects from "layouts/dashboard/components/Projects";
 import OrderOverview from "layouts/dashboard/components/OrderOverview";
 import brand from "assets/images/logo-ct.png";
 import routes from "../../routes";
+import Header from "layouts/profile/components/Header";
 
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
@@ -46,16 +47,15 @@ function Dashboard() {
 
   return (
     <DashboardLayout>
-      <Sidenav
-            color={sidenavColor}
-            brand={brand}
-            brandName="Soft UI Dashboard"
-            routes={routes}
-           /*  onMouseEnter={handleOnMouseEnter}
-            onMouseLeave={handleOnMouseLeave} */
-          />
-      <DashboardNavbar />
-      <SuiBox py={3}>
+    <Sidenav
+          color={sidenavColor}
+          brand={brand}
+          brandName="Soft UI Dashboard"
+          routes={routes} 
+        />
+    <div style={{ marginLeft: "100px" }}>
+      <Header />
+       <SuiBox py={3}>
          
       
         <SuiBox mb={3}>
@@ -86,6 +86,7 @@ function Dashboard() {
         </Grid>
       </SuiBox>
       <Footer />
+      </div>
     </DashboardLayout>
   );
 }
