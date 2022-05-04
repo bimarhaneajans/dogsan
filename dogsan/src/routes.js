@@ -4,94 +4,50 @@ import CustomerSupport from "examples/Icons/CustomerSupport";
 
 import Bayiekle from "./layouts/Bayi/Bayiekle"
 import Bayiliste from "./layouts/Bayi/bayiliste"
-import Bayiguncelle from "./layouts/Bayi/Bayiguncelle"
-
+/* import Bayiguncelle from "./layouts/Bayi/Bayiguncelle"
+ */
 import Blogekle from "./layouts/Blog/Blogekle"
-import Blogliste from "./layouts/Blog/Blogliste"
-import Blogguncelle from "./layouts/Blog/Blogguncelle"
-
-
+import Blogliste from "./layouts/Blog/Blogliste" 
 import Degerekle from "./layouts/Deger/Degerekle"
-import Degerliste from "./layouts/Deger/Degerliste"
-import Degerguncelle  from "./layouts/Deger/Degerguncelle"
- 
-
+import Degerliste from "./layouts/Deger/Degerliste" 
 import Duyuruekle from "./layouts/Duyuru/Duyuruekle"
-import Duyuruliste from "./layouts/Duyuru/Duyuruliste"
-import Duyuruguncelle  from "./layouts/Duyuru/Duyuruguncelle"
-
-
+import Duyuruliste from "./layouts/Duyuru/Duyuruliste" 
 import Etkinlikekle from "./layouts/Etkinlik/Etkinlikekle"
-import Etkinlikliste from "./layouts/Etkinlik/Etkinlikliste"
-import Etkinlikguncelle  from "./layouts/Etkinlik/Etkinlikguncelle"
-
+import Etkinlikliste from "./layouts/Etkinlik/Etkinlikliste" 
 import Hakkimizdaekle from "./layouts/Hakkimizda/Hakkimizdaekle"
-import Hakkimizdaliste from "./layouts/Hakkimizda/Hakkimizdaliste"
-import Hakkimizdaguncelle  from "./layouts/Hakkimizda/Hakkimizdaguncelle"
-
-
+import Hakkimizdaliste from "./layouts/Hakkimizda/Hakkimizdaliste"  
 import Iletisimekle from "./layouts/İletisim/İletisimekle"
 import Iletisimliste from "./layouts/İletisim/İletisimliste"
-import Iletisimguncelle  from "./layouts/İletisim/İletisimguncelle"
 
 import Igneekle from "./layouts/igne/igneekle"
 import Igneliste from "./layouts/igne/igneliste"
-import Igneguncelle  from "./layouts/igne/igneguncelle"
 
 import Katalogekle from "./layouts/Katalog/Katalogekle"
 import Katalogliste from "./layouts/Katalog/Katalogliste"
-import Katalogguncelle  from "./layouts/Katalog/Katalogguncelle"
-
-
 import Kategoriekle from "./layouts/Kategori/Kategoriekle"
 import Kategoriliste from "./layouts/Kategori/Katalogliste"
-import Kategoriguncelle  from "./layouts/Kategori/Kategoriguncelle"
-
 import Mesajlarekle from "./layouts/Mesajlar/Mesajlarekle"
 import Mesajlarliste from "./layouts/Mesajlar/Mesajlarliste"
-import Mesajlarguncelle  from "./layouts/Mesajlar/Mesajlarguncelle"
-
 import Sehirekle from "./layouts/Sehir/Sehirekle"
-import Sehirliste from "./layouts/Sehir/Sehiriste"
-import Sehirguncelle from "./layouts/Sehir/Sehirguncelle"
-
+import Sehirliste from "./layouts/Sehir/Sehiriste" 
 import Sliderekle from "./layouts/Slider/Sliderekle"
-import Sliderliste from "./layouts/Slider/Sliderliste"
-import Sliderguncelle  from "./layouts/Slider/Sliderguncelle"
-
-
+import Sliderliste from "./layouts/Slider/Sliderliste" 
 import Sosyalssekle from "./layouts/Sosyalss/Sosyalssekle"
-import Sosyalssliste from "./layouts/Sosyalss/Sosyalssliste"
-import Sosyalssguncelle  from "./layouts/Sosyalss/Sosyalssguncelle"
-
-
+import Sosyalssliste from "./layouts/Sosyalss/Sosyalssliste" 
 import Tarihceekle from "./layouts/Tarihce/Tarihceekle"
-import Tarihceliste from "./layouts/Tarihce/Tarihceliste"
-import Tarihceguncelle  from "./layouts/Tarihce/Tarihceguncelle"
-
-
+import Tarihceliste from "./layouts/Tarihce/Tarihceliste" 
 import TarihiGaleriekle from "./layouts/TarihiGaleri/TarihiGaleriekle"
-import TarihiGaleriliste from "./layouts/TarihiGaleri/TarihiGaleriiste"
-import TarihiGaleriguncelle  from "./layouts/TarihiGaleri/TarihiGaleriguncelle"
-
-
+import TarihiGaleriliste from "./layouts/TarihiGaleri/TarihiGaleriiste" 
 import Urunekle from "./layouts/Urun/Urunekle"
 import Urunliste from "./layouts/Urun/Urunliste"
-import Urunguncelle  from "./layouts/Urun/Urunguncelle"
+
+
+
 
 
 //16 tane olmalı
 const routes = [
-/*      {
-    type: "collapse",
-    name: "Home",
-    key: "Home",
-    route: "/home",
-    icon: <CustomerSupport size="12px" />,
-    component: <Home />,
-    noCollapse: true,
-    isPrivate: false,
-  },  */  
+ 
   {
     type: "collapse",
     name: "dashboard",
@@ -156,17 +112,7 @@ const routes = [
     component: <Blogliste />,
     noCollapse: true,
     isPrivate: true,
-  },
- /*  {
-    type: "collapse",
-    name: "Blog Guncelle",
-    key: "Blogguncelle",
-    route: "/Blogguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Blogguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+  }, 
  
   {
     type: "title",
@@ -194,16 +140,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*     {
-    type: "collapse",
-    name: "Deger Guncelle",
-    key: "Degerguncelle",
-    route: "/Degerguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Degerguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Duyuru işlemleri",
@@ -230,16 +167,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Duyuru Guncelle",
-    key: "Duyuruguncelle",
-    route: "/Duyuruguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Duyuruguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Etkinlik İşlemleri",
@@ -267,16 +195,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Etkinlik  Guncelle",
-    key: "Etkinlikguncelle",
-    route: "/Etkinlikguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Etkinlikguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Hakkımızda İşlemleri",
@@ -304,16 +223,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
- /*  {
-    type: "collapse",
-    name: "Hakkimizda Guncelle",
-    key: "Hakkimizdaguncelle",
-    route: "/Hakkimizdaguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Hakkimizdaguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+  
   {
     type: "title",
     title: "İğne İşlemleri",
@@ -341,16 +251,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
- /*  {
-    type: "collapse",
-    name: "Igne guncelle",
-    key: "Igneguncelle",
-    route: "/Igneguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Igneguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "İletişim İşlemleri",

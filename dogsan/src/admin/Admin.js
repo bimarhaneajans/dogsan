@@ -50,13 +50,29 @@ import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "contex
 
 // Images
 import brand from "assets/images/logo-ct.png";
-import Bayiguncelle from "../layouts/Bayi/Bayiguncelle"
-
+import Bayiguncelle from "../layouts/Bayi/Bayiguncelle" 
+import Blogguncelle from "../layouts/Blog/Blogguncelle"
+import Degerguncelle  from "../layouts/Deger/Degerguncelle"
+import Duyuruguncelle  from "../layouts/Duyuru/Duyuruguncelle"
+import Etkinlikguncelle  from "../layouts/Etkinlik/Etkinlikguncelle"
+import Hakkimizdaguncelle  from "../layouts/Hakkimizda/Hakkimizdaguncelle"
+import Iletisimguncelle  from "../layouts/İletisim/İletisimguncelle"
+import Igneguncelle  from "../layouts/igne/igneguncelle"
+import Katalogguncelle  from "../layouts/Katalog/Katalogguncelle"
+import Mesajlarguncelle  from "../layouts/Mesajlar/Mesajlarguncelle"
+import Kategoriguncelle  from "../layouts/Kategori/Kategoriguncelle"
+import Sehirguncelle from "../layouts/Sehir/Sehirguncelle"
+import Sliderguncelle  from "../layouts/Slider/Sliderguncelle"
+import Sosyalssguncelle  from "../layouts/Sosyalss/Sosyalssguncelle"
+import Tarihceguncelle  from "../layouts/Tarihce/Tarihceguncelle"
+import TarihiGaleriguncelle  from "../layouts/TarihiGaleri/TarihiGaleriguncelle"
+import Urunguncelle  from "../layouts/Urun/Urunguncelle"
+ 
 
 export default function App() {
-   const [controller, dispatch] = useSoftUIController();
+  const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-   const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
 
@@ -157,7 +173,7 @@ export default function App() {
         )}
         {layout === "dashboard" && <Configurator />}
         <Routes>
-          
+
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       </ThemeProvider>
@@ -182,9 +198,30 @@ export default function App() {
       {layout === "Home"}
       <Routes>
         {getRoutes(routes)}
-        <Route path="/" element={<Home/>} />
-        <Route path="/bayiguncelle/:id" element={<Bayiguncelle/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/bayiguncelle/:id" element={<Bayiguncelle />} />
+        <Route path="/Blogguncelle/:id" element={<Blogguncelle />} />
+        <Route path="/Degerguncelle/:id" element={<Degerguncelle />} />
+        <Route path="/Duyuruguncelle/:id" element={<Duyuruguncelle />} />
+        <Route path="/Etkinlikguncelle/:id" element={<Etkinlikguncelle />} />
+        <Route path="/Hakkimizdaguncelle/:id" element={<Hakkimizdaguncelle />} />
+        <Route path="/Iletisimguncelle/:id" element={<Iletisimguncelle />} />
+        <Route path="/Igneguncelle/:id" element={<Igneguncelle />} />
+        <Route path="/Katalogguncelle/:id" element={<Katalogguncelle />} />
+        <Route path="/Kategoriguncelle/:id" element={<Kategoriguncelle />} />
+        <Route path="/Mesajlarguncelle/:id" element={<Mesajlarguncelle />} />
+        <Route path="/Sehirguncelle/:id" element={<Sehirguncelle />} />
+        <Route path="/Sliderguncelle/:id" element={<Sliderguncelle />} />
+        <Route path="/Sosyalssguncelle/:id" element={<Sosyalssguncelle />} />
+        <Route path="/Tarihceguncelle/:id" element={<Tarihceguncelle />} />
+        <Route path="/TarihiGaleriguncelle/:id" element={<TarihiGaleriguncelle />} />
+        <Route path="/Urunguncelle/:id" element={<Urunguncelle />} />
       </Routes>
     </ThemeProvider>
   );
 }
+
+/*
+
+
+*/
