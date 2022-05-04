@@ -18,6 +18,7 @@ import { useState, useEffect, useMemo } from "react";
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
+
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -49,6 +50,8 @@ import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "contex
 
 // Images
 import brand from "assets/images/logo-ct.png";
+import Bayiguncelle from "../layouts/Bayi/Bayiguncelle"
+
 
 export default function App() {
    const [controller, dispatch] = useSoftUIController();
@@ -180,6 +183,7 @@ export default function App() {
       <Routes>
         {getRoutes(routes)}
         <Route path="/" element={<Home/>} />
+        <Route path="/bayiguncelle/:id" element={<Bayiguncelle/>} />
       </Routes>
     </ThemeProvider>
   );
