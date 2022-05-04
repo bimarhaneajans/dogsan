@@ -4,7 +4,7 @@ import CustomerSupport from "examples/Icons/CustomerSupport";
 
 import Bayiekle from "./layouts/Bayi/Bayiekle"
 import Bayiliste from "./layouts/Bayi/bayiliste"
-import Bayiguncellle from "./layouts/Bayi/Bayiguncelle"
+import Bayiguncelle from "./layouts/Bayi/Bayiguncelle"
 
 import Blogekle from "./layouts/Blog/Blogekle"
 import Blogliste from "./layouts/Blog/Blogliste"
@@ -133,9 +133,9 @@ const routes = [
     type: "collapse",
     name: "Bayi Guncelle",
     key: "Bayiguncelle",
-    route: "/Bayiguncellle",
+    route: "/Bayiguncelle/:id",
     icon: <CustomerSupport size="12px" />,
-    component: <Bayiguncellle />,
+    component: <Bayiguncelle />,
     noCollapse: true,
     isPrivate: true,
   },

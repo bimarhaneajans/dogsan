@@ -1,4 +1,4 @@
-import http from "../../src/http-common";
+import http from "../http-common";
 
 const getAll = () => {
   return http.get("/bayi");
@@ -28,7 +28,7 @@ const findByTitle = baslik => {
   return http.get(`/bayi?baslik=${baslik}`);
 };
 
-const bayiService = {
+const bayiervice = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const bayiService = {
   findByTitle
 };
 
-export default bayiService;
+export default bayiervice;

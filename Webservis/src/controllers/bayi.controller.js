@@ -3,7 +3,8 @@ const upload = require("../middlewares/upload");
 const dbConfig = require("../config/db.config");
 var multer = require('multer');
 var fs = require('fs');
-var path = require('path');
+const path = require('path');
+
 var mime = require('mime');
 const Bayi = db.bayis;
  
@@ -23,13 +24,13 @@ exports.create = (req, res) => {
 
   }); 
  
-    var file = fs.readFileSync(path.normalize(req.file.path));
+  /*   var file = fs.readFileSync(path.normalize(req.file.path));
     var contenttype=mime.getType(path.normalize(req.file.path));
     
     bayi.img = {
       data: file,
       contentType: contenttype     
-    }
+    } */
   
 
   bayi

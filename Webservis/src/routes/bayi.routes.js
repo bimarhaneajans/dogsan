@@ -17,7 +17,7 @@ module.exports = app => {
   });
 
   var upload = multer({ storage: storage }); 
-  router.post("/", upload.single('file'), bayi.create); 
+  router.post("/", bayi.create);  /* upload.single('file'), */
   router.get("/", bayi.findAll);
   router.get("/published", bayi.findAllPublished);
   router.get("/:id", bayi.findOne);

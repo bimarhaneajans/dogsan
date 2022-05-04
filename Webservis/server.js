@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const dbConfig = require("./src/config/db.config");
-
 const app = express();
 
 
@@ -16,7 +15,7 @@ var corsOptions = {
 };
 */
 var corsOptions = {
-  origin: "https://bavrim.madilink.net"
+  origin: "http://localhost:8081"
 };
 
 app.use(cors(corsOptions));

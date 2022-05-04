@@ -96,7 +96,7 @@ const Overview = (props) => {
             <input
               type="text"
               className="form-control"
-              placeholder="Search by title"
+              placeholder="Search by title"düze
               value={searchTitle}
               onChange={onChangeSearchTitle}
             />
@@ -178,7 +178,7 @@ const Overview = (props) => {
               </div>
 
               <Link
-                to={"/bayiguncelle/" + currentTutorial._id}
+                to={"/bayiguncelle/" + currentTutorial.id}
                 className="m-6 btn btn-lm btn-warning"
               >
                 Düzenle
