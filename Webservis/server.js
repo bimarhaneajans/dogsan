@@ -7,11 +7,16 @@ const app = express();
 
 //8080 dedigi webservis 
 //8081 websesite
-
+/*
 var corsOptions = {
 //  origin: "http://localhost:8081" // websäte
 //origin: "https://dogsan.madilink.com" // websäte
- origin: "*" // websäte
+ //origin: "*" // websäte
+ 
+};
+*/
+var corsOptions = {
+  origin: "https://bavrim.madilink.net"
 };
 
 app.use(cors(corsOptions));
