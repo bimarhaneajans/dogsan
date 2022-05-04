@@ -6,65 +6,7 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 const Bayi = db.bayis;
-
-
-/* exports.uploadFiles = async (req, res) => {
-
-  try {
-    await upload(req, res);
-    console.log(req.files);
-
-    if (req.files.length <= 0) {
-      return res
-        .status(400)
-        .send({ message: "You must select at least 1 file." });
-    }
-
-    return res.status(200).send({
-      message: "Files have been uploaded.",
-    });
-  } catch (error) {
-    console.log(error);
-
-    if (error.code === "LIMIT_UNEXPECTED_FILE") {
-      return res.status(400).send({
-        message: "Too many files to upload.",
-      });
-    }
-    return res.status(500).send({
-      message: `Error when trying upload many files: ${error}`,
-    });
-  }
-  /* if (!req.body.baslik) {
-   res.status(400).send({ message: "Content can not be empty!" });
-   return;
- }
-
-  const bayi  = new Bayi({
-       baslik: req.body.baslik, 
-       adres:  req.body.adres,
-       telefon:  req.body.telefon,
-       enlem:  req.body.enlem,
-       boylam:  req.body.boylam,
-       img: {
-         data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-         contentType: 'image/png'
-     },
-
-   published: req.body.published ? req.body.published : false
- });
-
- bayi.save(bayi)
-   .then(data => {
-     res.send(data);
-   })
-   .catch(err => {
-     res.status(500).send({
-       message:
-         err.message || "Some error occurred while creating the bayi."
-     });
-   }); 
-}; */
+ 
 
 exports.create = (req, res) => { 
   if (!req.body) {
@@ -83,6 +25,7 @@ exports.create = (req, res) => {
  
     var file = fs.readFileSync(path.normalize(req.file.path));
     var contenttype=mime.getType(path.normalize(req.file.path));
+    
     bayi.img = {
       data: file,
       contentType: contenttype     
