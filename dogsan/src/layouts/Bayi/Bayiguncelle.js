@@ -87,7 +87,7 @@ const Tutorial = props => {
     BayiDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/bayi");
+        navigate("/bayiliste");
       })
       .catch(e => {
         console.log(e);
@@ -125,7 +125,7 @@ const Tutorial = props => {
     <div>
       {currentTutorial ? (
         <div className="edit-form">
-          <h4>Tutorial</h4>
+         
           <form>
             <div className="form-group">
               <label htmlFor="baslik">baslik</label>
