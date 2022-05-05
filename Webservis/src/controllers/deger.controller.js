@@ -20,12 +20,14 @@ const Deger = db.degers;
 
     published: req.body.published ? req.body.published : false
   });
-  var file = fs.readFileSync(path.normalize(req.file.path));
-  var contenttype=mime.getType(path.normalize(req.file.path));
-  deger.img = {
-    data: file,
-    contentType: contenttype     
-  }
+   /*   var file = fs.readFileSync(path.normalize(req.file.path));
+    var contenttype=mime.getType(path.normalize(req.file.path));
+    
+    bayi.img = {
+      data: file,
+      contentType: contenttype     
+    } */
+  
   deger
     .save(deger)
     .then(data => {

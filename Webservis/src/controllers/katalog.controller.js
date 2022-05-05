@@ -17,12 +17,14 @@ const Katalog = db.katalogs;
     katalogadi: req.body.katalogadi,
     published: req.body.published ? req.body.published : false
   });
-  var file = fs.readFileSync(path.normalize(req.file.path));
-  var contenttype=mime.getType(path.normalize(req.file.path));
-  katalog.img = {
-    data: file,
-    contentType: contenttype     
-  }
+   /*   var file = fs.readFileSync(path.normalize(req.file.path));
+    var contenttype=mime.getType(path.normalize(req.file.path));
+    
+    bayi.img = {
+      data: file,
+      contentType: contenttype     
+    } */
+  
   katalog
     .save(katalog)
     .then(data => {

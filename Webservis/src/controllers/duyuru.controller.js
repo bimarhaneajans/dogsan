@@ -21,12 +21,14 @@ exports.create = (req, res) => {
     Tarih: req.body.Tarih,
     published: req.body.published ? req.body.published : false
   });
-  var file = fs.readFileSync(path.normalize(req.file.path));
-  var contenttype = mime.getType(path.normalize(req.file.path));
-  duyuru.img = {
-    data: file,
-    contentType: contenttype
-  }
+   /*   var file = fs.readFileSync(path.normalize(req.file.path));
+    var contenttype=mime.getType(path.normalize(req.file.path));
+    
+    bayi.img = {
+      data: file,
+      contentType: contenttype     
+    } */
+  
   duyuru
     .save(duyuru)
     .then(data => {

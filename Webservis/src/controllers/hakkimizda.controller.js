@@ -19,12 +19,14 @@ const Hakkimizda = db.hakkimizdas;
     BelgeselVideoUrl:req.body.BelgeselVideoUrl, 
     published: req.body.published ? req.body.published : false
   });
-  var file = fs.readFileSync(path.normalize(req.file.path));
-  var contenttype=mime.getType(path.normalize(req.file.path));
-  hakkimizda.img = {
-    data: file,
-    contentType: contenttype     
-  }
+   /*   var file = fs.readFileSync(path.normalize(req.file.path));
+    var contenttype=mime.getType(path.normalize(req.file.path));
+    
+    bayi.img = {
+      data: file,
+      contentType: contenttype     
+    } */
+  
   hakkimizda
     .save(hakkimizda)
     .then(data => {

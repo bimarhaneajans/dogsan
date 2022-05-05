@@ -22,12 +22,14 @@ const Etkinlik = db.etkinliks;
     bitisTarihi: req.body.bitisTarihi,
     published: req.body.published ? req.body.published : false 
   });
-  var file = fs.readFileSync(path.normalize(req.file.path));
-  var contenttype=mime.getType(path.normalize(req.file.path));
-  etkinlik.img = {
-    data: file,
-    contentType: contenttype     
-  }
+  /*   var file = fs.readFileSync(path.normalize(req.file.path));
+    var contenttype=mime.getType(path.normalize(req.file.path));
+    
+    bayi.img = {
+      data: file,
+      contentType: contenttype     
+    } */
+  
   etkinlik
     .save(etkinlik)
     .then(data => {

@@ -17,7 +17,7 @@ module.exports = app => {
     var router = require("express").Router();
     var upload = multer({ storage: storage }); 
 
-     router.post("/", upload.single('file'),  blog.create);
+     router.post("/", /* upload.single('file'), */  blog.create);
   
      router.get("/", blog.findAll);
   

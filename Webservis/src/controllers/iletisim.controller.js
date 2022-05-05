@@ -22,12 +22,14 @@ exports.create = (req, res) => {
         siralama: req.body.siralama,
         published: req.body.published ? req.body.published : false
     });
-    var file = fs.readFileSync(path.normalize(req.file.path));
+    /*   var file = fs.readFileSync(path.normalize(req.file.path));
     var contenttype=mime.getType(path.normalize(req.file.path));
-    iletisim.img = {
+    
+    bayi.img = {
       data: file,
       contentType: contenttype     
-    }
+    } */
+  
     iletisim
         .save(iletisim)
         .then(data => {

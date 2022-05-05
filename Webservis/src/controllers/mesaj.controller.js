@@ -19,12 +19,14 @@ const Mesaj = db.mesajs;
     Content: req.body.Content,
     published: req.body.published ? req.body.published : false
   });
-  var file = fs.readFileSync(path.normalize(req.file.path));
-  var contenttype=mime.getType(path.normalize(req.file.path));
-  mesaj.img = {
-    data: file,
-    contentType: contenttype     
-  }
+  /*   var file = fs.readFileSync(path.normalize(req.file.path));
+    var contenttype=mime.getType(path.normalize(req.file.path));
+    
+    bayi.img = {
+      data: file,
+      contentType: contenttype     
+    } */
+  
   mesaj
     .save(mesaj)
     .then(data => {
