@@ -1,31 +1,31 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/bayi");
+  return http.get("/iletisim");
 };
 
 const get = id => {
-  return http.get(`/bayi/${id}`);
+  return http.get(`/iletisim/${id}`);
 };
 
 const create = data => {
-  return http.post("/bayi", data);
+  return http.post("/iletisim", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/bayi/${id}`, data);
+  return http.put(`/iletisim/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/bayi/${id}`);
+  return http.delete(`/iletisim/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/bayi`);
+  return http.delete(`/iletisim`);
 };
 
 const findByTitle = baslik => {
-  return http.get(`/bayi?baslik=${baslik}`);
+  return http.get(`/iletisim?baslik=${baslik}`);
 };
 
 const IletisimService = {

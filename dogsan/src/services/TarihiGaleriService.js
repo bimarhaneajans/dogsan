@@ -1,34 +1,34 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/bayi");
+  return http.get("/TarihceGarleri");
 };
 
 const get = id => {
-  return http.get(`/bayi/${id}`);
+  return http.get(`/TarihceGarleri/${id}`);
 };
 
 const create = data => {
-  return http.post("/bayi", data);
+  return http.post("/TarihceGarleri", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/bayi/${id}`, data);
+  return http.put(`/TarihceGarleri/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/bayi/${id}`);
+  return http.delete(`/TarihceGarleri/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/bayi`);
+  return http.delete(`/TarihceGarleri`);
 };
 
 const findByTitle = baslik => {
-  return http.get(`/bayi?baslik=${baslik}`);
+  return http.get(`/TarihceGarleri?baslik=${baslik}`);
 };
 
-const bayiervice = {
+const TarihiGaleriService = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const bayiervice = {
   findByTitle
 };
 
-export default bayiervice;
+export default TarihiGaleriService;

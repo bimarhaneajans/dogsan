@@ -1,34 +1,34 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/bayi");
+  return http.get("/kategori");
 };
 
 const get = id => {
-  return http.get(`/bayi/${id}`);
+  return http.get(`/kategori/${id}`);
 };
 
 const create = data => {
-  return http.post("/bayi", data);
+  return http.post("/kategori", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/bayi/${id}`, data);
+  return http.put(`/kategori/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/bayi/${id}`);
+  return http.delete(`/kategori/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/bayi`);
+  return http.delete(`/kategori`);
 };
 
 const findByTitle = baslik => {
-  return http.get(`/bayi?baslik=${baslik}`);
+  return http.get(`/kategori?baslik=${baslik}`);
 };
 
-const bayiervice = {
+const KategoriService = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const bayiervice = {
   findByTitle
 };
 
-export default bayiervice;
+export default KategoriService;
