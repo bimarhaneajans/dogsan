@@ -2,7 +2,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import BayiDataService from "../../services/BayiService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -10,7 +10,7 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 
-const Tutorial = props => {
+const Bayiguncelle = props => {
   const { id }= useParams();
   let navigate = useNavigate();
 
@@ -18,6 +18,9 @@ const Tutorial = props => {
     id: null,
     baslik: "",
     adres: "",
+    telefon: "",
+    enlem: "",
+    boylam: "",
     published: false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -59,6 +62,9 @@ const Tutorial = props => {
       id: currentTutorial.id,
       baslik: currentTutorial.baslik,
       adres: currentTutorial.adres,
+      telefon: currentTutorial.telefon,
+      enlem: currentTutorial.enlem,
+      boylam: currentTutorial.boylam,
       published: status
     };
 
@@ -94,20 +100,7 @@ const Tutorial = props => {
       });
   };
 
-
-
-
-  /*
-   var data = {
-        id: currentTutorial._id,
-        baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
-        published: status
-    };
-  */
+ 
 
   return (
     <DashboardLayout> 
@@ -127,26 +120,66 @@ const Tutorial = props => {
         <div className="edit-form">
          
           <form>
-            <div className="form-group">
-              <label htmlFor="baslik">baslik</label>
+          <div className="form-group">
+              <label htmlFor="bayi">Başlık</label>
               <input
                 type="text"
                 className="form-control"
                 id="baslik"
-                name="baslik"
+                required
                 value={currentTutorial.baslik}
                 onChange={handleInputChange}
+                name="baslik"
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="adres">adres</label>
               <input
                 type="text"
                 className="form-control"
                 id="adres"
-                name="adres"
+                required
                 value={currentTutorial.adres}
                 onChange={handleInputChange}
+                name="adres"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="Telefon">Telefon</label>
+              <input
+                type="text"
+                className="form-control"
+                id="telefon"
+                required
+                value={currentTutorial.telefon}
+                onChange={handleInputChange}
+                name="telefon"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="Enlem">Enlem</label>
+              <input
+                type="text"
+                className="form-control"
+                id="enlem"
+                required
+                value={currentTutorial.enlem}
+                onChange={handleInputChange}
+                name="enlem"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="boylam">boylam</label>
+              <input
+                type="text"
+                className="form-control"
+                id="boylam"
+                required
+                value={currentTutorial.boylam}
+                onChange={handleInputChange}
+                name="boylam"
               />
             </div>
 
@@ -200,4 +233,4 @@ const Tutorial = props => {
 );
 }
 
-export default Tutorial;
+export default Bayiguncelle;

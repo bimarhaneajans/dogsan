@@ -17,11 +17,10 @@ const Overview = props => {
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    baslik:"",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    baslik: "",
+    Ozet: "",
+    seolink: "",
+    icerik: "",
     published:false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -38,21 +37,7 @@ const Overview = props => {
   const { size } = typography;
   
 
-/*   const getTutorial = id => {
-    BayiDataService.get(id)
-      .then(response => {
-        setCurrentTutorial(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  useEffect(() => {
-    getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
- */
+ 
   const getTutorial = id => {
     BayiDataService.get(id)
       .then(response => {
@@ -76,12 +61,12 @@ const Overview = props => {
   const updatePublished = status => {
     var data = {
         id: currentTutorial._id,
-        baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
-        published: status
+        id:currentTutorial.id,
+        baslik:currentTutorial.baslik, 
+        Ozet:currentTutorial.Ozet,
+        seolink:currentTutorial.seolink,
+        icerik:currentTutorial.icerik,
+         published: status
     };
 
     BayiDataService.update(currentTutorial._id, data)

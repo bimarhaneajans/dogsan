@@ -3,7 +3,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import BayiDataService from "../../services/BayiService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
  
 import brand from "assets/images/logo-ct.png";
 
-const AddTutorial = () => {
+const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -46,7 +46,10 @@ const AddTutorial = () => {
   const saveTutorial = () => {
     var data = {
       baslik: tutorial.baslik,
-      adres: tutorial.adres
+      adres: tutorial.adres,
+      telefon: tutorial.telefon,
+      enlem: tutorial.enlem,
+      boylam: tutorial.boylam,
     };
 
     BayiDataService.create(data)
@@ -97,7 +100,7 @@ const AddTutorial = () => {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="bayi">bayi</label>
+              <label htmlFor="bayi">Başlık</label>
               <input
                 type="text"
                 className="form-control"
@@ -121,6 +124,44 @@ const AddTutorial = () => {
                 name="adres"
               />
             </div>
+            <div className="form-group">
+              <label htmlFor="Telefon">Telefon</label>
+              <input
+                type="text"
+                className="form-control"
+                id="telefon"
+                required
+                value={tutorial.telefon}
+                onChange={handleInputChange}
+                name="telefon"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="Enlem">Enlem</label>
+              <input
+                type="text"
+                className="form-control"
+                id="enlem"
+                required
+                value={tutorial.enlem}
+                onChange={handleInputChange}
+                name="enlem"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="boylam">boylam</label>
+              <input
+                type="text"
+                className="form-control"
+                id="boylam"
+                required
+                value={tutorial.boylam}
+                onChange={handleInputChange}
+                name="boylam"
+              />
+            </div>
+
 
             <button onClick={saveTutorial} className="btn btn-success">
               Submit
@@ -133,4 +174,4 @@ const AddTutorial = () => {
   );
 };
 
-export default AddTutorial;
+export default BayiEkle;
