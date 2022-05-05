@@ -140,6 +140,8 @@ const Overview = (props) => {
           </div>
           <div className="col-md-6">
             {currentTutorial ? (
+
+
               <div>
                 <strong>Başlık:</strong>
                 <div>
@@ -150,28 +152,25 @@ const Overview = (props) => {
                 </div>
                 <div>
                   <label>
-                    <strong>Adres:</strong>
+                    <strong>ozet:</strong>
                   </label>{" "}
-                  {currentTutorial.adres}
+                  {currentTutorial.ozet}
                 </div>
                 <div>
                   <label>
-                    <strong>Enlem:</strong>
+                    <strong>seolink:</strong>
                   </label>{" "}
-                  {currentTutorial.enlem}
+                  {currentTutorial.seolink}
                 </div>
                 <div>
                   <label>
-                    <strong>Telefon:</strong>
+                    <strong>icerik:</strong>
                   </label>{" "}
-                  {currentTutorial.telefon}
+                  {currentTutorial.icerik}
                 </div>
-                <div>
-                  <label>
-                    <strong>Boylam:</strong>
-                  </label>{" "}
-                  {currentTutorial.boylam}
-                </div>
+                
+
+
                 <div>
                   <label>
                     <strong>Durum:</strong>
@@ -180,7 +179,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial._id}
+                  to={"/blogguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle
@@ -189,7 +188,7 @@ const Overview = (props) => {
             ) : (
               <div>
                 <br />
-                <p>Bir Bayi Seçin...</p>
+                <p>Bir Blog Seçin...</p>
               </div>
             )}
           </div>

@@ -45,7 +45,9 @@ const AddTutorial = () => {
   const saveTutorial = () => {
     var data = {
       baslik: tutorial.baslik,
-      ozet: tutorial.ozet
+      ozet: tutorial.ozet,
+      seolink: tutorial.seo,
+      icerik: tutorial.icerik
     };
 
     BlogDataService.create(data)
@@ -117,6 +119,30 @@ const AddTutorial = () => {
                   value={tutorial.Ozet}
                   onChange={handleInputChange}
                   name="Ozet"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="Ozet">Seo link</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="seolink"
+                  required
+                  value={tutorial.seolink}
+                  onChange={handleInputChange}
+                  name="seolink"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="icerik">icerik</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="icerik"
+                  required
+                  value={tutorial.icerik}
+                  onChange={handleInputChange}
+                  name="icerik"
                 />
               </div>
 
