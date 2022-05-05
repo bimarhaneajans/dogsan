@@ -14,6 +14,7 @@ import { Editor } from "react-draft-wysiwyg";
 import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
+import FileBase64 from 'react-file-base64';
 
 const BayiEkle = () => {
   const initialTutorialState = {
@@ -52,6 +53,7 @@ const BayiEkle = () => {
       telefon: tutorial.telefon,
       enlem: tutorial.enlem,
       boylam: tutorial.boylam,
+      Resim: tutorial.Resim,
     };
 
     BayiDataService.create(data)
@@ -63,6 +65,8 @@ const BayiEkle = () => {
           telefon: response.data.telefon,
           enlem: response.data.enlem,
           boylam: response.data.boylam,
+          Resimbaslik: response.data.Resimbaslik,
+          Resim: response.data.Resim,
           published: response.data.published
         });
         setSubmitted(true);
@@ -114,15 +118,15 @@ const BayiEkle = () => {
                 />
               </div>
 
-              <div style={{width:"300 px"}}>
-              <Editor
-               editorState={tutorial.boylam}
-                toolbarClassName="toolbarClassName"
-                wrapperClassName="wrapperClassName"
-                editorClassName="editorClassName"
-                onEditorStateChange={handleInputChange}
-              />
-              </div>
+            {/*   <div style={{ width: "300 px" }}>
+                <Editor
+                  editorState={tutorial.boylam}
+                  toolbarClassName="toolbarClassName"
+                  wrapperClassName="wrapperClassName"
+                  editorClassName="editorClassName"
+                  onEditorStateChange={handleInputChange}
+                />
+              </div> */}
 
               <div className="form-group">
                 <label htmlFor="adres">adres</label>
@@ -173,9 +177,12 @@ const BayiEkle = () => {
                   name="boylam"
                 />
               </div>
-              
-             
 
+            <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
+              />  
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
