@@ -3,7 +3,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import BlogDataService from "../../services/BlogService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -39,7 +39,7 @@ const Overview = props => {
 
  
   const getTutorial = id => {
-    BayiDataService.get(id)
+    BlogDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -60,16 +60,15 @@ const Overview = props => {
 
   const updatePublished = status => {
     var data = {
-        id: currentTutorial._id,
         id:currentTutorial.id,
         baslik:currentTutorial.baslik, 
         Ozet:currentTutorial.Ozet,
         seolink:currentTutorial.seolink,
         icerik:currentTutorial.icerik,
-         published: status
+        published: status
     };
 
-    BayiDataService.update(currentTutorial._id, data)
+    BlogDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -81,7 +80,7 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial._id, currentTutorial)
+    BlogDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
         setMessage("The tutorial was updated successfully!");
@@ -92,10 +91,10 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial._id)
+    BlogDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/Bayi");
+        navigate("/blogliste");
       })
       .catch(e => {
         console.log(e);
@@ -122,7 +121,7 @@ const Overview = props => {
       
           <form>
             <div className="form-group">
-            <label htmlFor="title">Başlık </label>
+            <label htmlFor="baslik">Başlık </label>
                 <input
                   type="text"
                   className="form-control"
@@ -133,49 +132,39 @@ const Overview = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Adres </label>
+                <label htmlFor="seolink">seolink </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
-                  name="adres"
-                  value={currentTutorial.adres}
+                  id="seolink"
+                  name="seolink"
+                  value={currentTutorial.seolink}
                  onChange={handleInputChange}  
                 />
               </div>
                <div className="form-group">
-                <label htmlFor="description">Telefon </label>
+                <label htmlFor="Ozet">Ozet </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="telefon"
-                  name="telefon"
-                  value={currentTutorial.telefon}
+                  id="Ozet"
+                  name="Ozet"
+                  value={currentTutorial.Ozet}
                  onChange={handleInputChange}  
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Enlem </label>
+                <label htmlFor="icerik">icerik </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
+                  id="icerik"
+                  name="icerik"
+                  value={currentTutorial.icerik}
                onChange={handleInputChange}  
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="description">Boylam </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
-               onChange={handleInputChange} 
-                />
-            </div>
+               
 
             <div className="form-group">
               <label>

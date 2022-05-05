@@ -154,7 +154,7 @@ const Overview = (props) => {
                   <label>
                     <strong>ozet:</strong>
                   </label>{" "}
-                  {currentTutorial.ozet}
+                  {currentTutorial.Ozet}
                 </div>
                 <div>
                   <label>

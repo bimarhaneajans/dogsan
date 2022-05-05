@@ -45,8 +45,8 @@ const AddTutorial = () => {
   const saveTutorial = () => {
     var data = {
       baslik: tutorial.baslik,
-      ozet: tutorial.ozet,
-      seolink: tutorial.seo,
+      Ozet: tutorial.Ozet,
+      seolink: tutorial.seolink,
       icerik: tutorial.icerik
     };
 
@@ -122,7 +122,7 @@ const AddTutorial = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="Ozet">Seo link</label>
+                <label htmlFor="seo">Seo link</label>
                 <input
                   type="text"
                   className="form-control"
