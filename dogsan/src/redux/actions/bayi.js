@@ -6,7 +6,7 @@ import {
     DELETE_ALL_TUTORIALS,
   } from "./types";
   
-  import BayiService from "../../services/BayiService";
+  import BayiService from "../../services/TarihceService";
   
   export const createTutorial = (baslik, description) => async (dispatch) => {
     try {
