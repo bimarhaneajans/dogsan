@@ -1,34 +1,34 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/bayi");
+  return http.get("/igne");
 };
 
 const get = id => {
-  return http.get(`/bayi/${id}`);
+  return http.get(`/igne/${id}`);
 };
 
 const create = data => {
-  return http.post("/bayi", data);
+  return http.post("/igne", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/bayi/${id}`, data);
+  return http.put(`/igne/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/bayi/${id}`);
+  return http.delete(`/igne/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/bayi`);
+  return http.delete(`/igne`);
 };
 
 const findByTitle = baslik => {
-  return http.get(`/bayi?baslik=${baslik}`);
+  return http.get(`/igne?baslik=${baslik}`);
 };
 
-const bayiervice = {
+const IgneService = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const bayiervice = {
   findByTitle
 };
 
-export default bayiervice;
+export default IgneService;

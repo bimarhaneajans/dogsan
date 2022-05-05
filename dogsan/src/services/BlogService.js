@@ -28,7 +28,7 @@ const findByTitle = baslik => {
   return http.get(`/blog?baslik=${baslik}`);
 };
 
-const bayiervice = {
+const BlogService = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const bayiervice = {
   findByTitle
 };
 
-export default bayiervice;
+export default BlogService;
