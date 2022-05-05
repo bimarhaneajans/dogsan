@@ -9,6 +9,7 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
+import FileBase64 from 'react-file-base64';
 
 const Bayiguncelle = props => {
   const { id }= useParams();
@@ -65,6 +66,7 @@ const Bayiguncelle = props => {
       telefon: currentTutorial.telefon,
       enlem: currentTutorial.enlem,
       boylam: currentTutorial.boylam,
+      Resim: tutorial.Resim,
       published: status
     };
 
@@ -120,6 +122,17 @@ const Bayiguncelle = props => {
         <div className="edit-form">
          
           <form>
+
+          <div className="card" key={currentTutorial._id}>
+                  <br/>
+                    <div className="card-image waves-effect waves-block waves-light">
+                        <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
+                    </div>
+                    <br/>
+                </div>
+
+
+
           <div className="form-group">
               <label htmlFor="bayi">Başlık</label>
               <input
@@ -182,6 +195,11 @@ const Bayiguncelle = props => {
                 name="boylam"
               />
             </div>
+            <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setCurrentTutorial({ ...currentTutorial, Resim: base64 })}
+              />  
 
             <div className="form-group">
               <label>

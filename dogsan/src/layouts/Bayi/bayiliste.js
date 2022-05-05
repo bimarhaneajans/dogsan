@@ -11,6 +11,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
+import FileBase64 from 'react-file-base64';
+
 const Overview = (props) => {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -184,6 +186,8 @@ const Overview = (props) => {
                   {currentTutorial.published ? "Published" : "Pending"}
                 </div>
 
+
+            
                 <Link
                   to={"/bayiguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
