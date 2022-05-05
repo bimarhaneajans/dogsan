@@ -2,11 +2,8 @@ module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
       katalogadi: String, 
-      img:
-      {
-        data: Buffer,
-        contentType: String
-      },
+ Resimbaslik:String,
+      Resim:String,
       published: Boolean
     },
     { timestamps: true }

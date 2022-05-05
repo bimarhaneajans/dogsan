@@ -20,6 +20,8 @@ exports.create = (req, res) => {
     telefon: req.body.telefon,
     enlem: req.body.enlem,
     boylam: req.body.boylam,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false,
 
   }); 

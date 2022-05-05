@@ -4,11 +4,10 @@ module.exports = mongoose => {
       AnaIcerik: String,
       BelgeselIcerigi: String, 
       BelgeselVideoUrl:String, 
-      img:
-      {
-        data: Buffer,
-        contentType: String
-      },
+      Resimbaslik:String,
+      Resim:String,
+      Resimbaslik:String,
+      Resim:String,
       published: Boolean
     },
     { timestamps: true }

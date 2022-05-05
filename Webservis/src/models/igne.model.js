@@ -3,11 +3,8 @@ module.exports = mongoose => {
     {
       igneadi: String,
       siralama: Number,
-      img:
-      {
-        data: Buffer,
-        contentType: String
-      },
+     Resimbaslik:String,
+      Resim:String,
       published: Boolean
     },
     { timestamps: true }

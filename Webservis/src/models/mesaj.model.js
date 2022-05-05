@@ -4,11 +4,8 @@ module.exports = mongoose => {
       Subject: String,
       email: String,
       Content: String,
-      img:
-      {
-        data: Buffer,
-        contentType: String
-      },
+ Resimbaslik:String,
+      Resim:String,
       published: Boolean
     },
     { timestamps: true }

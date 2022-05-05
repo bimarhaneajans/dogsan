@@ -7,12 +7,13 @@ module.exports = mongoose => {
       telefon: String,
       enlem: String,
       boylam: String,
-      
-      img:
+      Resimbaslik:String,
+      Resim:String,
+   /*     /*    img:
       {
         data: Buffer,
         contentType: String
-      },
+      }, */  
       published: Boolean
     },
     { timestamps: true }

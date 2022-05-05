@@ -6,11 +6,8 @@ module.exports = mongoose => {
       bolumrenkkodu:String, 
       siralama:Number, 
       seourl:String,   
-      img:
-      {
-        data: Buffer,
-        contentType: String
-      },
+ Resimbaslik:String,
+      Resim:String,
       published: Boolean
     },
     { timestamps: true }
