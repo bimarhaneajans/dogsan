@@ -126,7 +126,10 @@ const Overview = (props) => {
                     onClick={() => setActiveTutorial(tutorial, index)}
                     key={index}
                   >
-                    {tutorial.baslik}
+                    
+                    <div className="card-image waves-effect waves-block waves-light">
+                        <img className="activator" style={{ width: '100%', height: 300 }} src={tutorial.Resim} />
+                    </div>
                   </li>
                 ))}
             </ul>
