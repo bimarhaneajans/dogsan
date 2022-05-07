@@ -3,7 +3,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import DegerServis from "../../services/DegerService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -17,10 +17,8 @@ const AddTutorial = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    Content:  "",
+    kisaaciklama:  "",
     published: false
   };
   const [tutorial, setTutorial] = useState(initialTutorialState);
@@ -40,20 +38,19 @@ const AddTutorial = () => {
 
   const saveTutorial = () => {
     var data = {
-      title: tutorial.title,
-      description: tutorial.description
+     
+         baslik: tutorial.baslik,
+          Content:  tutorial.Content,
+          kisaaciklama:tutorial.kisaaciklama,
     };
 
-    BayiDataService.create(data)
+    DegerServis.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-
           baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
+          Content:  response.data.Content,
+          kisaaciklama:response.data.kisaaciklama,
           published: response.data.published
         });
         setSubmitted(true);
@@ -94,28 +91,41 @@ const AddTutorial = () => {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="title">Başlık</label>
               <input
                 type="text"
                 className="form-control"
-                id="title"
+                id="baslik"
                 required
-                value={tutorial.title}
+                value={tutorial.baslik}
                 onChange={handleInputChange}
-                name="title"
+                name="baslik"
               />
             </div>
 
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="Content">Content</label>
               <input
                 type="text"
                 className="form-control"
-                id="description"
+                id="Content"
                 required
-                value={tutorial.description}
+                value={tutorial.Content}
                 onChange={handleInputChange}
-                name="description"
+                name="Content"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="kisaaciklama">Kısa Açıklama</label>
+              <input
+                type="text"
+                className="form-control"
+                id="kisaaciklama"
+                required
+                value={tutorial.kisaaciklama}
+                onChange={handleInputChange}
+                name="kisaaciklama"
               />
             </div>
 

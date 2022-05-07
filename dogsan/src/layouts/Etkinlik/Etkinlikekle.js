@@ -1,41 +1,75 @@
 
-import React, {useState,useEffect,useMemo, useRef  } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import BayiDataService from "../../services/BayiService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
+import { Editor } from "react-draft-wysiwyg";
+import { convertFromRaw } from 'draft-js';
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
-const Overview = (props) => {
-  const [tutorials, setTutorials] = useState([]);
+import FileBase64 from 'react-file-base64';
+
+const BayiEkle = () => {
+  const initialTutorialState = {
+    id: null,
+    baslik: "",
+    adres: "",
+    telefon: "",
+    enlem: "",
+    boylam: "",
+    published: false
+  };
+
+
+  const [tutorial, setTutorial] = useState(initialTutorialState);
+  const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
-   const [controller, dispatch] = useSoftUIController();
+  const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-   const [onMouseEnter, setOnMouseEnter] = useState(false);
+
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
 
-  useEffect(() => {
-    retrieveTutorials();
-  }, []);
-
-  const onChangeSearchTitle = e => {
-    const searchTitle = e.target.value;
-    setSearchTitle(searchTitle);
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setTutorial({ ...tutorial, [name]: value });
   };
 
-  const retrieveTutorials = () => {
-    BayiDataService.getAll()
+  const saveTutorial = () => {
+    var data = {
+      baslik: tutorial.baslik,
+      adres: tutorial.adres,
+      telefon: tutorial.telefon,
+      enlem: tutorial.enlem,
+      boylam: tutorial.boylam,
+      Resim: tutorial.Resim,
+    };
+
+    BayiDataService.create(data)
       .then(response => {
-        setTutorials(response.data);
+        setTutorial({
+          id: response.data.id,
+          baslik: response.data.baslik,
+          adres: response.data.adres,
+          telefon: response.data.telefon,
+          enlem: response.data.enlem,
+          boylam: response.data.boylam,
+          Resimbaslik: response.data.Resimbaslik,
+          Resim: response.data.Resim,
+          published: response.data.published
+        });
+        setSubmitted(true);
         console.log(response.data);
       })
       .catch(e => {
@@ -43,158 +77,122 @@ const Overview = (props) => {
       });
   };
 
-  const refreshList = () => {
-    retrieveTutorials();
-    setCurrentTutorial(null);
-    setCurrentIndex(-1);
-  };
-
-  const setActiveTutorial = (tutorial, index) => {
-    setCurrentTutorial(tutorial);
-    setCurrentIndex(index);
-  };
-
-  const removeAllTutorials = () => {
-    BayiDataService.removeAll()
-      .then(response => {
-        console.log(response.data);
-        refreshList();
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  const findByTitle = () => {
-    BayiDataService.findByTitle(searchTitle)
-      .then(response => {
-        setTutorials(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+  const newTutorial = () => {
+    setTutorial(initialTutorialState);
+    setSubmitted(false);
   };
 
   return (
-    <DashboardLayout> 
-         <Sidenav
-            color={sidenavColor}
-            brand={brand}
-            brandName=" DOĞSAN PANEL "
-            routes={routes} 
-          />
-    <div style={{ marginLeft: "100px" }}> 
-      <Header />
-    </div>
+    <DashboardLayout>
+      <Sidenav
+        color={sidenavColor}
+        brand={brand}
+        brandName=" DOĞSAN PANEL "
+        routes={routes}
+      />
+      <div style={{ marginLeft: "100px" }}>
+        <Header />
+      </div>
 
-    <div style={{ width: "300px", marginLeft: "275px",marginTop:"20px" }}>
-   
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by title"
-              value={searchTitle}
-              onChange={onChangeSearchTitle}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={findByTitle}
-              >
-                Ara
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-
-
-          <ul className="list-group">
-            {tutorials &&
-              tutorials.map((tutorial, index) => (
-                <li
-                  className={
-                    "list-group-item " + (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => setActiveTutorial(tutorial, index)}
-                  key={index}
-                >
-                  {tutorial.baslik}
-                </li>
-              ))}
-          </ul>
-
-          <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={removeAllTutorials}
-          >
-            Tümünü Sil       
-             </button>
-        </div>
-        <div className="col-md-6">
-          {currentTutorial ? (
+      <div style={{ width: "300px", marginLeft: "100px" }}>
+        <div className="submit-form">
+          {submitted ? (
             <div>
-              <strong>Başlık:</strong>
-              <div>
-                <label>
-
-                </label>{" "}
-                {currentTutorial.baslik}
-              </div>
-              <div>
-                <label>
-                  <strong>Adres:</strong>
-                </label>{" "}
-                {currentTutorial.adres}
-              </div>
-              <div>
-                <label>
-                  <strong>Enlem:</strong>
-                </label>{" "}
-                {currentTutorial.enlem}
-              </div>
-              <div>
-                <label>
-                  <strong>Telefon:</strong>
-                </label>{" "}
-                {currentTutorial.telefon}
-              </div>
-              <div>
-                <label>
-                  <strong>Boylam:</strong>
-                </label>{" "}
-                {currentTutorial.boylam}
-              </div>
-              <div>
-                <label>
-                  <strong>Durum:</strong>
-                </label>{" "}
-                {currentTutorial.published ? "Published" : "Pending"}
-              </div>
-
-              <Link
-                to={"/bayiguncelle/" + currentTutorial._id}
-                className="m-6 btn btn-lm btn-warning"
-              >
-                Düzenle
-                </Link>
+              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
+              <button className="btn btn-success" onClick={newTutorial}>
+                Ekle
+              </button>
             </div>
           ) : (
             <div>
-              <br />
-              <p>Bir Bayi Seçin...</p>
+              <div className="form-group">
+                <label htmlFor="bayi">Başlık</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="baslik"
+                  required
+                  value={tutorial.baslik}
+                  onChange={handleInputChange}
+                  name="baslik"
+                />
+              </div>
+
+            {/*   <div style={{ width: "300 px" }}>
+                <Editor
+                  editorState={tutorial.boylam}
+                  toolbarClassName="toolbarClassName"
+                  wrapperClassName="wrapperClassName"
+                  editorClassName="editorClassName"
+                  onEditorStateChange={handleInputChange}
+                />
+              </div> */}
+
+              <div className="form-group">
+                <label htmlFor="adres">adres</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="adres"
+                  required
+                  value={tutorial.adres}
+                  onChange={handleInputChange}
+                  name="adres"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="Telefon">Telefon</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="telefon"
+                  required
+                  value={tutorial.telefon}
+                  onChange={handleInputChange}
+                  name="telefon"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="Enlem">Enlem</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="enlem"
+                  required
+                  value={tutorial.enlem}
+                  onChange={handleInputChange}
+                  name="enlem"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="boylam">boylam</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="boylam"
+                  required
+                  value={tutorial.boylam}
+                  onChange={handleInputChange}
+                  name="boylam"
+                />
+              </div>
+
+            <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
+              />  
+
+              <button onClick={saveTutorial} className="btn btn-success">
+                Submit
+              </button>
             </div>
           )}
         </div>
-      </div>
       </div>
     </DashboardLayout>
   );
 };
 
-export default Overview;
+export default BayiEkle;

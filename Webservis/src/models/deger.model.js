@@ -4,8 +4,8 @@ module.exports = mongoose => {
         baslik: String,
         Content: String,
         kisaaciklama: String,
-    Resimbaslik:String,
-      Resim:String,
+        Resimbaslik:String,
+        Resim:String,
         published: Boolean
         
       },
