@@ -67,6 +67,7 @@ const BayiEkle = () => {
           boylam: response.data.boylam,
           Resimbaslik: response.data.Resimbaslik,
           Resim: response.data.Resim,
+           Resim: response.data.Resim,
           published: response.data.published
         });
         setSubmitted(true);

@@ -63,6 +63,7 @@ const AddTutorial = () => {
           icerik: response.data.icerik,
           Resimbaslik: response.data.Resimbaslik,
           Resim: response.data.Resim,
+           Resim: response.data.Resim,
           published: response.data.published
           
         });
@@ -95,7 +96,7 @@ const AddTutorial = () => {
         <div className="submit-form">
           {submitted ? (
             <div>
-              <h4>You submitted successfully!</h4>
+              <h4>Başarılı ! Yeniden Eklemek ister misin ?</h4>
               <button className="btn btn-success" onClick={newTutorial}>
                 Add
               </button>

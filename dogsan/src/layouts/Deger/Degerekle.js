@@ -11,6 +11,7 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
+import FileBase64 from 'react-file-base64';
 
  
 const AddTutorial = () => {
@@ -39,9 +40,10 @@ const AddTutorial = () => {
   const saveTutorial = () => {
     var data = {
      
-         baslik: tutorial.baslik,
+          baslik: tutorial.baslik,
           Content:  tutorial.Content,
           kisaaciklama:tutorial.kisaaciklama,
+          Resim: tutorial.Resim,
     };
 
     DegerServis.create(data)
@@ -51,6 +53,7 @@ const AddTutorial = () => {
           baslik: response.data.baslik,
           Content:  response.data.Content,
           kisaaciklama:response.data.kisaaciklama,
+          Resim: response.data.Resim,
           published: response.data.published
         });
         setSubmitted(true);
@@ -83,7 +86,7 @@ const AddTutorial = () => {
       <div className="submit-form">
         {submitted ? (
           <div>
-            <h4>You submitted successfully!</h4>
+            <h4>Başarılı ! Yeniden Eklemek ister misin ?</h4>
             <button className="btn btn-success" onClick={newTutorial}>
               Add
             </button>
@@ -128,7 +131,11 @@ const AddTutorial = () => {
                 name="kisaaciklama"
               />
             </div>
-
+            <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
+              />  
             <button onClick={saveTutorial} className="btn btn-success">
               Submit
             </button>
