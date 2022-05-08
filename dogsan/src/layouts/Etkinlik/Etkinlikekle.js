@@ -1,38 +1,31 @@
-
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/BayiService";
+import EtkinlikService from "../../services/EtkinlikService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
-import { Editor } from "react-draft-wysiwyg";
-import { convertFromRaw } from 'draft-js';
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const BayiEkle = () => {
+
+const AddTutorial = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    icerik: "",
+    konum: "",
+    konumlinki: "",
+    baslangicTarihi:"",
+    bitisTarihi:"",
     published: false
   };
-
-
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
-  const [currentTutorial, setCurrentTutorial] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(-1);
-  const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
 
@@ -48,26 +41,27 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
+
       baslik: tutorial.baslik,
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      boylam: tutorial.boylam,
+      icerik: tutorial.icerik,
+      konum: tutorial.konum,
+      konumlinki: tutorial.konumlinki,
+      baslangicTarihi:tutorial.baslangicTarihi,
+      bitisTarihi:tutorial.bitisTarihi,
       Resim: tutorial.Resim,
     };
 
-    BayiDataService.create(data)
+    EtkinlikService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
           baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
-          Resimbaslik: response.data.Resimbaslik,
-          Resim: response.data.Resim,
-           Resim: response.data.Resim,
+          icerik: response.data.icerik, 
+          konum: response.data.konum,
+          konumlinki: response.data.konumlinki,
+          baslangicTarihi: response.data.baslangicTarihi,
+          bitisTarihi: response.data.bitisTarihi,
+          Resim: response.data.Resim,  
           published: response.data.published
         });
         setSubmitted(true);
@@ -96,18 +90,19 @@ const BayiEkle = () => {
       </div>
 
       <div style={{ width: "300px", marginLeft: "100px" }}>
+        <br />
         <div className="submit-form">
           {submitted ? (
             <div>
-              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
+              <h4>Başarılı ! Yeniden Eklemek ister misin ?</h4>
               <button className="btn btn-success" onClick={newTutorial}>
-                Ekle
+                Add
               </button>
             </div>
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
+                <label htmlFor="title">Başlık</label>
                 <input
                   type="text"
                   className="form-control"
@@ -119,72 +114,73 @@ const BayiEkle = () => {
                 />
               </div>
 
-            {/*   <div style={{ width: "300 px" }}>
-                <Editor
-                  editorState={tutorial.boylam}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
-                />
-              </div> */}
-
               <div className="form-group">
-                <label htmlFor="adres">adres</label>
+                <label htmlFor="icerik">icerik</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
+                  id="icerik"
                   required
-                  value={tutorial.adres}
+                  value={tutorial.icerik}
                   onChange={handleInputChange}
-                  name="adres"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Telefon">Telefon</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  required
-                  value={tutorial.telefon}
-                  onChange={handleInputChange}
-                  name="telefon"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Enlem">Enlem</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  required
-                  value={tutorial.enlem}
-                  onChange={handleInputChange}
-                  name="enlem"
+                  name="icerik"
                 />
               </div>
 
+            
               <div className="form-group">
-                <label htmlFor="boylam">boylam</label>
+                <label htmlFor="konumlinki">konum linki</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
+                  id="konumlinki"
                   required
-                  value={tutorial.boylam}
+                  value={tutorial.konumlinki}
                   onChange={handleInputChange}
-                  name="boylam"
+                  name="konumlinki"
                 />
               </div>
-
-            <FileBase64
+              <div className="form-group">
+                <label htmlFor="konum">konum</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="konum"
+                  required
+                  value={tutorial.konum}
+                  onChange={handleInputChange}
+                  name="konum"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="baslangicTarihi">baslangic Tarihi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="baslangicTarihi"
+                  required
+                  value={tutorial.baslangicTarihi}
+                  onChange={handleInputChange}
+                  name="baslangicTarihi"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="bitisTarihi">bitis Tarihi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="bitisTarihi"
+                  required
+                  value={tutorial.bitisTarihi}
+                  onChange={handleInputChange}
+                  name="bitisTarihi"
+                />
+              </div>
+              <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
-
+              />
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
               </button>
@@ -196,4 +192,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default AddTutorial;

@@ -15,8 +15,8 @@ const Etkinlik = db.etkinliks;
 
    const etkinlik  = new Etkinlik({
     baslik: req.body.baslik,
-    Konum: req.body.Konum,
-    Konumlinki: req.body.Konumlinki,
+    konum: req.body.konum,
+    konumlinki: req.body.konumlinki,
     icerik:req.body.icerik,
     baslangicTarihi: req.body.baslangicTarihi,
     bitisTarihi: req.body.bitisTarihi,

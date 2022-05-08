@@ -3,7 +3,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import EtkinlikDataService from "../../services/EtkinlikService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -17,12 +17,13 @@ const Overview = props => {
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    baslik:"",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
-    published:false
+    baslik: "",
+    icerik: "",
+    konumlinki: "",
+    konum: "",
+    baslangicTarihi: "",
+    bitisTarihi: "",
+    published: false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
@@ -37,7 +38,7 @@ const Overview = props => {
   const { size } = typography;
 
 /*   const getTutorial = id => {
-    BayiDataService.get(id)
+    EtkinlikDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -52,7 +53,7 @@ const Overview = props => {
   }, [props.match.params.id]);
  */
   const getTutorial = id => {
-    BayiDataService.get(id)
+    EtkinlikDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -73,16 +74,18 @@ const Overview = props => {
 
   const updatePublished = status => {
     var data = {
-        id: currentTutorial._id,
+        id: currentTutorial.id,
         baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
+         icerik: currentTutorial.icerik,
+        konumlinki: currentTutorial.konumlinki,
+        konum: currentTutorial.konum,
+        baslangicTarihi: currentTutorial.baslangicTarihi,
+        bitisTarihi: currentTutorial.bitisTarihi,
+        Resim: currentTutorial.data.Resim,
         published: status
     };
 
-    BayiDataService.update(currentTutorial._id, data)
+    EtkinlikDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -94,7 +97,7 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial._id, currentTutorial)
+    EtkinlikDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
         setMessage("Başarı ile Güncellendi");
@@ -105,10 +108,10 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial._id)
+    EtkinlikDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/Bayi");
+        navigate("/EtkinlikListe");
       })
       .catch(e => {
         console.log(e);
@@ -144,50 +147,61 @@ const Overview = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Adres </label>
+                <label htmlFor="icerik">icerik </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
-                  name="adres"
-                  value={currentTutorial.adres}
+                  id="icerik"
+                  name="icerik"
+                  value={currentTutorial.icerik}
                  onChange={handleInputChange}  
                 />
               </div>
                <div className="form-group">
-                <label htmlFor="description">Telefon </label>
+                <label htmlFor="konumlinki">konumlinki </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="telefon"
-                  name="telefon"
-                  value={currentTutorial.telefon}
+                  id="konumlinki"
+                  name="konumlinki"
+                  value={currentTutorial.konumlinki}
                  onChange={handleInputChange}  
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Enlem </label>
+                <label htmlFor="konum">konum </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
+                  id="konum"
+                  name="konum"
+                  value={currentTutorial.konum}
                onChange={handleInputChange}  
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Boylam </label>
+                <label htmlFor="baslangicTarihi">baslangicTarihi </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
+                  id="baslangicTarihi"
+                  name="baslangicTarihi"
+                  value={currentTutorial.baslangicTarihi}
                onChange={handleInputChange} 
                 />
             </div>
-
+            <div className="form-group">
+                <label htmlFor="bitisTarihi">bitisTarihi </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="bitisTarihi"
+                  name="bitisTarihi"
+                  value={currentTutorial.bitisTarihi}
+               onChange={handleInputChange} 
+                />
+            </div>
+             
               <FileBase64
                 type="file"
                 multiple={false}

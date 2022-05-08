@@ -73,7 +73,7 @@ const Overview = props => {
 
   const updatePublished = status => {
     var data = {
-        id: currentTutorial._id,
+        id: currentTutorial.id,
         baslik: currentTutorial.baslik,
         adres: currentTutorial.adres,
         telefon: currentTutorial.telefon,
@@ -82,7 +82,7 @@ const Overview = props => {
         published: status
     };
 
-    BayiDataService.update(currentTutorial._id, data)
+    BayiDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -94,7 +94,7 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial._id, currentTutorial)
+    BayiDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
         setMessage("Başarı ile Güncellendi");
@@ -105,7 +105,7 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial._id)
+    BayiDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
         navigate("/Bayi");

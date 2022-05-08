@@ -28,7 +28,7 @@ const findByTitle = baslik => {
   return http.get(`/etkinlik?baslik=${baslik}`);
 };
 
-const EtkinlikService = {
+const etkinlikService = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const EtkinlikService = {
   findByTitle
 };
 
-export default EtkinlikService;
+export default etkinlikService;
