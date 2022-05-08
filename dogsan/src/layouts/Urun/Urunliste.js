@@ -110,20 +110,27 @@ const Overview = (props) => {
         <div className="col-md-6">
 
 
-          <ul className="list-group">
-            {tutorials &&
-              tutorials.map((tutorial, index) => (
-                <li
-                  className={
-                    "list-group-item " + (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => setActiveTutorial(tutorial, index)}
-                  key={index}
-                >
-                  {tutorial.baslik}
-                </li>
-              ))}
-          </ul>
+        <ul className="list-group">
+              {tutorials &&
+                tutorials.map((tutorial, index) => (
+                  <li
+                    className={
+                      "list-group-item " + (index === currentIndex ? "active" : "")
+                    }
+                    onClick={() => setActiveTutorial(tutorial, index)}
+                    key={index}
+                  >
+                    <div className="card" key={tutorial.id}>
+                    <div className="card-image waves-effect waves-block waves-light">
+                        <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
+                    </div>
+                    <div className="card-content">
+                        <span className="card-title activator grey-text text-darken-4">{tutorial.baslik}</span>
+                    </div>
+                </div>
+                  </li>
+                ))}
+            </ul>
 
           <button
             className="m-3 btn btn-sm btn-danger"

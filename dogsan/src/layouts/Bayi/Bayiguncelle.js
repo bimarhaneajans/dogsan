@@ -123,7 +123,7 @@ const Bayiguncelle = props => {
          
           <form>
 
-          <div className="card" key={currentTutorial._id}>
+          <div className="card">
                   <br/>
                     <div className="card-image waves-effect waves-block waves-light">
                         <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
