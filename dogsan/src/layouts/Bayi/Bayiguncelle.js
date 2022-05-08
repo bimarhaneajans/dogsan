@@ -84,7 +84,7 @@ const Bayiguncelle = props => {
     BayiDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
-        setMessage("The tutorial was updated successfully!");
+        setMessage("Başarı ile Güncellendi");
       })
       .catch(e => {
         console.log(e);
@@ -201,6 +201,7 @@ const Bayiguncelle = props => {
                 onDone={({ base64 }) => setCurrentTutorial({ ...currentTutorial, Resim: base64 })}
               />  
 
+          
             <div className="form-group">
               <label>
                 <strong>Status:</strong>

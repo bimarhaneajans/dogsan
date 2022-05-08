@@ -88,7 +88,7 @@ const Overview = props => {
     BayiDataService.update(currentTutorial._id, currentTutorial)
       .then(response => {
         console.log(response.data);
-        setMessage("The tutorial was updated successfully!");
+        setMessage("Başarı ile Güncellendi");
       })
       .catch(e => {
         console.log(e);
@@ -177,6 +177,12 @@ const Overview = props => {
                onChange={handleInputChange} 
                 />
             </div>
+
+              <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setCurrentTutorial({ ...currentTutorial, Resim: base64 })}
+              />  
 
             <div className="form-group">
               <label>

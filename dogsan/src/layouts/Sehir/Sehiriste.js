@@ -135,7 +135,7 @@ const Overview = (props) => {
                   </li>
                 ))}
             </ul>
-            
+
             <button
               className="m-3 btn btn-sm btn-danger"
               onClick={removeAllTutorials}
@@ -194,7 +194,7 @@ const Overview = (props) => {
             ) : (
               <div>
                 <br />
-                <p>Bir Bayi Seçin...</p>
+              
               </div>
             )}
           </div>

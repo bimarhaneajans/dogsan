@@ -156,6 +156,12 @@ const Overview = props => {
               
                
 
+              <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setCurrentTutorial({ ...currentTutorial, Resim: base64 })}
+              />  
+
             <div className="form-group">
               <label>
                 <strong>Status:</strong>
