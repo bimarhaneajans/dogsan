@@ -6,8 +6,6 @@ module.exports = mongoose => {
       BelgeselVideoUrl:String, 
       Resimbaslik:String,
       Resim:String,
-      Resimbaslik:String,
-      Resim:String,
       published: Boolean
     },
     { timestamps: true }

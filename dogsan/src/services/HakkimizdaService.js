@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/hakkimizda`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/hakkimizda?baslik=${baslik}`);
+const findByTitle = AnaIcerik => {
+  return http.get(`/hakkimizda?AnaIcerik=${AnaIcerik}`);
 };
 
 const HakkimizdaService = {

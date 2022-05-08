@@ -234,7 +234,7 @@ const Overview = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Bayi...</p>
+        
         </div>
       )}
     </div>

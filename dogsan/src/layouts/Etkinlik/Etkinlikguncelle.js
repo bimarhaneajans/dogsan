@@ -36,22 +36,7 @@ const Overview = props => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
-
-/*   const getTutorial = id => {
-    EtkinlikDataService.get(id)
-      .then(response => {
-        setCurrentTutorial(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  useEffect(() => {
-    getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
- */
+ 
   const getTutorial = id => {
     EtkinlikDataService.get(id)
       .then(response => {
@@ -76,7 +61,7 @@ const Overview = props => {
     var data = {
         id: currentTutorial.id,
         baslik: currentTutorial.baslik,
-         icerik: currentTutorial.icerik,
+        icerik: currentTutorial.icerik,
         konumlinki: currentTutorial.konumlinki,
         konum: currentTutorial.konum,
         baslangicTarihi: currentTutorial.baslangicTarihi,
@@ -255,7 +240,7 @@ const Overview = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Bayi...</p>
+        
         </div>
       )}
     </div>
