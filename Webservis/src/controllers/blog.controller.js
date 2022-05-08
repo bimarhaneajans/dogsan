@@ -18,6 +18,8 @@ const Blog = db.blogs;
     Ozet: req.body.Ozet,
     seolink: req.body.seolink,
     icerik:req.body.icerik,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
 

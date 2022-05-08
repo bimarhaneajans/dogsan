@@ -3,7 +3,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import DegerDataService from "../../services/DegerService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -11,16 +11,16 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 
+
 const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    baslik:"",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    baslik: "",
+    Ozet: "",
+    seolink: "",
+    icerik: "",
     published:false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -30,28 +30,16 @@ const Overview = props => {
   
    const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-   const [onMouseEnter, setOnMouseEnter] = useState(false);
+ 
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+  
 
-/*   const getTutorial = id => {
-    BayiDataService.get(id)
-      .then(response => {
-        setCurrentTutorial(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  useEffect(() => {
-    getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
- */
+ 
   const getTutorial = id => {
-    BayiDataService.get(id)
+    DegerDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -72,16 +60,15 @@ const Overview = props => {
 
   const updatePublished = status => {
     var data = {
-        id: currentTutorial._id,
-        baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
+        id:currentTutorial.id,
+        baslik:currentTutorial.baslik, 
+        Ozet:currentTutorial.Ozet,
+        seolink:currentTutorial.seolink,
+        icerik:currentTutorial.icerik,
         published: status
     };
 
-    BayiDataService.update(currentTutorial._id, data)
+    DegerDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -93,10 +80,10 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial._id, currentTutorial)
+    DegerDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
-        setMessage("The tutorial was updated successfully!");
+        setMessage("The Değer was updated successfully!");
       })
       .catch(e => {
         console.log(e);
@@ -104,10 +91,10 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial._id)
+    DegerDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/Bayi");
+        navigate("/degerliste");
       })
       .catch(e => {
         console.log(e);
@@ -116,7 +103,7 @@ const Overview = props => {
 
   return (
     <DashboardLayout> 
-        <Sidenav
+      <Sidenav
             color={sidenavColor}
             brand={brand}
             brandName=" DOĞSAN PANEL "
@@ -127,12 +114,14 @@ const Overview = props => {
     </div>
 
     <div style={{ width: "300px", marginLeft: "100px" }}>
+    <br />
+    <div>
       {currentTutorial ? (
         <div className="edit-form">
       
           <form>
             <div className="form-group">
-            <label htmlFor="title">Başlık </label>
+            <label htmlFor="baslik">Başlık </label>
                 <input
                   type="text"
                   className="form-control"
@@ -143,49 +132,29 @@ const Overview = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Adres </label>
+                <label htmlFor="Content">Content </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
-                  name="adres"
-                  value={currentTutorial.adres}
+                  id="Content"
+                  name="Content"
+                  value={currentTutorial.Content}
                  onChange={handleInputChange}  
                 />
               </div>
                <div className="form-group">
-                <label htmlFor="description">Telefon </label>
+                <label htmlFor="kisaaciklama">Kısa Açıklama </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="telefon"
-                  name="telefon"
-                  value={currentTutorial.telefon}
+                  id="kisaaciklama"
+                  name="kisaaciklama"
+                  value={currentTutorial.Ozet}
                  onChange={handleInputChange}  
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="description">Enlem </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
-               onChange={handleInputChange}  
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Boylam </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
-               onChange={handleInputChange} 
-                />
-            </div>
+              
+               
 
             <div className="form-group">
               <label>
@@ -227,12 +196,12 @@ const Overview = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Bayi...</p>
+          <p>Please click on a Değer...</p>
         </div>
       )}
     </div>
   
-
+    </div>
 </DashboardLayout>
 );
 }

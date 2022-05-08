@@ -15,6 +15,8 @@ const TarihceGarleri = db.TarihceGarleris;
 
    const tarihceGarleri  = new TarihceGarleri({
     Galeribaslik: req.body.Galeribaslik ,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
   /*   var file = fs.readFileSync(path.normalize(req.file.path));

@@ -12,6 +12,7 @@ import routes from "../../routes";
 import { Link } from "react-router-dom";
 
 import brand from "assets/images/logo-ct.png";
+import FileBase64 from 'react-file-base64';
 
 const AddTutorial = () => {
   const initialTutorialState = {
@@ -20,6 +21,7 @@ const AddTutorial = () => {
     Ozet: "",
     seolink: "",
     icerik: "",
+    
     published: false
   };
 
@@ -47,7 +49,8 @@ const AddTutorial = () => {
       baslik: tutorial.baslik,
       Ozet: tutorial.Ozet,
       seolink: tutorial.seolink,
-      icerik: tutorial.icerik
+      icerik: tutorial.icerik,
+      Resim: tutorial.Resim,
     };
 
     BlogDataService.create(data)
@@ -58,7 +61,10 @@ const AddTutorial = () => {
           Ozet: response.data.Ozet,
           seolink: response.data.seolink,
           icerik: response.data.icerik,
+          Resimbaslik: response.data.Resimbaslik,
+          Resim: response.data.Resim,
           published: response.data.published
+          
         });
         setSubmitted(true);
         console.log(response.data);
@@ -145,6 +151,12 @@ const AddTutorial = () => {
                   name="icerik"
                 />
               </div>
+
+              <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
+              />  
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit

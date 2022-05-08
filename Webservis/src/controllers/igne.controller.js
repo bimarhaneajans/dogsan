@@ -16,6 +16,8 @@ exports.create = (req, res) => {
   const igne = new Igne({
     igneadi: req.body.igneadi,
     siralama: req.body.siralama,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
   /*   var file = fs.readFileSync(path.normalize(req.file.path));

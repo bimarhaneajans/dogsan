@@ -18,6 +18,8 @@ const Urun = db.Uruns;
     Adi: req.body.Adi,
     Renk: req.body.Renk,
     icerik: req.body.icerik,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
    /*   var file = fs.readFileSync(path.normalize(req.file.path));

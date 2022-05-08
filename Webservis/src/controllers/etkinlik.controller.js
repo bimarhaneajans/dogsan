@@ -20,6 +20,8 @@ const Etkinlik = db.etkinliks;
     icerik:req.body.icerik,
     baslangicTarihi: req.body.baslangicTarihi,
     bitisTarihi: req.body.bitisTarihi,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false 
   });
   /*   var file = fs.readFileSync(path.normalize(req.file.path));

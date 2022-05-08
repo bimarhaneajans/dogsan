@@ -2,7 +2,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import BayiDataService from "../../services/DegerService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -145,30 +145,21 @@ const Overview = (props) => {
                   </label>{" "}
                   {currentTutorial.baslik}
                 </div>
+                <strong>Content:</strong>
                 <div>
                   <label>
-                    <strong>Adres:</strong>
+
                   </label>{" "}
-                  {currentTutorial.adres}
+                  {currentTutorial.Content}
                 </div>
+                <strong>Kısa Açıklama :</strong>
                 <div>
                   <label>
-                    <strong>Enlem:</strong>
+
                   </label>{" "}
-                  {currentTutorial.enlem}
+                  {currentTutorial.kisaaciklama}
                 </div>
-                <div>
-                  <label>
-                    <strong>Telefon:</strong>
-                  </label>{" "}
-                  {currentTutorial.telefon}
-                </div>
-                <div>
-                  <label>
-                    <strong>Boylam:</strong>
-                  </label>{" "}
-                  {currentTutorial.boylam}
-                </div>
+              
                 <div>
                   <label>
                     <strong>Durum:</strong>
@@ -177,7 +168,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial._id}
+                  to={"/degerguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle
@@ -186,7 +177,7 @@ const Overview = (props) => {
             ) : (
               <div>
                 <br />
-                <p>Bir Bayi Seçin...</p>
+                <p>Bir Değer Seçin...</p>
               </div>
             )}
           </div>

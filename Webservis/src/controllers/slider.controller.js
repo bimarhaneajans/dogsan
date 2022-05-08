@@ -17,6 +17,8 @@ exports.create = (req, res) => {
     ismi: req.body.ismi,
     slidetipi: req.body.slidetipi,
     siralama: req.body.siralama,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
   /*   var file = fs.readFileSync(path.normalize(req.file.path));

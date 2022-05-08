@@ -15,6 +15,8 @@ const Katalog = db.katalogs;
 
    const katalog  = new Katalog({
     katalogadi: req.body.katalogadi,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
    /*   var file = fs.readFileSync(path.normalize(req.file.path));

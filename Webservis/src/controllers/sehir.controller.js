@@ -15,6 +15,8 @@ exports.create = (req, res) => {
 
   const sehir = new Sehir({ 
     sehirAdi: req.body.sehirAdi,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
    /*   var file = fs.readFileSync(path.normalize(req.file.path));

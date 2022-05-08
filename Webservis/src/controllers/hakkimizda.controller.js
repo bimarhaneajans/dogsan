@@ -17,6 +17,8 @@ const Hakkimizda = db.hakkimizdas;
     AnaIcerik: req.body.AnaIcerik,
     BelgeselIcerigi: req.body.BelgeselIcerigi, 
     BelgeselVideoUrl:req.body.BelgeselVideoUrl, 
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
    /*   var file = fs.readFileSync(path.normalize(req.file.path));

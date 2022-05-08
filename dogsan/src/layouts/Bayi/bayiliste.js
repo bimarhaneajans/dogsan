@@ -126,7 +126,7 @@ const Overview = (props) => {
                     onClick={() => setActiveTutorial(tutorial, index)}
                     key={index}
                   >
-                    <div className="card" key={tutorial._id}>
+                    <div className="card" key={tutorial.id}>
                     <div className="card-image waves-effect waves-block waves-light">
                         <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
                     </div>

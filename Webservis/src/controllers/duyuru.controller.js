@@ -19,6 +19,8 @@ exports.create = (req, res) => {
     kisaaciklama: req.body.kisaaciklama,
     YoutubeVideoURL: req.body.YoutubeVideoURL,
     Tarih: req.body.Tarih,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });
    /*   var file = fs.readFileSync(path.normalize(req.file.path));
