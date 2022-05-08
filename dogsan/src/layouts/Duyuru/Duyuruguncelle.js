@@ -3,24 +3,25 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import DuyuruDataService from "../../services/DuyuruService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
+import FileBase64 from 'react-file-base64';
+
 
 const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    baslik:"",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    baslik: "",
+    Ozet: "",
+    seolink: "",
+    icerik: "",
     published:false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -30,28 +31,16 @@ const Overview = props => {
   
    const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-   const [onMouseEnter, setOnMouseEnter] = useState(false);
+ 
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+  
 
-/*   const getTutorial = id => {
-    BayiDataService.get(id)
-      .then(response => {
-        setCurrentTutorial(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  useEffect(() => {
-    getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
- */
+ 
   const getTutorial = id => {
-    BayiDataService.get(id)
+    DuyuruDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -72,16 +61,15 @@ const Overview = props => {
 
   const updatePublished = status => {
     var data = {
-        id: currentTutorial._id,
-        baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
+        id:currentTutorial.id,
+        icerik:currentTutorial.icerik, 
+        kisaaciklama:currentTutorial.kisaaciklama,
+        YoutubeVideoURL:currentTutorial.YoutubeVideoURL,
+        Tarih:currentTutorial.Tarih,
         published: status
     };
 
-    BayiDataService.update(currentTutorial._id, data)
+    DuyuruDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -93,10 +81,10 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial._id, currentTutorial)
+    DuyuruDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
-        setMessage("Başarı ile Güncellendi");
+        setMessage("Başarılı !");
       })
       .catch(e => {
         console.log(e);
@@ -104,10 +92,10 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial._id)
+    DuyuruDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/Bayi");
+        navigate("/Duyurulistele");
       })
       .catch(e => {
         console.log(e);
@@ -116,7 +104,7 @@ const Overview = props => {
 
   return (
     <DashboardLayout> 
-        <Sidenav
+      <Sidenav
             color={sidenavColor}
             brand={brand}
             brandName=" DOĞSAN PANEL "
@@ -127,12 +115,20 @@ const Overview = props => {
     </div>
 
     <div style={{ width: "300px", marginLeft: "100px" }}>
+    <br />
+    <div>
       {currentTutorial ? (
         <div className="edit-form">
-      
+      <div className="card">
+                <br />
+                <div className="card-image waves-effect waves-block waves-light">
+                  <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
+                </div>
+                <br />
+              </div>
           <form>
             <div className="form-group">
-            <label htmlFor="title">Başlık </label>
+            <label htmlFor="baslik">Başlık </label>
                 <input
                   type="text"
                   className="form-control"
@@ -143,49 +139,51 @@ const Overview = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Adres </label>
+                <label htmlFor="Content">icerik </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
-                  name="adres"
-                  value={currentTutorial.adres}
+                  id="icerik"
+                  name="icerik"
+                  value={currentTutorial.icerik}
                  onChange={handleInputChange}  
                 />
               </div>
                <div className="form-group">
-                <label htmlFor="description">Telefon </label>
+                <label htmlFor="kisaaciklama">Kısa Açıklama </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="telefon"
-                  name="telefon"
-                  value={currentTutorial.telefon}
+                  id="kisaaciklama"
+                  name="kisaaciklama"
+                  value={currentTutorial.kisaaciklama}
                  onChange={handleInputChange}  
                 />
               </div>
+
               <div className="form-group">
-                <label htmlFor="description">Enlem </label>
+                <label htmlFor="YoutubeVideoURL">YoutubeVideoURL </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
-               onChange={handleInputChange}  
+                  id="kisaaciklama"
+                  name="YoutubeVideoURL"
+                  value={currentTutorial.YoutubeVideoURL}
+                 onChange={handleInputChange}  
                 />
               </div>
+              
               <div className="form-group">
-                <label htmlFor="description">Boylam </label>
+                <label htmlFor="Tarih">Tarih </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
-               onChange={handleInputChange} 
+                  id="Tarih"
+                  name="Tarih"
+                  value={currentTutorial.Tarih}
+                 onChange={handleInputChange}  
                 />
-            </div>
+              </div>
 
               <FileBase64
                 type="file"
@@ -233,12 +231,12 @@ const Overview = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Bayi...</p>
+         
         </div>
       )}
     </div>
   
-
+    </div>
 </DashboardLayout>
 );
 }

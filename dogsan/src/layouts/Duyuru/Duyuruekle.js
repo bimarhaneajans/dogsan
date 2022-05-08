@@ -63,6 +63,7 @@ const Duyuruekle = () => {
           baslik: response.data.baslik,
           kisaaciklama: response.data.kisaaciklama,
           YoutubeVideoURL: response.data.YoutubeVideoURL,
+          icerik: response.data.icerik,
           Tarih: response.data.Tarih,
           Resim: response.data.Resim,
           published: response.data.published
@@ -144,6 +145,18 @@ const Duyuruekle = () => {
                 />
               </div>
               <div className="form-group">
+                <label htmlFor="icerik">icerik</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="icerik"
+                  required
+                  value={tutorial.icerik}
+                  onChange={handleInputChange}
+                  name="icerik"
+                />
+              </div>
+              <div className="form-group">
                 <label htmlFor="Tarih">Tarih</label>
                 <input
                   type="text"
@@ -155,6 +168,7 @@ const Duyuruekle = () => {
                   name="Tarih"
                 />
               </div>
+
       
 
             

@@ -151,27 +151,27 @@ const Overview = (props) => {
                 </div>
                 <div>
                   <label>
-                    <strong>Adres:</strong>
+                    <strong>icerik:</strong>
                   </label>{" "}
-                  {currentTutorial.adres}
+                  {currentTutorial.icerik}
                 </div>
                 <div>
                   <label>
-                    <strong>Enlem:</strong>
+                    <strong>kisaaciklama:</strong>
                   </label>{" "}
-                  {currentTutorial.enlem}
+                  {currentTutorial.kisaaciklama}
                 </div>
                 <div>
                   <label>
-                    <strong>Telefon:</strong>
+                    <strong>YoutubeVideoURL:</strong>
                   </label>{" "}
-                  {currentTutorial.telefon}
+                  {currentTutorial.YoutubeVideoURL}
                 </div>
                 <div>
                   <label>
-                    <strong>Boylam:</strong>
+                    <strong>Tarih:</strong>
                   </label>{" "}
-                  {currentTutorial.boylam}
+                  {currentTutorial.Tarih}
                 </div>
                 <div>
                   <label>
@@ -181,7 +181,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial.id}
+                  to={"/Duyuruguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle
