@@ -29,7 +29,7 @@ import createCache from "@emotion/cache";
 // Soft UI Dashboard React routes
 import routes from "../routes";
 import Home from "../layouts/Home";
-
+import dynamickategori from "../layouts/Kategori/dynamickategori";
 
 // Soft UI Dashboard React contexts
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -53,8 +53,8 @@ import Sosyalssguncelle  from "../layouts/Sosyalss/Sosyalssguncelle"
 import Tarihceguncelle  from "../layouts/Tarihce/Tarihceguncelle"
 import TarihiGaleriguncelle  from "../layouts/TarihiGaleri/TarihiGaleriguncelle"
 import Urunguncelle  from "../layouts/Urun/Urunguncelle"
- 
-
+ import Dynamickategori from "../layouts/Kategori/dynamickategori"
+ import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
@@ -202,6 +202,8 @@ export default function App() {
         <Route path="/Tarihceguncelle/:id" element={<Tarihceguncelle />} />
         <Route path="/TarihiGaleriguncelle/:id" element={<TarihiGaleriguncelle />} />
         <Route path="/Urunguncelle/:id" element={<Urunguncelle />} />
+        <Route path="/kategoriler" element={<Dynamickategori />} />
+        <Route path="/kategori/:id" element={<SubDynamickategori />} />
       </Routes>
     </ThemeProvider>
   );
