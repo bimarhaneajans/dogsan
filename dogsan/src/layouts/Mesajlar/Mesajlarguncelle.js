@@ -9,7 +9,8 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
- 
+import FileBase64 from 'react-file-base64';
+
 
 const Overview = props => {
   const { id }= useParams();
