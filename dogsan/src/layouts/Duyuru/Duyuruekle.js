@@ -155,18 +155,7 @@ const Duyuruekle = () => {
                   name="Tarih"
                 />
               </div>
-            {/*  <div className="form-group">
-                <label htmlFor="Enlem">Tarih</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Tarih"
-                  required
-                  value={tutorial.Tarih}
-                  onChange={handleInputChange}
-                  name="Tarih"
-                />
-              </div>   */}
+      
 
             
 

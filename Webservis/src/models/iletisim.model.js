@@ -5,7 +5,7 @@ module.exports = mongoose => {
       adres: String,
       telefon: String,
       haritaurl: String,
-      siralama: Date, 
+      siralama:String, 
  Resimbaslik:String,
       Resim:String,
       published: Boolean

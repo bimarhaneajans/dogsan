@@ -5,9 +5,9 @@ module.exports = mongoose => {
       icerik: String,
       konumlinki: String,
       konum: String,
-      baslangicTarihi: Date,
-      bitisTarihi: Date,
- Resimbaslik:String,
+      baslangicTarihi:String,
+      bitisTarihi:String,
+      Resimbaslik:String,
       Resim:String,
       published: Boolean
     },
