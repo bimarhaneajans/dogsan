@@ -86,7 +86,7 @@ const Overview = props => {
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
-        setMessage("The status was updated successfully!");
+        setMessage("Başarılı bir şekilde güncellendi");
       })
       .catch(e => {
         console.log(e);

@@ -10,6 +10,7 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
+import FileBase64 from 'react-file-base64';
 
 
 const Overview = props => {
@@ -72,7 +73,7 @@ const Overview = props => {
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
-        setMessage("The status was updated successfully!");
+        setMessage("Başarılı bir şekilde güncellendi");
       })
       .catch(e => {
         console.log(e);
@@ -83,7 +84,7 @@ const Overview = props => {
     DegerDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
-        setMessage("The Değer was updated successfully!");
+        setMessage("Başarılı !");
       })
       .catch(e => {
         console.log(e);
@@ -94,7 +95,7 @@ const Overview = props => {
     DegerDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/degerliste");
+        navigate("/Degerlistele");
       })
       .catch(e => {
         console.log(e);
@@ -118,7 +119,13 @@ const Overview = props => {
     <div>
       {currentTutorial ? (
         <div className="edit-form">
-      
+      <div className="card">
+                <br />
+                <div className="card-image waves-effect waves-block waves-light">
+                  <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
+                </div>
+                <br />
+              </div>
           <form>
             <div className="form-group">
             <label htmlFor="baslik">Başlık </label>
@@ -149,7 +156,7 @@ const Overview = props => {
                   className="form-control"
                   id="kisaaciklama"
                   name="kisaaciklama"
-                  value={currentTutorial.Ozet}
+                  value={currentTutorial.kisaaciklama}
                  onChange={handleInputChange}  
                 />
               </div>
@@ -202,7 +209,7 @@ const Overview = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Değer...</p>
+         
         </div>
       )}
     </div>
