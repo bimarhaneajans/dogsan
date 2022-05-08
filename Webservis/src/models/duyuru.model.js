@@ -5,7 +5,7 @@ module.exports = mongoose => {
       icerik: String,
       kisaaciklama: String,
       YoutubeVideoURL: String,
-      Tarih: Date, 
+      Tarih: String, 
       Resimbaslik:String,
       Resim:String,
       published: Boolean
