@@ -233,8 +233,8 @@ const routes = [
 
   {
     type: "collapse",
-    name: "İğne",
-    key: "igne",
+    name: "İğne Ekle",
+    key: "igneekle",
     route: "/igneekle",
     icon: <CustomerSupport size="12px" />,
     component: <Igneekle />,

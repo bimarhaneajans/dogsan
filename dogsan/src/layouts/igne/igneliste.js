@@ -2,7 +2,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import IgneDataService from "../../services/IgneService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -32,7 +32,7 @@ const Overview = (props) => {
   };
 
   const retrieveTutorials = () => {
-    BayiDataService.getAll()
+    IgneDataService.getAll()
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -54,7 +54,7 @@ const Overview = (props) => {
   };
 
   const removeAllTutorials = () => {
-    BayiDataService.removeAll()
+    IgneDataService.removeAll()
       .then(response => {
         console.log(response.data);
         refreshList();
@@ -65,7 +65,7 @@ const Overview = (props) => {
   };
 
   const findByTitle = () => {
-    BayiDataService.findByTitle(searchTitle)
+    IgneDataService.findByTitle(searchTitle)
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -128,7 +128,7 @@ const Overview = (props) => {
                         <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
                     </div>
                     <div className="card-content">
-                        <span className="card-title activator grey-text text-darken-4">{tutorial.baslik}</span>
+                        <span className="card-title activator grey-text text-darken-4">{tutorial.igneadi}</span>
                     </div>
                 </div>
                   </li>
@@ -145,37 +145,20 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>Başlık:</strong>
+                <strong>igne adi:</strong>
                 <div>
                   <label>
 
                   </label>{" "}
-                  {currentTutorial.baslik}
+                  {currentTutorial.igneadi}
                 </div>
                 <div>
                   <label>
-                    <strong>Adres:</strong>
+                    <strong>siralama:</strong>
                   </label>{" "}
-                  {currentTutorial.adres}
+                  {currentTutorial.siralama}
                 </div>
-                <div>
-                  <label>
-                    <strong>Enlem:</strong>
-                  </label>{" "}
-                  {currentTutorial.enlem}
-                </div>
-                <div>
-                  <label>
-                    <strong>Telefon:</strong>
-                  </label>{" "}
-                  {currentTutorial.telefon}
-                </div>
-                <div>
-                  <label>
-                    <strong>Boylam:</strong>
-                  </label>{" "}
-                  {currentTutorial.boylam}
-                </div>
+                
                 <div>
                   <label>
                     <strong>Durum:</strong>
@@ -184,7 +167,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial.id}
+                  to={"/Igneguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle

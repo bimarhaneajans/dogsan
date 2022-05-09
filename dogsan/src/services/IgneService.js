@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/igne`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/igne?baslik=${baslik}`);
+const findByTitle = igneadi => {
+  return http.get(`/igne?igneadi=${igneadi}`);
 };
 
 const IgneService = {
