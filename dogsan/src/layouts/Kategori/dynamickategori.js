@@ -57,12 +57,12 @@ const Dynamickategori = (props) => {
         <div className="sticky-header">
           <div className="container">
 
-            <div className="col-xs-12">
+          
               <div className="main-navigation hidden-xs">
                 <ul className="main-nav list-unstyled list-inline">
                   {tutorials && tutorials.map((tutorial, index) => (
                     <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
-                      key={index}><a href="#{tutorial.path}">{tutorial.kategoriadi}</a></li>))}
+                      key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>))}
                 </ul>
               </div>
 
@@ -82,7 +82,7 @@ const Dynamickategori = (props) => {
                     <ul className="nav navbar-nav">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><a href="#{tutorial.path}">{tutorial.kategoriadi}</a></li>))}
+                          key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>))}
                     </ul>
                   </div>
 
@@ -91,7 +91,7 @@ const Dynamickategori = (props) => {
             </div>
           </div>
         </div>
-      </div>
+ 
 
 
     </DashboardLayout>
