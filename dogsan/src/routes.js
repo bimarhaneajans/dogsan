@@ -65,7 +65,7 @@ const routes = [
   {
     type: "title",
     title: "Bayi işlemleri",
-    key: "account-pages1",
+    key: "1",
     isPrivate: true
   },
 
@@ -94,7 +94,7 @@ const routes = [
   {
     type: "title",
     title: "Blog İşlemleri",
-    key: "account-pages2",
+    key: "2",
     isPrivate: true
   },
   {
@@ -121,7 +121,7 @@ const routes = [
   {
     type: "title",
     title: "Değer işlemleri",
-    key: "account-pages3",
+    key: "3",
     isPrivate: true
   },
   {
@@ -148,7 +148,7 @@ const routes = [
   {
     type: "title",
     title: "Duyuru işlemleri",
-    key: "account-pages4",
+    key: "4",
     isPrivate: true
   },
   {
@@ -175,7 +175,7 @@ const routes = [
   {
     type: "title",
     title: "Etkinlik İşlemleri",
-    key: "account-pages6",
+    key: "6",
     isPrivate: true
   },
 
@@ -203,7 +203,7 @@ const routes = [
   {
     type: "title",
     title: "Hakkımızda İşlemleri",
-    key: "account-pages7",
+    key: "7",
     isPrivate: true
   },
 
@@ -231,7 +231,7 @@ const routes = [
   {
     type: "title",
     title: "İğne İşlemleri",
-    key: "account-pages8",
+    key: "8",
     isPrivate: true
   },
 
@@ -259,7 +259,7 @@ const routes = [
   {
     type: "title",
     title: "İletişim İşlemleri",
-    key: "account-pages9",
+    key: "9",
     isPrivate: true
   },
 
@@ -287,7 +287,7 @@ const routes = [
   {
     type: "title",
     title: "Katalog İşlemleri",
-    key: "account-pages10",
+    key: "10",
     isPrivate: true
   },
 
@@ -315,7 +315,7 @@ const routes = [
   {
     type: "title",
     title: "Kategori İşlemleri",
-    key: "account-pages11",
+    key: "12",
     isPrivate: true
   },
 
@@ -342,14 +342,14 @@ const routes = [
   {
     type: "title",
     title: "Sub Kategori İşlemleri",
-    key: "account-pages11",
+    key: "14a",
     isPrivate: true
   },
 
   {
     type: "collapse",
-    name: "SubKategori",
-    key: "SubKategori",
+    name: "SubKategoriekle",
+    key: "SubKategoriekle",
     route: "/Subkategoriekle",
     icon: <CustomerSupport size="12px" />,
     component: <SubKategoriekle />,
@@ -370,7 +370,7 @@ const routes = [
   {
     type: "title",
     title: "Mesajlar",
-    key: "account-pages12",
+    key: "13a",
     isPrivate: true
   },
 
@@ -398,7 +398,7 @@ const routes = [
   {
     type: "title",
     title: "Şehir İşlemleri",
-    key: "account-pages13",
+    key: "13",
     isPrivate: true
   },
 
@@ -426,7 +426,7 @@ const routes = [
   {
     type: "title",
     title: "Slider İşlemleri",
-    key: "account-pages14",
+    key: "14",
     isPrivate: true
   },
 
@@ -454,7 +454,7 @@ const routes = [
   {
     type: "title",
     title: "Sosyal Sorumluluk İşlemleri",
-    key: "account-pages15",
+    key: "15",
     isPrivate: true
   },
 
@@ -482,7 +482,7 @@ const routes = [
   {
     type: "title",
     title: "Tarihçe İşlemleri",
-    key: "account-pages16",
+    key: "16",
     isPrivate: true
   },
 
@@ -510,7 +510,7 @@ const routes = [
   {
     type: "title",
     title: "Tarihçe Galeri İşlemleri",
-    key: "account-pages17",
+    key: "17",
     isPrivate: true
   },
 
@@ -538,7 +538,7 @@ const routes = [
   {
     type: "title",
     title: "Ürün İşlemleri",
-    key: "account-pages18",
+    key: "18",
     isPrivate: true
   },
 

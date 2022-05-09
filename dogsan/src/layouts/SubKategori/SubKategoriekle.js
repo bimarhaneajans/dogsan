@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/BayiService";
+import SubKategoriDataService from "../../services/SubKategoriService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -66,7 +66,7 @@ const BayiEkle = () => {
       Resim: tutorial.Resim,
     };
 
-    BayiDataService.create(data)
+    SubKategoriDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
@@ -119,74 +119,120 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
+                <label htmlFor="subkategoriadi">subkategoriadi</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="baslik"
+                  id="subkategoriadi"
                   required
-                  value={tutorial.baslik}
+                  value={tutorial.subkategoriadi}
                   onChange={handleInputChange}
-                  name="baslik"
+                  name="subkategoriadi"
                 />
-                <Editor style={{ width: 600 }}
-                  editorState={tutorial.baslik}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
-                />
+                
               </div>
 
 
 
               <div className="form-group">
-                <label htmlFor="adres">adres</label>
+                <label htmlFor="tanim">tanim</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
+                  id="tanim"
                   required
-                  value={tutorial.adres}
+                  value={tutorial.tanim}
                   onChange={handleInputChange}
-                  name="adres"
+                  name="tanim"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="Telefon">Telefon</label>
+                <label htmlFor="kullanimamaci">kullanimamaci</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="telefon"
+                  id="kullanimamaci"
                   required
-                  value={tutorial.telefon}
+                  value={tutorial.kullanimamaci}
                   onChange={handleInputChange}
-                  name="telefon"
+                  name="kullanimamaci"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="Enlem">Enlem</label>
+                <label htmlFor="performansozellikleri">performansozellikleri</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="enlem"
+                  id="performansozellikleri"
                   required
-                  value={tutorial.enlem}
+                  value={tutorial.performansozellikleri}
                   onChange={handleInputChange}
-                  name="enlem"
+                  name="performansozellikleri"
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="boylam">boylam</label>
+                <label htmlFor="fayda">fayda</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
+                  id="fayda"
                   required
-                  value={tutorial.boylam}
+                  value={tutorial.fayda}
                   onChange={handleInputChange}
-                  name="boylam"
+                  name="fayda"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="path">path</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="path"
+                  required
+                  value={tutorial.path}
+                  onChange={handleInputChange}
+                  name="path"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="kategoriid">kategoriid</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kategoriid"
+                  required
+                  value={tutorial.kategoriid}
+                  onChange={handleInputChange}
+                  name="kategoriid"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="kategoriadi">kategoriadi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kategoriadi"
+                  required
+                  value={tutorial.kategoriadi}
+                  onChange={handleInputChange}
+                  name="kategoriadi"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="videourl">videourl</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="videourl"
+                  required
+                  value={tutorial.videourl}
+                  onChange={handleInputChange}
+                  name="videourl"
                 />
               </div>
 

@@ -131,7 +131,7 @@ const Overview = (props) => {
                         <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
                     </div>
                     <div className="card-content">
-                        <span className="card-title activator grey-text text-darken-4">{tutorial.baslik}</span>
+                        <span className="card-title activator grey-text text-darken-4">{tutorial.subkategoriadi}</span>
                     </div>
                 </div>
                   </li>
