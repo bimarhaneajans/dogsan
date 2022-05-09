@@ -61,7 +61,7 @@ const Dynamickategori = (props) => {
 
           
               <div className="main-navigation">
-                <ul className="main-nav list-unstyled list-inline  " >
+                <ul className="main-nav list-unstyled dynmc-kategori list-inline  " >
                   {tutorials && tutorials.map((tutorial, index) => (
                     <li  onClick={() => setActiveTutorial(tutorial, index)}
                       key={index}><a href={"#"+tutorial.path}>{tutorial.kategoriadi}</a></li>))}

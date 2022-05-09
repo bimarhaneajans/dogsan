@@ -372,12 +372,12 @@ body {
 .main-navigation .main-nav li {
 	height: 80px;
 	padding-top: 30px;
-	border-right: 1px solid #e6e6e6;
+	border-right: 0px solid #e6e6e6;
 	margin-right: -5px;
 }
 
 .main-navigation .main-nav li:nth-child(1) {
-	border-left: 1px solid #e6e6e6;
+	border-left: 0px solid #e6e6e6;
 }
 
 .main-navigation .main-nav li a {
@@ -387,7 +387,7 @@ body {
 	letter-spacing: 1px;
 	color: #a6a6a6;
 	width: 100%;
-	padding: 0px 30px 29px 30px;
+	padding: 30px 30px 29px 30px;
 	border-bottom: 3px solid transparent;
 }
 
