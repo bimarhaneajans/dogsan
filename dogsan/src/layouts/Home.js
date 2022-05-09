@@ -7,6 +7,7 @@ import Header from "../components/header/header";
 import Slider from "../layouts/Slider/slider";
 import Navbar from "../components/navbar/navbar";
 import NavbarHome from "../components/navbar/NavbarHome";
+import Dynamickategori from "./Kategori/dynamickategori";
 import Footer from "../components/footer/footer";
 import Kvc from "../components/kvc/kvc";
 import Kvc2 from "../components/kvc/kvc2";
@@ -52,7 +53,8 @@ import "../assets/assets/vendor/bootstrap/css/bootstrap.min.css"
         <Header/>
        
         <Slider/>
-        <NavbarHome/>
+
+        <Dynamickategori/>
         <EmilebilirSuturler2/>
         <EmilmeyenSuturler2/>
         <Kvc2/>

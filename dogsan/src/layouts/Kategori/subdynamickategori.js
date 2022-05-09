@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function dynamickategori() {
+export default function subdynamickategori() {
   return (
-    <div>dynamickategori</div>
+    <div>subdynamickategori</div>
   )
 }
 

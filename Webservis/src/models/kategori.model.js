@@ -4,7 +4,7 @@ module.exports = mongoose => {
       adi: String, 
       uzunisim: String, 
       bolumrenkkodu:String, 
-      siralama:Number, 
+      siralama:String,  
       seourl:String,   
       Resimbaslik:String,
       path:String,
