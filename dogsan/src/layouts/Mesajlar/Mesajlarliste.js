@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import MesajlarService from "../../services/TarihceService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -33,7 +33,7 @@ const Overview = (props) => {
   };
 
   const retrieveTutorials = () => {
-    BayiDataService.getAll()
+    MesajlarService.getAll()
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -55,7 +55,7 @@ const Overview = (props) => {
   };
 
   const removeAllTutorials = () => {
-    BayiDataService.removeAll()
+    MesajlarService.removeAll()
       .then(response => {
         console.log(response.data);
         refreshList();
@@ -66,7 +66,7 @@ const Overview = (props) => {
   };
 
   const findByTitle = () => {
-    BayiDataService.findByTitle(searchTitle)
+    MesajlarService.findByTitle(searchTitle)
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);

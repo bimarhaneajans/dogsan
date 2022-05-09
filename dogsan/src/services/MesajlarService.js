@@ -1,34 +1,34 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/mesajlar");
+  return http.get("/mesaj");
 };
 
 const get = id => {
-  return http.get(`/mesajlar/${id}`);
+  return http.get(`/mesaj/${id}`);
 };
 
 const create = data => {
-  return http.post("/mesajlar", data);
+  return http.post("/mesaj", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/mesajlar/${id}`, data);
+  return http.put(`/mesaj/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/mesajlar/${id}`);
+  return http.delete(`/mesaj/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/mesajlar`);
+  return http.delete(`/mesaj`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/mesajlar?baslik=${baslik}`);
+const findByTitle = email => {
+  return http.get(`/mesaj?email=${email}`);
 };
 
-const MesajlarService = {
+const mesajService = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const MesajlarService = {
   findByTitle
 };
 
-export default MesajlarService;
+export default mesajService;

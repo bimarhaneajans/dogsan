@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/BayiService";
+import MesajlarService from "../../services/MesajlarService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -19,11 +19,9 @@ import FileBase64 from 'react-file-base64';
 const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
-    baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    Subject: "",
+    email: "",
+    Content: "", 
     published: false
   };
 
@@ -48,25 +46,18 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      baslik: tutorial.baslik,
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      boylam: tutorial.boylam,
-      Resim: tutorial.Resim,
+      Subject: tutorial.Subject,
+      email: tutorial.email,
+      Content: tutorial.Content, 
     };
 
-    BayiDataService.create(data)
+    MesajlarService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-          baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
-          Resimbaslik: response.data.Resimbaslik,
-          Resim: response.data.Resim,
+          Subject: response.data.Subject,
+          email: response.data.email,
+          Content: response.data.Content, 
            Resim: response.data.Resim,
           published: response.data.published
         });
@@ -107,15 +98,15 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
+                <label htmlFor="Subject">Subject</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="baslik"
+                  id="Subject"
                   required
-                  value={tutorial.baslik}
+                  value={tutorial.Subject}
                   onChange={handleInputChange}
-                  name="baslik"
+                  name="Subject"
                 />
               </div>
 
@@ -130,54 +121,30 @@ const BayiEkle = () => {
               </div> */}
 
               <div className="form-group">
-                <label htmlFor="adres">adres</label>
+                <label htmlFor="email">email</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
+                  id="email"
                   required
-                  value={tutorial.adres}
+                  value={tutorial.email}
                   onChange={handleInputChange}
-                  name="adres"
+                  name="email"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="Telefon">Telefon</label>
+                <label htmlFor="Content">Content</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="telefon"
+                  id="Content"
                   required
-                  value={tutorial.telefon}
+                  value={tutorial.Content}
                   onChange={handleInputChange}
-                  name="telefon"
+                  name="Content"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="Enlem">Enlem</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  required
-                  value={tutorial.enlem}
-                  onChange={handleInputChange}
-                  name="enlem"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="boylam">boylam</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  required
-                  value={tutorial.boylam}
-                  onChange={handleInputChange}
-                  name="boylam"
-                />
-              </div>
+              
 
             <FileBase64
                 type="file"
