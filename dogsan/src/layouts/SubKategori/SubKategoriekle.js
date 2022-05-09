@@ -19,11 +19,16 @@ import FileBase64 from 'react-file-base64';
 const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
-    baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    subkategoriadi: "",
+    Resim: "",
+    tanim: "",
+    kullanimamaci: "",
+    performansozellikleri: "",
+    fayda: "",
+    path: "",
+    kategoriid: "",
+    kategoriadi: "",
+    videourl: "",
     published: false
   };
 
@@ -48,11 +53,16 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      baslik: tutorial.baslik,
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      boylam: tutorial.boylam,
+
+      subkategoriadi: tutorial.subkategoriadi,
+      tanim: tutorial.tanim,
+      kullanimamaci: tutorial.kullanimamaci,
+      performansozellikleri: tutorial.performansozellikleri,
+      fayda:tutorial.fayda,
+      path:tutorial.path,
+      kategoriid: tutorial.kategoriid,
+      kategoriadi: tutorial.kategoriadi,
+      videourl: tutorial.videourl,
       Resim: tutorial.Resim,
     };
 
@@ -60,14 +70,16 @@ const BayiEkle = () => {
       .then(response => {
         setTutorial({
           id: response.data.id,
-          baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
-          Resimbaslik: response.data.Resimbaslik,
+          subkategoriadi: response.data.subkategoriadi,
+          tanim: response.data.tanim,
+          kullanimamaci: response.data.kullanimamaci,
+          performansozellikleri: response.data.performansozellikleri,
+          fayda: response.data.fayda,
+          path: response.data.path,
+          kategoriid: response.data.kategoriid,
+          kategoriadi: response.data.kategoriadi,
+          videourl: response.data.videourl,
           Resim: response.data.Resim,
-           Resim: response.data.Resim,
           published: response.data.published
         });
         setSubmitted(true);
@@ -117,16 +129,16 @@ const BayiEkle = () => {
                   onChange={handleInputChange}
                   name="baslik"
                 />
-                <Editor style={{width:600}}
+                <Editor style={{ width: 600 }}
                   editorState={tutorial.baslik}
                   toolbarClassName="toolbarClassName"
                   wrapperClassName="wrapperClassName"
                   editorClassName="editorClassName"
-                 onEditorStateChange={handleInputChange}
+                  onEditorStateChange={handleInputChange}
                 />
               </div>
 
-             
+
 
               <div className="form-group">
                 <label htmlFor="adres">adres</label>
@@ -178,11 +190,11 @@ const BayiEkle = () => {
                 />
               </div>
 
-            <FileBase64
+              <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
+              />
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit

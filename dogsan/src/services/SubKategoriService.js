@@ -1,34 +1,34 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/kategori");
+  return http.get("/subkategori");
 };
 
 const get = id => {
-  return http.get(`/kategori/${id}`);
+  return http.get(`/subkategori/${id}`);
 };
 
 const create = data => {
-  return http.post("/kategori", data);
+  return http.post("/subkategori", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/kategori/${id}`, data);
+  return http.put(`/subkategori/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/kategori/${id}`);
+  return http.delete(`/subkategori/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/kategori`);
+  return http.delete(`/subkategori`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/kategori?baslik=${baslik}`);
+const findByTitle = subkategoriadi => {
+  return http.get(`/subkategori?subkategoriadi=${subkategoriadi}`);
 };
 
-const KategoriService = {
+const subkategoriService = {
   getAll,
   get,
   create,
@@ -38,4 +38,4 @@ const KategoriService = {
   findByTitle
 };
 
-export default KategoriService;
+export default subkategoriService;

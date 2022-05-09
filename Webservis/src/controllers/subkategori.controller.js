@@ -50,8 +50,8 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const adi = req.query.adi;
-  var condition = adi ? { adi: { $regex: new RegExp(adi), $options: "i" } } : {};
+  const adi = req.query.subkategoriadi;
+  var condition = subkategoriadi ? { subkategoriadi: { $regex: new RegExp(subkategoriadi), $options: "i" } } : {};
 
   SubKategori.find(condition)
     .then(data => {
