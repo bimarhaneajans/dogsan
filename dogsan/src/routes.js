@@ -279,16 +279,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
- /*  {
-    type: "collapse",
-    name: "Iletisimg guncelle",
-    key: "Iletisimguncelle",
-    route: "/Iletisimguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Iletisimguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Katalog İşlemleri",
@@ -316,16 +307,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Katalogguncelle",
-    key: "Katalogguncelle",
-    route: "/Katalogguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Katalogguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Kategori İşlemleri",
@@ -353,16 +335,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Kategori guncelle",
-    key: "Kategoriguncelle",
-    route: "/Kategoriguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Kategoriguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Mesajlar",
@@ -390,16 +363,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Mesajlar Guncelle",
-    key: "Mesajlarguncelle",
-    route: "/Mesajlarguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Mesajlarguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Şehir İşlemleri",
@@ -427,16 +391,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
- /*  {
-    type: "collapse",
-    name: "Sehir Guncelle",
-    key: "Sehirguncelle",
-    route: "/Sehirguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Sehirguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Slider İşlemleri",
@@ -446,7 +401,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Slider",
+    name: "Slider ekle",
     key: "Sliderekle",
     route: "/Slider",
     icon: <CustomerSupport size="12px" />,
@@ -464,16 +419,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
- /*  {
-    type: "collapse",
-    name: "Slider Guncelle",
-    key: "Sliderguncelle",
-    route: "/Sliderguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Sliderguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+  
   {
     type: "title",
     title: "Sosyal Sorumluluk İşlemleri",
@@ -501,16 +447,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Sosyal Sorumluluk Guncelle",
-    key: "Sosyalssguncelle",
-    route: "/Sosyalssguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Sosyalssguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Tarihçe İşlemleri",
@@ -538,16 +475,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
- /*  {
-    type: "collapse",
-    name: "Tarihçe",
-    key: "tarihce",
-    route: "/Tarihceguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Tarihceguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Tarihçe Galeri İşlemleri",
@@ -575,16 +503,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Tarihi Galeri Guncelle",
-    key: "TarihiGaleriguncelle",
-    route: "/TarihiGaleriguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <TarihiGaleriguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
   {
     type: "title",
     title: "Ürün İşlemleri",
@@ -594,7 +513,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Urunekle",
+    name: "Urun ekle",
     key: "Urunekle",
     route: "/Urunekle",
     icon: <CustomerSupport size="12px" />,
@@ -612,16 +531,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-/*   {
-    type: "collapse",
-    name: "Urun guncelle",
-    key: "Urunguncelle",
-    route: "/Urunguncelle",
-    icon: <CustomerSupport size="12px" />,
-    component: <Urunguncelle />,
-    noCollapse: true,
-    isPrivate: true,
-  }, */
+ 
 ];
 
 export default routes;
