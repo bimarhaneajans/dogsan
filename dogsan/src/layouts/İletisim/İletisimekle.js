@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/BayiService";
+import IletisimDataService from "../../services/IletisimService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -22,8 +22,8 @@ const BayiEkle = () => {
     baslik: "",
     adres: "",
     telefon: "",
-    enlem: "",
-    boylam: "",
+    haritaurl: "",
+    siralama: "",
     published: false
   };
 
@@ -51,24 +51,23 @@ const BayiEkle = () => {
       baslik: tutorial.baslik,
       adres: tutorial.adres,
       telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      boylam: tutorial.boylam,
+      haritaurl: tutorial.haritaurl,
+      siralama: tutorial.siralama,
       Resim: tutorial.Resim,
     };
 
-    BayiDataService.create(data)
+    IletisimDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
           baslik: response.data.baslik,
           adres: response.data.adres,
           telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
+          haritaurl: response.data.haritaurl,
+          siralama: response.data.siralama,
           Resimbaslik: response.data.Resimbaslik,
           Resim: response.data.Resim,
-           Resim: response.data.Resim,
-          published: response.data.published
+           published: response.data.published
         });
         setSubmitted(true);
         console.log(response.data);
@@ -121,7 +120,7 @@ const BayiEkle = () => {
 
             {/*   <div style={{ width: "300 px" }}>
                 <Editor
-                  editorState={tutorial.boylam}
+                  editorState={tutorial.siralama}
                   toolbarClassName="toolbarClassName"
                   wrapperClassName="wrapperClassName"
                   editorClassName="editorClassName"
@@ -154,28 +153,28 @@ const BayiEkle = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="Enlem">Enlem</label>
+                <label htmlFor="haritaurl">haritaurl</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="enlem"
+                  id="haritaurl"
                   required
-                  value={tutorial.enlem}
+                  value={tutorial.haritaurl}
                   onChange={handleInputChange}
-                  name="enlem"
+                  name="haritaurl"
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="boylam">boylam</label>
+                <label htmlFor="siralama">siralama</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
+                  id="siralama"
                   required
-                  value={tutorial.boylam}
+                  value={tutorial.siralama}
                   onChange={handleInputChange}
-                  name="boylam"
+                  name="siralama"
                 />
               </div>
 

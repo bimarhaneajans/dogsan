@@ -2,7 +2,8 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+ import KatalogDataService from "../../services/KatalogService";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -32,7 +33,7 @@ const Overview = (props) => {
   };
 
   const retrieveTutorials = () => {
-    BayiDataService.getAll()
+    KatalogDataService.getAll()
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -54,7 +55,7 @@ const Overview = (props) => {
   };
 
   const removeAllTutorials = () => {
-    BayiDataService.removeAll()
+    KatalogDataService.removeAll()
       .then(response => {
         console.log(response.data);
         refreshList();
@@ -65,7 +66,7 @@ const Overview = (props) => {
   };
 
   const findByTitle = () => {
-    BayiDataService.findByTitle(searchTitle)
+    KatalogDataService.findByTitle(searchTitle)
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -128,7 +129,7 @@ const Overview = (props) => {
                         <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
                     </div>
                     <div className="card-content">
-                        <span className="card-title activator grey-text text-darken-4">{tutorial.baslik}</span>
+                        <span className="card-title activator grey-text text-darken-4">{tutorial.katalogadi}</span>
                     </div>
                 </div>
                   </li>
@@ -145,37 +146,14 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>Başlık:</strong>
+                <strong>katalog adi:</strong>
                 <div>
                   <label>
 
                   </label>{" "}
-                  {currentTutorial.baslik}
+                  {currentTutorial.katalogadi}
                 </div>
-                <div>
-                  <label>
-                    <strong>Adres:</strong>
-                  </label>{" "}
-                  {currentTutorial.adres}
-                </div>
-                <div>
-                  <label>
-                    <strong>Enlem:</strong>
-                  </label>{" "}
-                  {currentTutorial.enlem}
-                </div>
-                <div>
-                  <label>
-                    <strong>Telefon:</strong>
-                  </label>{" "}
-                  {currentTutorial.telefon}
-                </div>
-                <div>
-                  <label>
-                    <strong>Boylam:</strong>
-                  </label>{" "}
-                  {currentTutorial.boylam}
-                </div>
+                
                 <div>
                   <label>
                     <strong>Durum:</strong>
@@ -184,7 +162,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial.id}
+                  to={"/Katalogguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle

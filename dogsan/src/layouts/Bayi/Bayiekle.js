@@ -117,17 +117,16 @@ const BayiEkle = () => {
                   onChange={handleInputChange}
                   name="baslik"
                 />
-              </div>
-
-            {/*   <div style={{ width: "300 px" }}>
-                <Editor
-                  editorState={tutorial.boylam}
+                <Editor style={{width:600}}
+                  editorState={tutorial.baslik}
                   toolbarClassName="toolbarClassName"
                   wrapperClassName="wrapperClassName"
                   editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
+                 onEditorStateChange={handleInputChange}
                 />
-              </div> */}
+              </div>
+
+             
 
               <div className="form-group">
                 <label htmlFor="adres">adres</label>

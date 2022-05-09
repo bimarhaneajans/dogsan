@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/katalog`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/katalog?baslik=${baslik}`);
+const findByTitle = katalogadi => {
+  return http.get(`/katalog?katalogadi=${katalogadi}`);
 };
 
 const KatalogService = {
