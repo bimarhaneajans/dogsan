@@ -177,10 +177,10 @@ export default function App() {
 
 
       
-        <Route path="/kategori" element={<Dynamickategori />} />
-        <Route path="/kategori" element={<Dynamicdetaykategori />} />
-        <Route path="/kategori/:id" element={<SubDynamickategori />} />
-        <Route path="/kategori/:id" element={<Subdynamicdetaykategori />} />
+        <Route path="/Dynamickategori" element={<Dynamickategori />} />
+        <Route path="/Dynamicdetaykategori" element={<Dynamicdetaykategori />} />
+        <Route path="/SubDynamickategori/:id" element={<SubDynamickategori />} />
+        <Route path="/Subdynamicdetaykategori/:id" element={<Subdynamicdetaykategori />} />
       
 
       </Routes>

@@ -88,7 +88,7 @@ const Subdynamickategori = (props) => {
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
                                 <Link className="btn btn-pink pull-center"
-                                    role="button" to={"/"} >Tümünü Göster</Link>
+                                    role="button" to={"/subdynamicdetaykategori/"+tutorial.kategoriid} >Tümünü Göster</Link>
                             </div>
 
                         </div>

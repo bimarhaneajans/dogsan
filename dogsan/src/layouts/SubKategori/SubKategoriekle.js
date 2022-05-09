@@ -53,7 +53,6 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-
       subkategoriadi: tutorial.subkategoriadi,
       tanim: tutorial.tanim,
       kullanimamaci: tutorial.kullanimamaci,
@@ -129,118 +128,18 @@ const BayiEkle = () => {
                   onChange={handleInputChange}
                   name="subkategoriadi"
                 />
-                
+                 
               </div>
 
+             
 
+              
 
-              <div className="form-group">
-                <label htmlFor="tanim">tanim</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="tanim"
-                  required
-                  value={tutorial.tanim}
-                  onChange={handleInputChange}
-                  name="tanim"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="kullanimamaci">kullanimamaci</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kullanimamaci"
-                  required
-                  value={tutorial.kullanimamaci}
-                  onChange={handleInputChange}
-                  name="kullanimamaci"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="performansozellikleri">performansozellikleri</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="performansozellikleri"
-                  required
-                  value={tutorial.performansozellikleri}
-                  onChange={handleInputChange}
-                  name="performansozellikleri"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="fayda">fayda</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="fayda"
-                  required
-                  value={tutorial.fayda}
-                  onChange={handleInputChange}
-                  name="fayda"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="path">path</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="path"
-                  required
-                  value={tutorial.path}
-                  onChange={handleInputChange}
-                  name="path"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="kategoriid">kategoriid</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kategoriid"
-                  required
-                  value={tutorial.kategoriid}
-                  onChange={handleInputChange}
-                  name="kategoriid"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="kategoriadi">kategoriadi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kategoriadi"
-                  required
-                  value={tutorial.kategoriadi}
-                  onChange={handleInputChange}
-                  name="kategoriadi"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="videourl">videourl</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="videourl"
-                  required
-                  value={tutorial.videourl}
-                  onChange={handleInputChange}
-                  name="videourl"
-                />
-              </div>
-
-              <FileBase64
+            <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />
+              />  
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
