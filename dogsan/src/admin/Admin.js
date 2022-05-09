@@ -54,9 +54,11 @@ import Sosyalssguncelle  from "../layouts/Sosyalss/Sosyalssguncelle"
 import Tarihceguncelle  from "../layouts/Tarihce/Tarihceguncelle"
 import TarihiGaleriguncelle  from "../layouts/TarihiGaleri/TarihiGaleriguncelle"
 import Urunguncelle  from "../layouts/Urun/Urunguncelle"
- import Dynamickategori from "../layouts/Kategori/dynamickategori"
- import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
- import EmilebilirSuturler from "../layouts/EmilmeyenSuturler/EmilmeyenSuturler"
+import Dynamickategori from "../layouts/Kategori/dynamickategori"
+import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
+import Subdynamicdetaykategori from "layouts/Kategori/subdynamicdetaykategori";
+import Dynamicdetaykategori from "layouts/Kategori/dynamicdetaykategori";
+
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
@@ -176,8 +178,10 @@ export default function App() {
 
       
         <Route path="/kategori" element={<Dynamickategori />} />
+        <Route path="/kategori" element={<Dynamicdetaykategori />} />
         <Route path="/kategori/:id" element={<SubDynamickategori />} />
-        <Route path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />
+        <Route path="/kategori/:id" element={<Subdynamicdetaykategori />} />
+      
 
       </Routes>
     </ThemeProvider>

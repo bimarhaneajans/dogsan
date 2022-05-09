@@ -11,9 +11,10 @@ import routes from "../../routes";
 import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import Logo from "layouts/navbar/Group_2.png";
 
 
-const Dynamickategori = (props) => {
+const Dynamicdetaykategori = (props) => {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -54,58 +55,62 @@ const Dynamickategori = (props) => {
 
   return (
     <DashboardLayout>
-   
+
       <div className="main-header">
         <div className="sticky-header">
           <div className="container">
-
-          
-              <div className="main-navigation">
-                <ul className="main-nav list-unstyled list-inline  " >
-                  {tutorials && tutorials.map((tutorial, index) => (
-                    <li  onClick={() => setActiveTutorial(tutorial, index)}
-                      key={index}><a href={"#"+tutorial.path}>{tutorial.kategoriadi}</a></li>))}
-                </ul>
-              </div>
-
-
-
-              <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
-                <div className="container-fluid">
-
-                  <div className="navbar-header">
-                    <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                      <span className="sr-only">Toggle navigation</span>
-                      <span className="icon-bar"></span>
-                      <span className="icon-bar"></span>
-                      <span className="icon-bar"></span>
-                    </button>
-                  </div>
-
-                  <div className="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul className="nav navbar-nav">
-                      {tutorials && tutorials.map((tutorial, index) => (
-                        <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
-                          ))
-                          
-                          }
-                    </ul>
-                  </div>
-
+            <div className="row">
+              <div class="col-xs-4 pull-left">
+                <div class="main-logo">
+                  <a href="/home"><img src={Logo} alt="Heartify" /></a>
                 </div>
-              </nav>
+              </div>
+              <div className="pull-right navbarDgsn" >
+                <div className="main-navigation hidden-xs">
+                  <ul className="main-nav list-unstyled list-inline">
+                    {tutorials && tutorials.map((tutorial, index) => (
+                      <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
+                        key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>))}
+                  </ul>
+                </div>
+
+
+
+                <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
+                  <div className="container-fluid">
+
+                    <div className="navbar-header">
+                      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span className="sr-only">Toggle navigation</span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                      </button>
+                    </div>
+
+                    <div className="collapse navbar-collapse" id="navbar-collapse-1">
+                      <ul className="nav navbar-nav">
+                        {tutorials && tutorials.map((tutorial, index) => (
+                          <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
+                            key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>))}
+                      </ul>
+                    </div>
+
+                  </div>
+                </nav>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
- 
+          </div>
 
 
-    </DashboardLayout>
-  );
+
+        </DashboardLayout>
+        );
 };
 
-export default Dynamickategori;
+        export default Dynamicdetaykategori;
 
 
 

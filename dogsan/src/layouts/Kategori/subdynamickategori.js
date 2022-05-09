@@ -76,9 +76,9 @@ const Subdynamickategori = (props) => {
                             <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                                 <img className="pull-center icon" style={{ height: "100px", width: "100px" }} src={tutorial.Resim} alt="icon" />
                                  <div className="info-col">
-                                    <h5>{tutorial.title}</h5>
+                                    <h5>{tutorial.subkategoriadi}</h5>
                                     <h7>Tanım</h7>
-                                    <p className="lead">{tutorial.icerik}</p>
+                                    <p className="lead">{tutorial.tanim}</p>
                                 </div>
                             </div>
                            
@@ -88,7 +88,7 @@ const Subdynamickategori = (props) => {
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
                                 <Link className="btn btn-pink pull-center"
-                                    role="button" to={"/EmilebilirSuturler"} >Tümünü Göster</Link>
+                                    role="button" to={"/"} >Tümünü Göster</Link>
                             </div>
 
                         </div>
