@@ -2,7 +2,8 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+ import IletisimDataService from "../../services/IletisimService";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -32,7 +33,7 @@ const Overview = (props) => {
   };
 
   const retrieveTutorials = () => {
-    BayiDataService.getAll()
+    IletisimDataService.getAll()
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -54,7 +55,7 @@ const Overview = (props) => {
   };
 
   const removeAllTutorials = () => {
-    BayiDataService.removeAll()
+    IletisimDataService.removeAll()
       .then(response => {
         console.log(response.data);
         refreshList();
@@ -65,7 +66,7 @@ const Overview = (props) => {
   };
 
   const findByTitle = () => {
-    BayiDataService.findByTitle(searchTitle)
+    IletisimDataService.findByTitle(searchTitle)
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -160,9 +161,9 @@ const Overview = (props) => {
                 </div>
                 <div>
                   <label>
-                    <strong>Enlem:</strong>
+                    <strong>haritaurl:</strong>
                   </label>{" "}
-                  {currentTutorial.enlem}
+                  {currentTutorial.haritaurl}
                 </div>
                 <div>
                   <label>
@@ -172,9 +173,9 @@ const Overview = (props) => {
                 </div>
                 <div>
                   <label>
-                    <strong>Boylam:</strong>
+                    <strong>siralama:</strong>
                   </label>{" "}
-                  {currentTutorial.boylam}
+                  {currentTutorial.siralama}
                 </div>
                 <div>
                   <label>
@@ -184,7 +185,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial.id}
+                  to={"/Iletisimguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle

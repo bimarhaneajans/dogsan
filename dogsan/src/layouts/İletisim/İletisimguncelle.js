@@ -3,7 +3,8 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+ import IletisimDataService from "../../services/IletisimService";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -20,8 +21,8 @@ const Overview = props => {
     baslik:"",
     adres: "",
     telefon: "",
-    enlem: "",
-    boylam: "",
+    haritaurl: "",
+    siralama: "",
     published:false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -37,7 +38,7 @@ const Overview = props => {
   const { size } = typography;
 
 /*   const getTutorial = id => {
-    BayiDataService.get(id)
+    IletisimDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -52,7 +53,7 @@ const Overview = props => {
   }, [props.match.params.id]);
  */
   const getTutorial = id => {
-    BayiDataService.get(id)
+    IletisimDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -77,12 +78,12 @@ const Overview = props => {
         baslik: currentTutorial.baslik,
         adres: currentTutorial.adres,
         telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
+        haritaurl: currentTutorial.haritaurl,
+        siralama: currentTutorial.siralama,
         published: status
     };
 
-    BayiDataService.update(currentTutorial.id, data)
+    IletisimDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -94,7 +95,7 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial.id, currentTutorial)
+    IletisimDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
         setMessage("Başarı ile Güncellendi");
@@ -105,7 +106,7 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial.id)
+    IletisimDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
         navigate("/Bayi");
@@ -130,7 +131,13 @@ const Overview = props => {
     <div style={{ width: "300px", marginLeft: "100px" }}>
       {currentTutorial ? (
         <div className="edit-form">
-      
+          <div className="card">
+                <br />
+                <div className="card-image waves-effect waves-block waves-light">
+                  <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
+                </div>
+                <br />
+              </div>
           <form>
             <div className="form-group">
             <label htmlFor="title">Başlık </label>
@@ -166,24 +173,24 @@ const Overview = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Enlem </label>
+                <label htmlFor="description">haritaurl </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
+                  id="haritaurl"
+                  name="haritaurl"
+                  value={currentTutorial.haritaurl}
                onChange={handleInputChange}  
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Boylam </label>
+                <label htmlFor="description">siralama </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
+                  id="siralama"
+                  name="siralama"
+                  value={currentTutorial.siralama}
                onChange={handleInputChange} 
                 />
             </div>

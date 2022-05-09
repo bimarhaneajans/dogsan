@@ -3,7 +3,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import IgneDataService from "../../services/IgneService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -17,11 +17,8 @@ const Overview = props => {
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    baslik:"",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    igneadi:"",
+    siralama: "",
     published:false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -36,23 +33,9 @@ const Overview = props => {
   const { pathname } = useLocation();
   const { size } = typography;
 
-/*   const getTutorial = id => {
-    BayiDataService.get(id)
-      .then(response => {
-        setCurrentTutorial(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-
-  useEffect(() => {
-    getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
- */
+ 
   const getTutorial = id => {
-    BayiDataService.get(id)
+    IgneDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -74,15 +57,13 @@ const Overview = props => {
   const updatePublished = status => {
     var data = {
         id: currentTutorial.id,
-        baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
+        igneadi: currentTutorial.baslik,
+        siralama: currentTutorial.adres,
+        
         published: status
     };
 
-    BayiDataService.update(currentTutorial.id, data)
+    IgneDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -94,7 +75,7 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial.id, currentTutorial)
+    IgneDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
         setMessage("Başarı ile Güncellendi");
@@ -105,7 +86,7 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial.id)
+    IgneDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
         navigate("/Bayi");
@@ -130,63 +111,39 @@ const Overview = props => {
     <div style={{ width: "300px", marginLeft: "100px" }}>
       {currentTutorial ? (
         <div className="edit-form">
+
+          <div className="card">
+                   <br />
+                   <div className="card-image waves-effect waves-block waves-light">
+                     <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
+                   </div>
+                   <br />
+                 </div>
       
           <form>
             <div className="form-group">
-            <label htmlFor="title">Başlık </label>
+            <label htmlFor="igneadi">igneadi </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="baslik"
-                  name="baslik"
-                  value={currentTutorial.baslik}
+                  id="igneadi"
+                  name="igneadi"
+                  value={currentTutorial.igneadi}
                   onChange={handleInputChange}  
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Adres </label>
+                <label htmlFor="description">siralama </label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
-                  name="adres"
-                  value={currentTutorial.adres}
+                  id="siralama"
+                  name="siralama"
+                  value={currentTutorial.siralama}
                  onChange={handleInputChange}  
                 />
               </div>
-               <div className="form-group">
-                <label htmlFor="description">Telefon </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  name="telefon"
-                  value={currentTutorial.telefon}
-                 onChange={handleInputChange}  
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Enlem </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
-               onChange={handleInputChange}  
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Boylam </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
-               onChange={handleInputChange} 
-                />
-            </div>
+               
 
               <FileBase64
                 type="file"
