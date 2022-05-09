@@ -3,7 +3,8 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+ import KategoriDataService from "../../services/KategoriService";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -18,12 +19,19 @@ const Overview = props => {
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    baslik:"",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
-    published:false
+    adi: "", 
+    uzunisim: "",
+    siralama: "",
+    seourl: "",
+   Resimbaslik: "",
+    path: "",
+    kategoriid: "",
+    subkategori: "",
+    videourl: "",
+    icerik: "",
+    kategoriadi: "",
+    Resim: "",  
+    published: false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
@@ -40,7 +48,7 @@ const Overview = props => {
   
 
 /*   const getTutorial = id => {
-    BayiDataService.get(id)
+    KategoriDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -55,7 +63,7 @@ const Overview = props => {
   }, [props.match.params.id]);
  */
   const getTutorial = id => {
-    BayiDataService.get(id)
+    KategoriDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -77,15 +85,22 @@ const Overview = props => {
   const updatePublished = status => {
     var data = {
         id: currentTutorial.id,
-        baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
+        adi:currentTutorial.adi,
+        uzunisim: currentTutorial.uzunisim,
+        siralama: currentTutorial.siralama,
+        seourl: currentTutorial.seourl,
+        Resimbaslik: currentTutorial.Resimbaslik,
+        path: currentTutorial.path,
+        kategoriid: currentTutorial.kategoriid,
+        subkategori: currentTutorial.subkategori,
+        videourl: currentTutorial.videourl,
+        icerik: currentTutorial.icerik,
+        kategoriadi: currentTutorial.kategoriadi,
+        Resim:currentTutorial.Resim,  
         published: status
     };
 
-    BayiDataService.update(currentTutorial.id, data)
+    KategoriDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -97,7 +112,7 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial.id, currentTutorial)
+    KategoriDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
         setMessage("Başarı ile Güncellendi");
@@ -108,10 +123,10 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial.id)
+    KategoriDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/Bayi");
+        navigate("/Kategoriliste");
       })
       .catch(e => {
         console.log(e);
@@ -137,61 +152,111 @@ const Overview = props => {
         <div className="edit-form">
       
           <form>
-            <div className="form-group">
-            <label htmlFor="title">Başlık </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  name="baslik"
-                  value={currentTutorial.baslik}
-                  onChange={handleInputChange}  
-                />
-              </div>
+      
               <div className="form-group">
-                <label htmlFor="description">Adres </label>
+                <label htmlFor="adi">adi</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
-                  name="adres"
-                  value={currentTutorial.adres}
-                 onChange={handleInputChange}  
+                  id="adi"
+                  required
+                  value={currentTutorial.adi}
+                  onChange={handleInputChange}
+                  name="adi"
                 />
-              </div>
-               <div className="form-group">
-                <label htmlFor="description">Telefon </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  name="telefon"
-                  value={currentTutorial.telefon}
-                 onChange={handleInputChange}  
-                />
-              </div>
+              </div> 
+
               <div className="form-group">
-                <label htmlFor="description">Enlem </label>
+                <label htmlFor="uzunisim">uzunisim</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
-               onChange={handleInputChange}  
+                  id="uzunisim"
+                  required
+                  value={currentTutorial.uzunisim}
+                  onChange={handleInputChange}
+                  name="uzunisim"
                 />
               </div>
+           
               <div className="form-group">
-                <label htmlFor="description">Boylam </label>
+                <label htmlFor="siralama">siralama</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
-               onChange={handleInputChange} 
+                  id="siralama"
+                  required
+                  value={currentTutorial.siralama}
+                  onChange={handleInputChange}
+                  name="siralama"
                 />
-            </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="seourl">seourl</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="seourl"
+                  required
+                  value={currentTutorial.seourl}
+                  onChange={handleInputChange}
+                  name="seourl"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="kategoriadi">kategori adi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kategoriadi"
+                  required
+                  value={currentTutorial.kategoriadi}
+                  onChange={handleInputChange}
+                  name="kategoriadi"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="path">path</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="path"
+                  required
+                  value={currentTutorial.path}
+                  onChange={handleInputChange}
+                  name="path"
+                />
+              </div>
+
+              
+              <div className="form-group">
+                <label htmlFor="kategoriid">kategoriid</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kategoriid"
+                  required
+                  value={currentTutorial.kategoriid}
+                  onChange={handleInputChange}
+                  name="kategoriid"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="subkategori">subkategori</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="subkategori"
+                  required
+                  value={currentTutorial.subkategori}
+                  onChange={handleInputChange}
+                  name="subkategori"
+                />
+              </div>
 
               <FileBase64
                 type="file"
