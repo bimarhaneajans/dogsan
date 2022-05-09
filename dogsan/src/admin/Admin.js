@@ -37,6 +37,7 @@ import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "contex
 // Images
 import brand from "assets/images/logo-ct.png";
 import Bayiguncelle from "../layouts/Bayi/Bayiguncelle" 
+import SubKategoriguncelle from "../layouts/SubKategori/SubKategoriguncelle" 
 import Blogguncelle from "../layouts/Blog/Blogguncelle"
 import Degerguncelle  from "../layouts/Deger/Degerguncelle"
 import Duyuruguncelle  from "../layouts/Duyuru/Duyuruguncelle"
@@ -169,7 +170,11 @@ export default function App() {
         <Route path="/Sosyalssguncelle/:id" element={<Sosyalssguncelle />} />
         <Route path="/Tarihceguncelle/:id" element={<Tarihceguncelle />} />
         <Route path="/TarihiGaleriguncelle/:id" element={<TarihiGaleriguncelle />} />
-        <Route path="/Urunguncelle/:id" element={<Urunguncelle />} />
+        <Route path="/Urunguncelle/:id" element={<Urunguncelle />} />       
+         <Route path="/SubKategoriguncelle/:id" element={<SubKategoriguncelle />} />
+
+
+      
         <Route path="/kategori" element={<Dynamickategori />} />
         <Route path="/kategori/:id" element={<SubDynamickategori />} />
         <Route path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />

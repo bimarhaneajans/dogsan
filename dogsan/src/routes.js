@@ -41,6 +41,10 @@ import TarihiGaleriliste from "./layouts/TarihiGaleri/TarihiGaleriiste"
 import Urunekle from "./layouts/Urun/Urunekle"
 import Urunliste from "./layouts/Urun/Urunliste"
 
+import SubKategoriekle from "./layouts/SubKategori/SubKategoriekle" 
+import SubKategoriliste from "./layouts/SubKategori/SubKategoriliste" 
+
+
 
 
 
@@ -332,6 +336,33 @@ const routes = [
     route: "/Kategoriliste",
     icon: <CustomerSupport size="12px" />,
     component: <Kategoriliste />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Sub Kategori İşlemleri",
+    key: "account-pages11",
+    isPrivate: true
+  },
+
+  {
+    type: "collapse",
+    name: "SubKategori",
+    key: "SubKategori",
+    route: "/Subkategoriekle",
+    icon: <CustomerSupport size="12px" />,
+    component: <SubKategoriekle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Sub Kategori liste",
+    key: "Subategoriliste",
+    route: "/Subkategoriliste",
+    icon: <CustomerSupport size="12px" />,
+    component: <SubKategoriliste />,
     noCollapse: true,
     isPrivate: true,
   },
