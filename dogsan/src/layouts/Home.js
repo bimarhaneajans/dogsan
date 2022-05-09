@@ -55,12 +55,12 @@ import "../assets/assets/vendor/bootstrap/css/bootstrap.min.css"
         <Slider/>
 
         <Dynamickategori/>
-        <EmilebilirSuturler2/>
-        <EmilmeyenSuturler2/>
+       <EmilebilirSuturler2/>
+        {/*  <EmilmeyenSuturler2/>
         <Kvc2/>
         <EmilebilirHemostat2/>
         <DentalSuturler2/>
-        <Veterinerlik2/>
+        <Veterinerlik2/> */}
         <Footer/>  
     </div>
   );
