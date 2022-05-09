@@ -2,8 +2,8 @@ module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
       igneadi: String,
-      siralama: Number,
-     Resimbaslik:String,
+      siralama: String,
+      Resimbaslik:String,
       Resim:String,
       published: Boolean
     },
