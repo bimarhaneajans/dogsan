@@ -202,7 +202,7 @@ export default function App() {
         <Route path="/Tarihceguncelle/:id" element={<Tarihceguncelle />} />
         <Route path="/TarihiGaleriguncelle/:id" element={<TarihiGaleriguncelle />} />
         <Route path="/Urunguncelle/:id" element={<Urunguncelle />} />
-        <Route path="/kategoriler" element={<Dynamickategori />} />
+        <Route path="/kategori" element={<Dynamickategori />} />
         <Route path="/kategori/:id" element={<SubDynamickategori />} />
       </Routes>
     </ThemeProvider>

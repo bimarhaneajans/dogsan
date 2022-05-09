@@ -13,12 +13,22 @@ exports.create = (req, res) => {
     return;
   }
 
+  
+
   const kategori = new Kategori({
     adi: req.body.adi,
     uzunisim: req.body.uzunisim,
     bolumrenkkodu: req.body.bolumrenkkodu,
     siralama: req.body.siralama,
     seourl: req.body.seourl,
+    path:req.body.path,
+    kategoriid:req.body.kategoriid,
+    subkategori:req.body.subkategori,
+    title:req.body.title,
+    image:req.body.image,
+    videourl:req.body.videourl,
+    icerik:req.body.icerik,
+    kategoriadi:req.body.kategoriadi,
     Resimbaslik: req.body.Resimbaslik,
     Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false

@@ -3,7 +3,8 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/BayiService";
+import KategoriDataService from "../../services/KategoriService";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -17,13 +18,20 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
 const BayiEkle = () => {
-  const initialTutorialState = {
+  const initialTutorialState = { 
     id: null,
-    baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    adi: "", 
+    uzunisim: "",
+    siralama: "",
+    seourl: "",
+   Resimbaslik: "",
+    path: "",
+    kategoriid: "",
+    subkategori: "",
+    videourl: "",
+    icerik: "",
+    kategoriadi: "",
+    Resim: "",  
     published: false
   };
 
@@ -47,27 +55,38 @@ const BayiEkle = () => {
   };
 
   const saveTutorial = () => {
-    var data = {
-      baslik: tutorial.baslik,
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      boylam: tutorial.boylam,
-      Resim: tutorial.Resim,
+    var data = { 
+      adi:tutorial.adi,
+      uzunisim: tutorial.uzunisim,
+      siralama: tutorial.siralama,
+      seourl: tutorial.seourl,
+      Resimbaslik: tutorial.Resimbaslik,
+      path: tutorial.path,
+      kategoriid: tutorial.kategoriid,
+      subkategori: tutorial.subkategori,
+      videourl: tutorial.videourl,
+      icerik: tutorial.icerik,
+      kategoriadi: tutorial.kategoriadi,
+      Resim:tutorial.Resim,  
     };
 
-    BayiDataService.create(data)
+    KategoriDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-          baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
+          adi:response.data.adi,
+          uzunisim: response.data.uzunisim,
+          siralama: response.data.siralama,
+          seourl: response.data.seourl,
           Resimbaslik: response.data.Resimbaslik,
-          Resim: response.data.Resim,
-           Resim: response.data.Resim,
+          path: response.data.path,
+          kategoriid: response.data.kategoriid,
+          subkategori: response.data.subkategori,
+          videourl: response.data.videourl,
+          icerik: response.data.icerik,
+          kategoriadi: response.data.kategoriadi,
+          Resim:response.data.Resim,  
+
           published: response.data.published
         });
         setSubmitted(true);
@@ -107,77 +126,110 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
+                <label htmlFor="adi">adi</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="baslik"
+                  id="adi"
                   required
-                  value={tutorial.baslik}
+                  value={tutorial.adi}
                   onChange={handleInputChange}
-                  name="baslik"
+                  name="adi"
                 />
-              </div>
-
-            {/*   <div style={{ width: "300 px" }}>
-                <Editor
-                  editorState={tutorial.boylam}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
-                />
-              </div> */}
+              </div> 
 
               <div className="form-group">
-                <label htmlFor="adres">adres</label>
+                <label htmlFor="uzunisim">uzunisim</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
+                  id="uzunisim"
                   required
-                  value={tutorial.adres}
+                  value={tutorial.uzunisim}
                   onChange={handleInputChange}
-                  name="adres"
+                  name="uzunisim"
                 />
               </div>
+           
               <div className="form-group">
-                <label htmlFor="Telefon">Telefon</label>
+                <label htmlFor="siralama">siralama</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="telefon"
+                  id="siralama"
                   required
-                  value={tutorial.telefon}
+                  value={tutorial.siralama}
                   onChange={handleInputChange}
-                  name="telefon"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Enlem">Enlem</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  required
-                  value={tutorial.enlem}
-                  onChange={handleInputChange}
-                  name="enlem"
+                  name="siralama"
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="boylam">boylam</label>
+                <label htmlFor="seourl">seourl</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="boylam"
+                  id="seourl"
                   required
-                  value={tutorial.boylam}
+                  value={tutorial.seourl}
                   onChange={handleInputChange}
-                  name="boylam"
+                  name="seourl"
                 />
               </div>
+
+              <div className="form-group">
+                <label htmlFor="kategoriadi">kategori adi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kategoriadi"
+                  required
+                  value={tutorial.kategoriadi}
+                  onChange={handleInputChange}
+                  name="kategoriadi"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="path">path</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="path"
+                  required
+                  value={tutorial.path}
+                  onChange={handleInputChange}
+                  name="path"
+                />
+              </div>
+
+              
+              <div className="form-group">
+                <label htmlFor="kategoriid">kategoriid</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kategoriid"
+                  required
+                  value={tutorial.kategoriid}
+                  onChange={handleInputChange}
+                  name="kategoriid"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="subkategori">subkategori</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="subkategori"
+                  required
+                  value={tutorial.subkategori}
+                  onChange={handleInputChange}
+                  name="subkategori"
+                />
+              </div>
+ 
 
             <FileBase64
                 type="file"
@@ -197,3 +249,9 @@ const BayiEkle = () => {
 };
 
 export default BayiEkle;
+
+/*
+
+1          subkategori: response.data.subkategori,
+
+*/
