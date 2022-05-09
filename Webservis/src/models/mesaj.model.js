@@ -4,7 +4,7 @@ module.exports = mongoose => {
       Subject: String,
       email: String,
       Content: String,
- Resimbaslik:String,
+      Resimbaslik:String,
       Resim:String,
       published: Boolean
     },
