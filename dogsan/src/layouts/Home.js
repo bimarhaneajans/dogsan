@@ -21,6 +21,7 @@ import DentalSuturler from "./DentalSuturler/DentalSuturler";
 import DentalSuturler2 from "./DentalSuturler/DentalSuturler2";
 import Veterinerlik from "./Veterinerlik/Veterinerlik";
 import Veterinerlik2 from "./Veterinerlik/Veterinerlik2";
+import Subdynamickategori from "./Kategori/subdynamickategori";
 import "../assets/assets/css/style.css"
 import "../assets/assets/css/responsive-styling.css"
 import "../assets/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css"
@@ -55,12 +56,9 @@ import "../assets/assets/vendor/bootstrap/css/bootstrap.min.css"
         <Slider/>
 
         <Dynamickategori/>
-       <EmilebilirSuturler2/>
-        {/*  <EmilmeyenSuturler2/>
-        <Kvc2/>
-        <EmilebilirHemostat2/>
-        <DentalSuturler2/>
-        <Veterinerlik2/> */}
+    
+       <Subdynamickategori/>
+        
         <Footer/>  
     </div>
   );

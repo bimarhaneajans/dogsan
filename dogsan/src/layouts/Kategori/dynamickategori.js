@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+
 const Dynamickategori = (props) => {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -53,6 +54,7 @@ const Dynamickategori = (props) => {
 
   return (
     <DashboardLayout>
+   
       <div className="main-header">
         <div className="sticky-header">
           <div className="container">

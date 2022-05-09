@@ -27,6 +27,8 @@ db.Tarihces = require("./Tarihce.model.js")(mongoose);
 db.TarihceGarleris = require("./TarihceGarleri.model.js")(mongoose);
 db.Uruns = require("./Urun.model.js")(mongoose);
 db.kategoris = require("./kategori.model")(mongoose);
+db.subkategoris = require("./subkategori.model")(mongoose);
+
 
 db.ROLES = ["user", "admin"];
 module.exports = db;
