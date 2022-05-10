@@ -1,6 +1,11 @@
 {
+<<<<<<< Updated upstream
   "short_name": "Soft UI Dashboard",
   "name": "Soft UI Dashboard React",
+=======
+  "short_name": "DOGSAN",
+  "name": "DOGSAN React",
+>>>>>>> Stashed changes
   "icons": [
     {
       "src": "favicon.png",

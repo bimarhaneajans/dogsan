@@ -3,7 +3,7 @@
   "version": "3.1.0",
   "author": "Creative Tim",
   "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
-  "description": "ReactJS version of Soft UI Dashboard by Creative Tim",
+  "description": "ReactJS version of DOGSAN by Creative Tim",
   "engines": {
     "node": "14 || 15 || 16",
     "npm": ">=6"
