@@ -1040,7 +1040,7 @@ export default function Home() {
 
             <div className="clearfix"></div>
 
-            <div id="twitter-feed">
+           {/* <div id="twitter-feed">
               <div className="video-bg-overlay"></div>
               <div className="video-bg">
 
@@ -1049,7 +1049,7 @@ export default function Home() {
                 </div>
 
               </div>
-            {/*   <div className="container">
+               <div className="container">
                 <div className="row">
                   <div className="col-xs-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 text-center">
                     <div className="tweet-div">
@@ -1081,8 +1081,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div> */}
-            </div>
+              </div> 
+            </div>*/}
             <div id="contact">
               <div className="container">
                 <div className="row">
