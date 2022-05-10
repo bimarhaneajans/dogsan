@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import MesajlarService from "../../services/TarihceService";
+import MesajlarService from "../../services/MesajlarService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -129,7 +129,7 @@ const Overview = (props) => {
                         <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
                     </div>
                     <div className="card-content">
-                        <span className="card-title activator grey-text text-darken-4">{tutorial.baslik}</span>
+                        <span className="card-title activator grey-text text-darken-4">{tutorial.Subject}</span>
                     </div>
                 </div>
                   </li>
