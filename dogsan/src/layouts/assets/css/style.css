@@ -1158,18 +1158,18 @@ ul.doctor-list li h6 {
 	opacity: .8;
 }
 
-.client-section {
+.client-div{
 	background: url(../img/general/job-background.jpg) no-repeat center;
 	background-size: 120% auto;
 }
 
-.client-section .client-stat {
+.client-div.client-stat {
 	margin: 100px auto;
 	background-color: white;
 	padding: 45px 20px 35px;
 }
 
-.client-section .client-stat h3:after {
+.client-div.client-stat h3:after {
 	content: " ";
 	position: absolute;
 	border-bottom-style: solid;
@@ -1183,11 +1183,11 @@ ul.doctor-list li h6 {
 	width: 75px;
 }
 
-.client-section .client-stat h6 {
+.client-div.client-stat h6 {
 	color: #9e9e9e;
 }
 
-.client-section .client-stat p {
+.client-div.client-stat p {
 	margin-top: 40px;
 	color: #9e9e9e;
 }

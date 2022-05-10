@@ -467,7 +467,7 @@ export default function Home() {
           <div className="clearfix"></div>
         </div>
 
-        <div id="services3">
+         {/*<div id="services3">
           <div className="services-info3">
             <div className="container">
               <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
@@ -479,10 +479,10 @@ export default function Home() {
               <img src="assets/img/1.png" className="img-responsive" alt="" />
               <div className="clearfix"></div>
             </div>
-          </div>
-        </div>
+          </div> 
+        </div>*/}
 
-        <div id="services">
+    {/*     <div id="services">
           <div className="services-info s2-info">
             <div className="container">
               <div className="row bottom-space-50">
@@ -533,7 +533,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
 
         <div className="client-div">
