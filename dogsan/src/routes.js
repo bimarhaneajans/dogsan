@@ -1,5 +1,5 @@
 import Dashboard from "layouts/dashboard";
-import Home from "../src/components/Home"
+
 import CustomerSupport from "examples/Icons/CustomerSupport";
 
 import Bayiekle from "./layouts/Bayi/Bayiekle"

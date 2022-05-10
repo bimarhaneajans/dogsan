@@ -25,6 +25,75 @@ import Subdynamickategori from "./Kategori/subdynamickategori"; */
 
 import slidebbg from "./sliderimages/slide-b-bg.jpg";
 import silide2 from "../components/assets/img/slider/slide2.jpg";
+ import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
+import "../layouts/assets/css/style.css";
+import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
+import "../layouts/assets/css/responsive-styling.css";
+
+
+
+import "../layouts/assets/css/style.css";  
+import "../layouts/assets/css/responsive-styling.css" ;
+import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css" ;
+import  "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css" ;
+/*import "../layouts/assets/css/YTPlayer.css" ;
+import "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" ;
+
+ // import "../layouts/assets/css/YTPlayer.css"
+ import "../layouts/assets/js/jquery-1.9.1.min.js"></script>
+ import "../layouts/assets/vendor/layerslider/js/greensock.js" type="text/javascript"></script>
+ import "../layouts/assets/vendor/layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
+ import "../layouts/assets/vendor/layerslider/js/layerslider.kreaturamedia.jquery.js"
+    type="text/javascript"></script>
+
+
+  <script>
+    jQuery("#layerslider").layerSlider({
+      responsive: false,
+      responsiveUnder: 1280,
+      layersContainer: 1280,
+      pauseOnHover: false,
+      autoPlayVideos: false,
+      skinsPath: '../src/layouts/assets/vendor/layerslider/skins/'
+    });
+  </script>
+  <script>
+    jQuery('.bttop').click(function () {
+      jQuery('html, body').animate({ scrollTop: 0 }, 'slow');
+    });
+  </script>
+  <script src="../src/layouts/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../src/layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.js"></script>
+  <script src="../src/layouts/assets/vendor/isotope/isotope.pkgd.min.js"></script>
+  <script src="../src/layouts/assets/vendor/waypoint-sticky-nav/waypoints.js"></script>
+  <script src="../src/layouts/assets/vendor/waypoint-sticky-nav/waypoints-sticky.min.js"></script>
+  <script src="../src/layouts/assets/js/custom-scripts.js"></script>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&amp;sensor=false"></script>
+  <script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', init);
+    function init() {
+      var mapOptions = {
+        zoom: 11,
+
+        center: new google.maps.LatLng(40.6700, -73.9400), // New York
+
+
+        styles: [
+          {
+            featureType: 'water',
+            elementType: 'all',
+            stylers: [{ hue: '#e9ebed' }, { saturation: -78 }, { lightness: 67 }, { visibility: 'simplified' }]
+          }, { featureType: 'landscape', elementType: 'all', stylers: [{ hue: '#ffffff' }, { saturation: -100 }, { lightness: 100 }, { visibility: 'simplified' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: 31 }, { visibility: 'simplified' }] }, { featureType: 'poi', elementType: 'all', stylers: [{ hue: '#ffffff' }, { saturation: -100 }, { lightness: 100 }, { visibility: 'off' }] }, { featureType: 'road.local', elementType: 'geometry', stylers: [{ hue: '#e9ebed' }, { saturation: -90 }, { lightness: -8 }, { visibility: 'simplified' }] }, { featureType: 'transit', elementType: 'all', stylers: [{ hue: '#e9ebed' }, { saturation: 10 }, { lightness: 69 }, { visibility: 'on' }] }, { featureType: 'administrative.locality', elementType: 'all', stylers: [{ hue: '#2c2e33' }, { saturation: 7 }, { lightness: 19 }, { visibility: 'on' }] }, { featureType: 'road', elementType: 'labels', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: 31 }, { visibility: 'on' }] }, { featureType: 'road.arterial', elementType: 'labels', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: -2 }, { visibility: 'simplified' }] }]
+      };
+
+
+      var mapElement = document.getElementById('map');
+
+
+      var map = new google.maps.Map(mapElement, mapOptions);
+    }
+  </script> */
 
 
 export default function Home() {
@@ -725,7 +794,7 @@ export default function Home() {
 
         <div id="doctor-info">
           <div className="container">
-            <div className="row">
+            {/* <div className="row">
               <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div className="blog-stat text-center">
                   <h2>Visit to the doctor</h2>
@@ -733,7 +802,7 @@ export default function Home() {
                   <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/*  <div className="row">
             <div className="col-md-5">
               <form className="appointment-form">
@@ -819,7 +888,7 @@ export default function Home() {
             </div>
           </div> */}
             <div id="services4" className="services4">
-              <div className="service-bg">
+            {/*   <div className="service-bg">
                 <div className="container">
                   <div className="row">
                     <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
@@ -832,7 +901,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="clearfix"></div>
               <div className="bottom-space-50"></div>
@@ -986,7 +1055,7 @@ export default function Home() {
                 </div>
 
               </div>
-              <div className="container">
+            {/*   <div className="container">
                 <div className="row">
                   <div className="col-xs-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 text-center">
                     <div className="tweet-div">
@@ -1018,7 +1087,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div id="contact">
               <div className="container">
