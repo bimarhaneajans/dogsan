@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/sehir`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/sehir?baslik=${baslik}`);
+const findByTitle = sehirAdi => {
+  return http.get(`/sehir?sehirAdi=${sehirAdi}`);
 };
 
 const SehirService = {
