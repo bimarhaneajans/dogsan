@@ -29,12 +29,6 @@ import silide2 from "../components/assets/img/slider/slide2.jpg";
 import "../layouts/assets/css/style.css";
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../layouts/assets/css/responsive-styling.css";
-
-
-
-import "../layouts/assets/css/style.css";  
-import "../layouts/assets/css/responsive-styling.css" ;
-import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css" ;
 import  "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css" ;
 /*import "../layouts/assets/css/YTPlayer.css" ;
 import "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" ;
@@ -558,14 +552,14 @@ export default function Home() {
                   <h5>Lorem ipsum dolor sit amet</h5>
                   <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                 </div>
-                <div className="team-filter-nav text-center">
+             {/*    <div className="team-filter-nav text-center">
                   <ul id="filters" className="filter-nav list-inline list-unstyled">
                     <li><a data-filter="*" className="current" href="#">All</a></li>
                     <li><a data-filter=".general" href="#">General</a></li>
                     <li><a data-filter=".specialist" href="#">Specialist</a></li>
                     <li><a data-filter=".laboratory" href="#">Laboratory</a></li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="row">
@@ -665,7 +659,7 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <div className="pagination-div">
+             {/*  <div className="pagination-div">
                 <div className="container">
                   <div className="row">
                     <div className="col-xs-12 col-md-12 col-lg-12">
@@ -681,7 +675,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
