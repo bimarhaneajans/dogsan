@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Soft UI Dashboard React - v3.1.0
+* DOGSAN React - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -24,17 +24,17 @@ import { Line } from "react-chartjs-2";
 // @mui material components
 import Card from "@mui/material/Card";
 
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 
-// Soft UI Dashboard React helper functions
+// DOGSAN React helper functions
 import gradientChartLine from "assets/theme/functions/gradientChartLine";
 
 // MixedChart configurations
 import configs from "examples/Charts/MixedChart/configs";
 
-// Soft UI Dashboard React base styles
+// DOGSAN React base styles
 import colors from "assets/theme/base/colors";
 
 function MixedChart({ title, description, height, chart }) {

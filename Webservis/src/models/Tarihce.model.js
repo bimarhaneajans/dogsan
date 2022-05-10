@@ -3,7 +3,7 @@ module.exports = mongoose => {
     {
       Yil: String,
       icerik: String,
- Resimbaslik:String,
+      Resimbaslik:String,
       Resim:String,
       published: Boolean
     },

@@ -1,7 +1,7 @@
 // @mui material components
 import Tooltip from "@mui/material/Tooltip";
 
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiAvatar from "components/SuiAvatar";

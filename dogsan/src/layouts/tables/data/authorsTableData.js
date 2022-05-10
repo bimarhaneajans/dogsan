@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiAvatar from "components/SuiAvatar";

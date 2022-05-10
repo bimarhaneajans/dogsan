@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Soft UI Dashboard React - v3.1.0
+* DOGSAN React - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -25,16 +25,16 @@ import PropTypes from "prop-types";
 import Container from "@mui/material/Container";
 import Icon from "@mui/material/Icon";
 
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiButton from "components/SuiButton";
 
-// Soft UI Dashboard React examples
+// DOGSAN React examples
 import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink";
 import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMobile";
 
-// Soft UI Dashboard React base styles
+// DOGSAN React base styles
 import breakpoints from "assets/theme/base/breakpoints";
 
 function DefaultNavbar({ transparent, light, action }) {
@@ -93,7 +93,7 @@ function DefaultNavbar({ transparent, light, action }) {
       >
         <SuiBox component={Link} to="/" py={transparent ? 1.5 : 0.75} lineHeight={1}>
           <SuiTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
-            Soft UI Dashboard
+            DOGSAN
           </SuiTypography>
         </SuiBox>
         <SuiBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>

@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Soft UI Dashboard React - v3.1.0
+* DOGSAN React - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -22,20 +22,20 @@ import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiAvatar from "components/SuiAvatar";
 
-// Soft UI Dashboard React examples
+// DOGSAN React examples
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
-// Soft UI Dashboard React icons
+// DOGSAN React icons
 import Cube from "examples/Icons/Cube";
 import Document from "examples/Icons/Document";
 import Settings from "examples/Icons/Settings";
 
-// Soft UI Dashboard React base styles
+// DOGSAN React base styles
 import breakpoints from "assets/theme/base/breakpoints";
 
 // Images

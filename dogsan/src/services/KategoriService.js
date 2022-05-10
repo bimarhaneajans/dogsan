@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/kategori`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/kategori?baslik=${baslik}`);
+const findByTitle = kategoriadi => {
+  return http.get(`/kategori?kategoriadi=${kategoriadi}`);
 };
 
 const KategoriService = {

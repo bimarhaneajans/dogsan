@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Soft UI Dashboard React - v3.1.0
+* DOGSAN React - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -23,7 +23,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Icon from "@mui/material/Icon";
 
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 
 // Custom styles for the SidenavCollapse
@@ -34,7 +34,7 @@ import {
   collapseText,
 } from "examples/Sidenav/styles/sidenavCollapse";
 
-// Soft UI Dashboard React context
+// DOGSAN React context
 import { useSoftUIController } from "context";
 
 function SidenavCollapse({ color, icon, name, children, active, noCollapse, open, ...rest }) {

@@ -1,6 +1,6 @@
 /**
 =========================================================
-* Soft UI Dashboard React - v3.1.0
+* DOGSAN React - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -17,11 +17,11 @@ Coded by www.creative-tim.com
 import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 
-// Soft UI Dashboard React examples
+// DOGSAN React examples
 import TimelineItem from "examples/Timeline/TimelineItem";
 
 function OrdersOverview() {

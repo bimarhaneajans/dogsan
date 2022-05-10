@@ -2,7 +2,7 @@
 // @mui material components
 import Icon from "@mui/material/Icon";
 
-// Soft UI Dashboard React components
+// DOGSAN React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiProgress from "components/SuiProgress";
