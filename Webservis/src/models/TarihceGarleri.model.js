@@ -2,7 +2,7 @@ module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
       Galeribaslik: String,
- Resimbaslik:String,
+      Resimbaslik:String,
       Resim:String,
       published: Boolean
     },
