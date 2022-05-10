@@ -96,7 +96,7 @@ const Overview = (props) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Search by title" düze
+                placeholder="Arama" 
                 value={searchTitle}
                 onChange={onChangeSearchTitle}
               />

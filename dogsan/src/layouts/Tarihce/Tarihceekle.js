@@ -21,7 +21,6 @@ const BayiEkle = () => {
     id: null,
     Yil: "",
     icerik: "",
-     
     published: false
   };
 

@@ -2,7 +2,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import SliderDataService from "../../services/SliderService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -16,12 +16,10 @@ const Overview = props => {
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    baslik:"",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
-    published:false
+    ismi: "",
+    slidetipi: "",
+    siralama: "", 
+     published:false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
@@ -29,7 +27,7 @@ const Overview = props => {
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
 
 /*   const getTutorial = id => {
-    BayiDataService.get(id)
+    SliderDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -44,7 +42,7 @@ const Overview = props => {
   }, [props.match.params.id]);
  */
   const getTutorial = id => {
-    BayiDataService.get(id)
+    SliderDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
@@ -66,15 +64,14 @@ const Overview = props => {
   const updatePublished = status => {
     var data = {
         id: currentTutorial.id,
-        baslik: currentTutorial.baslik,
-        adres: currentTutorial.adres,
-        telefon: currentTutorial.telefon,
-        enlem: currentTutorial.enlem,
-        boylam: currentTutorial.boylam,
+        ismi: currentTutorial.ismi,
+        slidetipi: currentTutorial.slidetipi,
+        siralama: currentTutorial.siralama, 
+        Resim: currentTutorial.Resim,
         published: status
     };
 
-    BayiDataService.update(currentTutorial.id, data)
+    SliderDataService.update(currentTutorial.id, data)
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
@@ -86,7 +83,7 @@ const Overview = props => {
   };
 
   const updateTutorial = () => {
-    BayiDataService.update(currentTutorial.id, currentTutorial)
+    SliderDataService.update(currentTutorial.id, currentTutorial)
       .then(response => {
         console.log(response.data);
         setMessage("Başarı ile Güncellendi");
@@ -97,7 +94,7 @@ const Overview = props => {
   };
 
   const deleteTutorial = () => {
-    BayiDataService.remove(currentTutorial.id)
+    SliderDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
         navigate("/Bayi");
@@ -108,76 +105,62 @@ const Overview = props => {
   };
 
    return (
-    <DashboardLayout>
-      <Sidenav
+    <DashboardLayout> 
+        <Sidenav
             color={sidenavColor}
             brand={brand}
             brandName=" DOĞSAN PANEL "
             routes={routes} 
           />
+    <div style={{ marginLeft: "100px" }}> 
+      <Header />
+    </div>
 
-    <Header />
-    <br />
+    <div style={{ width: "300px", marginLeft: "100px" }}>
     <div>
       {currentTutorial ? (
         <div className="edit-form">
       
           <form>
             <div className="form-group">
-            <label htmlFor="title">Başlık </label>
+                 <label htmlFor="ismi">ismi</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="baslik"
-                  name="baslik"
-                  value={currentTutorial.baslik}
-                  onChange={handleInputChange}  
+                  id="ismi"
+                  required
+                  value={currentTutorial.ismi}
+                  onChange={handleInputChange}
+                  name="ismi"
+                />
+              </div>
+
+        
+
+              <div className="form-group">
+                <label htmlFor="slidetipi">slide tipi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="slidetipi"
+                  required
+                  value={currentTutorial.slidetipi}
+                  onChange={handleInputChange}
+                  name="slidetipi"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Adres </label>
+                <label htmlFor="siralama">siralama</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
-                  name="adres"
-                  value={currentTutorial.adres}
-                 onChange={handleInputChange}  
+                  id="siralama"
+                  required
+                  value={currentTutorial.siralama}
+                  onChange={handleInputChange}
+                  name="siralama"
                 />
               </div>
-               <div className="form-group">
-                <label htmlFor="description">Telefon </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  name="telefon"
-                  value={currentTutorial.telefon}
-                 onChange={handleInputChange}  
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Enlem </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  name="enlem"
-                  value={currentTutorial.enlem}
-               onChange={handleInputChange}  
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Boylam </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  name="boylam"
-                  value={currentTutorial.boylam}
-               onChange={handleInputChange} 
-                />
-            </div>
 
               <FileBase64
                 type="file"
@@ -228,6 +211,7 @@ const Overview = props => {
         
         </div>
       )}
+    </div>
     </div>
   
 
