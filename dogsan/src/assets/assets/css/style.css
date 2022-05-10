@@ -307,6 +307,14 @@ body {
 	position: relative;
 }
 
+.main-header-dymc {
+	width: 100%;
+	height: 80px;
+	
+	z-index: 900;
+	position: relative;
+}
+
 .parallax-home {
 	background: url('../../assets/img/slider/slide1.jpg') repeat fixed;
 	background-size: cover;

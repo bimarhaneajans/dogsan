@@ -9,9 +9,10 @@ import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+
 
 
 const Subdynamickategori = (props) => {
@@ -63,6 +64,7 @@ const Subdynamickategori = (props) => {
                 {tutorials &&  tutorials.map((tutorial, index) => (
                     <div className="active" onClick={() => setActiveTutorial(tutorial, index)}
                       key={index}>
+                      
                       <div className="row" >
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes,Router, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../../services/KategoriService";
@@ -11,6 +11,7 @@ import routes from "../../routes";
 import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+
 
 
 const Dynamickategori = (props) => {
@@ -49,57 +50,54 @@ const Dynamickategori = (props) => {
     setCurrentIndex(index);
   };
 
-
+ 
 
 
   return (
     <DashboardLayout>
-
-      <div className="main-header">
+      <div className="main-header-dymc">
         <div className="sticky-header">
           <div className="container">
-     
-            
-                <div className="main-navigation">
-                  <ul className="main-nav list-unstyled dynmc-kategori list-inline  " >
+
+
+            <div className="main-navigation">
+              <ul className="main-nav list-unstyled dynmc-kategori list-inline  " >
+                {tutorials && tutorials.map((tutorial, index) => (
+                  <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
+                    key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
+              </ul>
+            </div>
+                  
+
+
+            <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
+              <div className="container-fluid">
+
+                <div className="navbar-header">
+                  <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                  </button>
+                </div>
+
+                <div className="collapse navbar-collapse" id="navbar-collapse-1">
+                  <ul className="nav navbar-nav">
                     {tutorials && tutorials.map((tutorial, index) => (
-                      <li onClick={() => setActiveTutorial(tutorial, index)}
-                        key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
+                      <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
+                        key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
+                    ))
+
+                    }
                   </ul>
                 </div>
 
-
-
-                <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
-                  <div className="container-fluid">
-
-                    <div className="navbar-header">
-                      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                      </button>
-                    </div>
-
-                    <div className="collapse navbar-collapse" id="navbar-collapse-1">
-                      <ul className="nav navbar-nav">
-                        {tutorials && tutorials.map((tutorial, index) => (
-                          <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
-                            key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
-                        ))
-
-                        }
-                      </ul>
-                    </div>
-
-                  </div>
-                </nav>
               </div>
-            </div>
-       
+            </nav>
+          </div>
+        </div>
       </div>
-
 
 
     </DashboardLayout>
