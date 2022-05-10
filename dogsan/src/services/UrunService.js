@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/urun`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/urun?baslik=${baslik}`);
+const findByTitle = Adi => {
+  return http.get(`/urun?Adi=${Adi}`);
 };
 
 const UrunService = {
