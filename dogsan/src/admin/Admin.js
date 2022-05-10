@@ -1,4 +1,4 @@
- 
+
 import { useState, useEffect, useMemo } from "react";
 
 // react-router components
@@ -36,24 +36,24 @@ import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "contex
 
 // Images
 import brand from "assets/images/logo-ct.png";
-import Bayiguncelle from "../layouts/Bayi/Bayiguncelle" 
-import SubKategoriguncelle from "../layouts/SubKategori/SubKategoriguncelle" 
+import Bayiguncelle from "../layouts/Bayi/Bayiguncelle"
+import SubKategoriguncelle from "../layouts/SubKategori/SubKategoriguncelle"
 import Blogguncelle from "../layouts/Blog/Blogguncelle"
-import Degerguncelle  from "../layouts/Deger/Degerguncelle"
-import Duyuruguncelle  from "../layouts/Duyuru/Duyuruguncelle"
-import Etkinlikguncelle  from "../layouts/Etkinlik/Etkinlikguncelle"
-import Hakkimizdaguncelle  from "../layouts/Hakkimizda/Hakkimizdaguncelle"
-import Iletisimguncelle  from "../layouts/İletisim/İletisimguncelle"
-import Igneguncelle  from "../layouts/igne/igneguncelle"
-import Katalogguncelle  from "../layouts/Katalog/Katalogguncelle"
-import Mesajlarguncelle  from "../layouts/Mesajlar/Mesajlarguncelle"
-import Kategoriguncelle  from "../layouts/Kategori/Kategoriguncelle"
+import Degerguncelle from "../layouts/Deger/Degerguncelle"
+import Duyuruguncelle from "../layouts/Duyuru/Duyuruguncelle"
+import Etkinlikguncelle from "../layouts/Etkinlik/Etkinlikguncelle"
+import Hakkimizdaguncelle from "../layouts/Hakkimizda/Hakkimizdaguncelle"
+import Iletisimguncelle from "../layouts/İletisim/İletisimguncelle"
+import Igneguncelle from "../layouts/igne/igneguncelle"
+import Katalogguncelle from "../layouts/Katalog/Katalogguncelle"
+import Mesajlarguncelle from "../layouts/Mesajlar/Mesajlarguncelle"
+import Kategoriguncelle from "../layouts/Kategori/Kategoriguncelle"
 import Sehirguncelle from "../layouts/Sehir/Sehirguncelle"
-import Sliderguncelle  from "../layouts/Slider/Sliderguncelle"
-import Sosyalssguncelle  from "../layouts/Sosyalss/Sosyalssguncelle"
-import Tarihceguncelle  from "../layouts/Tarihce/Tarihceguncelle"
-import TarihiGaleriguncelle  from "../layouts/TarihiGaleri/TarihiGaleriguncelle"
-import Urunguncelle  from "../layouts/Urun/Urunguncelle"
+import Sliderguncelle from "../layouts/Slider/Sliderguncelle"
+import Sosyalssguncelle from "../layouts/Sosyalss/Sosyalssguncelle"
+import Tarihceguncelle from "../layouts/Tarihce/Tarihceguncelle"
+import TarihiGaleriguncelle from "../layouts/TarihiGaleri/TarihiGaleriguncelle"
+import Urunguncelle from "../layouts/Urun/Urunguncelle"
 import Dynamickategori from "../layouts/Kategori/dynamickategori"
 import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
 import Subdynamicdetaykategori from "layouts/Kategori/subdynamicdetaykategori";
@@ -66,7 +66,7 @@ export default function App() {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
 
-   useMemo(() => {
+  useMemo(() => {
     const cacheRtl = createCache({
       key: "rtl",
       stylisPlugins: [rtlPlugin],
@@ -75,25 +75,25 @@ export default function App() {
     setRtlCache(cacheRtl);
   }, []);
 
-   const handleOnMouseEnter = () => {
+  const handleOnMouseEnter = () => {
     if (miniSidenav && !onMouseEnter) {
       setMiniSidenav(dispatch, false);
       setOnMouseEnter(true);
     }
   };
 
-   const handleOnMouseLeave = () => {
+  const handleOnMouseLeave = () => {
     if (onMouseEnter) {
       setMiniSidenav(dispatch, true);
       setOnMouseEnter(false);
     }
   };
- 
+
   useEffect(() => {
     document.body.setAttribute("dir", direction);
   }, [direction]);
 
-   useEffect(() => {
+  useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
@@ -111,7 +111,7 @@ export default function App() {
       return null;
     });
 
-  
+
 
   return direction === "rtl" ? (
     <CacheProvider value={rtlCache}>
@@ -127,7 +127,7 @@ export default function App() {
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
             />
-           
+
           </>
         )}
         {layout === "dashboard" && <Configurator />}
@@ -149,7 +149,7 @@ export default function App() {
             routes={routes}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
-          /> 
+          />
         </>
       )}
       {layout === "Home"}
@@ -172,16 +172,12 @@ export default function App() {
         <Route path="/Sosyalssguncelle/:id" element={<Sosyalssguncelle />} />
         <Route path="/Tarihceguncelle/:id" element={<Tarihceguncelle />} />
         <Route path="/TarihiGaleriguncelle/:id" element={<TarihiGaleriguncelle />} />
-        <Route path="/Urunguncelle/:id" element={<Urunguncelle />} />       
-         <Route path="/SubKategoriguncelle/:id" element={<SubKategoriguncelle />} />
-
-
-      
+        <Route path="/Urunguncelle/:id" element={<Urunguncelle />} />
+        <Route path="/SubKategoriguncelle/:id" element={<SubKategoriguncelle />} />
         <Route path="/Dynamickategori" element={<Dynamickategori />} />
         <Route path="/Dynamicdetaykategori" element={<Dynamicdetaykategori />} />
         <Route path="/SubDynamickategori/:id" element={<SubDynamickategori />} />
         <Route path="/Subdynamicdetaykategori/:id" element={<Subdynamicdetaykategori />} />
-      
 
       </Routes>
     </ThemeProvider>

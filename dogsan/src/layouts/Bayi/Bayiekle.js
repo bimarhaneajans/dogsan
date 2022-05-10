@@ -117,13 +117,13 @@ const BayiEkle = () => {
                   onChange={handleInputChange}
                   name="baslik"
                 />
-               {/*  <Editor style={{width:600}}
+                <Editor style={{width:600}}
                   editorState={tutorial.baslik}
                   toolbarClassName="toolbarClassName"
                   wrapperClassName="wrapperClassName"
                   editorClassName="editorClassName"
                  onEditorStateChange={handleInputChange}
-                /> */}
+                />
               </div>
 
              
