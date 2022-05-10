@@ -54,51 +54,52 @@ const Dynamickategori = (props) => {
 
   return (
     <DashboardLayout>
-   
+
       <div className="main-header">
         <div className="sticky-header">
           <div className="container">
-
-          
-              <div className="main-navigation">
-                <ul className="main-nav list-unstyled dynmc-kategori list-inline  " >
-                  {tutorials && tutorials.map((tutorial, index) => (
-                    <li  onClick={() => setActiveTutorial(tutorial, index)}
-                      key={index}><a href={"#"+tutorial.path}>{tutorial.kategoriadi}</a></li>))}
-                </ul>
-              </div>
-
-
-
-              <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
-                <div className="container-fluid">
-
-                  <div className="navbar-header">
-                    <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                      <span className="sr-only">Toggle navigation</span>
-                      <span className="icon-bar"></span>
-                      <span className="icon-bar"></span>
-                      <span className="icon-bar"></span>
-                    </button>
-                  </div>
-
-                  <div className="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul className="nav navbar-nav">
-                      {tutorials && tutorials.map((tutorial, index) => (
-                        <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
-                          ))
-                          
-                          }
-                    </ul>
-                  </div>
-
+     
+            
+                <div className="main-navigation">
+                  <ul className="main-nav list-unstyled dynmc-kategori list-inline  " >
+                    {tutorials && tutorials.map((tutorial, index) => (
+                      <li onClick={() => setActiveTutorial(tutorial, index)}
+                        key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
+                  </ul>
                 </div>
-              </nav>
+
+
+
+                <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
+                  <div className="container-fluid">
+
+                    <div className="navbar-header">
+                      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span className="sr-only">Toggle navigation</span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                      </button>
+                    </div>
+
+                    <div className="collapse navbar-collapse" id="navbar-collapse-1">
+                      <ul className="nav navbar-nav">
+                        {tutorials && tutorials.map((tutorial, index) => (
+                          <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
+                            key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
+                        ))
+
+                        }
+                      </ul>
+                    </div>
+
+                  </div>
+                </nav>
+              </div>
             </div>
-          </div>
-        </div>
- 
+       
+      </div>
+
 
 
     </DashboardLayout>
