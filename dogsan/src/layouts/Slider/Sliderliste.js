@@ -146,37 +146,26 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>Başlık:</strong>
+                <strong>ismi:</strong>
                 <div>
                   <label>
 
                   </label>{" "}
-                  {currentTutorial.baslik}
+                  {currentTutorial.ismi}
                 </div>
                 <div>
                   <label>
-                    <strong>Adres:</strong>
+                    <strong>slidetipi:</strong>
                   </label>{" "}
-                  {currentTutorial.adres}
+                  {currentTutorial.slidetipi}
                 </div>
                 <div>
                   <label>
-                    <strong>Enlem:</strong>
+                    <strong>siralama:</strong>
                   </label>{" "}
-                  {currentTutorial.enlem}
+                  {currentTutorial.siralama}
                 </div>
-                <div>
-                  <label>
-                    <strong>Telefon:</strong>
-                  </label>{" "}
-                  {currentTutorial.telefon}
-                </div>
-                <div>
-                  <label>
-                    <strong>Boylam:</strong>
-                  </label>{" "}
-                  {currentTutorial.boylam}
-                </div>
+             
                 <div>
                   <label>
                     <strong>Durum:</strong>
