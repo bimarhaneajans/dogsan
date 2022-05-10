@@ -106,7 +106,7 @@ const Overview = props => {
     TarihceDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/Bayi");
+        navigate("/Tarihceliste");
       })
       .catch(e => {
         console.log(e);

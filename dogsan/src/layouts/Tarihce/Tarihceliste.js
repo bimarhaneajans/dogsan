@@ -3,7 +3,7 @@ import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import TarihceDataService from "../../services/TarihceService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -36,7 +36,7 @@ const Overview = (props) => {
   };
 
   const retrieveTutorials = () => {
-    BayiDataService.getAll()
+    TarihceDataService.getAll()
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -58,7 +58,7 @@ const Overview = (props) => {
   };
 
   const removeAllTutorials = () => {
-    BayiDataService.removeAll()
+    TarihceDataService.removeAll()
       .then(response => {
         console.log(response.data);
         refreshList();
@@ -69,7 +69,7 @@ const Overview = (props) => {
   };
 
   const findByTitle = () => {
-    BayiDataService.findByTitle(searchTitle)
+    TarihceDataService.findByTitle(searchTitle)
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -187,7 +187,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial.id}
+                  to={"/tarihceguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle
