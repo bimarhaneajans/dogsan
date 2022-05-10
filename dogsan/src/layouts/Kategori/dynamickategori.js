@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { Routes,Router, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Router, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../../services/KategoriService";
@@ -50,7 +50,7 @@ const Dynamickategori = (props) => {
     setCurrentIndex(index);
   };
 
- 
+
 
 
   return (
@@ -58,18 +58,13 @@ const Dynamickategori = (props) => {
       <div className="main-header-dymc">
         <div className="sticky-header">
           <div className="container">
-
-
             <div className="main-navigation">
               <ul className="main-nav list-unstyled dynmc-kategori list-inline  " >
                 {tutorials && tutorials.map((tutorial, index) => (
-                  <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
+                  <li onClick={() => setActiveTutorial(tutorial, index)}
                     key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
               </ul>
             </div>
-                  
-
-
             <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
               <div className="container-fluid">
 
@@ -81,11 +76,10 @@ const Dynamickategori = (props) => {
                     <span className="icon-bar"></span>
                   </button>
                 </div>
-
                 <div className="collapse navbar-collapse" id="navbar-collapse-1">
                   <ul className="nav navbar-nav">
                     {tutorials && tutorials.map((tutorial, index) => (
-                      <li className="active" onClick={() => setActiveTutorial(tutorial, index)}
+                      <li onClick={() => setActiveTutorial(tutorial, index)}
                         key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
                     ))
 
@@ -98,7 +92,6 @@ const Dynamickategori = (props) => {
           </div>
         </div>
       </div>
-
 
     </DashboardLayout>
   );
