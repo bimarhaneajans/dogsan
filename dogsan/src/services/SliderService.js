@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/slider`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/slider?baslik=${baslik}`);
+const findByTitle = ismi => {
+  return http.get(`/slider?ismi=${ismi}`);
 };
 
 const SliderService = {
