@@ -50,7 +50,7 @@ const Dynamickategori = (props) => {
     setCurrentIndex(index);
   };
 
-
+  const [kategori,setKategori] = useState(null);
 
 
   return (
@@ -79,7 +79,7 @@ const Dynamickategori = (props) => {
                 <div className="collapse navbar-collapse" id="navbar-collapse-1">
                   <ul className="nav navbar-nav">
                     {tutorials && tutorials.map((tutorial, index) => (
-                      <li onClick={() => setActiveTutorial(tutorial, index)}
+                      <li  onClick={() => setActiveTutorial(tutorial, index) }
                         key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
                     ))
 
