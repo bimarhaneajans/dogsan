@@ -4,7 +4,7 @@ module.exports = mongoose => {
       ismi: String,
       slidetipi: String,
       siralama: String,
- Resimbaslik:String,
+      Resimbaslik:String,
       Resim:String,
       published: Boolean
     },
