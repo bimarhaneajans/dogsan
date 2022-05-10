@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/tarihce`);
 };
 
-const findByTitle = baslik => {
-  return http.get(`/tarihce?baslik=${baslik}`);
+const findByTitle = Yil => {
+  return http.get(`/tarihce?Yil=${Yil}`);
 };
 
 const TarihceService = {
