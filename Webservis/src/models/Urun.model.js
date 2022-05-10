@@ -4,7 +4,7 @@ module.exports = mongoose => {
       Adi: String,
       Renk: String,
       icerik: String,
- Resimbaslik:String,
+      Resimbaslik:String,
       Resim:String,
       published: Boolean
     },
