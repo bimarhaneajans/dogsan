@@ -24,8 +24,27 @@ import Veterinerlik2 from "./Veterinerlik/Veterinerlik2";
 import Subdynamickategori from "./Kategori/subdynamickategori"; */
 
 import slidebbg from "./sliderimages/slide-b-bg.jpg";
-import silide2 from "../components/assets/img/slider/slide2.jpg";
- import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
+import silide2 from "../assets/assets/img/slider/slide2.jpg";
+import logo from "../layouts/assets/img/logo/heartify-logo.png";
+import logo2 from "../layouts/assets/img/logo/heart-icon.png";
+import icon1 from "../layouts/assets/img/icons/icon-1.png";
+import icon2 from "../layouts/assets/img/icons/icon-2.png";
+import icon3 from "../layouts/assets/img/icons/icon-3.png";
+import icon4 from "../layouts/assets/img/icons/icon-4.png";
+import icon5 from "../layouts/assets/img/icons/s2-ico1.png";
+import bir from "../layouts/assets/img/projects/1.jpg"; 
+import iki from  "../layouts/assets/img/projects/2.jpg";
+import uc from "../layouts/assets/img/projects/3.jpg"; 
+import dort from  "../layouts/assets/img/projects/4.jpg";
+import bes from "../layouts/assets/img/projects/5.jpg"; 
+import alti from  "../layouts/assets/img/projects/6.jpg";
+import yedi from "../layouts/assets/img/projects/7.jpg"; 
+import sekiz from  "../layouts/assets/img/projects/8.jpg";
+import teammember from "../layouts/assets/img/team/team-member1.jpg";
+import teammember2 from "../layouts/assets/img/team/team-member2.jpg";
+import teammember3 from "../layouts/assets/img/team/team-member3.jpg";
+import teammember4 from "../layouts/assets/img/team/team-member4.jpg";
+import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
  import  "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css" ;
@@ -38,12 +57,12 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-          <div id="slider-wrapper">
+      <div id="slider-wrapper">
 
             <div id="full-slider-wrapper">
               <div id="layerslider" style={{ width: "100 %", height: "720px", maxWidth: "100%", color: "red" }}>
                 <div className="ls-slide" data-ls={{ slidedelay: "8000", transition2d: "4" }}>
-                  <img src="sliderimages/slide-b-bg.jpg" className="ls-bg" alt="Slide background" />
+                  <img src={slidebbg} style={{ width: "120 %", height: "220px", maxWidth: "100%",  }}/> 
                   <img className="ls-l" style={{ top: "230px", left: "690px", whiteSpace: "nowrap" }} data-ls={{ offsetxin: "50", durationin: "2000", delayin: "800", offsetxout: "50", durationout: "1000", parallaxlevel: "1" }} src="sliderimages/ldoctor.png" alt="" />
                   <img className="ls-l" style={{ top: "100px", left: "400px", whiteSpace: "nowrap" }} data-ls={{ offsetxin: "100", durationin: "2000", delayin: "1200", offsetxout: "100", durationout: "1000", parallaxlevel: "3" }} src="sliderimages/gdoctor.png" alt="" />
                   <h6 className="ls-l" style={{ top: "350px", left: "236px", height: "40px", whiteSpace: "nowrap", color: "#0eb2e7", fontSize: ".9em", fontWeight: "bold" }} data-ls={{ durationin: "2000", delayin: "2000", rotatein: "20", rotatexin: "30", scalexin: "1.5", scaleyin: "1.5", transformoriginin: "left 50% 0", durationout: "750", rotateout: "20", rotatexout: "-30", scalexout: "0", scaleyout: "0", transformoriginout: "left 50% 0" }}>
@@ -124,7 +143,7 @@ export default function Home() {
                   </h6>
                 </div>
                 <div className="ls-slide" data-ls={{ slidedelay: "9500", transition2d: "5", timeshift: "-1500" }}>
-                  <img src="./assets/img/slider/slide2.jpg" className="ls-bg" alt="Slide background" />
+                  <img src={silide2} width={300} />
                   <h6 className="ls-l" style={{
                     top: "310px",
                     left: "636px",
@@ -224,24 +243,24 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
         </div>
 
         <div className="container bs-main">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-              <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src="assets/img/logo/heartify-logo.png" alt="Heartify" /></a></div>
+              <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
 
               <div className="top-header hidden-xs">
                 <div className="top-navigation">
                   <ul className="top-nav list-unstyled list-inline">
-                    <li className="active"><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li className="logo"><a href="index.html"><img src="assets/img/logo/heartify-logo.png" alt="Heartify" /></a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li className="active"><a href="#home">Kurumsal</a></li>
+                    <li><a href="#about">Kataloglar</a></li>
+                    <li><a href="#team">İğneler</a></li>
+                    <li className="logo"><a href="index.html"><img src={logo} alt="Heartify" /></a></li>
+                    <li><a href="#pricing">Duyurular</a></li>
                     <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">İletişim</a></li>
                   </ul>
                 </div>
 
@@ -259,18 +278,18 @@ export default function Home() {
               <div className="row">
                 <div className="col-xs-8 col-sm-4 col-md-4 col-lg-4 pull-left">
                   <div className="main-logo">
-                    <a href="index.html"><img className="pull-left" src="assets/img/logo/heart-icon.png" alt="Heartify" /><span>HEARTIFY</span></a>
+                    <a href="index.html"><img className="pull-left" src={logo2} alt="Heartify" /><span>HEARTIFY</span></a>
                   </div>
                 </div>
                 <div className="col-xs-4 col-sm-8 col-md-8 col-lg-8">
                   <div className="main-navigation hidden-xs">
                     <ul className="main-nav list-unstyled list-inline pull-right">
-                      <li className="active"><a href="#home">Home</a></li>
-                      <li><a href="#about">About Us</a></li>
-                      <li><a href="#team">Team</a></li>
-                      <li><a href="#pricing">Pricing</a></li>
+                      <li className="active"><a href="#home">Kurumsal</a></li>
+                      <li><a href="#about">Kataloglar</a></li>
+                      <li><a href="#team">İğneler</a></li>
+                      <li><a href="#pricing">Duyurular</a></li>
                       <li><a href="#blog">Blog</a></li>
-                      <li><a href="#contact">Contact</a></li>
+                      <li><a href="#contact">İletişim</a></li>
                     </ul>
                   </div>
 
@@ -320,28 +339,28 @@ export default function Home() {
                 <div className="information">
                   <div className="row">
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                      <img className="pull-center icon" src="assets/img/icons/icon-1.png" alt="icon" />
+                      <img className="pull-center icon" src={icon1} alt="icon" />
                       <div className="info-col">
                         <h5>Health Information</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                      <img className="pull-center icon" src="assets/img/icons/icon-2.png" alt="icon" />
+                      <img className="pull-center icon" src={icon2} alt="icon" />
                       <div className="info-col">
                         <h5>Medical Education</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                      <img className="pull-center icon" src="assets/img/icons/icon-3.png" alt="icon" />
+                      <img className="pull-center icon" src={icon3} alt="icon" />
                       <div className="info-col">
                         <h5>Symptom Check</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
-                      <img className="pull-center icon" src="assets/img/icons/icon-4.png" alt="icon" />
+                      <img className="pull-center icon" src={icon4} alt="icon" />
                       <div className="info-col">
                         <h5>Qualified Doctors</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
@@ -377,7 +396,7 @@ export default function Home() {
             <div className="row">
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src="assets/img/icons/s2-ico1.png" alt="icon" />
+                <img className="pull-center icon" src={icon5} alt="icon" />
                 <div className="info-col">
                   <h5>Health Information</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor.</p>
@@ -385,7 +404,7 @@ export default function Home() {
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr2">
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src="assets/img/icons/s2-ico1.png" alt="icon" />
+                <img className="pull-center icon" src={icon5} alt="icon" />
                 <div className="info-col">
                   <h5>Health Information</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor.</p>
@@ -393,7 +412,7 @@ export default function Home() {
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr3">
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src="assets/img/icons/s2-ico1.png" alt="icon" />
+                <img className="pull-center icon" src={icon5} alt="icon" />
                 <div className="info-col">
                   <h5>Health Information</h5>
                   <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor.</p>
@@ -512,7 +531,7 @@ export default function Home() {
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
-                        <img src="assets/img/team/team-member1.jpg" className="img-responsive" alt="" />
+                        <img src={teammember} className="img-responsive" alt="" />
                       </div>
                     </a>
                     <div className="member-details">
@@ -535,7 +554,7 @@ export default function Home() {
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
-                        <img src="assets/img/team/team-member2.jpg" className="img-responsive" alt="" />
+                        <img src={teammember2} className="img-responsive" />
                       </div>
                     </a>
                     <div className="member-details">
@@ -558,7 +577,7 @@ export default function Home() {
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
-                        <img src="assets/img/team/team-member3.jpg" className="img-responsive" alt="" />
+                        <img src={teammember3} className="img-responsive" alt="" />
                       </div>
                     </a>
                     <div className="member-details">
@@ -581,7 +600,7 @@ export default function Home() {
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
-                        <img src="assets/img/team/team-member4.jpg" className="img-responsive" alt="" />
+                        <img src={teammember4}className="img-responsive" alt="" />
                       </div>
                     </a>
                     <div className="member-details">
@@ -642,7 +661,7 @@ export default function Home() {
 				<div class="bottom-space-50"></div>
 				<ul class="projects-wrap">
 					<li>
-						<img src="assets/img/projects/1.jpg" class="img-responsive" alt=""/>
+						<img src={bir} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -652,7 +671,7 @@ export default function Home() {
 						</div>
 					</li>
 					<li>
-						<img src="assets/img/projects/2.jpg" class="img-responsive" alt=""/>
+						<img src={iki} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -662,7 +681,7 @@ export default function Home() {
 						</div>
 					</li>
 					<li>
-						<img src="assets/img/projects/3.jpg" class="img-responsive" alt=""/>
+						<img src={uc} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -672,7 +691,7 @@ export default function Home() {
 						</div>
 					</li>
 					<li>
-						<img src="assets/img/projects/4.jpg" class="img-responsive" alt=""/>
+						<img src={dort} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -682,7 +701,7 @@ export default function Home() {
 						</div>
 					</li>
 					<li>
-						<img src="assets/img/projects/5.jpg" class="img-responsive" alt=""/>
+						<img src={bes} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -692,7 +711,7 @@ export default function Home() {
 						</div>
 					</li>
 					<li>
-						<img src="assets/img/projects/6.jpg" class="img-responsive" alt=""/>
+						<img src={alti} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -702,7 +721,7 @@ export default function Home() {
 						</div>
 					</li>
 					<li>
-						<img src="assets/img/projects/7.jpg" class="img-responsive" alt=""/>
+						<img src={yedi} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -712,7 +731,7 @@ export default function Home() {
 						</div>
 					</li>
 					<li>
-						<img src="assets/img/projects/8.jpg" class="img-responsive" alt=""/>
+						<img src={sekiz} class="img-responsive" alt=""/>
 						<div class="overlay">
 							<div class="overlay-inner">
 								<h4>Clinic office <span>Durning work</span></h4>
@@ -1062,9 +1081,9 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div id="g-map">
+             {/* <div id="g-map">
               <div id="map"></div>
-              <div className="row">
+             <div className="row">
                 <div className="container">
                   <div className="col-md-6">
                     <div className="app-form">
@@ -1089,8 +1108,8 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> 
+            </div>*/}
 
 
             <div className="footer2">
