@@ -182,21 +182,21 @@ ul.doctor-list {
 	margin-top: 100px;
 }
 
-#job .client-section {
+#job .client-div {
 	background-size: 100% 100%;
 }
 
-#job .client-section .client-stat {
+#job .client-div .client-stat {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px;
 }
 
-#job .client-section .client-stat h3:after {
+#job .client-div .client-stat h3:after {
 	margin-left: 60px;
 }
 
-#job .client-section .client-stat p {
+#job .client-div .client-stat p {
 	font-size: .9em;
 }
 
@@ -453,21 +453,21 @@ ul.doctor-list {
 	margin-top: 100px;
 }
 
-#job .client-section {
+#job .client-div {
 	background-size: 100% 100%;
 }
 
-#job .client-section .client-stat {
+#job .client-div .client-stat {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px;
 }
 
-#job .client-section .client-stat h3:after {
+#job .client-div .client-stat h3:after {
 	margin-left: 60px;
 }
 
-#job .client-section .client-stat p {
+#job .client-div .client-stat p {
 	font-size: .9em;
 }
 
@@ -716,21 +716,21 @@ ul.doctor-list {
 	background-size: 100% 100%;
 }
 
-#job .client-section {
+#job .client-div {
 	background-size: 100% 100%;
 }
 
-#job .client-section .client-stat {
+#job .client-div .client-stat {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px;
 }
 
-#job .client-section .client-stat h3:after {
+#job .client-div .client-stat h3:after {
 	margin-left: 130px;
 }
 
-#job .client-section .client-stat p {
+#job .client-div .client-stat p {
 	font-size: .9em;
 }
 
@@ -975,21 +975,21 @@ ul.doctor-list {
 	background-size: 100% 100%;
 }
 
-#job .client-section {
+#job .client-div {
 	background-size: 100% 100%;
 }
 
-#job .client-section .client-stat {
+#job .client-div .client-stat {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px;
 }
 
-#job .client-section .client-stat h3:after {
+#job .client-div .client-stat h3:after {
 	margin-left: 130px;
 }
 
-#job .client-section .client-stat p {
+#job .client-div .client-stat p {
 	font-size: .9em;
 }
 
@@ -1061,7 +1061,7 @@ ul.doctor-list {
 
 @media only screen and (min-width: 280px) and (max-width: 767px) {
 
-.client-section {
+.client-div {
 	background: url('../assets/assets/img/general/job-background.jpg') no-repeat center;
 	background-size: auto 120%;
 }
@@ -1138,17 +1138,17 @@ ul.doctor-list {
 	margin-left: 0px;
 }
 
-#job .client-section .client-stat {
+#job .client-div .client-stat {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px;
 }
 
-#job .client-section .client-stat h3:after {
+#job .client-div .client-stat h3:after {
 	margin-left: 180px;
 }
 
-#job .client-section .client-stat p {
+#job .client-div .client-stat p {
 	font-size: .9em;
 }
 
@@ -1266,17 +1266,17 @@ ul.doctor-list {
 	margin-left: 0px;
 }
 
-#job .client-section .client-stat {
+#job .client-div .client-stat {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px;
 }
 
-#job .client-section .client-stat h3:after {
+#job .client-div .client-stat h3:after {
 	margin-left: 180px;
 }
 
-#job .client-section .client-stat p {
+#job .client-div .client-stat p {
 	font-size: .9em;
 }
 
@@ -1362,17 +1362,17 @@ ul.doctor-list {
 	margin-left: 0px;
 }
 
-#job .client-section .client-stat {
+#job .client-div .client-stat {
 	margin: 10px auto;
 	background-color: white;
 	padding: 20px;
 }
 
-#job .client-section .client-stat h3:after {
+#job .client-div .client-stat h3:after {
 	margin-left: 180px;
 }
 
-#job .client-section .client-stat p {
+#job .client-div .client-stat p {
 	font-size: .9em;
 }
 

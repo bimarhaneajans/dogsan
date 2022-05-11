@@ -299,7 +299,7 @@ export default function Home() {
               <div className="top-header hidden-xs">
                 <div className="top-navigation">
                   <ul className="top-nav list-unstyled list-inline">
-                    <li className="active"><a href="#home">Kurumsal</a></li>
+                    <li><a href="#home">Kurumsal</a></li>
                     <li><a href="#about">Kataloglar</a></li>
                     <li><a href="#team">İğneler</a></li>
                     <li className="logo"><a href="index.html"><img src={logo} alt="Heartify" /></a></li>
@@ -318,45 +318,7 @@ export default function Home() {
 
 
 
-        {/* <div className="main-header-dymc">
-        <div className="sticky-header">
-          <div className="container">
-            <div className="main-navigation">
-              <ul className="main-nav list-unstyled dynmc-kategori list-inline  " >
-                {tutorials && tutorials.map((tutorial, index) => (
-                  <li onClick={() => setActiveTutorial(tutorial, index)}
-                    key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
-              </ul>
-            </div>
-            <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
-              <div className="container-fluid">
-
-                <div className="navbar-header">
-                  <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                    <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                  </button>
-                </div>
-                <div className="collapse navbar-collapse" id="navbar-collapse-1">
-                  <ul className="nav navbar-nav">
-                    {tutorials && tutorials.map((tutorial, index) => (
-                      <li  onClick={() => setActiveTutorial(tutorial, index) }
-                        key={index}><a href={tutorial.path}>{tutorial.kategoriadi}</a></li>
-                    ))
-
-                    }
-                  </ul>
-                </div>
-
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div> */}
-
-
+      
 
 
         <div className="main-header">
@@ -370,7 +332,7 @@ export default function Home() {
                 </div>
                 <div className="col-xs-4 col-sm-8 col-md-8 col-lg-8">
                   <div className="main-navigation hidden-xs">
-                    <ul className="main-nav list-unstyled list-inline pull-right">
+                    <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
                           key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
