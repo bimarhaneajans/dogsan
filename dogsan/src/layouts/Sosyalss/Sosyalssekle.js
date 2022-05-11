@@ -20,10 +20,7 @@ const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    icerik: "", 
     published: false
   };
 
@@ -49,10 +46,7 @@ const BayiEkle = () => {
   const saveTutorial = () => {
     var data = {
       baslik: tutorial.baslik,
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      boylam: tutorial.boylam,
+      icerik: tutorial.icerik, 
       Resim: tutorial.Resim,
     };
 
@@ -61,12 +55,7 @@ const BayiEkle = () => {
         setTutorial({
           id: response.data.id,
           baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
-          Resimbaslik: response.data.Resimbaslik,
-          Resim: response.data.Resim,
+          icerik: response.data.icerik, 
            Resim: response.data.Resim,
           published: response.data.published
         });
@@ -118,66 +107,21 @@ const BayiEkle = () => {
                   name="baslik"
                 />
               </div>
-
-            {/*   <div style={{ width: "300 px" }}>
-                <Editor
-                  editorState={tutorial.boylam}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
-                />
-              </div> */}
+ 
 
               <div className="form-group">
-                <label htmlFor="adres">adres</label>
+                <label htmlFor="icerik">icerik</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="adres"
+                  id="icerik"
                   required
-                  value={tutorial.adres}
+                  value={tutorial.icerik}
                   onChange={handleInputChange}
-                  name="adres"
+                  name="icerik"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="Telefon">Telefon</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  required
-                  value={tutorial.telefon}
-                  onChange={handleInputChange}
-                  name="telefon"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Enlem">Enlem</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  required
-                  value={tutorial.enlem}
-                  onChange={handleInputChange}
-                  name="enlem"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="boylam">boylam</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  required
-                  value={tutorial.boylam}
-                  onChange={handleInputChange}
-                  name="boylam"
-                />
-              </div>
+               
 
             <FileBase64
                 type="file"
