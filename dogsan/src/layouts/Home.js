@@ -565,10 +565,8 @@ export default function Home() {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
                 <div className="team-stat text-center">
-                  <h2>Meet Them All</h2>
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
+                  <h2>Yönetİcİler İle Tanışın</h2>
+                 </div>
                 {/*    <div className="team-filter-nav text-center">
                   <ul id="filters" className="filter-nav list-inline list-unstyled">
                     <li><a data-filter="*" className="current" href="#">All</a></li>
@@ -704,8 +702,8 @@ export default function Home() {
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="blog-stat text-center">
                   <h2>Blog</h2>
-                   <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
+{/*                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+ */}                </div>
               </div>
             </div>
           </div>
@@ -983,7 +981,7 @@ export default function Home() {
               <div className="clearfix"></div>
               <div className="bottom-space-50"></div>
             </div> */}
-            <div id="blog">
+            {/* <div id="blog">
               <div className="container">
                 <div className="row">
                   <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
@@ -1052,7 +1050,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
+ */}
 
             <div className="clearfix"></div>
 
