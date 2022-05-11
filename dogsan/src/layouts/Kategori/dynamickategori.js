@@ -50,7 +50,6 @@ const Dynamickategori = (props) => {
     setCurrentIndex(index);
   };
 
-  const [kategori,setKategori] = useState(null);
 
 
   return (
