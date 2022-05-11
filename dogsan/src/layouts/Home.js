@@ -543,19 +543,21 @@ export default function Home() {
           </div>
         </div> */}
 
-
-        <section class="client-div">
+<div >
+<section class="client-div" style={{marginTop:50,height:350}}>
           <div class="container">
             <div class="row">
               <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                <div class="client-stat text-center">
-                  <h3>Our Happy Clients</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                <div class="client-stat text-center" >
+                  <h3  style={{marginTop:20,height:350,fontSize:60}}>Dünyada Bİz..</h3>
+                  <p  style={{fontSize:23,marginTop:-170,color:"white"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
+</div>
+        
 
 
         <div id="team">
@@ -701,9 +703,8 @@ export default function Home() {
             <div class="row">
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="blog-stat text-center">
-                  <h2>Our latest Projects</h2>
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                  <h2>Blog</h2>
+                   <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
                 </div>
               </div>
             </div>
@@ -1171,18 +1172,17 @@ export default function Home() {
 
             <div className="footer2-bottom">
               <div className="container">
-                <div className="col-md-6">
-                  <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
-                </div>
-                <div className="col-md-6">
+              <div className="col-md-6">
                   <ul className="footer-social">
                     <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                     <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i className="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i className="fa fa-youtube"></i></a></li>
+
+
                   </ul>
                 </div>
+             
                 <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
               </div>
             </div>
