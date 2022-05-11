@@ -91,7 +91,7 @@ export default function Home() {
     KategoriDataService.getAll()
       .then(response => {
         setTutorials(response.data);
-        console.log(tutorials);
+        //console.log(tutorials);
        
       })
       .catch(e => {
@@ -103,7 +103,7 @@ export default function Home() {
     BlogDataService.getAll()
       .then(response => {
         setBlog(response.data);
-        console.log(blog);
+        console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -723,11 +723,19 @@ export default function Home() {
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="blog-stat text-center">
                   <h2>Blog Yazıları</h2>
-{/*                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
- */}                </div>
+             </div>
               </div>
             </div>
           </div>
+
+          <ul>
+        {blog.map(item => (
+          <li key={item.id}>
+            <p>{item.baslik}</p> 
+          </li>
+        ))}
+      </ul>
+          
           <div class="row">
             <div class="col-md-12">
               <div class="bottom-space-50"></div>

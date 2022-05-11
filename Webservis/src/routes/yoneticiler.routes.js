@@ -21,7 +21,7 @@ module.exports = app => {
   router.get("/", yoneticiler.findAll);
   router.get("/published", yoneticiler.findAllPublished);
   router.get("/:id", yoneticiler.findOne);
-  router.put("/:id", yoneticiler.update);
+  router.put("/:id", yoneticiler.update);/*  */
   router.delete("/:id", yoneticiler.delete);
   router.delete("/", yoneticiler.deleteAll);
   app.use("/yoneticiler", router);
