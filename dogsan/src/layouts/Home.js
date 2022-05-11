@@ -701,7 +701,7 @@ export default function Home() {
             <div class="row">
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="blog-stat text-center">
-                  <h2>Blog</h2>
+                  <h2>Blog Yazıları</h2>
 {/*                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
  */}                </div>
               </div>
