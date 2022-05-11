@@ -25,12 +25,12 @@ import Subdynamickategori from "./Kategori/subdynamickategori"; */
 
 import slidebbg from "./sliderimages/slide-b-bg.jpg";
 import silide2 from "../components/assets/img/slider/slide2.jpg";
-// import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
-//import "../layouts/assets/css/style.css"; // burasi
-//import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
-//import "../layouts/assets/css/responsive-styling.css";
-//import  "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css" ;
+ import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
+import "../layouts/assets/css/style.css"; // burasi
+import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
+ import  "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css" ;
  import "./style.css"
+ import "./responsive-styling.css"
 
 
 export default function Home() {
@@ -473,7 +473,7 @@ export default function Home() {
         </div> */}
 
 
-        <section class="client-section">
+        <section class="client-div">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
