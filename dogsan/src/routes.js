@@ -44,6 +44,10 @@ import Urunliste from "./layouts/Urun/Urunliste"
 import SubKategoriekle from "./layouts/SubKategori/SubKategoriekle" 
 import SubKategoriliste from "./layouts/SubKategori/SubKategoriliste" 
 
+import Yoneticiekle from "./layouts/Yoneticiler/Yoneticiekle"
+import Yoneticiliste from "./layouts/Yoneticiler/Yoneticiliste"
+
+
 
 
 
@@ -559,6 +563,32 @@ const routes = [
     route: "/Urunliste",
     icon: <CustomerSupport size="12px" />,
     component: <Urunliste />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "Ürün İşlemleri",
+    key: "19",
+    isPrivate: true
+  },
+  {
+    type: "collapse",
+    name: "Yonetici ekle",
+    key: "Yoneticiekle",
+    route: "/Yoneticiekle",
+    icon: <CustomerSupport size="12px" />,
+    component: <Yoneticiekle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Yonetici liste",
+    key: "Yoneticiliste",
+    route: "/Yoneticiliste",
+    icon: <CustomerSupport size="12px" />,
+    component: <Yoneticiliste />,
     noCollapse: true,
     isPrivate: true,
   },

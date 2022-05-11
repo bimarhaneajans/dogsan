@@ -95,7 +95,7 @@ const Bayiguncelle = props => {
     BayiDataService.remove(currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        navigate("/bayiliste");
+        navigate("/yoneticiliste");
       })
       .catch(e => {
         console.log(e);
@@ -133,68 +133,107 @@ const Bayiguncelle = props => {
 
 
 
-          <div className="form-group">
-              <label htmlFor="bayi">Başlık</label>
-              <input
-                type="text"
-                className="form-control"
-                id="baslik"
-                required
-                value={currentTutorial.baslik}
-                onChange={handleInputChange}
-                name="baslik"
-              />
-            </div>
+           <div className="form-group">
+                <label htmlFor="bayi">yoneticiadi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="yoneticiadi"
+                  required
+                  value={tutorial.yoneticiadi}
+                  onChange={handleInputChange}
+                  name="yoneticiadi"
+                />
 
-            <div className="form-group">
-              <label htmlFor="adres">adres</label>
-              <input
-                type="text"
-                className="form-control"
-                id="adres"
-                required
-                value={currentTutorial.adres}
-                onChange={handleInputChange}
-                name="adres"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="Telefon">Telefon</label>
-              <input
-                type="text"
-                className="form-control"
-                id="telefon"
-                required
-                value={currentTutorial.telefon}
-                onChange={handleInputChange}
-                name="telefon"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="Enlem">Enlem</label>
-              <input
-                type="text"
-                className="form-control"
-                id="enlem"
-                required
-                value={currentTutorial.enlem}
-                onChange={handleInputChange}
-                name="enlem"
-              />
-            </div>
+              </div>
 
-            <div className="form-group">
-              <label htmlFor="boylam">boylam</label>
-              <input
-                type="text"
-                className="form-control"
-                id="boylam"
-                required
-                value={currentTutorial.boylam}
-                onChange={handleInputChange}
-                name="boylam"
-              />
-            </div>
+
+
+              <div className="form-group">
+                <label htmlFor="adres">yoneticisoyadi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="yoneticisoyadi"
+                  required
+                  value={tutorial.yoneticisoyadi}
+                  onChange={handleInputChange}
+                  name="yoneticisoyadi"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="kariyer">kariyer</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kariyer"
+                  required
+                  value={currentTutorial.kariyer}
+                  onChange={handleInputChange}
+                  name="kariyer"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="pozizyon">pozizyon</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="pozizyon"
+                  required
+                  value={currentTutorial.pozizyon}
+                  onChange={handleInputChange}
+                  name="pozizyon"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="twitter">twitter</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="twitter"
+                  required
+                  value={currentTutorial.twitter}
+                  onChange={handleInputChange}
+                  name="twitter"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="boylam">facebook</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="facebook"
+                  required
+                  value={currentTutorial.facebook}
+                  onChange={handleInputChange}
+                  name="facebook"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="boylam">linkedin</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="linkedin"
+                  required
+                  value={currentTutorial.linkedin}
+                  onChange={handleInputChange}
+                  name="linkedin"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="boylam">googleplus</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="googleplus"
+                  required
+                  value={currentTutorial.googleplus}
+                  onChange={handleInputChange}
+                  name="googleplus"
+                />
+              </div>
             <FileBase64
                 type="file"
                 multiple={false}
@@ -242,8 +281,7 @@ const Bayiguncelle = props => {
       ) : (
         <div>
           <br />
-          <p>Please click on a Tutorial...</p>
-        </div>
+         </div>
       )}
     </div>
   

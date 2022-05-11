@@ -114,13 +114,7 @@ const BayiEkle = () => {
             </div>
           ) : (
             <div>
-              <Editor style={{ width: 600 }}
-                editorState={tutorial.baslik}
-                toolbarClassName="toolbarClassName"
-                wrapperClassName="wrapperClassName"
-                editorClassName="editorClassName"
-                onEditorStateChange={handleInputChange}
-              />
+             
               <div className="form-group">
                 <label htmlFor="bayi">yoneticiadi</label>
                 <input

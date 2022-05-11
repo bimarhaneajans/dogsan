@@ -54,6 +54,8 @@ import Sosyalssguncelle from "../layouts/Sosyalss/Sosyalssguncelle"
 import Tarihceguncelle from "../layouts/Tarihce/Tarihceguncelle"
 import TarihiGaleriguncelle from "../layouts/TarihiGaleri/TarihiGaleriguncelle"
 import Urunguncelle from "../layouts/Urun/Urunguncelle"
+import Yoneticinguncelle from "../layouts/Yoneticiler/Yoneticiguncelle"
+
 import Dynamickategori from "../layouts/Kategori/dynamickategori"
 import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
 import Subdynamicdetaykategori from "layouts/Kategori/subdynamicdetaykategori";
@@ -178,6 +180,7 @@ export default function App() {
         <Route path="/Dynamicdetaykategori" element={<Dynamicdetaykategori />} />
         <Route path="/SubDynamickategori/:id" element={<SubDynamickategori />} />
         <Route path="/Subdynamicdetaykategori/:id" element={<Subdynamicdetaykategori />} />
+        <Route path="/yoneticiguncelle/:id" element={<Yoneticinguncelle />} />
 
       </Routes>
     </ThemeProvider>
