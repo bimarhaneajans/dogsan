@@ -700,7 +700,7 @@ ol ol {
     list-style: none
 }
 .list-unstyledd {
-    margin-left: -280px;
+    margin-left: -200px;
     padding-left: 0;
     list-style: none
 }
@@ -708,7 +708,8 @@ ol ol {
 .list-inline {
     padding-left: 0;
     list-style: none;
-    margin-left: -5px
+
+
 }
 
 .list-inline>li {
