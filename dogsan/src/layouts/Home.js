@@ -57,6 +57,7 @@ import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "./style.css"
 import "./responsive-styling.css"
+import "./social.css"
 
 
 export default function Home() {
@@ -1233,30 +1234,30 @@ export default function Home() {
           </div>
 
         </div>
-        <div>
-        <ul class="fixed-social-menu list-inline mb-0" style={{ position: "fixed", bottom: 50, zİndex: 9999, backgroundColor: "#e60756", borderRadius: "10px 0 0 10px", right: 0 }}>
+    
+        <ul class="fixed-social-menu list-inline mb-0" >
           <li>
             <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/TWTHealth-102348289007640">
-              <i class="fa fa-facebook" style={{color:" #fff"}}></i>
+              <i class="fa fa-facebook" ></i>
             </a>
           </li>
           <li>
             <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/twthealth/">
-              <i class="fa fa-instagram" style={{color:" #fff"}}></i>
+              <i class="fa fa-instagram" ></i>
             </a>
           </li>
           <li>
             <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.linkedin.com/in/twt-helathy-26b391230/">
-              <i class="fa fa-linkedin" style={{color:" #fff"}}></i>
+              <i class="fa fa-linkedin" ></i>
             </a>
           </li>
           <li>
             <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChqrfVQgiAjPpBf_jTDvR8w ">
-              <i class="fa fa-youtube" style={{color:" #fff"}}></i>
+              <i class="fa fa-youtube-play" ></i>
             </a>
           </li>
         </ul>
-        </div>
+       
       </div>
 
     </div>
