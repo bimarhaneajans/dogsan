@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/TarihceService";
+import SosyalssDataService from "../../services/SosyalssService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -33,7 +33,7 @@ const Overview = (props) => {
   };
 
   const retrieveTutorials = () => {
-    BayiDataService.getAll()
+    SosyalssDataService.getAll()
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -55,7 +55,7 @@ const Overview = (props) => {
   };
 
   const removeAllTutorials = () => {
-    BayiDataService.removeAll()
+    SosyalssDataService.removeAll()
       .then(response => {
         console.log(response.data);
         refreshList();
@@ -66,7 +66,7 @@ const Overview = (props) => {
   };
 
   const findByTitle = () => {
-    BayiDataService.findByTitle(searchTitle)
+    SosyalssDataService.findByTitle(searchTitle)
       .then(response => {
         setTutorials(response.data);
         console.log(response.data);
@@ -146,36 +146,48 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>Başlık:</strong>
+                <strong>yoneticiadi:</strong>
                 <div>
                   <label>
 
                   </label>{" "}
-                  {currentTutorial.baslik}
+                  {currentTutorial.yoneticiadi}
                 </div>
                 <div>
                   <label>
-                    <strong>Adres:</strong>
+                    <strong>yoneticisoyadi:</strong>
                   </label>{" "}
-                  {currentTutorial.adres}
+                  {currentTutorial.yoneticisoyadi}
                 </div>
                 <div>
                   <label>
-                    <strong>Enlem:</strong>
+                    <strong>kariyer:</strong>
                   </label>{" "}
-                  {currentTutorial.enlem}
+                  {currentTutorial.kariyer}
                 </div>
                 <div>
                   <label>
-                    <strong>Telefon:</strong>
+                    <strong>pozizyon:</strong>
                   </label>{" "}
-                  {currentTutorial.telefon}
+                  {currentTutorial.pozizyon}
                 </div>
                 <div>
                   <label>
-                    <strong>Boylam:</strong>
+                    <strong>twitter:</strong>
                   </label>{" "}
-                  {currentTutorial.boylam}
+                  {currentTutorial.twitter}
+                </div>
+                <div>
+                  <label>
+                    <strong>linkedin:</strong>
+                  </label>{" "}
+                  {currentTutorial.linkedin}
+                </div>
+                <div>
+                  <label>
+                    <strong>googleplus:</strong>
+                  </label>{" "}
+                  {currentTutorial.googleplus}
                 </div>
                 <div>
                   <label>
@@ -185,7 +197,7 @@ const Overview = (props) => {
                 </div>
 
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial.id}
+                  to={"/Sosyalssguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle

@@ -19,7 +19,6 @@ import FileBase64 from 'react-file-base64';
 const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
-    baslik: "",
     yoneticiadi: "",
     yoneticisoyadi: "",
     kariyer: "",
@@ -116,7 +115,7 @@ const BayiEkle = () => {
             <div>
              
               <div className="form-group">
-                <label htmlFor="bayi">yoneticiadi</label>
+                <label htmlFor="yoneticiadi">yoneticiadi</label>
                 <input
                   type="text"
                   className="form-control"
@@ -132,7 +131,7 @@ const BayiEkle = () => {
 
 
               <div className="form-group">
-                <label htmlFor="adres">yoneticisoyadi</label>
+                <label htmlFor="yoneticisoyadi">yoneticisoyadi</label>
                 <input
                   type="text"
                   className="form-control"
@@ -181,7 +180,7 @@ const BayiEkle = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="boylam">facebook</label>
+                <label htmlFor="facebook">facebook</label>
                 <input
                   type="text"
                   className="form-control"
@@ -193,7 +192,7 @@ const BayiEkle = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="boylam">linkedin</label>
+                <label htmlFor="linkedin">linkedin</label>
                 <input
                   type="text"
                   className="form-control"
@@ -205,7 +204,7 @@ const BayiEkle = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="boylam">googleplus</label>
+                <label htmlFor="googleplus">googleplus</label>
                 <input
                   type="text"
                   className="form-control"

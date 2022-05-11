@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import BayiDataService from "../../services/BayiService";
+import SosyalssDataService from "../../services/SosyalssService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -50,7 +50,7 @@ const BayiEkle = () => {
       Resim: tutorial.Resim,
     };
 
-    BayiDataService.create(data)
+    SosyalssDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
@@ -96,7 +96,7 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
+                <label htmlFor="Başlık">Başlık</label>
                 <input
                   type="text"
                   className="form-control"

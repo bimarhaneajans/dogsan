@@ -195,7 +195,7 @@ const Overview = (props) => {
             ) : (
               <div>
                 <br />
-                <p>Bir Blog Seçin...</p>
+                <p>Kaydet</p>
               </div>
             )}
           </div>
