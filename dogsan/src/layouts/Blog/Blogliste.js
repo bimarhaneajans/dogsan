@@ -195,7 +195,7 @@ const Overview = (props) => {
             ) : (
               <div>
                 <br />
-                <p>Kaydet</p>
+                
               </div>
             )}
           </div>

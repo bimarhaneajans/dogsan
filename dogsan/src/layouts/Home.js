@@ -23,6 +23,8 @@ import { Routes, Router, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
+import BlogDataService from "../services/BlogService";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
@@ -62,6 +64,8 @@ import "./responsive-styling.css"
 export default function Home() {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
+  const [blog, setBlog] = useState([]);
+
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();
@@ -73,6 +77,12 @@ export default function Home() {
 
   useEffect(() => {
     retrieveTutorials();
+    
+  }, []);
+
+  useEffect(() => {
+    
+    retrieveBlogs();
   }, []);
 
 
@@ -81,7 +91,19 @@ export default function Home() {
     KategoriDataService.getAll()
       .then(response => {
         setTutorials(response.data);
-        console.log(response.data);
+        console.log(tutorials);
+       
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  const retrieveBlogs = () => {
+    BlogDataService.getAll()
+      .then(response => {
+        setBlog(response.data);
+        console.log(blog);
       })
       .catch(e => {
         console.log(e);
