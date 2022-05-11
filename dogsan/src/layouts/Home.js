@@ -543,18 +543,18 @@ export default function Home() {
         </div> */}
 
 <div >
-<section class="client-div" style={{marginTop:50,height:350}}>
+<div class="client-div" style={{marginTop:50,height:350}}>
           <div class="container">
             <div class="row">
               <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                <div class="client-stat text-center" >
-                  <h3  style={{marginTop:20,height:350,fontSize:60}}>Dünyada Bİz..</h3>
-                  <p  style={{fontSize:23,marginTop:-170,color:"white"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                <div class="client-stat text-center" style={{margin:"100px auto",backgroundColor: "white",padding: "45px 20px 35px"}}>
+                  <h3  >Dünyada Bİz..</h3>
+                  <p  >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 </div>
         
 
