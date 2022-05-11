@@ -318,7 +318,7 @@ export default function Home() {
 
 
 
-      
+
 
 
         <div className="main-header">
@@ -422,7 +422,7 @@ export default function Home() {
               <div className="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                 <div className="job-stat">
                   <h3>Karİyerİnİ planlamak mı İstİyorsun ?</h3>
-                   <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor incidid. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor incidid. </p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor incidid. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor incidid. </p>
                 </div>
               </div>
               <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4">
@@ -437,8 +437,8 @@ export default function Home() {
         <div className="text-center">
           <h2>Etkinlik Rehberi</h2>
         </div>
-        <div className="clearfix" style={{marginBottom: "28px"}}></div>
-     
+        <div className="clearfix" style={{ marginBottom: "28px" }}></div>
+
 
         <div id="services2">
           <div className="container">
@@ -542,21 +542,21 @@ export default function Home() {
           </div>
         </div> */}
 
-<div >
-<div class="client-div" style={{marginTop:50,height:350}}>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                <div class="client-stat text-center" style={{margin:"100px auto",backgroundColor: "white",padding: "45px 20px 35px"}}>
-                  <h3  >Dünyada Bİz..</h3>
-                  <p  >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        <div >
+          <div class="client-div" style={{ marginTop: 50, height: 350 }}>
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                  <div class="client-stat text-center" style={{ margin: "100px auto", backgroundColor: "white", padding: "45px 20px 35px" }}>
+                    <h3  >Dünyada Bİz..</h3>
+                    <p  >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-</div>
-        
+
 
 
         <div id="team">
@@ -565,7 +565,7 @@ export default function Home() {
               <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
                 <div className="team-stat text-center">
                   <h2>Yönetİcİler İle Tanışın</h2>
-                 </div>
+                </div>
                 {/*    <div className="team-filter-nav text-center">
                   <ul id="filters" className="filter-nav list-inline list-unstyled">
                     <li><a data-filter="*" className="current" href="#">All</a></li>
@@ -701,7 +701,7 @@ export default function Home() {
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="blog-stat text-center">
                   <h2>Blog Yazıları</h2>
-{/*                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                  {/*                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
  */}                </div>
               </div>
             </div>
@@ -1169,17 +1169,17 @@ export default function Home() {
 
             <div className="footer2-bottom">
               <div className="container">
-              <div className="col-md-6">
+                <div className="col-md-6">
                   <ul className="footer-social">
                     <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                     <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
                     <li><a href="#"><i className="fa fa-instagram"></i></a></li>
                     <li><a href="#"><i className="fa fa-youtube"></i></a></li>
 
 
                   </ul>
                 </div>
-             
+
                 <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
               </div>
             </div>
@@ -1233,7 +1233,30 @@ export default function Home() {
           </div>
 
         </div>
-
+        <div>
+        <ul class="fixed-social-menu list-inline mb-0" style={{ position: "fixed", bottom: 50, zİndex: 9999, backgroundColor: "#e60756", borderRadius: "10px 0 0 10px", right: 0 }}>
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/TWTHealth-102348289007640">
+              <i class="fa fa-facebook" style={{color:" #fff"}}></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/twthealth/">
+              <i class="fa fa-instagram" style={{color:" #fff"}}></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.linkedin.com/in/twt-helathy-26b391230/">
+              <i class="fa fa-linkedin" style={{color:" #fff"}}></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChqrfVQgiAjPpBf_jTDvR8w ">
+              <i class="fa fa-youtube" style={{color:" #fff"}}></i>
+            </a>
+          </li>
+        </ul>
+        </div>
       </div>
 
     </div>
