@@ -25,69 +25,12 @@ import Subdynamickategori from "./Kategori/subdynamickategori"; */
 
 import slidebbg from "./sliderimages/slide-b-bg.jpg";
 import silide2 from "../components/assets/img/slider/slide2.jpg";
- import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
-import "../layouts/assets/css/style.css";
-import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
-import "../layouts/assets/css/responsive-styling.css";
-import  "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css" ;
-/*import "../layouts/assets/css/YTPlayer.css" ;
-import "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" ;
-
- // import "../layouts/assets/css/YTPlayer.css"
- import "../layouts/assets/js/jquery-1.9.1.min.js"></script>
- import "../layouts/assets/vendor/layerslider/js/greensock.js" type="text/javascript"></script>
- import "../layouts/assets/vendor/layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
- import "../layouts/assets/vendor/layerslider/js/layerslider.kreaturamedia.jquery.js"
-    type="text/javascript"></script>
-
-
-  <script>
-    jQuery("#layerslider").layerSlider({
-      responsive: false,
-      responsiveUnder: 1280,
-      layersContainer: 1280,
-      pauseOnHover: false,
-      autoPlayVideos: false,
-      skinsPath: '../src/layouts/assets/vendor/layerslider/skins/'
-    });
-  </script>
-  <script>
-    jQuery('.bttop').click(function () {
-      jQuery('html, body').animate({ scrollTop: 0 }, 'slow');
-    });
-  </script>
-  <script src="../src/layouts/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../src/layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.js"></script>
-  <script src="../src/layouts/assets/vendor/isotope/isotope.pkgd.min.js"></script>
-  <script src="../src/layouts/assets/vendor/waypoint-sticky-nav/waypoints.js"></script>
-  <script src="../src/layouts/assets/vendor/waypoint-sticky-nav/waypoints-sticky.min.js"></script>
-  <script src="../src/layouts/assets/js/custom-scripts.js"></script>
-  <script type="text/javascript"
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&amp;sensor=false"></script>
-  <script type="text/javascript">
-    google.maps.event.addDomListener(window, 'load', init);
-    function init() {
-      var mapOptions = {
-        zoom: 11,
-
-        center: new google.maps.LatLng(40.6700, -73.9400), // New York
-
-
-        styles: [
-          {
-            featureType: 'water',
-            elementType: 'all',
-            stylers: [{ hue: '#e9ebed' }, { saturation: -78 }, { lightness: 67 }, { visibility: 'simplified' }]
-          }, { featureType: 'landscape', elementType: 'all', stylers: [{ hue: '#ffffff' }, { saturation: -100 }, { lightness: 100 }, { visibility: 'simplified' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: 31 }, { visibility: 'simplified' }] }, { featureType: 'poi', elementType: 'all', stylers: [{ hue: '#ffffff' }, { saturation: -100 }, { lightness: 100 }, { visibility: 'off' }] }, { featureType: 'road.local', elementType: 'geometry', stylers: [{ hue: '#e9ebed' }, { saturation: -90 }, { lightness: -8 }, { visibility: 'simplified' }] }, { featureType: 'transit', elementType: 'all', stylers: [{ hue: '#e9ebed' }, { saturation: 10 }, { lightness: 69 }, { visibility: 'on' }] }, { featureType: 'administrative.locality', elementType: 'all', stylers: [{ hue: '#2c2e33' }, { saturation: 7 }, { lightness: 19 }, { visibility: 'on' }] }, { featureType: 'road', elementType: 'labels', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: 31 }, { visibility: 'on' }] }, { featureType: 'road.arterial', elementType: 'labels', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: -2 }, { visibility: 'simplified' }] }]
-      };
-
-
-      var mapElement = document.getElementById('map');
-
-
-      var map = new google.maps.Map(mapElement, mapOptions);
-    }
-  </script> */
+// import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
+//import "../layouts/assets/css/style.css"; // burasi
+//import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
+//import "../layouts/assets/css/responsive-styling.css";
+//import  "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css" ;
+ import "./style.css"
 
 
 export default function Home() {
@@ -530,18 +473,19 @@ export default function Home() {
         </div> */}
 
 
-        <div className="client-div">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                <div className="client-stat text-center">
-                  <h3>Our Happy Clients</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <section class="client-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+					<div class="client-stat text-center">
+						<h3>Our Happy Clients</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 
         <div id="team">
           <div className="container">
@@ -681,106 +625,106 @@ export default function Home() {
         </div>
 
 
-        <div id="projects">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div className="blog-stat text-center">
-                  <h2>Our latest Projects</h2>
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className="bottom-space-50"></div>
-              <ul className="projects-wrap">
-                <li>
-                  <img src="assets/img/projects/1.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src="assets/img/projects/2.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src="assets/img/projects/3.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src="assets/img/projects/4.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src="assets/img/projects/5.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src="assets/img/projects/6.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src="assets/img/projects/7.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src="assets/img/projects/8.jpg" className="img-responsive" alt="" />
-                  <div className="overlay">
-                    <div className="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span className="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <section id="projects">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+					<div class="blog-stat text-center">
+						<h2>Our latest Projects</h2>
+						<h5>Lorem ipsum dolor sit amet</h5>
+						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="bottom-space-50"></div>
+				<ul class="projects-wrap">
+					<li>
+						<img src="assets/img/projects/1.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="assets/img/projects/2.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="assets/img/projects/3.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="assets/img/projects/4.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="assets/img/projects/5.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="assets/img/projects/6.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="assets/img/projects/7.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+					<li>
+						<img src="assets/img/projects/8.jpg" class="img-responsive" alt=""/>
+						<div class="overlay">
+							<div class="overlay-inner">
+								<h4>Clinic office <span>Durning work</span></h4>
+								<span class="comments">30 comments</span>
+								<a href="#">View more</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	   </section>
 
         <div className="clearfix"></div>
 
