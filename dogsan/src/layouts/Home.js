@@ -24,6 +24,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
+import DuyuruDataService from "../services/DuyuruService";
+
 
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
@@ -70,6 +72,8 @@ export default function Home() {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [blog, setBlog] = useState([]);
+  const [duyuru, setDuyuru] = useState([]);
+
 
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
@@ -90,6 +94,10 @@ export default function Home() {
     retrieveBlogs();
   }, []);
 
+  useEffect(() => {
+
+    retrieveDuyuru();
+  }, []);
 
 
   const retrieveTutorials = () => {
@@ -115,6 +123,17 @@ export default function Home() {
       });
   };
 
+  const retrieveDuyuru = () => {
+    DuyuruDataService.getAll()
+      .then(response => {
+        setDuyuru(response.data);
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
 
 
   const setActiveTutorial = (tutorial, index) => {
@@ -132,8 +151,7 @@ export default function Home() {
 
           <div id="slider-wrapper">
             <Sliders />
-            {/*
-         */}
+        
           </div>
         </div>
 
@@ -162,7 +180,7 @@ export default function Home() {
           </div>
         </div>
 
-
+    
 
 
 
@@ -281,7 +299,26 @@ export default function Home() {
           <div className="clearfix"></div>
         </div>
 
+{/*
 
+
+        <ul class="projects-wrap">
+                {blog.map(item => (
+
+                  <li key={item.id}>
+                    <img src={item.Resim} class="img-responsive" alt="" />
+                    <div class="overlay">
+                      <div class="overlay-inner">
+                        <h4><span>{item.baslik}</span></h4>
+                        <span class="comments">{item.Ozet}</span>
+                       
+                      </div>
+                    </div>
+                   
+                  </li>
+                ))} 
+              </ul>
+         */}
         <div className="text-center">
           <h2>DUYURULAR </h2>
         </div>
@@ -292,7 +329,8 @@ export default function Home() {
           <div className="container">
 
             <div className="row">
-              <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
+            {duyuru.map(item => (
+              <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
 
                 <div className="clearfix"></div>
                 <img className="pull-center icon" src={s2} alt="icon" />
@@ -301,26 +339,18 @@ export default function Home() {
                   <p>27 Mart’ta İstanbul Beşiktaş’ta bulunan Doğsan Eğitim Salonunda düzenlenecek olan “Diş Hekimliği Sütür, Flep Kaplama Eğitimi” Yüz yüze veya online seçenekleriyle sizi bekliyor. </p>
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr2">
-                <div className="clearfix"></div>
-                <img className="pull-center icon" src={s2} alt="icon" />
-                <div className="info-col">
-                  <h5> 22. ULUSAL CERRAHİ KONGRESİ</h5>
-                  <p>23-27 Mart’ta Antalya’da düzenlenecek olan 22. Ulusal Cerrahi Kongresi ve 17. Ulusal Cerrahi Hemşireliği Kongresi’nde yerimizi aldık. Sizleri de görmekten mutluluk duyarız.</p>
-                </div>
-              </div>
-              <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr3">
-                <div className="clearfix"></div>
-                <img className="pull-center icon" src={s2} alt="icon" />
-                <div className="info-col">
-                  <h5>12. OHSAD KONGRESİ</h5>
-                  <p>23-27 Mart’ta Antalya Cornella Diamond Otel’de düzenlenecek olan 12. OHSAD Kurultayı’nda sizleri de standımızda görmekten mutluluk duyarız.</p>
-                </div>
-              </div>
-            </div>
+ ))} 
+
+ 
+       </div>
+
           </div>
           <div className="clearfix"></div>
         </div>
+
+
+
+
 
         <div id="services3">
           <div className="services-info3">
@@ -515,14 +545,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* <ul>
-        {blog.map(item => (
-          <li key={item.id}>
-            <p>{item.baslik}</p> 
-          </li>
-        ))}
-      </ul> */}
+ 
 
           <div class="row">
             <div class="col-md-12">
@@ -541,82 +564,7 @@ export default function Home() {
                     </div>
                    
                   </li>
-                ))}
-                 
-
-
-
-
-                {/*      <li>
-                  <img src={iki} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src={uc} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src={dort} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src={bes} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src={alti} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src={yedi} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <img src={sekiz} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
-                    </div>
-                  </div>
-                </li> */}
+                ))} 
               </ul>
 
             </div>
