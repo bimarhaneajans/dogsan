@@ -396,9 +396,9 @@ export default function Home() {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
-                  <h2>Our Mission</h2>
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                  <h2>HAKKIMIZDA</h2>
+                  <h5>1970'ten Beri...</h5>
+                  <p className="lead">Türkiye, Ortadoğu ve Balkanlar’daki ilk sütür üreticisi olan Doğsan, 1970 yılında kurulmuştur ve sütür üretiminde köklü bir geçmişe sahiptir.</p>
                 </div>
 
                 <div className="information">
@@ -406,29 +406,29 @@ export default function Home() {
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                       <img className="pull-center icon" src={icon1} alt="icon" />
                       <div className="info-col">
-                        <h5>Health Information</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                        <h5>MÜŞTERİ ODAKLILIK</h5>
+                        <p>Müşterilerimizi anlamanın; “Cerrahlar”, “Hemşireler” ve bayilerin ihtiyaçlarını karşılamanın sorumluluğunu taşırız… Modern cerrahi değişimlerinin gereği olarak, Doğsan deneyimi ve müşteri odaklılığı ile teknolojimizi ve ürün yelpazemizi, cerrahların ve hemşirelerin ihtiyaçlarına göre uyumlaştırırız.</p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                       <img className="pull-center icon" src={icon2} alt="icon" />
                       <div className="info-col">
-                        <h5>Medical Education</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                        <h5>SÜREKLİ GELİŞİM</h5>
+                        <p>Sektörel tüm gelişmeleri yakından takip ederek; öğrenen, gelişen ve yenilenen bir kurumsal kültür ile çalışırız. Müşterilerimizden ve çalışanlarımızdan gelen geri bildirimleri önemser ve dikkate alarak gerekli aksiyonları hayata geçiririz.</p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                       <img className="pull-center icon" src={icon3} alt="icon" />
                       <div className="info-col">
-                        <h5>Symptom Check</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                        <h5>KALİTE YÖNETİMİ</h5>
+                        <p>Üretim, pazarlama, satış ve yönetim süreçlerinin her bir kademesinde görev alan profesyonel kadrolar, operasyonel faaliyetlerin kesintisiz bir şekilde iyileştirilmesine yardımcı olur. Böylece Doğsan’da kalite prensipleri A’dan Z’ye ciddiyetler uygulanır.</p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                       <img className="pull-center icon" src={icon4} alt="icon" />
                       <div className="info-col">
-                        <h5>Qualified Doctors</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                        <h5>TAKIM ÇALIŞMASI</h5>
+                        <p>Yüksek deneyimli ve yetenekli her bir çalışanımızın bireysel becerisi, takım çalışmasına inanarak Doğsan’ın başarısını oluşturur. Farklı görüşlere saygı, çeşitliliğe duyulan inanç, dayanışma ruhu ve birbirine duyulan güven bizi birbirimize bağlayan en önemli kültürdür.</p>
                       </div>
                     </div>
                   </div>
