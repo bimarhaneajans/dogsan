@@ -144,7 +144,7 @@ export default function Home() {
   const retrieveYoneticiler = () => {
     YoneticiDataService.getAll()
       .then(response => {
-        setDuyuru(response.data);
+        setYoneticiler(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -502,7 +502,7 @@ export default function Home() {
 
             <div className="row">
               <div id="container" className="container team-detail">
-              {duyuru.map(item => (
+              {yoneticiler.map(item => (
                 <div key={item.id} className="item general col-md-6">
                 
                   <div className="team-member">
