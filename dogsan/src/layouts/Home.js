@@ -25,7 +25,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
 
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
+ import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../routes";
@@ -38,7 +38,11 @@ import icon1 from "../layouts/assets/img/icons/icon-1.png";
 import icon2 from "../layouts/assets/img/icons/icon-2.png";
 import icon3 from "../layouts/assets/img/icons/icon-3.png";
 import icon4 from "../layouts/assets/img/icons/icon-4.png";
-import icon5 from "../layouts/assets/img/icons/s2-ico1.png";
+import icon5 from "../layouts/assets/img/icons/icon-5.png";
+import icon6 from "../layouts/assets/img/icons/icon-6.png";
+import icon7 from "../layouts/assets/img/icons/icon-7.png";
+import icon8 from "../layouts/assets/img/icons/icon-8.png";
+
 import bir from "../layouts/assets/img/projects/1.jpg";
 import iki from "../layouts/assets/img/projects/2.jpg";
 import uc from "../layouts/assets/img/projects/3.jpg";
@@ -337,14 +341,14 @@ export default function Home() {
             <div className="container">
               <div className="row bottom-space-50">
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <img className="pull-left icon" src="assets/img/icons/icon-1.png" alt="icon" />
+                  <img className="pull-left icon" src={icon1} alt="icon" />
                   <div className="info-col">
                     <h5>7/24 DESTEK HİZMETİ</h5>
                     <p>Doğsan, kalite politikası gereği tüm saha ekipleri ve bayiler aracılığıyla en acil durumlarda yanı başınızda.</p>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <img className="pull-left icon" src="assets/img/icons/icon-5.png" alt="icon" />
+                  <img className="pull-left icon" src={icon5} alt="icon" />
                   <div className="info-col">
                     <h5>CERRAHLARIN ÖNCELİKLİ TERCİHİ
 </h5>
@@ -352,7 +356,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
+                  <img className="pull-left icon" src={icon6} alt="icon" />
                   <div className="info-col">
                     <h5>HASTANELERİN ÖNCELİKLİ TERCİHİ</h5>
                     <p>Operasyon güvenliği, malzeme verimliliği açısından geliştirdiği inovatif çözümlerle Doğsan üniversite ve kamu hastaneleri ile özel hastanelerde en çok talep edilen marka oldu.</p>
@@ -361,7 +365,7 @@ export default function Home() {
               </div>
               <div className="row bottom-space-50">
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <img className="pull-left icon" src="assets/img/icons/icon-4.png" alt="icon" />
+                  <img className="pull-left icon" src={icon4} alt="icon" />
                   <div className="info-col">
                     <h5>YÜKSEK KALİTE ANLAYIŞI </h5>
                     <p>Deneyimli ekipler ile teknolojinin bütün olanakları seferber edilerek geliştirilen ürünlerimiz, evrensel kalite standartlarına uygun olarak üretilmektedir. 
@@ -369,7 +373,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <img className="pull-left icon" src="assets/img/icons/icon-7.png" alt="icon" />
+                  <img className="pull-left icon" src={icon7} alt="icon" />
                   <div className="info-col">
                     <h5>EĞİTİM PROGRAMLARI </h5>
                     <p>Cerrahi teknolojiler konusunda yaşanan güncel gelişmeler, operasyon yönetimi ve teknik konularda profesyonel hekimler ve öncü bilim insanları aracılığıyla Doğsan bünyesinde eğitim organizasyonları düzenlenmektedir.
@@ -377,7 +381,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <img className="pull-left icon" src="assets/img/icons/icon-8.png" alt="icon" />
+                  <img className="pull-left icon"src={icon8} alt="icon" />
                   <div className="info-col">
                     <h5>SOSYAL SORUMLULUK </h5>
                     <p>Ülkemizde ve dünyada yaşanan insani sorunlara hassasiyet gösteren Doğsan ailesi, daha yaşanabilir bir dünya için canla başla çalışıyor.

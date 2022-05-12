@@ -171,12 +171,12 @@ function slider() {
           </div>
         </div>
       </div>
-       <div className="container bs-main">
+
+     {/*   <div className="container bs-main">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
             <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src="assets/img/logo/heartify-logo.png" alt="Heartify" /></a></div>
-            {/* Top Header and Navigation */}
-            <div className="top-header hidden-xs">
+             <div className="top-header hidden-xs">
               <div className="top-navigation">
                 <ul className="top-nav list-unstyled list-inline">
                   <li className="active"><a href="#home">Home</a></li>
@@ -212,11 +212,9 @@ function slider() {
                     <li><a href="#contact">Contact</a></li>
                   </ul>
                 </div>
-                {/* top navigation div */}
-                <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
+                 <nav className="navbar navbar-default hidden-sm hidden-md hidden-lg" role="navigation">
                   <div className="container-fluid">
-                    {/* Brand and toggle get grouped for better mobile display */}
-                    <div className="navbar-header">
+                     <div className="navbar-header">
                       <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
                         <span className="sr-only">Toggle navigation</span>
                         <span className="icon-bar" />
@@ -224,8 +222,7 @@ function slider() {
                         <span className="icon-bar" />
                       </button>
                     </div>
-                    {/* Collect the nav links, forms, and other content for toggling */}
-                    <div className="collapse navbar-collapse" id="navbar-collapse-1">
+                     <div className="collapse navbar-collapse" id="navbar-collapse-1">
                       <ul className="nav navbar-nav">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
@@ -235,14 +232,13 @@ function slider() {
                         <li><a href="#contact">Contact</a></li>
                       </ul>
                     </div>
-                    {/* /.navbar-collapse */}
-                  </div>
+                   </div>
                 </nav>
               </div>
             </div>
           </div>
         </div>
-      </div>  
+      </div>   */}
         
     
  
