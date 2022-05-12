@@ -444,15 +444,22 @@ export default function Home() {
             </div>
           </div>
         </div>
+ 
+      
+
+
+
+
+
 
         <div >
-          <section class="client-div" style={{ marginTop: 50, height: 350 }}>
+          <section class="client-div" style={{ marginTop: 50, height: 400 }}>
             <div class="container">
               <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                  <div class="client-stat text-center" style={{ margin: "100px auto", backgroundColor: "white", padding: "45px 20px 35px" }} >
+                  <div class="client-stat text-center" style={{ margin: "100px auto", backgroundColor: "white", padding: "45px 20px 44px 21px" }} >
                     <h3 >DÜNYADA DOĞSAN</h3>
-                    <p >: Avrupa, Asya ve Ortadoğu’da 40’ı aşkın ülkeye ihracat yapan Doğsan, kalite standartlarına uygun olarak ürettiği geniş ürün yelpazesiyle sütür üretiminde Türkiye’nin Dünya pazarlarındaki temsilcisi konumundadır.
+                    <p> Avrupa, Asya ve Ortadoğu’da 40’ı aşkın ülkeye ihracat yapan Doğsan, kalite standartlarına uygun olarak ürettiği geniş ürün yelpazesiyle sütür üretiminde Türkiye’nin Dünya pazarlarındaki temsilcisi konumundadır.
 </p>
                   </div>
                 </div>
@@ -483,23 +490,37 @@ export default function Home() {
                 </div>
               </div>
             </div>
+ {/*  yoneticiadi: tutorial.yoneticiadi,
+      yoneticisoyadi: tutorial.yoneticisoyadi,
+      kariyer: tutorial.kariyer,
+      pozizyon: tutorial.pozizyon,
+      twitter: tutorial.twitter,
+      facebook: tutorial.facebook,
+      linkedin: tutorial.linkedin,
+      googleplus: tutorial.googleplus,
+      Resim: tutorial.Resim, */}
+
             <div className="row">
               <div id="container" className="container team-detail">
-                <div className="item general col-md-6">
+              {duyuru.map(item => (
+                <div key={item.id} className="item general col-md-6">
+                
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
-                        <img src={teammember} className="img-responsive" alt="" />
+                        <img src={item.Resim} className="img-responsive" alt="" />
                       </div>
                     </a>
                     <div className="member-details" >
-                      <h6>GENEL MÜDÜR</h6>
-                      <h4>AHMET SEÇKİN</h4>
-                      <p>Boğaziçi Üniversitesi Sağlık Bilimleri Enstitüsü’nde yüksek lisansını tamamladı. Sağlık sektörünün çeşitli kademelerinde görev aldı. Operasyonel konularda duyarlı ve profesyonel bir yaklaşımla Doğsan bünyesinde kariyerini sürdürmektedir.</p>
+                      <h6>{item.pozizyon}</h6>
+                      <h4> {item.yoneticiadi + item.yoneticisoyadi}</h4>
+                      <p>{item.kariyer} </p>
 
                     </div>
                   </div>
                 </div>
+                ))} 
+
 
                 <div className="item laboratory col-md-6">
                   <div className="team-member">
@@ -1030,7 +1051,7 @@ export default function Home() {
           </div>
 
         </div>
-        <ul class="fixed-social-menu list-inline mb-0" >
+        <ul class="fixed-social-menu list-inline-social mb-0" >
           <li>
             <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/TWTHealth-102348289007640">
               <i class="fa fa-facebook" ></i>
