@@ -521,19 +521,19 @@ export default function Home() {
             <div class="row">
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="blog-stat text-center">
-                  <h2>Blog Yazıları</h2>
+                  <h2>Blog</h2>
              </div>
               </div>
             </div>
           </div>
 
-          <ul>
+          {/* <ul>
         {blog.map(item => (
           <li key={item.id}>
             <p>{item.baslik}</p> 
           </li>
         ))}
-      </ul>
+      </ul> */}
           
           <div class="row">
             <div class="col-md-12">
