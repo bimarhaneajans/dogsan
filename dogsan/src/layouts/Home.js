@@ -513,7 +513,7 @@ export default function Home() {
                     </a>
                     <div className="member-details" >
                       <h6>{item.pozizyon}</h6>
-                      <h4> {item.yoneticiadi + item.yoneticisoyadi}</h4>
+                      <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
                       <p>{item.kariyer} </p>
 
                     </div>
