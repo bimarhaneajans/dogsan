@@ -419,7 +419,7 @@ export default function Home() {
                 <div className="team-filter-nav text-center">
                   <ul id="filters" className="filter-nav list-inline list-unstyled">
                     <li><a data-filter="*" className="current" href="#">İDARİ EKİBİMİZ</a></li>
-                    <li><a data-filter=".pazarlamabirimi" href="#">PAZARLAMA BİRİMİ</a></li>
+                    <li><a data-filter=".general" href="#">PAZARLAMA BİRİMİ</a></li>
                     <li><a data-filter=".uretimdepartmani" href="#">ÜRETİM DEPARTMANI</a></li>
                     <li><a data-filter=".sahaekibi" href="#">SAHA EKİBİMİZ</a></li>
                   </ul>
@@ -435,17 +435,16 @@ export default function Home() {
                         <img src={teammember} className="img-responsive" alt="" />
                       </div>
                     </a>
-                    <div className="member-details">
+                    <div className="member-details" >
                       <h6>GENEL MÜDÜR</h6>
                       <h4>AHMET SEÇKİN</h4>
-                      <p>Boğaziçi Üniversitesi Sağlık Bilimleri Enstitüsü’nde yüksek lisansını tamamladı. Sağlık sektörünün çeşitli kademelerinde görev aldı. Operasyonel konularda duyarlı ve profesyonel bir yaklaşımla Doğsan bünyesinde kariyerini sürdürmektedir.
- </p>
+                      <p>Boğaziçi Üniversitesi Sağlık Bilimleri Enstitüsü’nde yüksek lisansını tamamladı. Sağlık sektörünün çeşitli kademelerinde görev aldı. Operasyonel konularda duyarlı ve profesyonel bir yaklaşımla Doğsan bünyesinde kariyerini sürdürmektedir.</p>
              
                     </div>
                   </div>
                 </div>
 
-               {/*  <div className="item laboratory col-md-6">
+                 <div className="item laboratory col-md-6">
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
@@ -489,28 +488,12 @@ export default function Home() {
                       
                     </div>
                   </div>
-                </div> */}
+                </div>  
                 
               </div>
             </div>
             <div>
-              {/*  <div className="pagination-div">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xs-12 col-md-12 col-lg-12">
-                      <p className="pull-left">Showing <span>1-4</span> of 16 doctors</p>
-                      <ul className="pagination pull-right">
-                        <li className="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+               
             </div>
           </div>
         </div>
