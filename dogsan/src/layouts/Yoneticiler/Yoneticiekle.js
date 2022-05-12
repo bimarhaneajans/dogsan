@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -113,7 +112,7 @@ const BayiEkle = () => {
             </div>
           ) : (
             <div>
-             
+              
               <div className="form-group">
                 <label htmlFor="yoneticiadi">yoneticiadi</label>
                 <input
@@ -216,11 +215,11 @@ const BayiEkle = () => {
                 />
               </div>
 
-              <FileBase64
+            <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />
+              />  
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
