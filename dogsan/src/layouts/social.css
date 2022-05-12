@@ -1,0 +1,129 @@
+.fixed-social-menu {
+    position: fixed;
+    bottom: 50%;
+    z-index: 9999;
+    background-color: #e60756;
+    border-radius: 10px 0 0 10px;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height:150px;
+    width: 30px;
+
+}
+.list-inline {
+    padding-left: 0;
+    list-style: none
+}
+.ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.mb-0 {
+    margin-bottom: 0 !important
+}
+.btn {
+    display: inline-block;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #585c7b;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .625rem 1.75rem;
+    font-size: 0.875rem;
+    border-radius: .375rem;
+    transition: color .2s ease-in-out, background-color .2s ease-in-out, border-color .2s ease-in-out, box-shadow .2s ease-in-out
+}
+@media (prefers-reduced-motion: reduce) {
+    .btn {
+        transition: none
+    }
+}
+.btn-sm,
+.btn-group-sm > .btn {
+    padding: 1.25rem;
+    font-size: 0.75rem;
+    border-radius: .25rem
+}
+.btn-icon {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+   
+}
+.btn-icon.btn-sm,
+.btn-group-sm > .btn-icon.btn {
+    width: 2.25rem;
+    height: 2.25rem
+}
+
+.btn-icon.btn-sm > i,
+.btn-group-sm > .btn-icon.btn > i {
+    font-size: 1.75rem
+}
+.btn-icon > i {
+    font-size: 1.25rem
+}
+
+.btn-icon.btn-sm,
+.btn-group-sm > .btn-icon.btn {
+    width: 2.25rem;
+    height: 2.25rem
+}
+
+.btn-icon.btn-sm > i,
+.btn-group-sm > .btn-icon.btn > i {
+    font-size: 1.75rem
+}
+
+.btn-icon.btn-lg,
+.btn-group-lg > .btn-icon.btn {
+    width: 3.25rem;
+    height: 3.25rem
+}
+
+.btn-icon.btn-lg > i,
+.btn-group-lg > .btn-icon.btn > i {
+    font-size: 1.4375rem
+}
+
+.btn-icon.btn-xl {
+    width: 4.5rem;
+    height: 4.5rem
+}
+
+.btn-icon.btn-xl > i {
+    font-size: 1.75rem
+}
+.page-link.btn-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0
+}
+.text-white {
+    color: #fff !important
+}
