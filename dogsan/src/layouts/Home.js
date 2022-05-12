@@ -320,9 +320,10 @@ export default function Home() {
           <div className="services-info3">
             <div className="container">
               <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
-                <h2>Online Patient Panel</h2>
-                <h5>Lorem ipsum dolor sit amet</h5>
-                <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                <h2>ONLİNE MÜŞTERİ PANELİ </h2>
+                <h5>AKLINIZDAKİ TÜM SORULARI YANITLIYORUZ</h5>
+                <p className="lead">Ürün ve hizmetlerimizle ilgili satış/destek süreçlerinde her zaman yanınızdayız. Aklınızdaki tüm soruları online müşteri panelinden bizlere iletebilirsiniz.
+</p>
               </div>
               <div className="bottom-space-50"></div>
               <img src="assets/img/1.png" className="img-responsive" alt="" />
@@ -338,22 +339,23 @@ export default function Home() {
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <img className="pull-left icon" src="assets/img/icons/icon-1.png" alt="icon" />
                   <div className="info-col">
-                    <h5>call center 24/7</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <h5>7/24 DESTEK HİZMETİ</h5>
+                    <p>Doğsan, kalite politikası gereği tüm saha ekipleri ve bayiler aracılığıyla en acil durumlarda yanı başınızda.</p>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <img className="pull-left icon" src="assets/img/icons/icon-5.png" alt="icon" />
                   <div className="info-col">
-                    <h5>best specialist</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <h5>CERRAHLARIN ÖNCELİKLİ TERCİHİ
+</h5>
+                    <p>Cerrahi operasyonlarda dünya standartlarındaki ürünlerimizle en çok tercih edilen marka olmanın gururunu yaşıyoruz.</p>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
                   <div className="info-col">
-                    <h5>modern clinic</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <h5>HASTANELERİN ÖNCELİKLİ TERCİHİ</h5>
+                    <p>Operasyon güvenliği, malzeme verimliliği açısından geliştirdiği inovatif çözümlerle Doğsan üniversite ve kamu hastaneleri ile özel hastanelerde en çok talep edilen marka oldu.</p>
                   </div>
                 </div>
               </div>
@@ -361,22 +363,25 @@ export default function Home() {
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <img className="pull-left icon" src="assets/img/icons/icon-4.png" alt="icon" />
                   <div className="info-col">
-                    <h5>highest quality</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <h5>YÜKSEK KALİTE ANLAYIŞI </h5>
+                    <p>Deneyimli ekipler ile teknolojinin bütün olanakları seferber edilerek geliştirilen ürünlerimiz, evrensel kalite standartlarına uygun olarak üretilmektedir. 
+</p>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <img className="pull-left icon" src="assets/img/icons/icon-7.png" alt="icon" />
                   <div className="info-col">
-                    <h5>Health Information</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <h5>EĞİTİM PROGRAMLARI </h5>
+                    <p>Cerrahi teknolojiler konusunda yaşanan güncel gelişmeler, operasyon yönetimi ve teknik konularda profesyonel hekimler ve öncü bilim insanları aracılığıyla Doğsan bünyesinde eğitim organizasyonları düzenlenmektedir.
+</p>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                   <img className="pull-left icon" src="assets/img/icons/icon-8.png" alt="icon" />
                   <div className="info-col">
-                    <h5>treatment healthy</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <h5>SOSYAL SORUMLULUK </h5>
+                    <p>Ülkemizde ve dünyada yaşanan insani sorunlara hassasiyet gösteren Doğsan ailesi, daha yaşanabilir bir dünya için canla başla çalışıyor.
+</p>
                   </div>
                 </div>
               </div>
