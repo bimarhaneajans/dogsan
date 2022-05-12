@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
-import KategoriDataService from "../../services/KategoriService";
+import KategoriDataService from "../../services/SubKategoriService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -58,10 +58,11 @@ const Subdynamicdetaykategori = (props) => {
   return (
     <DashboardLayout>
       <div >
-        <Navbar />
+        
         <div className='container'>
           <div id="urunlarbaslık">
-            <span></span></div>
+            <span>xccxdxd</span></div>
+         
           {/* <div style={{ paddingTop: "10px" }} class="main-wrapper">
                     <div style={{ marginTop: "150px" }}> */}
           {tutorials && tutorials.map((tutorial, index) => (
