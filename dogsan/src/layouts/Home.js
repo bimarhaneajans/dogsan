@@ -502,6 +502,7 @@ export default function Home() {
 
             <div className="row">
               <div id="container" className="container team-detail">
+              <p>Burda</p>
                 {yoneticiler.map(item => (
                   <div key={item.id} className="item general col-md-6">
 
@@ -513,7 +514,7 @@ export default function Home() {
                       </a>
                       <div className="member-details" >
                         <h6>{item.pozizyon}</h6>
-                        <h4> {item.yoneticiadi + item.yoneticisoyadi}</h4>
+                        <h4> {item.yoneticiadi}</h4>
                         <p>{item.kariyer} </p>
 
                       </div>
