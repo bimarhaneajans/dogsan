@@ -17,11 +17,15 @@ const Bayiguncelle = props => {
 
   const initialTutorialState = {
     id: null,
-    baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
+    yoneticiadi:"",
+      yoneticisoyadi: "",
+      kariyer: "",
+      pozizyon: "",
+      twitter: "",
+      facebook: "",
+      linkedin:"",
+      googleplus: "",
+      Resim: "",
     published: false
   };
   const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
@@ -61,12 +65,15 @@ const Bayiguncelle = props => {
   const updatePublished = status => {
     var data = {
       id: currentTutorial.id,
-      baslik: currentTutorial.baslik,
-      adres: currentTutorial.adres,
-      telefon: currentTutorial.telefon,
-      enlem: currentTutorial.enlem,
-      boylam: currentTutorial.boylam,
-      Resim: tutorial.Resim,
+      yoneticiadi:currentTutorial.yoneticiadi,
+      yoneticisoyadi: currentTutorial.yoneticisoyadi,
+      kariyer: currentTutorial.kariyer,
+      pozizyon: currentTutorial.pozizyon,
+      twitter: currentTutorial.twitter,
+      facebook: currentTutorial.facebook,
+      linkedin:currentTutorial.linkedin,
+      googleplus: currentTutorial.googleplus,
+      Resim: currentTutorial.Resim,
       published: status
     };
 
