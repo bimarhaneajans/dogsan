@@ -519,54 +519,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                ))} 
-
-
-                <div className="item laboratory col-md-6">
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={teammember2} className="img-responsive" />
-                      </div>
-                    </a>
-                    <div className="member-details">
-                      <h6>clinic Manager</h6>
-                      <h4>Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-
-                    </div>
-                  </div>
-                </div><br />
-                <div className="item specialist col-md-6">
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={teammember3} className="img-responsive" alt="" />
-                      </div>
-                    </a>
-                    <div className="member-details">
-                      <h6>clinic Manager</h6>
-                      <h4>Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-
-                    </div>
-                  </div>
-                </div>
-                <div className="item laboratory col-md-6">
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={teammember4} className="img-responsive" alt="" />
-                      </div>
-                    </a>
-                    <div className="member-details">
-                      <h6>clinic Manager</h6>
-                      <h4>Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-
-                    </div>
-                  </div>
-                </div>
+                ))}  
 
               </div>
             </div>
