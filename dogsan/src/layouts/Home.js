@@ -25,7 +25,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
 
- import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
+import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../routes";
@@ -42,7 +42,7 @@ import icon5 from "../layouts/assets/img/icons/icon-5.png";
 import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
-import s2  from "../layouts/assets/img/icons/s2-ico1.png";
+import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 
 import bir from "../layouts/assets/img/projects/1.jpg";
 import iki from "../layouts/assets/img/projects/2.jpg";
@@ -82,11 +82,11 @@ export default function Home() {
 
   useEffect(() => {
     retrieveTutorials();
-    
+
   }, []);
 
   useEffect(() => {
-    
+
     retrieveBlogs();
   }, []);
 
@@ -97,7 +97,7 @@ export default function Home() {
       .then(response => {
         setTutorials(response.data);
         //console.log(tutorials);
-       
+
       })
       .catch(e => {
         console.log(e);
@@ -129,14 +129,14 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-       
-           <div id="slider-wrapper">
-              <Sliders/>  
-{/*
+
+          <div id="slider-wrapper">
+            <Sliders />
+            {/*
          */}
-          </div> 
-        </div> 
- 
+          </div>
+        </div>
+
         <div className="container bs-main">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
@@ -164,7 +164,7 @@ export default function Home() {
 
 
 
-      
+
 
 
         <div className="main-header">
@@ -268,7 +268,7 @@ export default function Home() {
               <div className="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                 <div className="job-stat">
                   <h3>KARİYER OLANAKLARI</h3>
-                   <p>BİZİMLE ÇALIŞMAK İSTER MİSİNİZ?</p>
+                  <p>BİZİMLE ÇALIŞMAK İSTER MİSİNİZ?</p>
                 </div>
                 <p>Türkiye ve dünya çapında gerçekleştirdiği çalışmalarla adını kalite, güven ve inovasyon ile özdeşleştiren Doğsan bünyesindeki kariyer fırsatlarından haberdar olmak için bilgi formunu doldurabilirsiniz.</p>
 
@@ -285,8 +285,8 @@ export default function Home() {
         <div className="text-center">
           <h2>DUYURULAR </h2>
         </div>
-        <div className="clearfix" style={{marginBottom: "28px"}}></div>
-     
+        <div className="clearfix" style={{ marginBottom: "28px" }}></div>
+
 
         <div id="services2">
           <div className="container">
@@ -303,7 +303,7 @@ export default function Home() {
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr2">
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src={s2 } alt="icon" />
+                <img className="pull-center icon" src={s2} alt="icon" />
                 <div className="info-col">
                   <h5> 22. ULUSAL CERRAHİ KONGRESİ</h5>
                   <p>23-27 Mart’ta Antalya’da düzenlenecek olan 22. Ulusal Cerrahi Kongresi ve 17. Ulusal Cerrahi Hemşireliği Kongresi’nde yerimizi aldık. Sizleri de görmekten mutluluk duyarız.</p>
@@ -311,7 +311,7 @@ export default function Home() {
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr3">
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src={s2 } alt="icon" />
+                <img className="pull-center icon" src={s2} alt="icon" />
                 <div className="info-col">
                   <h5>12. OHSAD KONGRESİ</h5>
                   <p>23-27 Mart’ta Antalya Cornella Diamond Otel’de düzenlenecek olan 12. OHSAD Kurultayı’nda sizleri de standımızda görmekten mutluluk duyarız.</p>
@@ -329,16 +329,16 @@ export default function Home() {
                 <h2>ONLİNE MÜŞTERİ PANELİ </h2>
                 <h5>AKLINIZDAKİ TÜM SORULARI YANITLIYORUZ</h5>
                 <p className="lead">Ürün ve hizmetlerimizle ilgili satış/destek süreçlerinde her zaman yanınızdayız. Aklınızdaki tüm soruları online müşteri panelinden bizlere iletebilirsiniz.
-</p>
+                </p>
               </div>
               <div className="bottom-space-50"></div>
               <img src="assets/img/1.png" className="img-responsive" alt="" />
               <div className="clearfix"></div>
             </div>
-          </div> 
-        </div> 
+          </div>
+        </div>
 
-            <div id="services">
+        <div id="services">
           <div className="services-info s2-info">
             <div className="container">
               <div className="row bottom-space-50">
@@ -353,7 +353,7 @@ export default function Home() {
                   <img className="pull-left icon" src={icon5} alt="icon" />
                   <div className="info-col">
                     <h5>CERRAHLARIN ÖNCELİKLİ TERCİHİ
-</h5>
+                    </h5>
                     <p>Cerrahi operasyonlarda dünya standartlarındaki ürünlerimizle en çok tercih edilen marka olmanın gururunu yaşıyoruz.</p>
                   </div>
                 </div>
@@ -370,8 +370,8 @@ export default function Home() {
                   <img className="pull-left icon" src={icon4} alt="icon" />
                   <div className="info-col">
                     <h5>YÜKSEK KALİTE ANLAYIŞI </h5>
-                    <p>Deneyimli ekipler ile teknolojinin bütün olanakları seferber edilerek geliştirilen ürünlerimiz, evrensel kalite standartlarına uygun olarak üretilmektedir. 
-</p>
+                    <p>Deneyimli ekipler ile teknolojinin bütün olanakları seferber edilerek geliştirilen ürünlerimiz, evrensel kalite standartlarına uygun olarak üretilmektedir.
+                    </p>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
@@ -379,37 +379,37 @@ export default function Home() {
                   <div className="info-col">
                     <h5>EĞİTİM PROGRAMLARI </h5>
                     <p>Cerrahi teknolojiler konusunda yaşanan güncel gelişmeler, operasyon yönetimi ve teknik konularda profesyonel hekimler ve öncü bilim insanları aracılığıyla Doğsan bünyesinde eğitim organizasyonları düzenlenmektedir.
-</p>
+                    </p>
                   </div>
                 </div>
                 <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  <img className="pull-left icon"src={icon8} alt="icon" />
+                  <img className="pull-left icon" src={icon8} alt="icon" />
                   <div className="info-col">
                     <h5>SOSYAL SORUMLULUK </h5>
                     <p>Ülkemizde ve dünyada yaşanan insani sorunlara hassasiyet gösteren Doğsan ailesi, daha yaşanabilir bir dünya için canla başla çalışıyor.
-</p>
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>  
+        </div>
 
-<div >
-<section class="client-div" style={{marginTop:50,height:350}}>
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                <div class="client-stat text-center" >
-                  <h3  style={{marginTop:20,height:350,fontSize:60}}>Dünyada Bİz..</h3>
-                  <p  style={{fontSize:23,marginTop:-170,color:"white"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        <div >
+          <section class="client-div" style={{ marginTop: 50, height: 350 }}>
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                  <div class="client-stat text-center" >
+                    <h3 style={{ marginTop: 20, height: 350, fontSize: 60 }}>Dünyada Bİz..</h3>
+                    <p style={{ fontSize: 23, marginTop: -170, color: "white" }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-</div>
-        
+          </section>
+        </div>
+
 
 
         <div id="team">
@@ -419,9 +419,9 @@ export default function Home() {
                 <div className="team-stat text-center">
                   <h2>AİLEMİZLE TANIŞIN</h2>
                   <h5>EKİBİMİZLE BÜYÜK BİR AİLEYİZ</h5>
-                <p className="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız
-</p>
-                 </div>
+                  <p className="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız
+                  </p>
+                </div>
                 <div className="team-filter-nav text-center">
                   <ul id="filters" className="filter-nav list-inline list-unstyled">
                     <li><a data-filter="*" className="current" href="#">İDARİ EKİBİMİZ</a></li>
@@ -429,7 +429,7 @@ export default function Home() {
                     <li><a data-filter=".uretimdepartmani" href="#">ÜRETİM DEPARTMANI</a></li>
                     <li><a data-filter=".sahaekibi" href="#">SAHA EKİBİMİZ</a></li>
                   </ul>
-                </div> 
+                </div>
               </div>
             </div>
             <div className="row">
@@ -445,12 +445,12 @@ export default function Home() {
                       <h6>GENEL MÜDÜR</h6>
                       <h4>AHMET SEÇKİN</h4>
                       <p>Boğaziçi Üniversitesi Sağlık Bilimleri Enstitüsü’nde yüksek lisansını tamamladı. Sağlık sektörünün çeşitli kademelerinde görev aldı. Operasyonel konularda duyarlı ve profesyonel bir yaklaşımla Doğsan bünyesinde kariyerini sürdürmektedir.</p>
-             
+
                     </div>
                   </div>
                 </div>
 
-                 <div className="item laboratory col-md-6">
+                <div className="item laboratory col-md-6">
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
@@ -461,10 +461,10 @@ export default function Home() {
                       <h6>clinic Manager</h6>
                       <h4>Frank Rooney</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                      
+
                     </div>
                   </div>
-                </div><br/>
+                </div><br />
                 <div className="item specialist col-md-6">
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
@@ -476,7 +476,7 @@ export default function Home() {
                       <h6>clinic Manager</h6>
                       <h4>Frank Rooney</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -491,27 +491,27 @@ export default function Home() {
                       <h6>clinic Manager</h6>
                       <h4>Frank Rooney</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                      
+
                     </div>
                   </div>
-                </div>  
-                
+                </div>
+
               </div>
             </div>
             <div>
-               
+
             </div>
           </div>
         </div>
 
 
-        <section id="projects">
+        <div id="projects">
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div class="blog-stat text-center">
                   <h2>Blog</h2>
-             </div>
+                </div>
               </div>
             </div>
           </div>
@@ -523,22 +523,31 @@ export default function Home() {
           </li>
         ))}
       </ul> */}
-          
+
           <div class="row">
             <div class="col-md-12">
               <div class="bottom-space-50"></div>
               <ul class="projects-wrap">
-                <li>
-                  <img src={bir} class="img-responsive" alt="" />
-                  <div class="overlay">
-                    <div class="overlay-inner">
-                      <h4>Clinic office <span>Durning work</span></h4>
-                      <span class="comments">30 comments</span>
-                      <a href="#">View more</a>
+                {blog.map(item => (
+
+                  <li key={item.id}>
+                    <img src={item.Resim} class="img-responsive" alt="" />
+                    <div class="overlay">
+                      <div class="overlay-inner">
+                        <h4><span>{item.baslik}</span></h4>
+                        <span class="comments">{item.Ozet}</span>
+                        {/* <a href="#">View more</a> */}
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li>
+                   
+                  </li>
+                ))}
+                 
+
+
+
+
+                {/*      <li>
                   <img src={iki} class="img-responsive" alt="" />
                   <div class="overlay">
                     <div class="overlay-inner">
@@ -607,11 +616,12 @@ export default function Home() {
                       <a href="#">View more</a>
                     </div>
                   </div>
-                </li>
+                </li> */}
               </ul>
+
             </div>
           </div>
-        </section>
+        </div>
 
         <div className="clearfix"></div>
 
@@ -987,17 +997,17 @@ export default function Home() {
 
             <div className="footer2-bottom">
               <div className="container">
-              <div className="col-md-6">
+                <div className="col-md-6">
                   <ul className="footer-social">
                     <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                     <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
                     <li><a href="#"><i className="fa fa-instagram"></i></a></li>
                     <li><a href="#"><i className="fa fa-youtube"></i></a></li>
 
 
                   </ul>
                 </div>
-             
+
                 <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
               </div>
             </div>
