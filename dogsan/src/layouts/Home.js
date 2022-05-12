@@ -443,12 +443,14 @@ export default function Home() {
             <div className="row">
               <div className="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                 <div className="job-stat">
-                  <h3>Karİyerİnİ planlamak mı İstİyorsun ?</h3>
-                   <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor incidid. Sed ut perspiciatis unde omnis iste natus error sit voluptatem. Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor incidid. </p>
+                  <h3>KARİYER OLANAKLARI</h3>
+                   <p>BİZİMLE ÇALIŞMAK İSTER MİSİNİZ?</p>
                 </div>
+                <p>Türkiye ve dünya çapında gerçekleştirdiği çalışmalarla adını kalite, güven ve inovasyon ile özdeşleştiren Doğsan bünyesindeki kariyer fırsatlarından haberdar olmak için bilgi formunu doldurabilirsiniz.</p>
+
               </div>
               <div className="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                <a className="btn btn-primary btn-md apply-btn pull-right">Apply for a job</a>
+                <a className="btn btn-primary btn-md apply-btn pull-right">KARİYER</a>
               </div>
             </div>
           </div>
@@ -457,7 +459,7 @@ export default function Home() {
 
 
         <div className="text-center">
-          <h2>Etkinlik Rehberi</h2>
+          <h2>DUYURULAR </h2>
         </div>
         <div className="clearfix" style={{marginBottom: "28px"}}></div>
      
@@ -471,24 +473,24 @@ export default function Home() {
                 <div className="clearfix"></div>
                 <img className="pull-center icon" src={icon5} alt="icon" />
                 <div className="info-col">
-                  <h5>Etkinlik</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor.</p>
+                  <h5>DİŞ HEKİMLİĞİ SÜTÜR, FLEP KAPAMA EĞİTİMİ</h5>
+                  <p>27 Mart’ta İstanbul Beşiktaş’ta bulunan Doğsan Eğitim Salonunda düzenlenecek olan “Diş Hekimliği Sütür, Flep Kaplama Eğitimi” Yüz yüze veya online seçenekleriyle sizi bekliyor. </p>
                 </div>
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr2">
                 <div className="clearfix"></div>
                 <img className="pull-center icon" src={icon5} alt="icon" />
                 <div className="info-col">
-                  <h5>Etkinlik</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor.</p>
+                  <h5> 22. ULUSAL CERRAHİ KONGRESİ</h5>
+                  <p>23-27 Mart’ta Antalya’da düzenlenecek olan 22. Ulusal Cerrahi Kongresi ve 17. Ulusal Cerrahi Hemşireliği Kongresi’nde yerimizi aldık. Sizleri de görmekten mutluluk duyarız.</p>
                 </div>
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr3">
                 <div className="clearfix"></div>
                 <img className="pull-center icon" src={icon5} alt="icon" />
                 <div className="info-col">
-                  <h5>Etkinlik</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod tempor.</p>
+                  <h5>12. OHSAD KONGRESİ</h5>
+                  <p>23-27 Mart’ta Antalya Cornella Diamond Otel’de düzenlenecek olan 12. OHSAD Kurultayı’nda sizleri de standımızda görmekten mutluluk duyarız.</p>
                 </div>
               </div>
             </div>
