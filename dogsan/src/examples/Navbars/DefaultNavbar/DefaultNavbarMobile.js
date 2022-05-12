@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -20,10 +20,10 @@ import PropTypes from "prop-types";
 import Menu from "@mui/material/Menu";
 // import Grid from "@mui/material/Grid";
 
-// DOGSAN React components
+// DOGSAN components
 import SuiBox from "components/SuiBox";
 
-// DOGSAN React examples
+// DOGSAN examples
 import DefaultNavbarLink from "examples/Navbars/DefaultNavbar/DefaultNavbarLink";
 
 function DefaultNavbarMobile({ open, close }) {

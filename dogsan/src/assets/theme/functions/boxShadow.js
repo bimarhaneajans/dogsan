@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -17,7 +17,7 @@ Coded by www.creative-tim.com
   The boxShadow() function helps you to create a box shadow for an element
  */
 
-// DOGSAN React helper functions
+// DOGSAN helper functions
 import rgba from "assets/theme/functions/rgba";
 import pxToRem from "assets/theme/functions/pxToRem";
 

@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -29,7 +29,7 @@ import Icon from "@mui/material/Icon";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 
-// DOGSAN React components
+// DOGSAN components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiButton from "components/SuiButton";
@@ -37,7 +37,7 @@ import SuiButton from "components/SuiButton";
 // Custom styles for the Configurator
 import ConfiguratorRoot from "examples/Configurator/ConfiguratorRoot";
 
-// DOGSAN React context
+// DOGSAN context
 import {
   useSoftUIController,
   setOpenConfigurator,

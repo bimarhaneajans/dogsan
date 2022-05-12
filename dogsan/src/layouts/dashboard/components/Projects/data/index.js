@@ -1,7 +1,7 @@
 // @mui material components
 import Tooltip from "@mui/material/Tooltip";
 
-// DOGSAN React components
+// DOGSAN components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiAvatar from "components/SuiAvatar";

@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -19,7 +19,7 @@ import CardContent from "@mui/material/CardContent";
 import Icon from "@mui/material/Icon";
 import Link from "@mui/material/Link";
 
-// DOGSAN React components
+// DOGSAN components
 import SuiButton from "components/SuiButton";
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
@@ -27,7 +27,7 @@ import SuiTypography from "components/SuiTypography";
 // Custom styles for the SidenavCard
 import { card, cardContent, cardIconBox, cardIcon } from "examples/Sidenav/styles/sidenavCard";
 
-// DOGSAN React context
+// DOGSAN context
 import { useSoftUIController } from "context";
 
 function SidenavCard() {

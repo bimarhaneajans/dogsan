@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-pro-react
@@ -14,15 +14,15 @@ Coded by www.creative-tim.com
 */
 
 /**
- * The base border styles for the DOGSAN React.
+ * The base border styles for the DOGSAN.
  * You can add new border width, border color or border radius using this file.
- * You can customized the borders value for the entire DOGSAN React using thie file.
+ * You can customized the borders value for the entire DOGSAN using thie file.
  */
 
-// DOGSAN React Base Styles
+// DOGSAN Base Styles
 import colors from "assets/theme/base/colors";
 
-// DOGSAN React Helper Functions
+// DOGSAN Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
 const { grey } = colors;

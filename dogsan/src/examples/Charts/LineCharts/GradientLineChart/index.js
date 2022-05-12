@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -24,17 +24,17 @@ import { Line } from "react-chartjs-2";
 // @mui material components
 import Card from "@mui/material/Card";
 
-// DOGSAN React components
+// DOGSAN components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 
-// DOGSAN React helper functions
+// DOGSAN helper functions
 import gradientChartLine from "assets/theme/functions/gradientChartLine";
 
 // GradientLineChart configurations
 import configs from "examples/Charts/LineCharts/GradientLineChart/configs";
 
-// DOGSAN React base styles
+// DOGSAN base styles
 import colors from "assets/theme/base/colors";
 
 function GradientLineChart({ title, description, height, chart }) {

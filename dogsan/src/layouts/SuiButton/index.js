@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v1.0.0
+* DOGSAN - v1.0.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-pro-react

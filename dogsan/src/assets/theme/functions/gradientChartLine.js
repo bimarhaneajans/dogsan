@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -17,7 +17,7 @@ Coded by www.creative-tim.com
   The gradientChartLine() function helps you to create a gradient color for the chart line
  */
 
-// DOGSAN React helper functions
+// DOGSAN helper functions
 import rgba from "assets/theme/functions/rgba";
 
 function gradientChartLine(chart, color, opacity = 0.2) {

@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -16,7 +16,7 @@ Coded by www.creative-tim.com
 // @mui material components
 import { styled } from "@mui/material/styles";
 
-// DOGSAN React components
+// DOGSAN components
 import SuiButton from "components/SuiButton";
 
 export default styled(SuiButton)(({ theme, ownerState }) => {

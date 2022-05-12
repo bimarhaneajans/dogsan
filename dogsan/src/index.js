@@ -9,7 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 
  import store, { persistor } from "./store";
-// DOGSAN React Context Provider
+// DOGSAN Context Provider
 import { SoftUIControllerProvider } from "context";
 
  ReactDOM.render(

@@ -3,13 +3,13 @@
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
 
-// DOGSAN React components
+// DOGSAN components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import { useState, useEffect, useMemo } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
-// DOGSAN React examples
+// DOGSAN examples
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
@@ -17,7 +17,7 @@ import MiniStatisticsCard from "examples/Cards/StatisticsCards/MiniStatisticsCar
 import ReportsBarChart from "examples/Charts/BarCharts/ReportsBarChart";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
 
-// DOGSAN React base styles
+// DOGSAN base styles
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 

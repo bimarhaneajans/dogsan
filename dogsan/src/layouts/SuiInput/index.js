@@ -1,6 +1,6 @@
 /**
 =========================================================
-* DOGSAN React - v3.1.0
+* DOGSAN - v3.1.0
 =========================================================
 
 * Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
@@ -24,7 +24,7 @@ import SuiInputWithIconRoot from "components/SuiInput/SuiInputWithIconRoot";
 import SuiInputIconBoxRoot from "components/SuiInput/SuiInputIconBoxRoot";
 import SuiInputIconRoot from "components/SuiInput/SuiInputIconRoot";
 
-// DOGSAN React contexts
+// DOGSAN contexts
 import { useSoftUIController } from "context";
 
 const SuiInput = forwardRef(({ size, icon, error, success, disabled, ...rest }, ref) => {

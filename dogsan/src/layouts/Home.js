@@ -334,9 +334,11 @@ export default function Home() {
 
                 <div className="clearfix"></div>
                 <img className="pull-center icon" src={s2} alt="icon" />
+
                 <div className="info-col">
-                  <h5>DİŞ HEKİMLİĞİ SÜTÜR, FLEP KAPAMA EĞİTİMİ</h5>
-                  <p>27 Mart’ta İstanbul Beşiktaş’ta bulunan Doğsan Eğitim Salonunda düzenlenecek olan “Diş Hekimliği Sütür, Flep Kaplama Eğitimi” Yüz yüze veya online seçenekleriyle sizi bekliyor. </p>
+                <img style={{width:"350px",height:"250px"}} src={item.Resim}   />
+                  <h5>{item.baslik}</h5>
+                  <p>{item.icerik} </p>
                 </div>
               </div>
  ))} 
