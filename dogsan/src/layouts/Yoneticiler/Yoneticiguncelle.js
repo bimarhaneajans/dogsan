@@ -141,13 +141,13 @@ const Bayiguncelle = props => {
 
 
            <div className="form-group">
-                <label htmlFor="bayi">yoneticiadi</label>
+                <label htmlFor="yoneticiadi">yonetici adi</label>
                 <input
                   type="text"
                   className="form-control"
                   id="yoneticiadi"
                   required
-                  value={tutorial.yoneticiadi}
+                  value={currentTutorial.yoneticiadi}
                   onChange={handleInputChange}
                   name="yoneticiadi"
                 />
@@ -163,7 +163,7 @@ const Bayiguncelle = props => {
                   className="form-control"
                   id="yoneticisoyadi"
                   required
-                  value={tutorial.yoneticisoyadi}
+                  value={currentTutorial.yoneticisoyadi}
                   onChange={handleInputChange}
                   name="yoneticisoyadi"
                 />
