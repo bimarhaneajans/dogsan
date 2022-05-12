@@ -42,6 +42,7 @@ import icon5 from "../layouts/assets/img/icons/icon-5.png";
 import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
+import s2  from "../layouts/assets/img/icons/s2-ico1.png";
 
 import bir from "../layouts/assets/img/projects/1.jpg";
 import iki from "../layouts/assets/img/projects/2.jpg";
@@ -294,7 +295,7 @@ export default function Home() {
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
 
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src={icon5} alt="icon" />
+                <img className="pull-center icon" src={s2} alt="icon" />
                 <div className="info-col">
                   <h5>DİŞ HEKİMLİĞİ SÜTÜR, FLEP KAPAMA EĞİTİMİ</h5>
                   <p>27 Mart’ta İstanbul Beşiktaş’ta bulunan Doğsan Eğitim Salonunda düzenlenecek olan “Diş Hekimliği Sütür, Flep Kaplama Eğitimi” Yüz yüze veya online seçenekleriyle sizi bekliyor. </p>
@@ -302,7 +303,7 @@ export default function Home() {
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr2">
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src={icon5} alt="icon" />
+                <img className="pull-center icon" src={s2 } alt="icon" />
                 <div className="info-col">
                   <h5> 22. ULUSAL CERRAHİ KONGRESİ</h5>
                   <p>23-27 Mart’ta Antalya’da düzenlenecek olan 22. Ulusal Cerrahi Kongresi ve 17. Ulusal Cerrahi Hemşireliği Kongresi’nde yerimizi aldık. Sizleri de görmekten mutluluk duyarız.</p>
@@ -310,7 +311,7 @@ export default function Home() {
               </div>
               <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr3">
                 <div className="clearfix"></div>
-                <img className="pull-center icon" src={icon5} alt="icon" />
+                <img className="pull-center icon" src={s2 } alt="icon" />
                 <div className="info-col">
                   <h5>12. OHSAD KONGRESİ</h5>
                   <p>23-27 Mart’ta Antalya Cornella Diamond Otel’de düzenlenecek olan 12. OHSAD Kurultayı’nda sizleri de standımızda görmekten mutluluk duyarız.</p>
