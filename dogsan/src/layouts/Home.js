@@ -411,16 +411,19 @@ export default function Home() {
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
                 <div className="team-stat text-center">
-                  <h2>Yönetİcİler İle Tanışın</h2>
+                  <h2>AİLEMİZLE TANIŞIN</h2>
+                  <h5>EKİBİMİZLE BÜYÜK BİR AİLEYİZ</h5>
+                <p className="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız
+</p>
                  </div>
-                {/*    <div className="team-filter-nav text-center">
+                <div className="team-filter-nav text-center">
                   <ul id="filters" className="filter-nav list-inline list-unstyled">
-                    <li><a data-filter="*" className="current" href="#">All</a></li>
-                    <li><a data-filter=".general" href="#">General</a></li>
-                    <li><a data-filter=".specialist" href="#">Specialist</a></li>
-                    <li><a data-filter=".laboratory" href="#">Laboratory</a></li>
+                    <li><a data-filter="*" className="current" href="#">İDARİ EKİBİMİZ</a></li>
+                    <li><a data-filter=".pazarlamabirimi" href="#">PAZARLAMA BİRİMİ</a></li>
+                    <li><a data-filter=".uretimdepartmani" href="#">ÜRETİM DEPARTMANI</a></li>
+                    <li><a data-filter=".sahaekibi" href="#">SAHA EKİBİMİZ</a></li>
                   </ul>
-                </div> */}
+                </div> 
               </div>
             </div>
             <div className="row">
@@ -433,22 +436,16 @@ export default function Home() {
                       </div>
                     </a>
                     <div className="member-details">
-                      <h6>clinic Manager</h6>
-                      <h4>Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                      <div className="member-social">
-                        <h6>Social Profiles</h6>
-                        <ul className="list-inline list-unstyled pull-right social">
-                          <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                        </ul>
-                      </div>
+                      <h6>GENEL MÜDÜR</h6>
+                      <h4>AHMET SEÇKİN</h4>
+                      <p>Boğaziçi Üniversitesi Sağlık Bilimleri Enstitüsü’nde yüksek lisansını tamamladı. Sağlık sektörünün çeşitli kademelerinde görev aldı. Operasyonel konularda duyarlı ve profesyonel bir yaklaşımla Doğsan bünyesinde kariyerini sürdürmektedir.
+ </p>
+             
                     </div>
                   </div>
                 </div>
-                <div className="item laboratory col-md-6">
+
+               {/*  <div className="item laboratory col-md-6">
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
                       <div className="team-img">
@@ -459,18 +456,10 @@ export default function Home() {
                       <h6>clinic Manager</h6>
                       <h4>Frank Rooney</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                      <div className="member-social">
-                        <h6>Social Profiles</h6>
-                        <ul className="list-inline list-unstyled pull-right social">
-                          <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                        </ul>
-                      </div>
+                      
                     </div>
                   </div>
-                </div>
+                </div><br/>
                 <div className="item specialist col-md-6">
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
@@ -482,15 +471,7 @@ export default function Home() {
                       <h6>clinic Manager</h6>
                       <h4>Frank Rooney</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                      <div className="member-social">
-                        <h6>Social Profiles</h6>
-                        <ul className="list-inline list-unstyled pull-right social">
-                          <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                        </ul>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -505,18 +486,11 @@ export default function Home() {
                       <h6>clinic Manager</h6>
                       <h4>Frank Rooney</h4>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-                      <div className="member-social">
-                        <h6>Social Profiles</h6>
-                        <ul className="list-inline list-unstyled pull-right social">
-                          <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                          <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                        </ul>
-                      </div>
+                      
                     </div>
                   </div>
-                </div>
+                </div> */}
+                
               </div>
             </div>
             <div>
