@@ -66,6 +66,7 @@ import "../../src/sliders/assets/css/responsive-styling.css"
 import "./style.css"
 import "./responsive-styling.css"
 import Sliders from "../sliders/slider"
+import "./social.css"
 
 
 export default function Home() {
@@ -449,9 +450,10 @@ export default function Home() {
             <div class="container">
               <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-                  <div class="client-stat text-center" >
-                    <h3 style={{ marginTop: 20, height: 350, fontSize: 60 }}>Dünyada Bİz..</h3>
-                    <p style={{ fontSize: 23, marginTop: -170, color: "white" }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                  <div class="client-stat text-center" style={{ margin: "100px auto", backgroundColor: "white", padding: "45px 20px 35px" }} >
+                    <h3 >DÜNYADA DOĞSAN</h3>
+                    <p >: Avrupa, Asya ve Ortadoğu’da 40’ı aşkın ülkeye ihracat yapan Doğsan, kalite standartlarına uygun olarak ürettiği geniş ürün yelpazesiyle sütür üretiminde Türkiye’nin Dünya pazarlarındaki temsilcisi konumundadır.
+</p>
                   </div>
                 </div>
               </div>
@@ -1028,6 +1030,28 @@ export default function Home() {
           </div>
 
         </div>
+        <ul class="fixed-social-menu list-inline mb-0" >
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/TWTHealth-102348289007640">
+              <i class="fa fa-facebook" ></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/twthealth/">
+              <i class="fa fa-instagram" ></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.linkedin.com/in/twt-helathy-26b391230/">
+              <i class="fa fa-linkedin" ></i>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChqrfVQgiAjPpBf_jTDvR8w ">
+              <i class="fa fa-youtube-play" ></i>
+            </a>
+          </li>
+        </ul>
 
       </div>
 
