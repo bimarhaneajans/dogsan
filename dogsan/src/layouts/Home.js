@@ -169,7 +169,7 @@ export default function Home() {
 
           <div id="slider-wrapper">
             <Sliders />
-        
+
           </div>
         </div>
 
@@ -198,7 +198,7 @@ export default function Home() {
           </div>
         </div>
 
-    
+
 
 
 
@@ -317,7 +317,7 @@ export default function Home() {
           <div className="clearfix"></div>
         </div>
 
-{/*
+        {/*
 
 
         <ul class="projects-wrap">
@@ -347,22 +347,22 @@ export default function Home() {
           <div className="container">
 
             <div className="row">
-            {duyuru.map(item => (
-              <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
+              {duyuru.map(item => (
+                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
 
-                <div className="clearfix"></div>
-                <img className="pull-center icon" src={s2} alt="icon" />
+                  <div className="clearfix"></div>
+                  <img className="pull-center icon" src={s2} alt="icon" />
 
-                <div className="info-col">
-                <img style={{width:"350px",height:"250px"}} src={item.Resim}   />
-                  <h5>{item.baslik}</h5>
-                  <p>{item.icerik} </p>
+                  <div className="info-col">
+                    <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
+                    <h5>{item.baslik}</h5>
+                    <p>{item.icerik} </p>
+                  </div>
                 </div>
-              </div>
- ))} 
+              ))}
 
- 
-       </div>
+
+            </div>
 
           </div>
           <div className="clearfix"></div>
@@ -444,8 +444,8 @@ export default function Home() {
             </div>
           </div>
         </div>
- 
-      
+
+
 
 
 
@@ -460,7 +460,7 @@ export default function Home() {
                   <div class="client-stat text-center" style={{ margin: "100px auto", backgroundColor: "white", padding: "45px 20px 44px 21px" }} >
                     <h3 >DÜNYADA DOĞSAN</h3>
                     <p> Avrupa, Asya ve Ortadoğu’da 40’ı aşkın ülkeye ihracat yapan Doğsan, kalite standartlarına uygun olarak ürettiği geniş ürün yelpazesiyle sütür üretiminde Türkiye’nin Dünya pazarlarındaki temsilcisi konumundadır.
-</p>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -482,15 +482,15 @@ export default function Home() {
                 </div>
                 <div className="team-filter-nav text-center">
                   <ul id="filters" className="filter-nav list-inline list-unstyled">
-                    <li><a data-filter="*" className="current" href="#">İDARİ EKİBİMİZ</a></li>
-                    <li><a data-filter=".general" href="#">PAZARLAMA BİRİMİ</a></li>
-                    <li><a data-filter=".uretimdepartmani" href="#">ÜRETİM DEPARTMANI</a></li>
-                    <li><a data-filter=".sahaekibi" href="#">SAHA EKİBİMİZ</a></li>
+                    <li><a data-filter="*" className="current" >İDARİ EKİBİMİZ</a></li>
+                    <li><a data-filter=".general" >PAZARLAMA BİRİMİ</a></li>
+                    <li><a data-filter=".uretimdepartmani" >ÜRETİM DEPARTMANI</a></li>
+                    <li><a data-filter=".sahaekibi" >SAHA EKİBİMİZ</a></li>
                   </ul>
                 </div>
               </div>
             </div>
- {/*  yoneticiadi: tutorial.yoneticiadi,
+            {/*  yoneticiadi: tutorial.yoneticiadi,
       yoneticisoyadi: tutorial.yoneticisoyadi,
       kariyer: tutorial.kariyer,
       pozizyon: tutorial.pozizyon,
@@ -502,72 +502,24 @@ export default function Home() {
 
             <div className="row">
               <div id="container" className="container team-detail">
-              {duyuru.map(item => (
-                <div key={item.id} className="item general col-md-6">
-                
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={item.Resim} className="img-responsive" alt="" />
-                      </div>
-                    </a>
-                    <div className="member-details" >
-                      <h6>{item.pozizyon}</h6>
-                      <h4> {item.yoneticiadi + item.yoneticisoyadi}</h4>
-                      <p>{item.kariyer} </p>
+                {yoneticiler.map(item => (
+                  <div key={item.id} className="item general col-md-6">
 
+                    <div className="team-member">
+                      <a data-toggle="modal" data-target="#myModal">
+                        <div className="team-img">
+                          <img src={item.Resim} className="img-responsive" alt="" />
+                        </div>
+                      </a>
+                      <div className="member-details" >
+                        <h6>{item.pozizyon}</h6>
+                        <h4> {item.yoneticiadi + item.yoneticisoyadi}</h4>
+                        <p>{item.kariyer} </p>
+
+                      </div>
                     </div>
                   </div>
-                </div>
-                ))} 
-
-
-                <div className="item laboratory col-md-6">
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={teammember2} className="img-responsive" />
-                      </div>
-                    </a>
-                    <div className="member-details">
-                      <h6>clinic Manager</h6>
-                      <h4>Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-
-                    </div>
-                  </div>
-                </div><br />
-                <div className="item specialist col-md-6">
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={teammember3} className="img-responsive" alt="" />
-                      </div>
-                    </a>
-                    <div className="member-details">
-                      <h6>clinic Manager</h6>
-                      <h4>Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-
-                    </div>
-                  </div>
-                </div>
-                <div className="item laboratory col-md-6">
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={teammember4} className="img-responsive" alt="" />
-                      </div>
-                    </a>
-                    <div className="member-details">
-                      <h6>clinic Manager</h6>
-                      <h4>Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
-
-                    </div>
-                  </div>
-                </div>
-
+                ))}
               </div>
             </div>
             <div>
@@ -587,7 +539,7 @@ export default function Home() {
               </div>
             </div>
           </div>
- 
+
 
           <div class="row">
             <div class="col-md-12">
@@ -604,9 +556,9 @@ export default function Home() {
                         {/* <a href="#">View more</a> */}
                       </div>
                     </div>
-                   
+
                   </li>
-                ))} 
+                ))}
               </ul>
 
             </div>
