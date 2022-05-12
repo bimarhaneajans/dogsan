@@ -29,9 +29,13 @@ import silide2 from "../assets/assets/img/slider/slide2.jpg";
 import "../../src/sliders/assets/vendor/owl-carousel/owl-carousel/owl.theme.css"
 import "../../src/sliders/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css"
 import "../../src/sliders/assets/css/style.css"
+import "../../src/sliders/assets/css/font-awesome.min.css"
+
 import "../../src/sliders/assets/css/responsive-styling.css"
 import "../../src/sliders/assets/vendor/bootstrap/css/bootstrap.min.css"
 import "../../src/sliders/assets/vendor/layerslider/css/layerslider.css"
+import "../../src/sliders/assets/css/YTPlayer.css"
+
 /* import "../../src/sliders/assets/css/YTPlayer.css"
  */
 

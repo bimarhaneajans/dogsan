@@ -125,7 +125,7 @@ export default function Home() {
         <div id="bg-slider-home">
        
            <div id="slider-wrapper">
-              <Sliders/>
+              <Sliders/>  
 {/*
          */}
           </div> 
