@@ -40,21 +40,22 @@ import "../../src/sliders/assets/css/YTPlayer.css"
  */
 
 function slider() {
-  return (  
+  return (
     <div>
-      <div> 
- 
-  <div className="main-wrapper">
-    <div id="home">
-      <div id="bg-slider-home">
-        <div id="slider-wrapper">
-          <div id="full-slider-wrapper">
-            <div id="layerslider" style={{width: '100%', height: '720px', maxWidth: '100%'}}>
-              <div className="ls-slide" data-ls="slidedelay:8000;transition2d:4;">
-                <img src="sliderimages/slide-b-bg.jpg" className="ls-bg" alt="Slide background" />
-                <img className="ls-l" style={{top: '230px', left: '690px', whiteSpace: 'nowrap'}} data-ls="offsetxin:50;durationin:2000;delayin:800;offsetxout:50;durationout:1000;parallaxlevel:1;" src="sliderimages/ldoctor.png" alt="" />
-                <img className="ls-l" style={{top: '100px', left: '400px', whiteSpace: 'nowrap'}} data-ls="offsetxin:100;durationin:2000;delayin:1200;offsetxout:100;durationout:1000;parallaxlevel:3;" src="sliderimages/gdoctor.png" alt="" />
-                <h6 className="ls-l" style={{top: '350px', left: '236px', height: '40px', whiteSpace: 'nowrap', color: '#0eb2e7', fontSize: '.9em', fontWeight: 'bold'}} data-ls="
+      <div>
+
+
+        <div className="main-wrapper">
+          <div id="home">
+            <div id="bg-slider-home">
+              <div id="slider-wrapper">
+                <div id="full-slider-wrapper">
+                  <div id="layerslider" style={{ width: '100%', height: '720px', maxWidth: '100%' }}>
+                    <div className="ls-slide" data-ls="slidedelay:8000;transition2d:4;">
+                      <img src="sliderimages/slide-b-bg.jpg" className="ls-bg" alt="Slide background" />
+                      <img className="ls-l" style={{ top: '230px', left: '690px', whiteSpace: 'nowrap' }} data-ls="offsetxin:50;durationin:2000;delayin:800;offsetxout:50;durationout:1000;parallaxlevel:1;" src="sliderimages/ldoctor.png" alt="" />
+                      <img className="ls-l" style={{ top: '100px', left: '400px', whiteSpace: 'nowrap' }} data-ls="offsetxin:100;durationin:2000;delayin:1200;offsetxout:100;durationout:1000;parallaxlevel:3;" src="sliderimages/gdoctor.png" alt="" />
+                      <h6 className="ls-l" style={{ top: '350px', left: '236px', height: '40px', whiteSpace: 'nowrap', color: '#0eb2e7', fontSize: '.9em', fontWeight: 'bold' }} data-ls="
 							durationin:2000;
 							delayin:2000;
 							rotatein:20;
@@ -69,9 +70,9 @@ function slider() {
 							scalexout:0;
 							scaleyout:0;
 							transformoriginout:left 50% 0;">
-                  Excellence is our speciality
-                </h6>
-                <h2 className="ls-l" style={{top: '370px', left: '110px', textTransform: 'uppercase', fontSize: '3em', marginBottom: '20px', fontWeight: 'bold', whiteSpace: 'nowrap'}} data-ls="
+                        Excellence is our speciality
+                      </h6>
+                      <h2 className="ls-l" style={{ top: '370px', left: '110px', textTransform: 'uppercase', fontSize: '3em', marginBottom: '20px', fontWeight: 'bold', whiteSpace: 'nowrap' }} data-ls="
 							offsetxin:0;
 							durationin:2000;
 							delayin:2300;
@@ -81,9 +82,9 @@ function slider() {
 							offsetxout:100;
 							durationout:750;
 							skewxout:60;">
-                  Genius in Healthcare
-                </h2>
-                <p className="ls-l" style={{top: '435.68px', left: '43.359px', fontSize: '13.8141px', padding: '0px 29.6016px', color: '#6A6A6A', lineHeight: '24.668px', width: '600px', height: 'auto', marginLeft: '0px', marginTop: '0px', opacity: 1, visibility: 'visible', textAlign: 'center'}} data-ls="
+                        Genius in Healthcare
+                      </h2>
+                      <p className="ls-l" style={{ top: '435.68px', left: '43.359px', fontSize: '13.8141px', padding: '0px 29.6016px', color: '#6A6A6A', lineHeight: '24.668px', width: '600px', height: 'auto', marginLeft: '0px', marginTop: '0px', opacity: 1, visibility: 'visible', textAlign: 'center' }} data-ls="
 							durationin:2000;
 							delayin:2800;
 							rotatein:20;
@@ -97,9 +98,9 @@ function slider() {
 							scalexout:0;
 							scaleyout:0;
 							transformoriginout:left 50% 0;">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ullamco laboris aliquipea commodo.
-                </p>
-                <h6 className="ls-l" style={{top: '500.148px', left: '244.359px', color: '#333', fontSize: '.9em', fontWeight: 'bold'}} data-ls="
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ullamco laboris aliquipea commodo.
+                      </p>
+                      <h6 className="ls-l" style={{ top: '500.148px', left: '244.359px', color: '#333', fontSize: '.9em', fontWeight: 'bold' }} data-ls="
 							offsetxin:0;
 							durationin:2000;
 							delayin:3200;
@@ -109,12 +110,12 @@ function slider() {
 							offsetxout:100;
 							durationout:750;
 							skewxout:60;">
-                  Prices from <span style={{fontFamily: '"Open Sans"', fontSize: '2em', letterSpacing: '0px', color: '#0eb2e7'}}>$50</span> for month
-                </h6>
-              </div>
-              <div className="ls-slide" data-ls="slidedelay:9500;transition2d:5;timeshift:-1500;">
-                <img src="assets/img/slider/slide2.jpg" className="ls-bg" alt="Slide background" />
-                <h6 className="ls-l" style={{top: '310px', left: '636px', height: '40px', whiteSpace: 'nowrap', color: '#0eb2e7', fontSize: '.9em', fontWeight: 'bold'}} data-ls="
+                        Prices from <span style={{ fontFamily: '"Open Sans"', fontSize: '2em', letterSpacing: '0px', color: '#0eb2e7' }}>$50</span> for month
+                      </h6>
+                    </div>
+                    <div className="ls-slide" data-ls="slidedelay:9500;transition2d:5;timeshift:-1500;">
+                      <img src="assets/img/slider/slide2.jpg" className="ls-bg" alt="Slide background" />
+                      <h6 className="ls-l" style={{ top: '310px', left: '636px', height: '40px', whiteSpace: 'nowrap', color: '#0eb2e7', fontSize: '.9em', fontWeight: 'bold' }} data-ls="
 							offsetxin:50;
 							durationin:3000;
 							rotateyin:60;
@@ -124,9 +125,9 @@ function slider() {
 							delayin:900;
 							rotateyout:-60;
 							transformoriginout:left 50% 0;">
-                  Excellence is our speciality
-                </h6>
-                <h2 className="ls-l" style={{top: '320px', left: '510px', textTransform: 'uppercase', fontSize: '3em', marginBottom: '20px', fontWeight: 'bold', whiteSpace: 'nowrap'}} data-ls="
+                        Excellence is our speciality
+                      </h6>
+                      <h2 className="ls-l" style={{ top: '320px', left: '510px', textTransform: 'uppercase', fontSize: '3em', marginBottom: '20px', fontWeight: 'bold', whiteSpace: 'nowrap' }} data-ls="
 							offsetxin:0;
 							durationin:700;
 							delayin:1300;
@@ -136,9 +137,9 @@ function slider() {
 							offsetxout:100;
 							durationout:750;
 							skewxout:60;">
-                  Genius in Healthcare
-                </h2>
-                <p className="ls-l" style={{top: '385.68px', left: '443.359px', fontSize: '13.8141px', padding: '0px 29.6016px', color: '#6A6A6A', lineHeight: '24.668px', width: '600px', height: 'auto', marginLeft: '0px', marginTop: '0px', opacity: 1, visibility: 'visible', textAlign: 'center'}} data-ls="
+                        Genius in Healthcare
+                      </h2>
+                      <p className="ls-l" style={{ top: '385.68px', left: '443.359px', fontSize: '13.8141px', padding: '0px 29.6016px', color: '#6A6A6A', lineHeight: '24.668px', width: '600px', height: 'auto', marginLeft: '0px', marginTop: '0px', opacity: 1, visibility: 'visible', textAlign: 'center' }} data-ls="
 							durationin:900;
 							delayin:1700;
 							rotatein:20;
@@ -152,9 +153,9 @@ function slider() {
 							scalexout:0;
 							scaleyout:0;
 							transformoriginout:left 50% 0;">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ullamco laboris aliquipea commodo.
-                </p>
-                <h6 className="ls-l" style={{top: '450.148px', left: '644.359px', color: '#333', fontSize: '.9em', fontWeight: 'bold'}} data-ls="
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ullamco laboris aliquipea commodo.
+                      </p>
+                      <h6 className="ls-l" style={{ top: '450.148px', left: '644.359px', color: '#333', fontSize: '.9em', fontWeight: 'bold' }} data-ls="
 							offsetxin:0;
 							durationin:1100;
 							delayin:2000;
@@ -164,15 +165,15 @@ function slider() {
 							offsetxout:100;
 							durationout:750;
 							skewxout:60;">
-                  Prices from <span style={{fontFamily: '"Open Sans"', fontSize: '2em', letterSpacing: '0px', color: '#0eb2e7'}}>$50</span> for month
-                </h6>
+                        Prices from <span style={{ fontFamily: '"Open Sans"', fontSize: '2em', letterSpacing: '0px', color: '#0eb2e7' }}>$50</span> for month
+                      </h6>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-     {/*   <div className="container bs-main">
+            {/*   <div className="container bs-main">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
             <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src="assets/img/logo/heartify-logo.png" alt="Heartify" /></a></div>
@@ -239,15 +240,15 @@ function slider() {
           </div>
         </div>
       </div>   */}
-        
-    
- 
-    </div>
-  </div> 
- 
-</div>
 
-    </div> 
+
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   )
 }
 
