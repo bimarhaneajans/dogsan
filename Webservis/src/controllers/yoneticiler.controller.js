@@ -51,10 +51,10 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const baslik = req.query.yoneticiadi;
-  var condition = baslik ? { yoneticiadi: { $regex: new RegExp(yoneticiadi), $options: "i" } } : {};
+  const yoneticiadi = req.query.yoneticiadi;
+  var condition = yoneticiadi ? { yoneticiadi: { $regex: new RegExp(yoneticiadi), $options: "i" } } : {};
 
-  Bayi.find(condition)
+  Yoneticiler.find(condition)
     .then(data => {
       res.send(data);
     })

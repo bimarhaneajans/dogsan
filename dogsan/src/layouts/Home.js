@@ -25,7 +25,7 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
 import DuyuruDataService from "../services/DuyuruService";
-
+import YoneticiDataService from "../services/YoneticilerService";
 
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
@@ -73,6 +73,7 @@ export default function Home() {
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [blog, setBlog] = useState([]);
   const [duyuru, setDuyuru] = useState([]);
+  const [yoneticiler, setYoneticiler] = useState([]);
 
 
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -100,6 +101,11 @@ export default function Home() {
   }, []);
 
 
+  useEffect(() => {
+
+    retrieveYoneticiler();
+  }, []);
+
   const retrieveTutorials = () => {
     KategoriDataService.getAll()
       .then(response => {
@@ -125,6 +131,17 @@ export default function Home() {
 
   const retrieveDuyuru = () => {
     DuyuruDataService.getAll()
+      .then(response => {
+        setDuyuru(response.data);
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+  const retrieveYoneticiler = () => {
+    YoneticiDataService.getAll()
       .then(response => {
         setDuyuru(response.data);
         console.log(response.data);
