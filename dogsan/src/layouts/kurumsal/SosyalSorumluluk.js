@@ -26,6 +26,9 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
+import Tarihce from "./Tarihce";
+import Degerler from "./Degerler";
+import Hakkimizda from "./Hakkimizda";
 
 export default function SosyalSorumluluk() {
     const [tutorials, setTutorials] = useState([]);
@@ -101,7 +104,7 @@ export default function SosyalSorumluluk() {
 
             </div>
             <div className="page-head">
-                <div className="container">
+                {/* <div className="container">
                     <div className="col-md-9">
                         <h3>Standard Post Format with preview picture</h3>
                         <span className="post-meta">Posted 22.06.2014 at 18:00h in Healthy lifestyle by <a href="#">The Ronins</a>   /   68 Likes   /   <a href="#">2 Comments</a></span>
@@ -111,7 +114,7 @@ export default function SosyalSorumluluk() {
                             <input type="search" placeholder="Search..." />
                         </form>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="blog-content">
         <div className="container">
@@ -278,9 +281,10 @@ export default function SosyalSorumluluk() {
                 <div className="side-content">
                     <h5>KURUMSAL</h5>
                     <ul className="list1">
-                        <li><a href="#">TARİHÇE </a></li>
-                        <li><a href="#">DEĞERLER </a></li>
-                        <li><a href="#">SOSYAL SORUMLULUK </a></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">HAKKIMIZDA</Link></li>
+                    <li><Link to={"/Tarihce"} className="nav-link">TARİHÇE</Link></li>
+                    <li><Link to={"/Degerler"} className="nav-link">DEĞERLER</Link></li>
+                    
                     </ul>
                 </div>
                 {/* <div className="side-content">
