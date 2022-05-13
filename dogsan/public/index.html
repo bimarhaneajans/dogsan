@@ -1,41 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-   <meta name="keywords" content="HTML5 Template" />
-   <meta name="description" content="Heartify - Responsive HTML5 Landing Page">
-   <meta name="author" content="">
- 
-   <title>Heartify - Responsive Single Page Bootstrap Template</title>
- 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-   <!-- Favicons -->
-   <link rel="shortcut icon" href="img/favicon.ico">
-   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-   <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
-   <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
- 
-   <!-- Website fonts -->
-   <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
- 
-   <!-- Vendor CSS Sheets -->
-   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-   <link href="assets/css/style.css" rel="stylesheet">
-   <link href="assets/css/responsive-styling.css" rel="stylesheet">
-   <link rel="stylesheet" href="assets/vendor/owl-carousel/owl-carousel/owl.carousel.css">
-   <link rel="stylesheet" href="assets/vendor/owl-carousel/owl-carousel/owl.theme.css">
-   <link href="assets/css/YTPlayer.css" media="all" rel="stylesheet">
-   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="keywords" content="HTML5 Template" />
+  <meta name="description" content="Heartify - Responsive HTML5 Landing Page">
+  <meta name="author" content="">
+
+  <title>Heartify - Responsive Single Page Bootstrap Template</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">  
+  <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900' rel='stylesheet'
+    type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'> 
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive-styling.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/vendor/owl-carousel/owl-carousel/owl.carousel.css">
+  <link rel="stylesheet" href="assets/vendor/owl-carousel/owl-carousel/owl.theme.css">
+  <link href="assets/css/YTPlayer.css" media="all" rel="stylesheet">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="assets/vendor/layerslider/css/layerslider.css" type="text/css">
+
+  <script src="assets/js/jquery-1.9.1.min.js"></script>
+  <script src="assets/vendor/layerslider/js/greensock.js" type="text/javascript"></script>
+  <script src="assets/vendor/layerslider/js/layerslider.transitions.js" type="text/javascript"></script>
+  <script src="assets/vendor/layerslider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/vendor/owl-carousel/owl-carousel/owl.carousel.js"></script>
+  <script src="assets/vendor/isotope/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/waypoint-sticky-nav/waypoints.js"></script>
+  <script src="assets/vendor/waypoint-sticky-nav/waypoints-sticky.min.js"></script>
+  <script src="assets/js/custom-scripts.js"></script>
   
-   <link rel="stylesheet" href="assets/vendor/layerslider/css/layerslider.css" type="text/css">
   
+  <script>
+    jQuery("#layerslider").layerSlider({
+      responsive: false,
+      responsiveUnder: 1280,
+      layersContainer: 1280,
+      pauseOnHover: false,
+      autoPlayVideos: false,
+      skinsPath: 'assets/vendor/layerslider/skins/'
+    });
+  </script>
+  <script>
+    jQuery('.bttop').click(function () {
+      jQuery('html, body').animate({ scrollTop: 0 }, 'slow');
+    });
+  </script>
  
- </head>
+ 
+
+ 
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&amp;sensor=false"></script>
+  <script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', init);
+    function init() {
+      // Basic options for a simple Google Map
+      // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+      var mapOptions = {
+        // How zoomed in you want the map to start at (always required)
+        zoom: 11,
+
+        // The latitude and longitude to center the map (always required)
+        center: new google.maps.LatLng(40.6700, -73.9400), // New York
+
+        // How you would like to style the map. 
+        // This is where you would paste any style found on Snazzy Maps.
+        styles: [
+          {
+            featureType: 'water',
+            elementType: 'all',
+            stylers: [{ hue: '#e9ebed' }, { saturation: -78 }, { lightness: 67 }, { visibility: 'simplified' }]
+          }, { featureType: 'landscape', elementType: 'all', stylers: [{ hue: '#ffffff' }, { saturation: -100 }, { lightness: 100 }, { visibility: 'simplified' }] }, { featureType: 'road', elementType: 'geometry', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: 31 }, { visibility: 'simplified' }] }, { featureType: 'poi', elementType: 'all', stylers: [{ hue: '#ffffff' }, { saturation: -100 }, { lightness: 100 }, { visibility: 'off' }] }, { featureType: 'road.local', elementType: 'geometry', stylers: [{ hue: '#e9ebed' }, { saturation: -90 }, { lightness: -8 }, { visibility: 'simplified' }] }, { featureType: 'transit', elementType: 'all', stylers: [{ hue: '#e9ebed' }, { saturation: 10 }, { lightness: 69 }, { visibility: 'on' }] }, { featureType: 'administrative.locality', elementType: 'all', stylers: [{ hue: '#2c2e33' }, { saturation: 7 }, { lightness: 19 }, { visibility: 'on' }] }, { featureType: 'road', elementType: 'labels', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: 31 }, { visibility: 'on' }] }, { featureType: 'road.arterial', elementType: 'labels', stylers: [{ hue: '#bbc0c4' }, { saturation: -93 }, { lightness: -2 }, { visibility: 'simplified' }] }]
+      };
+
+      // Get the HTML DOM element that will contain your map 
+      // We are using a div with id="map" seen below in the <body>
+      var mapElement = document.getElementById('map');
+
+      // Create the Google Map using out element and options defined above
+      var map = new google.maps.Map(mapElement, mapOptions);
+    }
+  </script>
+
+
+</head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
