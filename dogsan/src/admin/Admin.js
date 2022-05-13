@@ -61,6 +61,7 @@ import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
 import Subdynamicdetaykategori from "layouts/Kategori/subdynamicdetaykategori";
 import Dynamicdetaykategori from "layouts/Kategori/dynamicdetaykategori";
 import EmilebilirSuturler from "layouts/EmilebilirSuturler/EmilebilirSuturler";
+import SinglePost from "layouts/SinglePost";
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -183,7 +184,7 @@ export default function App() {
         <Route path="/Subdynamicdetaykategori/:id" element={<Subdynamicdetaykategori />} />
         <Route path="/yoneticiguncelle/:id" element={<Yoneticinguncelle />} />
         <Route path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />
-        
+        <Route path="/SinglePost" element={<SinglePost />} />
       </Routes>
     </ThemeProvider>
   );

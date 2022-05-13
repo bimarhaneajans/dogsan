@@ -45,6 +45,10 @@ import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
+import postimg from "../layouts/assets/img/blog/post-img1.jpg"
+import postimg2 from "../layouts/assets/img/blog/post-img2.jpg"
+import postimg3 from "../layouts/assets/img/blog/post-img3.jpg"
+import posticon from "../layouts/assets/img/blog/post-icon.png"
 
 import bir from "../layouts/assets/img/projects/1.jpg";
 import iki from "../layouts/assets/img/projects/2.jpg";
@@ -69,6 +73,7 @@ import Sliders from "../sliders/slider"
 import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
 import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
+import SinglePost from "./SinglePost";
 
 
 export default function Home() {
@@ -171,7 +176,7 @@ export default function Home() {
 
           <div id="slider-wrapper">
             <Sliders />
-        
+
           </div>
         </div>
 
@@ -183,7 +188,7 @@ export default function Home() {
               <div className="top-header hidden-xs">
                 <div className="top-navigation">
                   <ul className="top-nav list-unstyled list-inline">
-                    <li><a href="#home">Kurumsal</a></li>
+                    <li><Link to={"/SinglePost"} className="nav-link">Kurumsal</Link></li>
                     <li><a href="#about">Kataloglar</a></li>
                     <li><a href="#team">İğneler</a></li>
                     <li className="logo"><a href="index.html"><img src={logo} alt="Heartify" /></a></li>
@@ -313,7 +318,7 @@ export default function Home() {
           <div className="clearfix"></div>
         </div>
 
-{/*
+        {/*
 
 
         <ul class="projects-wrap">
@@ -343,22 +348,22 @@ export default function Home() {
           <div className="container">
 
             <div className="row">
-            {duyuru.map(item => (
-              <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
+              {duyuru.map(item => (
+                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
 
-                <div className="clearfix"></div>
-                <img className="pull-center icon" src={s2} alt="icon" />
+                  <div className="clearfix"></div>
+                  <img className="pull-center icon" src={s2} alt="icon" />
 
-                <div className="info-col">
-                <img style={{width:"350px",height:"250px"}} src={item.Resim}   />
-                  <h5>{item.baslik}</h5>
-                  <p>{item.icerik} </p>
+                  <div className="info-col">
+                    <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
+                    <h5>{item.baslik}</h5>
+                    <p>{item.icerik} </p>
+                  </div>
                 </div>
-              </div>
- ))} 
+              ))}
 
- 
-       </div>
+
+            </div>
 
           </div>
           <div className="clearfix"></div>
@@ -440,8 +445,8 @@ export default function Home() {
             </div>
           </div>
         </div>
- 
-      
+
+
 
 
 
@@ -456,7 +461,7 @@ export default function Home() {
                   <div class="client-stat text-center" style={{ margin: "100px auto", backgroundColor: "white", padding: "45px 20px 44px 21px" }} >
                     <h3 >DÜNYADA DOĞSAN</h3>
                     <p> Avrupa, Asya ve Ortadoğu’da 40’ı aşkın ülkeye ihracat yapan Doğsan, kalite standartlarına uygun olarak ürettiği geniş ürün yelpazesiyle sütür üretiminde Türkiye’nin Dünya pazarlarındaki temsilcisi konumundadır.
-</p>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -488,29 +493,29 @@ export default function Home() {
             </div>
 
             {yoneticiler.map(item => (
-            <div key={item.id} className="row col-xs-12">
-              <div id="container" className="container team-detail">
-              
-                <div  className="item general col-md-12">
-                
-                  <div className="team-member">
-                    <a data-toggle="modal" data-target="#myModal">
-                      <div className="team-img">
-                        <img src={item.Resim} className="img-responsive" alt="" />
-                      </div>
-                    </a>
-                    <div className="member-details" >
-                      <h6>{item.pozizyon}</h6>
-                      <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
-                      <p>{item.kariyer} </p>
+              <div key={item.id} className="row col-xs-12">
+                <div id="container" className="container team-detail">
 
+                  <div className="item general col-md-12">
+
+                    <div className="team-member">
+                      <a data-toggle="modal" data-target="#myModal">
+                        <div className="team-img">
+                          <img src={item.Resim} className="img-responsive" alt="" />
+                        </div>
+                      </a>
+                      <div className="member-details" >
+                        <h6>{item.pozizyon}</h6>
+                        <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
+                        <p>{item.kariyer} </p>
+
+                      </div>
                     </div>
                   </div>
-                </div>
-                
 
-              </div>
-            </div> ))} 
+
+                </div>
+              </div>))}
             <div>
 
             </div>
@@ -528,7 +533,7 @@ export default function Home() {
               </div>
             </div>
           </div>
- 
+
 
           <div class="row">
             <div class="col-md-12">
@@ -545,9 +550,9 @@ export default function Home() {
                         {/* <a href="#">View more</a> */}
                       </div>
                     </div>
-                   
+
                   </li>
-                ))} 
+                ))}
               </ul>
 
             </div>
@@ -739,80 +744,72 @@ export default function Home() {
               <div className="clearfix"></div>
               <div className="bottom-space-50"></div>
             </div> */}
-            {/* <div id="blog">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                    <div className="blog-stat text-center">
-                      <h2>From the blog</h2>
-                      <h5>Lorem ipsum dolor sit amet</h5>
-                      <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                    </div>
+          {/*   <div class="row">
+              <div class="col-md-12">
+                <div class="bottom-space-50"></div>
+                <ul class="projects-wrap">
+                  {blog.map(item => (
+
+                    <li key={item.id}>
+                      <img src={item.Resim} class="img-responsive" alt="" />
+                      <div class="overlay">
+                        <div class="overlay-inner">
+                          <h4><span>{item.baslik}</span></h4>
+                          <span class="comments">{item.Ozet}</span>
+                         <a href="#">View more</a> 
+                        </div>
+                      </div>
+
+                    </li>
+                  ))}
+                </ul>
+
+              </div>
+            </div> */}
+          </div>
+          <div id="blog">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                  <div className="blog-stat text-center">
+                    <h2>BLOG</h2>
+                    <h5>SÜTÜR TEKNOLOJİSİNE DAİR HER ŞEY</h5>
+                    <p className="lead">Dünya genelinde sütür teknolojilerinde yaşanan son
+gelişmeler, teknik konular ve daha fazlası için blog sayfamızı ziyaret edebilirsiniz.
+
+Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da yönlendiriyor.</p>
                   </div>
-                  <div id="blog-posts">
-                    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                </div>
+                <div id="blog-posts">
+                  {blog.map(item => (
+                    <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                       <div className="blog-post">
                         <div className="post-img">
-                          <img src="assets/img/blog/post-img1.jpg" className="img-responsive" alt="" />
-                          <img className="ab-icon" src="assets/img/blog/post-icon.png" alt="" />
+                          <img src={postimg} className="img-responsive" alt="" />
+                          <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
                           <a href="./single_post.html">
-                            <h5>This is a Standard post format with preview picture</h5>
+                            <h5>{item.baslik}</h5>
                           </a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                          <p>{item.Ozet}</p>
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
                           <li className="post-links"><a href=""><i className="icon-calendar"></i> 23 October 2013</a></li>
                         </ul>
                       </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                      <div className="blog-post">
-                        <div className="post-img">
-                          <img src="assets/img/blog/post-img2.jpg" className="img-responsive" alt="" />
-                          <img className="ab-icon" src="assets/img/blog/post-icon.png" alt="" />
-                        </div>
-                        <div className="info-col">
-                          <a href="./single_post.html">
-                            <h5>This is a Standard post format with preview picture</h5>
-                          </a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                        <ul className="list-inline list-unstyled post-nav">
-                          <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
-                          <li className="post-links"><a href=""><i className="icon-calendar"></i> 23 October 2013</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                      <div className="blog-post">
-                        <div className="post-img">
-                          <img src="assets/img/blog/post-img3.jpg" className="img-responsive" alt="" />
-                          <img className="ab-icon" src="assets/img/blog/post-icon.png" alt="" />
-                        </div>
-                        <div className="info-col">
-                          <a href="./single_post.html">
-                            <h5>This is a Standard post format with preview picture</h5>
-                          </a>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                        <ul className="list-inline list-unstyled post-nav">
-                          <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
-                          <li className="post-links"><a href=""><i className="icon-calendar"></i> 23 October 2013</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                    </div>))}
+
                 </div>
               </div>
             </div>
- */}
+          </div>
 
-            <div className="clearfix"></div>
 
-            {/* <div id="twitter-feed">
+          <div className="clearfix"></div>
+
+          {/* <div id="twitter-feed">
               <div className="video-bg-overlay"></div>
               <div className="video-bg">
 
@@ -855,42 +852,42 @@ export default function Home() {
                 </div>
               </div> 
             </div>*/}
-            <div id="contact">
-              <div className="container">
-                <div className="row">
-                  <div className="col-md-10 col-md-offset-1">
-                    <div className="contact-stat text-center">
-                      <h2>Contact Form</h2>
-                      <h5>Lorem ipsum dolor sit amet</h5>
-                      <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+          <div id="contact">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-10 col-md-offset-1">
+                  <div className="contact-stat text-center">
+                    <h2>Contact Form</h2>
+                    <h5>Lorem ipsum dolor sit amet</h5>
+                    <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                  </div>
+                  <div className="row">
+                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                      <div className="info-col text-center">
+                        <h4>Phone Number</h4>
+                        <p className="contact-time">Monday - Friday 10:00 am - 10:00 pm</p>
+                        <p className="phone">+48 987 654 321</p>
+                      </div>
                     </div>
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div className="info-col text-center">
-                          <h4>Phone Number</h4>
-                          <p className="contact-time">Monday - Friday 10:00 am - 10:00 pm</p>
-                          <p className="phone">+48 987 654 321</p>
-                        </div>
+                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                      <div className="info-col text-center">
+                        <h4>Clinic Address</h4>
+                        <p className="clinic-add">The Ronins Clinic<br />Suit 109,200 Broadway Avenue West Beach SA 5024, Australia</p>
                       </div>
-                      <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div className="info-col text-center">
-                          <h4>Clinic Address</h4>
-                          <p className="clinic-add">The Ronins Clinic<br />Suit 109,200 Broadway Avenue West Beach SA 5024, Australia</p>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <div className="info-col text-center">
-                          <h4>Email Address</h4>
-                          <p className="contact-email">We are happy to answer any questions</p>
-                          <p className="email"><a href="mailto:contact@theronins.com">contact@theronins.com</a></p>
-                        </div>
+                    </div>
+                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                      <div className="info-col text-center">
+                        <h4>Email Address</h4>
+                        <p className="contact-email">We are happy to answer any questions</p>
+                        <p className="email"><a href="mailto:contact@theronins.com">contact@theronins.com</a></p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            {/* <div id="g-map">
+          </div>
+          {/* <div id="g-map">
               <div id="map"></div>
              <div className="row">
                 <div className="container">
@@ -921,66 +918,65 @@ export default function Home() {
             </div>*/}
 
 
-            <div className="footer2">
-              <img src="assets/img/logo/heartify-logo-lite.png" alt="" />
-            </div>
-
-
-            <div className="footer2-bottom">
-              <div className="container">
-                <div className="col-md-6">
-                  <ul className="footer-social">
-                    <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i className="fa fa-youtube"></i></a></li>
-
-
-                  </ul>
-                </div>
-
-                <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
-              </div>
-            </div>
-
-
+          <div className="footer2">
+            <img src="assets/img/logo/heartify-logo-lite.png" alt="" />
           </div>
+
+
+          <div className="footer2-bottom">
+            <div className="container">
+              <div className="col-md-6">
+                <ul className="footer-social">
+                  <li><a href="#"><i className="fa fa-facebook"></i></a></li>
+                  <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                  <li><a href="#"><i className="fa fa-instagram"></i></a></li>
+                  <li><a href="#"><i className="fa fa-youtube"></i></a></li>
+
+
+                </ul>
+              </div>
+
+              <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
+            </div>
+          </div>
+
+
         </div>
+      </div>
 
 
 
-        <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-body">
-                <div className="row">
-                  <div className="col-md-12">
-                    <div className="col-md-6 no-padding">
-                      <img src="assets/img/team/1.png" className="img-responsive" alt="" />
-                    </div>
-                    <div className="col-md-6 team-pop-info">
-                      <button data-dismiss="modal" className="m-close"></button>
-                      <h4><span>Clinic manager</span> Frank Rooney</h4>
-                      <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                      <ul className="tp-meta">
-                        <li><span>Phone Number</span> <em>+40 987 654 321</em></li>
-                        <li><span>Email Address</span> <em>contact@theronins.com</em></li>
-                        <li><span>Place of work</span> <em>Heartify Clinic in Chicago</em></li>
-                        <li><span>Responsibilities</span> <em>Head of orthopedics</em></li>
-                      </ul>
-                      <div className="row">
-                        <div className="tp-social">
-                          <div className="col-md-6 no-padding">
-                            <span>Social Profiles</span>
-                          </div>
-                          <div className="col-md-6 no-padding">
-                            <ul>
-                              <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                              <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                              <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                              <li><a href="#"><i className="fa fa-skype"></i></a></li>
-                            </ul>
-                          </div>
+      <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-body">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="col-md-6 no-padding">
+                    <img src="assets/img/team/1.png" className="img-responsive" alt="" />
+                  </div>
+                  <div className="col-md-6 team-pop-info">
+                    <button data-dismiss="modal" className="m-close"></button>
+                    <h4><span>Clinic manager</span> Frank Rooney</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <ul className="tp-meta">
+                      <li><span>Phone Number</span> <em>+40 987 654 321</em></li>
+                      <li><span>Email Address</span> <em>contact@theronins.com</em></li>
+                      <li><span>Place of work</span> <em>Heartify Clinic in Chicago</em></li>
+                      <li><span>Responsibilities</span> <em>Head of orthopedics</em></li>
+                    </ul>
+                    <div className="row">
+                      <div className="tp-social">
+                        <div className="col-md-6 no-padding">
+                          <span>Social Profiles</span>
+                        </div>
+                        <div className="col-md-6 no-padding">
+                          <ul>
+                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i className="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i className="fa fa-skype"></i></a></li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -988,36 +984,37 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            -
           </div>
-
+          -
         </div>
-        <ul class="fixed-social-menu list-inline-social mb-0" >
-          <li>
-            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/TWTHealth-102348289007640">
-              <i class="fa fa-facebook" ></i>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/twthealth/">
-              <i class="fa fa-instagram" ></i>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.linkedin.com/in/twt-helathy-26b391230/">
-              <i class="fa fa-linkedin" ></i>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChqrfVQgiAjPpBf_jTDvR8w ">
-              <i class="fa fa-youtube-play" ></i>
-            </a>
-          </li>
-        </ul>
 
       </div>
+      <ul class="fixed-social-menu list-inline-social mb-0" >
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/TWTHealth-102348289007640">
+            <i class="fa fa-facebook" ></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/twthealth/">
+            <i class="fa fa-instagram" ></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.linkedin.com/in/twt-helathy-26b391230/">
+            <i class="fa fa-linkedin" ></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChqrfVQgiAjPpBf_jTDvR8w ">
+            <i class="fa fa-youtube-play" ></i>
+          </a>
+        </li>
+      </ul>
 
     </div>
+
+   
   )
 }
 
