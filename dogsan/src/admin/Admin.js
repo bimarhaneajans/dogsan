@@ -62,6 +62,10 @@ import Subdynamicdetaykategori from "layouts/Kategori/subdynamicdetaykategori";
 import Dynamicdetaykategori from "layouts/Kategori/dynamicdetaykategori";
 import EmilebilirSuturler from "layouts/EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "layouts/SinglePost";
+import Hakkimizda from "layouts/kurumsal/Hakkimizda";
+import Tarihce from "layouts/kurumsal/Tarihce";
+import Degerler from "layouts/kurumsal/Degerler";
+import SosyalSorumluluk from "layouts/kurumsal/SosyalSorumluluk";
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -185,6 +189,7 @@ export default function App() {
         <Route path="/yoneticiguncelle/:id" element={<Yoneticinguncelle />} />
         <Route path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />
         <Route path="/SinglePost" element={<SinglePost />} />
+        <Route path="/Hakkimizda" element={<Hakkimizda />} />
       </Routes>
     </ThemeProvider>
   );

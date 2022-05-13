@@ -74,6 +74,8 @@ import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
 import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "./SinglePost";
+import Hakkimizda from "./kurumsal/Hakkimizda";
+
 
 
 export default function Home() {
@@ -188,13 +190,13 @@ export default function Home() {
               <div className="top-header hidden-xs">
                 <div className="top-navigation">
                   <ul className="top-nav list-unstyled list-inline">
-                    <li><Link to={"/SinglePost"} className="nav-link">Kurumsal</Link></li>
-                    <li><a href="#about">Kataloglar</a></li>
-                    <li><a href="#team">İğneler</a></li>
-                    <li className="logo"><a href="index.html"><img src={logo} alt="Heartify" /></a></li>
-                    <li><a href="#pricing">Duyurular</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">İletişim</a></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">Kataloglar</Link></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">İğneler</Link></li>
+                    <li className="logo"><Link to={"/"} className="nav-link"><img src={logo} alt="Heartify" /></Link></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">Duyurular</Link></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">Blog</Link></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">İletişim</Link></li>
                   </ul>
                 </div>
 
@@ -785,7 +787,7 @@ Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da
                     <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                       <div className="blog-post">
                         <div className="post-img">
-                          <img src={postimg} className="img-responsive" alt="" />
+                          <img src={item.Resim} className="img-responsive" alt="" />
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">

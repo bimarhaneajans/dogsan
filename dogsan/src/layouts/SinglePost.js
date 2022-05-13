@@ -23,8 +23,6 @@ import "./style.css"
 import "./responsive-styling.css"
 
 
-
-
 export default function SinglePost() {
     return (
         <div>
