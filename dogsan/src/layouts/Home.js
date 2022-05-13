@@ -525,7 +525,7 @@ export default function Home() {
         </div>
 
 
-        <div id="projects">
+     {/*    <div id="projects">
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
@@ -549,7 +549,7 @@ export default function Home() {
                       <div class="overlay-inner">
                         <h4><span>{item.baslik}</span></h4>
                         <span class="comments">{item.Ozet}</span>
-                        {/* <a href="#">View more</a> */}
+                      <a href="#">View more</a> 
                       </div>
                     </div>
 
@@ -559,7 +559,7 @@ export default function Home() {
 
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="clearfix"></div>
 
@@ -993,22 +993,22 @@ Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da
       </div>
       <ul class="fixed-social-menu list-inline-social mb-0" >
         <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/TWTHealth-102348289007640">
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
             <i class="fa fa-facebook" ></i>
           </a>
         </li>
         <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/twthealth/">
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
             <i class="fa fa-instagram" ></i>
           </a>
         </li>
         <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.linkedin.com/in/twt-helathy-26b391230/">
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
             <i class="fa fa-linkedin" ></i>
           </a>
         </li>
         <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChqrfVQgiAjPpBf_jTDvR8w ">
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
             <i class="fa fa-youtube-play" ></i>
           </a>
         </li>

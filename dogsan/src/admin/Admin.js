@@ -190,6 +190,9 @@ export default function App() {
         <Route path="/EmilebilirSuturler" element={<EmilebilirSuturler />} />
         <Route path="/SinglePost" element={<SinglePost />} />
         <Route path="/Hakkimizda" element={<Hakkimizda />} />
+        <Route path="/Tarihce" element={<Tarihce />} />
+        <Route path="/Degerler" element={<Degerler />} />
+        <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
       </Routes>
     </ThemeProvider>
   );
