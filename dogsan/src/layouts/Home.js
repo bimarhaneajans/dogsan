@@ -67,6 +67,8 @@ import "./style.css"
 import "./responsive-styling.css"
 import Sliders from "../sliders/slider"
 import "./social.css"
+import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
+import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 
 
 export default function Home() {
@@ -197,27 +199,21 @@ export default function Home() {
 
           </div>
         </div>
-
-    
-
-
-
-
         <div className="main-header">
           <div className="sticky-header">
             <div className="container">
               <div className="row">
-                <div className="col-xs-8 col-sm-4 col-md-4 col-lg-4 pull-left">
+                <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-left">
                   <div className="main-logo">
                     <a href="index.html"><img className="pull-left" src={logo2} alt="Heartify" /><span>HEARTIFY</span></a>
                   </div>
                 </div>
-                <div className="col-xs-4 col-sm-8 col-md-8 col-lg-8">
+                <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                   <div className="main-navigation hidden-xs">
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
+                          key={index}><Link to={"/EmilebilirSuturler"} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
                     </ul>
                   </div>
 
@@ -490,20 +486,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
- {/*  yoneticiadi: tutorial.yoneticiadi,
-      yoneticisoyadi: tutorial.yoneticisoyadi,
-      kariyer: tutorial.kariyer,
-      pozizyon: tutorial.pozizyon,
-      twitter: tutorial.twitter,
-      facebook: tutorial.facebook,
-      linkedin: tutorial.linkedin,
-      googleplus: tutorial.googleplus,
-      Resim: tutorial.Resim, */}
 
-            <div className="row">
+            {yoneticiler.map(item => (
+            <div key={item.id} className="row col-xs-12">
               <div id="container" className="container team-detail">
-              {yoneticiler.map(item => (
-                <div key={item.id} className="item general col-md-6">
+              
+                <div  className="item general col-md-12">
                 
                   <div className="team-member">
                     <a data-toggle="modal" data-target="#myModal">
@@ -519,10 +507,10 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                ))}  
+                
 
               </div>
-            </div>
+            </div> ))} 
             <div>
 
             </div>

@@ -3,7 +3,7 @@ import pedesente from "./pedesente_51f39fbbfa.jpg";
 import pegelak from "./pegelak_rapid_96cbb96267.jpg";
 import pegesorb from "./pegesorb_d81849bab8.jpg";
 import pegesorbrapid from "./pegesorb_rapid_863339e5eb.jpg";
-import "../kvc/css/styles.css";
+import "../assets/css/kvc/styles.css"
 
 import Navbar from 'components/navbar/navbar';
 
