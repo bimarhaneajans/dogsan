@@ -377,7 +377,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="bottom-space-50"></div>
-              <div className="col-xs-6">
+              <div className="col-xs-12">
+              <div className="col-xs-2"></div>
+              <div className="col-xs-8" >
                 <form className="appointment-form">
                   <h4>Appointments form</h4>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
@@ -422,9 +424,9 @@ export default function Home() {
                     </div>
                   </div>
                 </form>
-              </div>
+              </div><div className="col-xs-2"></div></div>
           
-              <img src="assets/img/1.png" className="img-responsive" alt="" />
+              {/* <img src="assets/img/1.png" className="img-responsive" alt="" /> */}
               <div className="clearfix"></div>
             </div>
           </div>
@@ -1022,7 +1024,7 @@ export default function Home() {
 
 
         </div>
-      </div >
+      </div>
 
 
       <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
@@ -1091,7 +1093,7 @@ export default function Home() {
         </li>
       </ul>
 
-    </div >
+    </div>
 
 
   )
