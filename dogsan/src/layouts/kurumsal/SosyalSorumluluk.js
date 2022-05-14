@@ -26,9 +26,9 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Tarihce from "./Tarihce";
-import Degerler from "./Degerler";
-import Hakkimizda from "./Hakkimizda";
+import Tarihce from "./tarihce";
+import Degerler from "./degerler";
+import Hakkimizda from "./hakkimizda";
 
 export default function SosyalSorumluluk() {
     const [tutorials, setTutorials] = useState([]);

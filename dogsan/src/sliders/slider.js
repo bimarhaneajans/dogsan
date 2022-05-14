@@ -1,30 +1,32 @@
-import React from 'react'
-
-/* import slidebbg from "../layouts/sliderimages/slide-b-bg.jpg";
-import silide2 from "../assets/assets/img/slider/slide2.jpg";
-
-import gdoctor from "../layouts/sliderimages/gdoctor.png";
-import ldoctor from "../layouts/sliderimages/ldoctor.png";
- */
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import $ from "jquery";
+import "jquery-ui-dist/jquery-ui";
 import slidebbg from "../sliders/sliderimages/slide-b-bg.jpg";
 import silide2 from "../sliders/assets/img/slider/slide2.jpg";
 import gdoctor from "../layouts/sliderimages/gdoctor.png";
 import ldoctor from "../layouts/sliderimages/ldoctor.png";
 
-/* import "../../src/sliders/assets/vendor/owl-carousel/owl-carousel/owl.theme.css"
-import "../../src/sliders/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css"
-import "../../src/sliders/assets/css/style.css"
-import "../../src/sliders/assets/css/font-awesome.min.css"
 
-import "../../src/sliders/assets/css/responsive-styling.css"
-import "../../src/sliders/assets/vendor/bootstrap/css/bootstrap.min.css"
-import "../../src/sliders/assets/vendor/layerslider/css/layerslider.css"
-import "../../src/sliders/assets/css/YTPlayer.css"
+function Slider() {
 
- import "../../src/sliders/assets/css/YTPlayer.css" */
+  
+/*   useEffect(() => {
+    $("#layerslider").layerSlider({
+      responsive: false,
+      responsiveUnder: 1280,
+      layersContainer: 1280,
+      pauseOnHover: false,
+      autoPlayVideos: false,
+     // skinsPath: '../src/sliders/assets/vendor/layerslider/skins/'
+    });
+  }, []);  
 
-
-function slider() {
+  useEffect(() => {
+    $('.bttop').on(function () {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+    });
+  }, []);   */
+  
   return (<div className="main-wrapper" >
     <div id="home">
       <div id="bg-slider-home">
@@ -221,4 +223,4 @@ function slider() {
   )
 }
 
-export default slider
+export default Slider;

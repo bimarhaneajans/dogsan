@@ -1,22 +1,4 @@
-/* import Header from "../components/header/header";
-import Slider from "../layouts/Slider/slider";
-import Navbar from "../components/navbar/navbar";
-import NavbarHome from "../components/navbar/NavbarHome";
-import Dynamickategori from "./Kategori/dynamickategori";
-import Footer from "../components/footer/footer";
-import Kvc from "../components/kvc/kvc";
-import Kvc2 from "../components/kvc/kvc2";
-import EmilebilirSuturler2 from "./EmilebilirSuturler/EmilebilirSuturler2";
-import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
-import EmilmeyenSuturler from "./EmilmeyenSuturler/EmilmeyenSuturler";
-import EmilmeyenSuturler2 from "./EmilmeyenSuturler/EmilmeyenSuturler2";
-import EmilebilirHemostat from "./EmilebilirHemostat/EmilebilirHemostat";
-import EmilebilirHemostat2 from "./EmilebilirHemostat/EmilebilirHemostat2";
-import DentalSuturler from "./DentalSuturler/DentalSuturler";
-import DentalSuturler2 from "./DentalSuturler/DentalSuturler2";
-import Veterinerlik from "./Veterinerlik/Veterinerlik";
-import Veterinerlik2 from "./Veterinerlik/Veterinerlik2";
-import Subdynamickategori from "./Kategori/subdynamickategori"; */
+ 
 import UserService from "../services/user.service";
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Router, Route, Navigate, useLocation } from "react-router-dom";
@@ -74,7 +56,7 @@ import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
 import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "./SinglePost";
-import Hakkimizda from "./kurumsal/Hakkimizda";
+import Hakkimizda from "./kurumsal/hakkimizda";
 
 
 
