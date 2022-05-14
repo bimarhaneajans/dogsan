@@ -1,4 +1,4 @@
- 
+
 import UserService from "../services/user.service";
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Router, Route, Navigate, useLocation } from "react-router-dom";
@@ -57,10 +57,10 @@ import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
 import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "./SinglePost";
-import Hakkimizda from "./kurumsal/hakkimizda";
+import Hakkimizda from "./kurumsal/Hakkimizda";
 
 
- 
+
 
 export default function Home() {
   const [tutorials, setTutorials] = useState([]);
@@ -80,8 +80,8 @@ export default function Home() {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
-  const slides =[];
- 
+  const slides = [];
+
   useEffect(() => {
     retrieveTutorials();
 
@@ -98,7 +98,7 @@ export default function Home() {
 
     retrieveYoneticiler();
   }, []);
-   useEffect(() => {
+  useEffect(() => {
 
     retrieveSlayt();
   }, []);
@@ -147,34 +147,34 @@ export default function Home() {
     SlaytDataService.getAll()
       .then(response => {
         const persons = response.data;
-         
+
         console.log(persons);
         setSlayt(persons);
 
-        
-         
- // console.log(slides);
-       
-       
-       // console.log(response.data);
-       
+
+
+        // console.log(slides);
+
+
+        // console.log(response.data);
+
       })
       .catch(e => {
         console.log(e);
       });
-  }; 
+  };
   const setActiveTutorial = (tutorial, index) => {
     setCurrentTutorial(tutorial);
     setCurrentIndex(index);
   };
- 
+
   return (
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-    <CitiesSlider slaty={slaty} /> 
+          <CitiesSlider slaty={slaty} />
           <div id="slider-wrapper">
-           
+
           </div>
         </div>
 
@@ -367,10 +367,6 @@ export default function Home() {
           <div className="clearfix"></div>
         </div>
 
-
-
-
-
         <div id="services3">
           <div className="services-info3">
             <div className="container">
@@ -381,11 +377,59 @@ export default function Home() {
                 </p>
               </div>
               <div className="bottom-space-50"></div>
+              <div className="col-xs-6">
+                <form className="appointment-form">
+                  <h4>Appointments form</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                  <label>NAME AND SURNAME</label>
+                  <input type="text" placeholder="Enter your name and surname" />
+                  <label>CONTACT PHONE NUMBER</label>
+                  <input type="text" placeholder="Enter phone number" />
+                  <label>PATIENT NUMBER</label>
+                  <input type="text" placeholder="Enter patient number" />
+                  <div className="row">
+                    <div className="col-md-6">
+                      <label>DATE FROM</label>
+                      <div className='input-group date'>
+                        <input type='text' className="form-control" placeholder="30.01.2013" />
+                        <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <label>DATE TO</label>
+                      <div className='input-group date'>
+                        <input type='text' className="form-control" placeholder="30.01.2013" />
+                        <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space20"></div>
+                  <label>HOURLY PREFERENCES</label>
+                  <ul className="hpref">
+                    <li className="active"><a>Morning</a></li>
+                    <li><a>Lunch</a></li>
+                    <li><a>Evening</a></li>
+                  </ul>
+                  <div className="space20"></div>
+                  <div className="clearfix"></div>
+                  <div className="space20"></div>
+                  <div className="submit-wrap row">
+                    <div className="col-md-7 cbox">
+                      <input type="checkbox" /><span>send me copy of message</span>
+                    </div>
+                    <div className="col-md-5">
+                      <button type="submit">Send Message</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+          
               <img src="assets/img/1.png" className="img-responsive" alt="" />
               <div className="clearfix"></div>
             </div>
           </div>
         </div>
+
 
         <div id="services">
           <div className="services-info s2-info">
@@ -521,7 +565,7 @@ export default function Home() {
         </div>
 
 
-     {/*    <div id="projects">
+        {/*    <div id="projects">
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
@@ -742,7 +786,7 @@ export default function Home() {
               <div className="clearfix"></div>
               <div className="bottom-space-50"></div>
             </div> */}
-          {/*   <div class="row">
+            {/*   <div class="row">
               <div class="col-md-12">
                 <div class="bottom-space-50"></div>
                 <ul class="projects-wrap">
@@ -773,9 +817,9 @@ export default function Home() {
                     <h2>BLOG</h2>
                     <h5>SÜTÜR TEKNOLOJİSİNE DAİR HER ŞEY</h5>
                     <p className="lead">Dünya genelinde sütür teknolojilerinde yaşanan son
-gelişmeler, teknik konular ve daha fazlası için blog sayfamızı ziyaret edebilirsiniz.
+                      gelişmeler, teknik konular ve daha fazlası için blog sayfamızı ziyaret edebilirsiniz.
 
-Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da yönlendiriyor.</p>
+                      Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da yönlendiriyor.</p>
                   </div>
                 </div>
                 <div id="blog-posts">
@@ -855,29 +899,30 @@ Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da
               <div className="row">
                 <div className="col-md-10 col-md-offset-1">
                   <div className="contact-stat text-center">
-                    <h2>Contact Form</h2>
-                    <h5>Lorem ipsum dolor sit amet</h5>
-                    <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                    <h2>İLETİŞİM FORMU</h2>
+                    <h5></h5>
+                    <p className="lead"></p>
                   </div>
                   <div className="row">
                     <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                       <div className="info-col text-center">
-                        <h4>Phone Number</h4>
-                        <p className="contact-time">Monday - Friday 10:00 am - 10:00 pm</p>
-                        <p className="phone">+48 987 654 321</p>
+                        <h4>ÜRETİM TESİSLERİ</h4>
+                        <p className="contact-time">Rize Cad. No: 91/A Yalıncak 61220 Trabzon</p>
+                        <p className="phone">+90 462 334 06 90</p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                       <div className="info-col text-center">
-                        <h4>Clinic Address</h4>
-                        <p className="clinic-add">The Ronins Clinic<br />Suit 109,200 Broadway Avenue West Beach SA 5024, Australia</p>
+                        <h4>SATIŞ & PAZARLAMA</h4>
+                        <p className="clinic-add">Yıldız Cad. No: 55/A Beşiktaş 34353 İstanbul</p>
+                        <p className="email"><a href="mailto:contact@theronins.com">+90 212 258 00 54</a></p>
                       </div>
                     </div>
                     <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                       <div className="info-col text-center">
-                        <h4>Email Address</h4>
-                        <p className="contact-email">We are happy to answer any questions</p>
-                        <p className="email"><a href="mailto:contact@theronins.com">contact@theronins.com</a></p>
+                        <h4>SATIŞ & PAZARLAMA</h4>
+                        <p className="contact-email">Ankara Hanımeli Sok. No: 26-10 Sıhhiye 06100 Ankara</p>
+                        <p className="email"><a href="mailto:contact@theronins.com">+90 312 231 58 06</a></p>
                       </div>
                     </div>
                   </div>
@@ -916,32 +961,68 @@ Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da
             </div>*/}
 
 
-          <div className="footer2">
-            <img src="assets/img/logo/heartify-logo-lite.png" alt="" />
-          </div>
+          <div className="footer2" style={{ height: "250px" }}>
 
+            <div className="col-xs-3">
+              <div style={{ marginTop: "50px" }}><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ marginLeft: "100px", marginTop: "50px", color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                Bilgi Toplum Hizmetleri
+              </a></div>
+            </div>
+            <div className="col-xs-3">
+              <div style={{ marginTop: "50px" }}><a href="/files/dogsan_kvkk.docx" style={{ marginTop: "50px", color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                Kişisel Verilerin Korunması Kanunu (KVKK)
+              </a></div>
+            </div>
+            <div className="col-xs-6">
+
+              <div className="col-xs-12" >
+                <h1 style={{ fontWeight: "bold", color: "rgb(250, 250, 250)", textAlign: "center" }}>Site Haritası</h1>
+                <div className="col-xs-4">
+                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Bilgi Toplum Hizmetleri
+                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Kişisel Verilerin Korunması Kanunu (KVKK)
+                  </a></div>
+                </div>
+
+                <div className="col-xs-4">
+                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Bilgi Toplum Hizmetleri
+                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Kişisel Verilerin Korunması Kanunu (KVKK)
+                  </a></div>
+                </div>
+                <div className="col-xs-4">
+                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Bilgi Toplum Hizmetleri
+                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Kişisel Verilerin Korunması Kanunu (KVKK)
+                  </a></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <div className="footer2-bottom">
             <div className="container">
-              <div className="col-md-6">
-                <ul className="footer-social">
-                  <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                  <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                  <li><a href="#"><i className="fa fa-youtube"></i></a></li>
+
+              {/* <div className="col-md-6">
+              <ul className="footer-social">
+                <li><a href="#"><i className="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i className="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i className="fa fa-youtube"></i></a></li>
 
 
-                </ul>
-              </div>
-
+              </ul>
+            </div> */}
               <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
             </div>
           </div>
 
 
         </div>
-      </div>
-
+      </div >
 
 
       <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
@@ -1010,9 +1091,9 @@ Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da
         </li>
       </ul>
 
-    </div>
+    </div >
 
-   
+
   )
 }
 
