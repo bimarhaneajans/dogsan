@@ -14,11 +14,11 @@ import rposts1 from "./assets/img/rposts/1.jpg";
 import rposts2 from "./assets/img/rposts/1.jpg";
 import rposts3 from "./assets/img/rposts/1.jpg";
 import backtotop from "./assets/img/backtotop.jpg"
-import "./assets/vendor/bootstrap/css/bootstrap.min.css";
+/* import "./assets/vendor/bootstrap/css/bootstrap.min.css";
 import "./assets/css/style.css"; // burasi
 import "./assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "./assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
-import "../sliders/assets/css/responsive-styling.css"
+import "../sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
 
