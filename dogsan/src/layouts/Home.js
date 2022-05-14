@@ -8,6 +8,7 @@ import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
 import DuyuruDataService from "../services/DuyuruService";
 import YoneticiDataService from "../services/YoneticilerService";
+import SlaytDataService from "../services/SliderService";
 
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
@@ -59,36 +60,7 @@ import SinglePost from "./SinglePost";
 import Hakkimizda from "./kurumsal/hakkimizda";
 
 
-const slides = [
-  {
-    city: 'Paris',
-    country: 'France',
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/paris.jpg',
-  },
-  {
-    city: 'Singapore',
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/singapore.jpg',
-  },
-  {
-    city: 'Prague',
-    country: 'Czech Republic',
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/prague.jpg',
-  },
-  {
-    city: 'Amsterdam',
-    country: 'Netherlands',
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/amsterdam.jpg',
-  },
-  {
-    city: 'Moscow',
-    country: 'Russia',
-    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/moscow.jpg',
-  },
-];
-
-/*  ReactDOM.render(<CitiesSlider slides={slides} />, document.querySelector('#app'));  
- */
-
+ 
 
 export default function Home() {
   const [tutorials, setTutorials] = useState([]);
@@ -96,6 +68,8 @@ export default function Home() {
   const [blog, setBlog] = useState([]);
   const [duyuru, setDuyuru] = useState([]);
   const [yoneticiler, setYoneticiler] = useState([]);
+  const [slaty, setSlayt] = useState([]);
+
 
 
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -106,28 +80,28 @@ export default function Home() {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
-
+  const slides =[];
+ 
   useEffect(() => {
     retrieveTutorials();
 
   }, []);
-
   useEffect(() => {
 
     retrieveBlogs();
   }, []);
-
   useEffect(() => {
 
     retrieveDuyuru();
   }, []);
-
-
   useEffect(() => {
 
     retrieveYoneticiler();
   }, []);
+   useEffect(() => {
 
+    retrieveSlayt();
+  }, []);
   const retrieveTutorials = () => {
     KategoriDataService.getAll()
       .then(response => {
@@ -139,7 +113,6 @@ export default function Home() {
         console.log(e);
       });
   };
-
   const retrieveBlogs = () => {
     BlogDataService.getAll()
       .then(response => {
@@ -150,7 +123,6 @@ export default function Home() {
         console.log(e);
       });
   };
-
   const retrieveDuyuru = () => {
     DuyuruDataService.getAll()
       .then(response => {
@@ -161,7 +133,6 @@ export default function Home() {
         console.log(e);
       });
   };
-
   const retrieveYoneticiler = () => {
     YoneticiDataService.getAll()
       .then(response => {
@@ -172,25 +143,38 @@ export default function Home() {
         console.log(e);
       });
   };
+  const retrieveSlayt = () => {
+    SlaytDataService.getAll()
+      .then(response => {
+        const persons = response.data;
+         
+        console.log(persons);
+        setSlayt(persons);
 
-
-
+        
+         
+ // console.log(slides);
+       
+       
+       // console.log(response.data);
+       
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }; 
   const setActiveTutorial = (tutorial, index) => {
     setCurrentTutorial(tutorial);
     setCurrentIndex(index);
   };
-
-
-
-
+ 
   return (
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
- <CitiesSlider slides={slides} />
+    <CitiesSlider slaty={slaty} /> 
           <div id="slider-wrapper">
-           {/*  <Sliders /> */}
-          
+           
           </div>
         </div>
 
