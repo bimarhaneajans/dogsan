@@ -74,7 +74,7 @@ import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
 import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "./SinglePost";
-import Hakkimizda from "./kurumsal/Hakkimizda";
+import Hakkimizda from "./kurumsal/hakkimizda";
 
 
 

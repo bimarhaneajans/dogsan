@@ -26,8 +26,8 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Tarihce from "./Tarihce";
-import Degerler from "./Degerler";
+import Tarihce from "./tarihce";
+import Degerler from "./degerler";
 import SosyalSorumluluk from "./SosyalSorumluluk";
 
 export default function Hakkimizda() {
