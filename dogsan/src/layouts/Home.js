@@ -51,13 +51,43 @@ import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../../src/sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
-import Sliders from "../sliders/slider"
+import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
 import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "./SinglePost";
 import Hakkimizda from "./kurumsal/hakkimizda";
 
+
+const slides = [
+  {
+    city: 'Paris',
+    country: 'France',
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/paris.jpg',
+  },
+  {
+    city: 'Singapore',
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/singapore.jpg',
+  },
+  {
+    city: 'Prague',
+    country: 'Czech Republic',
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/prague.jpg',
+  },
+  {
+    city: 'Amsterdam',
+    country: 'Netherlands',
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/amsterdam.jpg',
+  },
+  {
+    city: 'Moscow',
+    country: 'Russia',
+    img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/moscow.jpg',
+  },
+];
+
+/*  ReactDOM.render(<CitiesSlider slides={slides} />, document.querySelector('#app'));  
+ */
 
 
 export default function Home() {
@@ -159,8 +189,8 @@ export default function Home() {
         <div id="bg-slider-home">
 
           <div id="slider-wrapper">
-            <Sliders />
-
+           {/*  <Sliders /> */}
+           <CitiesSlider slides={slides} />
           </div>
         </div>
 
