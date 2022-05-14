@@ -29,6 +29,8 @@ import "../responsive-styling.css";
 import Tarihce from "./tarihce";
 import Degerler from "./degerler";
 import SosyalSorumluluk from "./SosyalSorumluluk";
+import { Player, ControlBar } from 'video-react';
+import ReactPlayer from 'react-player'
 
 export default function Hakkimizda() {
     const [tutorials, setTutorials] = useState([]);
@@ -127,8 +129,10 @@ export default function Hakkimizda() {
                     <p>{item.AnaIcerik}</p>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    
-                    <video width="600" height="500"  controls><source src={item.BelgeselVideoUrl} type="video/mp4" /></video>
+                    <div className="reactPly" >
+                    <ReactPlayer  url={item.BelgeselVideoUrl} />
+                    </div>
+                   
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <p>{item.BelgeselIcerigi}</p>

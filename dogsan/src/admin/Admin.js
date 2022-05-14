@@ -67,6 +67,7 @@ import Tarihce from "../layouts/kurumsal/tarihce";
 import Degerler from "../layouts/kurumsal/degerler";
 import SosyalSorumluluk from "../layouts/kurumsal/SosyalSorumluluk";
 
+
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;

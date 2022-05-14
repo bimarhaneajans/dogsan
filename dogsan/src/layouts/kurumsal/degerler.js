@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
+import DegerlerDataService from "../../services/DegerService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import bir from "../assets/img/blog/1.jpg";
@@ -33,7 +33,7 @@ import Hakkimizda from "./hakkimizda";
 export default function Degerler() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [degerler, setDegerler] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -45,15 +45,15 @@ export default function Degerler() {
 
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveDegerler();
     }, []);
 
 
 
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveDegerler = () => {
+        DegerlerDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setDegerler(response.data);
                 console.log(response.data);
             })
             .catch(e => {
@@ -118,20 +118,18 @@ export default function Degerler() {
             </div>
             <div className="blog-content">
         <div className="container">
-        {hakkimizda.map(item => (
+    
+        {degerler.map(item => (
             <div key={item.id} className="col-md-9">
                 <article>
                     <img src={item.Resim} className="img-responsive" alt=""/>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    <p>{item.AnaIcerik}</p>
+                    <h1>{item.baslik}</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    
-                    <video width="600" height="500"  controls><source src={item.BelgeselVideoUrl} type="video/mp4" /></video>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>{item.BelgeselIcerigi}</p>
+                  
+                    <p>{item.Content}</p>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     {/* <div className="row">

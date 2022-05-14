@@ -19,6 +19,8 @@ import FileBase64 from 'react-file-base64';
 const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
+    BelgeselBaslik:"",
+    AnaBaslik:"",
     AnaIcerik: "",
     BelgeselIcerigi: "",
     BelgeselVideoUrl: "",
@@ -46,6 +48,8 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
+      BelgeselBaslik:tutorial.BelgeselBaslik,
+      AnaBaslik:tutorial.AnaBaslik,
       AnaIcerik: tutorial.AnaIcerik,
       BelgeselIcerigi: tutorial.BelgeselIcerigi,
       BelgeselVideoUrl: tutorial.BelgeselVideoUrl,
@@ -56,6 +60,8 @@ const BayiEkle = () => {
       .then(response => {
         setTutorial({
           id: response.data.id,
+          BelgeselBaslik:response.data.BelgeselBaslik,
+          AnaBaslik:response.data.AnaBaslik,
           AnaIcerik: response.data.AnaIcerik,
           BelgeselIcerigi: response.data.BelgeselIcerigi,
           BelgeselVideoUrl: response.data.BelgeselVideoUrl,
@@ -104,6 +110,18 @@ const BayiEkle = () => {
       BelgeselVideoUrl: tutorial.BelgeselVideoUrl,
             */
             <div>
+            <div className="form-group">
+                <label htmlFor="bayi">Ana Başlık</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="AnaBaslik"
+                  required
+                  value={tutorial.AnaBaslik}
+                  onChange={handleInputChange}
+                  name="AnaBaslik"
+                />
+              </div> 
               <div className="form-group">
                 <label htmlFor="bayi">Ana Icerik</label>
                 <input
@@ -116,7 +134,18 @@ const BayiEkle = () => {
                   name="AnaIcerik"
                 />
               </div> 
-
+              <div className="form-group">
+                <label htmlFor="BelgeselIcerigi">Belgesel Başlık</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="BelgeselBaslik"
+                  required
+                  value={tutorial.BelgeselBaslik}
+                  onChange={handleInputChange}
+                  name="BelgeselBaslik"
+                />
+              </div>
               <div className="form-group">
                 <label htmlFor="BelgeselIcerigi">BelgeselIcerigi</label>
                 <input

@@ -14,6 +14,8 @@ const Hakkimizda = db.hakkimizdas;
   }
 
    const hakkimizda  = new Hakkimizda({
+    AnaBaslik: req.body.AnaBaslik,
+    BelgeselBaslik:req.body.BelgeselBaslik,
     AnaIcerik: req.body.AnaIcerik,
     BelgeselIcerigi: req.body.BelgeselIcerigi, 
     BelgeselVideoUrl:req.body.BelgeselVideoUrl, 
