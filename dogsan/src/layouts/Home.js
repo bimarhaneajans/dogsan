@@ -44,11 +44,11 @@ import teammember from "../layouts/assets/img/team/team-member1.jpg";
 import teammember2 from "../layouts/assets/img/team/team-member2.jpg";
 import teammember3 from "../layouts/assets/img/team/team-member3.jpg";
 import teammember4 from "../layouts/assets/img/team/team-member4.jpg";
-import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
+/* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
-import "../../src/sliders/assets/css/responsive-styling.css"
+import "../../src/sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
 import Sliders from "../sliders/slider"

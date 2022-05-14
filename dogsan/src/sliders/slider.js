@@ -1,30 +1,34 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import $ from "jquery";
 import "jquery-ui-dist/jquery-ui";
-import slidebbg from "../sliders/sliderimages/slide-b-bg.jpg";
-import silide2 from "../sliders/assets/img/slider/slide2.jpg";
+/* import slidebbg from "../sliders/sliderimages/slide-b-bg.jpg";
+import silide2 from "../sliders/assets/img/slider/slide2.jpg"; */
 import gdoctor from "../layouts/sliderimages/gdoctor.png";
 import ldoctor from "../layouts/sliderimages/ldoctor.png";
 
 
 function Slider() { 
-  
- /*    useEffect(() => {
+
+ /*  useEffect(() => {
     $("#layerslider").layerSlider({
       responsive: false,
       responsiveUnder: 1280,
       layersContainer: 1280,
       pauseOnHover: false,
       autoPlayVideos: false,
-     skinsPath: './sliders/assets/vendor/layerslider/skins/'
+     skinsPath: 'assets/vendor/layerslider/skins/'
     });
-  }, []);   */
- 
+  }, []);   */ 
+   /*  */ 
+
+
   useEffect(() => {
-    $('.bttop').on(function () {
+    $('.bttop').click(function () {
       $('html, body').animate({ scrollTop: 0 }, 'slow');
-    });
+    }); 
+
   }, []);  
+
   
   return (<div className="main-wrapper" >
     <div id="home">
@@ -34,8 +38,8 @@ function Slider() {
           <div id="full-slider-wrapper">
             <div id="layerslider" style={{ width: "100 %", height: "720px", maxWidth: "100%", color: "red" }}>
               <div className="ls-slide" data-ls={{ slidedelay: "8000", transition2d: "4" }}>
-                <img src={slidebbg} style={{ width: "120 %", height: "220px", maxWidth: "100%", }} />
-                <img className="ls-l" style={{ top: "230px", left: "690px", whiteSpace: "nowrap" }} data-ls={{ offsetxin: "50", durationin: "2000", delayin: "800", offsetxout: "50", durationout: "1000", parallaxlevel: "1" }} src={ldoctor} alt="" />
+{/*                 <img src={slidebbg} style={{ width: "120 %", height: "220px", maxWidth: "100%", }} />
+ */}                <img className="ls-l" style={{ top: "230px", left: "690px", whiteSpace: "nowrap" }} data-ls={{ offsetxin: "50", durationin: "2000", delayin: "800", offsetxout: "50", durationout: "1000", parallaxlevel: "1" }} src={ldoctor} alt="" />
                 <img className="ls-l" style={{ top: "100px", left: "400px", whiteSpace: "nowrap" }} data-ls={{ offsetxin: "100", durationin: "2000", delayin: "1200", offsetxout: "100", durationout: "1000", parallaxlevel: "3" }} src={gdoctor} alt="" />
                 <h6 className="ls-l" style={{ top: "350px", left: "236px", height: "40px", whiteSpace: "nowrap", color: "#0eb2e7", fontSize: ".9em", fontWeight: "bold" }} data-ls={{ durationin: "2000", delayin: "2000", rotatein: "20", rotatexin: "30", scalexin: "1.5", scaleyin: "1.5", transformoriginin: "left 50% 0", durationout: "750", rotateout: "20", rotatexout: "-30", scalexout: "0", scaleyout: "0", transformoriginout: "left 50% 0" }}>
                   Excellence is our speciality
@@ -115,8 +119,8 @@ function Slider() {
                 </h6>
               </div>
               <div className="ls-slide" data-ls={{ slidedelay: "9500", transition2d: "5", timeshift: "-1500" }}>
-                <img src={silide2} width={300} />
-                <h6 className="ls-l" style={{
+{/*                 <img src={silide2} width={300} />
+ */}                <h6 className="ls-l" style={{
                   top: "310px",
                   left: "636px",
                   height: "40px",
