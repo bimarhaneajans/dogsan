@@ -16,6 +16,8 @@ const Overview = props => {
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
+    BelgeselBaslik:"",
+    AnaBaslik:"",
     AnaIcerik: "",
     BelgeselIcerigi: "",
     BelgeselVideoUrl: "",
