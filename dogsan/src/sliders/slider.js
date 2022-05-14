@@ -20,12 +20,12 @@ function Slider() {
      // skinsPath: '../src/sliders/assets/vendor/layerslider/skins/'
     });
   }, []);  
-
+ */
   useEffect(() => {
     $('.bttop').on(function () {
       $('html, body').animate({ scrollTop: 0 }, 'slow');
     });
-  }, []);   */
+  }, []);  
   
   return (<div className="main-wrapper" >
     <div id="home">

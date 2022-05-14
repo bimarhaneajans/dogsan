@@ -62,9 +62,9 @@ import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori
 import Dynamicdetaykategori from "../layouts/Kategori/dynamicdetaykategori";
 import EmilebilirSuturler from "../layouts/EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "../layouts/SinglePost";
-import Hakkimizda from "../layouts/kurumsal/hakkimizda";
-import Tarihce from "../layouts/kurumsal/tarihce";
-import Degerler from "../layouts/kurumsal/degerler";
+import Hakkimizda from "../layouts/kurumsal/Hakkimizda";
+import Tarihce from "../layouts/kurumsal/Tarihce";
+import Degerler from "../layouts/kurumsal/Degerler";
 import SosyalSorumluluk from "../layouts/kurumsal/SosyalSorumluluk";
 
 

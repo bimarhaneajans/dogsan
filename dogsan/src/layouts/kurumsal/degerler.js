@@ -26,9 +26,9 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Tarihce from "./tarihce";
+import Tarihce from "./Tarihce";
 import SosyalSorumluluk from "./SosyalSorumluluk";
-import Hakkimizda from "./hakkimizda";
+import Hakkimizda from "./Hakkimizda";
 
 export default function Degerler() {
     const [tutorials, setTutorials] = useState([]);
@@ -122,14 +122,15 @@ export default function Degerler() {
         {degerler.map(item => (
             <div key={item.id} className="col-md-9">
                 <article>
-                    <img src={item.Resim} className="img-responsive" alt=""/>
+             
+                   <center> <img  src={item.Resim} className="img-responsive align-items-center" alt=""/></center>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    <h1>{item.baslik}</h1>
+                    <h1 style={{fontWeight: "bold",color:"rgb(0 129 195)",textAlign:"center"}}>{item.baslik}</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                   
-                    <p>{item.Content}</p>
+                    <p style={{textAlign:"center"}}>{item.Content}</p>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     {/* <div className="row">
@@ -276,7 +277,7 @@ export default function Degerler() {
                         </li>
                     </ul>
                 </div> */}
-                <div className="side-content">
+                <div className="side-content" style={{marginTop: "-1200px"}}>
                     <h5>KURUMSAL</h5>
                     <ul className="list1">
                     <li><Link to={"/Hakkimizda"} className="nav-link">HAKKIMIZDA</Link></li>
