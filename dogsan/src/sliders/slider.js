@@ -1,18 +1,32 @@
-import React from 'react'
-
-/* import slidebbg from "../layouts/sliderimages/slide-b-bg.jpg";
-import silide2 from "../assets/assets/img/slider/slide2.jpg";
-
-import gdoctor from "../layouts/sliderimages/gdoctor.png";
-import ldoctor from "../layouts/sliderimages/ldoctor.png";
- */
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import $ from "jquery";
+import "jquery-ui-dist/jquery-ui";
 import slidebbg from "../sliders/sliderimages/slide-b-bg.jpg";
 import silide2 from "../sliders/assets/img/slider/slide2.jpg";
 import gdoctor from "../layouts/sliderimages/gdoctor.png";
 import ldoctor from "../layouts/sliderimages/ldoctor.png";
 
 
-function slider() {
+function Slider() {
+
+  
+/*   useEffect(() => {
+    $("#layerslider").layerSlider({
+      responsive: false,
+      responsiveUnder: 1280,
+      layersContainer: 1280,
+      pauseOnHover: false,
+      autoPlayVideos: false,
+     // skinsPath: '../src/sliders/assets/vendor/layerslider/skins/'
+    });
+  }, []);  
+
+  useEffect(() => {
+    $('.bttop').on(function () {
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
+    });
+  }, []);   */
+  
   return (<div className="main-wrapper" >
     <div id="home">
       <div id="bg-slider-home">
@@ -209,4 +223,4 @@ function slider() {
   )
 }
 
-export default slider
+export default Slider;
