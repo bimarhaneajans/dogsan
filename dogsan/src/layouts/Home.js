@@ -187,10 +187,10 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-
+ <CitiesSlider slides={slides} />
           <div id="slider-wrapper">
            {/*  <Sliders /> */}
-           <CitiesSlider slides={slides} />
+          
           </div>
         </div>
 

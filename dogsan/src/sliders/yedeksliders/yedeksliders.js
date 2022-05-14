@@ -47,8 +47,7 @@ export default class CitiesSlider extends React.Component {
       const { activeSlide, prevSlide, sliderReady } = this.state;
       return (
         <div className={classNames('slider', { 's--ready': sliderReady })}>
-          <p className="slider__top-heading">Travelers</p>
-          <div className="slider__slides">
+           <div className="slider__slides">
             {this.props.slides.map((slide, index) => (
               <div
                 className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index  })}
@@ -59,7 +58,7 @@ export default class CitiesSlider extends React.Component {
                   <h2 className="slider__slide-heading">
                     {slide.city.split('').map(l => <span>{l}</span>)}
                   </h2>
-                  <p className="slider__slide-readmore">read more</p>
+                {/*   <p className="slider__slide-readmore">read more</p> */}
                 </div>
                 <div className="slider__slide-parts">
                   {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
