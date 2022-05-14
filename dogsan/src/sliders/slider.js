@@ -7,25 +7,24 @@ import gdoctor from "../layouts/sliderimages/gdoctor.png";
 import ldoctor from "../layouts/sliderimages/ldoctor.png";
 
 
-function Slider() {
-
+function Slider() { 
   
-/*   useEffect(() => {
+ /*    useEffect(() => {
     $("#layerslider").layerSlider({
       responsive: false,
       responsiveUnder: 1280,
       layersContainer: 1280,
       pauseOnHover: false,
       autoPlayVideos: false,
-     // skinsPath: '../src/sliders/assets/vendor/layerslider/skins/'
+     skinsPath: './sliders/assets/vendor/layerslider/skins/'
     });
-  }, []);  
-
+  }, []);   */
+ 
   useEffect(() => {
     $('.bttop').on(function () {
       $('html, body').animate({ scrollTop: 0 }, 'slow');
     });
-  }, []);   */
+  }, []);  
   
   return (<div className="main-wrapper" >
     <div id="home">
