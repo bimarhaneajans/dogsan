@@ -1,140 +1,86 @@
+import React from 'react'
+import logo from "./assets/img/logo/heartify-logo.png";
+import logo2 from "./assets/img/logo/heartify-logo-lite.png";
+import bir from "./assets/img/blog/1.jpg";
+import author from "./assets/img/xtra/author.png";
+import xtra1 from "./assets/img/xtra/1.jpg";
+import xtra2 from "./assets/img/xtra/2.jpg";
+import xtra3 from "./assets/img/xtra/3.jpg";
+import avatar from "./assets/img/xtra/avatar.jpg";
+import caticon1 from "./assets/img/cat-ico1.png";
+import caticon2 from "./assets/img/cat-ico1.png";
+import caticon3 from "./assets/img/cat-ico1.png";
+import rposts1 from "./assets/img/rposts/1.jpg";
+import rposts2 from "./assets/img/rposts/1.jpg";
+import rposts3 from "./assets/img/rposts/1.jpg";
+import backtotop from "./assets/img/backtotop.jpg"
+import "./assets/vendor/bootstrap/css/bootstrap.min.css";
+import "./assets/css/style.css"; // burasi
+import "./assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
+import "./assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
+import "../sliders/assets/css/responsive-styling.css"
+import "./style.css"
+import "./responsive-styling.css"
 
 
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
-import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
-import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
-import logo from "../assets/img/logo/heartify-logo.png";
-import logo2 from "../assets/img/logo/heartify-logo-lite.png";
-import bir from "../assets/img/blog/1.jpg";
-import author from "../assets/img/xtra/author.png";
-import xtra1 from "../assets/img/xtra/1.jpg";
-import xtra2 from "../assets/img/xtra/2.jpg";
-import xtra3 from "../assets/img/xtra/3.jpg";
-import avatar from "../assets/img/xtra/avatar.jpg";
-import caticon1 from "../assets/img/cat-ico1.png";
-import caticon2 from "../assets/img/cat-ico1.png";
-import caticon3 from "../assets/img/cat-ico1.png";
-import rposts1 from "../assets/img/rposts/1.jpg";
-import rposts2 from "../assets/img/rposts/1.jpg";
-import rposts3 from "../assets/img/rposts/1.jpg";
-import backtotop from "../assets/img/backtotop.jpg"
-import "../assets/vendor/bootstrap/css/bootstrap.min.css";
-import "../assets/css/style.css"; // burasi
-import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
-import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
-import "../style.css";
-import "../responsive-styling.css";
-import Tarihce from "./Tarihce";
-import Degerler from "./Degerler";
-import Hakkimizda from "./Hakkimizda";
-
-export default function SosyalSorumluluk() {
-    const [tutorials, setTutorials] = useState([]);
-    const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(-1);
-    const [searchTitle, setSearchTitle] = useState("");
-    const [controller, dispatch] = useSoftUIController();
-    const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-    const [onMouseEnter, setOnMouseEnter] = useState(false);
-    const [rtlCache, setRtlCache] = useState(null);
-    const { pathname } = useLocation();
-    const { size } = typography;
-
-    useEffect(() => {
-
-        retrieveHakkimizda();
-    }, []);
-
-
-
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
-            .then(response => {
-                setHakkimizda(response.data);
-                console.log(response.data);
-            })
-            .catch(e => {
-                console.log(e);
-            });
-    };
-
-
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
-    };
-
-
+export default function SinglePost() {
     return (
         <div>
-            <div className="main-wrapper">
-                <div id="home">
-                    <div id="bg-slider-home" className="bsh">
-                    </div>
-                    <div className="container bs-main">
-                        <div className="row">
-                            <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                                <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
-
-                                <div className="top-header hidden-xs">
-                                    <div className="top-navigation">
-                                        <ul className="top-nav list-unstyled list-inline" >
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
-                                            <li className="logo"><Link to={"/"} style={{ color: "#fafafa" }} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-
+    <div className="main-wrapper">
+        <div id="home">
+            <div id="bg-slider-home" className="bsh">
+            </div> 
+            <div className="container bs-main">
+                <div className="row">
+                    <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                        <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
+                
+                        <div className="top-header hidden-xs">
+                            <div className="top-navigation">
+                                <ul className="top-nav list-unstyled list-inline" >
+                                    <li ><a href="#home" style={{color: "#fafafa"}}>Home</a></li>
+                                    <li ><a href="#about" style={{color: "#fafafa"}}>About Us</a></li>
+                                    <li ><a href="#team" style={{color: "#fafafa"}}>Team</a></li>
+                                    <li className="logo" ><a href="index.html"><img src={logo2} alt="Heartify" /></a></li>
+                                    <li style={{color: "#fafafa"}}><a href="#pricing" style={{color: "#fafafa"}}>Pricing</a></li>
+                                    <li style={{color: "#fafafa"}}><a href="#blog" style={{color: "#fafafa"}}>Blog</a></li>
+                                    <li style={{color: "#fafafa"}}><a href="#contact" style={{color: "#fafafa"}}>Contact</a></li>
+                                </ul>
                             </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div className="page-head">
-                {/* <div className="container">
-                    <div className="col-md-9">
-                        <h3>Standard Post Format with preview picture</h3>
-                        <span className="post-meta">Posted 22.06.2014 at 18:00h in Healthy lifestyle by <a href="#">The Ronins</a>   /   68 Likes   /   <a href="#">2 Comments</a></span>
-                    </div>
-                    <div className="col-md-3">
-                        <form className="search">
-                            <input type="search" placeholder="Search..." />
-                        </form>
-                    </div>
-                </div> */}
-            </div>
-            <div className="blog-content">
-        <div className="container">
-        {hakkimizda.map(item => (
-            <div key={item.id} className="col-md-9">
-                <article>
-                    <img src={item.Resim} className="img-responsive" alt=""/>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>{item.AnaIcerik}</p>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
                     
-                    <video width="600" height="500"  controls><source src={item.BelgeselVideoUrl} type="video/mp4" /></video>
+                        </div>
+            
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <div className="page-head">
+        <div className="container">
+            <div className="col-md-9">
+                <h3>Standard Post Format with preview picture</h3>
+                <span className="post-meta">Posted 22.06.2014 at 18:00h in Healthy lifestyle by <a href="#">The Ronins</a>   /   68 Likes   /   <a href="#">2 Comments</a></span>
+            </div>
+            <div className="col-md-3">
+                <form className="search">
+                    <input type="search" placeholder="Search..."/>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div className="blog-content">
+        <div className="container">
+            <div className="col-md-9">
+                <article>
+                    <img src={bir} className="img-responsive" alt=""/>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    <p>{item.BelgeselIcerigi}</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    {/* <div className="row">
+                    <div className="row">
                         <div className="col-md-7">
                             <p className="bold">Caveats worth mentioning</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
@@ -144,7 +90,7 @@ export default function SosyalSorumluluk() {
                                 <h4>"You can design and create, and build the most wonderful place in the world. But it takes people to make the dream a reality."</h4>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum. Curabitur scelerisque tincidunt metus, non rutrum sem egestas et. Quisque hendrerit nec arcu sed pharetra. Duis nec aliquet massa, sed dapibus mauris. Nulla vehicula nisl non enim sodales fermentum. Morbi in diam elementum, egestas magna et, interdum</p>
@@ -153,14 +99,14 @@ export default function SosyalSorumluluk() {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum. Curabitur scelerisque tincidunt metus, non rutrum sem egestas et. Quisque hendrerit nec arcu sed pharetra. Duis nec aliquet massa, sed dapibus mauris. Nulla vehicula nisl non enim sodales fermentum. Morbi in diam elementum, egestas magna et, interdum</p>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                     <ul className="tags-list">
+                    <ul className="tags-list">
                         <li><a href="#">Ronin</a></li>
                         <li><a href="#">Clinic</a></li>
                         <li><a href="#">Informations</a></li>
                         <li><a href="#">Doctors</a></li>
                         <li><a href="#">Disease</a></li>
-                    </ul> */}
-                   {/*  <div className="sharepost">
+                    </ul>
+                    <div className="sharepost">
                         <div className="row">
                             <div className="col-md-6">
                                 <h4>Share this Post</h4>
@@ -175,8 +121,8 @@ export default function SosyalSorumluluk() {
                                 </ul>
                             </div>
                         </div>
-                    </div> */}
-                    {/* <div className="author-info">
+                    </div>
+                    <div className="author-info">
                         <img src={author} alt="" className="img-responsive"/>
                         <h5><em>Author:</em> The Ronins</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
@@ -205,9 +151,9 @@ export default function SosyalSorumluluk() {
                                 </li>
                             </ul>
                         </div>
-                    </div> */}
+                    </div>
                 </article>
-            {/*     <div className="comments">
+                <div className="comments">
                     <h4>Post has 3 comments</h4>
                     <ul>
                         <li>
@@ -232,8 +178,8 @@ export default function SosyalSorumluluk() {
                             </div>
                         </li>
                     </ul>
-                </div> */}
-                {/* <div className="comment-form">
+                </div>
+                <div className="comment-form">
                     <h4>Leave a comment</h4>
                     <form id="comment-form">
                         <div className="row">
@@ -261,33 +207,40 @@ export default function SosyalSorumluluk() {
                             </div>
                         </div>
                     </form>
-                </div> */}
-            </div>))}
+                </div>
+            </div>
             <aside className="col-md-3">
-              {/*   <div className="side-content">
+                <div className="side-content">
                     <h5>Main Categories</h5>
                     <ul className="cat">
                         <li>
-                            <h4>TARİHÇE</h4>
+                            <img src={caticon1} alt=""/>
+                            <h4>Clinic informations</h4>
+                            <p>Lorem ipsum dolor sit ametcon ctetur adipisicing elit.</p>
                         </li>
                         <li>
-                            <h4>DEĞERLER</h4>
+                            <img src={caticon2} alt=""/>
+                            <h4>Our team</h4>
+                            <p>Lorem ipsum dolor sit ametcon ctetur adipisicing elit.</p>
                         </li>
                         <li>
-                            <h4>SOSYAL SORUMLULUK</h4>
+                            <img src={caticon3} alt=""/>
+                            <h4>Work schedule</h4>
+                            <p>Lorem ipsum dolor sit ametcon ctetur adipisicing elit.</p>
                         </li>
-                    </ul>
-                </div> */}
-                <div className="side-content">
-                    <h5>KURUMSAL</h5>
-                    <ul className="list1">
-                    <li><Link to={"/Hakkimizda"} className="nav-link">HAKKIMIZDA</Link></li>
-                    <li><Link to={"/Tarihce"} className="nav-link">TARİHÇE</Link></li>
-                    <li><Link to={"/Degerler"} className="nav-link">DEĞERLER</Link></li>
-                    
                     </ul>
                 </div>
-                {/* <div className="side-content">
+                <div className="side-content">
+                    <h5>Categories</h5>
+                    <ul className="list1">
+                        <li><a href="#">Business <span>25</span></a></li>
+                        <li><a href="#">Clinic <span>17</span></a></li>
+                        <li><a href="#">Medical Report <span>31</span></a></li>
+                        <li><a href="#">Quotes <span>19</span></a></li>
+                        <li><a href="#">Web Applications <span>9</span></a></li>
+                    </ul>
+                </div>
+                <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
                     <form className="side-newsletter">
@@ -326,7 +279,7 @@ export default function SosyalSorumluluk() {
                         <li><a href="#">News</a></li>
                         <li><a href="#">Schedule</a></li>
                     </ul>
-                </div> */}
+                </div>
             </aside>
         </div>
     </div>
