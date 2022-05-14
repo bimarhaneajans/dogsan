@@ -347,7 +347,7 @@ export default function Home() {
 
             <div className="row">
               {duyuru.map(item => (
-                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1">
+                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1" style={{height: "700px"}}>
 
                   <div className="clearfix"></div>
                   <img className="pull-center icon" src={s2} alt="icon" />
