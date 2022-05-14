@@ -258,9 +258,13 @@ export default function Home() {
                   <h2>HAKKIMIZDA</h2>
                   <h5>1970'ten Beri...</h5>
                   <p className="lead">Türkiye, Ortadoğu ve Balkanlar’daki ilk sütür üreticisi olan Doğsan, 1970 yılında kurulmuştur ve sütür üretiminde köklü bir geçmişe sahiptir.</p>
+               
+                  <Link to={"/Hakkimizda"} className="nav-link">Tümünü Gör</Link>
                 </div>
 
                 <div className="information">
+                <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
+                <h2>KALİTE POLİTİKAMIZ</h2></div>
                   <div className="row">
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                       <img className="pull-center icon" src={icon1} alt="icon" />
