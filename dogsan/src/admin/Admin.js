@@ -66,6 +66,10 @@ import Hakkimizda from "../layouts/kurumsal/Hakkimizda";
 import Tarihce from "../layouts/kurumsal/Tarihce";
 import Degerler from "../layouts/kurumsal/Degerler";
 import SosyalSorumluluk from "../layouts/kurumsal/SosyalSorumluluk";
+import Kataloglar from "layouts/kataloglar/Kataloglar";
+import Duyuru from "layouts/Duyurular/Duyuru";
+import Duyurular from "layouts/Duyurular/Duyurular";
+
 
 
 export default function App() {
@@ -194,6 +198,9 @@ export default function App() {
         <Route path="/Tarihce" element={<Tarihce />} />
         <Route path="/Degerler" element={<Degerler />} />
         <Route path="/SosyalSorumluluk" element={<SosyalSorumluluk />} />
+        <Route path="/Kataloglar" element={<Kataloglar />} />
+        <Route path="/Duyurular" element={<Duyurular />} />
+        <Route path="/Duyuru/:id" element={<Duyuru />} />
       </Routes>
     </ThemeProvider>
   );

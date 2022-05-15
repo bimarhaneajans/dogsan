@@ -1,15 +1,14 @@
-
-import UserService from "../services/user.service";
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Routes, Router, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
-import DuyuruDataService from "../services/DuyuruService";
+import DuyuruDataService from "../services/EtkinlikService";
 import YoneticiDataService from "../services/YoneticilerService";
 import SlaytDataService from "../services/SliderService";
-
+import UserService from "../services/user.service";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
@@ -59,23 +58,9 @@ import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
-import postimg from "../layouts/assets/img/blog/post-img1.jpg"
-import postimg2 from "../layouts/assets/img/blog/post-img2.jpg"
-import postimg3 from "../layouts/assets/img/blog/post-img3.jpg"
+
 import posticon from "../layouts/assets/img/blog/post-icon.png"
 
-import bir from "../layouts/assets/img/projects/1.jpg";
-import iki from "../layouts/assets/img/projects/2.jpg";
-import uc from "../layouts/assets/img/projects/3.jpg";
-import dort from "../layouts/assets/img/projects/4.jpg";
-import bes from "../layouts/assets/img/projects/5.jpg";
-import alti from "../layouts/assets/img/projects/6.jpg";
-import yedi from "../layouts/assets/img/projects/7.jpg";
-import sekiz from "../layouts/assets/img/projects/8.jpg";
-import teammember from "../layouts/assets/img/team/team-member1.jpg";
-import teammember2 from "../layouts/assets/img/team/team-member2.jpg";
-import teammember3 from "../layouts/assets/img/team/team-member3.jpg";
-import teammember4 from "../layouts/assets/img/team/team-member4.jpg";
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -85,11 +70,6 @@ import "./style.css"
 import "./responsive-styling.css"
 import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
-import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
-import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
-import SinglePost from "./SinglePost";
-
-import Hakkimizda from "./kurumsal/Hakkimizda";
 
 
 
@@ -101,6 +81,7 @@ export default function Home() {
   const [duyuru, setDuyuru] = useState([]);
   const [yoneticiler, setYoneticiler] = useState([]);
   const [slaty, setSlayt] = useState([]);
+  let [searchParams, setSearchParams] = useSearchParams();
 
 
 
@@ -219,10 +200,10 @@ export default function Home() {
                 <div className="top-navigation">
                   <ul className="top-nav list-unstyled list-inline">
                     <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
-                    <li><Link to={"/Hakkimizda"} className="nav-link">Kataloglar</Link></li>
+                    <li><Link to={"/Kataloglar"} className="nav-link">Kataloglar</Link></li>
                     <li><Link to={"/Hakkimizda"} className="nav-link">İğneler</Link></li>
                     <li className="logo"><Link to={"/"} className="nav-link"><img src={logo} alt="Heartify" /></Link></li>
-                    <li><Link to={"/Hakkimizda"} className="nav-link">Duyurular</Link></li>
+                    <li><Link to={"/Duyurular"} className="nav-link">Duyurular</Link></li>
                     <li><Link to={"/Hakkimizda"} className="nav-link">Blog</Link></li>
                     <li><Link to={"/Hakkimizda"} className="nav-link">İletişim</Link></li>
                   </ul>
@@ -393,7 +374,9 @@ export default function Home() {
                     <h5>{item.baslik}</h5>
                     <p>{item.icerik} </p>
                   </div>
+                  <Link to={"/Duyuru/"+item.id} className="nav-link">incele</Link>
                 </div>
+                
               ))}
 
 
