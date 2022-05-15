@@ -1,14 +1,15 @@
+
+import UserService from "../services/user.service";
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { useSearchParams } from "react-router-dom";
 import { Routes, Router, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
-import DuyuruDataService from "../services/EtkinlikService";
+import DuyuruDataService from "../services/DuyuruService";
 import YoneticiDataService from "../services/YoneticilerService";
 import SlaytDataService from "../services/SliderService";
-import UserService from "../services/user.service";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
@@ -17,35 +18,7 @@ import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import dateFormat, { masks } from "dateformat";
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton,
-  FacebookShareCount,
-  HatenaShareCount,
-  OKShareCount,
-  PinterestShareCount,
-  RedditShareCount,
-  TumblrShareCount,
-  VKShareCount
-} from "react-share";
- 
+
 
 import logo from "../layouts/assets/img/logo/heartify-logo.png";
 import logo2 from "../layouts/assets/img/logo/heart-icon.png";
@@ -58,9 +31,24 @@ import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
+import postimg from "../layouts/assets/img/blog/post-img1.jpg"
+import postimg2 from "../layouts/assets/img/blog/post-img2.jpg"
+import postimg3 from "../layouts/assets/img/blog/post-img3.jpg"
 
 import posticon from "../layouts/assets/img/blog/post-icon.png"
 
+import bir from "../layouts/assets/img/projects/1.jpg";
+import iki from "../layouts/assets/img/projects/2.jpg";
+import uc from "../layouts/assets/img/projects/3.jpg";
+import dort from "../layouts/assets/img/projects/4.jpg";
+import bes from "../layouts/assets/img/projects/5.jpg";
+import alti from "../layouts/assets/img/projects/6.jpg";
+import yedi from "../layouts/assets/img/projects/7.jpg";
+import sekiz from "../layouts/assets/img/projects/8.jpg";
+import teammember from "../layouts/assets/img/team/team-member1.jpg";
+import teammember2 from "../layouts/assets/img/team/team-member2.jpg";
+import teammember3 from "../layouts/assets/img/team/team-member3.jpg";
+import teammember4 from "../layouts/assets/img/team/team-member4.jpg";
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -70,6 +58,11 @@ import "./style.css"
 import "./responsive-styling.css"
 import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
+import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
+import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
+import SinglePost from "./SinglePost";
+
+import Hakkimizda from "./kurumsal/Hakkimizda";
 
 
 
@@ -81,7 +74,6 @@ export default function Home() {
   const [duyuru, setDuyuru] = useState([]);
   const [yoneticiler, setYoneticiler] = useState([]);
   const [slaty, setSlayt] = useState([]);
-  let [searchParams, setSearchParams] = useSearchParams();
 
 
 
@@ -200,10 +192,10 @@ export default function Home() {
                 <div className="top-navigation">
                   <ul className="top-nav list-unstyled list-inline">
                     <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
-                    <li><Link to={"/Kataloglar"} className="nav-link">Kataloglar</Link></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">Kataloglar</Link></li>
                     <li><Link to={"/Hakkimizda"} className="nav-link">İğneler</Link></li>
                     <li className="logo"><Link to={"/"} className="nav-link"><img src={logo} alt="Heartify" /></Link></li>
-                    <li><Link to={"/Duyurular"} className="nav-link">Duyurular</Link></li>
+                    <li><Link to={"/Hakkimizda"} className="nav-link">Duyurular</Link></li>
                     <li><Link to={"/Hakkimizda"} className="nav-link">Blog</Link></li>
                     <li><Link to={"/Hakkimizda"} className="nav-link">İletişim</Link></li>
                   </ul>
@@ -271,13 +263,13 @@ export default function Home() {
                   <h2>HAKKIMIZDA</h2>
                   <h5>1970'ten Beri...</h5>
                   <p className="lead">Türkiye, Ortadoğu ve Balkanlar’daki ilk sütür üreticisi olan Doğsan, 1970 yılında kurulmuştur ve sütür üretiminde köklü bir geçmişe sahiptir.</p>
-
+               
                   <Link to={"/Hakkimizda"} className="nav-link">Tümünü Gör</Link>
                 </div>
 
                 <div className="information">
-                  <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
-                    <h2>KALİTE POLİTİKAMIZ</h2></div>
+                <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
+                <h2>KALİTE POLİTİKAMIZ</h2></div>
                   <div className="row">
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                       <img className="pull-center icon" src={icon1} alt="icon" />
@@ -364,7 +356,7 @@ export default function Home() {
 
             <div className="row">
               {duyuru.map(item => (
-                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1" style={{ height: "700px" }}>
+                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1" style={{height: "700px"}}>
 
                   <div className="clearfix"></div>
                   <img className="pull-center icon" src={s2} alt="icon" />
@@ -374,9 +366,7 @@ export default function Home() {
                     <h5>{item.baslik}</h5>
                     <p>{item.icerik} </p>
                   </div>
-                  <Link to={"/Duyuru/"+item.id} className="nav-link">incele</Link>
                 </div>
-                
               ))}
 
 
@@ -397,54 +387,54 @@ export default function Home() {
               </div>
               <div className="bottom-space-50"></div>
               <div className="col-xs-12">
-                <div className="col-xs-2"></div>
-                <div className="col-xs-8" >
-                  <form className="appointment-form">
-                    <h4>Appointments form</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                    <label>NAME AND SURNAME</label>
-                    <input type="text" placeholder="Enter your name and surname" />
-                    <label>CONTACT PHONE NUMBER</label>
-                    <input type="text" placeholder="Enter phone number" />
-                    <label>PATIENT NUMBER</label>
-                    <input type="text" placeholder="Enter patient number" />
-                    <div className="row">
-                      <div className="col-md-6">
-                        <label>DATE FROM</label>
-                        <div className='input-group date'>
-                          <input type='text' className="form-control" placeholder="30.01.2013" />
-                          <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <label>DATE TO</label>
-                        <div className='input-group date'>
-                          <input type='text' className="form-control" placeholder="30.01.2013" />
-                          <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                        </div>
+              <div className="col-xs-2"></div>
+              <div className="col-xs-8" >
+                <form className="appointment-form">
+                  <h4>Appointments form</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                  <label>NAME AND SURNAME</label>
+                  <input type="text" placeholder="Enter your name and surname" />
+                  <label>CONTACT PHONE NUMBER</label>
+                  <input type="text" placeholder="Enter phone number" />
+                  <label>PATIENT NUMBER</label>
+                  <input type="text" placeholder="Enter patient number" />
+                  <div className="row">
+                    <div className="col-md-6">
+                      <label>DATE FROM</label>
+                      <div className='input-group date'>
+                        <input type='text' className="form-control" placeholder="30.01.2013" />
+                        <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
                       </div>
                     </div>
-                    <div className="space20"></div>
-                    <label>HOURLY PREFERENCES</label>
-                    <ul className="hpref">
-                      <li className="active"><a>Morning</a></li>
-                      <li><a>Lunch</a></li>
-                      <li><a>Evening</a></li>
-                    </ul>
-                    <div className="space20"></div>
-                    <div className="clearfix"></div>
-                    <div className="space20"></div>
-                    <div className="submit-wrap row">
-                      <div className="col-md-7 cbox">
-                        <input type="checkbox" /><span>send me copy of message</span>
-                      </div>
-                      <div className="col-md-5">
-                        <button type="submit">Send Message</button>
+                    <div className="col-md-6">
+                      <label>DATE TO</label>
+                      <div className='input-group date'>
+                        <input type='text' className="form-control" placeholder="30.01.2013" />
+                        <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
                       </div>
                     </div>
-                  </form>
-                </div><div className="col-xs-2"></div></div>
-
+                  </div>
+                  <div className="space20"></div>
+                  <label>HOURLY PREFERENCES</label>
+                  <ul className="hpref">
+                    <li className="active"><a>Morning</a></li>
+                    <li><a>Lunch</a></li>
+                    <li><a>Evening</a></li>
+                  </ul>
+                  <div className="space20"></div>
+                  <div className="clearfix"></div>
+                  <div className="space20"></div>
+                  <div className="submit-wrap row">
+                    <div className="col-md-7 cbox">
+                      <input type="checkbox" /><span>send me copy of message</span>
+                    </div>
+                    <div className="col-md-5">
+                      <button type="submit">Send Message</button>
+                    </div>
+                  </div>
+                </form>
+              </div><div className="col-xs-2"></div></div>
+          
               {/* <img src="assets/img/1.png" className="img-responsive" alt="" /> */}
               <div className="clearfix"></div>
             </div>
@@ -852,19 +842,19 @@ export default function Home() {
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
-
-                          <h5>{item.baslik}</h5>
-
+                           
+                            <h5>{item.baslik}</h5>
+                          
                           <p>{item.Ozet}</p>
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
-                          <li className="post-links"><a href=""><i className="icon-user"></i></a></li>
-                          <li className="post-links"><a href=""><i className="icon-calendar"></i>{(dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))} </a></li>
-                        
+                          <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
+                          <li className="post-links"><a href=""><i className="icon-calendar"></i>{ (dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))  } </a></li>
+                       {/*    dateFormat({item.createdAt.slice(0, -14)}, "dddd, mmmm dS, yyyy, h:MM:ss TT"); */}
                         </ul>
                       </div>
                     </div>))}
-                    <FacebookShareCount url={"http://youtube.com"}>a</FacebookShareCount>
+
                 </div>
               </div>
             </div>
