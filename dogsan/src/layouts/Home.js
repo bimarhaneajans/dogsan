@@ -18,6 +18,35 @@ import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import dateFormat, { masks } from "dateformat";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+  FacebookShareCount,
+  HatenaShareCount,
+  OKShareCount,
+  PinterestShareCount,
+  RedditShareCount,
+  TumblrShareCount,
+  VKShareCount
+} from "react-share";
+ 
 
 import logo from "../layouts/assets/img/logo/heartify-logo.png";
 import logo2 from "../layouts/assets/img/logo/heart-icon.png";
@@ -261,13 +290,13 @@ export default function Home() {
                   <h2>HAKKIMIZDA</h2>
                   <h5>1970'ten Beri...</h5>
                   <p className="lead">Türkiye, Ortadoğu ve Balkanlar’daki ilk sütür üreticisi olan Doğsan, 1970 yılında kurulmuştur ve sütür üretiminde köklü bir geçmişe sahiptir.</p>
-               
+
                   <Link to={"/Hakkimizda"} className="nav-link">Tümünü Gör</Link>
                 </div>
 
                 <div className="information">
-                <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
-                <h2>KALİTE POLİTİKAMIZ</h2></div>
+                  <div className="mission-stat text-center col-md-8 col-md-offset-2 bottom-space-50">
+                    <h2>KALİTE POLİTİKAMIZ</h2></div>
                   <div className="row">
                     <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 text-center">
                       <img className="pull-center icon" src={icon1} alt="icon" />
@@ -354,7 +383,7 @@ export default function Home() {
 
             <div className="row">
               {duyuru.map(item => (
-                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1" style={{height: "700px"}}>
+                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1" style={{ height: "700px" }}>
 
                   <div className="clearfix"></div>
                   <img className="pull-center icon" src={s2} alt="icon" />
@@ -385,54 +414,54 @@ export default function Home() {
               </div>
               <div className="bottom-space-50"></div>
               <div className="col-xs-12">
-              <div className="col-xs-2"></div>
-              <div className="col-xs-8" >
-                <form className="appointment-form">
-                  <h4>Appointments form</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                  <label>NAME AND SURNAME</label>
-                  <input type="text" placeholder="Enter your name and surname" />
-                  <label>CONTACT PHONE NUMBER</label>
-                  <input type="text" placeholder="Enter phone number" />
-                  <label>PATIENT NUMBER</label>
-                  <input type="text" placeholder="Enter patient number" />
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>DATE FROM</label>
-                      <div className='input-group date'>
-                        <input type='text' className="form-control" placeholder="30.01.2013" />
-                        <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
+                <div className="col-xs-2"></div>
+                <div className="col-xs-8" >
+                  <form className="appointment-form">
+                    <h4>Appointments form</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
+                    <label>NAME AND SURNAME</label>
+                    <input type="text" placeholder="Enter your name and surname" />
+                    <label>CONTACT PHONE NUMBER</label>
+                    <input type="text" placeholder="Enter phone number" />
+                    <label>PATIENT NUMBER</label>
+                    <input type="text" placeholder="Enter patient number" />
+                    <div className="row">
+                      <div className="col-md-6">
+                        <label>DATE FROM</label>
+                        <div className='input-group date'>
+                          <input type='text' className="form-control" placeholder="30.01.2013" />
+                          <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <label>DATE TO</label>
+                        <div className='input-group date'>
+                          <input type='text' className="form-control" placeholder="30.01.2013" />
+                          <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-md-6">
-                      <label>DATE TO</label>
-                      <div className='input-group date'>
-                        <input type='text' className="form-control" placeholder="30.01.2013" />
-                        <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
+                    <div className="space20"></div>
+                    <label>HOURLY PREFERENCES</label>
+                    <ul className="hpref">
+                      <li className="active"><a>Morning</a></li>
+                      <li><a>Lunch</a></li>
+                      <li><a>Evening</a></li>
+                    </ul>
+                    <div className="space20"></div>
+                    <div className="clearfix"></div>
+                    <div className="space20"></div>
+                    <div className="submit-wrap row">
+                      <div className="col-md-7 cbox">
+                        <input type="checkbox" /><span>send me copy of message</span>
+                      </div>
+                      <div className="col-md-5">
+                        <button type="submit">Send Message</button>
                       </div>
                     </div>
-                  </div>
-                  <div className="space20"></div>
-                  <label>HOURLY PREFERENCES</label>
-                  <ul className="hpref">
-                    <li className="active"><a>Morning</a></li>
-                    <li><a>Lunch</a></li>
-                    <li><a>Evening</a></li>
-                  </ul>
-                  <div className="space20"></div>
-                  <div className="clearfix"></div>
-                  <div className="space20"></div>
-                  <div className="submit-wrap row">
-                    <div className="col-md-7 cbox">
-                      <input type="checkbox" /><span>send me copy of message</span>
-                    </div>
-                    <div className="col-md-5">
-                      <button type="submit">Send Message</button>
-                    </div>
-                  </div>
-                </form>
-              </div><div className="col-xs-2"></div></div>
-          
+                  </form>
+                </div><div className="col-xs-2"></div></div>
+
               {/* <img src="assets/img/1.png" className="img-responsive" alt="" /> */}
               <div className="clearfix"></div>
             </div>
@@ -840,19 +869,19 @@ export default function Home() {
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
-                           
-                            <h5>{item.baslik}</h5>
-                          
+
+                          <h5>{item.baslik}</h5>
+
                           <p>{item.Ozet}</p>
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
-                          <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
-                          <li className="post-links"><a href=""><i className="icon-calendar"></i>{ (dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))  } </a></li>
-                       {/*    dateFormat({item.createdAt.slice(0, -14)}, "dddd, mmmm dS, yyyy, h:MM:ss TT"); */}
+                          <li className="post-links"><a href=""><i className="icon-user"></i></a></li>
+                          <li className="post-links"><a href=""><i className="icon-calendar"></i>{(dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))} </a></li>
+                        
                         </ul>
                       </div>
                     </div>))}
-
+                    <FacebookShareCount url={"http://youtube.com"}>a</FacebookShareCount>
                 </div>
               </div>
             </div>
