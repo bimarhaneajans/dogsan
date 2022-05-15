@@ -126,12 +126,12 @@ const Overview = (props) => {
                     onClick={() => setActiveTutorial(tutorial, index)}
                     key={index}
                   >
-                    <div className="card" key={tutorial.id}>
+                   <div className="card" key={tutorial.id}>
                     <div className="card-image waves-effect waves-block waves-light">
                         <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
                     </div>
                     <div className="card-content">
-                        <span className="card-title activator grey-text text-darken-4">{tutorial.baslik}</span>
+                        <span className="card-title activator grey-text text-darken-4">{tutorial.Yil}</span>
                     </div>
                 </div>
                   </li>
@@ -148,37 +148,20 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>Başlık:</strong>
+                <strong>Yil:</strong>
                 <div>
                   <label>
 
                   </label>{" "}
-                  {currentTutorial.baslik}
+                  {currentTutorial.Yil}
                 </div>
                 <div>
                   <label>
                     <strong>Adres:</strong>
                   </label>{" "}
-                  {currentTutorial.adres}
+                  {currentTutorial.icerik}
                 </div>
-                <div>
-                  <label>
-                    <strong>Enlem:</strong>
-                  </label>{" "}
-                  {currentTutorial.enlem}
-                </div>
-                <div>
-                  <label>
-                    <strong>Telefon:</strong>
-                  </label>{" "}
-                  {currentTutorial.telefon}
-                </div>
-                <div>
-                  <label>
-                    <strong>Boylam:</strong>
-                  </label>{" "}
-                  {currentTutorial.boylam}
-                </div>
+                 
                 <div>
                   <label>
                     <strong>Durum:</strong>

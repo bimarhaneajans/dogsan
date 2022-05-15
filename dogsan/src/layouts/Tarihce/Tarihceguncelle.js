@@ -130,7 +130,13 @@ const Overview = props => {
     <div>
       {currentTutorial ? (
         <div className="edit-form">
-      
+        <div className="card">
+                  <br/>
+                    <div className="card-image waves-effect waves-block waves-light">
+                        <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
+                    </div>
+                    <br/>
+                </div>
           <form>
             <div className="form-group">
             <label htmlFor="title">Başlık </label>

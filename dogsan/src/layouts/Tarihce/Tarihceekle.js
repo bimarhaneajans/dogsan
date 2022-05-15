@@ -54,6 +54,13 @@ const BayiEkle = () => {
     TarihceDataService.create(data)
       .then(response => {
         setTutorial({
+
+          /*
+          Yil: req.body.Yil,
+    icerik: req.body.icerik,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
+          */
           id: response.data.id,
           Yil: response.data.Yil,
           icerik: response.data.icerik,
@@ -110,15 +117,7 @@ const BayiEkle = () => {
                 />
               </div>
 
-            {/*   <div style={{ width: "300 px" }}>
-                <Editor
-                  editorState={tutorial.boylam}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
-                />
-              </div> */}
+     
 
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
