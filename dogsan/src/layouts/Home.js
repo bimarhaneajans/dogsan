@@ -57,7 +57,7 @@ import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
 import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "./SinglePost";
-import Hakkimizda from "./kurumsal/Hakkimizda";
+import Hakkimizda from "./kurumsal/hakkimizda";
 
 
 
@@ -844,7 +844,7 @@ export default function Home() {
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
-                          <li className="post-links"><a href=""><i className="icon-calendar"></i> 23 October 2013</a></li>
+                          <li className="post-links"><a href=""><i className="icon-calendar"></i> ({item.createdAt.slice(0, -14)})</a></li>
                         </ul>
                       </div>
                     </div>))}
