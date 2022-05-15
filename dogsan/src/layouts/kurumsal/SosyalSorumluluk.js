@@ -4,21 +4,9 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
+import SsorumlulukDataService from "../../services/SosyalssService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
-import bir from "../assets/img/blog/1.jpg";
-import author from "../assets/img/xtra/author.png";
-import xtra1 from "../assets/img/xtra/1.jpg";
-import xtra2 from "../assets/img/xtra/2.jpg";
-import xtra3 from "../assets/img/xtra/3.jpg";
-import avatar from "../assets/img/xtra/avatar.jpg";
-import caticon1 from "../assets/img/cat-ico1.png";
-import caticon2 from "../assets/img/cat-ico1.png";
-import caticon3 from "../assets/img/cat-ico1.png";
-import rposts1 from "../assets/img/rposts/1.jpg";
-import rposts2 from "../assets/img/rposts/1.jpg";
-import rposts3 from "../assets/img/rposts/1.jpg";
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -26,14 +14,12 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Tarihce from "./Tarihce";
-import Degerler from "./Degerler";
-import Hakkimizda from "./Hakkimizda";
+
 
 export default function SosyalSorumluluk() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [ssorumluluk, setSsorumluluk] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -45,30 +31,21 @@ export default function SosyalSorumluluk() {
 
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveSsorumluluk();
     }, []);
 
 
 
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveSsorumluluk = () => {
+        SsorumlulukDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setSsorumluluk(response.data);
                 console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
     };
-
-
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
-    };
-
 
     return (
         <div>
@@ -85,12 +62,12 @@ export default function SosyalSorumluluk() {
                                     <div className="top-navigation">
                                         <ul className="top-nav list-unstyled list-inline" >
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
-                                            <li className="logo"><Link to={"/"} style={{ color: "#fafafa" }} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
+                                            <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
+                                            <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
+                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
+                                            <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
+                                            <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
+                                            <li><Link to={"/BizeUlasin"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
                                         </ul>
                                     </div>
 
@@ -117,24 +94,20 @@ export default function SosyalSorumluluk() {
                 </div> */}
             </div>
             <div className="blog-content">
-        <div className="container">
-        {hakkimizda.map(item => (
-            <div key={item.id} className="col-md-9">
-                <article>
-                    <img src={item.Resim} className="img-responsive" alt=""/>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>{item.AnaIcerik}</p>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    
-                    <video width="600" height="500"  controls><source src={item.BelgeselVideoUrl} type="video/mp4" /></video>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>{item.BelgeselIcerigi}</p>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    {/* <div className="row">
+                <div className="container">
+                    {ssorumluluk.map(item => (
+                        <div key={item.id} className="col-md-9">
+                            <article>
+                                <img src={item.Resim} className="img-responsive" alt="" />
+                                <div className="bottom-space-30"></div>
+                                <div className="clearfix"></div>
+                                <p>{item.baslik}</p>
+                                <div className="bottom-space-30"></div>
+                                <div className="clearfix"></div>
+                                <p>{item.icerik}</p>
+                                <div className="bottom-space-30"></div>
+                                <div className="clearfix"></div>
+                                {/* <div className="row">
                         <div className="col-md-7">
                             <p className="bold">Caveats worth mentioning</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
@@ -160,7 +133,7 @@ export default function SosyalSorumluluk() {
                         <li><a href="#">Doctors</a></li>
                         <li><a href="#">Disease</a></li>
                     </ul> */}
-                   {/*  <div className="sharepost">
+                                {/*  <div className="sharepost">
                         <div className="row">
                             <div className="col-md-6">
                                 <h4>Share this Post</h4>
@@ -176,7 +149,7 @@ export default function SosyalSorumluluk() {
                             </div>
                         </div>
                     </div> */}
-                    {/* <div className="author-info">
+                                {/* <div className="author-info">
                         <img src={author} alt="" className="img-responsive"/>
                         <h5><em>Author:</em> The Ronins</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
@@ -206,8 +179,8 @@ export default function SosyalSorumluluk() {
                             </ul>
                         </div>
                     </div> */}
-                </article>
-            {/*     <div className="comments">
+                            </article>
+                            {/*     <div className="comments">
                     <h4>Post has 3 comments</h4>
                     <ul>
                         <li>
@@ -233,7 +206,7 @@ export default function SosyalSorumluluk() {
                         </li>
                     </ul>
                 </div> */}
-                {/* <div className="comment-form">
+                            {/* <div className="comment-form">
                     <h4>Leave a comment</h4>
                     <form id="comment-form">
                         <div className="row">
@@ -262,9 +235,9 @@ export default function SosyalSorumluluk() {
                         </div>
                     </form>
                 </div> */}
-            </div>))}
-            <aside className="col-md-3">
-              {/*   <div className="side-content">
+                        </div>))}
+                    <aside className="col-md-3">
+                        {/*   <div className="side-content">
                     <h5>Main Categories</h5>
                     <ul className="cat">
                         <li>
@@ -278,16 +251,16 @@ export default function SosyalSorumluluk() {
                         </li>
                     </ul>
                 </div> */}
-                <div className="side-content">
-                    <h5>KURUMSAL</h5>
-                    <ul className="list1">
-                    <li><Link to={"/Hakkimizda"} className="nav-link">HAKKIMIZDA</Link></li>
-                    <li><Link to={"/Tarihce"} className="nav-link">TARİHÇE</Link></li>
-                    <li><Link to={"/Degerler"} className="nav-link">DEĞERLER</Link></li>
-                    
-                    </ul>
-                </div>
-                {/* <div className="side-content">
+                        {/* <div className="side-content">
+                            <h5>KURUMSAL</h5>
+                            <ul className="list1">
+                                <li><Link to={"/Hakkimizda"} className="nav-link">HAKKIMIZDA</Link></li>
+                                <li><Link to={"/Tarihce"} className="nav-link">TARİHÇE</Link></li>
+                                <li><Link to={"/Degerler"} className="nav-link">DEĞERLER</Link></li>
+
+                            </ul>
+                        </div> */}
+                        {/* <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
                     <form className="side-newsletter">
@@ -327,32 +300,32 @@ export default function SosyalSorumluluk() {
                         <li><a href="#">Schedule</a></li>
                     </ul>
                 </div> */}
-            </aside>
-        </div>
-    </div>
-    
-    <div className="footer2">
-        <img src={logo2} alt=""/>
-    </div>
-    
-    <div className="footer2-bottom">
-        <div className="container">
-            <div className="col-md-6">
-                <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
+                    </aside>
+                </div>
             </div>
-            <div className="col-md-6">
-                <ul className="footer-social">
-                    <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                </ul>
+
+            <div className="footer2">
+                <img src={logo2} alt="" />
             </div>
-            <a href="javascript:void(0)" className="bttop"><img src={backtotop} alt=""/></a>
+
+            <div className="footer2-bottom">
+                <div className="container">
+                    <div className="col-md-6">
+                        <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
+                    </div>
+                    <div className="col-md-6">
+                        <ul className="footer-social">
+                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <a href="javascript:void(0)" className="bttop"><img src={backtotop} alt="" /></a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
     )
 
