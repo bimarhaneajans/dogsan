@@ -4,21 +4,10 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
+import DuyuruDataService from "../../services/EtkinlikService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
-import bir from "../assets/img/blog/1.jpg";
-import author from "../assets/img/xtra/author.png";
-import xtra1 from "../assets/img/xtra/1.jpg";
-import xtra2 from "../assets/img/xtra/2.jpg";
-import xtra3 from "../assets/img/xtra/3.jpg";
-import avatar from "../assets/img/xtra/avatar.jpg";
-import caticon1 from "../assets/img/cat-ico1.png";
-import caticon2 from "../assets/img/cat-ico1.png";
-import caticon3 from "../assets/img/cat-ico1.png";
-import rposts1 from "../assets/img/rposts/1.jpg";
-import rposts2 from "../assets/img/rposts/1.jpg";
-import rposts3 from "../assets/img/rposts/1.jpg";
+
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -26,14 +15,15 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
+import Kataloglar from "layouts/kataloglar/Kataloglar";
 
 import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player'
 
-export default function Kataloglar() {
+export default function Duyurular() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [duyuru, setDuyuru] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -45,15 +35,15 @@ export default function Kataloglar() {
 
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveDuyuru();
     }, []);
 
 
 
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveDuyuru = () => {
+        DuyuruDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setDuyuru(response.data);
                 console.log(response.data);
             })
             .catch(e => {
@@ -85,10 +75,10 @@ export default function Kataloglar() {
                                     <div className="top-navigation">
                                         <ul className="top-nav list-unstyled list-inline" >
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
+                                            <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
                                             <li className="logo"><Link to={"/"} style={{ color: "#fafafa" }} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
+                                            <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
                                         </ul>
@@ -118,22 +108,21 @@ export default function Kataloglar() {
             </div>
             <div className="blog-content">
         <div className="container">
-        {hakkimizda.map(item => (
+        {duyuru.map(item => (
             <div key={item.id} className="col-md-9">
                 <article>
                     <img src={item.Resim} className="img-responsive" alt=""/>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    <p>{item.AnaIcerik}</p>
+                    
+                    <div className="col-xs-12"><p style={{  textAlign: "center" }}>{item.baslik}</p></div>
+                    <div className="col-xs-12"><p style={{  textAlign: "center" }}>Başlangıç Tarihi : {item.baslangicTarihi}-{item.bitisTarihi}</p></div>
+                    
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>                   
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    <div className="reactPly" >
-                    <ReactPlayer  url={item.BelgeselVideoUrl} />
-                    </div>
-                   
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>{item.BelgeselIcerigi}</p>
+                    <p>{item.icerik}</p>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     {/* <div className="row">
