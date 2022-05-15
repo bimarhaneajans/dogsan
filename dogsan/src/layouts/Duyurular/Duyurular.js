@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
+
 import typography from "../../assets/theme/base/typography";
 import DuyuruDataService from "../../services/EtkinlikService";
 import logo from "../assets/img/logo/heartify-logo.png";
