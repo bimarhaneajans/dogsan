@@ -7,18 +7,6 @@ import typography from "../../assets/theme/base/typography";
 import HakkimizdaDataService from "../../services/HakkimizdaService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
-import bir from "../assets/img/blog/1.jpg";
-import author from "../assets/img/xtra/author.png";
-import xtra1 from "../assets/img/xtra/1.jpg";
-import xtra2 from "../assets/img/xtra/2.jpg";
-import xtra3 from "../assets/img/xtra/3.jpg";
-import avatar from "../assets/img/xtra/avatar.jpg";
-import caticon1 from "../assets/img/cat-ico1.png";
-import caticon2 from "../assets/img/cat-ico1.png";
-import caticon3 from "../assets/img/cat-ico1.png";
-import rposts1 from "../assets/img/rposts/1.jpg";
-import rposts2 from "../assets/img/rposts/1.jpg";
-import rposts3 from "../assets/img/rposts/1.jpg";
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -26,13 +14,10 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Tarihce from "./Tarihce";
-import Degerler from "./Degerler";
-import SosyalSorumluluk from "./SosyalSorumluluk";
 import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player'
 
-export default function Hakkimizda() {
+export default function Igneler() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [hakkimizda, setHakkimizda] = useState([]);
@@ -87,7 +72,7 @@ export default function Hakkimizda() {
                                     <div className="top-navigation">
                                         <ul className="top-nav list-unstyled list-inline" >
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
-                                            <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }}className="nav-link">Kataloglar</Link></li>
+                                            <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
                                             <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
                                             <li className="logo"><Link to={"/"} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
                                             <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
