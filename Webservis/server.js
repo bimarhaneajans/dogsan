@@ -82,9 +82,10 @@ require("./src/routes/TarihceGarleri.routes")(app);
 require("./src/routes/urun.routes")(app); 
 require("./src/routes/yoneticiler.routes")(app); 
 require("./src/routes/subkategori.routes")(app); 
+
 require("./src/routes/dosyayukle.routes.js")(app); 
 require("./src/routes/katalogyukle.routes")(app); 
-
+require("./src/routes/bizeyazinyukle.routes")(app); 
 
 
 // set port, listen for requests
