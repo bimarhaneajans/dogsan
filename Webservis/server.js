@@ -14,6 +14,7 @@ var corsOptions = {
  
 };
 */
+global.__basedir = __dirname;
 var corsOptions = {
   origin: "*"
 };
@@ -81,6 +82,8 @@ require("./src/routes/TarihceGarleri.routes")(app);
 require("./src/routes/urun.routes")(app); 
 require("./src/routes/yoneticiler.routes")(app); 
 require("./src/routes/subkategori.routes")(app); 
+require("./src/routes/dosyayukle.routes.js")(app); 
+
  
 
 

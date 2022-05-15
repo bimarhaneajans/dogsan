@@ -64,8 +64,37 @@ import SinglePost from "./SinglePost";
 
 import Hakkimizda from "./kurumsal/Hakkimizda";
 
+ 
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,  
+  FacebookShareCount,
+  HatenaShareCount,
+  OKShareCount,
+  PinterestShareCount,
+  RedditShareCount,
+  TumblrShareCount,
+  VKShareCount,
+  WorkplaceShareButton
+} from "react-share";
 
-
+ 
 
 export default function Home() {
   const [tutorials, setTutorials] = useState([]);
@@ -847,8 +876,11 @@ export default function Home() {
                           
                           <p>{item.Ozet}</p>
                         </div>
+                       
                         <ul className="list-inline list-unstyled post-nav">
-                          <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
+
+                          <li className="post-links"><a href=""><i className="icon-user">
+                             </i> </a></li>
                           <li className="post-links"><a href=""><i className="icon-calendar"></i>{ (dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))  } </a></li>
                        {/*    dateFormat({item.createdAt.slice(0, -14)}, "dddd, mmmm dS, yyyy, h:MM:ss TT"); */}
                         </ul>

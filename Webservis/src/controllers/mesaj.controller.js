@@ -8,10 +8,10 @@ var mime = require('mime');
 const Mesaj = db.mesajs;
 
  exports.create = (req, res) => {
-   if (!req.body.Subject) {
+  /*  if (!req.body.Subject) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
-  }
+  } */
 
    const mesaj  = new Mesaj({
     Subject: req.body.Subject,
