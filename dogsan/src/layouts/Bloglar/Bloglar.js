@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
+import BlogDataService from "../../services/BlogService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import backtotop from "../assets/img/backtotop.jpg"
@@ -20,7 +20,7 @@ import ReactPlayer from 'react-player'
 export default function Bloglar() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [blog, setBlog] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -32,28 +32,20 @@ export default function Bloglar() {
 
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveBlog();
     }, []);
 
 
 
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveBlog = () => {
+        BlogDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setBlog(response.data);
                 console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
-    };
-
-
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
     };
 
 
@@ -105,22 +97,16 @@ export default function Bloglar() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                    {hakkimizda.map(item => (
+                    {blog.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{item.AnaIcerik}</p>
+                                <h1>{item.baslik}</h1>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <div className="reactPly" >
-                                    <ReactPlayer url={item.BelgeselVideoUrl} />
-                                </div>
-
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.BelgeselIcerigi}</p>
+                                <p>{item.icerik}</p>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 {/* <div className="row">
@@ -267,14 +253,14 @@ export default function Bloglar() {
                         </li>
                     </ul>
                 </div> */}
-                        <div className="side-content">
+                        {/* <div className="side-content">
                             <h5>KURUMSAL</h5>
                             <ul className="list1">
                                 <li><Link to={"/Tarihce"} className="nav-link">TARİHÇE</Link></li>
                                 <li><Link to={"/Degerler"} className="nav-link">DEĞERLER</Link></li>
                                 <li><Link to={"/SosyalSorumluluk"} className="nav-link">SOSYAL SORUMLULUK</Link></li>
                             </ul>
-                        </div>
+                        </div> */}
                         {/* <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>

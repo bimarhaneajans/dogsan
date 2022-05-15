@@ -7,7 +7,7 @@ import typography from "../../assets/theme/base/typography";
 import HakkimizdaDataService from "../../services/HakkimizdaService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
-
+import location from "../assets/img/icons/marker.png";
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -107,25 +107,74 @@ export default function BizeUlasin() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                    {hakkimizda.map(item => (
-                        <div key={item.id} className="col-md-9">
-                            <article>
-                                <img src={item.Resim} className="img-responsive" alt="" />
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.AnaIcerik}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <div className="reactPly" >
-                                    <ReactPlayer url={item.BelgeselVideoUrl} />
-                                </div>
 
-                                <div className="bottom-space-30"></div>
+                    <div className="col-md-9">
+                        <article>
+                            <div id="contact">
+                                <div className="row">
+                                    <div className="col-md-10 col-md-offset-1">
+                                        <div className="contact-stat text-center">
+                                            <h2>İLETİŞİM FORMU</h2>
+                                            <h5></h5>
+                                            <p className="lead"></p>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                <div className="info-col text-center">
+                                                    <h4 style={{ marginTop: "50px" }}>ÜRETİM TESİSLERİ</h4>
+                                                    <p className="contact-time">Rize Cad. No: 91/A Yalıncak 61220 Trabzon</p>
+                                                    <p className="phone">+90 462 334 06 90</p>
+                                                    <a  href="https://goo.gl/maps/CimuhaTYJwjFw4UF7" target="_blank">
+              <img style={{ width: "30px",height:"30px"}} src={location} alt="location"/></a>
+                                                </div>
+                                            </div>
+                                            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                <div className="info-col text-center">
+                                                    <h4>SATIŞ & PAZARLAMA</h4>
+                                                    <p className="clinic-add">Yıldız Cad. No: 55/A Beşiktaş 34353 İstanbul</p>
+                                                    <p className="email"><a href="mailto:contact@theronins.com">+90 212 258 00 54</a></p>
+                                                    <a  href="https://goo.gl/maps/zotEAxGCvHTjL7pM6" target="_blank">
+              <img style={{ width: "30px",height:"30px"}} src={location} alt="location"/></a>
+                                                </div>
+                                            </div>
+                                            <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                <div className="info-col text-center">
+                                                    <h4>SATIŞ & PAZARLAMA</h4>
+                                                    <p className="contact-email">Ankara Hanımeli Sok. No: 26-10 Sıhhiye 06100 Ankara</p>
+                                                    <p className="email"><a href="mailto:contact@theronins.com">+90 312 231 58 06</a></p>
+                                                    <a  href="https://goo.gl/maps/FcKsWiPr4y27Fvd9A" target="_blank">
+              <img style={{ width: "30px",height:"30px"}} src={location} alt="location"/></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="bottom-space-30"></div>
+                            <div className="clearfix"></div>
+                            <div className="col-md-12">
+                                <div className="app-form">
+                                    <form className="appointment-form">
+                                        <h4>BİZE ULAŞIN</h4>
+                                        <label>Ad Soyad</label>
+                                        <input type="text" placeholder="Enter your name and surname"></input>
+                                        <label>E-mail</label>
+                                        <input type="text" placeholder="Enter email address" ></input>
+                                        <label>Mesaj</label>
+                                        <textarea rows="10" placeholder="Enter your message"></textarea>
+                                        <div className="submit-wrap row">
+                                            <div className="col-md-5">
+                                                <button type="submit">Send Message</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{item.BelgeselIcerigi}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                {/* <div className="row">
+
+                            {/* <div className="row">
                         <div className="col-md-7">
                             <p className="bold">Caveats worth mentioning</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
@@ -151,7 +200,7 @@ export default function BizeUlasin() {
                         <li><a href="#">Doctors</a></li>
                         <li><a href="#">Disease</a></li>
                     </ul> */}
-                                {/*  <div className="sharepost">
+                            {/*  <div className="sharepost">
                         <div className="row">
                             <div className="col-md-6">
                                 <h4>Share this Post</h4>
@@ -167,7 +216,7 @@ export default function BizeUlasin() {
                             </div>
                         </div>
                     </div> */}
-                                {/* <div className="author-info">
+                            {/* <div className="author-info">
                         <img src={author} alt="" className="img-responsive"/>
                         <h5><em>Author:</em> The Ronins</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
@@ -197,8 +246,8 @@ export default function BizeUlasin() {
                             </ul>
                         </div>
                     </div> */}
-                            </article>
-                            {/*     <div className="comments">
+                        </article>
+                        {/*     <div className="comments">
                     <h4>Post has 3 comments</h4>
                     <ul>
                         <li>
@@ -224,7 +273,7 @@ export default function BizeUlasin() {
                         </li>
                     </ul>
                 </div> */}
-                            {/* <div className="comment-form">
+                        {/* <div className="comment-form">
                     <h4>Leave a comment</h4>
                     <form id="comment-form">
                         <div className="row">
@@ -253,7 +302,7 @@ export default function BizeUlasin() {
                         </div>
                     </form>
                 </div> */}
-                        </div>))}
+                    </div>
                     <aside className="col-md-3">
                         {/*   <div className="side-content">
                     <h5>Main Categories</h5>
@@ -270,11 +319,11 @@ export default function BizeUlasin() {
                     </ul>
                 </div> */}
                         <div className="side-content">
-                    <h5>İLETİŞİM</h5>
-                    <ul className="list1">
-                    <li><Link to={"/Bayiler"} className="nav-link">Bayiler</Link></li>
-                    </ul>
-                </div> 
+                            <h5>İLETİŞİM</h5>
+                            <ul className="list1">
+                                <li><Link to={"/Bayiler"} className="nav-link">Bayiler</Link></li>
+                            </ul>
+                        </div>
                         {/* <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
