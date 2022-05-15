@@ -17,6 +17,8 @@ import routes from "../routes";
 import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import dateFormat, { masks } from "dateformat";
+
 import logo from "../layouts/assets/img/logo/heartify-logo.png";
 import logo2 from "../layouts/assets/img/logo/heart-icon.png";
 import icon1 from "../layouts/assets/img/icons/icon-1.png";
@@ -837,14 +839,15 @@ export default function Home() {
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
-                          <a href="./single_post.html">
+                           
                             <h5>{item.baslik}</h5>
-                          </a>
+                          
                           <p>{item.Ozet}</p>
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
-                          <li className="post-links"><a href=""><i className="icon-calendar"></i> ({item.createdAt.slice(0, -14)})</a></li>
+                          <li className="post-links"><a href=""><i className="icon-calendar"></i>{ (dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))  } </a></li>
+                       {/*    dateFormat({item.createdAt.slice(0, -14)}, "dddd, mmmm dS, yyyy, h:MM:ss TT"); */}
                         </ul>
                       </div>
                     </div>))}
