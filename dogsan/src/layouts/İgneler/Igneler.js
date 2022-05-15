@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
+import IgnelerDataService from "../../services/IgneService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import backtotop from "../assets/img/backtotop.jpg"
@@ -20,7 +20,7 @@ import ReactPlayer from 'react-player'
 export default function Igneler() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [igneler, setIgneler] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -32,28 +32,20 @@ export default function Igneler() {
 
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveIgneler();
     }, []);
 
 
 
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveIgneler = () => {
+        IgnelerDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setIgneler(response.data);
                 console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
-    };
-
-
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
     };
 
 
@@ -105,25 +97,28 @@ export default function Igneler() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                    {hakkimizda.map(item => (
-                        <div key={item.id} className="col-md-9">
-                            <article>
-                                <img src={item.Resim} className="img-responsive" alt="" />
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.AnaIcerik}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <div className="reactPly" >
-                                    <ReactPlayer url={item.BelgeselVideoUrl} />
-                                </div>
+                    <div className="col-md-12">
+                        <article>
+                            <div className="row">
+                                {igneler.map(item => (
+                                    <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center " style={{ height: "400px" }}>
 
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.BelgeselIcerigi}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                {/* <div className="row">
+                                        <div className="clearfix"></div>
+
+
+
+                                        <div className="clearfix"></div>
+                                        <h1>{item.igneadi}</h1>
+                                        <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
+
+
+
+                                    </div>
+                                ))}
+
+
+                            </div>
+                            {/* <div className="row">
                         <div className="col-md-7">
                             <p className="bold">Caveats worth mentioning</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
@@ -149,7 +144,7 @@ export default function Igneler() {
                         <li><a href="#">Doctors</a></li>
                         <li><a href="#">Disease</a></li>
                     </ul> */}
-                                {/*  <div className="sharepost">
+                            {/*  <div className="sharepost">
                         <div className="row">
                             <div className="col-md-6">
                                 <h4>Share this Post</h4>
@@ -165,7 +160,7 @@ export default function Igneler() {
                             </div>
                         </div>
                     </div> */}
-                                {/* <div className="author-info">
+                            {/* <div className="author-info">
                         <img src={author} alt="" className="img-responsive"/>
                         <h5><em>Author:</em> The Ronins</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
@@ -195,8 +190,8 @@ export default function Igneler() {
                             </ul>
                         </div>
                     </div> */}
-                            </article>
-                            {/*     <div className="comments">
+                        </article>
+                        {/*     <div className="comments">
                     <h4>Post has 3 comments</h4>
                     <ul>
                         <li>
@@ -222,7 +217,7 @@ export default function Igneler() {
                         </li>
                     </ul>
                 </div> */}
-                            {/* <div className="comment-form">
+                        {/* <div className="comment-form">
                     <h4>Leave a comment</h4>
                     <form id="comment-form">
                         <div className="row">
@@ -251,7 +246,7 @@ export default function Igneler() {
                         </div>
                     </form>
                 </div> */}
-                        </div>))}
+                    </div>
                     <aside className="col-md-3">
                         {/*   <div className="side-content">
                     <h5>Main Categories</h5>
@@ -266,7 +261,7 @@ export default function Igneler() {
                             <h4>SOSYAL SORUMLULUK</h4>
                         </li>
                     </ul>
-                </div> */}
+                </div> 
                         <div className="side-content">
                             <h5>KURUMSAL</h5>
                             <ul className="list1">
@@ -275,7 +270,7 @@ export default function Igneler() {
                                 <li><Link to={"/SosyalSorumluluk"} className="nav-link">SOSYAL SORUMLULUK</Link></li>
                             </ul>
                         </div>
-                        {/* <div className="side-content">
+                         <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
                     <form className="side-newsletter">

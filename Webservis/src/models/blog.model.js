@@ -5,8 +5,8 @@ module.exports = mongoose => {
         Ozet: String,
         seolink: String,
         icerik: String,
-    Resimbaslik:String,
-      Resim:String,
+        Resimbaslik:String,
+        Resim:String,
         published: Boolean
       },
       { timestamps: true }
