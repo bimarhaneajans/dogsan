@@ -26,9 +26,9 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Degerler from "./degerler";
+import Degerler from "./Degerler";
 import SosyalSorumluluk from "./SosyalSorumluluk";
-import Hakkimizda from "./hakkimizda";
+import Hakkimizda from "./Hakkimizda";
 
 export default function Tarihce() {
     const [tutorials, setTutorials] = useState([]);
