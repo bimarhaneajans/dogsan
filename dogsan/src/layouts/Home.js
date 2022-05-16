@@ -61,7 +61,6 @@ import "./responsive-styling.css"
 import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori"
-import EmilebilirSuturler from "./EmilebilirSuturler/EmilebilirSuturler";
 import SinglePost from "./SinglePost";
 
 
@@ -285,7 +284,7 @@ export default function Home() {
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><Link to={"/EmilebilirSuturler"} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
+                          key={index}><Link to={"/Subdynamicdetaykategori/"+tutorial.kategoriid} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
                     </ul>
                   </div>
 
@@ -486,15 +485,15 @@ export default function Home() {
                 <div className="col-xs-2"></div>
                 <div className="col-xs-8" >
                   <form className="appointment-form">
-                    <h4>Appointments form</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                    <label>NAME AND SURNAME</label>
-                    <input type="text" placeholder="Enter your name and surname" />
-                    <label>CONTACT PHONE NUMBER</label>
-                    <input type="text" placeholder="Enter phone number" />
-                    <label>PATIENT NUMBER</label>
-                    <input type="text" placeholder="Enter patient number" />
-                    <div className="row">
+                    <h4>Müşteri İletişim Formu</h4>
+                    
+                    <label>Ad Soyad</label>
+                    <input type="text"  />
+                    <label>Telefon Numarası</label>
+                    <input type="text" />
+                    <label>Mesaj</label>
+                    <input type="text"  />
+                   {/*  <div className="row">
                       <div className="col-md-6">
                         <label>DATE FROM</label>
                         <div className='input-group date'>
@@ -519,13 +518,13 @@ export default function Home() {
                     </ul>
                     <div className="space20"></div>
                     <div className="clearfix"></div>
-                    <div className="space20"></div>
+                    <div className="space20"></div> */}
                     <div className="submit-wrap row">
                       <div className="col-md-7 cbox">
-                        <input type="checkbox" /><span>send me copy of message</span>
+                        {/* <input type="checkbox" /><span>send me copy of message</span> */}
                       </div>
                       <div className="col-md-5">
-                        <button type="submit">Send Message</button>
+                        <button type="submit">Gönder</button>
                       </div>
                     </div>
                   </form>

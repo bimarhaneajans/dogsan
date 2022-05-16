@@ -87,7 +87,7 @@ export default function Hakkimizda() {
                                     <div className="top-navigation">
                                         <ul className="top-nav list-unstyled list-inline" >
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
-                                            <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }}className="nav-link">Kataloglar</Link></li>
+                                            <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
                                             <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
                                             <li className="logo"><Link to={"/"} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
                                             <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
@@ -119,7 +119,13 @@ export default function Hakkimizda() {
                 </div> */}
             </div>
             <div className="blog-content">
+
                 <div className="container">
+                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>HAKKIMIZDA</h1>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
                     {hakkimizda.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>

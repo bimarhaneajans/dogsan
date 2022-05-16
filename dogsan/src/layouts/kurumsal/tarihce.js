@@ -118,6 +118,11 @@ export default function Tarihce() {
             </div>
             <div className="blog-content">
                 <div className="container">
+                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>TARİHÇE</h1>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
                     {hakkimizda.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>
