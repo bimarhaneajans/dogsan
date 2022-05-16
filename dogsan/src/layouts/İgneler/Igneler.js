@@ -7,6 +7,7 @@ import typography from "../../assets/theme/base/typography";
 import IgnelerDataService from "../../services/IgneService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
+import dogsanlogo from "../assets/img/logo/Group_2.png";
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -66,7 +67,7 @@ export default function Igneler() {
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
                                             <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
                                             <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
-                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
+                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                                             <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
                                             <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
                                             <li><Link to={"/BizeUlasin"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
@@ -320,13 +321,13 @@ export default function Igneler() {
             </div>
 
             <div className="footer2">
-                <img src={logo2} alt="" />
+                <img src={dogsanlogo} alt="" />
             </div>
 
             <div className="footer2-bottom">
                 <div className="container">
                     <div className="col-md-6">
-                        <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
+                    
                     </div>
                     <div className="col-md-6">
                         <ul className="footer-social">

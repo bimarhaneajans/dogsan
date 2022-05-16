@@ -3,7 +3,8 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import KategoriDataService from "../../services/SubKategoriService";
+import SubKategoriService from "../../services/SubKategoriService";
+import dogsanlogo from "../assets/img/logo/Group_2.png";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import backtotop from "../assets/img/backtotop.jpg"
@@ -21,8 +22,6 @@ export default function Subdynamicdetaykategori() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [subkategori, setSubkategori] = useState([]);
-    const [subkategoriid, setSubkategoriid] = useState([]);
-
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -40,13 +39,11 @@ export default function Subdynamicdetaykategori() {
 
 
     const retrieveSubkategori = () => {
-        KategoriDataService.getAll()
+        SubKategoriService.getAll()
             .then(response => {
-                setSubkategori(response.data);
-               // setSubkategoriid(response.data);
-              
-                //subkategori
-                // console.log(subkategori);
+            setSubkategori(response.data);
+          
+               console.log(response.data);
 
                console.log(kategoriid);
             })
@@ -56,6 +53,7 @@ export default function Subdynamicdetaykategori() {
     };
 
 
+   
 
 
 
@@ -76,7 +74,7 @@ export default function Subdynamicdetaykategori() {
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
                                             <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
                                             <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
-                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
+                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                                             <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
                                             <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
                                             <li><Link to={"/BizeUlasin"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
@@ -111,7 +109,7 @@ export default function Subdynamicdetaykategori() {
             <div className="blog-content">
 
                 <div className="container">
-                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>Burası</h1>
+                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}></h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
@@ -119,9 +117,9 @@ export default function Subdynamicdetaykategori() {
                     {/*  {kategoriid ? 'çevrimiçi' : 'çevrimdışı'} */}
 
 
-                    {kategoriid === subkategori.kategoriid &&
-                       
-                        <h2>
+{/*                     {kategoriid === subkategori.kategoriid &&
+ */}                       
+                        <div>
                             {subkategori.map(item => (
 
                                 <div key={item.id} className="col-md-9">
@@ -275,9 +273,9 @@ export default function Subdynamicdetaykategori() {
 </form>
 </div> */}
                                 </div>))}
-                        </h2>
-                    }
-
+                        </div>
+{/*                     }
+ */}
 
 
 
@@ -299,14 +297,14 @@ export default function Subdynamicdetaykategori() {
                         </li>
                     </ul>
                 </div> */}
-                        <div className="side-content">
+                        {/* <div className="side-content">
                             <h5>KURUMSAL</h5>
                             <ul className="list1">
                                 <li><Link to={"/Tarihce"} className="nav-link">TARİHÇE</Link></li>
                                 <li><Link to={"/Degerler"} className="nav-link">DEĞERLER</Link></li>
                                 <li><Link to={"/SosyalSorumluluk"} className="nav-link">SOSYAL SORUMLULUK</Link></li>
                             </ul>
-                        </div>
+                        </div> */}
                         {/* <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
@@ -352,13 +350,13 @@ export default function Subdynamicdetaykategori() {
             </div>
 
             <div className="footer2">
-                <img src={logo2} alt="" />
+                <img src={dogsanlogo} alt="" />
             </div>
 
             <div className="footer2-bottom">
                 <div className="container">
                     <div className="col-md-6">
-                        <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
+                    
                     </div>
                     <div className="col-md-6">
                         <ul className="footer-social">

@@ -21,7 +21,7 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import dateFormat, { masks } from "dateformat";
 
-
+import dogsanlogo from "../layouts/assets/img/logo/Group_2.png";
 import logo from "../layouts/assets/img/logo/heartify-logo.png";
 import logo2 from "../layouts/assets/img/logo/heart-icon.png";
 import icon1 from "../layouts/assets/img/icons/icon-1.png";
@@ -33,24 +33,10 @@ import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
-import postimg from "../layouts/assets/img/blog/post-img1.jpg"
-import postimg2 from "../layouts/assets/img/blog/post-img2.jpg"
-import postimg3 from "../layouts/assets/img/blog/post-img3.jpg"
+
 
 import posticon from "../layouts/assets/img/blog/post-icon.png"
 
-import bir from "../layouts/assets/img/projects/1.jpg";
-import iki from "../layouts/assets/img/projects/2.jpg";
-import uc from "../layouts/assets/img/projects/3.jpg";
-import dort from "../layouts/assets/img/projects/4.jpg";
-import bes from "../layouts/assets/img/projects/5.jpg";
-import alti from "../layouts/assets/img/projects/6.jpg";
-import yedi from "../layouts/assets/img/projects/7.jpg";
-import sekiz from "../layouts/assets/img/projects/8.jpg";
-import teammember from "../layouts/assets/img/team/team-member1.jpg";
-import teammember2 from "../layouts/assets/img/team/team-member2.jpg";
-import teammember3 from "../layouts/assets/img/team/team-member3.jpg";
-import teammember4 from "../layouts/assets/img/team/team-member4.jpg";
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -249,7 +235,7 @@ export default function Home() {
         <div className="container bs-main">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-              <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
+              <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={dogsanlogo} alt="Heartify" /></a></div>
 
               <div className="top-header hidden-xs">
                 <div className="top-navigation">
@@ -257,7 +243,7 @@ export default function Home() {
                     <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
                     <li><Link to={"/Kataloglar"} className="nav-link">Kataloglar</Link></li>
                     <li><Link to={"/Igneler"} className="nav-link">İğneler</Link></li>
-                    <li className="logo"><Link to={"/"} className="nav-link"><img src={logo} alt="Heartify" /></Link></li>
+                    <li className="logo"><Link to={"/home"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                     <li><Link to={"/Duyurular"} className="nav-link">Duyurular</Link></li>
                     <li><Link to={"/Bloglar"} className="nav-link">Blog</Link></li>
                     <li><Link to={"/BizeUlasin"} className="nav-link">İletişim</Link></li>
@@ -276,7 +262,7 @@ export default function Home() {
               <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-left">
                   <div className="main-logo">
-                    <a href="index.html"><img className="pull-left" src={logo2} alt="Heartify" /><span>HEARTIFY</span></a>
+                    <a href="index.html"><img className="pull-left" src={dogsanlogo} alt="Heartify" /></a>
                   </div>
                 </div>
                 <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
