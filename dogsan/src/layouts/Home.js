@@ -424,7 +424,7 @@ export default function Home() {
               </ul>
          */}
         <div className="text-center">
-          <h2>DUYURULAR </h2>
+          <h2>DUYURULAR 1</h2>
         </div>
         <div className="clearfix" style={{ marginBottom: "28px" }}></div>
 
@@ -444,6 +444,7 @@ export default function Home() {
                     <h5>{item.baslik}</h5>
                     <p>{item.icerik} </p>
                   </div>
+                  <Link to={"/Duyuru/"+item.id} className="nav-link">Göster</Link>
                 </div>
               ))}
 

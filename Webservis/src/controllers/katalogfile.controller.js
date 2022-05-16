@@ -29,7 +29,7 @@ const upload = async (req, res) => {
 };
 
 const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/katalog/";
+  const directoryPath = __basedir + "/katalogs/";
 
   fs.readdir(directoryPath, function (err, files) {
     if (err) {

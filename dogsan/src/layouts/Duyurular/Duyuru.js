@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
  import typography from "../../assets/theme/base/typography";
-import DuyuruDataService from "../../services/EtkinlikService";
+import DuyuruDataService from "../../services/DuyuruService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
@@ -118,19 +118,19 @@ export default function Duyuru() {
                         {/* {this.duyuru.map(item => ( */}
                         <div className="col-md-9">
                             <article>
-                                <img src={duyuru.Resim} className="img-responsive" alt="" />
+                                <center><img src={duyuru.Resim} className="img-responsive" alt="" /></center>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <div className="col-xs-6"><p>{duyuru.baslik}</p></div>
-                                <div className="col-xs-6"><p>Başlangıç Tarihi : {duyuru.baslangicTarihi}-{duyuru.bitisTarihi}</p></div>
+                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>{duyuru.baslik}</p></div>
+                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi : {duyuru.Tarih}</p></div>
 
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{duyuru.icerik}</p>
+                                <p style={{ textAlign: "center" }}>{duyuru.icerik}</p>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 {/* <div className="row">
@@ -276,12 +276,12 @@ export default function Duyuru() {
                             <h4>SOSYAL SORUMLULUK</h4>
                         </li>
                     </ul>
-                </div> */}
+                </div> 
                             <div className="side-content">
                                 <h5>KURUMSAL</h5>
                                
                             </div>
-                            {/* <div className="side-content">
+                             <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
                     <form className="side-newsletter">
