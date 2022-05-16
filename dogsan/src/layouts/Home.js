@@ -83,10 +83,7 @@ export default function Home() {
   const [duyuru, setDuyuru] = useState([]);
   const [yoneticiler, setYoneticiler] = useState([]);
   const [slaty, setSlayt] = useState([]);
-  const [kariyer, setKariyer] = useState([]);
-
-
-
+  const [kariyer, setKariyer] = useState([]);  
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();

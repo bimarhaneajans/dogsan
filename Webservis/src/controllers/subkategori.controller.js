@@ -50,7 +50,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const subkategoriadi = req.query.subkategoriadi;
+  const subkategoriadi = req.query.subkategori;
   var condition = subkategoriadi ? { subkategoriadi: { $regex: new RegExp(subkategoriadi), $options: "i" } } : {};
 
   SubKategori.find(condition)
@@ -66,12 +66,12 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-  const id = req.params.id;
+  const subkategoriid = req.params.subkategoriid;
 
-  SubKategori.findById(id)
+  SubKategori.findById(subkategoriid)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found kategori with id " + id });
+        res.status(404).send({ message: "Not found kategori with id " + subkategoriid });
       else res.send(data);
     })
     .catch(err => {

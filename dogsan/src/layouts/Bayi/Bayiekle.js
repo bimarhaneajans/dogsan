@@ -10,11 +10,21 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
-import { Editor } from "react-draft-wysiwyg";
-import { convertFromRaw } from 'draft-js';
+ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import {Editor, EditorState} from 'draft-js';
+import 'draft-js/dist/Draft.css';
+
+
+function MyEditor() {
+  const [editorState, setEditorState] = React.useState(
+    () => EditorState.createEmpty(),
+  );
+
+  return <Editor editorState={editorState} onChange={setEditorState} />;
+}
 
 const BayiEkle = () => {
   const initialTutorialState = {
@@ -35,7 +45,7 @@ const BayiEkle = () => {
   const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-
+  const [editorState, setEditorState] = React.useState(() => EditorState.createEmpty(),);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
@@ -106,13 +116,7 @@ const BayiEkle = () => {
             </div>
           ) : (
             <div>
-              <Editor style={{width:600}}
-                  editorState={tutorial.baslik}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                onEditorStateChange={handleInputChange}
-                />
+              
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
                 <input

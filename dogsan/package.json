@@ -26,6 +26,7 @@
     "chroma-js": "2.4.2",
     "classnames": "^2.3.1",
     "dateformat": "^5.0.3",
+    "draft-js": "^0.11.7",
     "file-type": "^17.1.1",
     "html-to-react": "^1.4.8",
     "i": "^0.3.7",
@@ -50,8 +51,6 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
-   
-  
     "react-table": "^7.7.0",
     "react-validation": "^3.0.7",
     "redux": "^4.2.0",

@@ -61,6 +61,7 @@ import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori";
 import Dynamicdetaykategori from "../layouts/Kategori/dynamicdetaykategori";
 import SinglePost from "../layouts/SinglePost";
+
 import Hakkimizda from "../layouts/kurumsal/Hakkimizda";
 import Tarihce from "../layouts/kurumsal/Tarihce";
 import Degerler from "../layouts/kurumsal/Degerler";
