@@ -1,4 +1,4 @@
-const uploadFile = require("../middlewares/katalogupload");
+const uploadFile = require("../middlewares/bizeyazinupload");
 const fs = require("fs");
 const baseUrl = "http://localhost:8081/files/";
 
