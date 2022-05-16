@@ -1,4 +1,4 @@
-const uploadFile = require("../middlewares/upload");
+const uploadFile = require("../middlewares/katalogupload");
 const fs = require("fs");
 const baseUrl = "http://localhost:8081/files/";
 
@@ -11,7 +11,7 @@ const upload = async (req, res) => {
     }
 
     res.status(200).send({
-      message: "Uploaded the file successfully: " + req.file.originalname,
+      message: "Uploaded the file successfully: " ,
     });
   } catch (err) {
     console.log(err);
@@ -23,13 +23,13 @@ const upload = async (req, res) => {
     }
 
     res.status(500).send({
-      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+      message: `Could not upload the file:  . ${err}`,
     });
   }
 };
 
 const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+  const directoryPath = __basedir + "/katalog/";
 
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
@@ -50,9 +50,10 @@ const getListFiles = (req, res) => {
     res.status(200).send(fileInfos);
   });
 };
+
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/resources/static/assets/uploads/";
+  const directoryPath = __basedir + "/katalog/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
