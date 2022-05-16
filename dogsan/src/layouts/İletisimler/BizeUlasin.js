@@ -107,7 +107,11 @@ export default function BizeUlasin() {
             </div>
             <div className="blog-content">
                 <div className="container">
-
+                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BİZE ULAŞIN</h1>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
                     <div className="col-md-9">
                         <article>
                             <div id="contact">
@@ -157,11 +161,11 @@ export default function BizeUlasin() {
                                     <form className="appointment-form">
                                         <h4>BİZE ULAŞIN</h4>
                                         <label>Ad Soyad</label>
-                                        <input type="text" placeholder="Enter your name and surname"></input>
+                                        <input type="text" ></input>
                                         <label>E-mail</label>
-                                        <input type="text" placeholder="Enter email address" ></input>
+                                        <input type="text" ></input>
                                         <label>Mesaj</label>
-                                        <textarea rows="10" placeholder="Enter your message"></textarea>
+                                        <textarea rows="10" ></textarea>
                                         <div className="submit-wrap row">
                                             <div className="col-md-5">
                                                 <button type="submit">Send Message</button>

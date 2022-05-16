@@ -109,6 +109,11 @@ export default function Duyuru() {
                 </div>
                 <div className="blog-content">
                     <div className="container">
+                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>DUYURU</h1>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
                         {/* {this.duyuru.map(item => ( */}
                         <div className="col-md-9">
                             <article>

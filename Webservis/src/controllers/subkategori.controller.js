@@ -8,7 +8,7 @@ var mime = require('mime');
 const SubKategori = db.subkategoris;
 
 exports.create = (req, res) => {
-  if (!req.body.adi) {
+  if (!req.body.subkategoriadi) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
@@ -50,7 +50,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  const adi = req.query.subkategoriadi;
+  const subkategoriadi = req.query.subkategoriadi;
   var condition = subkategoriadi ? { subkategoriadi: { $regex: new RegExp(subkategoriadi), $options: "i" } } : {};
 
   SubKategori.find(condition)

@@ -189,7 +189,7 @@ const Overview = (props) => {
 
             
                 <Link
-                  to={"/bayiguncelle/" + currentTutorial.id}
+                  to={"/SubKategoriguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"
                 >
                   Düzenle

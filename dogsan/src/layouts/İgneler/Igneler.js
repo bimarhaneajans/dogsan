@@ -97,6 +97,11 @@ export default function Igneler() {
             </div>
             <div className="blog-content">
                 <div className="container">
+                <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>İĞNELER</h1>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
                     <div className="col-md-12">
                         <article>
                             <div className="row">
