@@ -121,7 +121,7 @@ export default function Home() {
 
   useEffect(() => {
 
-   // retrieveKariyer();
+    // retrieveKariyer();
   }, []);
 
 
@@ -167,18 +167,18 @@ export default function Home() {
       });
   };
   const retrieveKariyer = () => {
-  KariyerDataService.create('/mesaj', {
+    KariyerDataService.create('/mesaj', {
 
       Subject: '',
       lastName: 'Flintstone'
 
     })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
 
 
@@ -284,7 +284,7 @@ export default function Home() {
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><Link to={"/Subdynamicdetaykategori/"+tutorial.kategoriid} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
+                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
                     </ul>
                   </div>
 
@@ -389,7 +389,7 @@ export default function Home() {
                   style={customStyles}
                   contentLabel="Example Modal"
                 >
-               
+
                   <div className="col-md-12">
                     <div className="app-form">
                       <form className="appointment-form">
@@ -402,18 +402,18 @@ export default function Home() {
                         <textarea rows="10" placeholder="Enter your message">{/* {kariyer.Content} */}</textarea>
                         <div className="submit-wrap row">
                           <div className="col-md-5">
-                            <button type="submit" onClick={retrieveKariyer}>Send Message</button> 
-                            <button  type="submit" onClick={closeModal}>close</button>
+                            <button type="submit" onClick={retrieveKariyer}>Send Message</button>
+                            <button type="submit" onClick={closeModal}>close</button>
                           </div>
                         </div>
-                        
+
                       </form>
                     </div>
                   </div>
-               
-                  
+
+
                 </Modal>
-                
+
               </div>
             </div>
           </div>
@@ -486,14 +486,14 @@ export default function Home() {
                 <div className="col-xs-8" >
                   <form className="appointment-form">
                     <h4>Müşteri İletişim Formu</h4>
-                    
+
                     <label>Ad Soyad</label>
-                    <input type="text"  />
+                    <input type="text" />
                     <label>Telefon Numarası</label>
                     <input type="text" />
                     <label>Mesaj</label>
-                    <input type="text"  />
-                   {/*  <div className="row">
+                    <input type="text" />
+                    {/*  <div className="row">
                       <div className="col-md-6">
                         <label>DATE FROM</label>
                         <div className='input-group date'>
@@ -1085,27 +1085,26 @@ export default function Home() {
               <div className="col-xs-12" >
                 <h1 style={{ fontWeight: "bold", color: "rgb(250, 250, 250)", textAlign: "center" }}>Site Haritası</h1>
                 <div className="col-xs-4">
-                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Bilgi Toplum Hizmetleri
-                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Kişisel Verilerin Korunması Kanunu (KVKK)
-                  </a></div>
+                  <div ><Link to={"/Hakkimizda"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Hakkımızda</Link></div>
+                  <div ><Link to={"/Tarihce"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Tarihçe</Link></div>
+                  <div ><Link to={"/Degerler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Değerler</Link></div>
+                  <div ><Link to={"/SosyalSorumluluk"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Sosyal Sorumluluk</Link></div>
                 </div>
 
                 <div className="col-xs-4">
-                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Bilgi Toplum Hizmetleri
-                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Kişisel Verilerin Korunması Kanunu (KVKK)
-                  </a></div>
+                  <div ><Link to={"/Kataloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Kataloglar</Link></div>
+                  <div ><Link to={"/Igneler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">İğneler</Link></div>
+                  <div ><Link to={"/Duyurular"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Duyurular</Link></div>
+                  
+                  
                 </div>
                 <div className="col-xs-4">
-                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Bilgi Toplum Hizmetleri
-                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Kişisel Verilerin Korunması Kanunu (KVKK)
-                  </a></div>
+                  <div ><Link to={"/Bloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Blog</Link></div>
+                  <div ><Link to={"/Bayi"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bayi</Link></div>
+                  <div ><Link to={"/BizeUlasin"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bize Ulaşın</Link></div>
+                  
                 </div>
+
               </div>
             </div>
           </div>

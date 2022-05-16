@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
+import BayiDataService from "../../services/BayiService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 
@@ -22,7 +22,7 @@ import ReactPlayer from 'react-player'
 export default function Bayiler() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [bayi, setBayi] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -34,28 +34,20 @@ export default function Bayiler() {
 
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveBayi();
     }, []);
 
 
 
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveBayi = () => {
+        BayiDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setBayi(response.data);
                 console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
             });
-    };
-
-
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
     };
 
 
@@ -107,29 +99,24 @@ export default function Bayiler() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BAYİLER</h1>
+                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BAYİLER</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    {hakkimizda.map(item => (
+                    {bayi.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>
-                                <img src={item.Resim} className="img-responsive" alt="" />
+                                {/* <img src={item.Resim} className="img-responsive" alt="" /> 
                                 <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.AnaIcerik}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <div className="reactPly" >
-                                    <ReactPlayer url={item.BelgeselVideoUrl} />
-                                </div>
+                                <div className="clearfix"></div>*/}
+                             
+                                        <p style={{ textAlign: "center" }}>{item.baslik}</p>
 
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.BelgeselIcerigi}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
+                                        <p style={{ textAlign: "center" }}>{item.telefon}</p>
+                                    <div className="bottom-space-30"></div>
+                                    <div className="clearfix"></div>
+                                
                                 {/* <div className="row">
                         <div className="col-md-7">
                             <p className="bold">Caveats worth mentioning</p>
@@ -275,11 +262,11 @@ export default function Bayiler() {
                     </ul>
                 </div> */}
                         <div className="side-content">
-                    <h5>İLETİŞİM</h5>
-                    <ul className="list1">
-                    <li><Link to={"/BizeUlasin"} className="nav-link">Bize Ulaşın</Link></li>
-                    </ul>
-                </div> 
+                            <h5>İLETİŞİM</h5>
+                            <ul className="list1">
+                                <li><Link to={"/BizeUlasin"} className="nav-link">Bize Ulaşın</Link></li>
+                            </ul>
+                        </div>
                         {/* <div className="side-content">
                     <h5>Join the newsletter</h5>
                     <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>

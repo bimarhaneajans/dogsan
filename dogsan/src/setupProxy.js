@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api/auth',
     createProxyMiddleware({
-      target: 'http://localhost:3000',
+      target: 'https://bavrim.madilink.net',
       changeOrigin: true,
     })
   );
