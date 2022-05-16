@@ -11,7 +11,7 @@ const upload = async (req, res) => {
     }
 
     res.status(200).send({
-      message: "Uploaded the file successfully: " ,
+      message: "Uploaded the file successfully: " + req.file.originalname,
     });
   } catch (err) {
     console.log(err);
@@ -23,13 +23,13 @@ const upload = async (req, res) => {
     }
 
     res.status(500).send({
-      message: `Could not upload the file:  . ${err}`,
+      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
     });
   }
 };
 
 const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/katalogs/";
+  const directoryPath = __basedir + "/resources/static/assets/katalogs/";
 
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
@@ -50,10 +50,9 @@ const getListFiles = (req, res) => {
     res.status(200).send(fileInfos);
   });
 };
-
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/katalog/";
+  const directoryPath = __basedir + "/resources/static/assets/katalogs/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
