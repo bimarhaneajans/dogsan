@@ -21,7 +21,7 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import dateFormat, { masks } from "dateformat";
 
-
+import dogsanlogo from "../layouts/assets/img/logo/Group_2.png";
 import logo from "../layouts/assets/img/logo/heartify-logo.png";
 import logo2 from "../layouts/assets/img/logo/heart-icon.png";
 import icon1 from "../layouts/assets/img/icons/icon-1.png";
@@ -33,24 +33,10 @@ import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
-import postimg from "../layouts/assets/img/blog/post-img1.jpg"
-import postimg2 from "../layouts/assets/img/blog/post-img2.jpg"
-import postimg3 from "../layouts/assets/img/blog/post-img3.jpg"
+
 
 import posticon from "../layouts/assets/img/blog/post-icon.png"
 
-import bir from "../layouts/assets/img/projects/1.jpg";
-import iki from "../layouts/assets/img/projects/2.jpg";
-import uc from "../layouts/assets/img/projects/3.jpg";
-import dort from "../layouts/assets/img/projects/4.jpg";
-import bes from "../layouts/assets/img/projects/5.jpg";
-import alti from "../layouts/assets/img/projects/6.jpg";
-import yedi from "../layouts/assets/img/projects/7.jpg";
-import sekiz from "../layouts/assets/img/projects/8.jpg";
-import teammember from "../layouts/assets/img/team/team-member1.jpg";
-import teammember2 from "../layouts/assets/img/team/team-member2.jpg";
-import teammember3 from "../layouts/assets/img/team/team-member3.jpg";
-import teammember4 from "../layouts/assets/img/team/team-member4.jpg";
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -118,7 +104,7 @@ export default function Home() {
 
   useEffect(() => {
 
-   // retrieveKariyer();
+    // retrieveKariyer();
   }, []);
 
 
@@ -164,18 +150,18 @@ export default function Home() {
       });
   };
   const retrieveKariyer = () => {
-  KariyerDataService.create('/mesaj', {
+    KariyerDataService.create('/mesaj', {
 
       Subject: '',
       lastName: 'Flintstone'
 
     })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
 
 
@@ -246,7 +232,7 @@ export default function Home() {
         <div className="container bs-main">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-              <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
+              <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={dogsanlogo} alt="Heartify" /></a></div>
 
               <div className="top-header hidden-xs">
                 <div className="top-navigation">
@@ -254,7 +240,7 @@ export default function Home() {
                     <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
                     <li><Link to={"/Kataloglar"} className="nav-link">Kataloglar</Link></li>
                     <li><Link to={"/Igneler"} className="nav-link">İğneler</Link></li>
-                    <li className="logo"><Link to={"/"} className="nav-link"><img src={logo} alt="Heartify" /></Link></li>
+                    <li className="logo"><Link to={"/home"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                     <li><Link to={"/Duyurular"} className="nav-link">Duyurular</Link></li>
                     <li><Link to={"/Bloglar"} className="nav-link">Blog</Link></li>
                     <li><Link to={"/BizeUlasin"} className="nav-link">İletişim</Link></li>
@@ -273,7 +259,7 @@ export default function Home() {
               <div className="row">
                 <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-left">
                   <div className="main-logo">
-                    <a href="index.html"><img className="pull-left" src={logo2} alt="Heartify" /><span>HEARTIFY</span></a>
+                    <a href="index.html"><img className="pull-left" src={dogsanlogo} alt="Heartify" /></a>
                   </div>
                 </div>
                 <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -281,7 +267,7 @@ export default function Home() {
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><Link to={"/Subdynamicdetaykategori/"+tutorial.kategoriid} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
+                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
                     </ul>
                   </div>
 
@@ -386,7 +372,7 @@ export default function Home() {
                   style={customStyles}
                   contentLabel="Example Modal"
                 >
-               
+
                   <div className="col-md-12">
                     <div className="app-form">
                       <form className="appointment-form">
@@ -399,18 +385,18 @@ export default function Home() {
                         <textarea rows="10" placeholder="Enter your message">{/* {kariyer.Content} */}</textarea>
                         <div className="submit-wrap row">
                           <div className="col-md-5">
-                            <button type="submit" onClick={retrieveKariyer}>Send Message</button> 
-                            <button  type="submit" onClick={closeModal}>close</button>
+                            <button type="submit" onClick={retrieveKariyer}>Send Message</button>
+                            <button type="submit" onClick={closeModal}>close</button>
                           </div>
                         </div>
-                        
+
                       </form>
                     </div>
                   </div>
-               
-                  
+
+
                 </Modal>
-                
+
               </div>
             </div>
           </div>
@@ -483,14 +469,14 @@ export default function Home() {
                 <div className="col-xs-8" >
                   <form className="appointment-form">
                     <h4>Müşteri İletişim Formu</h4>
-                    
+
                     <label>Ad Soyad</label>
-                    <input type="text"  />
+                    <input type="text" />
                     <label>Telefon Numarası</label>
                     <input type="text" />
                     <label>Mesaj</label>
-                    <input type="text"  />
-                   {/*  <div className="row">
+                    <input type="text" />
+                    {/*  <div className="row">
                       <div className="col-md-6">
                         <label>DATE FROM</label>
                         <div className='input-group date'>
@@ -1082,27 +1068,26 @@ export default function Home() {
               <div className="col-xs-12" >
                 <h1 style={{ fontWeight: "bold", color: "rgb(250, 250, 250)", textAlign: "center" }}>Site Haritası</h1>
                 <div className="col-xs-4">
-                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Bilgi Toplum Hizmetleri
-                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Kişisel Verilerin Korunması Kanunu (KVKK)
-                  </a></div>
+                  <div ><Link to={"/Hakkimizda"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Hakkımızda</Link></div>
+                  <div ><Link to={"/Tarihce"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Tarihçe</Link></div>
+                  <div ><Link to={"/Degerler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Değerler</Link></div>
+                  <div ><Link to={"/SosyalSorumluluk"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Sosyal Sorumluluk</Link></div>
                 </div>
 
                 <div className="col-xs-4">
-                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Bilgi Toplum Hizmetleri
-                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Kişisel Verilerin Korunması Kanunu (KVKK)
-                  </a></div>
+                  <div ><Link to={"/Kataloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Kataloglar</Link></div>
+                  <div ><Link to={"/Igneler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">İğneler</Link></div>
+                  <div ><Link to={"/Duyurular"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Duyurular</Link></div>
+                  
+                  
                 </div>
                 <div className="col-xs-4">
-                  <div ><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Bilgi Toplum Hizmetleri
-                  </a></div><div ><a href="/files/dogsan_kvkk.docx" style={{ color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                    Kişisel Verilerin Korunması Kanunu (KVKK)
-                  </a></div>
+                  <div ><Link to={"/Bloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Blog</Link></div>
+                  <div ><Link to={"/Bayi"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bayi</Link></div>
+                  <div ><Link to={"/BizeUlasin"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bize Ulaşın</Link></div>
+                  
                 </div>
+
               </div>
             </div>
           </div>

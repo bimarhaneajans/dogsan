@@ -291,7 +291,7 @@ export default function SinglePost() {
     <div className="footer2-bottom">
         <div className="container">
             <div className="col-md-6">
-                <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
+            
             </div>
             <div className="col-md-6">
                 <ul className="footer-social">

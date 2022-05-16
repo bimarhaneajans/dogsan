@@ -5,6 +5,7 @@ import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } fr
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
 import HakkimizdaDataService from "../../services/HakkimizdaService";
+import dogsanlogo from "../assets/img/logo/Group_2.png";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import bir from "../assets/img/blog/1.jpg";
@@ -89,7 +90,7 @@ export default function Hakkimizda() {
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
                                             <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
                                             <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
-                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={logo2} alt="Heartify" /></Link></li>
+                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                                             <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
                                             <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
                                             <li><Link to={"/BizeUlasin"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
@@ -341,13 +342,13 @@ export default function Hakkimizda() {
             </div>
 
             <div className="footer2">
-                <img src={logo2} alt="" />
+                <img src={dogsanlogo} alt="" />
             </div>
 
             <div className="footer2-bottom">
                 <div className="container">
                     <div className="col-md-6">
-                        <p>Copyright 2014. <b>HEARTIFY</b>. All Rights Reserved.</p>
+                    
                     </div>
                     <div className="col-md-6">
                         <ul className="footer-social">
