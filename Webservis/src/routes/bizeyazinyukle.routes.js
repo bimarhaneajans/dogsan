@@ -10,7 +10,7 @@ module.exports = app => {
     var storage = multer.diskStorage({
       destination: (req, file, cb) => {
   
-        cb(null, 'bizeyazin')
+        cb(null, 'bizeyazins')
       },
       filename: (req, file, cb) => {
         let ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);

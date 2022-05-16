@@ -57,6 +57,7 @@ export default class CitiesSlider extends React.Component {
                   <h3 className="slider__slide-subheading">{slaty.ismi}</h3>
                   <h2 className="slider__slide-heading">
                     {slaty.ismi.split('').map(l => <span>{l}</span>)}
+                    
                   </h2>
                 {/*   <p className="slider__slide-readmore">read more</p> */}
                 </div>
