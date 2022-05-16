@@ -11,6 +11,7 @@ import DuyuruDataService from "../services/DuyuruService";
 import YoneticiDataService from "../services/YoneticilerService";
 import SlaytDataService from "../services/SliderService";
 import KariyerDataService from "../services/MesajlarService";
+import axios from "axios";
 
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
@@ -63,13 +64,22 @@ const customStyles = {
 
 
 export default function Home() {
+
+  const initialMesajState = {
+    id: null,
+    Subject: '',
+    email: '',
+    Content: '',
+  };
   const [tutorials, setTutorials] = useState([]);
+  const [mesaj, setMesaj] = useState(initialMesajState);
+
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [blog, setBlog] = useState([]);
   const [duyuru, setDuyuru] = useState([]);
   const [yoneticiler, setYoneticiler] = useState([]);
   const [slaty, setSlayt] = useState([]);
-  const [kariyer, setKariyer] = useState([]);  
+  const [kariyer, setKariyer] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();
@@ -79,6 +89,12 @@ export default function Home() {
   const { pathname } = useLocation();
   const { size } = typography;
   const slides = [];
+
+  const [formValue, setformValue] = React.useState({
+    Subject: '',
+    email: '',
+    Content: '',
+  });
 
   useEffect(() => {
     retrieveTutorials();
@@ -149,34 +165,25 @@ export default function Home() {
         console.log(e);
       });
   };
-  const retrieveKariyer = () => {
-    KariyerDataService.create('/mesaj', {
-
-      Subject: '',
-      lastName: 'Flintstone'
-
-    })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-
-
-
-
-    /* KariyerDataService.create()
-      .then(response => {
-
-        setKariyer(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      }); */
-  };
+  /*  const retrieveKariyer = () => {
+     KariyerDataService.create('/mesaj', {
+ 
+       Subject: '',
+       email: '',
+       Content :'',
+       
+ 
+     })
+       .then(function (response) {
+         console.log(response);
+       })
+       .catch(function (error) {
+         console.log(error);
+       });
+ 
+ 
+  
+   }; */
 
   const retrieveSlayt = () => {
     SlaytDataService.getAll()
@@ -219,6 +226,53 @@ export default function Home() {
     setIsOpen(false);
   }
 
+  /*   const handleSubmit = async() => {
+      // store the states in the form data
+      const loginFormData = new FormData();
+      loginFormData.append("username", formValue.Subject)
+      loginFormData.append("password", formValue.email)
+      loginFormData.append("password", formValue.Content)
+    
+      try {
+  
+        const response = await KariyerDataService.create(loginFormData)
+      } catch(error) {
+        console.log(error)
+      }
+    }
+  
+    const handleChange = (event) => {
+      setformValue({
+        ...formValue,
+        [event.target.name]: event.target.value
+      });
+    } */
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setMesaj({ ...mesaj, [name]: value });
+  };
+
+  const saveTutorial = () => {
+    var data = {
+      Subject: mesaj.Subject,
+      email: mesaj.email,
+      Content: mesaj.Content,
+    };
+
+    KariyerDataService.create(data)
+      .then(response => {
+        setMesaj({
+          id: response.data.id,
+          Subject: response.data.Subject,
+          email: response.data.email,
+          Content: response.data.Content,
+        });
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
   return (
     <div className="main-wrapper" >
       <div id="home">
@@ -378,14 +432,37 @@ export default function Home() {
                       <form className="appointment-form">
                         <h4>BİZE ULAŞIN</h4>
                         <label>Ad Soyad</label>
-                        <input type="text" placeholder="Enter your name and surname">{/* {kariyer.Subject} */}</input>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="Subject"
+                          required
+                          value={mesaj.Subject}
+                          onChange={handleInputChange}
+                          name="Subject"
+                        />
                         <label>E-mail</label>
-                        <input type="text" placeholder="Enter email address" >{/* {kariyer.email} */}</input>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="email"
+                          required
+                          value={mesaj.email}
+                          onChange={handleInputChange}
+                          name="email"
+                        />
                         <label>Mesaj</label>
-                        <textarea rows="10" placeholder="Enter your message">{/* {kariyer.Content} */}</textarea>
+                        <textarea rows="10" placeholder="Enter your message"
+                          type="text"
+                          name="Content"
+                          value={mesaj.Content}
+                          onChange={handleInputChange}
+                        ></textarea>
                         <div className="submit-wrap row">
                           <div className="col-md-5">
-                            <button type="submit" onClick={retrieveKariyer}>Send Message</button>
+                            <button onClick={saveTutorial} className="btn btn-success">
+                              Submit
+                            </button>
                             <button type="submit" onClick={closeModal}>close</button>
                           </div>
                         </div>
@@ -444,7 +521,7 @@ export default function Home() {
                     <h5>{item.baslik}</h5>
                     <p>{item.icerik} </p>
                   </div>
-                  <Link to={"/Duyuru/"+item.id} className="nav-link">Göster</Link>
+                  <Link to={"/Duyuru/" + item.id} className="nav-link">Göster</Link>
                 </div>
               ))}
 
@@ -1079,14 +1156,14 @@ export default function Home() {
                   <div ><Link to={"/Kataloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Kataloglar</Link></div>
                   <div ><Link to={"/Igneler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">İğneler</Link></div>
                   <div ><Link to={"/Duyurular"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Duyurular</Link></div>
-                  
-                  
+
+
                 </div>
                 <div className="col-xs-4">
                   <div ><Link to={"/Bloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Blog</Link></div>
                   <div ><Link to={"/Bayi"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bayi</Link></div>
                   <div ><Link to={"/BizeUlasin"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bize Ulaşın</Link></div>
-                  
+
                 </div>
 
               </div>
