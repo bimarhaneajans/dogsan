@@ -5,7 +5,7 @@ import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } fr
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
 import typography from "../../assets/theme/base/typography";
-import DuyuruDataService from "../../services/EtkinlikService";
+import DuyuruDataService from "../../services/DuyuruService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
@@ -118,18 +118,18 @@ export default function Duyurular() {
                     {duyuru.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>
-                                <img src={item.Resim} className="img-responsive" alt="" />
+                                <center><img  src={item.Resim} className="img-responsive" alt="" /></center>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
                                 <div className="col-xs-12"><p style={{ textAlign: "center" }}>{item.baslik}</p></div>
-                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi : {item.baslangicTarihi}-{item.bitisTarihi}</p></div>
+                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi : {item.Tarih}</p></div>
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{item.icerik}</p>
+                                <p style={{ textAlign: "center" }} >{item.icerik}</p>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 {/* <div className="row">
