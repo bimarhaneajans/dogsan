@@ -452,7 +452,7 @@ export default function Home() {
                           name="email"
                         />
                         <label>Mesaj</label>
-                        <textarea rows="10" placeholder="Enter your message"
+                        <textarea rows="10" 
                           type="text"
                           name="Content"
                           value={mesaj.Content}
@@ -501,7 +501,7 @@ export default function Home() {
               </ul>
          */}
         <div className="text-center">
-          <h2>DUYURULAR 1</h2>
+          <h2>DUYURULAR</h2>
         </div>
         <div className="clearfix" style={{ marginBottom: "28px" }}></div>
 
@@ -569,7 +569,7 @@ export default function Home() {
                           name="email"
                         />
                         <label>Mesaj</label>
-                        <textarea rows="10" placeholder="Enter your message"
+                        <textarea rows="10" 
                           type="text"
                           name="Content"
                           value={mesaj.Content}

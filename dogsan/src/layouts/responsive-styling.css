@@ -1105,7 +1105,7 @@ ul.doctor-list {
 	height: 80px;
 	padding-top: 30px;
 	border-right: 1px solid #e6e6e6;
-	margin-right: -5px;
+	margin-right: 0px;
 }
 
 #home .main-navigation .main-nav li:nth-child(1) {
@@ -1233,7 +1233,7 @@ ul.doctor-list {
 	height: 80px;
 	padding-top: 30px;
 	border-right: 1px solid #e6e6e6;
-	margin-right: -5px;
+	margin-right: 0px;
 }
 
 #home .main-navigation .main-nav li:nth-child(1) {

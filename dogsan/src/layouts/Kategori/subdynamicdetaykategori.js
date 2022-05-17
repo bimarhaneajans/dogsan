@@ -39,13 +39,13 @@ export default function Subdynamicdetaykategori() {
 
 
     const retrieveSubkategori = () => {
-        SubKategoriService.getAll()
+        SubKategoriService.get(kategoriid)
             .then(response => {
             setSubkategori(response.data);
           
-               console.log(response.data);
+              // console.log(response.data);
 
-               console.log(kategoriid);
+              // console.log(kategoriid);
             })
             .catch(e => {
                 console.log(e);
@@ -114,11 +114,9 @@ export default function Subdynamicdetaykategori() {
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    {/*  {kategoriid ? 'çevrimiçi' : 'çevrimdışı'} */}
+              
 
-
-{/*                     {kategoriid === subkategori.kategoriid &&
- */}                       
+                      
                         <div>
                             {subkategori.map(item => (
 

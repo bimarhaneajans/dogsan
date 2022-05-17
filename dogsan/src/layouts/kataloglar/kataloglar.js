@@ -4,11 +4,13 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
+import KatalagDataService from "../../services/KatalogService";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import backtotop from "../assets/img/backtotop.jpg"
+import { ReactSVG } from 'react-svg'
+import svgpdf from "../assets/img/pdf.svg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
 import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -18,11 +20,12 @@ import "../responsive-styling.css";
 
 import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player'
+/* import SVG, { Props as SVGProps } from 'react-inlinesvg';  */
 
 export default function Kataloglar() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [katalog, setKatalog] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -32,17 +35,23 @@ export default function Kataloglar() {
     const { pathname } = useLocation();
     const { size } = typography;
 
+
+    /*  const logo = useRef<SVGElement>(null);
+ 
+     const Logo = React.forwardRef<SVGElement>((props, ref) => (
+         <SVG innerRef={ref} title="MyLogo" {...props} />
+       )); */
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveKatalog();
     }, []);
 
 
 
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveKatalog = () => {
+        KatalagDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setKatalog(response.data);
                 console.log(response.data);
             })
             .catch(e => {
@@ -50,16 +59,8 @@ export default function Kataloglar() {
             });
     };
 
-
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
-    };
-
-
     return (
+
         <div>
             <div className="main-wrapper">
                 <div id="home">
@@ -107,30 +108,65 @@ export default function Kataloglar() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>KATALOĞLAR</h1>
+                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>KATALOĞLAR</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    {hakkimizda.map(item => (
-                        <div key={item.id} className="col-md-9">
-                            <article>
-                                <img src={item.Resim} className="img-responsive" alt="" />
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.AnaIcerik}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <div className="reactPly" >
-                                    <ReactPlayer url={item.BelgeselVideoUrl} />
-                                </div>
 
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p>{item.BelgeselIcerigi}</p>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                {/* <div className="row">
+                    <div className="col-md-9">
+                        <article>
+                            <div className="row">
+                                {katalog.map(item => (
+                                    <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center " style={{ height: "400px" }}>
+
+                                        <div className="clearfix"></div>
+
+
+
+                                        <div className="clearfix"></div>
+                                        <div class="information-box__grid">
+                                            <a href="https://dogsan-cms.webridge.co/uploads/kvc_brosuerue_tr_121021_6ab96ebf05.pdf" class="information-box__grid-item" download="">
+                                                <div class="information-box__grid-image" style={{textAlign: "center"}}>
+                                                    <img src={item.Resim} alt="KVC_2_69f431a6d9" style={{ objectFit: "cover", height: "290px" }}/>
+                                                        <img class="information-box__grid-icon" src={svgpdf} alt="pdf"/>
+                                                        </div>
+                                                        <span>KALP DAMAR BROŞÜRÜ</span>
+                                                    </a>
+
+                                                </div>
+
+                                                {/* <a href="https://dogsan-cms.webridge.co/uploads/kvc_brosuerue_tr_121021_6ab96ebf05.pdf" class="information-box__grid-item" download="">
+                                            <div class="information-box__grid-image" style={{ textAlign: "center" }}>
+
+                                                <div>
+                                                   
+                                                    <div>
+                                                        <ReactSVG src={svgpdf} style={{width:"100px",height:"100px",margintop:"50px"}} />
+                                                        <img src={item.Resim} style={{ objectFit: "cover", height: "290px" }} />
+                                                        
+                                                    </div>
+                                                   
+                                                </div>
+
+                 
+
+
+                                            </div>
+                                            <span>{item.katalogadi}</span>
+                                        </a> */}
+                                                {/*  <img style={{ width: "350px", height: "250px", objectfit: "cover" }} src={item.Resim} /> 
+                                                <h1>{item.katalogadi}</h1>*/}
+
+
+
+
+                                        </div>
+                                ))}
+
+
+                                    </div>
+                                                                {/* <div className="row">
                         <div className="col-md-7">
                             <p className="bold">Caveats worth mentioning</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
@@ -156,7 +192,7 @@ export default function Kataloglar() {
                         <li><a href="#">Doctors</a></li>
                         <li><a href="#">Disease</a></li>
                     </ul> */}
-                                {/*  <div className="sharepost">
+                                                                {/*  <div className="sharepost">
                         <div className="row">
                             <div className="col-md-6">
                                 <h4>Share this Post</h4>
@@ -172,7 +208,7 @@ export default function Kataloglar() {
                             </div>
                         </div>
                     </div> */}
-                                {/* <div className="author-info">
+                                                                {/* <div className="author-info">
                         <img src={author} alt="" className="img-responsive"/>
                         <h5><em>Author:</em> The Ronins</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
@@ -202,8 +238,8 @@ export default function Kataloglar() {
                             </ul>
                         </div>
                     </div> */}
-                            </article>
-                            {/*     <div className="comments">
+                                                            </article>
+                        {/*     <div className="comments">
                     <h4>Post has 3 comments</h4>
                     <ul>
                         <li>
@@ -229,7 +265,7 @@ export default function Kataloglar() {
                         </li>
                     </ul>
                 </div> */}
-                            {/* <div className="comment-form">
+                        {/* <div className="comment-form">
                     <h4>Leave a comment</h4>
                     <form id="comment-form">
                         <div className="row">
@@ -258,7 +294,7 @@ export default function Kataloglar() {
                         </div>
                     </form>
                 </div> */}
-                        </div>))}
+                    </div>
                     <aside className="col-md-3">
                         {/*   <div className="side-content">
                     <h5>Main Categories</h5>
@@ -333,7 +369,7 @@ export default function Kataloglar() {
             <div className="footer2-bottom">
                 <div className="container">
                     <div className="col-md-6">
-                    
+
                     </div>
                     <div className="col-md-6">
                         <ul className="footer-social">

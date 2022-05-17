@@ -373,7 +373,7 @@ body {
 	height: 80px;
 	padding-top: 30px;
 	border-right: 2px solid #e6e6e6;
-	margin-right: -5px;
+	margin-right: 0px;
 }
 
 
@@ -391,7 +391,7 @@ body {
 	letter-spacing: 1px;
 	color: #a6a6a6;
 	width: 100%;
-	padding: 14px 14px 29px 30px;
+	padding: 14px 29px 29px 30px;
 	border-bottom: 3px solid transparent;
 }
 
