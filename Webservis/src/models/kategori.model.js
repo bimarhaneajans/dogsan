@@ -8,7 +8,7 @@ module.exports = mongoose => {
       seourl:String,   
       Resimbaslik:String,
       path:String,
-      kategoriid:String,
+      kategoriid:Number,
       subkategori:String,
       title:String,
       image:String,

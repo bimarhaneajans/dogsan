@@ -24,7 +24,7 @@ const Bayiguncelle = props => {
     performansozellikleri: "",
     fayda: "",
     path: "",
-    kategoriid: "",
+    kategoriid: null,
     kategoriadi: "",
     videourl: "",
     published: false
@@ -224,7 +224,7 @@ const Bayiguncelle = props => {
               <div className="form-group">
                 <label htmlFor="kategoriid">kategoriid</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   id="kategoriid"
                   required

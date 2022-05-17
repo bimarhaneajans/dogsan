@@ -25,7 +25,7 @@ const Overview = props => {
     seourl: "",
    Resimbaslik: "",
     path: "",
-    kategoriid: "",
+    kategoriid: null,
     subkategori: "",
     videourl: "",
     icerik: "",
@@ -235,7 +235,7 @@ const Overview = props => {
               <div className="form-group">
                 <label htmlFor="kategoriid">kategoriid</label>
                 <input
-                  type="text"
+                  type="Number"
                   className="form-control"
                   id="kategoriid"
                   required

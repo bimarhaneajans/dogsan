@@ -8,7 +8,7 @@ module.exports = mongoose => {
       performansozellikleri:String,  
       fayda:String,   
       path:String,
-      kategoriid:String,
+      kategoriid:Number,
       kategoriadi:String,
       videourl:String,
       published: Boolean

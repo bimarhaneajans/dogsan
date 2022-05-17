@@ -26,7 +26,7 @@ const BayiEkle = () => {
     seourl: "",
    Resimbaslik: "",
     path: "",
-    kategoriid: "",
+    kategoriid:null,
     subkategori: "",
     videourl: "",
     icerik: "",
@@ -207,7 +207,7 @@ const BayiEkle = () => {
               <div className="form-group">
                 <label htmlFor="kategoriid">kategoriid</label>
                 <input
-                  type="text"
+                  type="Number"
                   className="form-control"
                   id="kategoriid"
                   required

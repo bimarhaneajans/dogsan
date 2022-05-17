@@ -66,18 +66,18 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-  const subkategoriid = req.params.subkategoriid;
+  const kategoriid = req.params.kategoriid;
 
-  SubKategori.findById(subkategoriid)
+  SubKategori.find({"kategoriid":kategoriid})
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found kategori with id " + subkategoriid });
+        res.status(404).send({ message: "Not found kategori with id " + kategoriid });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving kategori with id=" + id });
+        .send({ message: "Error retrieving kategori with id=" + kategoriid });
     });
 };
 

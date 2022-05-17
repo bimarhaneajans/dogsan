@@ -19,7 +19,7 @@ module.exports = app => {
   router.post("/", /* upload.single('file'), */  subkategori.create);
   router.get("/", subkategori.findAll);
   router.get("/published", subkategori.findAllPublished);
-  router.get("/:id", subkategori.findOne);
+  router.get("/:kategoriid", subkategori.findOne);
   router.put("/:id", subkategori.update);
   router.delete("/:id", subkategori.delete);
   router.delete("/", subkategori.deleteAll);
