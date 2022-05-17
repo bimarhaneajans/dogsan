@@ -8,6 +8,7 @@ import BayiDataService from "../../services/BayiService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
@@ -21,6 +22,8 @@ import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player'
 
 export default function Bayiler() {
+
+    
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [bayi, setBayi] = useState([]);
@@ -33,11 +36,39 @@ export default function Bayiler() {
     const { pathname } = useLocation();
     const { size } = typography;
 
+   /*  const { isLoaded } =  */
+   useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: "AIzaSyC1FGocZ7AfTxDhQvlQ2qdnyXrmeEe-Oms"
+      })
+
+
+      const [map, setMap] = React.useState(null)
+
+  const onLoad = React.useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+    setMap(map)
+  }, [])
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null)
+  }, [])
     useEffect(() => {
 
         retrieveBayi();
     }, []);
 
+
+    const containerStyle = {
+        width: '400px',
+        height: '400px'
+      };
+      
+      const center = {
+        lat: -3.745,
+        lng: -38.523
+      };
 
 
     const retrieveBayi = () => {
@@ -52,9 +83,15 @@ export default function Bayiler() {
     };
 
 
-    return (
+    return (<div className="main-wrapper">
+                   burada <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      ></GoogleMap>,
         <div>
-            <div className="main-wrapper">
                 <div id="home">
                     <div id="bg-slider-home" className="bsh">
                     </div>
@@ -105,6 +142,7 @@ export default function Bayiler() {
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
+                    
                     {bayi.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>
