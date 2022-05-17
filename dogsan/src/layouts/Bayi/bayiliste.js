@@ -163,6 +163,12 @@ const Overview = (props) => {
                 </div>
                 <div>
                   <label>
+                    <strong>Şehir:</strong>
+                  </label>{" "}
+                  {currentTutorial.sehir}
+                </div>
+                <div>
+                  <label>
                     <strong>Enlem:</strong>
                   </label>{" "}
                   {currentTutorial.enlem}

@@ -24,11 +24,7 @@ exports.create = async (req, res) => {
     Resimbaslik: req.body.Resimbaslik,
     Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
-  }); 
-
-
-  await upload(req, res);
-  
+  });  
    //console.log(req.files);
 
    /* Object.entries(req.files).forEach(entry => { 
@@ -37,7 +33,7 @@ exports.create = async (req, res) => {
     
   }); */
   /*  */
- console.log(tarihce.Resimcoklu);
+// console.log(tarihce.Resimcoklu);
 
   /* if (req.files.length <= 0) {
     return res
@@ -129,6 +125,33 @@ exports.update = (req, res) => {
       });
     });
 }; 
+exports.uploadFiles = async (req, res) => {
+  try {
+    await upload(req, res);
+    console.log(req.files);
+
+    if (req.files.length <= 0) {
+      return res
+        .status(400)
+        .send({ message: "You must select at least 1 file." });
+    }
+
+    return res.status(200).send({
+      message: "Files have been uploaded.",
+    }); 
+  } catch (error) {
+    console.log(error);
+
+    if (error.code === "LIMIT_UNEXPECTED_FILE") {
+      return res.status(400).send({
+        message: "Too many files to upload.",
+      });
+    }
+    return res.status(500).send({
+      message: `Error when trying upload many files: ${error}`,
+    }); 
+  }
+};
 
 exports.getListFiles = async (req, res) => {
   try {

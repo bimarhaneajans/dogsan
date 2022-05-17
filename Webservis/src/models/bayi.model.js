@@ -8,6 +8,7 @@ module.exports = mongoose => {
       enlem: String,
       boylam: String,
       Resimbaslik:String,
+      sehir:String,
       Resim:String,
    /*     /*    img:
       {

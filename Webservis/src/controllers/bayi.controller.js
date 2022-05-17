@@ -18,6 +18,7 @@ exports.create = (req, res) => {
     baslik: req.body.baslik,
     adres: req.body.adres,
     telefon: req.body.telefon,
+    sehir: req.body.sehir, 
     enlem: req.body.enlem,
     boylam: req.body.boylam,
     Resimbaslik: req.body.Resimbaslik,

@@ -19,6 +19,7 @@ const Bayiguncelle = props => {
     id: null,
     baslik: "",
     adres: "",
+    sehir: "",
     telefon: "",
     enlem: "",
     boylam: "",
@@ -64,6 +65,7 @@ const Bayiguncelle = props => {
       baslik: currentTutorial.baslik,
       adres: currentTutorial.adres,
       telefon: currentTutorial.telefon,
+      sehir: currentTutorial.sehir,
       enlem: currentTutorial.enlem,
       boylam: currentTutorial.boylam,
       Resim: tutorial.Resim,
@@ -168,6 +170,18 @@ const Bayiguncelle = props => {
                 value={currentTutorial.telefon}
                 onChange={handleInputChange}
                 name="telefon"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="Enlem">Şehir</label>
+              <input
+                type="text"
+                className="form-control"
+                id="sehir"
+                required
+                value={currentTutorial.sehir}
+                onChange={handleInputChange}
+                name="sehir"
               />
             </div>
             <div className="form-group">

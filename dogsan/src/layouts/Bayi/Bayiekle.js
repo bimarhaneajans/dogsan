@@ -34,6 +34,7 @@ const BayiEkle = () => {
     telefon: "",
     enlem: "",
     boylam: "",
+    sehir: "",
     published: false
   };
 
@@ -62,6 +63,7 @@ const BayiEkle = () => {
       adres: tutorial.adres,
       telefon: tutorial.telefon,
       enlem: tutorial.enlem,
+      sehir: tutorial.sehir,
       boylam: tutorial.boylam,
       Resim: tutorial.Resim,
     };
@@ -74,6 +76,7 @@ const BayiEkle = () => {
           adres: response.data.adres,
           telefon: response.data.telefon,
           enlem: response.data.enlem,
+          sehir: response.data.sehir,
           boylam: response.data.boylam,
           Resimbaslik: response.data.Resimbaslik,
           Resim: response.data.Resim,
@@ -127,11 +130,8 @@ const BayiEkle = () => {
                   value={tutorial.baslik}
                   onChange={handleInputChange}
                   name="baslik"
-                />
-                
-              </div>
-
-             
+                /> 
+              </div> 
 
               <div className="form-group">
                 <label htmlFor="adres">adres</label>
@@ -143,6 +143,18 @@ const BayiEkle = () => {
                   value={tutorial.adres}
                   onChange={handleInputChange}
                   name="adres"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="Telefon">Şehir</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="sehir"
+                  required
+                  value={tutorial.sehir}
+                  onChange={handleInputChange}
+                  name="sehir"
                 />
               </div>
               <div className="form-group">
