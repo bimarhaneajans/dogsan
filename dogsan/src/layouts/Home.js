@@ -10,7 +10,7 @@ import BlogDataService from "../services/BlogService";
 import DuyuruDataService from "../services/DuyuruService";
 import YoneticiDataService from "../services/YoneticilerService";
 import SlaytDataService from "../services/SliderService";
-import KariyerDataService from "../services/MesajlarService";
+import KariyerDataService from "../services/KariyerService";
 import axios from "axios";
 
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -120,7 +120,7 @@ export default function Home() {
 
   useEffect(() => {
 
-    // retrieveKariyer();
+    retrieveKariyer();
   }, []);
 
 
@@ -159,6 +159,16 @@ export default function Home() {
     YoneticiDataService.getAll()
       .then(response => {
         setYoneticiler(response.data);
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+  const retrieveKariyer = () => {
+    KariyerDataService.getAll()
+      .then(response => {
+        setKariyer(response.data);
         console.log(response.data);
       })
       .catch(e => {
@@ -452,7 +462,7 @@ export default function Home() {
                           name="email"
                         />
                         <label>Mesaj</label>
-                        <textarea rows="10" 
+                        <textarea rows="10"
                           type="text"
                           name="Content"
                           value={mesaj.Content}
@@ -546,45 +556,45 @@ export default function Home() {
                 <div className="col-xs-2"></div>
                 <div className="col-xs-8" >
                   <form className="appointment-form">
-                    <h4>Müşteri İletişim Formu</h4> 
-                        <h4>BİZE ULAŞIN</h4>
-                        <label>Ad Soyad</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="Subject"
-                          required
-                          value={mesaj.Subject}
-                          onChange={handleInputChange}
-                          name="Subject"
-                        />
-                        <label>E-mail</label>
-                        <input
-                          type="email"
-                          className="form-control"
-                          id="email"
-                          required
-                          value={mesaj.email}
-                          onChange={handleInputChange}
-                          name="email"
-                        />
-                        <label>Mesaj</label>
-                        <textarea rows="10" 
-                          type="text"
-                          name="Content"
-                          value={mesaj.Content}
-                          onChange={handleInputChange}
-                        ></textarea>
-                        <div className="submit-wrap row">
-                          <div className="col-md-5">
-                            <button onClick={saveTutorial} className="btn btn-success">
-                              Submit
-                            </button>
-                            <button type="submit" onClick={closeModal}>close</button>
-                          </div>
-                        </div>
+                    <h4>Müşteri İletişim Formu</h4>
+                    <h4>BİZE ULAŞIN</h4>
+                    <label>Ad Soyad</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="Subject"
+                      required
+                      value={mesaj.Subject}
+                      onChange={handleInputChange}
+                      name="Subject"
+                    />
+                    <label>E-mail</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      required
+                      value={mesaj.email}
+                      onChange={handleInputChange}
+                      name="email"
+                    />
+                    <label>Mesaj</label>
+                    <textarea rows="10"
+                      type="text"
+                      name="Content"
+                      value={mesaj.Content}
+                      onChange={handleInputChange}
+                    ></textarea>
+                    <div className="submit-wrap row">
+                      <div className="col-md-5">
+                        <button onClick={saveTutorial} className="btn btn-success">
+                          Submit
+                        </button>
+                        <button type="submit" onClick={closeModal}>close</button>
+                      </div>
+                    </div>
 
-                      </form>
+                  </form>
                 </div><div className="col-xs-2"></div></div>
 
               {/* <img src="assets/img/1.png" className="img-responsive" alt="" /> */}
@@ -674,9 +684,143 @@ export default function Home() {
           </section>
         </div>
 
-
-
-        <div id="team">
+        <section id="team">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
+                <div class="team-stat text-center">
+                  <h2>Meet Them All</h2>
+                  <h5>Lorem ipsum dolor sit amet</h5>
+                  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+                <div class="team-filter-nav text-center">
+                  <ul id="filters" class="filter-nav list-inline list-unstyled">
+                    <li><a data-filter="*" class="current" href="#">All</a></li>
+                    <li><a data-filter=".general" href="#">General</a></li>
+                    <li><a data-filter=".specialist" href="#">Specialist</a></li>
+                    <li><a data-filter=".laboratory" href="#">Laboratory</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            </div>
+              <div class="row">
+                <div id="container" class="container team-detail">
+                  <div class="item general col-md-6">
+                    <div class="team-member">
+                      <a data-toggle="modal" data-target="#myModal">
+                        <div class="team-img">
+                          <img src="assets/img/team/team-member1.jpg" class="img-responsive" alt="" />
+                        </div>
+                      </a>
+                      <div class="member-details">
+                        <h6>clinic Manager</h6>
+                        <h4>Frank Rooney</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+                        <div class="member-social">
+                          <h6>Social Profiles</h6>
+                          <ul class="list-inline list-unstyled pull-right social">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 {/*  <div class="item laboratory col-md-6">
+                    <div class="team-member">
+                      <a data-toggle="modal" data-target="#myModal">
+                        <div class="team-img">
+                          <img src="assets/img/team/team-member2.jpg" class="img-responsive" alt="" />
+                        </div>
+                      </a>
+                      <div class="member-details">
+                        <h6>clinic Manager</h6>
+                        <h4>Frank Rooney</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+                        <div class="member-social">
+                          <h6>Social Profiles</h6>
+                          <ul class="list-inline list-unstyled pull-right social">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div> */}
+          {/*         <div class="item specialist col-md-6">
+                    <div class="team-member">
+                      <a data-toggle="modal" data-target="#myModal">
+                        <div class="team-img">
+                          <img src="assets/img/team/team-member3.jpg" class="img-responsive" alt="" />
+                        </div>
+                      </a>
+                      <div class="member-details">
+                        <h6>clinic Manager</h6>
+                        <h4>Frank Rooney</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+                        <div class="member-social">
+                          <h6>Social Profiles</h6>
+                          <ul class="list-inline list-unstyled pull-right social">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div> */}
+               {/*    <div class="item laboratory col-md-6">
+                    <div class="team-member">
+                      <a data-toggle="modal" data-target="#myModal">
+                        <div class="team-img">
+                          <img src="assets/img/team/team-member4.jpg" class="img-responsive" alt="" />
+                        </div>
+                      </a>
+                      <div class="member-details">
+                        <h6>clinic Manager</h6>
+                        <h4>Frank Rooney</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
+                        <div class="member-social">
+                          <h6>Social Profiles</h6>
+                          <ul class="list-inline list-unstyled pull-right social">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+              <div>
+               {/*  <div class="pagination-section">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xs-12 col-md-12 col-lg-12">
+                        <p class="pull-left">Showing <span>1-4</span> of 16 doctors</p>
+                        <ul class="pagination pull-right">
+                          <li class="active"><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                          <li><a href="#">4</a></li>
+                          <li><a href="#">5</a></li>
+                          <li><a href="#">&raquo;</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div> */}
+              </div>
+            </section> 
+       <div id="team">
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
@@ -686,18 +830,19 @@ export default function Home() {
                   <p className="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız
                   </p>
                 </div>
+
                 <div className="team-filter-nav text-center">
-                  <ul id="filters" className="filter-nav list-inline list-unstyled">
+                <ul id="filters" class="filter-nav list-inline list-unstyled">
                     <li><a data-filter="*" className="current" href="#">İDARİ EKİBİMİZ</a></li>
                     <li><a data-filter=".general" href="#">PAZARLAMA BİRİMİ</a></li>
-                    <li><a data-filter=".uretimdepartmani" href="#">ÜRETİM DEPARTMANI</a></li>
+                    <li><a data-filter=".laboratory" href="#">ÜRETİM DEPARTMANI</a></li>
                     <li><a data-filter=".sahaekibi" href="#">SAHA EKİBİMİZ</a></li>
                   </ul>
                 </div>
               </div>
             </div>
-
-            {yoneticiler.map(item => (
+            
+               {yoneticiler.map(item => (
               <div key={item.id} className="row col-xs-12">
                 <div id="container" className="container team-detail">
 
@@ -720,15 +865,15 @@ export default function Home() {
 
 
                 </div>
-              </div>))}
+              </div>))} 
             <div>
 
             </div>
           </div>
-        </div>
+        </div> 
 
 
-        {/*    <div id="projects">
+            {/*    <div id="projects">
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
@@ -764,13 +909,13 @@ export default function Home() {
           </div>
         </div> */}
 
-        <div className="clearfix"></div>
+            <div className="clearfix"></div>
 
 
 
-        <div id="doctor-info">
-          <div className="container">
-            {/* <div className="row">
+            <div id="doctor-info">
+              <div className="container">
+                {/* <div className="row">
               <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
                 <div className="blog-stat text-center">
                   <h2>Visit to the doctor</h2>
@@ -779,7 +924,7 @@ export default function Home() {
                 </div>
               </div>
             </div> */}
-            {/*  <div className="row">
+                {/*  <div className="row">
             <div className="col-md-5">
               <form className="appointment-form">
                 <h4>Appointments form</h4>
@@ -949,7 +1094,7 @@ export default function Home() {
               <div className="clearfix"></div>
               <div className="bottom-space-50"></div>
             </div> */}
-            {/*   <div class="row">
+                {/*   <div class="row">
               <div class="col-md-12">
                 <div class="bottom-space-50"></div>
                 <ul class="projects-wrap">
@@ -971,51 +1116,51 @@ export default function Home() {
 
               </div>
             </div> */}
-          </div>
-          <div id="blog">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                  <div className="blog-stat text-center">
-                    <h2>BLOG</h2>
-                    <h5>SÜTÜR TEKNOLOJİSİNE DAİR HER ŞEY</h5>
-                    <p className="lead">Dünya genelinde sütür teknolojilerinde yaşanan son
-                      gelişmeler, teknik konular ve daha fazlası için blog sayfamızı ziyaret edebilirsiniz.
+              </div>
+              <div id="blog">
+                <div className="container">
+                  <div className="row">
+                    <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+                      <div className="blog-stat text-center">
+                        <h2>BLOG</h2>
+                        <h5>SÜTÜR TEKNOLOJİSİNE DAİR HER ŞEY</h5>
+                        <p className="lead">Dünya genelinde sütür teknolojilerinde yaşanan son
+                          gelişmeler, teknik konular ve daha fazlası için blog sayfamızı ziyaret edebilirsiniz.
 
-                      Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da yönlendiriyor.</p>
+                          Blog yazıları için yukarıdaki format çalışır durumda. Ayrı sayfalara da yönlendiriyor.</p>
+                      </div>
+                    </div>
+                    <div id="blog-posts">
+                      {blog.map(item => (
+                        <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                          <div className="blog-post">
+                            <div className="post-img">
+                              <img src={item.Resim} className="img-responsive" alt="" />
+                              <img className="ab-icon" src={posticon} alt="" />
+                            </div>
+                            <div className="info-col">
+
+                              <h5>{item.baslik}</h5>
+
+                              <p>{item.Ozet}</p>
+                            </div>
+                            <ul className="list-inline list-unstyled post-nav">
+                              <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
+                              <li className="post-links"><a href=""><i className="icon-calendar"></i>{(dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))} </a></li>
+                              {/*    dateFormat({item.createdAt.slice(0, -14)}, "dddd, mmmm dS, yyyy, h:MM:ss TT"); */}
+                            </ul>
+                          </div>
+                        </div>))}
+
+                    </div>
                   </div>
                 </div>
-                <div id="blog-posts">
-                  {blog.map(item => (
-                    <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                      <div className="blog-post">
-                        <div className="post-img">
-                          <img src={item.Resim} className="img-responsive" alt="" />
-                          <img className="ab-icon" src={posticon} alt="" />
-                        </div>
-                        <div className="info-col">
-
-                          <h5>{item.baslik}</h5>
-
-                          <p>{item.Ozet}</p>
-                        </div>
-                        <ul className="list-inline list-unstyled post-nav">
-                          <li className="post-links"><a href=""><i className="icon-user"></i> The Ronins</a></li>
-                          <li className="post-links"><a href=""><i className="icon-calendar"></i>{(dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))} </a></li>
-                          {/*    dateFormat({item.createdAt.slice(0, -14)}, "dddd, mmmm dS, yyyy, h:MM:ss TT"); */}
-                        </ul>
-                      </div>
-                    </div>))}
-
-                </div>
               </div>
-            </div>
-          </div>
 
 
-          <div className="clearfix"></div>
+              <div className="clearfix"></div>
 
-          {/* <div id="twitter-feed">
+              {/* <div id="twitter-feed">
               <div className="video-bg-overlay"></div>
               <div className="video-bg">
 
@@ -1058,43 +1203,43 @@ export default function Home() {
                 </div>
               </div> 
             </div>*/}
-          <div id="contact">
-            <div className="container">
-              <div className="row">
-                <div className="col-md-10 col-md-offset-1">
-                  <div className="contact-stat text-center">
-                    <h2>İLETİŞİM FORMU</h2>
-                    <h5></h5>
-                    <p className="lead"></p>
-                  </div>
+              <div id="contact">
+                <div className="container">
                   <div className="row">
-                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                      <div className="info-col text-center">
-                        <h4>ÜRETİM TESİSLERİ</h4>
-                        <p className="contact-time">Rize Cad. No: 91/A Yalıncak 61220 Trabzon</p>
-                        <p className="phone">+90 462 334 06 90</p>
+                    <div className="col-md-10 col-md-offset-1">
+                      <div className="contact-stat text-center">
+                        <h2>İLETİŞİM FORMU</h2>
+                        <h5></h5>
+                        <p className="lead"></p>
                       </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                      <div className="info-col text-center">
-                        <h4>SATIŞ & PAZARLAMA</h4>
-                        <p className="clinic-add">Yıldız Cad. No: 55/A Beşiktaş 34353 İstanbul</p>
-                        <p className="email"><a href="mailto:contact@theronins.com">+90 212 258 00 54</a></p>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                      <div className="info-col text-center">
-                        <h4>SATIŞ & PAZARLAMA</h4>
-                        <p className="contact-email">Ankara Hanımeli Sok. No: 26-10 Sıhhiye 06100 Ankara</p>
-                        <p className="email"><a href="mailto:contact@theronins.com">+90 312 231 58 06</a></p>
+                      <div className="row">
+                        <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                          <div className="info-col text-center">
+                            <h4>ÜRETİM TESİSLERİ</h4>
+                            <p className="contact-time">Rize Cad. No: 91/A Yalıncak 61220 Trabzon</p>
+                            <p className="phone">+90 462 334 06 90</p>
+                          </div>
+                        </div>
+                        <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                          <div className="info-col text-center">
+                            <h4>SATIŞ & PAZARLAMA</h4>
+                            <p className="clinic-add">Yıldız Cad. No: 55/A Beşiktaş 34353 İstanbul</p>
+                            <p className="email"><a href="mailto:contact@theronins.com">+90 212 258 00 54</a></p>
+                          </div>
+                        </div>
+                        <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                          <div className="info-col text-center">
+                            <h4>SATIŞ & PAZARLAMA</h4>
+                            <p className="contact-email">Ankara Hanımeli Sok. No: 26-10 Sıhhiye 06100 Ankara</p>
+                            <p className="email"><a href="mailto:contact@theronins.com">+90 312 231 58 06</a></p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          {/* <div id="g-map">
+              {/* <div id="g-map">
               <div id="map"></div>
              <div className="row">
                 <div className="container">
@@ -1125,51 +1270,51 @@ export default function Home() {
             </div>*/}
 
 
-          <div className="footer2" style={{ height: "250px" }}>
+              <div className="footer2" style={{ height: "250px" }}>
 
-            <div className="col-xs-3">
-              <div style={{ marginTop: "50px" }}><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ marginLeft: "100px", marginTop: "50px", color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                Bilgi Toplum Hizmetleri
-              </a></div>
-            </div>
-            <div className="col-xs-3">
-              <div style={{ marginTop: "50px" }}><a href="/files/dogsan_kvkk.docx" style={{ marginTop: "50px", color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
-                Kişisel Verilerin Korunması Kanunu (KVKK)
-              </a></div>
-            </div>
-            <div className="col-xs-6">
-
-              <div className="col-xs-12" >
-                <h1 style={{ fontWeight: "bold", color: "rgb(250, 250, 250)", textAlign: "center" }}>Site Haritası</h1>
-                <div className="col-xs-4">
-                  <div ><Link to={"/Hakkimizda"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Hakkımızda</Link></div>
-                  <div ><Link to={"/Tarihce"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Tarihçe</Link></div>
-                  <div ><Link to={"/Degerler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Değerler</Link></div>
-                  <div ><Link to={"/SosyalSorumluluk"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Sosyal Sorumluluk</Link></div>
+                <div className="col-xs-3">
+                  <div style={{ marginTop: "50px" }}><a href="/files/dogsan_bilg_talebi_formu.docx" style={{ marginLeft: "100px", marginTop: "50px", color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Bilgi Toplum Hizmetleri
+                  </a></div>
                 </div>
-
-                <div className="col-xs-4">
-                  <div ><Link to={"/Kataloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Kataloglar</Link></div>
-                  <div ><Link to={"/Igneler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">İğneler</Link></div>
-                  <div ><Link to={"/Duyurular"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Duyurular</Link></div>
-
-
+                <div className="col-xs-3">
+                  <div style={{ marginTop: "50px" }}><a href="/files/dogsan_kvkk.docx" style={{ marginTop: "50px", color: "rgb(250, 250, 250)" }} class="footer__menu-link" download="">
+                    Kişisel Verilerin Korunması Kanunu (KVKK)
+                  </a></div>
                 </div>
-                <div className="col-xs-4">
-                  <div ><Link to={"/Bloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Blog</Link></div>
-                  <div ><Link to={"/Bayi"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bayi</Link></div>
-                  <div ><Link to={"/BizeUlasin"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bize Ulaşın</Link></div>
+                <div className="col-xs-6">
 
+                  <div className="col-xs-12" >
+                    <h1 style={{ fontWeight: "bold", color: "rgb(250, 250, 250)", textAlign: "center" }}>Site Haritası</h1>
+                    <div className="col-xs-4">
+                      <div ><Link to={"/Hakkimizda"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Hakkımızda</Link></div>
+                      <div ><Link to={"/Tarihce"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Tarihçe</Link></div>
+                      <div ><Link to={"/Degerler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Değerler</Link></div>
+                      <div ><Link to={"/SosyalSorumluluk"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Sosyal Sorumluluk</Link></div>
+                    </div>
+
+                    <div className="col-xs-4">
+                      <div ><Link to={"/Kataloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Kataloglar</Link></div>
+                      <div ><Link to={"/Igneler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">İğneler</Link></div>
+                      <div ><Link to={"/Duyurular"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Duyurular</Link></div>
+
+
+                    </div>
+                    <div className="col-xs-4">
+                      <div ><Link to={"/Bloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Blog</Link></div>
+                      <div ><Link to={"/Bayi"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bayi</Link></div>
+                      <div ><Link to={"/BizeUlasin"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Bize Ulaşın</Link></div>
+
+                    </div>
+
+                  </div>
                 </div>
-
               </div>
-            </div>
-          </div>
 
-          <div className="footer2-bottom">
-            <div className="container">
+              <div className="footer2-bottom">
+                <div className="container">
 
-              {/* <div className="col-md-6">
+                  {/* <div className="col-md-6">
               <ul className="footer-social">
                 <li><a href="#"><i className="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
@@ -1179,84 +1324,84 @@ export default function Home() {
 
               </ul>
             </div> */}
-              <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
+                  <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
+                </div>
+              </div>
+
+
             </div>
           </div>
 
 
-        </div>
-      </div>
-
-
-      <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-body">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="col-md-6 no-padding">
-                    <img src="assets/img/team/1.png" className="img-responsive" alt="" />
-                  </div>
-                  <div className="col-md-6 team-pop-info">
-                    <button data-dismiss="modal" className="m-close"></button>
-                    <h4><span>Clinic manager</span> Frank Rooney</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <ul className="tp-meta">
-                      <li><span>Phone Number</span> <em>+40 987 654 321</em></li>
-                      <li><span>Email Address</span> <em>contact@theronins.com</em></li>
-                      <li><span>Place of work</span> <em>Heartify Clinic in Chicago</em></li>
-                      <li><span>Responsibilities</span> <em>Head of orthopedics</em></li>
-                    </ul>
-                    <div className="row">
-                      <div className="tp-social">
-                        <div className="col-md-6 no-padding">
-                          <span>Social Profiles</span>
-                        </div>
-                        <div className="col-md-6 no-padding">
-                          <ul>
-                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i className="fa fa-skype"></i></a></li>
-                          </ul>
+          <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-body">
+                  <div className="row">
+                    <div className="col-md-12">
+                      <div className="col-md-6 no-padding">
+                        <img src="assets/img/team/1.png" className="img-responsive" alt="" />
+                      </div>
+                      <div className="col-md-6 team-pop-info">
+                        <button data-dismiss="modal" className="m-close"></button>
+                        <h4><span>Clinic manager</span> Frank Rooney</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <ul className="tp-meta">
+                          <li><span>Phone Number</span> <em>+40 987 654 321</em></li>
+                          <li><span>Email Address</span> <em>contact@theronins.com</em></li>
+                          <li><span>Place of work</span> <em>Heartify Clinic in Chicago</em></li>
+                          <li><span>Responsibilities</span> <em>Head of orthopedics</em></li>
+                        </ul>
+                        <div className="row">
+                          <div className="tp-social">
+                            <div className="col-md-6 no-padding">
+                              <span>Social Profiles</span>
+                            </div>
+                            <div className="col-md-6 no-padding">
+                              <ul>
+                                <li><a href="#"><i className="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i className="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i className="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i className="fa fa-skype"></i></a></li>
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              -
             </div>
+
           </div>
-          -
-        </div>
+          <ul class="fixed-social-menu list-inline-social mb-0" >
+            <li>
+              <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
+                <i class="fa fa-facebook" ></i>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
+                <i class="fa fa-instagram" ></i>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
+                <i class="fa fa-linkedin" ></i>
+              </a>
+            </li>
+            <li>
+              <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
+                <i class="fa fa-youtube-play" ></i>
+              </a>
+            </li>
+          </ul>
 
       </div>
-      <ul class="fixed-social-menu list-inline-social mb-0" >
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
-            <i class="fa fa-facebook" ></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
-            <i class="fa fa-instagram" ></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
-            <i class="fa fa-linkedin" ></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
-            <i class="fa fa-youtube-play" ></i>
-          </a>
-        </li>
-      </ul>
-
-    </div>
 
 
-  )
+      )
 }
 

@@ -3,6 +3,8 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import YoneticilerDataService from "../../services/YoneticilerService";
+import KariyerDataService from "../../services/KariyerService";
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -14,6 +16,9 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import Select from 'react-select';
+
+
 
 const BayiEkle = () => {
   const initialTutorialState = {
@@ -29,8 +34,12 @@ const BayiEkle = () => {
     published: false
   };
 
+  
+
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
+  const [kariyer, setKariyer] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -42,6 +51,10 @@ const BayiEkle = () => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+
+  useEffect(() => {
+    retrieveKariyer();
+  }, []);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -83,6 +96,25 @@ const BayiEkle = () => {
         console.log(e);
       });
   };
+  const retrieveKariyer = () => {
+    let options=[];
+    KariyerDataService.getAll() 
+      .then(response => {
+         const kariyer = response.data;
+         kariyer.map((kariyers) =>
+
+        options = [ { "value":kariyers.kariyeradi, "label": kariyers.kariyeradi },  ]
+       ); 
+          setKariyer(options);
+         console.log(options);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+
+
+
 
   const newTutorial = () => {
     setTutorial(initialTutorialState);
@@ -112,7 +144,7 @@ const BayiEkle = () => {
             </div>
           ) : (
             <div>
-              
+
               <div className="form-group">
                 <label htmlFor="yoneticiadi">yoneticiadi</label>
                 <input
@@ -143,7 +175,14 @@ const BayiEkle = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="kariyer">kariyer</label>
-                <input
+                <Select
+                 id="kariyer"
+                  defaultValue={selectedOption} //default
+                  onChange={setSelectedOption} //  onChange={handleInputChange}
+
+                  options={kariyer}
+                />
+                {/* <input
                   type="text"
                   className="form-control"
                   id="kariyer"
@@ -151,7 +190,7 @@ const BayiEkle = () => {
                   value={tutorial.kariyer}
                   onChange={handleInputChange}
                   name="kariyer"
-                />
+                /> */}
               </div>
               <div className="form-group">
                 <label htmlFor="pozizyon">pozizyon</label>
@@ -215,11 +254,11 @@ const BayiEkle = () => {
                 />
               </div>
 
-            <FileBase64
+              <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
+              />
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
