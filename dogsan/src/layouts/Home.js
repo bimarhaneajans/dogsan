@@ -13,6 +13,8 @@ import SlaytDataService from "../services/SliderService";
 import KariyerDataService from "../services/KariyerService";
 import axios from "axios";
 
+import $ from "jquery"
+
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
@@ -21,7 +23,6 @@ import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import dateFormat, { masks } from "dateformat";
-
 import dogsanlogo from "../layouts/assets/img/logo/Group_2.png";
 import logo from "../layouts/assets/img/logo/heartify-logo.png";
 import logo2 from "../layouts/assets/img/logo/heart-icon.png";
@@ -122,6 +123,45 @@ export default function Home() {
 
     retrieveKariyer();
   }, []);
+
+  /* useEffect(() => {
+       // Isotope Plugin
+  $( function() {
+    "use strict";
+      // init Isotope
+      var $container = $('#container').isotope({
+        itemSelector: '.item',
+        layoutMode: 'fitRows'
+          });
+      
+      // bind filter button click
+      $('#filters').on( 'click', 'a', function() {
+        var filterValue = $( this ).attr('data-filter');
+        // use filterFn if matches value
+        filterValue = filterFns[ filterValue ] || filterValue;
+        $container.isotope({ filter: filterValue });
+      });
+      // change is-checked class on buttons
+      $('#filters a').click(function(){
+            $('#filters .current').removeClass('current');
+            $(this).addClass('current');
+     
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+             });
+             return false;
+        }); 
+      
+    });
+    
+
+  }, []); */
 
 
   const retrieveTutorials = () => {
@@ -684,7 +724,7 @@ export default function Home() {
           </section>
         </div>
 
-        <section id="team">
+        <div id="team">
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
@@ -729,7 +769,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                 {/*  <div class="item laboratory col-md-6">
+                  <div class="item laboratory col-md-6">
                     <div class="team-member">
                       <a data-toggle="modal" data-target="#myModal">
                         <div class="team-img">
@@ -751,7 +791,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div> */}
+                  </div> 
           {/*         <div class="item specialist col-md-6">
                     <div class="team-member">
                       <a data-toggle="modal" data-target="#myModal">
@@ -819,8 +859,8 @@ export default function Home() {
                   </div>
                 </div> */}
               </div>
-            </section> 
-       <div id="team">
+            </div> 
+   {/*     <div id="team">
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
@@ -871,7 +911,7 @@ export default function Home() {
             </div>
           </div>
         </div> 
-
+ */}
 
             {/*    <div id="projects">
           <div class="container">
