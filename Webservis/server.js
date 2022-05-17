@@ -82,6 +82,7 @@ require("./src/routes/TarihceGarleri.routes")(app);
 require("./src/routes/urun.routes")(app); 
 require("./src/routes/yoneticiler.routes")(app); 
 require("./src/routes/subkategori.routes")(app); 
+require("./src/routes/kariyer.routes")(app); 
 
 require("./src/routes/dosyayukle.routes.js")(app); 
 require("./src/routes/katalogyukle.routes")(app); 

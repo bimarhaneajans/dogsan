@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -118,55 +117,28 @@ export default function Kataloglar() {
                         <article>
                             <div className="row">
                                 {katalog.map(item => (
-                                    <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center " style={{ height: "400px" }}>
+                                    <div key={item.id} className="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center " style={{ height: "400px" }}>
 
                                         <div className="clearfix"></div>
-
-
-
                                         <div className="clearfix"></div>
+                                     
                                         <div class="information-box__grid">
                                             <a href="https://dogsan-cms.webridge.co/uploads/kvc_brosuerue_tr_121021_6ab96ebf05.pdf" class="information-box__grid-item" download="">
-                                                <div class="information-box__grid-image" style={{textAlign: "center"}}>
-                                                    <img src={item.Resim} alt="KVC_2_69f431a6d9" style={{ objectFit: "cover", height: "290px" }}/>
-                                                        <img class="information-box__grid-icon" src={svgpdf} alt="pdf"/>
-                                                        </div>
-                                                        <span>KALP DAMAR BROŞÜRÜ</span>
-                                                    </a>
-
+                                                <div class="information-box__grid-image" style={{ textAlign: "match-parent" }}>
+                                                    <img src={item.Resim}  style={{ objectFit: "cover", height: "290px" }} />
+                                                    <img class="information-box__grid-icon" src={svgpdf} alt="pdf" />
                                                 </div>
-
-                                                {/* <a href="https://dogsan-cms.webridge.co/uploads/kvc_brosuerue_tr_121021_6ab96ebf05.pdf" class="information-box__grid-item" download="">
-                                            <div class="information-box__grid-image" style={{ textAlign: "center" }}>
-
-                                                <div>
-                                                   
-                                                    <div>
-                                                        <ReactSVG src={svgpdf} style={{width:"100px",height:"100px",margintop:"50px"}} />
-                                                        <img src={item.Resim} style={{ objectFit: "cover", height: "290px" }} />
-                                                        
-                                                    </div>
-                                                   
-                                                </div>
-
-                 
-
-
-                                            </div>
-                                            <span>{item.katalogadi}</span>
-                                        </a> */}
-                                                {/*  <img style={{ width: "350px", height: "250px", objectfit: "cover" }} src={item.Resim} /> 
-                                                <h1>{item.katalogadi}</h1>*/}
-
-
-
+                                                <span>{item.katalogadi}</span>
+                                            </a>
 
                                         </div>
+
+                                    </div>
                                 ))}
 
 
-                                    </div>
-                                                                {/* <div className="row">
+                            </div>
+                            {/* <div className="row">
                         <div className="col-md-7">
                             <p className="bold">Caveats worth mentioning</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
@@ -192,7 +164,7 @@ export default function Kataloglar() {
                         <li><a href="#">Doctors</a></li>
                         <li><a href="#">Disease</a></li>
                     </ul> */}
-                                                                {/*  <div className="sharepost">
+                            {/*  <div className="sharepost">
                         <div className="row">
                             <div className="col-md-6">
                                 <h4>Share this Post</h4>
@@ -208,7 +180,7 @@ export default function Kataloglar() {
                             </div>
                         </div>
                     </div> */}
-                                                                {/* <div className="author-info">
+                            {/* <div className="author-info">
                         <img src={author} alt="" className="img-responsive"/>
                         <h5><em>Author:</em> The Ronins</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
@@ -238,7 +210,7 @@ export default function Kataloglar() {
                             </ul>
                         </div>
                     </div> */}
-                                                            </article>
+                        </article>
                         {/*     <div className="comments">
                     <h4>Post has 3 comments</h4>
                     <ul>

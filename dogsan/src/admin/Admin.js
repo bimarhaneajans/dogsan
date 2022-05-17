@@ -55,6 +55,7 @@ import Tarihceguncelle from "../layouts/Tarihce/Tarihceguncelle"
 import TarihiGaleriguncelle from "../layouts/TarihiGaleri/TarihiGaleriguncelle"
 import Urunguncelle from "../layouts/Urun/Urunguncelle"
 import Yoneticinguncelle from "../layouts/Yoneticiler/Yoneticiguncelle"
+import Kariyerguncelle from "layouts/Kariyer/Kariyerguncelle";
 
 import Dynamickategori from "../layouts/Kategori/dynamickategori"
 import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
@@ -73,6 +74,7 @@ import Igneler from "layouts/İgneler/Igneler";
 import Bloglar from "layouts/Bloglar/Bloglar";
 import BizeUlasin from "layouts/İletisimler/BizeUlasin";
 import Bayiler from "layouts/İletisimler/Bayiler";
+import KatalogDetay from "layouts/kataloglar/Kataloglar";
  
 
 
@@ -199,7 +201,7 @@ export default function App() {
         <Route path="/SubDynamickategori/:id" element={<SubDynamickategori />} />
         <Route path="/Subdynamicdetaykategori/:kategoriid" element={<Subdynamicdetaykategori />} />
         <Route path="/yoneticiguncelle/:id" element={<Yoneticinguncelle />} />
-   
+        <Route path="/kariyerguncelle/:id" element={<Kariyerguncelle />} />
         <Route path="/SinglePost" element={<SinglePost />} />
         <Route path="/Hakkimizda" element={<Hakkimizda />} />
         <Route path="/Tarihce" element={<Tarihce />} />
@@ -213,6 +215,7 @@ export default function App() {
         <Route path="/BizeUlasin" element={<BizeUlasin />} />
         <Route path="/Bayiler" element={<Bayiler />} />
         <Route path="/Home" element={<Home />} />
+        <Route path="/KatalogDetay" element={<KatalogDetay />} />
 
       </Routes>
     </ThemeProvider>

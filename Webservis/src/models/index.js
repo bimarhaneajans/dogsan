@@ -29,6 +29,7 @@ db.Uruns = require("./Urun.model.js")(mongoose);
 db.kategoris = require("./kategori.model")(mongoose);
 db.subkategoris = require("./subkategori.model")(mongoose);
 db.yoneticilers = require("./yoneticiler.model")(mongoose);
+db.kariyers = require("./kariyer.model")(mongoose);
 
 db.ROLES = ["user", "admin"];
 module.exports = db;

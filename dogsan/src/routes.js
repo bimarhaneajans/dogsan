@@ -47,6 +47,10 @@ import SubKategoriliste from "./layouts/SubKategori/SubKategoriliste"
 import Yoneticiekle from "./layouts/Yoneticiler/Yoneticiekle"
 import Yoneticiliste from "./layouts/Yoneticiler/Yoneticiliste"
 
+import Kariyerekle from "layouts/Kariyer/Kariyerekle";
+import Kariyerliste from "layouts/Kariyer/Kariyerliste";
+
+
 
 
 
@@ -568,7 +572,7 @@ const routes = [
   },
   {
     type: "title",
-    title: "Ürün İşlemleri",
+    title: "Yönetici İşlemleri",
     key: "19",
     isPrivate: true
   },
@@ -589,6 +593,32 @@ const routes = [
     route: "/Yoneticiliste",
     icon: <CustomerSupport size="12px" />,
     component: <Yoneticiliste />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "title",
+    title: "KAriyer İşlemleri",
+    key: "20",
+    isPrivate: true
+  },
+  {
+    type: "collapse",
+    name: "Kariyer ekle",
+    key: "Kariyerekle",
+    route: "/Kariyerekle",
+    icon: <CustomerSupport size="12px" />,
+    component: <Kariyerekle />,
+    noCollapse: true,
+    isPrivate: true,
+  },
+  {
+    type: "collapse",
+    name: "Kariyer liste",
+    key: "Kariyerliste",
+    route: "/Kariyerliste",
+    icon: <CustomerSupport size="12px" />,
+    component: <Kariyerliste />,
     noCollapse: true,
     isPrivate: true,
   },
