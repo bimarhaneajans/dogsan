@@ -24,25 +24,18 @@ exports.create = async (req, res) => {
     Resimbaslik: req.body.Resimbaslik,
     Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
-  });
-  /*   var file = fs.readFileSync(path.normalize(req.file.path));
-    var contenttype=mime.getType(path.normalize(req.file.path));
-    
-    bayi.img = {
-      data: file,
-      contentType: contenttype     
-    } */
-
+  }); 
 
 
   await upload(req, res);
+  
    //console.log(req.files);
 
-   Object.entries(req.files).forEach(entry => { 
+   /* Object.entries(req.files).forEach(entry => { 
 
     tarihce.Resimcoklu = [key, value]= entry 
     
-  });
+  }); */
   /*  */
  console.log(tarihce.Resimcoklu);
 
@@ -63,6 +56,7 @@ exports.create = async (req, res) => {
       }); */
 
       res.send(data); 
+      
 
     })
       .catch(err => {
@@ -166,6 +160,46 @@ exports.getListFiles = async (req, res) => {
     });
   }
 };
+exports.resimsil = async (req, res) => {
+  try {
+    await mongoClient.connect();
+    const id = req.params.id;
+    const database = mongoClient.db(dbConfig.database);
+    const images = database.collection(dbConfig.tarihceresimler + ".files");
+
+    const cursor = images.findByIdAndRemove(id, { useFindAndModify: false })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
+        });
+      } else {
+        res.send({
+          message: "bayi was deleted successfully!"
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete bayi with id=" + id
+      });
+    });
+
+    if ((await cursor.count()) === 0) {
+      return res.status(500).send({
+        message: "No files found!",
+      });
+    }
+
+    
+
+    return res.status(200).send(fileInfos);
+  } catch (error) {
+    return res.status(500).send({
+      message: error.message,
+    });
+  }
+};
 
 exports.download = async (req, res) => {
   try {
@@ -213,7 +247,7 @@ exports.delete = (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete bayi with id=" + id
+        message: "Could not delete resim with id=" + id
       });
     });
 };
