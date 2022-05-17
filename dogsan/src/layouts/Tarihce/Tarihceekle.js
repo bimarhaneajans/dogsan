@@ -135,7 +135,7 @@ const BayiEkle = () => {
 
             <FileBase64
                 type="file"
-                multiple={false}
+                multiple={true}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
               />  
 

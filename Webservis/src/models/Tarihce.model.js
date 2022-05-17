@@ -5,6 +5,7 @@ module.exports = mongoose => {
       icerik: String,
       Resimbaslik:String,
       Resim:String,
+      Resimcoklu:[],
       published: Boolean
     },
     { timestamps: true }

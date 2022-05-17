@@ -546,49 +546,45 @@ export default function Home() {
                 <div className="col-xs-2"></div>
                 <div className="col-xs-8" >
                   <form className="appointment-form">
-                    <h4>Müşteri İletişim Formu</h4>
+                    <h4>Müşteri İletişim Formu</h4> 
+                        <h4>BİZE ULAŞIN</h4>
+                        <label>Ad Soyad</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="Subject"
+                          required
+                          value={mesaj.Subject}
+                          onChange={handleInputChange}
+                          name="Subject"
+                        />
+                        <label>E-mail</label>
+                        <input
+                          type="email"
+                          className="form-control"
+                          id="email"
+                          required
+                          value={mesaj.email}
+                          onChange={handleInputChange}
+                          name="email"
+                        />
+                        <label>Mesaj</label>
+                        <textarea rows="10" placeholder="Enter your message"
+                          type="text"
+                          name="Content"
+                          value={mesaj.Content}
+                          onChange={handleInputChange}
+                        ></textarea>
+                        <div className="submit-wrap row">
+                          <div className="col-md-5">
+                            <button onClick={saveTutorial} className="btn btn-success">
+                              Submit
+                            </button>
+                            <button type="submit" onClick={closeModal}>close</button>
+                          </div>
+                        </div>
 
-                    <label>Ad Soyad</label>
-                    <input type="text" />
-                    <label>Telefon Numarası</label>
-                    <input type="text" />
-                    <label>Mesaj</label>
-                    <input type="text" />
-                    {/*  <div className="row">
-                      <div className="col-md-6">
-                        <label>DATE FROM</label>
-                        <div className='input-group date'>
-                          <input type='text' className="form-control" placeholder="30.01.2013" />
-                          <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <label>DATE TO</label>
-                        <div className='input-group date'>
-                          <input type='text' className="form-control" placeholder="30.01.2013" />
-                          <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space20"></div>
-                    <label>HOURLY PREFERENCES</label>
-                    <ul className="hpref">
-                      <li className="active"><a>Morning</a></li>
-                      <li><a>Lunch</a></li>
-                      <li><a>Evening</a></li>
-                    </ul>
-                    <div className="space20"></div>
-                    <div className="clearfix"></div>
-                    <div className="space20"></div> */}
-                    <div className="submit-wrap row">
-                      <div className="col-md-7 cbox">
-                        {/* <input type="checkbox" /><span>send me copy of message</span> */}
-                      </div>
-                      <div className="col-md-5">
-                        <button type="submit">Gönder</button>
-                      </div>
-                    </div>
-                  </form>
+                      </form>
                 </div><div className="col-xs-2"></div></div>
 
               {/* <img src="assets/img/1.png" className="img-responsive" alt="" /> */}

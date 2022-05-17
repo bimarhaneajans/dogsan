@@ -19,7 +19,8 @@ module.exports = app => {
      router.post("/", /* upload.single('file'), */  tarihce.create);
   
      router.get("/", tarihce.findAll);
-  
+     router.get("/tarihceresimler", tarihce.getListFiles);
+
      router.get("/published", tarihce.findAllPublished);
   
      router.get("/:id", tarihce.findOne);

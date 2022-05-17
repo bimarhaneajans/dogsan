@@ -8,4 +8,5 @@ module.exports = {
   database: "dogsandb",
   url: "mongodb://37.77.4.139:27017/dogsandb",
   imgBucket: "photos",
+  tarihceresimler:"tarihceresimler",
 };
