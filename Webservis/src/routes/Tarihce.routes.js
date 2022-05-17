@@ -21,6 +21,8 @@ module.exports = app => {
      router.get("/", tarihce.findAll);
      router.get("/tarihceresimler", tarihce.getListFiles);
      router.delete("/tarihceresimler/:id", tarihce.delete);
+     router.delete("/tarihceresimlerisil", tarihce.tumresimlerisil);
+
      router.get("/published", tarihce.findAllPublished);
   
      router.get("/:id", tarihce.findOne);

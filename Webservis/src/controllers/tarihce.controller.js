@@ -200,6 +200,27 @@ exports.resimsil = async (req, res) => {
     });
   }
 };
+exports.tumresimlerisil = async (req, res) => {
+ 
+    await mongoClient.connect();
+    const id = req.params.id;
+    const database = mongoClient.db(dbConfig.database);
+    const images = database.collection(dbConfig.tarihceresimler + ".files");
+
+    images.deleteMany({})
+    .then(data => {
+      res.send({
+        message: `${data.deletedCount} bayis were deleted successfully!`
+      });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all bayis."
+      });
+    }); 
+  
+};
 
 exports.download = async (req, res) => {
   try {
