@@ -33,7 +33,7 @@ const BayiEkle = () => {
     googleplus: "",
     published: false
   };
- 
+
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [kariyer, setKariyer] = useState([]);
@@ -50,9 +50,9 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
-/*   const taner = [{ value: '', label: '' }, 
-  ];
- */
+  /*   const taner = [{ value: '', label: '' }, 
+    ];
+   */
   useEffect(() => {
     retrieveKariyer();
   }, []);
@@ -97,51 +97,54 @@ const BayiEkle = () => {
         console.log(e);
       });
   };
-/*   const retrieveKariyer = () => {
-     const taner = [
-      { value: 'chocolate', label: 'Chocolate' },
-      { value: 'strawberry', label: 'Strawberry' },
-      { value: 'vanilla', label: 'Vanilla' },
-    ];
+  /*   const retrieveKariyer = () => {
+       const taner = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' },
+      ];
+    
+      console.log(taner)
+     
+      KariyerDataService.getAll()  
+        .then(response => {
+          let kariyer=[]; 
+          let kariyerlist=[]; 
+          const options=[]; 
+            kariyer = response.data;
+          //  kariyer.map((kariyer,index) =>
+             
+         // options[index] = [ { "value": kariyer.kariyeradi.toString(), "label": kariyer.kariyeradi.toString() },  ],
+          //kariyerlist.concat(options),
+         // setKariyer(options),
+        console.log(kariyer)
+        // );    
+     
+          // 
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    };
   
-    console.log(taner)
-   
-    KariyerDataService.getAll()  
-      .then(response => {
-        let kariyer=[]; 
-        let kariyerlist=[]; 
-        const options=[]; 
-          kariyer = response.data;
-        //  kariyer.map((kariyer,index) =>
-           
-       // options[index] = [ { "value": kariyer.kariyeradi.toString(), "label": kariyer.kariyeradi.toString() },  ],
-        //kariyerlist.concat(options),
-       // setKariyer(options),
-      console.log(kariyer)
-      // );    
-   
-        // 
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
+   */
 
- */
- 
-  
+
   const retrieveKariyer = () => {
-    let options=[];
-    KariyerDataService.getAll() 
+    let options = [];
+    KariyerDataService.getAll()
       .then(response => {
-         const kariyer = response.data;
-         kariyer.map((kariyers) =>
+        const kariyer = response.data;
 
-          options = [ { "value":kariyers.kariyeradi, "label": kariyers.kariyeradi },  ]
-         
-       ); 
-          setKariyer(options);
-         console.log(options);
+        /*   kariyer.map((kariyers) =>
+              options = [{ "value":kariyers.kariyeradi, "label": kariyers.kariyeradi },  ],
+              setKariyer([...options],options),
+              console.log(options)
+              );  */
+
+        setKariyer(kariyer);
+        console.log(kariyer)
+
       })
       .catch(e => {
         console.log(e);
@@ -208,22 +211,28 @@ const BayiEkle = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="kariyer">kariyer</label>
-                <Select
+                {/*  <Select
                  id="kariyer"
                   defaultValue={selectedOption} //default
                   onChange={setSelectedOption} //  onChange={handleInputChange}
 
                   options={kariyer}
-                />
-                {/* <input
-                  type="text"
-                  className="form-control"
-                  id="kariyer"
-                  required
-                  value={tutorial.kariyer}
-                  onChange={handleInputChange}
-                  name="kariyer"
                 /> */}
+                <>
+                  <select
+                    type="text"
+                    id="kariyer"
+                    name="kariyer"
+                    value={tutorial.kariyer}
+                    onChange={handleInputChange}
+                  >
+                    {kariyer.map(options => <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
+
+                    }
+
+                  </select>
+                </>
+
               </div>
               <div className="form-group">
                 <label htmlFor="pozizyon">pozizyon</label>
