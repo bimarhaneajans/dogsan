@@ -38,14 +38,14 @@ const upload = async (req, res) => {
 
 const getListFiles = (req, res) => {
   const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
-
+  let JsonObject;
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
       res.status(500).send({
         message: "Unable to scan files!",
       });
     }
-    
+
 
     let fileInfos = [];
 
@@ -55,8 +55,9 @@ const getListFiles = (req, res) => {
         url: baseUrl + file,
       });
     });
-
-    res.status(200).send(fileInfos);
+    JsonObject = JSON.parse(JSON.stringify(fileInfos));
+console.log(JsonObject)
+    res.status(200).send(JSON.stringify(JsonObject));
   });
 };
 
