@@ -3,7 +3,8 @@ const cors = require("cors");
 const dbConfig = require("./src/config/db.config");
 const app = express();
 const path = require("path");
-
+//http://localhost:3000/resources/static/assets/slidervideos/
+ 
 
 //8080 dedigi webservis 
 //8081 websesite
@@ -15,7 +16,7 @@ var corsOptions = {
  
 };
 */
-global.__basedir = __dirname;
+ global.__basedir = __dirname;
 var corsOptions = {
   origin: "*"
 };
@@ -27,7 +28,7 @@ app.use(express.json({limit: "5000mb",extended:true}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'resources')));
+app.use(express.static(path.join(__dirname, 'public')));
 const db = require("./src/models");
 const Role = db.role;
 

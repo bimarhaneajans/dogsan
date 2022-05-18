@@ -2,7 +2,7 @@
 const dbConfig = require("../config/db.config");
 const uploadFile = require("../middlewares/slideruploadfile");
 const fs = require("fs");
-const baseUrl = "http://localhost:3000/public/resources/static/assets/slidervideos/";
+ const baseUrl = "http://localhost:3000/resources/static/assets/slidervideos/";
  
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
