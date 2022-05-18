@@ -16,7 +16,7 @@ exports.create = (req, res) => {
   }
   let kariyer = new Kariyer({
     kariyeradi: req.body.kariyeradi,
-    published: req.body.published ? req.body.published : false,
+    //published: req.body.published ? req.body.published : false,
 
   }); 
  
@@ -29,8 +29,7 @@ exports.create = (req, res) => {
     } */
   
 
-    kariyer
-    .save(kariyer)
+    kariyer .save(kariyer)
     .then(data => {
       res.send(data);
     })

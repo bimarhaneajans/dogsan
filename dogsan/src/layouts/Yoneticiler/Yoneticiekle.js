@@ -33,9 +33,7 @@ const BayiEkle = () => {
     googleplus: "",
     published: false
   };
-
-  
-
+ 
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [kariyer, setKariyer] = useState([]);
@@ -51,6 +49,9 @@ const BayiEkle = () => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+
+  const taner = [{ value: '', label: '' }, 
+  ];
 
   useEffect(() => {
     retrieveKariyer();
@@ -97,16 +98,29 @@ const BayiEkle = () => {
       });
   };
   const retrieveKariyer = () => {
-    let options=[];
-    KariyerDataService.getAll() 
+     const taner = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' },
+    ];
+  
+    console.log(taner)
+   
+    KariyerDataService.getAll()  
       .then(response => {
-         const kariyer = response.data;
-         kariyer.map((kariyers) =>
-
-        options = [ { "value":kariyers.kariyeradi, "label": kariyers.kariyeradi },  ]
-       ); 
-          setKariyer(options);
-         console.log(options);
+        let kariyer=[]; 
+        let kariyerlist=[]; 
+        const options=[]; 
+          kariyer = response.data;
+        //  kariyer.map((kariyer,index) =>
+           
+       // options[index] = [ { "value": kariyer.kariyeradi.toString(), "label": kariyer.kariyeradi.toString() },  ],
+        //kariyerlist.concat(options),
+       // setKariyer(options),
+      console.log(kariyer)
+      // );    
+   
+        // 
       })
       .catch(e => {
         console.log(e);
@@ -180,7 +194,7 @@ const BayiEkle = () => {
                   defaultValue={selectedOption} //default
                   onChange={setSelectedOption} //  onChange={handleInputChange}
 
-                  options={kariyer}
+                  options={taner}
                 />
                 {/* <input
                   type="text"
