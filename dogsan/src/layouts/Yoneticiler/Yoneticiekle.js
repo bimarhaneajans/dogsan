@@ -50,9 +50,9 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
-  const taner = [{ value: '', label: '' }, 
+/*   const taner = [{ value: '', label: '' }, 
   ];
-
+ */
   useEffect(() => {
     retrieveKariyer();
   }, []);
@@ -97,7 +97,7 @@ const BayiEkle = () => {
         console.log(e);
       });
   };
-  const retrieveKariyer = () => {
+/*   const retrieveKariyer = () => {
      const taner = [
       { value: 'chocolate', label: 'Chocolate' },
       { value: 'strawberry', label: 'Strawberry' },
@@ -127,7 +127,26 @@ const BayiEkle = () => {
       });
   };
 
+ */
+ 
+  
+  const retrieveKariyer = () => {
+    let options=[];
+    KariyerDataService.getAll() 
+      .then(response => {
+         const kariyer = response.data;
+         kariyer.map((kariyers) =>
 
+          options = [ { "value":kariyers.kariyeradi, "label": kariyers.kariyeradi },  ]
+         
+       ); 
+          setKariyer(options);
+         console.log(options);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
 
 
   const newTutorial = () => {
@@ -194,7 +213,7 @@ const BayiEkle = () => {
                   defaultValue={selectedOption} //default
                   onChange={setSelectedOption} //  onChange={handleInputChange}
 
-                  options={taner}
+                  options={kariyer}
                 />
                 {/* <input
                   type="text"

@@ -2,7 +2,7 @@
 const dbConfig = require("../config/db.config");
 const uploadFile = require("../middlewares/slideruploadfile");
 const fs = require("fs");
-const baseUrl = "http://localhost:3000/resources/static/assets/slidervideos/";
+const baseUrl = "http://localhost:3000/public/resources/static/assets/slidervideos/";
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
@@ -18,7 +18,7 @@ const upload = async (req, res) => {
     }
 
     res.status(200).send({
-      message: "Uploaded the file successfully: " + req.file.originalname,
+      message: "Uploaded the file successfully: " ,
     });
   } catch (err) {
     console.log(err);
@@ -30,7 +30,7 @@ const upload = async (req, res) => {
     }
 
     res.status(500).send({
-      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+      message: `Could not upload the file:  . ${err}`,
     });
   }
 };

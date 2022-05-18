@@ -7,7 +7,7 @@ const controller = require("../controllers/sliderdosyayukleme");
 module.exports = app => { 
     var multer = require('multer');
 
-    var storage = multer.diskStorage({
+   /*  var storage = multer.diskStorage({
       destination: (req, file, cb) => {
   
         cb(null, 'slidervideos')
@@ -17,8 +17,8 @@ module.exports = app => {
         cb(null, file.fieldname + '-' + Date.now() + ext)
       }
     });
-    var router = require("express").Router();
-    var upload = multer({ storage: storage }); 
+  */
+   // var upload = multer({ storage: storage }); 
 
     router.post("/", controller.upload);
     router.get("/files", controller.getListFiles);
