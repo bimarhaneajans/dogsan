@@ -220,10 +220,7 @@ export default function Home() {
     SlaytDataService.getAll()
       .then(response => {
         const persons = response.data;
-
-      // persons.map((number) =>
-      /// //console.log(JSON.stringify(number.url))
-       
+ 
        setSlayt(persons)
       //);
  //console.log(persons)
