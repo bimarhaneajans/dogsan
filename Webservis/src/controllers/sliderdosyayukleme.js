@@ -3,6 +3,7 @@ const dbConfig = require("../config/db.config");
 const uploadFile = require("../middlewares/slideruploadfile");
 const fs = require("fs");
 const baseUrl = "http://localhost:3000/public/resources/static/assets/slidervideos/";
+ 
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
@@ -18,7 +19,7 @@ const upload = async (req, res) => {
     }
 
     res.status(200).send({
-      message: "Uploaded the file successfully: " ,
+      message: "Uploaded the file successfully: " + req.file.originalname,
     });
   } catch (err) {
     console.log(err);
@@ -30,46 +31,37 @@ const upload = async (req, res) => {
     }
 
     res.status(500).send({
-      message: `Could not upload the file:  . ${err}`,
+      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
     });
   }
 };
 
-const getListFiles = async (req, res) => {
-  try {
-    await mongoClient.connect();
+const getListFiles = (req, res) => {
+  const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
 
-    const database = mongoClient.db(dbConfig.database);
-    const images = database.collection(dbConfig.imgBucket + ".files");
-
-    const cursor = images.find({});
-
-    if ((await cursor.count()) === 0) {
-      return res.status(500).send({
-        message: "No files found!",
+  fs.readdir(directoryPath, function (err, files) {
+    if (err) {
+      res.status(500).send({
+        message: "Unable to scan files!",
       });
     }
 
     let fileInfos = [];
-    await cursor.forEach((doc) => {
+
+    files.forEach((file) => {
       fileInfos.push({
-        name: doc.filename,
-        url: baseUrl + doc.filename,
+        name: file,
+        url: baseUrl + file,
       });
     });
 
-    return res.status(200).send(fileInfos);
-  } catch (error) {
-    return res.status(500).send({
-      message: error.message,
-    });
-  }
+    res.status(200).send(fileInfos);
+  });
 };
-
 
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/resources/static/assets/slidervideos/";
+  const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
