@@ -159,10 +159,11 @@ exports.getListFiles = async (req, res) => {
 
     const database = mongoClient.db(dbConfig.database);
     const images = database.collection(dbConfig.imgBucket + ".files");
-    //const videos = database.collection("fs" + ".files");
+    const video = database.collection("fs" + ".files");
 
     const cursor = images.find({});
-    //const cursors = videos.find({});
+    const cursors = video.find({});
+    console.log(cursors)
 
 
     if ((await cursor.count()) === 0) {
