@@ -1,5 +1,5 @@
 module.exports = app => {
-  const slider = require("../controllers/slider.controller");
+  const slider = require("../controllers/slider.controller.js");
 
   var multer = require('multer');
 
@@ -16,12 +16,12 @@ module.exports = app => {
   var router = require("express").Router();
   var upload = multer({ storage: storage }); 
 
-   router.post("/", /* upload.single('file'), */  slider.create);
-   router.get("/", slider.findAll);
-   router.get("/tarihceresimler", slider.getListFiles);
-   router.delete("/tarihceresimler/:id", slider.delete);
-   router.delete("/tarihceresimlerisil", slider.tumresimlerisil);
-   router.post("/tarihceresimleryukle", slider.uploadFiles);
+  // router.post("/", /* upload.single('file'), */  tarihce.create);
+  // router.get("/", tarihce.findAll);
+   router.get("/sliderresimler", slider.getListFiles);
+   router.delete("/sliderresimler/:id", slider.delete);
+   router.delete("/sliderresimlerisil", slider.tumresimlerisil);
+   router.post("/sliderresimleryukle", slider.uploadFiles);
    router.get("/published", slider.findAllPublished);
    router.get("/:id", slider.findOne);
    router.put("/:id", slider.update);

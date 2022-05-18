@@ -125,6 +125,7 @@ exports.update = (req, res) => {
       });
     });
 }; 
+ 
 exports.uploadFiles = async (req, res) => {
   try {
     await upload(req, res);
@@ -149,7 +150,11 @@ exports.uploadFiles = async (req, res) => {
     }
     return res.status(500).send({
       message: `Error when trying upload many files: ${error}`,
-    }); 
+    });
+
+    // return res.send({
+    //   message: "Error when trying upload image: ${error}",
+    // });
   }
 };
 
@@ -158,7 +163,7 @@ exports.getListFiles = async (req, res) => {
     await mongoClient.connect();
 
     const database = mongoClient.db(dbConfig.database);
-    const images = database.collection(dbConfig.tarihceresimler + ".files");
+    const images = database.collection(dbConfig.imgBucket + ".files");
 
     const cursor = images.find({});
 
@@ -173,6 +178,18 @@ exports.getListFiles = async (req, res) => {
       fileInfos.push({
         name: doc.filename,
         url: baseUrl + doc.filename,
+        fieldname: doc.fieldname,
+        originalname: doc.originalname,
+        encoding: doc.encoding,
+        mimetype: doc.mimetype,
+         filename: doc.filename,
+        metadata: null,
+        bucketName: doc.bucketName,
+        chunkSize: doc.chunkSize,
+        size: doc.size,
+        md5: undefined,
+        uploadDate: doc.uploadDate,
+        contentType: doc.contentType
       });
     });
 
@@ -183,6 +200,37 @@ exports.getListFiles = async (req, res) => {
     });
   }
 };
+
+exports.download = async (req, res) => {
+  try {
+    await mongoClient.connect();
+
+    const database = mongoClient.db(dbConfig.database);
+    const bucket = new GridFSBucket(database, {
+      bucketName: dbConfig.imgBucket,
+    });
+
+    let downloadStream = bucket.openDownloadStreamByName(req.params.name);
+
+    downloadStream.on("data", function (data) {
+      return res.status(200).write(data);
+    });
+
+    downloadStream.on("error", function (err) {
+      return res.status(404).send({ message: "Cannot download the Image!" });
+    });
+
+    downloadStream.on("end", () => {
+      return res.end();
+    });
+  } catch (error) {
+    return res.status(500).send({
+      message: error.message,
+    });
+  }
+};
+
+
 exports.resimsil = async (req, res) => {
   try {
     await mongoClient.connect();
