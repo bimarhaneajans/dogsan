@@ -48,7 +48,7 @@ import "./style.css"
 import "./responsive-styling.css"
 import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
-
+import IsoTopeGrid from "react-isotope";
 
 
 const customStyles = {
@@ -123,46 +123,61 @@ export default function Home() {
     retrieveKariyer();
   }, []);
 
-  /* useEffect(() => {
-       // Isotope Plugin
-  $( function() {
-    "use strict";
-      // init Isotope
-      var $container = $('#container').isotope({
-        itemSelector: '.item',
-        layoutMode: 'fitRows'
-          });
-      
-      // bind filter button click
-      $('#filters').on( 'click', 'a', function() {
-        var filterValue = $( this ).attr('data-filter');
-        // use filterFn if matches value
-        filterValue = filterFns[ filterValue ] || filterValue;
-        $container.isotope({ filter: filterValue });
-      });
-      // change is-checked class on buttons
-      $('#filters a').click(function(){
-            $('#filters .current').removeClass('current');
-            $(this).addClass('current');
-     
-            var selector = $(this).attr('data-filter');
-            $container.isotope({
-                filter: selector,
-                animationOptions: {
-                    duration: 750,
-                    easing: 'linear',
-                    queue: false
-                }
-             });
-             return false;
-        }); 
-      
+  useEffect(() => {
+
+
+
+
+    // external js: isotope.pkgd.js
+
+    // init Isotope
+    var iso = new IsoTopeGrid('.grid', {
+      itemSelector: '.element-item',
+      layoutMode: 'fitRows'
     });
-    
 
-  }, []); */
+    // filter functions
+    var filterFns = {
 
+      // show if name ends with -ium
+      ium: function (itemElem) {
+        var name = itemElem.querySelector('.name').textContent;
+        return name.match(/ium$/);
+      }
+    };
 
+    // bind filter button click
+    var filtersElem = document.querySelector('.filters-button-group');
+    filtersElem.addEventListener('click', function (event) {
+      // only work with buttons
+      if (!matchesSelector(event.target, 'button')) {
+        return;
+      }
+      var filterValue = event.target.getAttribute('data-filter');
+      // use matching filter function
+      filterValue = filterFns[filterValue] || filterValue;
+      iso.arrange({ filter: filterValue });
+    });
+
+    // change is-checked class on buttons
+    var buttonGroups = document.querySelectorAll('.button-group');
+    for (var i = 0, len = buttonGroups.length; i < len; i++) {
+      var buttonGroup = buttonGroups[i];
+      radioButtonGroup(buttonGroup);
+    }
+
+    function radioButtonGroup(buttonGroup) {
+      buttonGroup.addEventListener('click', function (event) {
+        // only work with buttons
+        if (!matchesSelector(event.target, 'button')) {
+          return;
+        }
+        buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+        event.target.classList.add('is-checked');
+      });
+    }
+
+  }, []);
   const retrieveTutorials = () => {
     KategoriDataService.getAll()
       .then(response => {
@@ -214,7 +229,7 @@ export default function Home() {
         console.log(e);
       });
   };
-  
+
 
   const retrieveSlayt = () => {
     SlaytDataService.getAll()
@@ -222,7 +237,7 @@ export default function Home() {
         const persons = response.data;
 
         console.log(persons);
-       // setSlayt(persons);
+        // setSlayt(persons);
 
 
 
@@ -496,7 +511,6 @@ export default function Home() {
                             <button onClick={saveTutorial} className="btn btn-success">
                               Submit
                             </button>
-                        {/*     <button type="submit" onClick={closeModal}>close</button> */}
                           </div>
                         </div>
 
@@ -593,19 +607,16 @@ export default function Home() {
                         <button onClick={saveTutorial} className="btn btn-success">
                           Submit
                         </button>
-                     {/*    <button type="submit" onClick={closeModal}>close</button> */}
+
                       </div>
                     </div>
 
                   </form>
                 </div><div className="col-xs-2"></div></div>
-
-              {/* <img src="assets/img/1.png" className="img-responsive" alt="" /> */}
               <div className="clearfix"></div>
             </div>
           </div>
         </div>
-
 
         <div id="services">
           <div className="services-info s2-info">
@@ -663,14 +674,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
         <div >
           <section class="client-div" style={{ marginTop: 50, height: 400 }}>
             <div class="container">
@@ -739,303 +742,12 @@ export default function Home() {
 
           </div>
         </div>
-        {/*     <div id="team">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
-                <div className="team-stat text-center">
-                  <h2>AİLEMİZLE TANIŞIN</h2>
-                  <h5>EKİBİMİZLE BÜYÜK BİR AİLEYİZ</h5>
-                  <p className="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız
-                  </p>
-                </div>
 
-                <div className="team-filter-nav text-center">
-                <ul id="filters" class="filter-nav list-inline list-unstyled">
-                    <li><a data-filter="*" className="current" href="#">İDARİ EKİBİMİZ</a></li>
-                    <li><a data-filter=".general" href="#">PAZARLAMA BİRİMİ</a></li>
-                    <li><a data-filter=".laboratory" href="#">ÜRETİM DEPARTMANI</a></li>
-                    <li><a data-filter=".sahaekibi" href="#">SAHA EKİBİMİZ</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-               {yoneticiler.map(item => (
-              <div key={item.id} className="row col-xs-12">
-                <div id="container" className="container team-detail">
-
-                  <div className="item general col-md-12">
-
-                    <div className="team-member">
-                      <a data-toggle="modal" data-target="#myModal">
-                        <div className="team-img">
-                          <img src={item.Resim} className="img-responsive" alt="" />
-                        </div>
-                      </a>
-                      <div className="member-details" >
-                        <h6>{item.pozizyon}</h6>
-                        <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
-                        <p>{item.kariyer} </p>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-                </div>
-              </div>))} 
-            <div>
-
-            </div>
-          </div>
-        </div> 
- */}
-
-        {/*    <div id="projects">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="blog-stat text-center">
-                  <h2>Blog</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="bottom-space-50"></div>
-              <ul class="projects-wrap">
-                {blog.map(item => (
-
-                  <li key={item.id}>
-                    <img src={item.Resim} class="img-responsive" alt="" />
-                    <div class="overlay">
-                      <div class="overlay-inner">
-                        <h4><span>{item.baslik}</span></h4>
-                        <span class="comments">{item.Ozet}</span>
-                      <a href="#">View more</a> 
-                      </div>
-                    </div>
-
-                  </li>
-                ))}
-              </ul>
-
-            </div>
-          </div>
-        </div> */}
 
         <div className="clearfix"></div>
 
-
-
         <div id="doctor-info">
-          <div className="container">
-            {/* <div className="row">
-              <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div className="blog-stat text-center">
-                  <h2>Visit to the doctor</h2>
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
-              </div>
-            </div> */}
-            {/*  <div className="row">
-            <div className="col-md-5">
-              <form className="appointment-form">
-                <h4>Appointments form</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                <label>NAME AND SURNAME</label>
-                <input type="text" placeholder="Enter your name and surname">
-                  <label>CONTACT PHONE NUMBER</label>
-                  <input type="text" placeholder="Enter phone number">
-                    <label>PATIENT NUMBER</label>
-                    <input type="text" placeholder="Enter patient number">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>DATE FROM</label>
-                          <div className='input-group date'>
-                            <input type='text' className="form-control" placeholder="30.01.2013" />
-                            <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <label>DATE TO</label>
-                          <div className='input-group date'>
-                            <input type='text' className="form-control" placeholder="30.01.2013" />
-                            <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="space20"></div>
-                      <label>HOURLY PREFERENCES</label>
-                      <ul className="hpref">
-                        <li className="active"><a>Morning</a></li>
-                        <li><a>Lunch</a></li>
-                        <li><a>Evening</a></li>
-                      </ul>
-                      <div className="space20"></div>
-                      <div className="clearfix"></div>
-                      <div className="space20"></div>
-                      <div className="submit-wrap row">
-                        <div className="col-md-7 cbox">
-                          <input type="checkbox" /><span>send me copy of message</span>
-                        </div>
-                        <div className="col-md-5">
-                          <button type="submit">Send Message</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-1.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>call center 24/7</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-5.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>best specialist</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>modern clinic</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>modern clinic</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                  </div>
-                </div>
-            </div>
-          </div> 
-            <div id="services4" className="services4">
-               <div className="service-bg">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                      <div className="services-stat text-center">
-                        <h2>Services we offer</h2>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                        <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        <img className="polygon" src="assets/img/general/polygon.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> 
 
-               <div className="clearfix"></div>
-              <div className="bottom-space-50"></div>
-              <div className="clearfix"></div>
-              <div className="bottom-space-50"></div>
-              <div className="services-info">
-                <div className="container">
-                  <div className="col-md-6 no-padding service2-right s2-right">
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-right icon" src="assets/img/icons/icon-1.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>call center 24/7</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-right icon" src="assets/img/icons/icon-5.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>best specialist</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-right icon" src="assets/img/icons/icon-6.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>modern clinic</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 no-padding s2-info">
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-left icon" src="assets/img/icons/icon-4.png" alt="icon" />
-                        <div className="info-col ">
-                          <h5>highest quality</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-left icon" src="assets/img/icons/icon-7.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>Health Information</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-left icon" src="assets/img/icons/icon-8.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>treatment healthy</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="clearfix"></div>
-              <div className="bottom-space-50"></div>
-            </div> */}
-            {/*   <div class="row">
-              <div class="col-md-12">
-                <div class="bottom-space-50"></div>
-                <ul class="projects-wrap">
-                  {blog.map(item => (
-
-                    <li key={item.id}>
-                      <img src={item.Resim} class="img-responsive" alt="" />
-                      <div class="overlay">
-                        <div class="overlay-inner">
-                          <h4><span>{item.baslik}</span></h4>
-                          <span class="comments">{item.Ozet}</span>
-                         <a href="#">View more</a> 
-                        </div>
-                      </div>
-
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
-            </div> */}
-          </div>
           <div id="blog">
             <div className="container">
               <div className="row">
@@ -1067,7 +779,7 @@ export default function Home() {
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare
                             data={{
                               text: "Blog paylaşım linki",
-                              url: "/Blog/"+item.id,
+                              url: "/Blog/" + item.id,
                               title: "Flamingos",
                             }}
                             onClick={() => console.log("shared successfully!")}
@@ -1078,7 +790,7 @@ export default function Home() {
                         </ul>
                       </div>
                       <div className="text-center"><Link to={"/Blog/" + item.id} className="nav-link">Göster</Link></div>
-                      
+
                       <div>
 
                       </div>
