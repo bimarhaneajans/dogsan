@@ -221,21 +221,21 @@ export default function Home() {
       .then(response => {
         const persons = response.data;
 
-        console.log(persons);
-       // setSlayt(persons);
-
-
-
-        // console.log(slides);
-
-
-        // console.log(response.data);
+      // persons.map((number) =>
+      /// //console.log(JSON.stringify(number.url))
+       
+       setSlayt(persons)
+      //);
+ //console.log(persons)
+      
+       
 
       })
       .catch(e => {
         console.log(e);
       });
   };
+  
   const setActiveTutorial = (tutorial, index) => {
     setCurrentTutorial(tutorial);
     setCurrentIndex(index);
