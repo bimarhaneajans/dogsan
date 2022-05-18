@@ -75,6 +75,7 @@ import Bloglar from "layouts/Bloglar/Bloglar";
 import BizeUlasin from "layouts/İletisimler/BizeUlasin";
 import Bayiler from "layouts/İletisimler/Bayiler";
 import KatalogDetay from "layouts/kataloglar/Kataloglar";
+import Blog from "layouts/Bloglar/Blog";
  
 
 
@@ -216,7 +217,7 @@ export default function App() {
         <Route path="/Bayiler" element={<Bayiler />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/KatalogDetay" element={<KatalogDetay />} />
-
+        <Route path="/Blog/:id" element={<Blog />} />
       </Routes>
     </ThemeProvider>
   );
