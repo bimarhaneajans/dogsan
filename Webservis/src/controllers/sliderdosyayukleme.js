@@ -45,6 +45,7 @@ const getListFiles = (req, res) => {
         message: "Unable to scan files!",
       });
     }
+    
 
     let fileInfos = [];
 
