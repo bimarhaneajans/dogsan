@@ -164,8 +164,11 @@ exports.getListFiles = async (req, res) => {
 
     const database = mongoClient.db(dbConfig.database);
     const images = database.collection(dbConfig.imgBucket + ".files");
+    const videos = database.collection("fs" + ".files");
 
+   // const cursor = images.find({});
     const cursor = images.find({});
+
 
     if ((await cursor.count()) === 0) {
       return res.status(500).send({
