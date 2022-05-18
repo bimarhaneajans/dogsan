@@ -223,7 +223,8 @@ const BayiEkle = () => {
    type="text"
    id="kariyer"
    name="kariyer"
-    
+   value={tutorial.kariyer}
+   onChange={handleInputChange}
    >
   {kariyer.map(options =>  <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
   
