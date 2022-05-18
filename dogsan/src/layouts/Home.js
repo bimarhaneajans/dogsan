@@ -214,25 +214,7 @@ export default function Home() {
         console.log(e);
       });
   };
-  /*  const retrieveKariyer = () => {
-     KariyerDataService.create('/mesaj', {
- 
-       Subject: '',
-       email: '',
-       Content :'',
-       
- 
-     })
-       .then(function (response) {
-         console.log(response);
-       })
-       .catch(function (error) {
-         console.log(error);
-       });
- 
- 
   
-   }; */
 
   const retrieveSlayt = () => {
     SlaytDataService.getAll()
@@ -326,8 +308,10 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
+
           <CitiesSlider slaty={slaty} />
           <div id="slider-wrapper">
+
 
           </div>
         </div>

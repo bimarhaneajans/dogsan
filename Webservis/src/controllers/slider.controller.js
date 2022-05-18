@@ -1,59 +1,87 @@
 const db = require("../models");
-const upload = require("../middlewares/upload");
+const upload = require("../middlewares/cokluresimyukleme");
 const dbConfig = require("../config/db.config");
 var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
-const Slider = db.sliders;
+const MongoClient = require("mongodb").MongoClient;
+const GridFSBucket = require("mongodb").GridFSBucket;
+const url = dbConfig.url;
+const Tarihce = db.Tarihces;
+const mongoClient = new MongoClient(url);
+const baseUrl = "http://localhost:3000/slider/files/";
 
-exports.create = (req, res) => {
-  if (!req.body.ismi) {
+exports.create = async (req, res) => {
+/*   if (!req.body.Yil) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
-  }
+  } */
 
-  const slider = new Slider({
-    ismi: req.body.ismi,
-    slidetipi: req.body.slidetipi,
-    siralama: req.body.siralama,
+  const tarihce = new Tarihce({
+    Yil: req.body.Yil,
+    icerik: req.body.icerik,
     Resimbaslik: req.body.Resimbaslik,
     Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
-  });
-  /*   var file = fs.readFileSync(path.normalize(req.file.path));
-    var contenttype=mime.getType(path.normalize(req.file.path));
+  });  
+   //console.log(req.files);
+
+   /* Object.entries(req.files).forEach(entry => { 
+
+    tarihce.Resimcoklu = [key, value]= entry 
     
-    bayi.img = {
-      data: file,
-      contentType: contenttype     
-    } */
-  
-  slider
-    .save(slider)
-    .then(data => {
-      res.send(data);
+  }); */
+  /*  */
+// console.log(tarihce.Resimcoklu);
+
+  /* if (req.files.length <= 0) {
+    return res
+      .status(400)
+      .send({ message: "You must select at least 1 file." });
+  }
+
+  return res.status(200).send({
+    message: "Files have been uploaded.",
+  }),  */
+    tarihce.save(tarihce).then(data => {
+      /*  Object.entries(req.files).forEach(entry => { 
+
+        tarihce.Resimcoklu = [key, value]= entry 
+        
+      }); */
+
+      res.send(data); 
+      
+
     })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the slider."
+      .catch(err => {
+        console.log(err);
+
+        if (err.code === "LIMIT_UNEXPECTED_FILE") {
+          return res.status(400).send({
+            message: "Too many files to upload.",
+          });
+        }
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the Tarihce."
+        });
       });
-    });
 };
 
 exports.findAll = (req, res) => {
-  const ismi = req.query.ismi; 
-  var condition = ismi ? { ismi: { $regex: new RegExp(ismi), $options: "i" } } : {};
+  const Yil = req.query.Yil;
+  var condition = Yil ? { Yil: { $regex: new RegExp(Yil), $options: "i" } } : {};
 
-  Slider.find(condition)
+  Tarihce.find(condition)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving sliders."
+          err.message || "Some error occurred while retrieving bayis."
       });
     });
 };
@@ -61,16 +89,16 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Slider.findById(id)
+  Tarihce.findById(id)
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found slider with id " + id });
+        res.status(404).send({ message: "Not found bayi with id " + id });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving slider with id=" + id });
+        .send({ message: "Error retrieving bayi with id=" + id });
     });
 };
 
@@ -83,67 +111,215 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Slider.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Tarihce.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot update slider with id=${id}. Maybe slider was not found!`
+          message: `Cannot update bayi with id=${id}. Maybe bayi was not found!`
         });
-      } else res.send({ message: "slider was updated successfully." });
+      } else res.send({ message: "bayi was updated successfully." });
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating slider with id=" + id
+        message: "Error updating bayi with id=" + id
       });
     });
+}; 
+exports.uploadFiles = async (req, res) => {
+  try {
+    await upload(req, res);
+    console.log(req.files);
+
+    if (req.files.length <= 0) {
+      return res
+        .status(400)
+        .send({ message: "You must select at least 1 file." });
+    }
+
+    return res.status(200).send({
+      message: "Files have been uploaded.",
+    }); 
+  } catch (error) {
+    console.log(error);
+
+    if (error.code === "LIMIT_UNEXPECTED_FILE") {
+      return res.status(400).send({
+        message: "Too many files to upload.",
+      });
+    }
+    return res.status(500).send({
+      message: `Error when trying upload many files: ${error}`,
+    }); 
+  }
 };
 
-exports.delete = (req, res) => {
-  const id = req.params.id;
+exports.getListFiles = async (req, res) => {
+  try {
+    await mongoClient.connect();
 
-  Slider.findByIdAndRemove(id, { useFindAndModify: false })
+    const database = mongoClient.db(dbConfig.database);
+    const images = database.collection(dbConfig.tarihceresimler + ".files");
+
+    const cursor = images.find({});
+
+    if ((await cursor.count()) === 0) {
+      return res.status(500).send({
+        message: "No files found!",
+      });
+    }
+
+    let fileInfos = [];
+    await cursor.forEach((doc) => {
+      fileInfos.push({
+        name: doc.filename,
+        url: baseUrl + doc.filename,
+      });
+    });
+
+    return res.status(200).send(fileInfos);
+  } catch (error) {
+    return res.status(500).send({
+      message: error.message,
+    });
+  }
+};
+exports.resimsil = async (req, res) => {
+  try {
+    await mongoClient.connect();
+    const id = req.params.id;
+    const database = mongoClient.db(dbConfig.database);
+    const images = database.collection(dbConfig.tarihceresimler + ".files");
+
+    const cursor = images.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
-          message: `Cannot delete slider with id=${id}. Maybe slider was not found!`
+          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
         });
       } else {
         res.send({
-          message: "slider was deleted successfully!"
+          message: "bayi was deleted successfully!"
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete slider with id=" + id
+        message: "Could not delete bayi with id=" + id
       });
     });
-};
 
-exports.deleteAll = (req, res) => {
-  Slider.deleteMany({})
+    if ((await cursor.count()) === 0) {
+      return res.status(500).send({
+        message: "No files found!",
+      });
+    }
+
+    
+
+    return res.status(200).send(fileInfos);
+  } catch (error) {
+    return res.status(500).send({
+      message: error.message,
+    });
+  }
+};
+exports.tumresimlerisil = async (req, res) => {
+ 
+    await mongoClient.connect();
+    const id = req.params.id;
+    const database = mongoClient.db(dbConfig.database);
+    const images = database.collection(dbConfig.tarihceresimler + ".files");
+
+    images.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} sliders were deleted successfully!`
+        message: `${data.deletedCount} bayis were deleted successfully!`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all sliders."
+          err.message || "Some error occurred while removing all bayis."
+      });
+    }); 
+  
+};
+
+exports.download = async (req, res) => {
+  try {
+    await mongoClient.connect();
+
+    const database = mongoClient.db(dbConfig.database);
+    const bucket = new GridFSBucket(database, {
+      bucketName: dbConfig.tarihceresimler,
+    });
+
+    let downloadStream = bucket.openDownloadStreamByName(req.params.name);
+
+    downloadStream.on("data", function (data) {
+      return res.status(200).write(data);
+    });
+
+    downloadStream.on("error", function (err) {
+      return res.status(404).send({ message: "Cannot download the Image!" });
+    });
+
+    downloadStream.on("end", () => {
+      return res.end();
+    });
+  } catch (error) {
+    return res.status(500).send({
+      message: error.message,
+    });
+  }
+};
+
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Tarihce.findByIdAndRemove(id, { useFindAndModify: false })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
+        });
+      } else {
+        res.send({
+          message: "bayi was deleted successfully!"
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete resim with id=" + id
+      });
+    });
+};
+
+exports.deleteAll = (req, res) => {
+  Tarihce.deleteMany({})
+    .then(data => {
+      res.send({
+        message: `${data.deletedCount} bayis were deleted successfully!`
+      });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all bayis."
       });
     });
 };
 
 exports.findAllPublished = (req, res) => {
-  Slider.find({ published: true })
+  Tarihce.find({ published: true })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving sliders."
+          err.message || "Some error occurred while retrieving bayis."
       });
     });
 };

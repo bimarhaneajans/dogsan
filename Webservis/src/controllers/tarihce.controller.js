@@ -28,7 +28,6 @@ exports.create = async (req, res) => {
    //console.log(req.files);
 
    /* Object.entries(req.files).forEach(entry => { 
-
     tarihce.Resimcoklu = [key, value]= entry 
     
   }); */
@@ -40,13 +39,11 @@ exports.create = async (req, res) => {
       .status(400)
       .send({ message: "You must select at least 1 file." });
   }
-
   return res.status(200).send({
     message: "Files have been uploaded.",
   }),  */
     tarihce.save(tarihce).then(data => {
       /*  Object.entries(req.files).forEach(entry => { 
-
         tarihce.Resimcoklu = [key, value]= entry 
         
       }); */
@@ -158,7 +155,7 @@ exports.getListFiles = async (req, res) => {
     await mongoClient.connect();
 
     const database = mongoClient.db(dbConfig.database);
-    const images = database.collection(dbConfig.tarihceresimler + ".files");
+    const images = database.collection(dbConfig.imgBucket + ".files");
 
     const cursor = images.find({});
 
@@ -173,6 +170,18 @@ exports.getListFiles = async (req, res) => {
       fileInfos.push({
         name: doc.filename,
         url: baseUrl + doc.filename,
+        fieldname: doc.fieldname,
+        originalname: doc.originalname,
+        encoding: doc.encoding,
+        mimetype: doc.mimetype,
+         filename: doc.filename,
+        metadata: null,
+        bucketName: doc.bucketName,
+        chunkSize: doc.chunkSize,
+        size: doc.size,
+        md5: undefined,
+        uploadDate: doc.uploadDate,
+        contentType: doc.contentType
       });
     });
 
@@ -188,7 +197,7 @@ exports.resimsil = async (req, res) => {
     await mongoClient.connect();
     const id = req.params.id;
     const database = mongoClient.db(dbConfig.database);
-    const images = database.collection(dbConfig.tarihceresimler + ".files");
+    const images = database.collection(dbConfig.imgBucket + ".files");
 
     const cursor = images.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
@@ -228,7 +237,7 @@ exports.tumresimlerisil = async (req, res) => {
     await mongoClient.connect();
     const id = req.params.id;
     const database = mongoClient.db(dbConfig.database);
-    const images = database.collection(dbConfig.tarihceresimler + ".files");
+    const images = database.collection(dbConfig.imgBucket + ".files");
 
     images.deleteMany({})
     .then(data => {
@@ -251,7 +260,7 @@ exports.download = async (req, res) => {
 
     const database = mongoClient.db(dbConfig.database);
     const bucket = new GridFSBucket(database, {
-      bucketName: dbConfig.tarihceresimler,
+      bucketName: dbConfig.imgBucket,
     });
 
     let downloadStream = bucket.openDownloadStreamByName(req.params.name);
