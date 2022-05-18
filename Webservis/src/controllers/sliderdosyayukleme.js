@@ -1,6 +1,13 @@
+ 
+const dbConfig = require("../config/db.config");
 const uploadFile = require("../middlewares/slideruploadfile");
 const fs = require("fs");
-const baseUrl = "http://localhost:3000/files/";
+const baseUrl = "http://localhost:3000/resources/static/assets/slidervideos/";
+const MongoClient = require("mongodb").MongoClient;
+const GridFSBucket = require("mongodb").GridFSBucket;
+const url = dbConfig.url;
+const mongoClient = new MongoClient(url);
+const path = require("path");
 
 const upload = async (req, res) => {
   try {
@@ -28,28 +35,38 @@ const upload = async (req, res) => {
   }
 };
 
-const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/resources/static/assets/slidervideos/";
+const getListFiles = async (req, res) => {
+  try {
+    await mongoClient.connect();
 
-  fs.readdir(directoryPath, function (err, files) {
-    if (err) {
-      res.status(500).send({
-        message: "Unable to scan files!",
+    const database = mongoClient.db(dbConfig.database);
+    const images = database.collection(dbConfig.imgBucket + ".files");
+
+    const cursor = images.find({});
+
+    if ((await cursor.count()) === 0) {
+      return res.status(500).send({
+        message: "No files found!",
       });
     }
 
     let fileInfos = [];
-
-    files.forEach((file) => {
+    await cursor.forEach((doc) => {
       fileInfos.push({
-        name: file,
-        url: baseUrl + file,
+        name: doc.filename,
+        url: baseUrl + doc.filename,
       });
     });
 
-    res.status(200).send(fileInfos);
-  });
+    return res.status(200).send(fileInfos);
+  } catch (error) {
+    return res.status(500).send({
+      message: error.message,
+    });
+  }
 };
+
+
 const download = (req, res) => {
   const fileName = req.params.name;
   const directoryPath = __basedir + "/resources/static/assets/slidervideos/";

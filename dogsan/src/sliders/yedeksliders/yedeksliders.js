@@ -64,7 +64,7 @@ export default class CitiesSlider extends React.Component {
                 <div className="slider__slide-parts">
                   {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
                     <div className="slider__slide-part" key={i}>
-                      <div className="slider__slide-part-inner" style={{ backgroundImage: `url(${slaty.Resim})` }} />
+                      <div className="slider__slide-part-inner" style={{ backgroundImage: `url(${slaty.url})` }} />
                     </div>
                   ))}
                 </div>

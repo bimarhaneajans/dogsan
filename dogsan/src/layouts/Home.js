@@ -222,7 +222,7 @@ export default function Home() {
         const persons = response.data;
 
         console.log(persons);
-        setSlayt(persons);
+       // setSlayt(persons);
 
 
 

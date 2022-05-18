@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dbConfig = require("./src/config/db.config");
 const app = express();
+const path = require("path");
 
 
 //8080 dedigi webservis 
@@ -22,14 +23,31 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-app.use(express.json({limit: "30mb",extended:true}));
+app.use(express.json({limit: "5000mb",extended:true}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.static(path.join(__dirname, 'resources')));
 const db = require("./src/models");
 const Role = db.role;
 
+ 
+let options = {
+  dotfiles: "ignore", //allow, deny, ignore
+  etag: true,
+  extensions: ["htm", "html"],
+  index: false, //to disable directory indexing
+  maxAge: "7d",
+  redirect: false,
+  setHeaders: function(res, path, stat) {
+    //add this header to all static responses
+    res.set("x-timestamp", Date.now());
+  }
+};
+
+app.use(express.static("public", options));
+//you can use https://favicon.io/favicon-generator/ to create the favicon.ico
+//assets
 db.mongoose
   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,
