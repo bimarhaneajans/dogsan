@@ -68,8 +68,7 @@ exports.create = async (req, res) => {
             err.message || "Some error occurred while creating the Tarihce."
         });
       });
-};
-
+}; 
 exports.findAll = (req, res) => {
   const Yil = req.query.Yil;
   var condition = Yil ? { Yil: { $regex: new RegExp(Yil), $options: "i" } } : {};
@@ -84,8 +83,7 @@ exports.findAll = (req, res) => {
           err.message || "Some error occurred while retrieving bayis."
       });
     });
-};
-
+}; 
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -100,8 +98,7 @@ exports.findOne = (req, res) => {
         .status(500)
         .send({ message: "Error retrieving bayi with id=" + id });
     });
-};
-
+}; 
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
@@ -124,8 +121,7 @@ exports.update = (req, res) => {
         message: "Error updating bayi with id=" + id
       });
     });
-}; 
- 
+};  
 exports.uploadFiles = async (req, res) => {
   try {
     await upload(req, res);
@@ -156,18 +152,17 @@ exports.uploadFiles = async (req, res) => {
     //   message: "Error when trying upload image: ${error}",
     // });
   }
-};
-
+}; 
 exports.getListFiles = async (req, res) => {
   try {
     await mongoClient.connect();
 
     const database = mongoClient.db(dbConfig.database);
     const images = database.collection(dbConfig.imgBucket + ".files");
-    const videos = database.collection("fs" + ".files");
+    //const videos = database.collection("fs" + ".files");
 
-   // const cursor = images.find({});
     const cursor = images.find({});
+    //const cursors = videos.find({});
 
 
     if ((await cursor.count()) === 0) {
@@ -177,6 +172,10 @@ exports.getListFiles = async (req, res) => {
     }
 
     let fileInfos = [];
+    let VideosInfos = [];
+
+    
+
     await cursor.forEach((doc) => {
       fileInfos.push({
         name: doc.filename,
@@ -202,8 +201,7 @@ exports.getListFiles = async (req, res) => {
       message: error.message,
     });
   }
-};
-
+}; 
 exports.download = async (req, res) => {
   try {
     await mongoClient.connect();
@@ -231,9 +229,7 @@ exports.download = async (req, res) => {
       message: error.message,
     });
   }
-};
-
-
+}; 
 exports.resimsil = async (req, res) => {
   try {d
     await mongoClient.connect();
@@ -294,8 +290,7 @@ exports.tumresimlerisil = async (req, res) => {
       });
     }); 
   
-};
-
+}; 
 exports.download = async (req, res) => {
   try {
     await mongoClient.connect();
@@ -323,8 +318,7 @@ exports.download = async (req, res) => {
       message: error.message,
     });
   }
-};
-
+}; 
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -345,23 +339,8 @@ exports.delete = (req, res) => {
         message: "Could not delete resim with id=" + id
       });
     });
-};
-
-exports.deleteAll = (req, res) => {
-  Tarihce.deleteMany({})
-    .then(data => {
-      res.send({
-        message: `${data.deletedCount} bayis were deleted successfully!`
-      });
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all bayis."
-      });
-    });
-};
-
+}; 
+ 
 exports.findAllPublished = (req, res) => {
   Tarihce.find({ published: true })
     .then(data => {

@@ -18,14 +18,14 @@ module.exports = app => {
 
   // router.post("/", /* upload.single('file'), */  tarihce.create);
   // router.get("/", tarihce.findAll);
-   router.get("/sliderresimler", slider.getListFiles);
-   router.delete("/sliderresimler/:id", slider.delete);
+   router.get("/", slider.getListFiles);
+   router.post("/", slider.uploadFiles);
+   router.delete("/:id", slider.delete);
    router.delete("/sliderresimlerisil", slider.tumresimlerisil);
-   router.post("/sliderresimleryukle", slider.uploadFiles);
    router.get("/published", slider.findAllPublished);
    router.get("/:id", slider.findOne);
    router.put("/:id", slider.update);
    router.delete("/:id", slider.delete);
-   router.delete("/", slider.deleteAll);
+ 
   app.use("/slider", router);
 }; 
