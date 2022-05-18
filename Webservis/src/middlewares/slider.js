@@ -7,7 +7,7 @@ var storage = new GridFsStorage({
   url: dbConfig.url + dbConfig.database,
   options: { useNewUrlParser: true, useUnifiedTopology: true },
   file: (req, file) => {
-    const match = ["image/png", "image/jpeg"];
+    const match = ["image/png", "image/jpeg","video/mp4"];
 
     if (match.indexOf(file.mimetype) === -1) {
       const filename = `${Date.now()}-dogsan-${file.originalname}`;

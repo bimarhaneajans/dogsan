@@ -232,11 +232,11 @@ exports.download = async (req, res) => {
 
 
 exports.resimsil = async (req, res) => {
-  try {
+  try {d
     await mongoClient.connect();
     const id = req.params.id;
     const database = mongoClient.db(dbConfig.database);
-    const images = database.collection(dbConfig.tarihceresimler + ".files");
+    const images = database.collection(dbConfig.imgBucket + ".files");
 
     const cursor = images.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
@@ -276,12 +276,12 @@ exports.tumresimlerisil = async (req, res) => {
     await mongoClient.connect();
     const id = req.params.id;
     const database = mongoClient.db(dbConfig.database);
-    const images = database.collection(dbConfig.tarihceresimler + ".files");
+    const images = database.collection(dbConfig.imgBucket + ".files");
 
     images.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} bayis were deleted successfully!`
+        message: `${data.deletedCount}  were deleted successfully!`
       });
     })
     .catch(err => {
@@ -299,7 +299,7 @@ exports.download = async (req, res) => {
 
     const database = mongoClient.db(dbConfig.database);
     const bucket = new GridFSBucket(database, {
-      bucketName: dbConfig.tarihceresimler,
+      bucketName: dbConfig.imgBucket,
     });
 
     let downloadStream = bucket.openDownloadStreamByName(req.params.name);
