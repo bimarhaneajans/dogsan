@@ -218,21 +218,21 @@ const BayiEkle = () => {
 
                   options={kariyer}
                 /> */}
-<>
-  <select
-   type="text"
-   id="kariyer"
-   name="kariyer"
-   value={tutorial.kariyer}
-   onChange={handleInputChange}
-   >
-  {kariyer.map(options =>  <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
-  
-  }
- 
-                </select>
-</>
-             
+                <>
+                  <select
+                    type="text"
+                    id="kariyer"
+                    name="kariyer"
+                    value={tutorial.kariyer}
+                    onChange={handleInputChange}
+                  >
+                    {kariyer.map(options => <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
+
+                    }
+
+                  </select>
+                </>
+
               </div>
               <div className="form-group">
                 <label htmlFor="pozizyon">pozizyon</label>
