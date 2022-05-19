@@ -48,7 +48,10 @@ import "./style.css"
 import "./responsive-styling.css"
 import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
-import IsoTopeGrid from "react-isotope";
+ 
+import "isotope-layout/dist/isotope.pkgd.min.js"
+import {matchesSelector} from "desandro-matches-selector";
+
 
 
 const customStyles = {
@@ -124,14 +127,20 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-
-
-
+/* NOTTTTT:  */
+/*     $('.grid').isotope({
+      // options...
+      itemSelector: '.grid-item',
+      masonry: {
+        columnWidth: 200
+      }
+    });
+ */
 
     // external js: isotope.pkgd.js
 
     // init Isotope
-    var iso = new IsoTopeGrid('.grid', {
+    var iso = new Isotope( '.grid', {
       itemSelector: '.element-item',
       layoutMode: 'fitRows'
     });
@@ -178,6 +187,7 @@ export default function Home() {
     }
 
   }, []);
+  
   const retrieveTutorials = () => {
     KategoriDataService.getAll()
       .then(response => {
