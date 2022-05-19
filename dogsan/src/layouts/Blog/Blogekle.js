@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const AddTutorial = () => {
   const initialTutorialState = {
@@ -21,10 +23,11 @@ const AddTutorial = () => {
     Ozet: "",
     seolink: "",
     icerik: "",
-    
+
     published: false
   };
 
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -37,6 +40,12 @@ const AddTutorial = () => {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [Ozet, ChangeOzet] = useState(initialValue)
+  const [seolink, Changeseolink] = useState(initialValue)
+  const [icerik, Changeicerik] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+  const [published, Changepublished] = useState(initialValue)
   const { size } = typography;
 
   const handleInputChange = event => {
@@ -46,26 +55,26 @@ const AddTutorial = () => {
 
   const saveTutorial = () => {
     var data = {
-      baslik: tutorial.baslik,
-      Ozet: tutorial.Ozet,
-      seolink: tutorial.seolink,
-      icerik: tutorial.icerik,
-      Resim: tutorial.Resim,
+      baslik:JSON.stringify(baslik),
+      Ozet:JSON.stringify(Ozet),
+      seolink:JSON.stringify(seolink),
+      icerik:JSON.stringify(icerik),
+      Resim:JSON.stringify(Resim),
     };
 
     BlogDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-          baslik: response.data.baslik, 
+          baslik: response.data.baslik,
           Ozet: response.data.Ozet,
           seolink: response.data.seolink,
           icerik: response.data.icerik,
           Resimbaslik: response.data.Resimbaslik,
           Resim: response.data.Resim,
-           Resim: response.data.Resim,
+          Resim: response.data.Resim,
           published: response.data.published
-          
+
         });
         setSubmitted(true);
         console.log(response.data);
@@ -105,59 +114,28 @@ const AddTutorial = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="baslik">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  required
-                  value={tutorial.baslik}
-                  onChange={handleInputChange}
-                  name="baslik"
-                />
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
+
               </div>
 
               <div className="form-group">
                 <label htmlFor="Ozet">Ozet</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Ozet"
-                  required
-                  value={tutorial.Ozet}
-                  onChange={handleInputChange}
-                  name="Ozet"
-                />
+                <RichTextEditor name="Ozet" id="Ozet" type="text" style={{ width: "600px" }} value={Ozet} onChange={ChangeOzet} />
               </div>
               <div className="form-group">
-                <label htmlFor="seo">Seo link</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="seolink"
-                  required
-                  value={tutorial.seolink}
-                  onChange={handleInputChange}
-                  name="seolink"
-                />
+                <label htmlFor="seolink">Seo link</label>
+                <RichTextEditor name="seolink" id="seolink" type="text" style={{ width: "600px" }} value={Ozet} onChange={Changeseolink} />
               </div>
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="icerik"
-                  required
-                  value={tutorial.icerik}
-                  onChange={handleInputChange}
-                  name="icerik"
-                />
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={Ozet} onChange={Changeicerik} />
               </div>
 
               <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
+              />
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
