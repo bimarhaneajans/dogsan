@@ -655,7 +655,7 @@ return (
         {kariyer.map(item => (
           <div key={item.id} class="container">
          
-            <button onClick={() => setactive("Pazarlama Birimi")} class={actuve === "Pazarlama Birimi" ? "active" : ""} >{item.kariyeradi}</button>
+            <button name={item.kariyeradi.toString()} value={item.kariyeradi.toString()} onClick={() => setactive(item.kariyeradi)} class={actuve === item.kariyeradi.toString().type ? "active" : ""} >{item.kariyeradi}</button>
             <div className="clearfix"></div> </div>
         ))} 
         <button onClick={() => setactive("İdari Departman")} class={actuve === "İdari Departman" ? "active" : ""} >İdari</button>
