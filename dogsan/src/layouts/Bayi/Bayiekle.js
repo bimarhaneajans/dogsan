@@ -17,8 +17,7 @@ import FileBase64 from 'react-file-base64';
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
 
-const initialValue =
-  '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
 
 function BayiEkle() {
   const initialTutorialState = {
