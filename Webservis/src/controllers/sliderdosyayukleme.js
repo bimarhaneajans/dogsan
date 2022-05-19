@@ -1,5 +1,7 @@
  
 const dbConfig = require("../config/db.config");
+const db = require("../models");
+
 const uploadFile = require("../middlewares/slideruploadfile");
 const fs = require("fs");
  const baseUrl = "http://localhost:3000/resources/static/assets/slidervideos/";
@@ -9,8 +11,22 @@ const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
 const mongoClient = new MongoClient(url);
 const path = require("path");
+const Tarihce = db.sliders;
 
 const upload = async (req, res) => {
+
+  const tarihce = new Tarihce({
+    Yil: req.body.Yil,
+    icerik: req.body.icerik,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
+    published: req.body.published ? req.body.published : false
+  })  
+  tarihce.save(tarihce);
+  console.log(tarihce)
+    
+ 
+
   try {
     await uploadFile(req, res);
 
@@ -55,8 +71,9 @@ const getListFiles = (req, res) => {
         url: baseUrl + file,
       });
     });
+
     JsonObject = JSON.parse(JSON.stringify(fileInfos));
-console.log(JsonObject)
+//console.log(JsonObject)
     res.status(200).send(JSON.stringify(JsonObject));
   });
 };
@@ -73,6 +90,10 @@ const download = (req, res) => {
     }
   });
 };
+
+
+
+
 
 module.exports = {
   upload,

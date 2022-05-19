@@ -49,7 +49,7 @@ export default class CitiesSlider extends React.Component {
         <div className={classNames('slider', { 's--ready': sliderReady })}>
            <div className="slider__slides">
             {this.props.slaty.map((slaty, index) => (
-              console.log(slaty),
+              //console.log(slaty),
               <div
                 className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index  })}
                 key={slaty.ismi}

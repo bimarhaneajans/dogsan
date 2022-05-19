@@ -178,7 +178,7 @@ export default function Home() {
     BlogDataService.getAll()
       .then(response => {
         setBlog(response.data);
-        console.log(response.data);
+       // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -188,7 +188,7 @@ export default function Home() {
     DuyuruDataService.getAll()
       .then(response => {
         setDuyuru(response.data);
-        console.log(response.data);
+       // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -198,7 +198,7 @@ export default function Home() {
     YoneticiDataService.getAll()
       .then(response => {
         setYoneticiler(response.data);
-        console.log(response.data);
+       // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -208,7 +208,7 @@ export default function Home() {
     KariyerDataService.getAll()
       .then(response => {
         setKariyer(response.data);
-        console.log(response.data);
+       // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -305,7 +305,27 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
+<>
+{ 
 
+ 
+   slaty.map(options => 
+   {
+    if (options.url.substr(-3).toString() === "jpg" || "png")
+    {
+      console.log(options.url+"resim")
+    } 
+    if (options.url.substr(-3).toString() === "mp4")
+    {
+      console.log("video")
+    } 
+    
+  } 
+   //console.log(options.url.substr(-3))
+
+   ) 
+}
+</>
           <CitiesSlider slaty={slaty} />
           <div id="slider-wrapper">
 

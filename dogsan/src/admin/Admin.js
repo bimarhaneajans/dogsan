@@ -76,11 +76,7 @@ import BizeUlasin from "layouts/İletisimler/BizeUlasin";
 import Bayiler from "layouts/İletisimler/Bayiler";
 import KatalogDetay from "layouts/kataloglar/Kataloglar";
 import Blog from "layouts/Bloglar/Blog";
- 
-
-
-
-
+  
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();

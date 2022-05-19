@@ -10,10 +10,12 @@ const Bayi = db.bayis;
  
 
 exports.create = (req, res) => { 
-  if (!req.body) {
+  console.log(req.headers);
+ /*  if (!req.body) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
-  }
+  } */
+
   let bayi = new Bayi({
     baslik: req.body.baslik,
     adres: req.body.adres,
@@ -36,8 +38,7 @@ exports.create = (req, res) => {
     } */
   
 
-  bayi
-    .save(bayi)
+  bayi.save(bayi)
     .then(data => {
       res.send(data);
     })
