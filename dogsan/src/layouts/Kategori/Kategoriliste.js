@@ -90,7 +90,7 @@ const Overview = (props) => {
       <div style={{ width: "300px", marginLeft: "275px",marginTop:"20px" }}>
         <br />
         <div className="list row">
-          <div className="col-md-8">
+          <div className="col-md-12">
             <div className="input-group mb-3">
               <input
                 type="text"

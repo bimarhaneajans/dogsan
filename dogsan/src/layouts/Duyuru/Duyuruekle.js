@@ -59,7 +59,7 @@ const Duyuruekle = () => {
 
   const saveTutorial = () => {
     var data = {
-          baslik:JSON.stringify(baslik),
+      baslik:JSON.stringify(baslik),
       icerik:JSON.stringify(icerik),
       kisaaciklama:JSON.stringify(kisaaciklama),
       YoutubeVideoURL:JSON.stringify(YoutubeVideoURL),

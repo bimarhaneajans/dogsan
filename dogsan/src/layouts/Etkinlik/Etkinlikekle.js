@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const AddTutorial = () => {
   const initialTutorialState = {
@@ -34,6 +36,17 @@ const AddTutorial = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [icerik, Changeicerik] = useState(initialValue)
+  const [konum,Changekonum] = useState(initialValue) 
+  const [konumlinki,Changekonumlinki] = useState(initialValue) 
+  const [baslangicTarihi,ChangebaslangicTarihi] = useState(initialValue) 
+  const [bitisTarihi,ChangebitisTarihi] = useState(initialValue)
+  const [Resim,ChangeResim] = useState(initialValue)
+
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -42,13 +55,13 @@ const AddTutorial = () => {
   const saveTutorial = () => {
     var data = {
 
-      baslik: tutorial.baslik,
-      icerik: tutorial.icerik,
-      konum: tutorial.konum,
-      konumlinki: tutorial.konumlinki,
-      baslangicTarihi:tutorial.baslangicTarihi,
-      bitisTarihi:tutorial.bitisTarihi,
-      Resim: tutorial.Resim,
+      baslik: JSON.stringify(baslik),
+      icerik:JSON.stringify(icerik),
+      konum: JSON.stringify(konum),
+      konumlinki: JSON.stringify(konumlinki),
+      baslangicTarihi:JSON.stringify(baslangicTarihi),
+      bitisTarihi:JSON.stringify(bitisTarihi),
+      Resim:JSON.stringify(Resim),
     };
 
     EtkinlikService.create(data)
@@ -103,42 +116,21 @@ const AddTutorial = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="title">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  required
-                  value={tutorial.baslik}
-                  onChange={handleInputChange}
-                  name="baslik"
-                />
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
+
               </div>
 
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="icerik"
-                  required
-                  value={tutorial.icerik}
-                  onChange={handleInputChange}
-                  name="icerik"
-                />
+                <RichTextEditor name="kisaaciklama" id="kisaaciklama" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={Changekisaaciklama} />
+
               </div>
 
             
               <div className="form-group">
                 <label htmlFor="konumlinki">konum linki</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="konumlinki"
-                  required
-                  value={tutorial.konumlinki}
-                  onChange={handleInputChange}
-                  name="konumlinki"
-                />
+                <RichTextEditor name="konumlinki" id="konumlinki" type="text" style={{ width: "600px" }} value={konumlinki} onChange={Changekonumlinki} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="konum">konum</label>
