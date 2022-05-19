@@ -56,7 +56,7 @@ function BayiEkle() {
 
   const saveTutorial = () => {
     var data = {
-      baslik: tutorial.baslik,
+      baslik: JSON.stringify(value),
       adres: tutorial.adres,
       telefon: tutorial.telefon,
       enlem: tutorial.enlem,
@@ -69,7 +69,7 @@ function BayiEkle() {
       .then(response => {
         setTutorial({
           id: response.data.id,
-          baslik: response.data.baslik,
+          baslik: response.data.id,
           adres: response.data.adres,
           telefon: response.data.telefon,
           enlem: response.data.enlem,
@@ -82,7 +82,7 @@ function BayiEkle() {
         });
         setSubmitted(true);
         console.log(response.data);
-        console.log(value)
+        //console.log(value)
       })
       .catch(e => {
         console.log(e);
@@ -119,7 +119,7 @@ function BayiEkle() {
             <div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
-                <RichTextEditor style={{width:"600px"}} value={value} onChange={onChange} />
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{width:"600px"}} value={value} onChange={onChange} />
                </div>
 
 
