@@ -45,7 +45,15 @@ function BayiEkle() {
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
-  const [value, onChange] = useState(initialValue)
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [adres, Changeadres] = useState(initialValue)
+  const [telefon, Changetelefon] = useState(initialValue)
+  const [enlem, Changeenlem] = useState(initialValue)
+  const [sehir, Changesehir] = useState(initialValue)
+  const [boylam, Changeboylam] = useState(initialValue)
+  const [Resimbaslik, ChangeResimbaslik] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+  const [published, Changepublished] = useState(initialValue)
   const { pathname } = useLocation();
   const { size } = typography;
 
@@ -56,13 +64,13 @@ function BayiEkle() {
 
   const saveTutorial = () => {
     var data = {
-      baslik: JSON.stringify(value),
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      sehir: tutorial.sehir,
-      boylam: tutorial.boylam,
-      Resim: tutorial.Resim,
+      baslik: JSON.stringify(baslik),
+      adres: JSON.stringify(adres),
+      telefon: JSON.stringify(telefon),
+      enlem: JSON.stringify(enlem),
+      sehir: JSON.stringify(sehir),
+      boylam: JSON.stringify(boylam),
+      Resim: JSON.stringify(Resim),
     };
 
     BayiDataService.create(data)
@@ -76,7 +84,6 @@ function BayiEkle() {
           sehir: response.data.sehir,
           boylam: response.data.boylam,
           Resimbaslik: response.data.Resimbaslik,
-          Resim: response.data.Resim,
           Resim: response.data.Resim,
           published: response.data.published
         });
@@ -119,79 +126,38 @@ function BayiEkle() {
             <div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
-                <RichTextEditor name="baslik" id="baslik" type="text" style={{width:"600px"}} value={value} onChange={onChange} />
-               </div>
-
-
-
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
+              </div> 
               <div className="form-group">
                 <label htmlFor="adres">adres</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="adres"
-                  required
-                  value={tutorial.adres}
-                  onChange={handleInputChange}
-                  name="adres"
-                />
+                
+                 <RichTextEditor name="adres" id="adres" type="text" style={{ width: "600px" }} value={adres} onChange={Changeadres} />
               </div>
               <div className="form-group">
                 <label htmlFor="Telefon">Şehir</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="sehir"
-                  required
-                  value={tutorial.sehir}
-                  onChange={handleInputChange}
-                  name="sehir"
-                />
+                  <RichTextEditor name="sehir" id="sehir" type="text" style={{ width: "600px" }} value={sehir} onChange={Changesehir} />
               </div>
               <div className="form-group">
                 <label htmlFor="Telefon">Telefon</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  required
-                  value={tutorial.telefon}
-                  onChange={handleInputChange}
-                  name="telefon"
-                />
+                
+                <RichTextEditor name="telefon" id="telefon" type="text" style={{ width: "600px" }} value={telefon} onChange={Changetelefon} />
               </div>
               <div className="form-group">
                 <label htmlFor="Enlem">Enlem</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  required
-                  value={tutorial.enlem}
-                  onChange={handleInputChange}
-                  name="enlem"
-                />
+               
+                   <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={enlem} onChange={Changeenlem} />
               </div>
 
               <div className="form-group">
                 <label htmlFor="boylam">boylam</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  required
-                  value={tutorial.boylam}
-                  onChange={handleInputChange}
-                  name="boylam"
-                />
-              </div>
-
-
+                
+                <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }} value={boylam} onChange={Changeboylam} />
+              </div> 
 
               <FileBase64
                 type="file"
                 multiple={false}
-                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
+                onDone={({ base64 }) => setTutorial({Resim: base64 })}
               />
 
               <button onClick={saveTutorial} className="btn btn-success">
