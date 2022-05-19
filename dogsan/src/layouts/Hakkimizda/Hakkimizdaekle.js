@@ -16,17 +16,18 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const BayiEkle = () => {
+const Hakkımızda = () => {
   const initialTutorialState = {
     id: null,
-    BelgeselBaslik:"",
-    AnaBaslik:"",
+    BelgeselBaslik: "",
+    AnaBaslik: "",
     AnaIcerik: "",
     BelgeselIcerigi: "",
     BelgeselVideoUrl: "",
     published: false
   };
 
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -41,6 +42,14 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [BelgeselBaslik, ChangeBelgeselBaslik] = useState(initialValue)
+  const [AnaBaslik, ChangeAnaBaslik] = useState(initialValue)
+  const [AnaIcerik, ChangeAnaIcerik] = useState(initialValue)
+  const [BelgeselIcerigi, ChangeBelgeselIcerigi] = useState(initialValue)
+  const [baslangicTarihi, ChangebaslangicTarihi] = useState(initialValue)
+  const [BelgeselVideoUrl, ChangebitisTarihi] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -48,20 +57,20 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      BelgeselBaslik:tutorial.BelgeselBaslik,
-      AnaBaslik:tutorial.AnaBaslik,
-      AnaIcerik: tutorial.AnaIcerik,
-      BelgeselIcerigi: tutorial.BelgeselIcerigi,
-      BelgeselVideoUrl: tutorial.BelgeselVideoUrl,
-      Resim: tutorial.Resim,
+      BelgeselBaslik: JSON.stringify(BelgeselBaslik),
+      AnaBaslik: JSON.stringify(AnaBaslik),
+      AnaIcerik: JSON.stringify(AnaIcerik),
+      BelgeselIcerigi: JSON.stringify(BelgeselIcerigi),
+      BelgeselVideoUrl: JSON.stringify(BelgeselVideoUrl),
+      Resim: JSON.stringify(Resim),
     };
 
     HakkimizdaDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-          BelgeselBaslik:response.data.BelgeselBaslik,
-          AnaBaslik:response.data.AnaBaslik,
+          BelgeselBaslik: response.data.BelgeselBaslik,
+          AnaBaslik: response.data.AnaBaslik,
           AnaIcerik: response.data.AnaIcerik,
           BelgeselIcerigi: response.data.BelgeselIcerigi,
           BelgeselVideoUrl: response.data.BelgeselVideoUrl,
@@ -110,41 +119,24 @@ const BayiEkle = () => {
       BelgeselVideoUrl: tutorial.BelgeselVideoUrl,
             */
             <div>
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="bayi">Ana Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="AnaBaslik"
-                  required
-                  value={tutorial.AnaBaslik}
-                  onChange={handleInputChange}
-                  name="AnaBaslik"
-                />
-              </div> 
+
+
+                <RichTextEditor name="AnaBaslik" id="AnaBaslik" type="text" style={{ width: "600px" }} value={AnaBaslik} onChange={ChangeAnaBaslik} />
+              </div>
               <div className="form-group">
                 <label htmlFor="bayi">Ana Icerik</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="AnaIcerik"
-                  required
-                  value={tutorial.AnaIcerik}
-                  onChange={handleInputChange}
-                  name="AnaIcerik"
-                />
-              </div> 
+
+                <RichTextEditor name="AnaIcerik" id="AnaIcerik" type="text" style={{ width: "600px" }} value={AnaIcerik} onChange={ChangeAnaIcerik} />
+
+              </div>
               <div className="form-group">
                 <label htmlFor="BelgeselIcerigi">Belgesel Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="BelgeselBaslik"
-                  required
-                  value={tutorial.BelgeselBaslik}
-                  onChange={handleInputChange}
-                  name="BelgeselBaslik"
-                />
+
+
+                <RichTextEditor name="BelgeselBaslik" id="BelgeselBaslik" type="text" style={{ width: "600px" }} value={BelgeselBaslik} onChange={ChangeBelgeselBaslik} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="BelgeselIcerigi">BelgeselIcerigi</label>
@@ -157,21 +149,19 @@ const BayiEkle = () => {
                   onChange={handleInputChange}
                   name="BelgeselIcerigi"
                 />
+
+                <RichTextEditor name="BelgeselIcerigi" id="BelgeselIcerigi" type="text" style={{ width: "600px" }} value={BelgeselIcerigi} onChange={ChangeBelgeselIcerigi} />
+
               </div>
-               
-               
+
+
 
               <div className="form-group">
                 <label htmlFor="BelgeselVideoUrl">BelgeselVideoUrl</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="BelgeselVideoUrl"
-                  required
-                  value={tutorial.BelgeselVideoUrl}
-                  onChange={handleInputChange}
-                  name="BelgeselVideoUrl"
-                />
+
+
+                <RichTextEditor name="BelgeselVideoUrl" id="BelgeselVideoUrl" type="text" style={{ width: "600px" }} value={BelgeselVideoUrl} onChange={ChangeBelgeselVideoUrl} />
+
               </div>
 
               <FileBase64
@@ -191,4 +181,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default Hakkımızda;

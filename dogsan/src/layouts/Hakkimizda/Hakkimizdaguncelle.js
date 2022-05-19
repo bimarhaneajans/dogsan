@@ -1,4 +1,4 @@
-import React, {useState,useEffect,useMemo, useRef  } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -11,13 +11,17 @@ import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+
+const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+
+
 const Overview = props => {
-  const { id }= useParams();
+  const { id } = useParams();
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
-    BelgeselBaslik:"",
-    AnaBaslik:"",
+    BelgeselBaslik: "",
+    AnaBaslik: "",
     AnaIcerik: "",
     BelgeselIcerigi: "",
     BelgeselVideoUrl: "",
@@ -27,15 +31,26 @@ const Overview = props => {
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
-  
-   const [controller, dispatch] = useSoftUIController();
+
+
+
+  const [BelgeselBaslik, ChangeBelgeselBaslik] = useState(initialValue)
+  const [AnaBaslik, ChangeAnaBaslik] = useState(initialValue)
+  const [AnaIcerik,ChangeAnaIcerik] = useState(initialValue) 
+  const [BelgeselIcerigi,ChangeBelgeselIcerigi] = useState(initialValue) 
+  const [baslangicTarihi,ChangebaslangicTarihi] = useState(initialValue) 
+  const [BelgeselVideoUrl,ChangebitisTarihi] = useState(initialValue)
+  const [Resim,ChangeResim] = useState(initialValue)
+
+
+  const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-   const [onMouseEnter, setOnMouseEnter] = useState(false);
+  const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
 
- 
+
   const getTutorial = id => {
     HakkimizdaDataService.get(id)
       .then(response => {
@@ -58,15 +73,15 @@ const Overview = props => {
 
   const updatePublished = status => {
     var data = {
-        id: currentTutorial.id,
-        baslik: currentTutorial.baslik,
-        icerik: currentTutorial.icerik,
-        konumlinki: currentTutorial.konumlinki,
-        konum: currentTutorial.konum,
-        baslangicTarihi: currentTutorial.baslangicTarihi,
-        bitisTarihi: currentTutorial.bitisTarihi,
-        Resim: currentTutorial.data.Resim,
-        published: status
+      id: currentTutorial.id,
+      baslik: currentTutorial.baslik,
+      icerik: currentTutorial.icerik,
+      konumlinki: currentTutorial.konumlinki,
+      konum: currentTutorial.konum,
+      baslangicTarihi: currentTutorial.baslangicTarihi,
+      bitisTarihi: currentTutorial.bitisTarihi,
+      Resim: currentTutorial.data.Resim,
+      published: status
     };
 
     HakkimizdaDataService.update(currentTutorial.id, data)
@@ -103,31 +118,31 @@ const Overview = props => {
   };
 
   return (
-    <DashboardLayout> 
-        <Sidenav
-            color={sidenavColor}
-            brand={brand}
-            brandName=" DOĞSAN PANEL "
-            routes={routes} 
-          />
-    <div style={{ marginLeft: "100px" }}> 
-      <Header />
-    </div>
+    <DashboardLayout>
+      <Sidenav
+        color={sidenavColor}
+        brand={brand}
+        brandName=" DOĞSAN PANEL "
+        routes={routes}
+      />
+      <div style={{ marginLeft: "100px" }}>
+        <Header />
+      </div>
 
-    <div style={{ width: "300px", marginLeft: "100px" }}>
-      {currentTutorial ? (
-         <div className="edit-form">
-         <div className="card">
-                   <br />
-                   <div className="card-image waves-effect waves-block waves-light">
-                     <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
-                   </div>
-                   <br />
-                 </div>
-      
-          <form>
-           
-            <div className="form-group">
+      <div style={{ width: "300px", marginLeft: "100px" }}>
+        {currentTutorial ? (
+          <div className="edit-form">
+            <div className="card">
+              <br />
+              <div className="card-image waves-effect waves-block waves-light">
+                <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
+              </div>
+              <br />
+            </div>
+
+            <form>
+
+              <div className="form-group">
                 <label htmlFor="bayi">Ana Icerik</label>
                 <input
                   type="text"
@@ -138,7 +153,7 @@ const Overview = props => {
                   onChange={handleInputChange}
                   name="AnaIcerik"
                 />
-              </div> 
+              </div>
 
               <div className="form-group">
                 <label htmlFor="BelgeselIcerigi">BelgeselIcerigi</label>
@@ -152,8 +167,8 @@ const Overview = props => {
                   name="BelgeselIcerigi"
                 />
               </div>
-               
-               
+
+
 
               <div className="form-group">
                 <label htmlFor="BelgeselVideoUrl">BelgeselVideoUrl</label>
@@ -167,61 +182,61 @@ const Overview = props => {
                   name="BelgeselVideoUrl"
                 />
               </div>
-             
+
               <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setCurrentTutorial({ ...currentTutorial, Resim: base64 })}
-              />  
+              />
 
-            <div className="form-group">
-              <label>
-                <strong>Status:</strong>
-              </label>
-              {currentTutorial.published ? "Published" : "Pending"}
-            </div>
-          </form>
+              <div className="form-group">
+                <label>
+                  <strong>Status:</strong>
+                </label>
+                {currentTutorial.published ? "Published" : "Pending"}
+              </div>
+            </form>
 
-          {currentTutorial.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(false)}
-            >
-              UnPublish
+            {currentTutorial.published ? (
+              <button
+                className="badge badge-primary mr-2"
+                onClick={() => updatePublished(false)}
+              >
+                UnPublish
+              </button>
+            ) : (
+              <button
+                className="badge badge-primary mr-2"
+                onClick={() => updatePublished(true)}
+              >
+                Publish
+              </button>
+            )}
+
+            <button className="badge badge-danger mr-2" onClick={deleteTutorial}>
+              Delete
             </button>
-          ) : (
+
             <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(true)}
+              type="submit"
+              className="badge badge-success"
+              onClick={updateTutorial}
             >
-              Publish
+              Update
             </button>
-          )}
+            <p>{message}</p>
+          </div>
+        ) : (
+          <div>
+            <br />
 
-          <button className="badge badge-danger mr-2" onClick={deleteTutorial}>
-            Delete
-          </button>
+          </div>
+        )}
+      </div>
 
-          <button
-            type="submit"
-            className="badge badge-success"
-            onClick={updateTutorial}
-          >
-            Update
-          </button>
-          <p>{message}</p>
-        </div>
-      ) : (
-        <div>
-          <br />
-        
-        </div>
-      )}
-    </div>
-  
 
-</DashboardLayout>
-);
+    </DashboardLayout>
+  );
 }
 
 export default Overview;

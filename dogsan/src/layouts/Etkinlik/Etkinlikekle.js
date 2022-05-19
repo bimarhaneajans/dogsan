@@ -15,7 +15,7 @@ import FileBase64 from 'react-file-base64';
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
 
-const AddTutorial = () => {
+const EtkinlikEkle = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -26,6 +26,9 @@ const AddTutorial = () => {
     bitisTarihi:"",
     published: false
   };
+
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+ 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [controller, dispatch] = useSoftUIController();
@@ -44,7 +47,6 @@ const AddTutorial = () => {
   const [bitisTarihi,ChangebitisTarihi] = useState(initialValue)
   const [Resim,ChangeResim] = useState(initialValue)
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
 
 
   const handleInputChange = event => {
@@ -122,7 +124,7 @@ const AddTutorial = () => {
 
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
-                <RichTextEditor name="kisaaciklama" id="kisaaciklama" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={Changekisaaciklama} />
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={Changeicerik} />
 
               </div>
 
@@ -134,39 +136,18 @@ const AddTutorial = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="konum">konum</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="konum"
-                  required
-                  value={tutorial.konum}
-                  onChange={handleInputChange}
-                  name="konum"
-                />
+                <RichTextEditor name="konum" id="konum" type="text" style={{ width: "600px" }} value={konum} onChange={Changekonum} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="baslangicTarihi">baslangic Tarihi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslangicTarihi"
-                  required
-                  value={tutorial.baslangicTarihi}
-                  onChange={handleInputChange}
-                  name="baslangicTarihi"
-                />
+                <RichTextEditor name="baslangicTarihi" id="baslangicTarihi" type="text" style={{ width: "600px" }} value={konum} onChange={ChangebaslangicTarihi} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="bitisTarihi">bitis Tarihi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="bitisTarihi"
-                  required
-                  value={tutorial.bitisTarihi}
-                  onChange={handleInputChange}
-                  name="bitisTarihi"
-                />
+                <RichTextEditor name="bitisTarihi" id="bitisTarihi" type="text" style={{ width: "600px" }} value={konum} onChange={ChangebitisTarihi} />
+
               </div>
               <FileBase64
                 type="file"
@@ -184,4 +165,4 @@ const AddTutorial = () => {
   );
 };
 
-export default AddTutorial;
+export default EtkinlikEkle;
