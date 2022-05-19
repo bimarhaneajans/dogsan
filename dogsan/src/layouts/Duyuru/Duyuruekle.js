@@ -16,6 +16,9 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
+
 const Duyuruekle = () => {
   const initialTutorialState = {
     id: null,
@@ -27,6 +30,7 @@ const Duyuruekle = () => {
     published: false
   };
 
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -41,6 +45,13 @@ const Duyuruekle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [icerik, Changeicerik] = useState(initialValue)
+  const [kisaaciklama, Changekisaaciklama] = useState(initialValue)
+  const [YoutubeVideoURL, ChangeYoutubeVideoURL] = useState(initialValue)
+  const [Tarih, ChangeTarih] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -48,12 +59,12 @@ const Duyuruekle = () => {
 
   const saveTutorial = () => {
     var data = {
-      baslik: tutorial.baslik,
-      icerik: tutorial.icerik,
-      kisaaciklama: tutorial.kisaaciklama,
-      YoutubeVideoURL: tutorial.YoutubeVideoURL,
-      Tarih: tutorial.Tarih,
-      Resim: tutorial.Resim,
+          baslik:JSON.stringify(baslik),
+      icerik:JSON.stringify(icerik),
+      kisaaciklama:JSON.stringify(kisaaciklama),
+      YoutubeVideoURL:JSON.stringify(YoutubeVideoURL),
+      Tarih:JSON.stringify(Tarih),
+      Resim:JSON.stringify(Resim),
     };
 
     DuyuruDataService.create(data)
@@ -106,72 +117,32 @@ const Duyuruekle = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  required
-                  value={tutorial.baslik}
-                  onChange={handleInputChange}
-                  name="baslik"
-                />
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
               </div>
         
 
               <div className="form-group">
                 <label htmlFor="kisaaciklama">kisaaciklama</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kisaaciklama"
-                  required
-                  value={tutorial.kisaaciklama}
-                  onChange={handleInputChange}
-                  name="kisaaciklama"
-                />
+                <RichTextEditor name="kisaaciklama" id="kisaaciklama" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={Changekisaaciklama} />
+
               </div>
               
   
             <div className="form-group">
-                <label htmlFor="Telefon">Youtube Video URL</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="YoutubeVideoURL"
-                  required
-                  value={tutorial.YoutubeVideoURL}
-                  onChange={handleInputChange}
-                  name="YoutubeVideoURL"
-                />
+                <label htmlFor="YoutubeVideoURL">Youtube Video URL</label>
+                <RichTextEditor name="YoutubeVideoURL" id="YoutubeVideoURL" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={ChangeYoutubeVideoURL} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="icerik"
-                  required
-                  value={tutorial.icerik}
-                  onChange={handleInputChange}
-                  name="icerik"
-                />
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={Changeicerik} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="Tarih">Tarih</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Tarih"
-                  required
-                  value={tutorial.Tarih}
-                  onChange={handleInputChange}
-                  name="Tarih"
-                />
-              </div>
+                <RichTextEditor name="Tarih" id="Tarih" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={ChangeTarih} />
 
-      
-
-            
+              </div> 
 
             <FileBase64
                 type="file"
