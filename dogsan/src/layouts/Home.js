@@ -13,8 +13,7 @@ import SlaytDataService from "../services/SliderService";
 import KariyerDataService from "../services/KariyerService";
 import axios from "axios";
 import { RWebShare } from "react-web-share";
-import $ from "jquery"
-
+import $ from "jquery" 
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
@@ -34,11 +33,8 @@ import icon5 from "../layouts/assets/img/icons/icon-5.png";
 import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
-import s2 from "../layouts/assets/img/icons/s2-ico1.png";
-
-
-import posticon from "../layouts/assets/img/blog/post-icon.png"
-
+import s2 from "../layouts/assets/img/icons/s2-ico1.png"; 
+import posticon from "../layouts/assets/img/blog/post-icon.png" 
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -47,10 +43,7 @@ import "../../src/sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
 import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
-import "./social.css"
-
-
-
+import "./social.css" 
 const customStyles = {
   content: {
     top: '50%',
@@ -60,11 +53,8 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
-};
-
-
-export default function Home() {
-
+}; 
+export default function Home() { 
   const initialMesajState = {
     id: null,
     Subject: '',
@@ -89,12 +79,7 @@ export default function Home() {
   const { pathname } = useLocation();
   const { size } = typography;
   const slides = [];
-
-  const [formValue, setformValue] = React.useState({
-    Subject: '',
-    email: '',
-    Content: '',
-  });
+ 
 
   useEffect(() => {
     retrieveTutorials();
@@ -123,7 +108,7 @@ export default function Home() {
     retrieveKariyer();
   }, []);
 
-  useEffect(() => {
+/*   useEffect(() => {
 
 
     var filterFns = {
@@ -140,11 +125,23 @@ export default function Home() {
       }
     };
 
+    // init Isotope
+    var $grid = $('.grid').isotope({
+      // options
+    });
+    // filter items on button click
+    $('.filter-button-group').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
+
     $('.grid').isotope({
       // options
       itemSelector: '.grid-item',
       layoutMode: 'fitRows'
     });
+
+
 
     // filter items on button click
     $('.filter-button-group').on('click', 'button', function () {
@@ -184,7 +181,7 @@ export default function Home() {
     });
 
 
-  }, []);
+  }, []); */
 
 
   const retrieveTutorials = () => {
@@ -237,9 +234,7 @@ export default function Home() {
       .catch(e => {
         console.log(e);
       });
-  };
-
-
+  }; 
   const retrieveSlayt = () => {
     SlaytDataService.getAll()
       .then(response => {
@@ -255,13 +250,11 @@ export default function Home() {
       .catch(e => {
         console.log(e);
       });
-  };
-
+  }; 
   const setActiveTutorial = (tutorial, index) => {
     setCurrentTutorial(tutorial);
     setCurrentIndex(index);
-  };
-
+  }; 
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -277,28 +270,7 @@ export default function Home() {
   function closeModal() {
     setIsOpen(false);
   }
-
-  /*   const handleSubmit = async() => {
-      // store the states in the form data
-      const loginFormData = new FormData();
-      loginFormData.append("username", formValue.Subject)
-      loginFormData.append("password", formValue.email)
-      loginFormData.append("password", formValue.Content)
-    
-      try {
-  
-        const response = await KariyerDataService.create(loginFormData)
-      } catch(error) {
-        console.log(error)
-      }
-    }
-  
-    const handleChange = (event) => {
-      setformValue({
-        ...formValue,
-        [event.target.name]: event.target.value
-      });
-    } */
+ 
   const handleInputChange = event => {
     const { name, value } = event.target;
     setMesaj({ ...mesaj, [name]: value });
@@ -700,15 +672,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-
-
-
-
-
-
-
-
+        </div> 
         <div >
           <section class="client-div" style={{ marginTop: 50, height: 400 }}>
             <div class="container">
@@ -777,94 +741,7 @@ export default function Home() {
 
           </div>
         </div>
-        {/*     <div id="team">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2">
-                <div className="team-stat text-center">
-                  <h2>AİLEMİZLE TANIŞIN</h2>
-                  <h5>EKİBİMİZLE BÜYÜK BİR AİLEYİZ</h5>
-                  <p className="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız
-                  </p>
-                </div>
-
-                <div className="team-filter-nav text-center">
-                <ul id="filters" class="filter-nav list-inline list-unstyled">
-                    <li><a data-filter="*" className="current" href="#">İDARİ EKİBİMİZ</a></li>
-                    <li><a data-filter=".general" href="#">PAZARLAMA BİRİMİ</a></li>
-                    <li><a data-filter=".laboratory" href="#">ÜRETİM DEPARTMANI</a></li>
-                    <li><a data-filter=".sahaekibi" href="#">SAHA EKİBİMİZ</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            
-               {yoneticiler.map(item => (
-              <div key={item.id} className="row col-xs-12">
-                <div id="container" className="container team-detail">
-
-                  <div className="item general col-md-12">
-
-                    <div className="team-member">
-                      <a data-toggle="modal" data-target="#myModal">
-                        <div className="team-img">
-                          <img src={item.Resim} className="img-responsive" alt="" />
-                        </div>
-                      </a>
-                      <div className="member-details" >
-                        <h6>{item.pozizyon}</h6>
-                        <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
-                        <p>{item.kariyer} </p>
-
-                      </div>
-                    </div>
-                  </div>
-
-
-                </div>
-              </div>))} 
-            <div>
-
-            </div>
-          </div>
-        </div> 
- */}
-
-        {/*    <div id="projects">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div class="blog-stat text-center">
-                  <h2>Blog</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="bottom-space-50"></div>
-              <ul class="projects-wrap">
-                {blog.map(item => (
-
-                  <li key={item.id}>
-                    <img src={item.Resim} class="img-responsive" alt="" />
-                    <div class="overlay">
-                      <div class="overlay-inner">
-                        <h4><span>{item.baslik}</span></h4>
-                        <span class="comments">{item.Ozet}</span>
-                      <a href="#">View more</a> 
-                      </div>
-                    </div>
-
-                  </li>
-                ))}
-              </ul>
-
-            </div>
-          </div>
-        </div> */}
+        
 
         <div className="clearfix"></div>
 
@@ -872,207 +749,7 @@ export default function Home() {
 
         <div id="doctor-info">
           <div className="container">
-            {/* <div className="row">
-              <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                <div className="blog-stat text-center">
-                  <h2>Visit to the doctor</h2>
-                  <h5>Lorem ipsum dolor sit amet</h5>
-                  <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
-              </div>
-            </div> */}
-            {/*  <div className="row">
-            <div className="col-md-5">
-              <form className="appointment-form">
-                <h4>Appointments form</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                <label>NAME AND SURNAME</label>
-                <input type="text" placeholder="Enter your name and surname">
-                  <label>CONTACT PHONE NUMBER</label>
-                  <input type="text" placeholder="Enter phone number">
-                    <label>PATIENT NUMBER</label>
-                    <input type="text" placeholder="Enter patient number">
-                      <div className="row">
-                        <div className="col-md-6">
-                          <label>DATE FROM</label>
-                          <div className='input-group date'>
-                            <input type='text' className="form-control" placeholder="30.01.2013" />
-                            <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                          </div>
-                        </div>
-                        <div className="col-md-6">
-                          <label>DATE TO</label>
-                          <div className='input-group date'>
-                            <input type='text' className="form-control" placeholder="30.01.2013" />
-                            <span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="space20"></div>
-                      <label>HOURLY PREFERENCES</label>
-                      <ul className="hpref">
-                        <li className="active"><a>Morning</a></li>
-                        <li><a>Lunch</a></li>
-                        <li><a>Evening</a></li>
-                      </ul>
-                      <div className="space20"></div>
-                      <div className="clearfix"></div>
-                      <div className="space20"></div>
-                      <div className="submit-wrap row">
-                        <div className="col-md-7 cbox">
-                          <input type="checkbox" /><span>send me copy of message</span>
-                        </div>
-                        <div className="col-md-5">
-                          <button type="submit">Send Message</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div className="col-md-4">
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-1.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>call center 24/7</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-5.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>best specialist</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>modern clinic</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 services-info">
-                        <img className="pull-left icon" src="assets/img/icons/icon-6.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>modern clinic</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                  </div>
-                </div>
-            </div>
-          </div> 
-            <div id="services4" className="services4">
-               <div className="service-bg">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-xs-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-                      <div className="services-stat text-center">
-                        <h2>Services we offer</h2>
-                        <h5>Lorem ipsum dolor sit amet</h5>
-                        <p className="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        <img className="polygon" src="assets/img/general/polygon.png" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> 
-
-               <div className="clearfix"></div>
-              <div className="bottom-space-50"></div>
-              <div className="clearfix"></div>
-              <div className="bottom-space-50"></div>
-              <div className="services-info">
-                <div className="container">
-                  <div className="col-md-6 no-padding service2-right s2-right">
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-right icon" src="assets/img/icons/icon-1.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>call center 24/7</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-right icon" src="assets/img/icons/icon-5.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>best specialist</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-right icon" src="assets/img/icons/icon-6.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>modern clinic</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-6 no-padding s2-info">
-                    <div className="row">
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-left icon" src="assets/img/icons/icon-4.png" alt="icon" />
-                        <div className="info-col ">
-                          <h5>highest quality</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-left icon" src="assets/img/icons/icon-7.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>Health Information</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                      <div className="clearfix"></div>
-                      <div className="bottom-space-50"></div>
-                      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <img className="pull-left icon" src="assets/img/icons/icon-8.png" alt="icon" />
-                        <div className="info-col">
-                          <h5>treatment healthy</h5>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="clearfix"></div>
-              <div className="bottom-space-50"></div>
-            </div> */}
-            {/*   <div class="row">
-              <div class="col-md-12">
-                <div class="bottom-space-50"></div>
-                <ul class="projects-wrap">
-                  {blog.map(item => (
-
-                    <li key={item.id}>
-                      <img src={item.Resim} class="img-responsive" alt="" />
-                      <div class="overlay">
-                        <div class="overlay-inner">
-                          <h4><span>{item.baslik}</span></h4>
-                          <span class="comments">{item.Ozet}</span>
-                         <a href="#">View more</a> 
-                        </div>
-                      </div>
-
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
-            </div> */}
+          
           </div>
           <div id="blog">
             <div className="container">
@@ -1129,50 +806,7 @@ export default function Home() {
 
 
           <div className="clearfix"></div>
-
-          {/* <div id="twitter-feed">
-              <div className="video-bg-overlay"></div>
-              <div className="video-bg">
-
-                <div className="video-container1">
-                  <iframe src="http://player.vimeo.com/video/96635299?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;loop=1" width="100" height="300"></iframe>
-                </div>
-
-              </div>
-               <div className="container">
-                <div className="row">
-                  <div className="col-xs-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 text-center">
-                    <div className="tweet-div">
-                      <h2>Latest Tweets</h2>
-                      <h5>Check out our twitter</h5>
-                      <div id="tweet-slider" className="twitter-icon owl-carousel owl-theme">
-                        <div className="item">
-                          <i className="icon-twitter icon-2x"></i>
-                          <p className="lead">We are hiring! Calling all Ninjas, Rockstars and .... Clerics.<a href=""><u>enva.to/1pGuRf3</u></a></p>
-                          <div className="author-name">
-                            <p>Dominic Monaghan</p>
-                          </div>
-                        </div>
-                        <div className="item">
-                          <i className="icon-twitter icon-2x"></i>
-                          <p className="lead">We are hiring! Calling all Ninjas, Rockstars and .... Clerics.<a href=""><u>enva.to/1pGuRf3</u></a></p>
-                          <div className="author-name">
-                            <p>Dominic Monaghan</p>
-                          </div>
-                        </div>
-                        <div className="item">
-                          <i className="icon-twitter icon-2x"></i>
-                          <p className="lead">We are hiring! Calling all Ninjas, Rockstars and .... Clerics.<a href=""><u>enva.to/1pGuRf3</u></a></p>
-                          <div className="author-name">
-                            <p>Dominic Monaghan</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> 
-            </div>*/}
+ 
           <div id="contact">
             <div className="container">
               <div className="row">
@@ -1209,35 +843,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* <div id="g-map">
-              <div id="map"></div>
-             <div className="row">
-                <div className="container">
-                  <div className="col-md-6">
-                    <div className="app-form">
-                      <form className="appointment-form">
-                        <h4>Appointments form</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid</p>
-                        <label>NAME AND SURNAME</label>
-                        <input type="text" placeholder="Enter your name and surname" />
-                        <label>EMAIL ADDRESS</label>
-                        <input type="text" placeholder="Enter email address" />
-                        <label>MESSAGE</label>
-                        <textarea rows="10" placeholder="Enter your message"></textarea>
-                        <div className="submit-wrap row">
-                          <div className="col-md-7 cbox">
-                            <input type="checkbox" /><span>send me copy of message</span>
-                          </div>
-                          <div className="col-md-5">
-                            <button type="submit">Send Message</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div> 
-            </div>*/}
+         
 
 
           <div className="footer2" style={{ height: "250px" }}>
@@ -1282,18 +888,7 @@ export default function Home() {
           </div>
 
           <div className="footer2-bottom">
-            <div className="container">
-
-              {/* <div className="col-md-6">
-              <ul className="footer-social">
-                <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i className="fa fa-youtube"></i></a></li>
-
-
-              </ul>
-            </div> */}
+            <div className="container"> 
               <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
             </div>
           </div>
@@ -1367,11 +962,8 @@ export default function Home() {
             <i class="fa fa-youtube-play" ></i>
           </a>
         </li>
-      </ul>
-
-    </div>
-
-
+      </ul> 
+    </div> 
   )
 }
 
