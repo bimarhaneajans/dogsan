@@ -1,5 +1,5 @@
 const db = require("../models");
-const upload = require("../middlewares/upload");
+const upload = require("../middlewares/tarihceupload");
 const dbConfig = require("../config/db.config");
 var multer = require('multer');
 var fs = require('fs');

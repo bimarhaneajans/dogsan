@@ -17,9 +17,7 @@ module.exports = app => {
     var upload = multer({ storage: storage }); 
 
      router.post("/", /* upload.single('file'), */  sehir.create);
-  
      router.get("/", sehir.findAll);
-  
      router.get("/published", sehir.findAllPublished);
   
      router.get("/:id", sehir.findOne);

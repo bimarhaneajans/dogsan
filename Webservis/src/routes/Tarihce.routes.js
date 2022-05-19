@@ -16,16 +16,29 @@ module.exports = app => {
   var router = require("express").Router();
   var upload = multer({ storage: storage }); 
 
-  // router.post("/", /* upload.single('file'), */  tarihce.create);
-  // router.get("/", tarihce.findAll);
-   router.get("/tarihceresimler", tarihce.getListFiles);
-   router.delete("/tarihceresimler/:id", tarihce.delete);
-   router.delete("/tarihceresimlerisil", tarihce.tumresimlerisil);
-   router.post("/tarihceresimleryukle", tarihce.uploadFiles);
-   router.get("/published", tarihce.findAllPublished);
-   router.get("/:id", tarihce.findOne);
-   router.put("/:id", tarihce.update);
-   router.delete("/:id", tarihce.delete);
-   router.delete("/", tarihce.deleteAll);
+  // // router.post("/", /* upload.single('file'), */  tarihce.create);
+  // // router.get("/", tarihce.findAll);
+  //  router.get("/tarihceresimler", tarihce.getListFiles);
+  //  router.delete("/tarihceresimler/:id", tarihce.delete);
+  //  //router.delete("/tarihceresimlerisil", tarihce.tumresimlerisil);
+  //  router.post("/tarihceresimleryukle", tarihce.uploadFiles);
+  //  router.get("/published", tarihce.findAllPublished);
+  //  router.get("/:id", tarihce.findOne);
+  //  router.put("/:id", tarihce.update);
+  //  router.delete("/:id", tarihce.delete);
+  //  router.delete("/", tarihce.deleteAll);
+
+  
+  router.post("/", /* upload.single('file'), */  tarihce.create);
+  router.get("/", tarihce.findAll);
+  router.get("/published", tarihce.findAllPublished);
+
+  router.get("/:id", tarihce.findOne);
+
+  router.put("/:id", tarihce.update);
+
+  router.delete("/:id", tarihce.delete);
+
+  router.delete("/", tarihce.deleteAll);
   app.use("/tarihce", router);
 }; 

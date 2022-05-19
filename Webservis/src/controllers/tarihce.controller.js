@@ -1,16 +1,6 @@
 const db = require("../models");
-const upload = require("../middlewares/cokluresimyukleme");
-const dbConfig = require("../config/db.config");
-var multer = require('multer');
-var fs = require('fs');
-var path = require('path');
-var mime = require('mime');
-const MongoClient = require("mongodb").MongoClient;
-const GridFSBucket = require("mongodb").GridFSBucket;
-const url = dbConfig.url;
-const Tarihce = db.Tarihces;
-const mongoClient = new MongoClient(url);
-const baseUrl = "http://localhost:3000/files/";
+  
+const Tarihce = db.Tarihces; 
 
 exports.create = async (req, res) => {
 /*   if (!req.body.Yil) {
@@ -122,6 +112,7 @@ exports.update = (req, res) => {
       });
     });
 }; 
+/*
 exports.uploadFiles = async (req, res) => {
   try {
     await upload(req, res);
@@ -150,7 +141,46 @@ exports.uploadFiles = async (req, res) => {
   }
 };
 
-exports.getListFiles = async (req, res) => {
+exports.getListFiles = (req, res) => {
+  const directoryPath = __basedir + "/public/resources/static/assets/tarihce/";
+  let JsonObject;
+  fs.readdir(directoryPath, function (err, files) {
+    if (err) {
+      res.status(500).send({
+        message: "Unable to scan files!",
+      });
+    }
+
+
+    let fileInfos = [];
+
+    files.forEach((file) => {
+      fileInfos.push({
+        name: file,
+        url: baseUrl + file,
+      });
+    });
+
+    JsonObject = JSON.parse(JSON.stringify(fileInfos));
+//console.log(JsonObject)
+    res.status(200).send(JSON.stringify(JsonObject));
+  });
+};
+
+exports.download = (req, res) => {
+  const fileName = req.params.name;
+  const directoryPath = __basedir + "/public/resources/static/assets/tarihce/";
+
+  res.download(directoryPath + fileName, fileName, (err) => {
+    if (err) {
+      res.status(500).send({
+        message: "Could not download the file. " + err,
+      });
+    }
+  });
+};
+
+ exports.getListFiles = async (req, res) => {
   try {
     await mongoClient.connect();
 
@@ -252,7 +282,7 @@ exports.tumresimlerisil = async (req, res) => {
       });
     }); 
   
-};
+}; 
 
 exports.download = async (req, res) => {
   try {
@@ -281,7 +311,7 @@ exports.download = async (req, res) => {
       message: error.message,
     });
   }
-};
+};*/
 
 exports.delete = (req, res) => {
   const id = req.params.id;
