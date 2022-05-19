@@ -10,23 +10,17 @@ import typography from "assets/theme/base/typography";
 import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
- import { convertFromRaw } from 'draft-js';
+import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-import {Editor, EditorState} from 'draft-js';
+import { Editor, EditorState } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 
 
-function MyEditor() {
-  const [editorState, setEditorState] = React.useState(
-    () => EditorState.createEmpty(),
-  );
 
-  return <Editor editorState={editorState} onChange={setEditorState} />;
-}
 
-const BayiEkle = () => {
+function BayiEkle() {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -38,6 +32,14 @@ const BayiEkle = () => {
     published: false
   };
 
+  const [editorState, setEditorState] = React.useState(() =>
+    EditorState.createEmpty()
+  );
+
+  const editor = React.useRef(null);
+  function focusEditor() {
+    editor.current.focus();
+  }
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -46,7 +48,6 @@ const BayiEkle = () => {
   const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-  const [editorState, setEditorState] = React.useState(() => EditorState.createEmpty(),);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
@@ -80,7 +81,7 @@ const BayiEkle = () => {
           boylam: response.data.boylam,
           Resimbaslik: response.data.Resimbaslik,
           Resim: response.data.Resim,
-           Resim: response.data.Resim,
+          Resim: response.data.Resim,
           published: response.data.published
         });
         setSubmitted(true);
@@ -107,7 +108,7 @@ const BayiEkle = () => {
       <div style={{ marginLeft: "100px" }}>
         <Header />
       </div>
-
+     
       <div style={{ width: "300px", marginLeft: "100px" }}>
         <div className="submit-form">
           {submitted ? (
@@ -119,7 +120,12 @@ const BayiEkle = () => {
             </div>
           ) : (
             <div>
-              
+              <div
+                style={{ border: "1px solid black", minHeight: "6em", cursor: "text" }}
+                onClick={focusEditor}
+              >
+               
+              </div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
                 <input
@@ -130,8 +136,8 @@ const BayiEkle = () => {
                   value={tutorial.baslik}
                   onChange={handleInputChange}
                   name="baslik"
-                /> 
-              </div> 
+                />
+              </div>
 
               <div className="form-group">
                 <label htmlFor="adres">adres</label>
@@ -195,11 +201,18 @@ const BayiEkle = () => {
                 />
               </div>
 
-            <FileBase64
+              <Editor style={{marginTop:"750px"}}
+                  ref={editor}
+                  editorState={editorState}
+                  onChange={setEditorState}
+                  placeholder="Write something!"
+                />
+
+              <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
+              />
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
@@ -208,6 +221,7 @@ const BayiEkle = () => {
           )}
         </div>
       </div>
+      
     </DashboardLayout>
   );
 };

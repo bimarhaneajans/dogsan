@@ -10,6 +10,7 @@
   "author": "dogsa",
   "license": "ISC",
   "dependencies": {
+    "@syncfusion/ej2-react-richtexteditor": "^20.1.56",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "connect-multiparty": "^2.2.0",

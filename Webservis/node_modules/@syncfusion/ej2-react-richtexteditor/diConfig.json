@@ -1,0 +1,198 @@
+{
+    "name": "RichTextEditor",
+    "description": "RichTextEditor Components",
+     "keywords": {
+   "common": ["markdown editor", "HTML5 rich text editor", "wysiwyg", "wysiwyg html editor", "wysiwyg markdown editor"],
+   "angular": ["angular rich text editor", "angular html editor", "angular markdown editor", "angular wysiwyg editor"],
+   "react": ["react rich text editor", "react html editor", "react markdown editor", "react wysiwyg editor"],
+   "vue": ["vue rich text editor", "vue html editor", "vue markdown editor", "vue wysiwyg editor"]
+   },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/syncfusion/ej2-javascript-ui-controls.git"
+    },
+    "eventInterfaces": ["ActionBeginEventArgs", "ActionCompleteEventArgs", "ResizeArgs", "ChangeEventArgs"],
+    "components": [
+        {
+            "baseClass": "RichTextEditor",
+            "directoryName": "rich-text-editor",
+            "type": "form",
+            "preferredTag": "textarea",
+            "reactPreferredTag": "div",
+            "aspContentTemplate": true,
+            "skipEventPropagation": true,
+            "twoWays": [
+                "value"
+            ],
+            "blazorPlaceholder": "richtexteditor",
+            "blazorType": "native",
+            "blazorDependency": [
+                "ej2-base",
+                "ej2-popups",
+                "ej2-inputs/ColorPicker,Uploader",
+                "ej2-inputs/blazor/NumericTextBox",
+                "ej2-popups/blazor/Dialog",
+                "ej2-navigations/blazor/Toolbar",
+                "ej2-splitbuttons/blazor/DropDownButton"
+            ],
+            "dynamicModules": [
+                "Toolbar",
+                "Link",
+                "Image",
+                "Count",
+                "QuickToolbar",
+                "HtmlEditor",
+                "MarkdownEditor",
+                "Table",
+                "PasteCleanup",
+                "Resize",
+                "FileManager"
+            ],
+            "diModuleFiles": [
+                {
+                    "fileName": "quick-toolbar"
+                },
+                {
+                    "fileName": "markdown-editor"
+                },
+                {
+                    "fileName": "link"
+                },
+                {
+                    "fileName": "image"
+                },
+                {
+                    "fileName": "html-editor"
+                },
+                {
+                    "fileName": "count"
+                },
+                {
+                    "fileName": "toolbar"
+                },
+                {
+                    "fileName": "table"
+                },
+                {
+                    "fileName": "paste-clean-up"
+                },
+                {
+                    "fileName": "resize"
+                },
+                {
+                    "fileName": "file-manager"
+                }
+            ],
+            "comment": [
+                "/**",
+                " * `ejs-richtexteditor` represents the Angular richtexteditor Component.",
+                " * ```html",
+                " * <ejs-richtexteditor></ejs-richtexteditor>",
+                " * ```",
+                " */"
+            ],
+            "reactComment": [
+                "/**",
+                " * `RichTextEditor` represents the react RichTextEditor.",
+                " * ```tsx",
+                " * <RichTextEditor/>",
+                " * ```",
+                " */"
+            ],
+            "vueComment": [
+                "/**",
+                " * `ejs-richtexteditor` represents the VueJS RichTextEditor Component.",
+                " * ```vue",
+                " * <ejs-richtexteditor></ejs-richtexteditor>",
+                " * ```",
+                " */"
+            ],
+            "templateProperties": [
+                "valueTemplate"
+            ],
+            "complexDirective": [
+                {
+                    "propertyName": "toolbarSettings",
+                    "baseClass": "ToolbarSettings",
+                    "SelectorName": "e-richtexteditor-toolbarSettings"
+                },
+                {
+                    "propertyName": "quickToolbarSettings",
+                    "baseClass": "QuickToolbarSettings",
+                    "SelectorName": "e-richtexteditor-quickToolbarSettings"
+                },
+                {
+                    "propertyName": "pasteCleanupSettings",
+                    "baseClass": "PasteCleanupSettings",
+                    "SelectorName": "e-richtexteditor-pasteCleanupSettings"
+                },
+                {
+                    "propertyName": "iframeSettings",
+                    "baseClass": "IFrameSettings",
+                    "SelectorName": "e-richtexteditor-iframeSettings"
+                },
+                {
+                    "propertyName": "insertImageSettings",
+                    "baseClass": "ImageSettings",
+                    "SelectorName": "e-richtexteditor-insertImageSettings"
+                },
+                {
+                    "propertyName": "tableSettings",
+                    "baseClass": "TableSettings",
+                    "SelectorName": "e-richtexteditor-tableSettings"
+                },
+                {
+                    "propertyName": "inlineMode",
+                    "baseClass": "InlineMode",
+                    "SelectorName": "e-richtexteditor-inlineMode"
+                },
+                {
+                    "propertyName": "format",
+                    "baseClass": "Format",
+                    "SelectorName": "e-richtexteditor-format"
+                },
+                {
+                    "propertyName": "fontFamily",
+                    "baseClass": "FontFamily",
+                    "SelectorName": "e-richtexteditor-fontFamily"
+                },
+                {
+                    "propertyName": "fontSize",
+                    "baseClass": "FontSize",
+                    "SelectorName": "e-richtexteditor-fontSize"
+                },
+                {
+                    "propertyName": "fontColor",
+                    "baseClass": "FontColor",
+                    "SelectorName": "e-richtexteditor-fontColor"
+                },
+                {
+                    "propertyName": "backgroundColor",
+                    "baseClass": "BackgroundColor",
+                    "SelectorName": "e-richtexteditor-backgroundColor"
+                },
+                {
+                    "propertyName": "formatter",
+                    "isDeprecated": true,
+                    "baseClass": "Formatter",
+                    "SelectorName": "e-richtexteditor-formatter"
+                },
+                {
+                    "propertyName": "fileManagerSettings",
+                    "baseClass": "FileManagerSettings",
+                    "SelectorName": "e-richtexteditor-fileManagerSettings"
+                },
+                {
+                    "propertyName": "bulletFormatList",
+                    "baseClass": "BulletFormatList",
+                    "SelectorName": "e-richtexteditor-bulletFormatList"
+                },
+                {
+                    "propertyName": "numberFormatList",
+                    "baseClass": "NumberFormatList",
+                    "SelectorName": "e-richtexteditor-numberFormatList"
+                }
+            ]
+        }
+    ]
+}
