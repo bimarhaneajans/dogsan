@@ -102,6 +102,14 @@ export default function Home() {
     retrieveSlayt();
   }, []);
 
+  useEffect(() => {
+
+    function getFee(isMember) {
+      return (isMember ? '$2.00' : '$10.00');
+    }
+  }, []);
+
+
 
   useEffect(() => {
 
@@ -258,6 +266,7 @@ export default function Home() {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
+
   function openModal() {
     setIsOpen(true);
   }
@@ -298,23 +307,27 @@ export default function Home() {
       });
   };
   return (
+    
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
           <>
+          
             {
-
+            
 
               slaty.map(options => {
-                if (options.url.substr(-3).toString() === "jpg" || "png") {
+                  const deger=options.url.substr(-4).toString();
+                if (deger === ".jpg") 
+                {
                   console.log(options.url + "resim")
-                }
-                if (options.url.substr(-3).toString() === "mp4") {
-                  console.log("video")
                 }
 
               }
+
+              
                 //console.log(options.url.substr(-3))
+
 
               )
             }
