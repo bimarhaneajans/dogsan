@@ -33,5 +33,5 @@ module.exports = app => {
   
      router.delete("/", TarihceGarleri.deleteAll);
   
-    app.use("/TarihceGarleri", router);
+    app.use("/TarihceGaleri", router);
   }; 

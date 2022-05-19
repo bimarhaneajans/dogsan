@@ -53,7 +53,7 @@ const upload = async (req, res) => {
 };
 
 const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
+  const directoryPath = __basedir + "/public/resources/static/assets/tarihcegaleri/";
   let JsonObject;
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
@@ -80,7 +80,7 @@ const getListFiles = (req, res) => {
 
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
+  const directoryPath = __basedir + "/public/resources/static/assets/tarihcegaleri/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
