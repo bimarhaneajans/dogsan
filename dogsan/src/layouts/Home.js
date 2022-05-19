@@ -89,7 +89,7 @@ export default function Home() {
   const [kariyer, setKariyer] = useState([]);
   const [kariyerr, setKariyerr] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [active, setactive] = useState("");
+  const [actuve, setactive] = useState("");
 
 
   useEffect(() => {
@@ -124,14 +124,14 @@ export default function Home() {
 
 
   useEffect(() => {
-    if (active === "") {
+    if (actuve === "") {
       setFiltered(kariyerr);
       return;
     }
-    const filtered = kariyerr.filter((kariyerr) => kariyerr.kariyeradi.includes(active));
+    const filtered = kariyerr.filter((kariyerr) => kariyerr.kariyeradi.includes(actuve));
     setFiltered(filtered)
    
-  }, [active]);
+  }, [actuve]);
 
 
   const retrieveKariyer = () => {
@@ -651,12 +651,16 @@ return (
 
             </div>
           </div></div>
-        {kariyer.map(item => (
+       {/*  {kariyer.map(item => (
           <div key={item.id} class="container">
 
-            <button onClick={() => setactive(console.log(item.kariyeradi))} class="button" >{item.kariyeradi}</button>
+            <button onClick={() => setactive(console.log(item.kariyeradi))} class={active === item.kariyeradi ? "nur" : ""} >{item.kariyeradi}</button>
             <div className="clearfix"></div> </div>
-        ))}
+        ))} */}
+        <button onClick={() => setactive("İdari Departman")} class={actuve === "İdari Departman" ? "active" : ""} >İdari</button>
+        <button onClick={() => setactive("Ücretim Departman")} class={actuve === "İdari Departman" ? "active" : ""} >Üretim</button>
+        <button onClick={() => setactive("Pazarlama Birimi")} class={actuve === "Pazarlama Birimi" ? "active" : ""} >PAzarlama</button>
+        <button onClick={() => setactive("Saha Ekibimiz")} class={actuve === "Saha Ekibimiz" ? "active" : ""} >Saha</button>
         {filtered.map(item =>(
           <div key={item.id} class="container">
             <h1>Denemememememem</h1>
