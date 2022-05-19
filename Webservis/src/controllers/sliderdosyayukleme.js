@@ -14,7 +14,7 @@ const path = require("path");
 const Tarihce = db.sliders;
 
 const upload = async (req, res) => {
-
+/* 
   const tarihce = new Tarihce({
     Yil: req.body.Yil,
     icerik: req.body.icerik,
@@ -25,7 +25,7 @@ const upload = async (req, res) => {
   tarihce.save(tarihce);
   console.log(tarihce)
     
- 
+  */
 
   try {
     await uploadFile(req, res);

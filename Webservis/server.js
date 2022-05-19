@@ -3,8 +3,6 @@ const cors = require("cors");
 const dbConfig = require("./src/config/db.config");
 const app = express();
 const path = require("path");
-var bodyParser = require('body-parser')
-
 //http://localhost:3000/resources/static/assets/slidervideos/
  
 
@@ -26,14 +24,10 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-//app.use(express.json({limit: "5000mb",extended:true}));
+app.use(express.json({limit: "5000mb",extended:true}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
- //app.use(express.urlencoded({ extended: false })); //form-data islemleri icin extended:  false yaptım  form-data oldu
-
-
-bodyParser.urlencoded({ extended: false })
-app.use(bodyParser.json())
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 const db = require("./src/models");
 const Role = db.role;
@@ -53,7 +47,8 @@ let options = {
 };
 
 app.use(express.static("public", options));
-
+//you can use https://favicon.io/favicon-generator/ to create the favicon.ico
+//assets
 db.mongoose
   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,

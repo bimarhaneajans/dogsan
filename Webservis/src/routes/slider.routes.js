@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/sliderdosyayukleme");
-
+const controllers = require("../controllers/slider.controller");
   
 
 module.exports = app => { 
@@ -23,6 +23,13 @@ module.exports = app => {
     router.post("/", controller.upload);
     router.get("/files", controller.getListFiles);
     router.get("/files/:name", controller.download);
+    router.post("/", controllers.create);  /* upload.single('file'), */
+    router.get("/", controllers.findAll);
+    router.get("/published", controllers.findAllPublished);
+    router.get("/:id", controllers.findOne);
+    router.put("/:id", controllers.update);
+    router.delete("/:id", controllers.delete);
+    router.delete("/", controllers.deleteAll);
   
     app.use("/slider", router);
   };
