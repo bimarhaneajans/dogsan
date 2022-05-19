@@ -123,44 +123,68 @@ export default function Home() {
     retrieveKariyer();
   }, []);
 
-  /* useEffect(() => {
-       // Isotope Plugin
-  $( function() {
-    "use strict";
-      // init Isotope
+  useEffect(() => {
+
+
+    var filterFns = {
+      // show if number is greater than 50
+      numberGreaterThan50: function () {
+        // use $(this) to get item element
+        var number = $(this).find('.number').text();
+        return parseInt(number, 10) > 50;
+      },
+      // show if name ends with -ium
+      ium: function () {
+        var name = $(this).find('.name').text();
+        return name.match(/ium$/);
+      }
+    };
+
+    $('.grid').isotope({
+      // options
+      itemSelector: '.grid-item',
+      layoutMode: 'fitRows'
+    });
+
+    // filter items on button click
+    $('.filter-button-group').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      // use filter function if value matches
+      filterValue = filterFns[filterValue] || filterValue;
+      $grid.isotope({ filter: filterValue });
+    });
+
+    $(function () {
       var $container = $('#container').isotope({
         itemSelector: '.item',
         layoutMode: 'fitRows'
-          });
-      
-      // bind filter button click
-      $('#filters').on( 'click', 'a', function() {
-        var filterValue = $( this ).attr('data-filter');
-        // use filterFn if matches value
-        filterValue = filterFns[ filterValue ] || filterValue;
+      });
+
+      $('#filters').on('click', 'a', function () {
+        var filterValue = $(this).attr('data-filter');
+        filterValue = filterFns[filterValue] || filterValue;
         $container.isotope({ filter: filterValue });
       });
-      // change is-checked class on buttons
-      $('#filters a').click(function(){
-            $('#filters .current').removeClass('current');
-            $(this).addClass('current');
-     
-            var selector = $(this).attr('data-filter');
-            $container.isotope({
-                filter: selector,
-                animationOptions: {
-                    duration: 750,
-                    easing: 'linear',
-                    queue: false
-                }
-             });
-             return false;
-        }); 
-      
-    });
-    
+      $('#filters a').click(function () {
+        $('#filters .current').removeClass('current');
+        $(this).addClass('current');
 
-  }, []); */
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+          filter: selector,
+          animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+          }
+        });
+        return false;
+      });
+
+    });
+
+
+  }, []);
 
 
   const retrieveTutorials = () => {
@@ -178,7 +202,7 @@ export default function Home() {
     BlogDataService.getAll()
       .then(response => {
         setBlog(response.data);
-       // console.log(response.data);
+        // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -188,7 +212,7 @@ export default function Home() {
     DuyuruDataService.getAll()
       .then(response => {
         setDuyuru(response.data);
-       // console.log(response.data);
+        // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -198,7 +222,7 @@ export default function Home() {
     YoneticiDataService.getAll()
       .then(response => {
         setYoneticiler(response.data);
-       // console.log(response.data);
+        // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -208,31 +232,31 @@ export default function Home() {
     KariyerDataService.getAll()
       .then(response => {
         setKariyer(response.data);
-       // console.log(response.data);
+        // console.log(response.data);
       })
       .catch(e => {
         console.log(e);
       });
   };
-  
+
 
   const retrieveSlayt = () => {
     SlaytDataService.getAll()
       .then(response => {
         const persons = response.data;
- 
-       setSlayt(persons)
-      //);
- //console.log(persons)
-      
-       
+
+        setSlayt(persons)
+        //);
+        //console.log(persons)
+
+
 
       })
       .catch(e => {
         console.log(e);
       });
   };
-  
+
   const setActiveTutorial = (tutorial, index) => {
     setCurrentTutorial(tutorial);
     setCurrentIndex(index);
@@ -305,27 +329,24 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-<>
-{ 
+          <>
+            {
 
- 
-   slaty.map(options => 
-   {
-    if (options.url.substr(-3).toString() === "jpg" || "png")
-    {
-      console.log(options.url+"resim")
-    } 
-    if (options.url.substr(-3).toString() === "mp4")
-    {
-      console.log("video")
-    } 
-    
-  } 
-   //console.log(options.url.substr(-3))
 
-   ) 
-}
-</>
+              slaty.map(options => {
+                if (options.url.substr(-3).toString() === "jpg" || "png") {
+                  console.log(options.url + "resim")
+                }
+                if (options.url.substr(-3).toString() === "mp4") {
+                  console.log("video")
+                }
+
+              }
+                //console.log(options.url.substr(-3))
+
+              )
+            }
+          </>
           <CitiesSlider slaty={slaty} />
           <div id="slider-wrapper">
 
@@ -513,7 +534,7 @@ export default function Home() {
                             <button onClick={saveTutorial} className="btn btn-success">
                               Submit
                             </button>
-                        {/*     <button type="submit" onClick={closeModal}>close</button> */}
+                            {/*     <button type="submit" onClick={closeModal}>close</button> */}
                           </div>
                         </div>
 
@@ -610,7 +631,7 @@ export default function Home() {
                         <button onClick={saveTutorial} className="btn btn-success">
                           Submit
                         </button>
-                     {/*    <button type="submit" onClick={closeModal}>close</button> */}
+                        {/*    <button type="submit" onClick={closeModal}>close</button> */}
                       </div>
                     </div>
 
@@ -1084,7 +1105,7 @@ export default function Home() {
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare
                             data={{
                               text: "Blog paylaşım linki",
-                              url: "/Blog/"+item.id,
+                              url: "/Blog/" + item.id,
                               title: "Flamingos",
                             }}
                             onClick={() => console.log("shared successfully!")}
@@ -1095,7 +1116,7 @@ export default function Home() {
                         </ul>
                       </div>
                       <div className="text-center"><Link to={"/Blog/" + item.id} className="nav-link">Göster</Link></div>
-                      
+
                       <div>
 
                       </div>
