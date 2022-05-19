@@ -16,7 +16,7 @@ import FileBase64 from 'react-file-base64';
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
 
-const AddTutorial = () => {
+const DegerEkle = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -29,10 +29,12 @@ const AddTutorial = () => {
   const [submitted, setSubmitted] = useState(false);
    const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+
   const [baslik, Changebaslik] = useState(initialValue)
   const [Content, ChangeContent] = useState(initialValue)
   const [kisaaciklama, Changekisaaciklama] = useState(initialValue)
   const [Resim, ChangeResim] = useState(initialValue)
+
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
@@ -47,7 +49,6 @@ const AddTutorial = () => {
 
   const saveTutorial = () => {
     var data = {
-     
           baslik:JSON.stringify(baslik),
           Content:  JSON.stringify(Content),
           kisaaciklama:JSON.stringify(kisaaciklama),
@@ -132,4 +133,4 @@ const AddTutorial = () => {
   );
 };
 
-export default AddTutorial;
+export default DegerEkle;
