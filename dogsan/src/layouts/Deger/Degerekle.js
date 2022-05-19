@@ -13,7 +13,9 @@ import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
- 
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
+
 const AddTutorial = () => {
   const initialTutorialState = {
     id: null,
@@ -22,15 +24,21 @@ const AddTutorial = () => {
     kisaaciklama:  "",
     published: false
   };
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
    const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
- 
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [Content, ChangeContent] = useState(initialValue)
+  const [kisaaciklama, Changekisaaciklama] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+
+  
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -40,10 +48,11 @@ const AddTutorial = () => {
   const saveTutorial = () => {
     var data = {
      
-          baslik: tutorial.baslik,
-          Content:  tutorial.Content,
-          kisaaciklama:tutorial.kisaaciklama,
-          Resim: tutorial.Resim,
+          baslik:JSON.stringify(baslik),
+          Content:  JSON.stringify(Content),
+          kisaaciklama:JSON.stringify(kisaaciklama),
+          Resim: JSON.stringify(Resim),
+          
     };
 
     DegerServis.create(data)
@@ -95,41 +104,17 @@ const AddTutorial = () => {
           <div>
             <div className="form-group">
               <label htmlFor="title">Başlık</label>
-              <input
-                type="text"
-                className="form-control"
-                id="baslik"
-                required
-                value={tutorial.baslik}
-                onChange={handleInputChange}
-                name="baslik"
-              />
+              <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
             </div>
 
             <div className="form-group">
               <label htmlFor="Content">Content</label>
-              <input
-                type="text"
-                className="form-control"
-                id="Content"
-                required
-                value={tutorial.Content}
-                onChange={handleInputChange}
-                name="Content"
-              />
+              <RichTextEditor name="Content" id="Content" type="text" style={{ width: "600px" }} value={Content} onChange={ChangeContent} />
             </div>
 
             <div className="form-group">
               <label htmlFor="kisaaciklama">Kısa Açıklama</label>
-              <input
-                type="text"
-                className="form-control"
-                id="kisaaciklama"
-                required
-                value={tutorial.kisaaciklama}
-                onChange={handleInputChange}
-                name="kisaaciklama"
-              />
+              <RichTextEditor name="kisaaciklama" id="kisaaciklama" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={Changekisaaciklama} />
             </div>
             <FileBase64
                 type="file"
