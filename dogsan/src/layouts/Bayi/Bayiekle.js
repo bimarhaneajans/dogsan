@@ -14,11 +14,11 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-import { Editor, EditorState } from 'draft-js';
 import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
-
-
+const initialValue =
+  '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
 
 function BayiEkle() {
   const initialTutorialState = {
@@ -32,14 +32,9 @@ function BayiEkle() {
     published: false
   };
 
-  const [editorState, setEditorState] = React.useState(() =>
-    EditorState.createEmpty()
-  );
 
-  const editor = React.useRef(null);
-  function focusEditor() {
-    editor.current.focus();
-  }
+
+
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -50,6 +45,7 @@ function BayiEkle() {
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
+  const [value, onChange] = useState(initialValue)
   const { pathname } = useLocation();
   const { size } = typography;
 
@@ -86,6 +82,7 @@ function BayiEkle() {
         });
         setSubmitted(true);
         console.log(response.data);
+        console.log(value)
       })
       .catch(e => {
         console.log(e);
@@ -108,36 +105,24 @@ function BayiEkle() {
       <div style={{ marginLeft: "100px" }}>
         <Header />
       </div>
-     
+
       <div style={{ width: "300px", marginLeft: "100px" }}>
         <div className="submit-form">
           {submitted ? (
             <div>
-              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
+              <h4>Başarılı ! Yeniden Eklemek ister misin ?</h4>
               <button className="btn btn-success" onClick={newTutorial}>
-                Ekle
+                Add
               </button>
             </div>
           ) : (
             <div>
-              <div
-                style={{ border: "1px solid black", minHeight: "6em", cursor: "text" }}
-                onClick={focusEditor}
-              >
-               
-              </div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  required
-                  value={tutorial.baslik}
-                  onChange={handleInputChange}
-                  name="baslik"
-                />
-              </div>
+                <RichTextEditor style={{width:"600px"}} value={value} onChange={onChange} />
+               </div>
+
+
 
               <div className="form-group">
                 <label htmlFor="adres">adres</label>
@@ -201,12 +186,7 @@ function BayiEkle() {
                 />
               </div>
 
-              <Editor style={{marginTop:"750px"}}
-                  ref={editor}
-                  editorState={editorState}
-                  onChange={setEditorState}
-                  placeholder="Write something!"
-                />
+
 
               <FileBase64
                 type="file"
@@ -221,7 +201,7 @@ function BayiEkle() {
           )}
         </div>
       </div>
-      
+
     </DashboardLayout>
   );
 };
