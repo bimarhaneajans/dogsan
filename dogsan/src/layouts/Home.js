@@ -692,44 +692,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* 
-          {filtered.map(item => (
-            <div key={item.id} class="container">
-
-              <div className="row">
-                <div class="col-md-6">
-                  <div class="team-member">
-
-                    <div class="team-img">
-                      <img src={item.Resim} class="img-responsive" alt="" />
-                    </div>
-
-                    <div class="member-details">
-                      <h6>{item.pozizyon}</h6>
-                      <h4>{item.yoneticiadi}{item.yoneticisoyadi}</h4>
-                      <p>{item.kariyer} </p>
-                      <div class="member-social">
-                        <h6>Sosyal Profiller</h6>
-                        <ul class="list-inline list-unstyled pull-right social">
-                          <li><a href="#"><i class="fa fa-twitter"></i>{item.twitter}</a></li>
-                          <li><a href="#"><i class="fa fa-facebook"></i>{item.facebook}</a></li>
-                          <li><a href="#"><i class="fa fa-linkedin"></i>{item.linkedin}</a></li>
-                          <li><a href="#"><i class="fa fa-google-plus"></i>{item.googleplus}</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div><div className="clearfix"></div>
-            </div>))} */}
-
-
-
-
-
         <div className="clearfix"></div>
-
-
 
         <div id="doctor-info">
           <div className="container">
@@ -753,7 +716,7 @@ export default function Home() {
                     <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                       <div className="blog-post">
                         <div className="post-img">
-                          <img src={item.Resim} className="img-responsive" alt="" />
+                          <img src={item.Resim} style={{ height: "350px",width: "480px" }} className="img-responsive" alt="" />
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
@@ -771,7 +734,7 @@ export default function Home() {
                             }}
                             onClick={() => console.log("shared successfully!")}
                           >
-                            <button>Paylaş 🔗</button>
+                            <button className="btn btn-primary" >Paylaş 🔗</button>
                           </RWebShare></a></li>
                           <li className="post-links"><a href=""><i className="icon-calendar"></i>{(dateFormat(item.createdAt.slice(0, -14), "dd/mm/yyyy"))} </a></li>
                         </ul>
