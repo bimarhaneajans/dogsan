@@ -128,7 +128,7 @@ export default function Home() {
       setFiltered(kariyerr);
       return;
     }
-    const filtered = kariyerr.filter((kariyerr) => kariyerr.kariyeradi.includes(actuve));
+    const filtered = kariyerr.filter((kariyerr) => kariyerr.kariyer.includes(actuve));
     setFiltered(filtered)
    
   }, [actuve]);
@@ -139,7 +139,7 @@ export default function Home() {
     (response => {
         setKariyer(response.data)
         setKariyerr(response.data)
-        setFiltered(response.data)
+        
                  })
                  .catch (e => { // console.log(response.data);
     console.log(e);
@@ -180,8 +180,10 @@ const retrieveDuyuru = () => {
 const retrieveYoneticiler = () => {
   YoneticiDataService.getAll()
     .then(response => {
-      setYoneticiler(response.data);
+      setYoneticiler(response.data)
       // console.log(response.data);
+      setFiltered(response.data)
+      setKariyerr(response.data)
     })
     .catch(e => {
       console.log(e);
@@ -651,20 +653,21 @@ return (
 
             </div>
           </div></div>
-       {/*  {kariyer.map(item => (
+        {kariyer.map(item => (
           <div key={item.id} class="container">
 
-            <button onClick={() => setactive(console.log(item.kariyeradi))} class={active === item.kariyeradi ? "nur" : ""} >{item.kariyeradi}</button>
+            <button onClick={() => setactive(console.log(item.kariyeradi.toString()))} class={actuve === item.kariyeradi.toString() ? "active" : ""} >{item.kariyeradi}</button>
             <div className="clearfix"></div> </div>
-        ))} */}
+        ))} 
         <button onClick={() => setactive("İdari Departman")} class={actuve === "İdari Departman" ? "active" : ""} >İdari</button>
-        <button onClick={() => setactive("Ücretim Departman")} class={actuve === "İdari Departman" ? "active" : ""} >Üretim</button>
+        <button onClick={() => setactive("Üretim Departmanı")} class={actuve === "Üretim Departmanı" ? "active" : ""} >Üretim</button>
         <button onClick={() => setactive("Pazarlama Birimi")} class={actuve === "Pazarlama Birimi" ? "active" : ""} >PAzarlama</button>
         <button onClick={() => setactive("Saha Ekibimiz")} class={actuve === "Saha Ekibimiz" ? "active" : ""} >Saha</button>
         {filtered.map(item =>(
           <div key={item.id} class="container">
             <h1>Denemememememem</h1>
-           <div>{item.kariyeradi}</div> 
+            <h4>{item.yoneticiadi}{item.yoneticisoyadi}</h4>
+                    <p>{item.kariyer} </p>
             <div className="clearfix"></div> </div>
         ))}
         {yoneticiler.map(item => (
