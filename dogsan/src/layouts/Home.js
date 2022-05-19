@@ -138,7 +138,6 @@ export default function Home() {
     KariyerDataService.getAll().then
     (response => {
         setKariyer(response.data)
-        setKariyerr(response.data)
         
                  })
                  .catch (e => { // console.log(response.data);
@@ -655,8 +654,8 @@ return (
           </div></div>
         {kariyer.map(item => (
           <div key={item.id} class="container">
-
-            <button onClick={() => setactive(console.log(item.kariyeradi.toString()))} class={actuve === item.kariyeradi.toString() ? "active" : ""} >{item.kariyeradi}</button>
+         
+            <button onClick={() => setactive("Pazarlama Birimi")} class={actuve === "Pazarlama Birimi" ? "active" : ""} >{item.kariyeradi}</button>
             <div className="clearfix"></div> </div>
         ))} 
         <button onClick={() => setactive("İdari Departman")} class={actuve === "İdari Departman" ? "active" : ""} >İdari</button>
