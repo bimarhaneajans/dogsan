@@ -1,12 +1,13 @@
 module.exports = app => {
   const tarihce = require("../controllers/tarihce.controller.js");
+  const taricedosyayuke = require("../controllers/tarihcedosyayukleme");
 
   var multer = require('multer');
 
   var storage = multer.diskStorage({
     destination: (req, file, cb) => {
 
-      cb(null, 'uploads')
+      cb(null, 'tarihce')
     },
     filename: (req, file, cb) => {
       let ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
@@ -28,10 +29,10 @@ module.exports = app => {
   //  router.delete("/:id", tarihce.delete);
   //  router.delete("/", tarihce.deleteAll);
 
-  router.post("/", controller.upload);
-  router.get("/files", controller.getListFiles);
-  router.get("/files/:name", controller.download);
-  
+  router.post("/upload", taricedosyayuke.upload);
+  router.get("/files", taricedosyayuke.getListFiles);
+  router.get("/files/:name", taricedosyayuke.download);
+
   router.post("/",tarihce.create);
   router.get("/", tarihce.findAll);
   router.get("/published", tarihce.findAllPublished);

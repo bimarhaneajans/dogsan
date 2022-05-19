@@ -1,6 +1,6 @@
 module.exports = app => {
     const TarihceGarleri = require("../controllers/tarihceGarleri.controller.js");
-  
+    const tarihcedosyayukleme = require("../controllers/tarihcegaleridosyayukleme");
     var multer = require('multer');
 
     var storage = multer.diskStorage({
@@ -16,6 +16,9 @@ module.exports = app => {
     var router = require("express").Router();
     var upload = multer({ storage: storage }); 
 
+    router.post("/upload", tarihcedosyayukleme.upload);
+    router.get("/files", tarihcedosyayukleme.getListFiles);
+    router.get("/files/:name", tarihcedosyayukleme.download);
      router.post("/", /* upload.single('file'), */  TarihceGarleri.create);
   
      router.get("/", TarihceGarleri.findAll);

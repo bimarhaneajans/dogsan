@@ -4,7 +4,7 @@ const db = require("../models");
 
 const uploadFile = require("../middlewares/slideruploadfile");
 const fs = require("fs");
- const baseUrl = "http://localhost:3000/resources/static/assets/slidervideos/";
+ const baseUrl = "http://localhost:3000/resources/static/assets/TarihceGarleri/";
  
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
@@ -53,7 +53,7 @@ const upload = async (req, res) => {
 };
 
 const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
+  const directoryPath = __basedir + "/public/resources/static/assets/TarihceGarleri/";
   let JsonObject;
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
@@ -80,7 +80,7 @@ const getListFiles = (req, res) => {
 
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
+  const directoryPath = __basedir + "/public/resources/static/assets/TarihceGarleri/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
