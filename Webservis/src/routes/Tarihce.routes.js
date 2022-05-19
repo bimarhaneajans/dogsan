@@ -28,17 +28,16 @@ module.exports = app => {
   //  router.delete("/:id", tarihce.delete);
   //  router.delete("/", tarihce.deleteAll);
 
+  router.post("/", controller.upload);
+  router.get("/files", controller.getListFiles);
+  router.get("/files/:name", controller.download);
   
-  router.post("/", /* upload.single('file'), */  tarihce.create);
+  router.post("/",tarihce.create);
   router.get("/", tarihce.findAll);
   router.get("/published", tarihce.findAllPublished);
-
   router.get("/:id", tarihce.findOne);
-
   router.put("/:id", tarihce.update);
-
   router.delete("/:id", tarihce.delete);
-
   router.delete("/", tarihce.deleteAll);
   app.use("/tarihce", router);
 }; 
