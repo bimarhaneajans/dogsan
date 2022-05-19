@@ -889,6 +889,7 @@ ul.doctor-list li h6 {
 	letter-spacing: 1px;
 	padding: 15px 20px 12px;
 	border: 1px solid #eaeaea;
+	display: inline;
 }
 
 #team .team-filter-nav li a:hover,
