@@ -29,7 +29,7 @@ const MesajlarEkle = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -58,7 +58,7 @@ const MesajlarEkle = () => {
       Subject: JSON.stringify(Subject),
       email: JSON.stringify(email),
       Content: JSON.stringify(Content),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     MesajlarService.create(data)

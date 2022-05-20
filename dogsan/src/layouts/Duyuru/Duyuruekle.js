@@ -30,7 +30,7 @@ const Duyuruekle = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -64,7 +64,7 @@ const Duyuruekle = () => {
       kisaaciklama:JSON.stringify(kisaaciklama),
       YoutubeVideoURL:JSON.stringify(YoutubeVideoURL),
       Tarih:JSON.stringify(Tarih),
-      Resim:JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     DuyuruDataService.create(data)

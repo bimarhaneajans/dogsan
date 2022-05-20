@@ -28,7 +28,7 @@ const Hakkımızda = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -63,7 +63,7 @@ const Hakkımızda = () => {
       AnaIcerik: JSON.stringify(AnaIcerik),
       BelgeselIcerigi: JSON.stringify(BelgeselIcerigi),
       BelgeselVideoUrl: JSON.stringify(BelgeselVideoUrl),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     HakkimizdaDataService.create(data)

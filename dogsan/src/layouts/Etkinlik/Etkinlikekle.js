@@ -27,7 +27,7 @@ const EtkinlikEkle = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
  
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -63,7 +63,7 @@ const EtkinlikEkle = () => {
       konumlinki: JSON.stringify(konumlinki),
       baslangicTarihi:JSON.stringify(baslangicTarihi),
       bitisTarihi:JSON.stringify(bitisTarihi),
-      Resim:JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     EtkinlikService.create(data)

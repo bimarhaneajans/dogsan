@@ -35,7 +35,7 @@ const YoneticiEkle = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [kariyer, setKariyer] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -78,7 +78,7 @@ const YoneticiEkle = () => {
       facebook: tutorial.facebook,
       linkedin: tutorial.linkedin,
       googleplus: tutorial.googleplus,
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     YoneticilerDataService.create(data)
