@@ -46,6 +46,7 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
+      id: tutorial.id,
       ismi: tutorial.ismi,
       slidetipi: tutorial.slidetipi,
       siralama: tutorial.siralama, 
