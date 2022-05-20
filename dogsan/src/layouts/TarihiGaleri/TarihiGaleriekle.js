@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo, useRef,Component } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -15,185 +15,202 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import UploadService from "../../services/TarihceGaleriresim.service.js";
+   
+export default class UploadImages extends Component {
+  constructor(props) {
+    super(props);
+    this.selectFiles = this.selectFiles.bind(this);
+    this.upload = this.upload.bind(this);
+    this.uploadImages = this.uploadImages.bind(this);
 
-const BayiEkle = () => {
-  const initialTutorialState = {
-    id: null,
-    baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
-    published: false
-  };
+    this.state = {
+      selectedFiles: undefined,
+      previewImages: [],
+      progressInfos: [],
+      message: [],
 
-
-  const [tutorial, setTutorial] = useState(initialTutorialState);
-  const [submitted, setSubmitted] = useState(false);
-  const [currentTutorial, setCurrentTutorial] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(-1);
-  const [searchTitle, setSearchTitle] = useState("");
-  const [controller, dispatch] = useSoftUIController();
-  const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-
-  const [onMouseEnter, setOnMouseEnter] = useState(false);
-  const [rtlCache, setRtlCache] = useState(null);
-  const { pathname } = useLocation();
-  const { size } = typography;
-
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setTutorial({ ...tutorial, [name]: value });
-  };
-
-  const saveTutorial = () => {
-    var data = {
-      baslik: tutorial.baslik,
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      enlem: tutorial.enlem,
-      boylam: tutorial.boylam,
-      Resim: tutorial.Resim,
+      imageInfos: [],
     };
+  }
 
-    BayiDataService.create(data)
-      .then(response => {
-        setTutorial({
-          id: response.data.id,
-          baslik: response.data.baslik,
-          adres: response.data.adres,
-          telefon: response.data.telefon,
-          enlem: response.data.enlem,
-          boylam: response.data.boylam,
-          Resimbaslik: response.data.Resimbaslik,
-          Resim: response.data.Resim,
-           Resim: response.data.Resim,
-          published: response.data.published
-        });
-        setSubmitted(true);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
+
+
+  componentDidMount() {
+    UploadService.getFiles().then((response) => {
+      this.setState({
+        imageInfos: response.data,
       });
-  };
+    });
+  }
 
-  const newTutorial = () => {
-    setTutorial(initialTutorialState);
-    setSubmitted(false);
-  };
+  selectFiles(event) {
+    let images = [];
 
-  return (
-    <DashboardLayout>
-      <Sidenav
-        color={sidenavColor}
-        brand={brand}
-        brandName=" DOĞSAN PANEL "
-        routes={routes}
-      />
-      <div style={{ marginLeft: "100px" }}>
-        <Header />
-      </div>
+    for (let i = 0; i < event.target.files.length; i++) {
+      images.push(URL.createObjectURL(event.target.files[i]))
+    }
 
-      <div style={{ width: "300px", marginLeft: "100px" }}>
-        <div className="submit-form">
-          {submitted ? (
-            <div>
-              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
-              <button className="btn btn-success" onClick={newTutorial}>
-                Ekle
-              </button>
-            </div>
-          ) : (
-            <div>
-              <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  required
-                  value={tutorial.baslik}
-                  onChange={handleInputChange}
-                  name="baslik"
-                />
-              </div>
+    this.setState({
+      progressInfos: [],
+      message: [],
+      selectedFiles: event.target.files,
+      previewImages: images
+    });
+  }
 
-            {/*   <div style={{ width: "300 px" }}>
-                <Editor
-                  editorState={tutorial.boylam}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
-                />
-              </div> */}
+  
 
-              <div className="form-group">
-                <label htmlFor="adres">adres</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="adres"
-                  required
-                  value={tutorial.adres}
-                  onChange={handleInputChange}
-                  name="adres"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Telefon">Telefon</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  required
-                  value={tutorial.telefon}
-                  onChange={handleInputChange}
-                  name="telefon"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Enlem">Enlem</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="enlem"
-                  required
-                  value={tutorial.enlem}
-                  onChange={handleInputChange}
-                  name="enlem"
-                />
-              </div>
+  upload(idx, file) {
+    let _progressInfos = [...this.state.progressInfos];
 
-              <div className="form-group">
-                <label htmlFor="boylam">boylam</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="boylam"
-                  required
-                  value={tutorial.boylam}
-                  onChange={handleInputChange}
-                  name="boylam"
-                />
-              </div>
+    UploadService.upload(file, (event) => {
+      _progressInfos[idx].percentage = Math.round((100 * event.loaded) / event.total);
+      this.setState({
+        progressInfos: _progressInfos,
+      });
+    })
+      .then(() => {
+        this.setState((prev) => {
+          let nextMessage = [...prev.message, "Uploaded the image successfully: " + file.name];
+          return {
+            message: nextMessage
+          };
+        });
 
-            <FileBase64
-                type="file"
-                multiple={false}
-                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
+        return UploadService.getFiles();
+      })
+      .then((files) => {
+        this.setState({
+          imageInfos: files.data,
+        });
+      })
+      .catch(() => {
+        _progressInfos[idx].percentage = 0;
+        this.setState((prev) => {
+          let nextMessage = [...prev.message, "Could not upload the image: " + file.name];
+          return {
+            progressInfos: _progressInfos,
+            message: nextMessage
+          };
+        });
+      });
+  }
 
-              <button onClick={saveTutorial} className="btn btn-success">
-                Submit
-              </button>
-            </div>
-          )}
+  uploadImages() {
+    const selectedFiles = this.state.selectedFiles;
+
+    let _progressInfos = [];
+
+    for (let i = 0; i < selectedFiles.length; i++) {
+      _progressInfos.push({ percentage: 0, fileName: selectedFiles[i].name });
+    }
+
+    this.setState(
+      {
+        progressInfos: _progressInfos,
+        message: [],
+      },
+      () => {
+        for (let i = 0; i < selectedFiles.length; i++) {
+          this.upload(i, selectedFiles[i]);
+        }
+      }
+    );
+  }
+
+  render() {
+    const { selectedFiles, previewImages, progressInfos, message, imageInfos } = this.state;
+
+    return (
+      <DashboardLayout> 
+       <Sidenav
+           // color={sidenavColor}
+            brand={brand}
+            brandName=" DOĞSAN PANEL "
+            routes={routes} 
+          />  
+    <div style={{ marginLeft: "100px" }}> 
+      <Header />
+    </div>
+
+    <div style={{ width: "300px", marginLeft: "100px" }}>
+    <br />
+    <div></div>
+      <div>
+        <div className="row">
+          <div className="col-8">
+            <label className="btn btn-default p-0">
+              <input type="file" multiple accept="image/*" onChange={this.selectFiles} />
+            </label>
+          </div>
+
+          <div className="col-4">
+            <button
+              className="btn btn-success btn-sm"
+              disabled={!selectedFiles}
+              onClick={this.uploadImages}
+            >
+              Upload
+            </button>
+          </div>
         </div>
-      </div>
-    </DashboardLayout>
-  );
-};
 
-export default BayiEkle;
+        {progressInfos &&
+          progressInfos.map((progressInfo, index) => (
+            <div className="mb-2" key={index}>
+              <span>{progressInfo.fileName}</span>
+              <div className="progress">
+                <div
+                  className="progress-bar progress-bar-info"
+                  role="progressbar"
+                  aria-valuenow={progressInfo.percentage}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style={{ width: progressInfo.percentage + "%" }}
+                >
+                  {progressInfo.percentage}%
+                </div>
+              </div>
+            </div>
+          ))}
+
+        {previewImages && (
+          <div>
+            {previewImages.map((img, i) => {
+              return <img className="preview" src={img} alt={"image-" + i}  key={i}/>;
+            })}
+          </div>
+        )}
+
+        {message.length > 0 && (
+          <div className="alert alert-secondary mt-2" role="alert">
+            <ul>
+              {message.map((item, i) => {
+                return <li key={i}>{item}</li>;
+              })}
+            </ul>
+          </div>
+        )}
+
+        <div className="card mt-3">
+          <div className="card-header">List of Files</div>
+          <ul className="list-group list-group-flush">
+            {imageInfos &&
+              imageInfos.map((img, index) => (
+                <li className="list-group-item" key={index}>
+                  <p><a href={img.url}>{img.name}</a></p>
+                  <img src={img.url} alt={img.name} height="80px" />
+                </li>
+              ))}
+          </ul>
+        </div>
+        
+      </div>
+      </div>
+      </DashboardLayout>
+    );
+  }
+}
+
+ 
