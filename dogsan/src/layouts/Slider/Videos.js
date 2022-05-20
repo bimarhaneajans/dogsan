@@ -77,7 +77,7 @@ export default class Videos extends React.Component {
   componentDidMount() {
 
 
-    fetch("httplocalhost:3000/video/files")
+    fetch("http://localhost:3000/video/files")
       .then((res) => res.json())
       .then((json) => {
         this.setState({ items: json,  DataisLoaded: true

@@ -36,8 +36,7 @@ import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 import posticon from "../layouts/assets/img/blog/post-icon.png";
-import Videos from "../layouts/Slider/Videos";
-
+ 
 /*  import Isotope from "isotope-layout"; */
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
@@ -106,23 +105,16 @@ export default function Home() {
 
     retrieveDuyuru();
   }, []);
- useEffect(() => {
+  useEffect(() => {
 
     retrieveYoneticiler();
-  }, []);  
-  useEffect(() => {
+  }, []);
 
-    retrieveYoneticilera();
-  }, []);  
-  useEffect(() => {
-
-    retrieveYoneticilerb();
-  }, []);  
   useEffect(() => {
 
     retrieveSlayt();
   }, []);
-
+/* 
 
 
   useEffect(() => {
@@ -130,9 +122,12 @@ export default function Home() {
     retrieveKariyer();
 
 
+  }, []); 
+  useEffect(() => {
+
+    retrieveYoneticilerFilter();
   }, []);
-
-
+*/
   useEffect(() => {
     if (actuve === "") {
       setFiltered(kariyerr);
@@ -186,44 +181,28 @@ export default function Home() {
         console.log(e);
       });
   };
- 
- 
+
+
 
   const retrieveYoneticiler = () => {
+    YoneticiDataService.getAll()
+      .then(response => {
 
-    YoneticiDataService.getAll().then(response => {
-      setYoneticiler(response.data)
-      
-    })
+        setKariyerr(response.data)
+      })
       .catch(e => {
         console.log(e);
       });
-
   };
+  const retrieveYoneticilerFilter = () => {
+    YoneticiDataService.getAll()
+      .then(response => {
+        setFiltered(response.data)
 
-  const retrieveYoneticilera = () => {
-
-    YoneticiDataService.getAll().then(response => {
-       
-      setFiltered(response.data)
-     
-    })
+      })
       .catch(e => {
         console.log(e);
       });
-
-  };
-
-  const retrieveYoneticilerb = () => {
-
-    YoneticiDataService.getAll().then(response => {
-       
-      setKariyerr(response.data)
-    })
-      .catch(e => {
-        console.log(e);
-      });
-
   };
 
   const retrieveSlayt = () => {
@@ -294,14 +273,13 @@ export default function Home() {
                {
                  console.log(deger+"video")
                } */
+              <CitiesSlider/>
   return (
 
     <div className="main-wrapper" >
       <div id="home">
-        <div id="bg-slider-home"> 
-        <Videos/>
-       
-          <CitiesSlider slaty={slaty} />
+        <div id="bg-slider-home">
+     
           <div id="slider-wrapper">
           </div>
         </div>
