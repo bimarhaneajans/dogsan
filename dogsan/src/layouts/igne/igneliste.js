@@ -10,12 +10,13 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
+
 const Overview = (props) => {
   const [tutorials, setTutorials] = useState([]);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
-   const [controller, dispatch] = useSoftUIController();
+  const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
  
   const [onMouseEnter, setOnMouseEnter] = useState(false);

@@ -16,7 +16,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const BayiEkle = () => {
+const IletisimEkle = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -195,4 +195,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default IletisimEkle;

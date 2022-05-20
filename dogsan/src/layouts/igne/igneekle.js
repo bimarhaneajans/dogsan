@@ -29,6 +29,7 @@ const IgneEkle = () => {
 
   const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   
+  
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
