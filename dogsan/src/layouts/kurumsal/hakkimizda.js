@@ -139,7 +139,7 @@ export default function Hakkimizda() {
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="reactPly" >
-                                    <ReactPlayer url={item.BelgeselVideoUrl} />
+                                <ReactPlayer url={item.BelgeselVideoUrl} /> 
                                 </div>
 
                                 <div className="bottom-space-30"></div>

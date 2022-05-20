@@ -18,9 +18,6 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
 
-import { Player, ControlBar } from 'video-react';
-import ReactPlayer from 'react-player'
-
 export default function Bayiler() {
 
     

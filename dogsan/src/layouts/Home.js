@@ -36,9 +36,7 @@ import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 import posticon from "../layouts/assets/img/blog/post-icon.png";
-import Videos from "../layouts/Slider/Videos";
 
-/*  import Isotope from "isotope-layout"; */
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -69,8 +67,7 @@ export default function Home() {
   const [mesaj, setMesaj] = useState(initialMesajState);
   const [resimler, setResimler] = useState([]);
   const [videolar, setVideolar] = useState([]);
-  // state for storing the isotope object, with an initial value of null
-  const [isotope, setIsotope] = React.useState(null);
+
   // state for storing the filter keyword, with an initial value of *, which matches everything
   const [filterKey, setFilterKey] = React.useState('*');
 
@@ -106,18 +103,10 @@ export default function Home() {
 
     retrieveDuyuru();
   }, []);
- useEffect(() => {
+  useEffect(() => {
 
     retrieveYoneticiler();
-  }, []);  
-  useEffect(() => {
-
-    retrieveYoneticilera();
-  }, []);  
-  useEffect(() => {
-
-    retrieveYoneticilerb();
-  }, []);  
+  }, []);
   useEffect(() => {
 
     retrieveSlayt();
@@ -130,6 +119,10 @@ export default function Home() {
     retrieveKariyer();
 
 
+  }, []);
+  useEffect(() => {
+
+    retrieveYoneticilerFilter();
   }, []);
 
 
@@ -186,45 +179,27 @@ export default function Home() {
         console.log(e);
       });
   };
- 
- 
-
   const retrieveYoneticiler = () => {
-
-    YoneticiDataService.getAll().then(response => {
-      setYoneticiler(response.data)
-      
-    })
+    YoneticiDataService.getAll()
+      .then(response => {
+        
+        setKariyerr(response.data)
+      })
       .catch(e => {
         console.log(e);
       });
-
   };
-
-  const retrieveYoneticilera = () => {
-
-    YoneticiDataService.getAll().then(response => {
-       
-      setFiltered(response.data)
-     
-    })
+  const retrieveYoneticilerFilter = () => {
+    YoneticiDataService.getAll()
+      .then(response => {
+        setFiltered(response.data)
+        
+      })
       .catch(e => {
         console.log(e);
       });
-
   };
 
-  const retrieveYoneticilerb = () => {
-
-    YoneticiDataService.getAll().then(response => {
-       
-      setKariyerr(response.data)
-    })
-      .catch(e => {
-        console.log(e);
-      });
-
-  };
 
   const retrieveSlayt = () => {
     SlaytDataService.getAll()
@@ -284,9 +259,7 @@ export default function Home() {
         console.log(e);
       });
   };
-
-
-  /*  if (deger=== ".jpg") {
+    /*  if (deger=== ".jpg") {
                  //console.log(deger+"resim")
                  <CitiesSlider slaty={slaty} />
                } 
@@ -298,9 +271,8 @@ export default function Home() {
 
     <div className="main-wrapper" >
       <div id="home">
-        <div id="bg-slider-home"> 
-        <Videos/>
-       
+        <div id="bg-slider-home">
+         
           <CitiesSlider slaty={slaty} />
           <div id="slider-wrapper">
           </div>
@@ -521,7 +493,6 @@ export default function Home() {
 
                   <div className="info-col">
                     <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
-
                     <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
                     <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div>
                   </div>
@@ -682,7 +653,7 @@ export default function Home() {
                 {kariyer.map(item => (
                   <div key={item.id} class="team-filter-nav text-center">
                     <ul id="filters" class="filter-nav list-inline list-unstyled">
-                      <li style={{ float: "left" }}><a name={item.kariyeradi.toString()} value={item.kariyeradi.toString()} onClick={() => setactive(item.kariyeradi)} class={actuve === item.kariyeradi.toString().type ? "active" : ""}>    <div dangerouslySetInnerHTML={{ __html: item.kariyeradi }}  ></div></a></li>
+                      <li style={{ float: "left" }}><a name={item.kariyeradi.toString()} value={item.kariyeradi.toString()} onClick={() => setactive(item.kariyeradi)} class={actuve === item.kariyeradi.toString().type ? "active" : ""}>{item.kariyeradi}</a></li>
 
                     </ul>
                   </div>
@@ -701,12 +672,15 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-
-                        <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div>
+                      <h6>{item.pozizyon}</h6>
+                        <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
+                        <p>{item.kariyer} </p>
+                  {/*     <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div>
                         <br />
                         <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }}  > <br /></div>
                         <div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }}  ></div>
-                        <p>{item.kariyer} </p>
+                        <div dangerouslySetInnerHTML={{ __html: item.kariyer }}  ></div>
+ */}
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
                           <ul class="list-inline list-unstyled pull-right social">
@@ -749,15 +723,13 @@ export default function Home() {
                     <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                       <div className="blog-post">
                         <div className="post-img">
-                          <img src={item.Resim} style={{ height: "350px", width: "480px" }} className="img-responsive" alt="" />
+                          <img src={item.Resim} style={{ height: "350px",width: "480px" }} className="img-responsive" alt="" />
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
 
-
-                          <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
+                        <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
                           <div dangerouslySetInnerHTML={{ __html: item.Ozet }}  ></div>
-
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare
@@ -876,7 +848,7 @@ export default function Home() {
 
 
         </div>
-      </div >
+      </div>
 
 
       <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
@@ -918,7 +890,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          -
         </div>
 
       </div>
@@ -944,7 +915,7 @@ export default function Home() {
           </a>
         </li>
       </ul>
-    </div >
+    </div>
   )
 }
 

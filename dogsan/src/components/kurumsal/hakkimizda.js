@@ -3,8 +3,6 @@ import tarih from "./1970-tr.svg";
 import top from "./top_image_58f83656bf.jpg";
 import Header from '../header/header';
 import HeaderKurumsal from './header/HeaderKurumsal';
-import { Player, ControlBar } from 'video-react';
-import ReactPlayer from 'react-player'
 
 export default function hakkimizda() {
 
