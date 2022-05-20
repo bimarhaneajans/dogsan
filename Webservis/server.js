@@ -3,7 +3,7 @@ const cors = require("cors");
 const dbConfig = require("./src/config/db.config");
 const app = express();
 const path = require("path");
-//http://localhost:3000/resources/static/assets/slidervideos/
+//https://bavrim.madilink.net/resources/static/assets/slidervideos/
  
 
 //8080 dedigi webservis 
@@ -102,7 +102,7 @@ require("./src/routes/urun.routes")(app);
 require("./src/routes/yoneticiler.routes")(app); 
 require("./src/routes/subkategori.routes")(app); 
 require("./src/routes/kariyer.routes")(app); 
-
+require("./src/routes/video.routes")(app); 
 require("./src/routes/dosyayukle.routes.js")(app); 
 require("./src/routes/katalogyukle.routes")(app); 
 require("./src/routes/bizeyazinyukle.routes")(app); 

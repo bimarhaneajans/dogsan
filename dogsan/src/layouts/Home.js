@@ -106,10 +106,18 @@ export default function Home() {
 
     retrieveDuyuru();
   }, []);
-  /* useEffect(() => {
+ useEffect(() => {
 
     retrieveYoneticiler();
-  }, []); */
+  }, []);  
+  useEffect(() => {
+
+    retrieveYoneticilera();
+  }, []);  
+  useEffect(() => {
+
+    retrieveYoneticilerb();
+  }, []);  
   useEffect(() => {
 
     retrieveSlayt();
@@ -178,12 +186,39 @@ export default function Home() {
         console.log(e);
       });
   };
+ 
+ 
+
   const retrieveYoneticiler = () => {
 
     YoneticiDataService.getAll().then(response => {
-      setYoneticiler(response.data);
-      setFiltered(response.data);
-      setKariyerr(response.data);
+      setYoneticiler(response.data)
+      
+    })
+      .catch(e => {
+        console.log(e);
+      });
+
+  };
+
+  const retrieveYoneticilera = () => {
+
+    YoneticiDataService.getAll().then(response => {
+       
+      setFiltered(response.data)
+     
+    })
+      .catch(e => {
+        console.log(e);
+      });
+
+  };
+
+  const retrieveYoneticilerb = () => {
+
+    YoneticiDataService.getAll().then(response => {
+       
+      setKariyerr(response.data)
     })
       .catch(e => {
         console.log(e);

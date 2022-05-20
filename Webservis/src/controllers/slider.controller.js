@@ -10,7 +10,7 @@ const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
 const Tarihce = db.Tarihces;
 const mongoClient = new MongoClient(url);
-const baseUrl = "http://localhost:3000/slider/files/";
+const baseUrl = "https://bavrim.madilink.net/slider/files/";
 
 exports.create = async (req, res) => {
 /*   if (!req.body.Yil) {
