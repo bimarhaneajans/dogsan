@@ -120,11 +120,12 @@ export default function Degerler() {
                                 <center> <img src={item.Resim} className="img-responsive align-items-center" alt="" /></center>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <h1 style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>{item.baslik}</h1>
+                                <h1 style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></h1>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <p style={{ textAlign: "center" }}>{item.Content}</p>
+                                <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.Content }}  ></div></p>
+                                
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 {/* <div className="row">
