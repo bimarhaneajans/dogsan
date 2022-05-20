@@ -35,7 +35,7 @@ const SubKategoriEkle = () => {
   };
 
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -77,7 +77,7 @@ const SubKategoriEkle = () => {
       kategoriid: JSON.stringify(kategoriid),
       kategoriadi: JSON.stringify(kategoriadi),
       videourl: JSON.stringify(videourl),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     SubKategoriDataService.create(data)

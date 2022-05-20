@@ -27,7 +27,7 @@ const AddTutorial = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -59,7 +59,7 @@ const AddTutorial = () => {
       Ozet:JSON.stringify(Ozet),
       seolink:JSON.stringify(seolink),
       icerik:JSON.stringify(icerik),
-      Resim:JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     BlogDataService.create(data)
@@ -72,7 +72,7 @@ const AddTutorial = () => {
           icerik: response.data.icerik,
           Resimbaslik: response.data.Resimbaslik,
           Resim: response.data.Resim,
-          Resim: response.data.Resim,
+       
           published: response.data.published
 
         });

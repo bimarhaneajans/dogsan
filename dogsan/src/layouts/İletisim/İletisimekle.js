@@ -31,7 +31,7 @@ const IletisimEkle = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -66,7 +66,7 @@ const IletisimEkle = () => {
       telefon:JSON.stringify(telefon),
       haritaurl: JSON.stringify(haritaurl),
       siralama: JSON.stringify(siralama),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     IletisimDataService.create(data)

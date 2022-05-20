@@ -12,7 +12,7 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
 
-const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+const initialValue = 'Alana verileri doldurun';
 
 
 const Overview = props => {

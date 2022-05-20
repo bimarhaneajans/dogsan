@@ -24,7 +24,7 @@ const DegerEkle = () => {
     kisaaciklama:  "",
     published: false
   };
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
    const [controller, dispatch] = useSoftUIController();
@@ -52,7 +52,7 @@ const DegerEkle = () => {
           baslik:JSON.stringify(baslik),
           Content:  JSON.stringify(Content),
           kisaaciklama:JSON.stringify(kisaaciklama),
-          Resim: JSON.stringify(Resim),
+          Resim: tutorial.Resim,
           
     };
 

@@ -25,7 +25,7 @@ const SosyalssEkle = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -52,7 +52,7 @@ const SosyalssEkle = () => {
     var data = {
       baslik: JSON.stringify(baslik),
       icerik: JSON.stringify(icerik),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     SosyalssDataService.create(data)

@@ -17,7 +17,7 @@ import FileBase64 from 'react-file-base64';
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
 
-const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+const initialValue = 'Alana verileri doldurun';
 
 function BayiEkle() {
   const initialTutorialState = {
@@ -69,7 +69,7 @@ function BayiEkle() {
       enlem: JSON.stringify(enlem),
       sehir: JSON.stringify(sehir),
       boylam: JSON.stringify(boylam),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     BayiDataService.create(data)

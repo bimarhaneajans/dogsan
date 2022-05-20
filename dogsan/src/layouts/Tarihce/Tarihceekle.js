@@ -28,7 +28,7 @@ const TarihceEkle = () => {
     published: false
   };
 
-  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -55,7 +55,7 @@ const TarihceEkle = () => {
     var data = {
       Yil: JSON.stringify(Yil),
       icerik: JSON.stringify(icerik),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
     };
 
     TarihceDataService.create(data)
