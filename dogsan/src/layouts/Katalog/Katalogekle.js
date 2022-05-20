@@ -15,15 +15,17 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
-const BayiEkle = () => {
+const KatalogEkle = () => {
   const initialTutorialState = {
     id: null,
     katalogadi: "", 
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -37,6 +39,8 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [katalogadi, Changekatalogadi] = useState(initialValue)
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -44,8 +48,8 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      katalogadi: tutorial.katalogadi, 
-      Resim: tutorial.Resim,
+      katalogadi:  JSON.stringify(katalogadi), 
+     
     };
 
     KatalogDataService.create(data)
@@ -53,7 +57,7 @@ const BayiEkle = () => {
         setTutorial({
           id: response.data.id,
           katalogadi: response.data.katalogadi, 
-          Resim: response.data.Resim,
+         
           published: response.data.published
         });
         setSubmitted(true);
@@ -93,16 +97,8 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="katalogadi"
-                  required
-                  value={tutorial.katalogadi}
-                  onChange={handleInputChange}
-                  name="katalogadi"
-                />
+                <label htmlFor="katalogadi">Katalog Adı</label>
+                <RichTextEditor name="katalogadi" id="katalogadi" type="text" style={{ width: "600px" }} value={katalogadi} onChange={Changekatalogadi} />
               </div>
 
             {/*   <div style={{ width: "300 px" }}>
@@ -115,14 +111,6 @@ const BayiEkle = () => {
                 />
               </div> */}
 
-            
-
-            <FileBase64
-                type="file"
-                multiple={false}
-                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
-
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
               </button>
@@ -134,4 +122,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default KatalogEkle;

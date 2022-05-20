@@ -106,14 +106,14 @@ const IgneEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="igneadi">igneadi</label>
+                <label htmlFor="igneadi">İğne Adı</label>
                 <RichTextEditor name="igneadi" id="igneadi" type="text" style={{ width: "600px" }} value={igneadi} onChange={Changeigneadi} />
               </div>
 
           
 
               <div className="form-group">
-                <label htmlFor="siralama">siralama</label>
+                <label htmlFor="siralama">Sıralama</label>
                 <RichTextEditor name="siralama" id="siralama" type="text" style={{ width: "600px" }} value={siralama} onChange={Changesiralama} />
               </div>
               

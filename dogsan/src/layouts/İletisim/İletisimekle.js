@@ -16,6 +16,9 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
+
 const IletisimEkle = () => {
   const initialTutorialState = {
     id: null,
@@ -27,7 +30,7 @@ const IletisimEkle = () => {
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -41,6 +44,13 @@ const IletisimEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [adres, Changeadres] = useState(initialValue)
+  const [telefon, Changetelefon] = useState(initialValue) 
+  const [haritaurl, Changeharitaurl] = useState(initialValue)
+  const [siralama, Changesiralama] = useState(initialValue) 
+
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -48,12 +58,11 @@ const IletisimEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      baslik: tutorial.baslik,
-      adres: tutorial.adres,
-      telefon: tutorial.telefon,
-      haritaurl: tutorial.haritaurl,
-      siralama: tutorial.siralama,
-      Resim: tutorial.Resim,
+      baslik: JSON.stringify(baslik),
+      adres: JSON.stringify(adres),
+      telefon:JSON.stringify(telefon),
+      haritaurl: JSON.stringify(haritaurl),
+      siralama: JSON.stringify(siralama),
     };
 
     IletisimDataService.create(data)
@@ -65,9 +74,7 @@ const IletisimEkle = () => {
           telefon: response.data.telefon,
           haritaurl: response.data.haritaurl,
           siralama: response.data.siralama,
-          Resimbaslik: response.data.Resimbaslik,
-          Resim: response.data.Resim,
-           published: response.data.published
+          published: response.data.published
         });
         setSubmitted(true);
         console.log(response.data);
@@ -107,15 +114,7 @@ const IletisimEkle = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  required
-                  value={tutorial.baslik}
-                  onChange={handleInputChange}
-                  name="baslik"
-                />
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
               </div>
 
             {/*   <div style={{ width: "300 px" }}>
@@ -129,60 +128,22 @@ const IletisimEkle = () => {
               </div> */}
 
               <div className="form-group">
-                <label htmlFor="adres">adres</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="adres"
-                  required
-                  value={tutorial.adres}
-                  onChange={handleInputChange}
-                  name="adres"
-                />
+                <label htmlFor="adres">Adres</label>
+                <RichTextEditor name="adres" id="adres" type="text" style={{ width: "600px" }} value={adres} onChange={Changeadres} />
               </div>
               <div className="form-group">
                 <label htmlFor="Telefon">Telefon</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="telefon"
-                  required
-                  value={tutorial.telefon}
-                  onChange={handleInputChange}
-                  name="telefon"
-                />
+                <RichTextEditor name="telefon" id="telefon" type="text" style={{ width: "600px" }} value={telefon} onChange={Changetelefon} />
               </div>
               <div className="form-group">
-                <label htmlFor="haritaurl">haritaurl</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="haritaurl"
-                  required
-                  value={tutorial.haritaurl}
-                  onChange={handleInputChange}
-                  name="haritaurl"
-                />
+                <label htmlFor="haritaurl">Harita Url</label>
+                <RichTextEditor name="haritaurl" id="haritaurl" type="text" style={{ width: "600px" }} value={haritaurl} onChange={Changeharitaurl} />
               </div>
 
               <div className="form-group">
-                <label htmlFor="siralama">siralama</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="siralama"
-                  required
-                  value={tutorial.siralama}
-                  onChange={handleInputChange}
-                  name="siralama"
-                />
+                <label htmlFor="siralama">Sıralama</label>
+                <RichTextEditor name="siralama" id="siralama" type="text" style={{ width: "600px" }} value={baslik} onChange={Changesiralama} />
               </div>
-
-            <FileBase64
-                type="file"
-                multiple={false}
-                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit

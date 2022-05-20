@@ -14,6 +14,8 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const Kariyerekle = () => {
   const initialTutorialState = {
@@ -22,7 +24,7 @@ const Kariyerekle = () => {
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -36,6 +38,10 @@ const Kariyerekle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [kariyeradi, Changekariyeradi] = useState(initialValue)
+
+
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -43,8 +49,8 @@ const Kariyerekle = () => {
 
   const saveTutorial = () => {
     var data = {
-      kariyeradi: tutorial.kariyeradi,
-      Resim: tutorial.Resim,
+      kariyeradi: JSON.stringify(kariyeradi),
+     
     };
 
     KariyerDataService.create(data)
@@ -92,16 +98,8 @@ const Kariyerekle = () => {
             <div>
               
               <div className="form-group">
-                <label htmlFor="kariyeradi">kariyer adı</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kariyeradi"
-                  required
-                  value={tutorial.kariyeradi}
-                  onChange={handleInputChange}
-                  name="kariyeradi"
-                />
+                <label htmlFor="kariyeradi">Kariyer Adı</label>
+                <RichTextEditor name="kariyeradi" id="kariyeradi" type="text" style={{ width: "600px" }} value={kariyeradi} onChange={Changekariyeradi} />
 
               </div> 
 

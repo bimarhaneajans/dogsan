@@ -15,8 +15,9 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-
-const BayiEkle = () => {
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
+const SosyalssEkle = () => {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -24,7 +25,7 @@ const BayiEkle = () => {
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -38,6 +39,10 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [icerik, Changeicerik] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -45,9 +50,9 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      baslik: tutorial.baslik,
-      icerik: tutorial.icerik, 
-      Resim: tutorial.Resim,
+      baslik: JSON.stringify(baslik),
+      icerik: JSON.stringify(icerik),
+      Resim: JSON.stringify(Resim),
     };
 
     SosyalssDataService.create(data)
@@ -97,29 +102,13 @@ const BayiEkle = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="Başlık">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="baslik"
-                  required
-                  value={tutorial.baslik}
-                  onChange={handleInputChange}
-                  name="baslik"
-                />
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
               </div>
  
 
               <div className="form-group">
-                <label htmlFor="icerik">icerik</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="icerik"
-                  required
-                  value={tutorial.icerik}
-                  onChange={handleInputChange}
-                  name="icerik"
-                />
+                <label htmlFor="icerik">İçerik</label>
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={Changeicerik} />
               </div>
                
 
@@ -140,4 +129,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default SosyalssEkle;

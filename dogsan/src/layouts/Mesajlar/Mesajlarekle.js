@@ -16,7 +16,10 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const BayiEkle = () => {
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
+
+const MesajlarEkle = () => {
   const initialTutorialState = {
     id: null,
     Subject: "",
@@ -25,7 +28,7 @@ const BayiEkle = () => {
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -38,6 +41,10 @@ const BayiEkle = () => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+
+  const [Subject, ChangeSubject] = useState(initialValue)
+  const [email, Changeemail] = useState(initialValue)
+  const [Content, ChangeContent] = useState(initialValue)
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -55,10 +62,10 @@ const BayiEkle = () => {
       .then(response => {
         setTutorial({
           id: response.data.id,
-          Subject: response.data.Subject,
-          email: response.data.email,
-          Content: response.data.Content, 
-           Resim: response.data.Resim,
+          Subject: JSON.stringify(Subject),
+          email:JSON.stringify(email),
+          Content: JSON.stringify(Content),
+          Resim: JSON.stringify(Resim),
           published: response.data.published
         });
         setSubmitted(true);
@@ -99,15 +106,7 @@ const BayiEkle = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="Subject">Subject</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Subject"
-                  required
-                  value={tutorial.Subject}
-                  onChange={handleInputChange}
-                  name="Subject"
-                />
+                <RichTextEditor name="Subject" id="Subject" type="text" style={{ width: "600px" }} value={Subject} onChange={ChangeSubject} />
               </div>
 
             {/*   <div style={{ width: "300 px" }}>
@@ -121,28 +120,12 @@ const BayiEkle = () => {
               </div> */}
 
               <div className="form-group">
-                <label htmlFor="email">email</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="email"
-                  required
-                  value={tutorial.email}
-                  onChange={handleInputChange}
-                  name="email"
-                />
+                <label htmlFor="email">Email</label>
+                <RichTextEditor name="email" id="email" type="text" style={{ width: "600px" }} value={email} onChange={Changeemail} />
               </div>
               <div className="form-group">
                 <label htmlFor="Content">Content</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Content"
-                  required
-                  value={tutorial.Content}
-                  onChange={handleInputChange}
-                  name="Content"
-                />
+                <RichTextEditor name="Content" id="Content" type="text" style={{ width: "600px" }} value={Content} onChange={ChangeContent} />
               </div>
               
 
@@ -163,4 +146,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default MesajlarEkle;

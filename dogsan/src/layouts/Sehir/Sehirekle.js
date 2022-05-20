@@ -16,14 +16,17 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const BayiEkle = () => {
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
+
+const SehirEkle = () => {
   const initialTutorialState = {
     id: null,
     sehirAdi: "",
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -37,6 +40,9 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [sehirAdi, ChangesehirAdi] = useState(initialValue)
+
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -44,7 +50,7 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      sehirAdi: tutorial.sehirAdi,
+      sehirAdi: JSON.stringify(sehirAdi),
       
       Resim: tutorial.Resim,
     };
@@ -96,16 +102,8 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="sehirAdi">sehir Adi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="sehirAdi"
-                  required
-                  value={tutorial.sehirAdi}
-                  onChange={handleInputChange}
-                  name="sehirAdi"
-                />
+                <label htmlFor="sehirAdi">Şehir Adı</label>
+                <RichTextEditor name="sehirAdi" id="sehirAdi" type="text" style={{ width: "600px" }} value={sehirAdi} onChange={ChangesehirAdi} />
               </div>
 
           
@@ -127,4 +125,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default SehirEkle;
