@@ -15,6 +15,7 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import { RichTextEditor } from '@mantine/rte';
 
 const Hakkımızda = () => {
   const initialTutorialState = {
@@ -47,7 +48,7 @@ const Hakkımızda = () => {
   const [AnaIcerik, ChangeAnaIcerik] = useState(initialValue)
   const [BelgeselIcerigi, ChangeBelgeselIcerigi] = useState(initialValue)
   const [baslangicTarihi, ChangebaslangicTarihi] = useState(initialValue)
-  const [BelgeselVideoUrl, ChangebitisTarihi] = useState(initialValue)
+  const [BelgeselVideoUrl, ChangeBelgeselVideoUrl] = useState(initialValue)
   const [Resim, ChangeResim] = useState(initialValue)
 
   const handleInputChange = event => {
