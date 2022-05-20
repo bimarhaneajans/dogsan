@@ -86,21 +86,21 @@ export default function Blog() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BLOG</h1>
+                <h1 className="col-xs-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BLOG</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                   
-                        <div className="col-md-9">
+                        <div className="col-xs-12">
                             <article>
                                 <img src={blog.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <h1>{blog.baslik}</h1>
+                                <div dangerouslySetInnerHTML={{ __html: blog.baslik }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{blog.icerik}</p>
+                                <div dangerouslySetInnerHTML={{ __html: blog.icerik }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                
@@ -122,7 +122,7 @@ export default function Blog() {
                     <div className="col-md-6">
                     
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-xs-6">
                         <ul className="footer-social">
                             <li><a href="#"><i className="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i className="fa fa-twitter"></i></a></li>

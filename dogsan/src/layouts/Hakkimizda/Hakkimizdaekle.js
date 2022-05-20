@@ -25,6 +25,7 @@ const Hakkımızda = () => {
     AnaIcerik: "",
     BelgeselIcerigi: "",
     BelgeselVideoUrl: "",
+    Resim:"",
     published: false
   };
 
@@ -49,7 +50,7 @@ const Hakkımızda = () => {
   const [BelgeselIcerigi, ChangeBelgeselIcerigi] = useState(initialValue)
   const [baslangicTarihi, ChangebaslangicTarihi] = useState(initialValue)
   const [BelgeselVideoUrl, ChangeBelgeselVideoUrl] = useState(initialValue)
-  const [Resim, ChangeResim] = useState(initialValue)
+
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -63,7 +64,8 @@ const Hakkımızda = () => {
       AnaIcerik: JSON.stringify(AnaIcerik),
       BelgeselIcerigi: JSON.stringify(BelgeselIcerigi),
       BelgeselVideoUrl: JSON.stringify(BelgeselVideoUrl),
-      Resim: JSON.stringify(Resim),
+      Resim: tutorial.Resim,
+
     };
 
     HakkimizdaDataService.create(data)
