@@ -127,19 +127,24 @@ export default function Subdynamicdetaykategori() {
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Tanım</h1>
-                                        <p>{item.tanim}</p>
+                                       
+                                        <div dangerouslySetInnerHTML={{ __html: item.tanim }}  ></div>
+
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Kullanım Amacı</h1>
-                                        <p>{item.kullanimamaci}</p>
+                                         <div dangerouslySetInnerHTML={{ __html: item.kullanimamaci }}  ></div>
+
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Klinik Performans Özellikleri</h1>
-                                        <p>{item.performansozellikleri}</p>
+                                         <div dangerouslySetInnerHTML={{ __html: item.performansozellikleri }}  ></div>
+
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Klinik Fayda</h1>
-                                        <p>{item.fayda}</p>
+                                         <div dangerouslySetInnerHTML={{ __html: item.fayda }}  ></div>
+
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         {/* <div className="row">

@@ -133,7 +133,9 @@ export default function Hakkimizda() {
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{item.AnaIcerik}</p>
+                                
+                                <div dangerouslySetInnerHTML={{ __html: item.AnaIcerik }}  ></div>
+
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="reactPly" >
@@ -142,7 +144,8 @@ export default function Hakkimizda() {
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{item.BelgeselIcerigi}</p>
+                                 <div dangerouslySetInnerHTML={{ __html: item.BelgeselIcerigi }}  ></div>
+
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 {/* <div className="row">
