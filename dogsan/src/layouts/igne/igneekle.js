@@ -16,6 +16,9 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
+
 const IgneEkle = () => {
   const initialTutorialState = {
     id: null,
@@ -24,7 +27,8 @@ const IgneEkle = () => {
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
+  
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -38,6 +42,10 @@ const IgneEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [igneadi, Changeigneadi] = useState(initialValue)
+  const [siralama, Changesiralama] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -46,9 +54,9 @@ const IgneEkle = () => {
   const saveTutorial = () => {
     var data = {
       
-      igneadi:tutorial.igneadi,
-      siralama: tutorial.siralama,
-      Resim: tutorial.Resim,
+      igneadi: JSON.stringify(igneadi),
+      siralama:  JSON.stringify(siralama),
+      Resim:  JSON.stringify(Resim),
     };
 
     IgneDataService.create(data)
@@ -97,31 +105,15 @@ const IgneEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">igneadi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="igneadi"
-                  required
-                  value={tutorial.igneadi}
-                  onChange={handleInputChange}
-                  name="igneadi"
-                />
+                <label htmlFor="igneadi">igneadi</label>
+                <RichTextEditor name="igneadi" id="igneadi" type="text" style={{ width: "600px" }} value={igneadi} onChange={Changeigneadi} />
               </div>
 
           
 
               <div className="form-group">
-                <label htmlFor="adres">siralama</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="siralama"
-                  required
-                  value={tutorial.siralama}
-                  onChange={handleInputChange}
-                  name="siralama"
-                />
+                <label htmlFor="siralama">siralama</label>
+                <RichTextEditor name="siralama" id="siralama" type="text" style={{ width: "600px" }} value={siralama} onChange={Changesiralama} />
               </div>
               
              

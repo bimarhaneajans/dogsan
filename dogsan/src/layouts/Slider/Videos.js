@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 
 export default class Videos extends React.Component {
   constructor(props) {
@@ -54,4 +54,64 @@ export default class Videos extends React.Component {
       </div>
     );
   }
+} */
+
+
+
+import React from "react";
+ 
+export default class Videos extends React.Component {
+
+  // Constructor 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items: [],
+      DataisLoaded: false
+    };
+  }
+
+  // ComponentDidMount is used to
+  // execute the code 
+  componentDidMount() {
+
+
+    fetch("httplocalhost:3000/video/files")
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({ items: json,  DataisLoaded: true
+        });
+      })
+  }
+
+  render() {
+    const { DataisLoaded, items } = this.state;
+    if (!DataisLoaded) return <div>
+      <h1> Pleses wait some time.... </h1> </div>;
+
+    return (
+      <div className="App">
+         {
+          items.map((item) => (
+            <div key={item.id} >
+              <div>
+
+                <video
+                  src={item.url}
+                  autoPlay
+                  // loop
+                  width={window.innerWidth}
+                //controls
+                />
+
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    );
+  }
 }
+
+ 
