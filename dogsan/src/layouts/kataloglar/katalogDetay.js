@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 
-function KatalogDetay() {
+export default function KatalogDetay() {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -20,3 +20,4 @@ function KatalogDetay() {
     </div>
   );
 }
+ 

@@ -35,7 +35,8 @@ import icon6 from "../layouts/assets/img/icons/icon-6.png";
 import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
-import posticon from "../layouts/assets/img/blog/post-icon.png"
+import posticon from "../layouts/assets/img/blog/post-icon.png";
+import Videos from "../layouts/Slider/Videos";
 
 /*  import Isotope from "isotope-layout"; */
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
@@ -66,7 +67,8 @@ export default function Home() {
   };
   const [tutorials, setTutorials] = useState([]);
   const [mesaj, setMesaj] = useState(initialMesajState);
-
+  const [resimler, setResimler] = useState([]);
+  const [videolar, setVideolar] = useState([]);
   // state for storing the isotope object, with an initial value of null
   const [isotope, setIsotope] = React.useState(null);
   // state for storing the filter keyword, with an initial value of *, which matches everything
@@ -104,10 +106,10 @@ export default function Home() {
 
     retrieveDuyuru();
   }, []);
-  useEffect(() => {
+  /* useEffect(() => {
 
     retrieveYoneticiler();
-  }, []);
+  }, []); */
   useEffect(() => {
 
     retrieveSlayt();
@@ -177,16 +179,16 @@ export default function Home() {
       });
   };
   const retrieveYoneticiler = () => {
-    YoneticiDataService.getAll()
-      .then(response => {
-        setYoneticiler(response.data)
-        // console.log(response.data);
-        setFiltered(response.data)
-        setKariyerr(response.data)
-      })
+
+    YoneticiDataService.getAll().then(response => {
+      setYoneticiler(response.data);
+      setFiltered(response.data);
+      setKariyerr(response.data);
+    })
       .catch(e => {
         console.log(e);
       });
+
   };
 
   const retrieveSlayt = () => {
@@ -247,31 +249,23 @@ export default function Home() {
         console.log(e);
       });
   };
+
+
+  /*  if (deger=== ".jpg") {
+                 //console.log(deger+"resim")
+                 <CitiesSlider slaty={slaty} />
+               } 
+               else
+               {
+                 console.log(deger+"video")
+               } */
   return (
 
     <div className="main-wrapper" >
       <div id="home">
-        <div id="bg-slider-home">
-          <>
-
-            {
-
-
-              slaty.map(options => {
-                const deger = options.url.substr(-4).toString();
-                if (deger === ".jpg") {
-                  console.log(options.url + "resim")
-                }
-
-              }
-
-
-                //console.log(options.url.substr(-3))
-
-
-              )
-            }
-          </>
+        <div id="bg-slider-home"> 
+        <Videos/>
+       
           <CitiesSlider slaty={slaty} />
           <div id="slider-wrapper">
           </div>
@@ -492,7 +486,7 @@ export default function Home() {
 
                   <div className="info-col">
                     <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
-                    
+
                     <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
                     <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div>
                   </div>
@@ -672,11 +666,11 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-                      
+
                         <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div>
-                        <br/>
-                        <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }}  > <br/></div>   
-                         <div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }}  ></div>
+                        <br />
+                        <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }}  > <br /></div>
+                        <div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }}  ></div>
                         <p>{item.kariyer} </p>
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
@@ -725,10 +719,10 @@ export default function Home() {
                         </div>
                         <div className="info-col">
 
-                        
+
                           <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
                           <div dangerouslySetInnerHTML={{ __html: item.Ozet }}  ></div>
-                        
+
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare
