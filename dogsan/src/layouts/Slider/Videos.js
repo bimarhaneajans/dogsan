@@ -46,7 +46,7 @@ export default class Videos extends React.Component {
           <video
             src={this.state.videos[this.state.current].sources}
             autoPlay
-            loop
+           // loop
             width={window.innerWidth}
             //controls
           />
