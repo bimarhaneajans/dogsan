@@ -114,11 +114,7 @@ const Hakkımızda = () => {
               </button>
             </div>
           ) : (
-            /*
-             AnaIcerik: tutorial.AnaIcerik,
-      BelgeselIcerigi: tutorial.BelgeselIcerigi,
-      BelgeselVideoUrl: tutorial.BelgeselVideoUrl,
-            */
+           
             <div>
               <div className="form-group">
                 <label htmlFor="bayi">Ana Başlık</label>
@@ -141,15 +137,7 @@ const Hakkımızda = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="BelgeselIcerigi">BelgeselIcerigi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="BelgeselIcerigi"
-                  required
-                  value={tutorial.BelgeselIcerigi}
-                  onChange={handleInputChange}
-                  name="BelgeselIcerigi"
-                />
+             
 
                 <RichTextEditor name="BelgeselIcerigi" id="BelgeselIcerigi" type="text" style={{ width: "600px" }} value={BelgeselIcerigi} onChange={ChangeBelgeselIcerigi} />
 

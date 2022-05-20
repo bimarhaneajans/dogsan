@@ -150,9 +150,9 @@ export default function Bayiler() {
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>*/}
                              
-                                        <p style={{ textAlign: "center" }}>{item.baslik}</p>
+                                        <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p>
 
-                                        <p style={{ textAlign: "center" }}>{item.telefon}</p>
+                                        <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.telefon }}  ></div></p>
                                     <div className="bottom-space-30"></div>
                                     <div className="clearfix"></div>
                                 

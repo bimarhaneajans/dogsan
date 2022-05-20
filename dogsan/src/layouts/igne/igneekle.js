@@ -16,7 +16,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const BayiEkle = () => {
+const IgneEkle = () => {
   const initialTutorialState = {
     id: null,
     igneadi:"",
@@ -143,4 +143,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default IgneEkle;

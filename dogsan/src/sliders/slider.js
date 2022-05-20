@@ -43,8 +43,8 @@ export default function slider() {
           style={{ background: `url('${item.image}') no-repeat center center` }}
         >
           <div className="inner">
-            <h1>{item.title}</h1>
-            <p>{item.description}</p>
+             <div dangerouslySetInnerHTML={{ __html: item.title }}  ></div>
+             <div dangerouslySetInnerHTML={{ __html: item.description }}  ></div>
             
           </div>
            

@@ -114,7 +114,8 @@ export default function Igneler() {
 
 
                                         <div className="clearfix"></div>
-                                        <h1>{item.igneadi}</h1>
+                                        
+                                          <div dangerouslySetInnerHTML={{ __html: item.igneadi }}  ></div>
                                         <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
 
 

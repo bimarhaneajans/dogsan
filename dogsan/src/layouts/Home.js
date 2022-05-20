@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Router, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
-
+import JsonTable from 'react-json-to-html';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../services/KategoriService";
 import BlogDataService from "../services/BlogService";
@@ -492,8 +492,9 @@ export default function Home() {
 
                   <div className="info-col">
                     <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
-                    <h5>{item.baslik}</h5>
-                    <p>{item.icerik} </p>
+                    
+                    <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div>
                   </div>
                   <Link to={"/Duyuru/" + item.id} className="nav-link">Göster</Link>
                 </div>
@@ -652,7 +653,7 @@ export default function Home() {
                 {kariyer.map(item => (
                   <div key={item.id} class="team-filter-nav text-center">
                     <ul id="filters" class="filter-nav list-inline list-unstyled">
-                      <li style={{ float: "left" }}><a name={item.kariyeradi.toString()} value={item.kariyeradi.toString()} onClick={() => setactive(item.kariyeradi)} class={actuve === item.kariyeradi.toString().type ? "active" : ""}>{item.kariyeradi}</a></li>
+                      <li style={{ float: "left" }}><a name={item.kariyeradi.toString()} value={item.kariyeradi.toString()} onClick={() => setactive(item.kariyeradi)} class={actuve === item.kariyeradi.toString().type ? "active" : ""}>    <div dangerouslySetInnerHTML={{ __html: item.kariyeradi }}  ></div></a></li>
 
                     </ul>
                   </div>
@@ -671,8 +672,11 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-                        <h6>{item.pozizyon}</h6>
-                        <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
+                      
+                        <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div>
+                        <br/>
+                        <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }}  > <br/></div>   
+                         <div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }}  ></div>
                         <p>{item.kariyer} </p>
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
@@ -716,14 +720,15 @@ export default function Home() {
                     <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                       <div className="blog-post">
                         <div className="post-img">
-                          <img src={item.Resim} style={{ height: "350px",width: "480px" }} className="img-responsive" alt="" />
+                          <img src={item.Resim} style={{ height: "350px", width: "480px" }} className="img-responsive" alt="" />
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
 
-                          <h5>{item.baslik}</h5>
-
-                          <p>{item.Ozet}</p>
+                        
+                          <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
+                          <div dangerouslySetInnerHTML={{ __html: item.Ozet }}  ></div>
+                        
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare

@@ -107,10 +107,10 @@ export default function SosyalSorumluluk() {
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{item.baslik}</p>
+                                 <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p>{item.icerik}</p>
+                                 <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 {/* <div className="row">
