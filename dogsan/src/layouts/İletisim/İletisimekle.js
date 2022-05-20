@@ -27,6 +27,7 @@ const IletisimEkle = () => {
     telefon: "",
     haritaurl: "",
     siralama: "",
+    Resim:"",
     published: false
   };
 
@@ -49,6 +50,8 @@ const IletisimEkle = () => {
   const [telefon, Changetelefon] = useState(initialValue) 
   const [haritaurl, Changeharitaurl] = useState(initialValue)
   const [siralama, Changesiralama] = useState(initialValue) 
+  const [Resim, ChangeResim] = useState(initialValue)
+  
 
 
   const handleInputChange = event => {
@@ -63,6 +66,7 @@ const IletisimEkle = () => {
       telefon:JSON.stringify(telefon),
       haritaurl: JSON.stringify(haritaurl),
       siralama: JSON.stringify(siralama),
+      Resim: JSON.stringify(Resim),
     };
 
     IletisimDataService.create(data)
@@ -74,6 +78,7 @@ const IletisimEkle = () => {
           telefon: response.data.telefon,
           haritaurl: response.data.haritaurl,
           siralama: response.data.siralama,
+          Resim:response.data.Resim,
           published: response.data.published
         });
         setSubmitted(true);
@@ -144,6 +149,11 @@ const IletisimEkle = () => {
                 <label htmlFor="siralama">Sıralama</label>
                 <RichTextEditor name="siralama" id="siralama" type="text" style={{ width: "600px" }} value={baslik} onChange={Changesiralama} />
               </div>
+              <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
+              />
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit

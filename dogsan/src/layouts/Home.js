@@ -486,7 +486,7 @@ export default function Home() {
 
             <div className="row">
               {duyuru.map(item => (
-                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1" style={{ height: "700px" }}>
+                <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center services2-info clr1" style={{ height: "750px" }}>
 
                   <div className="clearfix"></div>
                   <img className="pull-center icon" src={s2} alt="icon" />
@@ -721,7 +721,7 @@ export default function Home() {
                 <div id="blog-posts">
                   {blog.map(item => (
                     <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                      <div className="blog-post">
+                      <div className="blog-post" >
                         <div className="post-img">
                           <img src={item.Resim} style={{ height: "350px",width: "480px" }} className="img-responsive" alt="" />
                           <img className="ab-icon" src={posticon} alt="" />

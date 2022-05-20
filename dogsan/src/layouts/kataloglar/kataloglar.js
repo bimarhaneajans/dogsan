@@ -126,7 +126,8 @@ export default function Kataloglar() {
                                                     <img src={item.Resim}  style={{ objectFit: "cover", height: "290px" }} />
                                                     <img class="information-box__grid-icon" src={svgpdf} alt="pdf" />
                                                 </div>
-                                                 <div dangerouslySetInnerHTML={{ __html: item.katalogadi }}  ></div>
+                                                  <div dangerouslySetInnerHTML={{ __html: item.katalogadi }}  ></div> 
+                                             
                                             </a>
 
                                         </div>

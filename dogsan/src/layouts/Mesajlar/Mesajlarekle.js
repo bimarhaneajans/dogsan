@@ -24,7 +24,8 @@ const MesajlarEkle = () => {
     id: null,
     Subject: "",
     email: "",
-    Content: "", 
+    Content: "",
+    Resim: "",
     published: false
   };
 
@@ -45,6 +46,7 @@ const MesajlarEkle = () => {
   const [Subject, ChangeSubject] = useState(initialValue)
   const [email, Changeemail] = useState(initialValue)
   const [Content, ChangeContent] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -53,19 +55,20 @@ const MesajlarEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      Subject: tutorial.Subject,
-      email: tutorial.email,
-      Content: tutorial.Content, 
+      Subject: JSON.stringify(Subject),
+      email: JSON.stringify(email),
+      Content: JSON.stringify(Content),
+      Resim: JSON.stringify(Resim),
     };
 
     MesajlarService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-          Subject: JSON.stringify(Subject),
-          email:JSON.stringify(email),
-          Content: JSON.stringify(Content),
-          Resim: JSON.stringify(Resim),
+          Subject: response.data.Subject,
+          email: response.data.email,
+          Content: response.data.Content,
+          Resim: response.data.Resim,
           published: response.data.published
         });
         setSubmitted(true);
@@ -109,7 +112,7 @@ const MesajlarEkle = () => {
                 <RichTextEditor name="Subject" id="Subject" type="text" style={{ width: "600px" }} value={Subject} onChange={ChangeSubject} />
               </div>
 
-            {/*   <div style={{ width: "300 px" }}>
+              {/*   <div style={{ width: "300 px" }}>
                 <Editor
                   editorState={tutorial.boylam}
                   toolbarClassName="toolbarClassName"
@@ -127,13 +130,13 @@ const MesajlarEkle = () => {
                 <label htmlFor="Content">Content</label>
                 <RichTextEditor name="Content" id="Content" type="text" style={{ width: "600px" }} value={Content} onChange={ChangeContent} />
               </div>
-              
 
-            <FileBase64
+
+              <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
+              />
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit

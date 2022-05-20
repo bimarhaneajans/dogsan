@@ -18,9 +18,10 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import Select from 'react-select';
 
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
-
-const BayiEkle = () => {
+const YoneticiEkle = () => {
   const initialTutorialState = {
     id: null,
     yoneticiadi: "",
@@ -34,7 +35,7 @@ const BayiEkle = () => {
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [kariyer, setKariyer] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -56,6 +57,11 @@ const BayiEkle = () => {
   useEffect(() => {
     retrieveKariyer();
   }, []);
+  const [yoneticiadi, Changeyoneticiadi] = useState(initialValue)
+  const [yoneticisoyadi, Changeyoneticisoyadi] = useState(initialValue)
+  const [pozizyon, Changepozizyon] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -64,15 +70,15 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      yoneticiadi: tutorial.yoneticiadi,
-      yoneticisoyadi: tutorial.yoneticisoyadi,
+      yoneticiadi: JSON.stringify(yoneticiadi),
+      yoneticisoyadi: JSON.stringify(yoneticisoyadi),
       kariyer: tutorial.kariyer,
-      pozizyon: tutorial.pozizyon,
+      pozizyon:JSON.stringify(pozizyon),
       twitter: tutorial.twitter,
       facebook: tutorial.facebook,
       linkedin: tutorial.linkedin,
       googleplus: tutorial.googleplus,
-      Resim: tutorial.Resim,
+      Resim: JSON.stringify(Resim),
     };
 
     YoneticilerDataService.create(data)
@@ -182,35 +188,19 @@ const BayiEkle = () => {
             <div>
 
               <div className="form-group">
-                <label htmlFor="yoneticiadi">yoneticiadi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="yoneticiadi"
-                  required
-                  value={tutorial.yoneticiadi}
-                  onChange={handleInputChange}
-                  name="yoneticiadi"
-                />
+                <label htmlFor="yoneticiadi">Yönetici Adı</label>
+                <RichTextEditor name="yoneticiadi" id="yoneticiadi" type="text" style={{ width: "600px" }} value={yoneticiadi} onChange={Changeyoneticiadi} />
 
               </div>
 
 
 
               <div className="form-group">
-                <label htmlFor="yoneticisoyadi">yoneticisoyadi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="yoneticisoyadi"
-                  required
-                  value={tutorial.yoneticisoyadi}
-                  onChange={handleInputChange}
-                  name="yoneticisoyadi"
-                />
+                <label htmlFor="yoneticisoyadi">Yönetici Soyadı</label>
+                <RichTextEditor name="yoneticisoyadi" id="yoneticisoyadi" type="text" style={{ width: "600px" }} value={yoneticisoyadi} onChange={Changeyoneticisoyadi} />
               </div>
               <div className="form-group">
-                <label htmlFor="kariyer">kariyer</label>
+                <label htmlFor="kariyer">Kariyer</label>
                 {/*  <Select
                  id="kariyer"
                   defaultValue={selectedOption} //default
@@ -235,20 +225,12 @@ const BayiEkle = () => {
 
               </div>
               <div className="form-group">
-                <label htmlFor="pozizyon">pozizyon</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="pozizyon"
-                  required
-                  value={tutorial.pozizyon}
-                  onChange={handleInputChange}
-                  name="pozizyon"
-                />
+                <label htmlFor="pozizyon">Pozisyon</label>
+                <RichTextEditor name="pozizyon" id="pozizyon" type="text" style={{ width: "600px" }} value={pozizyon} onChange={Changepozizyon} />
               </div>
 
               <div className="form-group">
-                <label htmlFor="twitter">twitter</label>
+                <label htmlFor="twitter">Twitter</label>
                 <input
                   type="text"
                   className="form-control"
@@ -260,7 +242,7 @@ const BayiEkle = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="facebook">facebook</label>
+                <label htmlFor="facebook">Facebook</label>
                 <input
                   type="text"
                   className="form-control"
@@ -272,7 +254,7 @@ const BayiEkle = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="linkedin">linkedin</label>
+                <label htmlFor="linkedin">Linkedin</label>
                 <input
                   type="text"
                   className="form-control"
@@ -284,7 +266,7 @@ const BayiEkle = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="googleplus">googleplus</label>
+                <label htmlFor="googleplus">Google Plus</label>
                 <input
                   type="text"
                   className="form-control"
@@ -313,4 +295,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default YoneticiEkle;

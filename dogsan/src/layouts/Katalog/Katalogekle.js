@@ -22,6 +22,7 @@ const KatalogEkle = () => {
   const initialTutorialState = {
     id: null,
     katalogadi: "", 
+    Resim:"",
     published: false
   };
 
@@ -40,6 +41,7 @@ const KatalogEkle = () => {
   const { size } = typography;
 
   const [katalogadi, Changekatalogadi] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -49,6 +51,7 @@ const KatalogEkle = () => {
   const saveTutorial = () => {
     var data = {
       katalogadi:  JSON.stringify(katalogadi), 
+      Resim: JSON.stringify(Resim),
      
     };
 
@@ -110,7 +113,11 @@ const KatalogEkle = () => {
                   onEditorStateChange={handleInputChange}
                 />
               </div> */}
-
+              <FileBase64
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
+              />
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
               </button>

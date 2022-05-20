@@ -15,8 +15,10 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
-const BayiEkle = () => {
+const UrunEkle = () => {
   const initialTutorialState = {
     id: null,
     Adi: "",
@@ -26,7 +28,7 @@ const BayiEkle = () => {
     published: false
   };
 
-
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -40,6 +42,11 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [Adi, ChangeAdi] = useState(initialValue)
+  const [Renk, ChangeRenk] = useState(initialValue)
+  const [icerik, Changeicerik] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -47,11 +54,11 @@ const BayiEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      Adi: tutorial.Adi,
-      Renk: tutorial.Renk,
-      icerik: tutorial.icerik,
+      Adi: JSON.stringify(Adi),
+      Renk: JSON.stringify(Renk),
+      icerik: JSON.stringify(icerik),
      
-      Resim: tutorial.Resim,
+      Resim: JSON.stringify(Resim),
     };
 
     UrunDataService.create(data)
@@ -63,7 +70,7 @@ const BayiEkle = () => {
           icerik: response.data.icerik,
            
           Resim: response.data.Resim,
-           Resim: response.data.Resim,
+       
           published: response.data.published
         });
         setSubmitted(true);
@@ -103,16 +110,8 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Adi"
-                  required
-                  value={tutorial.Adi}
-                  onChange={handleInputChange}
-                  name="Adi"
-                />
+                <label htmlFor="Adi">Adı</label>
+                <RichTextEditor name="Adi" id="Adi" type="text" style={{ width: "600px" }} value={Adi} onChange={ChangeAdi} />
               </div>
 
             {/*   <div style={{ width: "300 px" }}>
@@ -127,27 +126,11 @@ const BayiEkle = () => {
 
               <div className="form-group">
                 <label htmlFor="Renk">Renk</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Renk"
-                  required
-                  value={tutorial.Renk}
-                  onChange={handleInputChange}
-                  name="Renk"
-                />
+                <RichTextEditor name="Renk" id="Renk" type="text" style={{ width: "600px" }} value={Renk} onChange={ChangeRenk} />
               </div>
               <div className="form-group">
-                <label htmlFor="icerik">icerik</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="icerik"
-                  required
-                  value={tutorial.icerik}
-                  onChange={handleInputChange}
-                  name="icerik"
-                />
+                <label htmlFor="icerik">İçerik</label>
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={Changeicerik} />
               </div>
                
 
@@ -168,4 +151,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default UrunEkle;

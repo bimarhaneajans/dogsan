@@ -15,8 +15,10 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
-const BayiEkle = () => {
+const SubKategoriEkle = () => {
   const initialTutorialState = {
     id: null,
     subkategoriadi: "",
@@ -33,6 +35,7 @@ const BayiEkle = () => {
   };
 
 
+  const initialValue = '<p>Your initial <b>html value</b> or an empty string to init editor without value</p>';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -46,6 +49,17 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+  const [subkategoriadi, Changesubkategoriadi] = useState(initialValue)
+  const [tanim, Changetanim] = useState(initialValue)
+  const [kullanimamaci, Changekullanimamaci] = useState(initialValue)
+  const [performansozellikleri, Changeperformansozellikleri] = useState(initialValue)
+  const [fayda, Changefayda] = useState(initialValue)
+  const [path, Changepath] = useState(initialValue)
+  const [kategoriid, Changekategoriid] = useState(initialValue)
+  const [videourl, Changevideourl] = useState(initialValue)
+  const [kategoriadi, Changekategoriadi] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -54,16 +68,16 @@ const BayiEkle = () => {
   const saveTutorial = () => {
     var data = {
 
-      subkategoriadi: tutorial.subkategoriadi,
-      tanim: tutorial.tanim,
-      kullanimamaci: tutorial.kullanimamaci,
-      performansozellikleri: tutorial.performansozellikleri,
-      fayda:tutorial.fayda,
-      path:tutorial.path,
-      kategoriid: tutorial.kategoriid,
-      kategoriadi: tutorial.kategoriadi,
-      videourl: tutorial.videourl,
-      Resim: tutorial.Resim,
+      subkategoriadi: JSON.stringify(subkategoriadi),
+      tanim: JSON.stringify(tanim),
+      kullanimamaci: JSON.stringify(kullanimamaci),
+      performansozellikleri: JSON.stringify(performansozellikleri),
+      fayda:JSON.stringify(fayda),
+      path:JSON.stringify(path),
+      kategoriid: JSON.stringify(kategoriid),
+      kategoriadi: JSON.stringify(kategoriadi),
+      videourl: JSON.stringify(videourl),
+      Resim: JSON.stringify(Resim),
     };
 
     SubKategoriDataService.create(data)
@@ -119,108 +133,43 @@ const BayiEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="subkategoriadi">subkategoriadi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="subkategoriadi"
-                  required
-                  value={tutorial.subkategoriadi}
-                  onChange={handleInputChange}
-                  name="subkategoriadi"
-                />
-                
+                <label htmlFor="subkategoriadi">Sub Kategori Adı</label>
+                <RichTextEditor name="subkategoriadi" id="subkategoriadi" type="text" style={{ width: "600px" }} value={subkategoriadi} onChange={Changesubkategoriadi} />
               </div>
 
 
 
               <div className="form-group">
-                <label htmlFor="tanim">tanim</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="tanim"
-                  required
-                  value={tutorial.tanim}
-                  onChange={handleInputChange}
-                  name="tanim"
-                />
+                <label htmlFor="tanim">Tanım</label>
+                <RichTextEditor name="tanim" id="tanim" type="text" style={{ width: "600px" }} value={tanim} onChange={Changetanim} />
               </div>
               <div className="form-group">
-                <label htmlFor="kullanimamaci">kullanimamaci</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kullanimamaci"
-                  required
-                  value={tutorial.kullanimamaci}
-                  onChange={handleInputChange}
-                  name="kullanimamaci"
-                />
+                <label htmlFor="kullanimamaci">Kullanım Amacı</label>
+                <RichTextEditor name="kullanimamaci" id="kullanimamaci" type="text" style={{ width: "600px" }} value={kullanimamaci} onChange={Changekullanimamaci} />
               </div>
               <div className="form-group">
-                <label htmlFor="performansozellikleri">performansozellikleri</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="performansozellikleri"
-                  required
-                  value={tutorial.performansozellikleri}
-                  onChange={handleInputChange}
-                  name="performansozellikleri"
-                />
+                <label htmlFor="performansozellikleri">Performans Özellikleri</label>
+                <RichTextEditor name="performansozellikleri" id="performansozellikleri" type="text" style={{ width: "600px" }} value={performansozellikleri} onChange={Changeperformansozellikleri} />
               </div>
 
               <div className="form-group">
-                <label htmlFor="fayda">fayda</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="fayda"
-                  required
-                  value={tutorial.fayda}
-                  onChange={handleInputChange}
-                  name="fayda"
-                />
+                <label htmlFor="fayda">Fayda</label>
+                <RichTextEditor name="fayda" id="fayda" type="text" style={{ width: "600px" }} value={fayda} onChange={Changefayda} />
               </div>
 
               <div className="form-group">
                 <label htmlFor="path">path</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="path"
-                  required
-                  value={tutorial.path}
-                  onChange={handleInputChange}
-                  name="path"
-                />
+                <RichTextEditor name="path" id="path" type="text" style={{ width: "600px" }} value={path} onChange={Changepath} />
               </div>
 
               <div className="form-group">
-                <label htmlFor="kategoriid">kategoriid</label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="kategoriid"
-                  required
-                  value={tutorial.kategoriid}
-                  onChange={handleInputChange}
-                  name="kategoriid"
-                />
+                <label htmlFor="kategoriid">Kategori İd</label>
+                <RichTextEditor name="kategoriid" id="kategoriid" type="text" style={{ width: "600px" }} value={kategoriid} onChange={Changekategoriid} />
               </div>
 
               <div className="form-group">
-                <label htmlFor="kategoriadi">kategoriadi</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kategoriadi"
-                  required
-                  value={tutorial.kategoriadi}
-                  onChange={handleInputChange}
-                  name="kategoriadi"
-                />
+                <label htmlFor="kategoriadi">Kategori Adı</label>
+                <RichTextEditor name="kategoriadi" id="kategoriadi" type="text" style={{ width: "600px" }} value={kategoriadi} onChange={Changekategoriadi} />
               </div>
 
               <div className="form-group">
@@ -253,4 +202,4 @@ const BayiEkle = () => {
   );
 };
 
-export default BayiEkle;
+export default SubKategoriEkle;
