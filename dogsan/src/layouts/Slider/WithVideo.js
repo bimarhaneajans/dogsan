@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 
-import Video from "./Video";
+
 
 const responsive = {
   doesntmatter: {
@@ -16,9 +16,9 @@ class WithVideo extends React.Component {
   render() {
     return (
       <Carousel swipeable={false} draggable={false} responsive={responsive}>
-        {videos.map(id => {
+        {/* {videos.map(id => {
           return <Video id={id} key={id} />;
-        })}
+        })} */}
       </Carousel>
     );
   }

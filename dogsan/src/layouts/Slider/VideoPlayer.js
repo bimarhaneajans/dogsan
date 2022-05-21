@@ -4,8 +4,8 @@ import VideoPlayer from 'react-video-js-player';
 import Carousel from "react-multi-carousel";
 
 import "./WithScrollbar.css";
-import "semantic-ui-css/semantic.min.css";
-import "react-multi-carousel/lib/styles.css";
+/* import "semantic-ui-css/semantic.min.css";
+ */import "react-multi-carousel/lib/styles.css";
 import "./style.css";
 import UAParser from "ua-parser-js";
 import Simple from "./Simple";
