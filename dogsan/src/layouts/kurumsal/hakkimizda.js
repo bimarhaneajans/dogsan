@@ -18,7 +18,6 @@ import "../style.css";
 import "../responsive-styling.css";
 import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player'
-import "../social.css"
 
 
 export default function Tarihce() {
@@ -53,12 +52,6 @@ export default function Tarihce() {
     };
 
 
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
-    };
 
 
     return (
@@ -332,34 +325,24 @@ export default function Tarihce() {
             <div className="footer2">
                 <img src={dogsanlogo} alt="" />
             </div>
-            <div className="footer2-bottom">
-            <div className="container">
-              <a href="javascript:void(0)" className="bttop"><img src="assets/img/backtotop.jpg" alt="" /></a>
-            </div>
-          </div>
 
-            <ul class="fixed-social-menu list-inline-social mb-0" >
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
-            <i class="fa fa-facebook" ></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
-            <i class="fa fa-instagram" ></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
-            <i class="fa fa-linkedin" ></i>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
-            <i class="fa fa-youtube-play" ></i>
-          </a>
-        </li>
-      </ul>
+            <div className="footer2-bottom">
+                <div className="container">
+                    <div className="col-md-6">
+                    
+                    </div>
+                    <div className="col-md-6">
+                        <ul className="footer-social">
+                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <a href="javascript:void(0)" className="bttop"><img src={backtotop} alt="" /></a>
+                </div>
+            </div>
         </div>
 
     )

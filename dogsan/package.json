@@ -63,6 +63,7 @@
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-animated-slider": "^1.1.4",
+    "react-awesome-slider": "^4.1.0",
     "react-carousel-minimal": "^1.4.1",
     "react-chartjs-2": "3.0.4",
     "react-countup": "6.1.1",
