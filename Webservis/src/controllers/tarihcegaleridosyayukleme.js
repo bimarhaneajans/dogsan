@@ -67,8 +67,8 @@ const getListFiles = (req, res) => {
 
     files.forEach((file) => {
       fileInfos.push({
-        name: file,
         image: baseUrl + file,
+        caption: file,
       });
     });
 
