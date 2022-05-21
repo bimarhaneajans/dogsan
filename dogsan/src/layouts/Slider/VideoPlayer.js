@@ -8,15 +8,14 @@ import "semantic-ui-css/semantic.min.css";
 import "react-multi-carousel/lib/styles.css";
 import "./style.css";
 import UAParser from "ua-parser-js";
- 
 import Simple from "./Simple";
 import WithScrollbar from "./WithScrollbar";
-import WithVideo from "./WithVideo";
+import WithVideo from "./WithVideo.js";
 import Section from "./Section";
-
+ 
 const responsive = {
   doesntmatter: {
-    state = { additionalTransfrom: 0 }
+    state : { additionalTransfrom: 0 },
 
     breakpoint: { max: 3000, min: 0 },
     items: 1
