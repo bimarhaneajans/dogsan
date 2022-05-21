@@ -124,11 +124,11 @@ const AddTutorial = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="seolink">Seo link</label>
-                <RichTextEditor name="seolink" id="seolink" type="text" style={{ width: "600px" }} value={Ozet} onChange={Changeseolink} />
+                <RichTextEditor name="seolink" id="seolink" type="text" style={{ width: "600px" }} value={seolink} onChange={Changeseolink} />
               </div>
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
-                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={Ozet} onChange={Changeicerik} />
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={Changeicerik} />
               </div>
 
               <FileBase64

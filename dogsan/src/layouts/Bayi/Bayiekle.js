@@ -55,7 +55,7 @@ function BayiEkle() {
   const [published, Changepublished] = useState(initialValue)
   const { pathname } = useLocation();
   const { size } = typography;
-
+  //  var editor1 = new RichTextEditor("#div_editor1");
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -125,38 +125,42 @@ function BayiEkle() {
             <div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
+
+               
+
+
                 <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
-              </div> 
+              </div>
               <div className="form-group">
                 <label htmlFor="adres">adres</label>
-                
-                 <RichTextEditor name="adres" id="adres" type="text" style={{ width: "600px" }} value={adres} onChange={Changeadres} />
+
+                <RichTextEditor name="adres" id="adres" type="text" style={{ width: "600px" }} value={adres} onChange={Changeadres} />
               </div>
               <div className="form-group">
                 <label htmlFor="Telefon">Şehir</label>
-                  <RichTextEditor name="sehir" id="sehir" type="text" style={{ width: "600px" }} value={sehir} onChange={Changesehir} />
+                <RichTextEditor name="sehir" id="sehir" type="text" style={{ width: "600px" }} value={sehir} onChange={Changesehir} />
               </div>
               <div className="form-group">
                 <label htmlFor="Telefon">Telefon</label>
-                
+
                 <RichTextEditor name="telefon" id="telefon" type="text" style={{ width: "600px" }} value={telefon} onChange={Changetelefon} />
               </div>
               <div className="form-group">
                 <label htmlFor="Enlem">Enlem</label>
-               
-                   <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={enlem} onChange={Changeenlem} />
+
+                <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={enlem} onChange={Changeenlem} />
               </div>
 
               <div className="form-group">
                 <label htmlFor="boylam">boylam</label>
-                
+
                 <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }} value={boylam} onChange={Changeboylam} />
-              </div> 
+              </div>
 
               <FileBase64
                 type="file"
                 multiple={false}
-                onDone={({ base64 }) => setTutorial({Resim: base64 })}
+                onDone={({ base64 }) => setTutorial({ Resim: base64 })}
               />
 
               <button onClick={saveTutorial} className="btn btn-success">

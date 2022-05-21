@@ -130,17 +130,17 @@ const Duyuruekle = () => {
   
             <div className="form-group">
                 <label htmlFor="YoutubeVideoURL">Youtube Video URL</label>
-                <RichTextEditor name="YoutubeVideoURL" id="YoutubeVideoURL" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={ChangeYoutubeVideoURL} />
+                <RichTextEditor name="YoutubeVideoURL" id="YoutubeVideoURL" type="text" style={{ width: "600px" }} value={YoutubeVideoURL} onChange={ChangeYoutubeVideoURL} />
 
               </div>
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
-                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={Changeicerik} />
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={Changeicerik} />
 
               </div>
               <div className="form-group">
                 <label htmlFor="Tarih">Tarih</label>
-                <RichTextEditor name="Tarih" id="Tarih" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={ChangeTarih} />
+                <RichTextEditor name="Tarih" id="Tarih" type="text" style={{ width: "600px" }} value={Tarih} onChange={ChangeTarih} />
 
               </div> 
 
