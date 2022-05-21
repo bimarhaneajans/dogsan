@@ -5,43 +5,6 @@ const data=[{image:"",caption:""}];
 export default function TarihceSlider() {
 const [tarihceGaleri, setTarihceGaleri] = useState([]);
 
-useEffect(() => {
-
-    retrieveTarihceGaleri();
-}, []);
-
-
-const retrieveTarihceGaleri = () => {
-   
-
-    TarihceGaleriDataService.getFiles()
-        .then(response => { 
-          const gelen = response.data
-     
-           /*  for(let i=0; i<gelen.length;i++){
-                data[i] = [{"image":gelen[i].image,"caption":gelen[i].caption}];
-                console.log(data)
-            } */
-           /// console.log(data)
-            setTarihceGaleri(gelen);
-              
-        })
-        .catch(e => {
-            console.log(e);
-        });
-};
-       /*  for(let i=0; i<tarihceGaleri.length;i++){
-        data[i] = [
-                {
-                        image:tarihceGaleri[i].image,caption:tarihceGaleri[i].caption
-                }
-            ]; 
-            
-                console.log(data)
-            }  */
-           /// console.log(data)
-
-
 
 
 
