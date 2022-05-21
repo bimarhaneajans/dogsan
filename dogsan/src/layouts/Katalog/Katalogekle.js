@@ -4,6 +4,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KatalogDataService from "../../services/KatalogService";
+import KatalogUploadService from "services/KatalogUploadService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -26,12 +27,27 @@ const KatalogEkle = () => {
     published: false
   };
 
+
+/*
+ 
+
+ UploadService.getFiles().then((response) => {
+      this.setState({
+        fileInfos: response.data,
+      });
+    });
+
+*/
+
+
+
   const initialValue = 'Alana verileri doldurun';
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchTitle, setSearchTitle] = useState("");
+  const [fileInfos, setfileInfos] = useState();
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
 
@@ -41,9 +57,25 @@ const KatalogEkle = () => {
   const { size } = typography;
 
   const [katalogadi, Changekatalogadi] = useState(initialValue)
-  const [katalogurl, Changekatalogurl] = useState(initialValue);
+  const [katalogurl, setKatalogurl] = useState();
 
   const [Resim, ChangeResim] = useState(initialValue)
+ 
+  useEffect(() => {
+
+    retrieveKatalogUpload();
+  }, []);
+
+  const retrieveKatalogUpload = () => {
+    KatalogUploadService.getFiles()
+        .then(response => {
+          setKatalogurl(response.data);
+            //  console.log(response.data);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+};
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -118,13 +150,27 @@ const KatalogEkle = () => {
               </div> */}
               <select
                     type="text"
-                    id="kariyer"
-                    name="kariyer"
-                    value={tutorial.kariyer}
+                    id="katalogurl"
+                    name="katalogurl"
+                    value={tutorial.katalogurl}
                     onChange={handleInputChange}
                   >
-                    {kariyer.map(options => <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
+                    {
+                   //   kariyer.map(options => <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
 
+                   //fileInfos &&fileInfos
+                   //usefectten gelen degere gore map ile donucez. 
+                 katalogurl.map((file, index) => <option key={index} value={file.url}>{file.name}</option>) 
+/*
+
+{fileInfos &&
+              fileInfos.map((file, index) => (
+                <li className="list-group-item" key={index}>
+                  <a href={file.url}>{file.name}</a>
+                </li>
+              ))}
+
+ */
                     }
 
                   </select>
