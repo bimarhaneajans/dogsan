@@ -49,7 +49,7 @@ const Kariyerekle = () => {
 
   const saveTutorial = () => {
     var data = {
-      kariyeradi: JSON.stringify(kariyeradi),
+      kariyeradi: tutorial.kariyeradi,
      
     };
 
@@ -99,7 +99,17 @@ const Kariyerekle = () => {
               
               <div className="form-group">
                 <label htmlFor="kariyeradi">Kariyer Adı</label>
-                <RichTextEditor name="kariyeradi" id="kariyeradi" type="text" style={{ width: "600px" }} value={kariyeradi} onChange={Changekariyeradi} />
+
+                <input
+                  type="text"
+                  className="form-control"
+                  id="kariyeradi"
+                  required
+                  value={tutorial.kariyeradi}
+                  onChange={handleInputChange}
+                  name="kariyeradi"
+                />
+                {/* <RichTextEditor name="kariyeradi" id="kariyeradi" type="text" style={{ width: "600px" }} value={kariyeradi} onChange={handleInputChange} /> */}
 
               </div> 
 

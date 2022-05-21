@@ -23,12 +23,13 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
       });
   }; 
 
-  const data=["https://www.youtube.com/watch?v=XtLOdudCJBI"]
+  //const data=["http://localhost:3000/resources/static/assets/videos/trailer_hd.mp4","https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"]
  
   return (
     <div>
 <ReactPlayer
-    //loop
+    loop
+    
     auto
     controls
     width={window.innerWidth}

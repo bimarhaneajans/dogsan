@@ -62,13 +62,17 @@ const getListFiles = (req, res) => {
       });
     }
 
+/*
 
+
+*/
     let fileInfos = [];
 
     files.forEach((file) => {
       fileInfos.push({
-        //name: file,
+       
         url: baseUrl + file,
+         tipi: path.extname(baseUrl + file),
       });
     });
 
