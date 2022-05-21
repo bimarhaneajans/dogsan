@@ -17,7 +17,7 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
-
+import Select from 'react-select';
 const KatalogEkle = () => {
   const initialTutorialState = {
     id: null,
@@ -41,6 +41,8 @@ const KatalogEkle = () => {
   const { size } = typography;
 
   const [katalogadi, Changekatalogadi] = useState(initialValue)
+  const [katalogurl, Changekatalogurl] = useState(initialValue);
+
   const [Resim, ChangeResim] = useState(initialValue)
 
   const handleInputChange = event => {
@@ -51,6 +53,7 @@ const KatalogEkle = () => {
   const saveTutorial = () => {
     var data = {
       katalogadi:  JSON.stringify(katalogadi), 
+      katalogurl: tutorial.katalogurl,
       Resim: tutorial.Resim,
      
     };
@@ -60,7 +63,7 @@ const KatalogEkle = () => {
         setTutorial({
           id: response.data.id,
           katalogadi: response.data.katalogadi, 
-         
+         katalogurl:response.data.katalogurl, 
           published: response.data.published
         });
         setSubmitted(true);
@@ -113,6 +116,18 @@ const KatalogEkle = () => {
                   onEditorStateChange={handleInputChange}
                 />
               </div> */}
+              <select
+                    type="text"
+                    id="kariyer"
+                    name="kariyer"
+                    value={tutorial.kariyer}
+                    onChange={handleInputChange}
+                  >
+                    {kariyer.map(options => <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
+
+                    }
+
+                  </select>
               <FileBase64
                 type="file"
                 multiple={false}
