@@ -71,8 +71,8 @@ const getListFiles = (req, res) => {
     files.forEach((file) => {
       fileInfos.push({
        
-        url: baseUrl + file,
-         tipi: path.extname(baseUrl + file),
+        src: baseUrl + file,
+        type: path.extname(baseUrl + file),
       });
     });
 

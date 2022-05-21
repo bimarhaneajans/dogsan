@@ -36,7 +36,7 @@ import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 import posticon from "../layouts/assets/img/blog/post-icon.png";
-import Videos from "./Slider/Videos";
+import VideoPlayer from "./Slider/VideoPlayer";
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -272,7 +272,7 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-         <Videos/>
+         <VideoPlayer/>
           <CitiesSlider slaty={slaty} />
           
           <div id="slider-wrapper">
