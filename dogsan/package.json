@@ -106,7 +106,7 @@
   },
   "scripts": {
     "start": "semantic-ui-css-patch && react-scripts start",
-    "build": "semantic-ui-css-patch && react-scripts build",
+    "build": "semantic-ui-css-patch && npx serve",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "npm temizle:": " npm cache clean --force npm install npm start",
