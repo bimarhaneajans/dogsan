@@ -1,48 +1,56 @@
- 
+
 import React, { Component } from 'react';
 import VideoPlayer from 'react-video-js-player';
-   
-class VideoApp extends Component {
-    player = {}
-    state = { 
-      DataisLoaded: false,
-      items: [],
-        video: {
-            src: "/video.mp4",
-            poster: "/1.png"
-        }
-    }
-   
-    onPlayerReady(player){
-        this.player = player;
-    }
-    componentDidMount() {
-      fetch("http://localhost:3000/video/files")
-          .then((res) => res.json())
-          .then((json) => {
-              this.setState({
-                  items: json,
-                  DataisLoaded: true
-              });
-          })
+import Carousel from "react-multi-carousel";
+const responsive = {
+  doesntmatter: {
+    breakpoint: { max: 3000, min: 0 },
+    items: 1
   }
-    render() {
-        return (
-            <div>{  
-              this.state.items.map((item) => ( 
-                <VideoPlayer key = { item.id }
-                playing
-                    controls={true}
-                    src={item.src}
-                   // poster={this.state.video.poster}
-                    width="720"
-                    height="420"
-                    onReady={this.onPlayerReady.bind(this)}
-                />    ))
-              }
-            </div>
-        );
-    }
+};
+class VideoApp extends Component {
+  player = {}
+  state = {
+    DataisLoaded: false,
+    items: [],
+    status: true,
+
+  }
+
+  onPlayerReady(player) {
+    this.player = player;
+  }
+  componentDidMount() {
+    fetch("http://localhost:3000/video/files")
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({
+          items: json,
+          DataisLoaded: true
+        });
+      })
+  }
+  render() {
+    return (
+      <Carousel swipeable={false} draggable={false} responsive={responsive}>
+       
+       {this.state.items.map(id => {
+          return <VideoPlayer key={id} id={id}
+          playing
+          controls={true}
+          src={id.src}
+          width={300}
+          height={300}
+        // onReady={this.onPlayerReady.bind(this)}
+       />;
+        })}
+
+       
+
+
+      </Carousel>
+    );
+  }
 }
 export default VideoApp;
 /* import React, { useState, useEffect, useMemo, useRef } from "react";
@@ -153,9 +161,8 @@ initializeOptions(defaultOptions);
   </JPlayer> 
       
     </div>*/}
-   
 
 
 
 
- 
+
