@@ -16,6 +16,7 @@ const Katalog = db.katalogs;
    const katalog  = new Katalog({
     katalogadi: req.body.katalogadi,
     Resimbaslik: req.body.Resimbaslik,
+    katalogurl:req.body.katalogurl,
     Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false
   });

@@ -123,12 +123,12 @@ const TarihceEkle = () => {
               </div>
                
 
-            <FileBase64
+           {/*  <FileBase64
                 type="file"
                 multiple={true}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
               />  
-
+ */}
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
               </button>

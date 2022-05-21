@@ -2,8 +2,9 @@ module.exports = mongoose => {
   var schema = mongoose.Schema(
     {
       katalogadi: String, 
- Resimbaslik:String,
+     Resimbaslik:String,
       Resim:String,
+      katalogurl:String,
       published: Boolean
     },
     { timestamps: true }

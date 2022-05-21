@@ -127,9 +127,9 @@ const Overview = (props) => {
                     key={index}
                   >
                    <div className="card" key={tutorial.id}>
-                    <div className="card-image waves-effect waves-block waves-light">
+               {/*      <div className="card-image waves-effect waves-block waves-light">
                         <img className="activator" style={{ width: '100%', height: 150 }} src={tutorial.Resim} />
-                    </div>
+                    </div> */}
                     <div className="card-content">
                         <span className="card-title activator grey-text text-darken-4">{tutorial.Yil}</span>
                     </div>

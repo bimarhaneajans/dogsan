@@ -177,11 +177,11 @@ const KatagoriEkle = () => {
                 <RichTextEditor name="kategoriid" id="kategoriid" type="text" style={{ width: "600px" }} value={kategoriid} onChange={Changekategoriid} />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="subkategori">Sub Kategori</label>
                 <RichTextEditor name="subkategori" id="subkategori" type="text" style={{ width: "600px" }} value={subkategori} onChange={Changesubkategori} />
               </div>
- 
+  */}
 
             <FileBase64
                 type="file"

@@ -5,21 +5,10 @@ import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } fr
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
 import HakkimizdaDataService from "../../services/HakkimizdaService";
-import dogsanlogo from "../assets/img/logo/Group_2.png";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
-import bir from "../assets/img/blog/1.jpg";
-import author from "../assets/img/xtra/author.png";
-import xtra1 from "../assets/img/xtra/1.jpg";
-import xtra2 from "../assets/img/xtra/2.jpg";
-import xtra3 from "../assets/img/xtra/3.jpg";
-import avatar from "../assets/img/xtra/avatar.jpg";
-import caticon1 from "../assets/img/cat-ico1.png";
-import caticon2 from "../assets/img/cat-ico1.png";
-import caticon3 from "../assets/img/cat-ico1.png";
-import rposts1 from "../assets/img/rposts/1.jpg";
-import rposts2 from "../assets/img/rposts/1.jpg";
-import rposts3 from "../assets/img/rposts/1.jpg";
+import dogsanlogo from "../assets/img/logo/Group_2.png";
+
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -27,13 +16,11 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Tarihce from "./Tarihce";
-import Degerler from "./Degerler";
-import SosyalSorumluluk from "./SosyalSorumluluk";
 import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player'
 
-export default function Hakkimizda() {
+
+export default function Tarihce() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [hakkimizda, setHakkimizda] = useState([]);
@@ -107,7 +94,7 @@ export default function Hakkimizda() {
 
             </div>
             <div className="page-head">
-                {/*  <div className="container">
+                {/* <div className="container">
                     <div className="col-md-9">
                         <h3>Standard Post Format with preview picture</h3>
                         <span className="post-meta">Posted 22.06.2014 at 18:00h in Healthy lifestyle by <a href="#">The Ronins</a>   /   68 Likes   /   <a href="#">2 Comments</a></span>
@@ -120,9 +107,8 @@ export default function Hakkimizda() {
                 </div> */}
             </div>
             <div className="blog-content">
-
                 <div className="container">
-                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>HAKKIMIZDA</h1>
+                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>HAKKIMIZDA</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
@@ -133,18 +119,15 @@ export default function Hakkimizda() {
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                
-                                <div dangerouslySetInnerHTML={{ __html: item.AnaIcerik }}  ></div>
-
+                                 <div dangerouslySetInnerHTML={{ __html: item.AnaIcerik }}  ></div>
+                                <div className="bottom-space-30"></div>
+                                <div className="clearfix"></div>
+                                 <div dangerouslySetInnerHTML={{ __html: item.BelgeselIcerigi }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="reactPly" >
                                 <ReactPlayer url={item.BelgeselVideoUrl} /> 
                                 </div>
-
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                 <div dangerouslySetInnerHTML={{ __html: item.BelgeselIcerigi }}  ></div>
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
@@ -295,6 +278,7 @@ export default function Hakkimizda() {
                         <div className="side-content">
                             <h5>KURUMSAL</h5>
                             <ul className="list1">
+                               
                                 <li><Link to={"/Tarihce"} className="nav-link">TARİHÇE</Link></li>
                                 <li><Link to={"/Degerler"} className="nav-link">DEĞERLER</Link></li>
                                 <li><Link to={"/SosyalSorumluluk"} className="nav-link">SOSYAL SORUMLULUK</Link></li>
