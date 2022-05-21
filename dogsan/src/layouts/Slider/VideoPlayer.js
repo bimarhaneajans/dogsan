@@ -34,7 +34,7 @@ class VideoApp extends Component {
     this.player = player;
   }
   componentDidMount() {
-    fetch("http://localhost:3000/video/files")
+    fetch("https://bavrim.madilink.net/video/files")
       .then((res) => res.json())
       .then((json) => {
         this.setState({
@@ -122,7 +122,7 @@ initializeOptions(defaultOptions);
       });
   }; 
 
-  //const data=["http://localhost:3000/resources/static/assets/videos/trailer_hd.mp4","https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"]
+  //const data=["https://bavrim.madilink.net/resources/static/assets/videos/trailer_hd.mp4","https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"]
  
   return ( <ReactPlayer
     loop
