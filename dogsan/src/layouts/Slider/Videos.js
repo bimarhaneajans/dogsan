@@ -1,32 +1,48 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import videoConnect from 'react-html5video';
-import VideoService from "../../services/VideoService";
-
-import Video from "react-h5-video";
+ import VideoService from "../../services/VideoService";
+ import ReactPlayer from 'react-player'
  
 
-export default function Videos() {
+ export default function Videos() {  
   const [Videos, setVideo] = useState([]);
-
+ 
   useEffect(() => {
-    retrieveTutorials();
 
+    retrieveVideo();
   }, []);
-
-  const retrieveTutorials = () => {
+  
+  const retrieveVideo = () => {
     VideoService.getAll()
       .then(response => {
-      setVideo(Videos);
-        console.log(Videos);
+        setVideo(response.data);
+        console.log(response.data);
 
       })
       .catch(e => {
         console.log(e);
       });
-  };
+  }; 
 
+  const data=["https://www.youtube.com/watch?v=XtLOdudCJBI"]
+ 
   return (
-    <Video sources={""}/> 
+    <div>
+<ReactPlayer
+    //loop
+    auto
+    controls
+    width={window.innerWidth}
+    height={window.innerHeight/2+200}
+    url={data} />
+      
+    </div>
+
   )
 }
+
+
+
+
+
+
  

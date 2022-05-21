@@ -18,8 +18,8 @@ import { RichTextEditor } from '@mantine/rte';
 
 const AddTutorial = () => {
   const initialTutorialState = {
-    id: "",
-    baslik:"",
+    id: null,
+    baslik: "",
     Ozet: "",
     seolink: "",
     icerik: "",
@@ -27,7 +27,7 @@ const AddTutorial = () => {
     published: false
   };
 
-  const initialValue = undefined;
+  const initialValue = 'Alana verileri doldurun';
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -38,14 +38,14 @@ const AddTutorial = () => {
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
 
   const [onMouseEnter, setOnMouseEnter] = useState(false);
-  const [rtlCache, setRtlCache] = useState();
+  const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
-  const [baslik, Changebaslik] = useState()
-  const [Ozet, ChangeOzet] = useState()
-  const [seolink, Changeseolink] = useState()
-  const [icerik, Changeicerik] = useState()
-  const [Resim, ChangeResim] = useState()
-  const [published, Changepublished] = useState()
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [Ozet, ChangeOzet] = useState(initialValue)
+  const [seolink, Changeseolink] = useState(initialValue)
+  const [icerik, Changeicerik] = useState(initialValue)
+  const [Resim, ChangeResim] = useState(initialValue)
+  const [published, Changepublished] = useState(initialValue)
   const { size } = typography;
 
   const handleInputChange = event => {
@@ -54,9 +54,8 @@ const AddTutorial = () => {
   };
 
   const saveTutorial = () => {
-     
     var data = {
-      baslik:JSON.stringify(baslik),//splice(baslik.length+1,baslik.length-1),
+      baslik:JSON.stringify(baslik),
       Ozet:JSON.stringify(Ozet),
       seolink:JSON.stringify(seolink),
       icerik:JSON.stringify(icerik),
@@ -115,29 +114,21 @@ const AddTutorial = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="baslik">Başlık</label>
-                <RichTextEditor  name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
+                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
 
               </div>
 
               <div className="form-group">
                 <label htmlFor="Ozet">Ozet</label>
-                <RichTextEditor getText="10" name="Ozet" id="Ozet" type="text" style={{ width: "600px" }} value={Ozet} getLength={(10)} onChange={ChangeOzet} />
+                <RichTextEditor name="Ozet" id="Ozet" type="text" style={{ width: "600px" }} value={Ozet} onChange={ChangeOzet} />
               </div>
               <div className="form-group">
                 <label htmlFor="seolink">Seo link</label>
-<<<<<<< HEAD
                 <RichTextEditor name="seolink" id="seolink" type="text" style={{ width: "600px" }} value={seolink} onChange={Changeseolink} />
               </div>
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
                 <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={Changeicerik} />
-=======
-                <RichTextEditor aria-required name="seolink" id="seolink" type="text" style={{ width: "600px" }} value={Ozet} onChange={Changeseolink} />
-              </div>
-              <div className="form-group">
-                <label htmlFor="icerik">icerik</label>
-                <RichTextEditor aria-required name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={Ozet} onChange={Changeicerik} />
->>>>>>> 2cc1e76228a60a879beeda3dee364cf41c7e4f00
               </div>
 
               <FileBase64

@@ -4,7 +4,7 @@ const db = require("../models");
 
 const uploadFile = require("../middlewares/videouploadfile");
 const fs = require("fs");
- const baseUrl = "https://bavrim.madilink.net/resources/static/assets/videos/";
+ const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
  
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
@@ -67,7 +67,7 @@ const getListFiles = (req, res) => {
 
     files.forEach((file) => {
       fileInfos.push({
-        name: file,
+        //name: file,
         url: baseUrl + file,
       });
     });
