@@ -18,17 +18,30 @@ const retrieveTarihceGaleri = () => {
         .then(response => { 
           const gelen = response.data
      
-            for(let i=0; i<gelen.length;i++){
-                data[i] = [{image:gelen[i].image,caption:gelen[i].caption}];
-            }
-            console.log(data)
-            setTarihceGaleri(data);
+           /*  for(let i=0; i<gelen.length;i++){
+                data[i] = [{"image":gelen[i].image,"caption":gelen[i].caption}];
+                console.log(data)
+            } */
+           /// console.log(data)
+            setTarihceGaleri(gelen);
               
         })
         .catch(e => {
             console.log(e);
         });
 };
+       /*  for(let i=0; i<tarihceGaleri.length;i++){
+        data[i] = [
+                {
+                        image:tarihceGaleri[i].image,caption:tarihceGaleri[i].caption
+                }
+            ]; 
+            
+                console.log(data)
+            }  */
+           /// console.log(data)
+
+
 
 
 
