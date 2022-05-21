@@ -4,11 +4,10 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import HakkimizdaDataService from "../../services/HakkimizdaService";
-import logo from "../assets/img/logo/heartify-logo.png";
-import logo2 from "../assets/img/logo/heartify-logo-lite.png";
-import dogsanlogo from "../assets/img/logo/Group_2.png";
+import TarihceDataService from "../../services/TarihceService";
 
+import dogsanlogo from "../assets/img/logo/Group_2.png";
+import logo from "../assets/img/logo/heartify-logo.png";
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -16,14 +15,17 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
-import Degerler from "./Degerler";
-import SosyalSorumluluk from "./SosyalSorumluluk";
-import Hakkimizda from "./Hakkimizda";
 
-export default function Tarihce() {
+import { Player, ControlBar } from 'video-react';
+import ReactPlayer from 'react-player';
+import TarihceSlider from "./TarihceSlider";
+
+
+export default function Hakkimizda() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [hakkimizda, setHakkimizda] = useState([]);
+    const [tarihce, setTarihce] = useState([]);
+
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -35,15 +37,15 @@ export default function Tarihce() {
 
     useEffect(() => {
 
-        retrieveHakkimizda();
+        retrieveTarihce();
     }, []);
 
+  
 
-
-    const retrieveHakkimizda = () => {
-        HakkimizdaDataService.getAll()
+    const retrieveTarihce = () => {
+        TarihceDataService.getAll()
             .then(response => {
-                setHakkimizda(response.data);
+                setTarihce(response.data);
                 console.log(response.data);
             })
             .catch(e => {
@@ -51,13 +53,6 @@ export default function Tarihce() {
             });
     };
 
-
-
-
-    const setActiveTutorial = (tutorial, index) => {
-        setCurrentTutorial(tutorial);
-        setCurrentIndex(index);
-    };
 
 
     return (
@@ -94,185 +89,42 @@ export default function Tarihce() {
 
             </div>
             <div className="page-head">
-                {/* <div className="container">
-                    <div className="col-md-9">
-                        <h3>Standard Post Format with preview picture</h3>
-                        <span className="post-meta">Posted 22.06.2014 at 18:00h in Healthy lifestyle by <a href="#">The Ronins</a>   /   68 Likes   /   <a href="#">2 Comments</a></span>
-                    </div>
-                    <div className="col-md-3">
-                        <form className="search">
-                            <input type="search" placeholder="Search..." />
-                        </form>
-                    </div>
-                </div> */}
+
             </div>
             <div className="blog-content">
+
                 <div className="container">
-                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>TARİHÇE</h1>
+                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>TARİHÇE</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                    {hakkimizda.map(item => (
+
+
+
+
+                    <TarihceSlider/>
+                    {tarihce.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                 <div dangerouslySetInnerHTML={{ __html: item.AnaIcerik }}  ></div>
+
+                                <div dangerouslySetInnerHTML={{ __html: item.Yil }}  ></div>
+
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <video width="600" height="500" controls><source src={item.BelgeselVideoUrl} type="video/mp4" /></video>
+                                <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div>
+
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                 <div dangerouslySetInnerHTML={{ __html: item.BelgeselIcerigi }}  ></div>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                {/* <div className="row">
-                        <div className="col-md-7">
-                            <p className="bold">Caveats worth mentioning</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
-                        </div>
-                        <div className="col-md-5">
-                            <div className="post-quote">
-                                <h4>"You can design and create, and build the most wonderful place in the world. But it takes people to make the dream a reality."</h4>
-                            </div>
-                        </div>
-                    </div> 
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum. Curabitur scelerisque tincidunt metus, non rutrum sem egestas et. Quisque hendrerit nec arcu sed pharetra. Duis nec aliquet massa, sed dapibus mauris. Nulla vehicula nisl non enim sodales fermentum. Morbi in diam elementum, egestas magna et, interdum</p>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum. Curabitur scelerisque tincidunt metus, non rutrum sem egestas et. Quisque hendrerit nec arcu sed pharetra. Duis nec aliquet massa, sed dapibus mauris. Nulla vehicula nisl non enim sodales fermentum. Morbi in diam elementum, egestas magna et, interdum</p>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                     <ul className="tags-list">
-                        <li><a href="#">Ronin</a></li>
-                        <li><a href="#">Clinic</a></li>
-                        <li><a href="#">Informations</a></li>
-                        <li><a href="#">Doctors</a></li>
-                        <li><a href="#">Disease</a></li>
-                    </ul> */}
-                                {/*  <div className="sharepost">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <h4>Share this Post</h4>
-                            </div>
-                            <div className="col-md-6">
-                                <ul>
-                                    <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> */}
-                                {/* <div className="author-info">
-                        <img src={author} alt="" className="img-responsive"/>
-                        <h5><em>Author:</em> The Ronins</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                    </div>
-                    <div className="related-posts">
-                        <h5>Related Posts</h5>
-                        <div className="row">
-                            <ul>
-                                <li>
-                                    <img src={xtra1} className="img-responsive" alt=""/>
-                                    <h4><a href="#">Standard Post format with Picture slider</a></h4>
-                                    <span className="post-meta">Posted 22.06.2014 at 18:00h by <a href="#">The Ronins</a></span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus.</p>
-                                </li>
-                                <li>
-                                    <img src={xtra2} className="img-responsive" alt=""/>
-                                    <h4><a href="#">Standard Post format with Picture slider</a></h4>
-                                    <span className="post-meta">Posted 22.06.2014 at 18:00h by <a href="#">The Ronins</a></span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus.</p>
-                                </li>
-                                <li>
-                                    <img src={xtra3} className="img-responsive" alt=""/>
-                                    <h4><a href="#">Standard Post format with Picture slider</a></h4>
-                                    <span className="post-meta">Posted 22.06.2014 at 18:00h by <a href="#">The Ronins</a></span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> */}
                             </article>
-                            {/*     <div className="comments">
-                    <h4>Post has 3 comments</h4>
-                    <ul>
-                        <li>
-                            <img src={avatar} alt=""/>
-                            <div className="comments-info">
-                                <h6>Bob Marley <span>/ Posted 22.06.2014 in 18:00h</span> <em><a href="#">Reply</a></em></h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl conva llis tempus. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src={avatar} alt=""/>
-                            <div className="comments-info">
-                                <h6>Michael <span>/ Posted 22.06.2014 in 18:00h</span> <em><a href="#">Reply</a></em></h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl conva llis tempus. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src={avatar} alt=""/>
-                            <div className="comments-info">
-                                <h6>Victor <span>/ Posted 22.06.2014 in 18:00h</span> <em><a href="#">Reply</a></em></h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl conva llis tempus. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div> */}
-                            {/* <div className="comment-form">
-                    <h4>Leave a comment</h4>
-                    <form id="comment-form">
-                        <div className="row">
-                            <div className="col-md-4">
-                                <input type="text" placeholder="Name*"/>
-                            </div>
-                            <div className="col-md-4">
-                                <input type="text" placeholder="Surname*"/>
-                            </div>
-                            <div className="col-md-4">
-                                <input type="email" placeholder="Email address"/>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <textarea rows="5" placeholder="Your comment*"></textarea>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-7">
-                                <p>Your email address will not be published. Required fields are marked *</p>
-                            </div>
-                            <div className="col-md-5">
-                                <button type="submit">Submit Comment</button>
-                            </div>
-                        </div>
-                    </form>
-                </div> */}
+
                         </div>))}
                     <aside className="col-md-3">
-                        {/*   <div className="side-content">
-                    <h5>Main Categories</h5>
-                    <ul className="cat">
-                        <li>
-                            <h4>TARİHÇE</h4>
-                        </li>
-                        <li>
-                            <h4>DEĞERLER</h4>
-                        </li>
-                        <li>
-                            <h4>SOSYAL SORUMLULUK</h4>
-                        </li>
-                    </ul>
-                </div> */}
+
                         <div className="side-content">
                             <h5>KURUMSAL</h5>
                             <ul className="list1">
@@ -281,46 +133,7 @@ export default function Tarihce() {
                                 <li><Link to={"/SosyalSorumluluk"} className="nav-link">SOSYAL SORUMLULUK</Link></li>
                             </ul>
                         </div>
-                        {/* <div className="side-content">
-                    <h5>Join the newsletter</h5>
-                    <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
-                    <form className="side-newsletter">
-                        <input type="text" placeholder="Type your email address"/>
-                    </form>
-                </div>
-                <div className="side-content">
-                    <h5>Recent Posts</h5>
-                    <ul className="rposts">
-                        <li>
-                            <img src={rposts1} alt=""/>
-                            <h6><a href="#">This is standard post with slider</a></h6>
-                            <span>22.06.2014 at 18:00h</span>
-                        </li>
-                        <li>
-                            <img src={rposts2} alt=""/>
-                            <h6><a href="#">This is standard post with slider</a></h6>
-                            <span>22.06.2014 at 18:00h</span>
-                        </li>
-                        <li>
-                            <img src={rposts3} alt=""/>
-                            <h6><a href="#">This is standard post with slider</a></h6>
-                            <span>22.06.2014 at 18:00h</span>
-                        </li>
-                    </ul>
-                </div>
-                <div className="side-content">
-                    <h5>Tags</h5>
-                    <ul className="tags-list">
-                        <li><a href="#">Ronin</a></li>
-                        <li><a href="#">Clinic</a></li>
-                        <li><a href="#">Informations</a></li>
-                        <li><a href="#">Doctors</a></li>
-                        <li><a href="#">Disease</a></li>
-                        <li><a href="#">Treatment</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Schedule</a></li>
-                    </ul>
-                </div> */}
+
                     </aside>
                 </div>
             </div>
@@ -332,7 +145,7 @@ export default function Tarihce() {
             <div className="footer2-bottom">
                 <div className="container">
                     <div className="col-md-6">
-                    
+
                     </div>
                     <div className="col-md-6">
                         <ul className="footer-social">

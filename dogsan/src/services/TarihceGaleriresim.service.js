@@ -1,6 +1,6 @@
 import http from "../http-common";
 
-class UploadFilesService { 
+class TarihceGaleriResimService { 
   upload(file, onUploadProgress) {
     let formData = new FormData();
 
@@ -23,4 +23,4 @@ class UploadFilesService {
   return http.post("/sehir", data);
 }; */
 
-export default new UploadFilesService();
+export default new TarihceGaleriResimService();

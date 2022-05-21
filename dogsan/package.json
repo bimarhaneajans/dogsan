@@ -18,6 +18,7 @@
     "@mui/material": "^5.4.3",
     "@mui/styled-engine": "5.4.2",
     "@react-google-maps/api": "^2.10.2",
+    "@sefailyasoz/react-carousel": "^1.1.1",
     "@syncfusion/ej2-react-richtexteditor": "^20.1.56",
     "@testing-library/jest-dom": "5.16.2",
     "@testing-library/react": "12.1.3",

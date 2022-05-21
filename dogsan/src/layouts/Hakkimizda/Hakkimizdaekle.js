@@ -58,6 +58,7 @@ const Hakkımızda = () => {
 
   const saveTutorial = () => {
     var data = {
+      id: tutorial.id,
       BelgeselBaslik: JSON.stringify(BelgeselBaslik),
       AnaBaslik: JSON.stringify(AnaBaslik),
       AnaIcerik: JSON.stringify(AnaIcerik),
