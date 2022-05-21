@@ -52,8 +52,8 @@ class VideoApp extends Component {
           playing
           controls={true}
           src={id.src}
-          width={300}
-          height={300}
+          width={window.innerWidth}
+          height={window.innerHeight/2+150}
         // onReady={this.onPlayerReady.bind(this)}
        />;
         })}

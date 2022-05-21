@@ -272,8 +272,9 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
+        <CitiesSlider slaty={slaty} />
          <VideoPlayer/>
-          <CitiesSlider slaty={slaty} />
+          
           
           <div id="slider-wrapper">
           </div>
