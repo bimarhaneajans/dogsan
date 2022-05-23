@@ -73,8 +73,10 @@ export default function Home() {
 
   // state for storing the filter keyword, with an initial value of *, which matches everything
   const [filterKey, setFilterKey] = React.useState('*');
-  const images = [{ source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }, { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
-
+  
+  //const images = [  { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
+  const images = [  { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
+  
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [blog, setBlog] = useState([]);
   const [duyuru, setDuyuru] = useState([]);
@@ -280,8 +282,10 @@ export default function Home() {
 {/*           <CitiesSlider slaty={slaty} />
  */}       
 
-     <Carousel components={{View: CustomeView}}
-  />
+   {/*   <Carousel components={{View: CustomeView}}
+  /> */}
+
+<Carousel views={images} />
           <div id="slider-wrapper">
           </div>
         </div>
@@ -296,7 +300,7 @@ export default function Home() {
                   <ul className="top-nav list-unstyled list-inline">
                     <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
                     <li><Link to={"/Kataloglar"} className="nav-link">Kataloglar</Link></li>
-                    <li><Link to={"/Igneler"} className="nav-link">İğneler</Link></li>
+                    <li><Link to={"/Igneler"} className="nav-link">Ürünlerimiz</Link></li>
                     <li className="logo"><Link to={"/home"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                     <li><Link to={"/Duyurular"} className="nav-link">Duyurular</Link></li>
                     <li><Link to={"/Bloglar"} className="nav-link">Blog</Link></li>

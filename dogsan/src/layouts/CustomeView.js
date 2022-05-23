@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import SlaytDataService from "../services/SliderService"; 
+//import SlaytDataService from "../services/SliderService"; 
 const  CustomeView= props => {
-    const [slaty, setSlayt] = useState([]);
+  /*   const [slaty, setSlayt] = useState([]);
 
     useEffect(() => {
 
@@ -24,17 +24,16 @@ const  CustomeView= props => {
           .catch(e => {
             console.log(e);
           });
-      };
-
-    const { persons } = props;
+      }; */
+    const { data } = props;
   return (
     <div >
-    {persons.src ? (
+    {data.src ? (
       <video width="320" height="240" controls>
-          <source src={this.persons.src} type={this.persons.type}/> 
+          <source src={data.src} type={data.type}/> 
       </video>
     ) : (
-      <img  src={this.persons.src} />
+      <img  src={data.src} />
     )}
   </div>
   )
