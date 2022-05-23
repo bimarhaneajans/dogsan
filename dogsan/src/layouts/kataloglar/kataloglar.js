@@ -121,21 +121,22 @@ export default function Kataloglar() {
                                         <div className="clearfix"></div>
                                      
                                         <div class="information-box__grid">
-                                            <a href="https://dogsan-cms.webridge.co/uploads/kvc_brosuerue_tr_121021_6ab96ebf05.pdf" class="information-box__grid-item" download="">
+                                           {/*  <a href={"/KatalogDetay/" + item.id} class="information-box__grid-item" download=""> */}
+                                           <Link to={"/KatalogDetay/" + item.id} className="nav-link">
                                                 <div class="information-box__grid-image" style={{ textAlign: "match-parent" }}>
                                                     <img src={item.Resim}  style={{ objectFit: "cover", height: "290px" }} />
                                                     <img class="information-box__grid-icon" src={svgpdf} alt="pdf" />
                                                 </div>
                                                   <div dangerouslySetInnerHTML={{ __html: item.katalogadi }}  ></div> 
                                              
-                                            </a>
+                                          </Link>
 
                                         </div>
 
                                     </div>
                                 ))}
 
-
+                               {/*  <Link to={"/Duyuru/" + item.id} className="nav-link">Göster</Link> */}
                             </div>
                             {/* <div className="row">
                         <div className="col-md-7">

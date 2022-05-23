@@ -212,7 +212,7 @@ export default function App() {
         <Route path="/BizeUlasin" element={<BizeUlasin />} />
         <Route path="/Bayiler" element={<Bayiler />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/KatalogDetay" element={<KatalogDetay />} />
+        <Route path="/KatalogDetay/:id" element={<KatalogDetay />} />
         <Route path="/Blog/:id" element={<Blog />} />
       </Routes>
     </ThemeProvider>

@@ -280,8 +280,7 @@ export default function Home() {
 {/*           <CitiesSlider slaty={slaty} />
  */}       
 
-     <Carousel components={{View: CustomeView}}
-  />
+  {/*     <Carousel components={{View: CustomeView}}/>  */}
           <div id="slider-wrapper">
           </div>
         </div>
