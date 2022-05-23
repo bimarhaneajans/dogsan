@@ -102,33 +102,38 @@ export default class CitiesSlider extends React.Component {
     return (
       <div className={classNames('slider', { 's--ready': sliderReady })}>
         <div className="slider__slides">
-          
+
           {this.props.slaty.map((veri, index) => (
+
             <div>
 
               <div>
-                {veri.type == ".jpg" ?
+                {veri.type == ".jpg" ? 
+                 (
                   console.log(veri.url + " resim " + veri.type)
 
-
+                 )
                   :
-
-                  // console.log(veri.url+" video  "+veri.type),
-                  <VideoPlayer
-                    controls={true}
-                    src={veri.url}
-                    //poster={this.state.video.poster}
-                    width="300"
-                    height="300"
-                    onReady={this.onPlayerReady.bind(this)}
-                    onPlay={this.onVideoPlay.bind(this)}
-                    onPause={this.onVideoPause.bind(this)}
-                    onTimeUpdate={this.onVideoTimeUpdate.bind(this)}
-                    onSeeking={this.onVideoSeeking.bind(this)}
-                    onSeeked={this.onVideoSeeked.bind(this)}
-                    onEnd={this.onVideoEnd.bind(this)}
-                  />
+                  (
+                 //   console.log(veri.url + " video " + veri.type),
+                 <VideoPlayer
+                  controls={true}
+                  src={veri.url}
+                  //poster={this.state.video.poster}
+                  width="300"
+                  height="300"
+                  onReady={this.onPlayerReady.bind(this)}
+                  onPlay={this.onVideoPlay.bind(this)}
+                  onPause={this.onVideoPause.bind(this)}
+                  onTimeUpdate={this.onVideoTimeUpdate.bind(this)}
+                  onSeeking={this.onVideoSeeking.bind(this)}
+                  onSeeked={this.onVideoSeeked.bind(this)}
+                  onEnd={this.onVideoEnd.bind(this)}
+                />
+                  )
                 }
+           
+
               </div>
             </div>
 
