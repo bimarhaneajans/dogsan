@@ -102,6 +102,7 @@ export default class CitiesSlider extends React.Component {
     return (
       <div className={classNames('slider', { 's--ready': sliderReady })}>
         <div className="slider__slides">
+          
           {this.props.slaty.map((veri, index) => (
             <div>
 
