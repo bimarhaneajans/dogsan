@@ -41,7 +41,7 @@
     "lightgallery": "^2.4.0",
     "lodash.debounce": "^4.0.8",
     "normalize.css": "^8.0.1",
-    "npm": "^8.8.0",
+    "npm": "^8.10.0",
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-animated-slider": "^1.1.4",
