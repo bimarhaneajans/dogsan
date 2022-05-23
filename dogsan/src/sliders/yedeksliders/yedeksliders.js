@@ -1,8 +1,11 @@
 import "../yedeksliders/style.css";
+//import "../yedeksliders/styles.css";
 import React, { Component } from 'react'
 import VideoPlayer from 'react-video-js-player';
-
+import { Carousel } from 'react-responsive-carousel';
+//import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 var classNames = require('classnames');
+
 
 
 export default class CitiesSlider extends React.Component {
@@ -97,53 +100,43 @@ export default class CitiesSlider extends React.Component {
           /* 
   
   */
-  render() {
-    const { activeSlide, prevSlide, sliderReady } = this.state;
-    return (
-      <div className={classNames('slider', { 's--ready': sliderReady })}>
-        <div className="slider__slides">
-
-          {this.props.slaty.map((veri, index) => (
-
-            <div>
-
-              <div>
-                {veri.type == ".jpg" ? 
-                 (
-                  console.log(veri.url + " resim " + veri.type)
-
-                 )
-                  :
-                  (
-                 //   console.log(veri.url + " video " + veri.type),
-                 <VideoPlayer
-                  controls={true}
-                  src={veri.url}
-                  //poster={this.state.video.poster}
-                  width="300"
-                  height="300"
-                  onReady={this.onPlayerReady.bind(this)}
-                  onPlay={this.onVideoPlay.bind(this)}
-                  onPause={this.onVideoPause.bind(this)}
-                  onTimeUpdate={this.onVideoTimeUpdate.bind(this)}
-                  onSeeking={this.onVideoSeeking.bind(this)}
-                  onSeeked={this.onVideoSeeked.bind(this)}
-                  onEnd={this.onVideoEnd.bind(this)}
-                />
-                  )
-                }
-           
-
+          render() {
+            const { activeSlide, prevSlide, sliderReady } = this.state;
+            return (
+              <div className={classNames('slider', { 's--ready': sliderReady })}>
+                <p className="slider__top-heading">Travelers</p>
+                <div className="slider__slides">
+                  {this.props.slaty.map((slide, index) => (
+                    <div
+                      className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index  })}
+                      key={index}
+                      >
+                      <div className="slider__slide-content">
+                        <h3 className="slider__slide-subheading">{/* {slaty.country || slaty.city} */}</h3>
+                        <h2 className="slider__slide-heading">
+                          {slide.name.split('').map(l => <span>{l}</span>)}
+                        </h2>
+                       
+                      </div>
+                      <div className="slider__slide-parts">
+                      <div className="slider__slide-part"> {/* key={i} */}
+                      <div className="slider__slide-part-inner" 
+                      //style={{ backgroundImage: `url(${slide.url})` }} 
+                      /> 
+                       {/*   {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
+                          
+                          
+                          
+                        ))}*/}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="slider__control" onClick={() => this.changeSlides(-1)} />
+                <div className="slider__control slider__control--right" onClick={() => this.changeSlides(1)} />
               </div>
-            </div>
-
-          ))}
-
-        </div>
-        <div className="slider__control" onClick={() => this.changeSlides(-1)} />
-        <div className="slider__control slider__control--right" onClick={() => this.changeSlides(1)} />
-      </div>
-    );
-  }
+            );
+          }
 }
 
