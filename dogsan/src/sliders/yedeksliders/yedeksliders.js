@@ -60,8 +60,7 @@ export default class CitiesSlider extends React.Component {
                     {slaty.name.split('').map(l => <span>{l}</span>)}
                     
                   </h2>
-                {/*   <p className="slider__slide-readmore">read more</p> */}
-                </div>
+                 </div>
                 <div className="slider__slide-parts">
                   {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
                     <div className="slider__slide-part" key={i}>

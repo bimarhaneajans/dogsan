@@ -18,14 +18,13 @@ import "../responsive-styling.css";
 
 import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player';
-import TarihceSlider from "./TarihceSlider";
-
+ import TarihceSlider from './TarihceSlider.js'
+let slides = [];
 
 export default function Hakkimizda() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [tarihce, setTarihce] = useState([]);
-
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -53,8 +52,7 @@ export default function Hakkimizda() {
             });
     };
 
-
-
+    
     return (
         <div>
             <div className="main-wrapper">
@@ -99,11 +97,12 @@ export default function Hakkimizda() {
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-
-
-
-
-                    <TarihceSlider/>
+                     <TarihceSlider/> 
+             
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
+                    <div className="bottom-space-30"></div>
+                    <div className="clearfix"></div>
                     {tarihce.map(item => (
                         <div key={item.id} className="col-md-9">
                             <article>

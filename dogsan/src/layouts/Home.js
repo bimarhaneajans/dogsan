@@ -37,6 +37,9 @@ import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 import posticon from "../layouts/assets/img/blog/post-icon.png";
 import VideoPlayer from "./Slider/VideoPlayer";
+import Carousel from 'react-images'
+import CustomeView from './CustomeView'
+
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -44,7 +47,7 @@ import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../../src/sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
-import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
+//import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
 const customStyles = {
   content: {
@@ -70,6 +73,7 @@ export default function Home() {
 
   // state for storing the filter keyword, with an initial value of *, which matches everything
   const [filterKey, setFilterKey] = React.useState('*');
+  const images = [{ source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }, { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
 
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [blog, setBlog] = useState([]);
@@ -272,9 +276,12 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-         <VideoPlayer/>
-          <CitiesSlider slaty={slaty} />
-          
+         {/* <VideoPlayer/> */}
+{/*           <CitiesSlider slaty={slaty} />
+ */}       
+
+     <Carousel components={{View: CustomeView}}
+  />
           <div id="slider-wrapper">
           </div>
         </div>
