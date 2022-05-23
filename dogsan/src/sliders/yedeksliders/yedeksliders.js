@@ -102,34 +102,35 @@ export default class CitiesSlider extends React.Component {
     return (
       <div className={classNames('slider', { 's--ready': sliderReady })}>
         <div className="slider__slides">
-          {this.props.slaty.map((veri, index) => (  
-              // {veri.type==".jpg" ? console.log(veri.url+" resim "+veri.type) : console.log(veri.url+" video  "+veri.type)}  
-            <div
-              className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index })} key={veri.ismi}
-            > 
+          {this.props.slaty.map((veri, index) => (
+            <div>
 
-              <div className="slider__slide-content">
-                <h3 className="slider__slide-subheading">{/* {veri.name} */}</h3>
+              <div>
+                {veri.type == ".jpg" ?
+                  console.log(veri.url + " resim " + veri.type)
 
-                <h2 className="slider__slide-heading">
 
-                  {veri.name.split('').map(l => <span>{l}</span>)}
+                  :
 
-                </h2>
-
+                  // console.log(veri.url+" video  "+veri.type),
+                  <VideoPlayer
+                    controls={true}
+                    src={veri.url}
+                    //poster={this.state.video.poster}
+                    width="300"
+                    height="300"
+                    onReady={this.onPlayerReady.bind(this)}
+                    onPlay={this.onVideoPlay.bind(this)}
+                    onPause={this.onVideoPause.bind(this)}
+                    onTimeUpdate={this.onVideoTimeUpdate.bind(this)}
+                    onSeeking={this.onVideoSeeking.bind(this)}
+                    onSeeked={this.onVideoSeeked.bind(this)}
+                    onEnd={this.onVideoEnd.bind(this)}
+                  />
+                }
               </div>
-              <div className="slider__slide-parts">
+            </div>
 
-                {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
-                  <div className="slider__slide-part" key={i}>
-
-                    <div className="slider__slide-part-inner"
-                      style={{ backgroundImage: `url(${veri.url})` }}  
-                    /> 
-                  </div> 
-                ))} 
-              </div>
-             </div>
           ))}
 
         </div>
