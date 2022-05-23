@@ -9,8 +9,7 @@ const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
 const Tarihce = db.Tarihces;
-const mongoClient = new MongoClient(url);
-const baseUrl = "http://localhost:3000/slider/files/";
+const mongoClient = new MongoClient(url); 
 
 exports.create = async (req, res) => {
 /*   if (!req.body.Yil) {
