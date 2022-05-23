@@ -12,19 +12,14 @@ export default class CitiesSlider extends React.Component {
     this.IMAGE_PARTS = 4;
 
     this.changeTO = null;
-    this.AUTOCHANGE_TIME = 4000;
+    this.AUTOCHANGE_TIME = 40000;
 
     this.state = { activeSlide: -1, prevSlide: -1, sliderReady: false };
 
 
   }
   player = {}
-  /* state = {
-      video: {
-          src: "http://www.example.com/path/to/video.mp4",
-          poster: "http://www.example.com/path/to/video_poster.jpg"
-      }
-  } */
+
   componentWillUnmount() {
     window.clearTimeout(this.changeTO);
   }
@@ -53,32 +48,32 @@ export default class CitiesSlider extends React.Component {
     this.setState({ activeSlide, prevSlide });
   }
   onPlayerReady(player) {
-    console.log("Player is ready: ", player);
+    // console.log("Player is ready: ", player);
     this.player = player;
   }
 
   onVideoPlay(duration) {
-    console.log("Video played at: ", duration);
+    //  console.log("Video played at: ", duration);
   }
 
   onVideoPause(duration) {
-    console.log("Video paused at: ", duration);
+    //  console.log("Video paused at: ", duration);
   }
 
   onVideoTimeUpdate(duration) {
-    console.log("Time updated: ", duration);
+    // console.log("Time updated: ", duration);
   }
 
   onVideoSeeking(duration) {
-    console.log("Video seeking: ", duration);
+    //  console.log("Video seeking: ", duration);
   }
 
   onVideoSeeked(from, to) {
-    console.log(`Video seeked from ${from} to ${to}`);
+    // console.log(`Video seeked from ${from} to ${to}`);
   }
 
   onVideoEnd() {
-    console.log("Video ended");
+    // console.log("Video ended");
   }
 
   /*
@@ -107,46 +102,78 @@ export default class CitiesSlider extends React.Component {
     return (
       <div className={classNames('slider', { 's--ready': sliderReady })}>
         <div className="slider__slides">
-          {this.props.slaty.map((veri, index) => (
-            <div
-              className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index })} //key={veri.ismi}
-            >
-              <div className="slider__slide-content">
-                <h3 className="slider__slide-subheading">{/* {veri.name} */}</h3>
+          {this.props.slaty.map((veri, index) => ( 
+            <div>
+           
+           <div>
+              {veri.type==".jpg" ? console.log(veri.url+" resim "+veri.type) : console.log(veri.url+" video  "+veri.type)} 
+               </div>
+          </div>
 
-                {/* <h2 className="slider__slide-heading">
+            // <div
+            //   className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index })} key={veri.ismi}
+            // >
 
-                    {veri.name.split('').map(l => <span>{l}</span>)}
-                    
-                  </h2> */}
+            //                  {/* <VideoPlayer
+            //                             controls={true}
+            //                             src={veri.url}
+            //                             //poster={this.state.video.poster}
+            //                             width="300"
+            //                             height="300"
+            //                             onReady={this.onPlayerReady.bind(this)}
+            //                             onPlay={this.onVideoPlay.bind(this)}
+            //                             onPause={this.onVideoPause.bind(this)}
+            //                             onTimeUpdate={this.onVideoTimeUpdate.bind(this)}
+            //                             onSeeking={this.onVideoSeeking.bind(this)}
+            //                             onSeeked={this.onVideoSeeked.bind(this)}
+            //                             onEnd={this.onVideoEnd.bind(this)}
+            //                             />   */}
 
-              
-                  <VideoPlayer
-                  controls={true}
-                  src={veri.url}
-                  //poster={this.state.video.poster}
-                  width={window.innerwidth}
-                  height="720"
-                  onReady={this.onPlayerReady.bind(this)}
-                  onPlay={this.onVideoPlay.bind(this)}
-                  onPause={this.onVideoPause.bind(this)}
-                  onTimeUpdate={this.onVideoTimeUpdate.bind(this)}
-                  onSeeking={this.onVideoSeeking.bind(this)}
-                  onSeeked={this.onVideoSeeked.bind(this)}
-                  onEnd={this.onVideoEnd.bind(this)}
-                />
-                
-              </div>
-              <div className="slider__slide-parts">
 
-                {/* {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
-                    <div className="slider__slide-part" key={i}>
-                      <div className="slider__slide-part-inner" style={{ backgroundImage: `url(${veri.url})` }} />
-                    </div>
-                  ))} */}
 
-              </div>
-            </div>
+
+            //   <div className="slider__slide-content">
+            //     <h3 className="slider__slide-subheading">{/* {veri.name} */}</h3>
+
+            //     <h2 className="slider__slide-heading">
+
+            //       {veri.name.split('').map(l => <span>{l}</span>)}
+
+            //     </h2>
+
+            //   </div>
+            //   <div className="slider__slide-parts">
+
+            //     {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
+            //       <div className="slider__slide-part" key={i}>
+
+            //         <div className="slider__slide-part-inner"
+            //         /*   style={{ backgroundImage: `url(${veri.url})` }} */
+            //         />
+            //          {/* <VideoPlayer
+            //           controls={true}
+            //           src={veri.url}
+            //           //poster={this.state.video.poster}
+            //           width={window.innerwidth}
+            //           height="720"
+            //           onReady={this.onPlayerReady.bind(this)}
+            //           onPlay={this.onVideoPlay.bind(this)}
+            //           onPause={this.onVideoPause.bind(this)}
+            //           onTimeUpdate={this.onVideoTimeUpdate.bind(this)}
+            //           onSeeking={this.onVideoSeeking.bind(this)}
+            //           onSeeked={this.onVideoSeeked.bind(this)}
+            //           onEnd={this.onVideoEnd.bind(this)}
+            //         />   */}
+
+            //       </div>
+
+
+            //     ))}
+
+
+
+            //   </div>
+            // </div>
           ))}
 
         </div>
