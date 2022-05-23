@@ -19,12 +19,12 @@ export default class CitiesSlider extends React.Component {
       
     }
      player = {}
-    state = {
+    /* state = {
         video: {
             src: "http://www.example.com/path/to/video.mp4",
             poster: "http://www.example.com/path/to/video_poster.jpg"
         }
-    }
+    } */
     componentWillUnmount() {
       window.clearTimeout(this.changeTO);
     }
@@ -86,15 +86,15 @@ export default class CitiesSlider extends React.Component {
         <div className={classNames('slider', { 's--ready': sliderReady })}>
            <div className="slider__slides">
             {this.props.slaty.map((slaty, index) => (
+           /*  {}?:{} */
             
-            
-            console.log(slaty),
+            console.log(slaty.src),
             <VideoPlayer
             controls={true}
-            src={this.state.video.src}
-            poster={this.state.video.poster}
-            width="720"
-            height="420"
+            src={"http://localhost:3000/resources/static/assets/videos/trailer_hd.mp4"}
+            //poster={this.state.video.poster}
+            width={window.innerwidth*2}
+            height="720"
             onReady={this.onPlayerReady.bind(this)}
             onPlay={this.onVideoPlay.bind(this)}
             onPause={this.onVideoPause.bind(this)}
