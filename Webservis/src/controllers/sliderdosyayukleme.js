@@ -69,6 +69,7 @@ const getListFiles = (req, res) => {
       fileInfos.push({
         name: file,
         url: baseUrl + file,
+        type: path.extname(baseUrl + file),
       });
     });
 
