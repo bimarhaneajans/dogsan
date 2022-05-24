@@ -119,7 +119,7 @@ export default function Blog() {
 
             <div className="footer2-bottom">
                 <div className="container">
-                    <div className="col-md-6">
+                <div className="col-md-12">
                     
                     </div>
                     <div className="col-xs-6">

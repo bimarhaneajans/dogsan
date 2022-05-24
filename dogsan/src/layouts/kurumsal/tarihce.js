@@ -143,10 +143,10 @@ export default function Hakkimizda() {
 
             <div className="footer2-bottom">
                 <div className="container">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
 
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <ul className="footer-social">
                             <li><a href="#"><i className="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i className="fa fa-twitter"></i></a></li>
