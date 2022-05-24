@@ -61,7 +61,7 @@ import Dynamickategori from "../layouts/Kategori/dynamickategori"
 import SubDynamickategori from "../layouts/Kategori/subdynamickategori"
 import Subdynamicdetaykategori from "../layouts/Kategori/subdynamicdetaykategori";
 import Dynamicdetaykategori from "../layouts/Kategori/dynamicdetaykategori";
-import SinglePost from "../layouts/SinglePost";
+
 
 import Hakkimizda from "../layouts/kurumsal/Hakkimizda";
 import Tarihce from "../layouts/kurumsal/Tarihce";
@@ -199,7 +199,7 @@ export default function App() {
         <Route path="/Subdynamicdetaykategori/:kategoriid" element={<Subdynamicdetaykategori />} />
         <Route path="/yoneticiguncelle/:id" element={<Yoneticinguncelle />} />
         <Route path="/kariyerguncelle/:id" element={<Kariyerguncelle />} />
-        <Route path="/SinglePost" element={<SinglePost />} />
+
         <Route path="/Hakkimizda" element={<Hakkimizda />} />
         <Route path="/Tarihce" element={<Tarihce />} />
         <Route path="/Degerler" element={<Degerler />} />

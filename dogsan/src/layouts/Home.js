@@ -36,9 +36,8 @@ import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 import posticon from "../layouts/assets/img/blog/post-icon.png";
-import VideoPlayer from "./Slider/VideoPlayer";
-import Carousel from 'react-images'
-import CustomeView from './CustomeView'
+
+
 
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
@@ -265,27 +264,14 @@ export default function Home() {
         console.log(e);
       });
   };
-    /*  if (deger=== ".jpg") {
-                 //console.log(deger+"resim")
-                 <CitiesSlider slaty={slaty} />
-               } 
-               else
-               {
-                 console.log(deger+"video")
-               } */
+    
   return (
 
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-         {/* <VideoPlayer/> */}
-{/*           <CitiesSlider slaty={slaty} />
- */}       
+        
 
-   {/*   <Carousel components={{View: CustomeView}}
-  /> */}
-
-<Carousel views={images} />
           <div id="slider-wrapper">
           </div>
         </div>
