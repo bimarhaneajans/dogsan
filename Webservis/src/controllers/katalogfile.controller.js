@@ -1,4 +1,6 @@
  
+// const baseUrl = "http://localhost:3000/resources/static/assets/katalogs/";
+ 
 const dbConfig = require("../config/db.config");
 const db = require("../models");
 
@@ -14,18 +16,7 @@ const path = require("path");
 const Tarihce = db.sliders;
 
 const upload = async (req, res) => {
-/* 
-  const tarihce = new Tarihce({
-    Yil: req.body.Yil,
-    icerik: req.body.icerik,
-    Resimbaslik: req.body.Resimbaslik,
-    Resim: req.body.Resim,
-    published: req.body.published ? req.body.published : false
-  })  
-  tarihce.save(tarihce);
-  console.log(tarihce)
-    
-  */
+ 
 
   try {
     await uploadFile(req, res);
@@ -35,7 +26,7 @@ const upload = async (req, res) => {
     }
 
     res.status(200).send({
-      message: "Uploaded the file successfully: " + req.file.originalname,
+      message: "Uploaded the file successfully: " ,
     });
   } catch (err) {
     console.log(err);
@@ -47,7 +38,7 @@ const upload = async (req, res) => {
     }
 
     res.status(500).send({
-      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+      message: `Could not upload the file:  . ${err}`,
     });
   }
 };
@@ -62,16 +53,13 @@ const getListFiles = (req, res) => {
       });
     }
 
-/*
 
-
-*/
     let fileInfos = [];
 
     files.forEach((file) => {
       fileInfos.push({
-       
-        src: baseUrl + file,
+        name: file,
+        url: baseUrl + file,
         type: path.extname(baseUrl + file),
       });
     });
