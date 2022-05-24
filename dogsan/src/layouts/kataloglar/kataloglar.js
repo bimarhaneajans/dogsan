@@ -112,13 +112,13 @@ export default function Kataloglar() {
                     <div className="clearfix"></div>
                     <div className="col-xs-12">
 
-<div className="row">
+
                         {katalog.map(item => (
                             <div key={item.id}  >
                             
                                 <div className="clearfix"></div>
                                 <div className="clearfix"></div>
-                                <div class="information-box__grid col-xs-4" >
+                                <div class="information-box__grid col-xs-2" >
                                     <Link to={"/KatalogDetay/" + item.id} class="information-box__grid-item" >
 
                                         <div class="information-box__grid-image" >
@@ -138,7 +138,7 @@ export default function Kataloglar() {
                             </div>
                         ))}
 
-</div>
+
 
 
 
