@@ -4,7 +4,6 @@ const getAll = () => {
   return http.get("/slider/files");
 };
 
-
 const get = id => {
   return http.get(`/slider/${id}`);
 };

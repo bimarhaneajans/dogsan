@@ -111,7 +111,7 @@ const Overview = (props) => {
               </div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div className="col-md-6">
 
 
           <ul className="list-group">
@@ -143,7 +143,7 @@ const Overview = (props) => {
               Tümünü Sil
             </button>
           </div>
-          <div className="col-md-12">
+          <div className="col-md-6">
             {currentTutorial ? (
               <div>
                 <strong>katalog adi:</strong>
