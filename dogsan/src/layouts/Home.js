@@ -46,8 +46,8 @@ import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../../src/sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
-//import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
+import Slider from "../sliders/yedeksliders";
 const customStyles = {
   content: {
     top: '50%',
@@ -270,7 +270,7 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-        
+        <Slider/>
 
           <div id="slider-wrapper">
           </div>
