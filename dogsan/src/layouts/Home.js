@@ -36,7 +36,10 @@ import icon7 from "../layouts/assets/img/icons/icon-7.png";
 import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 import posticon from "../layouts/assets/img/blog/post-icon.png";
-
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 
 
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
@@ -894,22 +897,22 @@ export default function Home() {
       <ul class="fixed-social-menu list-inline-social mb-0" >
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
-            <i class="fa fa-facebook" ></i>
+          <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
-            <i class="fa fa-instagram" ></i>
+            <FaInstagram size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
-            <i class="fa fa-linkedin" ></i>
+          <FaLinkedinIn size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
-            <i class="fa fa-youtube-play" ></i>
+            <FaYoutube size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
       </ul>
