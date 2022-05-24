@@ -44,7 +44,7 @@ import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../../src/sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
-import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
+import CitiesSlider from "../sliders/yedeksliders/yedeksliders.js"
 import "./social.css"
 const customStyles = {
   content: {
@@ -268,14 +268,17 @@ export default function Home() {
         {/*  <VideoPlayer/> */}
 
 
-          <CitiesSlider slaty={slaty} /> 
+         
           
-          <div id="slider-wrapper">
-          </div>
+          <div ></div>
+       <CitiesSlider slaty={slaty} /> 
+          
         </div>
 
         <div className="container bs-main">
-          <div className="row">
+       
+
+           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
               <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={dogsanlogo} alt="Heartify" /></a></div>
 
