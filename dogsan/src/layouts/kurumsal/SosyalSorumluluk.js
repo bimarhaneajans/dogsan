@@ -141,10 +141,10 @@ export default function SosyalSorumluluk() {
                     </ul> */}
                                 {/*  <div className="sharepost">
                         <div className="row">
-                            <div className="col-md-12">
+                            <div className="col-md-6">
                                 <h4>Share this Post</h4>
                             </div>
-                            <div className="col-md-12">
+                            <div className="col-md-6">
                                 <ul>
                                     <li><a href="#"><i className="fa fa-facebook"></i></a></li>
                                     <li><a href="#"><i className="fa fa-twitter"></i></a></li>
@@ -316,10 +316,10 @@ export default function SosyalSorumluluk() {
 
             <div className="footer2-bottom">
                 <div className="container">
-                    <div className="col-md-12">
+                    <div className="col-md-6">
                     
                     </div>
-                    <div className="col-md-12">
+                    <div className="col-md-6">
                         <ul className="footer-social">
                             <li><a href="#"><i className="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i className="fa fa-twitter"></i></a></li>

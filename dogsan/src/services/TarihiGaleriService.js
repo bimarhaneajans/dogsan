@@ -1,8 +1,9 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/TarihceGaleri/files");
-}; 
+  return http.get("/TarihceGarleri");
+};
+
 const get = id => {
   return http.get(`/TarihceGarleri/${id}`);
 };

@@ -37,6 +37,9 @@ import icon8 from "../layouts/assets/img/icons/icon-8.png";
 import s2 from "../layouts/assets/img/icons/s2-ico1.png";
 import posticon from "../layouts/assets/img/blog/post-icon.png";
 import VideoPlayer from "./Slider/VideoPlayer";
+import Carousel from 'react-images'
+import CustomeView from './CustomeView'
+
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../layouts/assets/css/style.css"; // burasi
 import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
@@ -44,7 +47,7 @@ import "../layouts/assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../../src/sliders/assets/css/responsive-styling.css" */
 import "./style.css"
 import "./responsive-styling.css"
-import CitiesSlider from "../sliders/yedeksliders/yedeksliders.js"
+//import CitiesSlider from "../sliders/yedeksliders/yedeksliders"
 import "./social.css"
 const customStyles = {
   content: {
@@ -70,7 +73,10 @@ export default function Home() {
 
   // state for storing the filter keyword, with an initial value of *, which matches everything
   const [filterKey, setFilterKey] = React.useState('*');
-
+  
+  //const images = [  { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
+  const images = [  { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
+  
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [blog, setBlog] = useState([]);
   const [duyuru, setDuyuru] = useState([]);
@@ -259,26 +265,33 @@ export default function Home() {
         console.log(e);
       });
   };
-     
+    /*  if (deger=== ".jpg") {
+                 //console.log(deger+"resim")
+                 <CitiesSlider slaty={slaty} />
+               } 
+               else
+               {
+                 console.log(deger+"video")
+               } */
   return (
 
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-        {/*  <VideoPlayer/> */}
+         {/* <VideoPlayer/> */}
+{/*           <CitiesSlider slaty={slaty} />
+ */}       
 
+   {/*   <Carousel components={{View: CustomeView}}
+  /> */}
 
-         
-          
-          <div ></div>
-       <CitiesSlider slaty={slaty} /> 
-          
+<Carousel views={images} />
+          <div id="slider-wrapper">
+          </div>
         </div>
 
         <div className="container bs-main">
-       
-
-           <div className="row">
+          <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
               <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={dogsanlogo} alt="Heartify" /></a></div>
 
@@ -287,7 +300,7 @@ export default function Home() {
                   <ul className="top-nav list-unstyled list-inline">
                     <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
                     <li><Link to={"/Kataloglar"} className="nav-link">Kataloglar</Link></li>
-                    <li><Link to={"/Igneler"} className="nav-link">Ürünler</Link></li>
+                    <li><Link to={"/Igneler"} className="nav-link">Ürünlerimiz</Link></li>
                     <li className="logo"><Link to={"/home"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                     <li><Link to={"/Duyurular"} className="nav-link">Duyurular</Link></li>
                     <li><Link to={"/Bloglar"} className="nav-link">Blog</Link></li>
