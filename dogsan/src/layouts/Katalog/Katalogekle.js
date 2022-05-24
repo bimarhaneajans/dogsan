@@ -4,7 +4,8 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KatalogDataService from "../../services/KatalogService";
-import KatalogUploadService from "services/KatalogUploadService";
+import KatalogUploadService from "../../services/KatalogUploadService";
+import KatalogYukleme from "./KatalogYukleme"
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -18,26 +19,26 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
-import Select from 'react-select';
+/* import Select from 'react-select'; */
 const KatalogEkle = () => {
   const initialTutorialState = {
     id: null,
-    katalogadi: "", 
-    Resim:"",
+    katalogadi: "",
+    Resim: "",
     published: false
   };
 
 
-/*
- 
-
- UploadService.getFiles().then((response) => {
-      this.setState({
-        fileInfos: response.data,
+  /*
+   
+  
+   UploadService.getFiles().then((response) => {
+        this.setState({
+          fileInfos: response.data,
+        });
       });
-    });
-
-*/
+  
+  */
 
 
 
@@ -58,44 +59,119 @@ const KatalogEkle = () => {
 
   const [katalogadi, Changekatalogadi] = useState(initialValue)
   const [katalogurl, setKatalogurl] = useState();
+  const [selectedFiles, setselectedFiles] = useState();
+  const [currentFile, setselectedcurrentFile] = useState();
+  const [progress, setprogress] = useState();
+  const [message, setmessage] = useState();
+
 
   const [Resim, ChangeResim] = useState(initialValue)
- 
+
   useEffect(() => {
 
     retrieveKatalogUpload();
   }, []);
 
+
+  /*UploadService.getFiles().then((response) => {
+      this.setState({
+        fileInfos: response.data,
+      });
+    });
+  
+  
+  */ useEffect(() => {
+
+    Katalogupload();
+  }, []);
+
+
+  const selectFile = event => {
+    const { name, value } = event.target;
+    setselectedFiles({ [name]: value });
+  };
+
+
+
+  function upload() {
+    let currentFile = selectedFiles[0];
+
+
+    setprogress(0)
+    setselectedcurrentFile({ currentFile });
+
+    KatalogUploadService.upload(currentFile, (event) => {
+      setprogress({
+        progress: Math.round((100 * event.loaded) / event.total),
+      });
+    })
+      .then((response) => {
+        setmessage({
+          message: response.data.message,
+        });
+        // return KatalogUploadService.getFiles();
+      })
+      .then((files) => {
+       setfileInfos({
+          fileInfos: files.data,
+        });
+      })
+      .catch(() => {
+
+        setselectedcurrentFile(undefined)
+        setprogress(0);
+        setmessage("Could not upload the file!")
+      });
+
+    this.setselectedFiles({
+      selectedFiles: undefined,
+    });
+  }
+
+
+  //const {selectedFiles,currentFile,progress,message, fileInfos} = this.state;
+
+
+
+
+  const Katalogupload = () => {
+    KatalogUploadService.upload().then((response) => {
+      this.setState({
+        fileInfos: response.data,
+      });
+    });
+  };
+
   const retrieveKatalogUpload = () => {
     KatalogUploadService.getFiles()
-        .then(response => {
-          setKatalogurl(response.data);
-            //  console.log(response.data);
-        })
-        .catch(e => {
-            console.log(e);
-        });
-};
-
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    setTutorial({ ...tutorial, [name]: value });
+      .then(response => {
+        setKatalogurl(response.data);
+        //  console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
   };
+
+  /*   const handleInputChange = event => {
+      const { name, value } = event.target;
+      setTutorial({ ...tutorial, [name]: value });
+    }; */
 
   const saveTutorial = () => {
     var data = {
-      katalogadi:  JSON.stringify(katalogadi), 
+      katalogadi: JSON.stringify(katalogadi),
       katalogurl: tutorial.katalogurl,
       Resim: tutorial.Resim,
-     
+
     };
 
     KatalogDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-          katalogadi: response.data.katalogadi, 
-         katalogurl:response.data.katalogurl, 
+          katalogadi: response.data.katalogadi,
+          katalogurl: response.data.katalogurl,
           published: response.data.published
         });
         setSubmitted(true);
@@ -112,6 +188,7 @@ const KatalogEkle = () => {
   };
 
   return (
+
     <DashboardLayout>
       <Sidenav
         color={sidenavColor}
@@ -136,44 +213,61 @@ const KatalogEkle = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="katalogadi">Katalog Adı</label>
-                <RichTextEditor name="katalogadi" id="katalogadi" type="text" style={{ width: "600px" }} value={katalogadi} onChange={Changekatalogadi} />
-              </div>
+                              <RichTextEditor name="katalogadi" id="katalogadi" type="text" style={{ width: "600px" }} value={katalogadi} onChange={Changekatalogadi} />
+             </div>
 
-            {/*   <div style={{ width: "300 px" }}>
-                <Editor
-                  editorState={tutorial.boylam}
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  onEditorStateChange={handleInputChange}
-                />
-              </div> */}
-              <select
+              {currentFile && (
+                <div className="progress">
+                  <div
+                    className="progress-bar progress-bar-info progress-bar-striped"
+                    role="progressbar"
+                    aria-valuenow={progress}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    style={{ width: progress + "%" }}
+                  >
+                    {progress}%
+                  </div>
+                </div>
+              )}
+              <div className="form-group">
+                <label htmlFor="kariyer">Katalog Yükle</label>
+                <>
+                  {/*  <select
                     type="text"
                     id="katalogurl"
                     name="katalogurl"
                     value={tutorial.katalogurl}
                     onChange={handleInputChange}
                   >
-                    {
-                   //   kariyer.map(options => <option key={options.kariyeradi} value={options.kariyeradi}>{options.kariyeradi}</option>)
+                    {katalogurl.map((file,index) => <option key={index} value={file.url}>{file.name}</option>)
 
-                   //fileInfos &&fileInfos
-                   //usefectten gelen degere gore map ile donucez. 
-                 katalogurl.map((file, index) => <option key={index} value={file.url}>{file.name}</option>) 
-/*
-
-{fileInfos &&
-              fileInfos.map((file, index) => (
-                <li className="list-group-item" key={index}>
-                  <a href={file.url}>{file.name}</a>
-                </li>
-              ))}
-
- */
                     }
 
-                  </select>
+                  </select> */}
+                </>
+                <label className="btn btn-default">
+                  <input type="file" onChange={selectFile} />
+                </label>
+
+                <button
+                  className="btn btn-success"
+                  disabled={!selectedFiles}
+                  onClick={upload}
+                >
+                  Upload
+                </button>
+
+                <div className="alert alert-light" role="alert">
+                  {message}
+                </div>
+              </div>
+           {/*        <div>
+                  <KatalogYukleme/>
+                  </div> */}
+
+
+
               <FileBase64
                 type="file"
                 multiple={false}
