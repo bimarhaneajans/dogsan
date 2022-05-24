@@ -89,15 +89,16 @@ export default function Hakkimizda() {
             <div className="page-head">
 
             </div>
-            <div className="blog-content">
 
+            <div className="blog-content">
+ 
                 <div className="container">
-                    <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>TARİHÇE</h1>
+                    <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>TARİHÇE</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
-                     <TarihceSlider/> 
+                      <TarihceSlider /> 
              
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
@@ -124,7 +125,7 @@ export default function Hakkimizda() {
                         </div>))}
                     <aside className="col-md-3">
 
-                        <div className="side-content">
+                        <div className="side-content" style={{marginTop: "-1100px"}}>
                             <h5>KURUMSAL</h5>
                             <ul className="list1">
                                 <li><Link to={"/Hakkimizda"} className="nav-link">HAKKIMIZDA</Link></li>
@@ -143,10 +144,10 @@ export default function Hakkimizda() {
 
             <div className="footer2-bottom">
                 <div className="container">
-                    <div className="col-md-6">
+                    <div className="col-md-12">
 
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <ul className="footer-social">
                             <li><a href="#"><i className="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i className="fa fa-twitter"></i></a></li>

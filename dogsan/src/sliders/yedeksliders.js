@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Carousel } from "react-bootstrap"; 
 import ReactPlayer from "react-player";
-/* import "bootstrap/dist/css/bootstrap.css";
-import "./VideoCarousel.css";  */
+/*  import "bootstrap/dist/css/bootstrap.css"; */
+  import "./bootstrap.slider.css" 
+/* import "./VideoCarousel.css";  */
 import SliderService from "../services/SliderService";
 import CitiesSlider from './CitiesSlider.js';
 
@@ -35,7 +36,7 @@ const VideoCarousel = () => {
             <Carousel.Item key={slider.id}>
               {slider.type == ".jpg" ?
                 ( 
-                  <img src={slider.url}  width={window.innerwidth} height={600}/>
+                  <img src={slider.url}  width={"100%"} height={"100%"}/>
                    
                 )
                 :
@@ -45,7 +46,7 @@ const VideoCarousel = () => {
                     pip={true}
                     controls={true}
                     playing={false}
-                    width={window.innerwidth} height={750}
+                    width={"100%"} height={"100%"}
                   />
                 )
               } 
