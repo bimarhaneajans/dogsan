@@ -1,49 +1,49 @@
-import React, { Component } from 'react'  
-import Carousel from 'react-bootstrap/Carousel' 
-/* import 'bootstrap/dist/css/bootstrap.min.css';   */
-    export class BootstrapCarousel extends Component {  
-            render() {  
-      
-                    return (  
-                            <div>  
-                             <div class='container-fluid' >  
-                              <div className="row title" style={{ marginBottom: "20px" }} >  
-                              <div class="col-sm-12 btn btn-warning">  
-                              How To Use Bootstrap Carousel In ReactJS  
-                             </div>  
-                             </div>  
-                             </div>  
-                             <div className='container-fluid' >  
-                             <Carousel>  
-                             <Carousel.Item style={{'height':"300px"}} >  
-                             <img style={{'height':"300px"}}  
-                             className="d-block w-100"  
-                            src={'assets/img/img2.jpg'}  />  
-                               <Carousel.Caption>  
-                                 <h3>First Demo </h3>  
-                                     </Carousel.Caption>  
-                                     </Carousel.Item  >  
-                                     <Carousel.Item style={{'height':"300px"}}>  
-                                     <img style={{'height':"300px"}}  
-                                       className="d-block w-100"  
-                                        src={'assets/img/img1.jpg'}    />  
-                                           <Carousel.Caption>  
-                                       <h3>Second Demo</h3>  
-                                          </Carousel.Caption>  
-                                             </Carousel.Item>  
-                                           <Carousel.Item style={{'height':"300px"}}>  
-                                           <img style={{'height':"300px"}}  
-                                            className="d-block w-100"  
-                                             src={'assets/img/img3.jpg'}   />  
-                                            <Carousel.Caption>  
-                                              <h3>Third Demo</h3>  
-                                              </Carousel.Caption>  
-                                             </Carousel.Item>  
-                                            </Carousel>  
-                                    </div>  
-                            </div>  
-                    )  
-            }  
-    }  
-      
-    export default BootstrapCarousel  
+import React, { useState, useEffect, useMemo, useRef } from "react"; 
+
+import { Carousel } from "react-bootstrap"; 
+import ReactPlayer from "react-player";
+import "bootstrap/dist/css/bootstrap.css";
+import "./VideoCarousel.css";
+import SliderService from "../../services/TarihiGaleriService"; 
+
+var classNames = require('classnames');
+const VideoCarousel = () => {
+  const [slaty, setTutorials] = useState([]);
+
+  useEffect(() => {
+    retrieveTutorials();
+  }, []);
+
+
+  const retrieveTutorials = () => {
+    SliderService.getAll()
+      .then(response => {
+        setTutorials(response.data);
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  };
+  
+ 
+
+
+  return (
+    <div className="App">
+      <Carousel>
+        {slaty.map((slider) => {
+          return (
+            <Carousel.Item interval={1000} controls key={slider.id}>
+            
+                <img src={slider.image}  width={1024} height={720}/> 
+              
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
+    </div>
+  );
+};
+
+export default VideoCarousel;

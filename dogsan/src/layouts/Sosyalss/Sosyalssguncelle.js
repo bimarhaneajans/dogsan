@@ -104,15 +104,17 @@ const Overview = props => {
 
    return (
     <DashboardLayout>
-      <Sidenav
-            color={sidenavColor}
-            brand={brand}
-            brandName=" DOĞSAN PANEL "
-            routes={routes} 
-          />
+    <Sidenav
+      color={sidenavColor}
+      brand={brand}
+      brandName=" DOĞSAN PANEL "
+      routes={routes}
+    />
+    <div style={{ marginLeft: "100px" }}>
+      <Header />
+    </div>
 
-    <Header />
-    <br />
+    <div style={{ width: "300px", marginLeft: "275px", marginTop: "20px" }}>
     <div>
       {currentTutorial ? (
         <div className="edit-form">
@@ -223,9 +225,9 @@ const Overview = props => {
         
         </div>
       )}
-    </div>
+    </div>  
   
-
+</div>
 </DashboardLayout>
 );
 }

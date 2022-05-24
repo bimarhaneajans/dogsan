@@ -109,7 +109,7 @@ const VideoCarousel = () => {
                     url={slider.url}
                     pip={true}
                     controls={true}
-                    playing={true}
+                    playing={false}
                     width={window.innerwidth} height={750}
                   />
                 )
