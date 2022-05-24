@@ -104,9 +104,7 @@ const findAllPublished = (req, res) => {
           err.message || "Some error occurred while retrieving bayis."
       });
     });
-}; 
-
-
+};  
 const deleteAll = (req, res) => {
   Bayi.deleteMany({})
     .then(data => {
@@ -120,11 +118,8 @@ const deleteAll = (req, res) => {
           err.message || "Some error occurred while removing all bayis."
       });
     });
-};
-
-const upload = async (req, res) => {
-  
-
+}; 
+const upload = async (req, res) => { 
   const sliders = new Sliders({
 
     /* Yil: req.body.Yil,
