@@ -19,6 +19,11 @@ import "../responsive-styling.css";
 import { Player, ControlBar } from 'video-react';
 import ReactPlayer from 'react-player';
  import TarihceSlider from './TarihceSlider.js'
+ import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+
 let slides = [];
 
 export default function Hakkimizda() {

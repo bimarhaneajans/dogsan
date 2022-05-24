@@ -17,6 +17,11 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+
 
 export default function Bayiler() {
 
@@ -351,23 +356,7 @@ export default function Bayiler() {
                 <img src={dogsanlogo} alt="" />
             </div>
 
-            <div className="footer2-bottom">
-                <div className="container">
-                    <div className="col-md-6">
-                    
-                    </div>
-                    <div className="col-md-6">
-                        <ul className="footer-social">
-                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <a href="javascript:void(0)" className="bttop"><img src={backtotop} alt="" /></a>
-                </div>
-            </div>
+            
         </div>
 
     )
