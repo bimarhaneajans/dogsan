@@ -1,31 +1,158 @@
  
 const dbConfig = require("../config/db.config");
-const db = require("../models");
-
 const uploadFile = require("../middlewares/videouploadfile");
-const fs = require("fs");
+const db = require("../models");
+var multer = require('multer');
+var fs = require('fs');
+var path = require('path');
+var mime = require('mime'); 
+ 
  const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
  
 const MongoClient = require("mongodb").MongoClient;
-const GridFSBucket = require("mongodb").GridFSBucket;
-const url = dbConfig.url;
+//const GridFSBucket = require("mongodb").GridFSBucket;
+const url = dbConfig.url; 
 const mongoClient = new MongoClient(url);
-const path = require("path");
-const Tarihce = db.sliders;
+ 
+const Sliders = db.sliders;  
+
+const findAll = (req, res) => {
+
+  const Yil = req.query.Yil;
+  var condition = Yil ? { Yil: { $regex: new RegExp(Yil), $options: "i" } } : {};
+
+  Sliders.find(condition)
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving bayis."
+      });
+    });
+}; 
+const findOne = (req, res) => {
+  const id = req.params.id;
+
+  Sliders.findById(id)
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found bayi with id " + id });
+      else res.send(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving bayi with id=" + id });
+    });
+};  
+const  update = (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Data to update can not be empty!"
+    });
+  }
+
+  const id = req.params.id;
+
+  Sliders.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot update bayi with id=${id}. Maybe bayi was not found!`
+        });
+      } else res.send({ message: "bayi was updated successfully." });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating bayi with id=" + id
+      });
+    });
+};   
+
+ exports.delete= (req, res) => {
+  const id = req.params.id;
+
+  Sliders.findByIdAndRemove(id, { useFindAndModify: false })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Cannot delete bayi with id=${id}. Maybe bayi was not found!`
+        });
+      } else {
+        res.send({
+          message: "bayi was deleted successfully!"
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete resim with id=" + id
+      });
+    });
+};   
+
+const findAllPublished = (req, res) => {
+  Sliders.find({ published: true })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving bayis."
+      });
+    });
+}; 
+
+
+const deleteAll = (req, res) => {
+  Bayi.deleteMany({})
+    .then(data => {
+      res.send({
+        message: `${data.deletedCount} bayis were deleted successfully!`
+      });
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all bayis."
+      });
+    });
+};
 
 const upload = async (req, res) => {
-/* 
-  const tarihce = new Tarihce({
-    Yil: req.body.Yil,
+  
+
+  const sliders = new Sliders({
+
+    /* Yil: req.body.Yil,
     icerik: req.body.icerik,
     Resimbaslik: req.body.Resimbaslik,
-    Resim: req.body.Resim,
+    Resim: req.body.Resim, */
+
     published: req.body.published ? req.body.published : false
-  })  
-  tarihce.save(tarihce);
-  console.log(tarihce)
-    
-  */
+  });   
+  Sliders.save(sliders).then(data => {
+   
+      res.send(data); 
+      
+
+    })
+      .catch(err => {
+        console.log(err);
+
+        if (err.code === "LIMIT_UNEXPECTED_FILE") {
+          return res.status(400).send({
+            message: "Too many files to upload.",
+          });
+        }
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the Tarihce."
+        });
+      }) 
 
   try {
     await uploadFile(req, res);
@@ -100,6 +227,11 @@ const download = (req, res) => {
 
 
 module.exports = {
+  findAllPublished,
+  findOne,
+  update,
+  deleteAll,
+  findAll,
   upload,
   getListFiles,
   download,
