@@ -118,7 +118,7 @@ export default function Kataloglar() {
                             
                                 <div className="clearfix"></div>
                                 <div className="clearfix"></div>
-                                <div class="information-box__grid">
+                                <div class="information-box__grid col-xs-2" >
                                     <Link to={"/KatalogDetay/" + item.id} class="information-box__grid-item" >
 
                                         <div class="information-box__grid-image" >
