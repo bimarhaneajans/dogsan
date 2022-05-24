@@ -1,8 +1,32 @@
+ 
+const dbConfig = require("../config/db.config");
+const db = require("../models");
+
 const uploadFile = require("../middlewares/katalogupload");
 const fs = require("fs");
-const baseUrl = "http://localhost:8081/files/";
+ const baseUrl = "http://localhost:3000/resources/static/assets/katalogs/";
+ 
+const MongoClient = require("mongodb").MongoClient;
+const GridFSBucket = require("mongodb").GridFSBucket;
+const url = dbConfig.url;
+const mongoClient = new MongoClient(url);
+const path = require("path");
+const Tarihce = db.sliders;
 
 const upload = async (req, res) => {
+/* 
+  const tarihce = new Tarihce({
+    Yil: req.body.Yil,
+    icerik: req.body.icerik,
+    Resimbaslik: req.body.Resimbaslik,
+    Resim: req.body.Resim,
+    published: req.body.published ? req.body.published : false
+  })  
+  tarihce.save(tarihce);
+  console.log(tarihce)
+    
+  */
+
   try {
     await uploadFile(req, res);
 
@@ -29,8 +53,8 @@ const upload = async (req, res) => {
 };
 
 const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/resources/static/assets/katalogs/";
-
+  const directoryPath = __basedir + "/public/resources/static/assets/katalogs/";
+  let JsonObject;
   fs.readdir(directoryPath, function (err, files) {
     if (err) {
       res.status(500).send({
@@ -38,21 +62,29 @@ const getListFiles = (req, res) => {
       });
     }
 
+/*
+
+
+*/
     let fileInfos = [];
 
     files.forEach((file) => {
       fileInfos.push({
-        name: file,
-        url: baseUrl + file,
+       
+        src: baseUrl + file,
+        type: path.extname(baseUrl + file),
       });
     });
 
-    res.status(200).send(fileInfos);
+    JsonObject = JSON.parse(JSON.stringify(fileInfos));
+//console.log(JsonObject)
+    res.status(200).send(JSON.stringify(JsonObject));
   });
 };
+
 const download = (req, res) => {
   const fileName = req.params.name;
-  const directoryPath = __basedir + "/resources/static/assets/katalogs/";
+  const directoryPath = __basedir + "/public/resources/static/assets/katalogs/";
 
   res.download(directoryPath + fileName, fileName, (err) => {
     if (err) {
@@ -62,6 +94,10 @@ const download = (req, res) => {
     }
   });
 };
+
+
+
+
 
 module.exports = {
   upload,
