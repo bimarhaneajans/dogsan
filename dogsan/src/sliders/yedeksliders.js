@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Carousel } from "react-bootstrap"; 
 import ReactPlayer from "react-player";
-/* import "bootstrap/dist/css/bootstrap.css";
-import "./VideoCarousel.css";  */
+/*  import "bootstrap/dist/css/bootstrap.css"; */
+  import "./bootstrap.slider.css" 
+/* import "./VideoCarousel.css";  */
 import SliderService from "../services/SliderService";
 import CitiesSlider from './CitiesSlider.js';
 
