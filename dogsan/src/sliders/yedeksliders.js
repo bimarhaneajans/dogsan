@@ -36,7 +36,7 @@ const VideoCarousel = () => {
             <Carousel.Item key={slider.id}>
               {slider.type == ".jpg" ?
                 ( 
-                  <img src={slider.url}  width={window.innerwidth} height={600}/>
+                  <img src={slider.url}  width={"100%"} height={"100%"}/>
                    
                 )
                 :
@@ -46,7 +46,7 @@ const VideoCarousel = () => {
                     pip={true}
                     controls={true}
                     playing={false}
-                    width={window.innerwidth} height={750}
+                    width={"100%"} height={"100%"}
                   />
                 )
               } 
