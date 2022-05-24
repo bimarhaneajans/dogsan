@@ -109,6 +109,7 @@ export default function Kataloglar() {
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
+                    
                     <div className="clearfix"></div>
 
                     <div className="col-md-9">
