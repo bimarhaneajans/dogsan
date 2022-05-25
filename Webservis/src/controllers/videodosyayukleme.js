@@ -1,25 +1,34 @@
- 
+
+const MongoClient = require("mongodb").MongoClient;
 const dbConfig = require("../config/db.config");
 const uploadFile = require("../middlewares/videouploadfile");
 const db = require("../models");
 var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
-var mime = require('mime'); 
- 
- const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
- 
-const MongoClient = require("mongodb").MongoClient;
+var mime = require('mime');
+var express = require('express');
+var bodyParser = require('body-parser');
+var mongodb = require('mongodb');
+var mongoose = require('mongoose');
+const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
+var mongoose = require('mongoose');
+
 //const GridFSBucket = require("mongodb").GridFSBucket;
-const url = dbConfig.url; 
-const mongoClient = new MongoClient(url);
- 
-const Sliders = db.sliders;  
+//const url = dbConfig.url;
+//const mongoClient = new MongoClient(url);
+var dbConn = mongodb.MongoClient.connect("mongodb://37.77.4.139:27017/dogsandb");
+//console.log(dbConn.state);
+
+
+const Sliders = db.sliders;
+
+
 
 const findAll = (req, res) => {
 
-  const Yil = req.query.Yil;
-  var condition = Yil ? { Yil: { $regex: new RegExp(Yil), $options: "i" } } : {};
+  const ResimBaslik = req.query.ResimBaslik;
+  var condition = ResimBaslik ? { Yil: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
   Sliders.find(condition)
     .then(data => {
@@ -31,7 +40,7 @@ const findAll = (req, res) => {
           err.message || "Some error occurred while retrieving bayis."
       });
     });
-}; 
+};
 const findOne = (req, res) => {
   const id = req.params.id;
 
@@ -46,8 +55,8 @@ const findOne = (req, res) => {
         .status(500)
         .send({ message: "Error retrieving bayi with id=" + id });
     });
-};  
-const  update = (req, res) => {
+};
+const update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
       message: "Data to update can not be empty!"
@@ -69,9 +78,9 @@ const  update = (req, res) => {
         message: "Error updating bayi with id=" + id
       });
     });
-};   
+};
 
- exports.delete= (req, res) => {
+exports.delete = (req, res) => {
   const id = req.params.id;
 
   Sliders.findByIdAndRemove(id, { useFindAndModify: false })
@@ -91,7 +100,7 @@ const  update = (req, res) => {
         message: "Could not delete resim with id=" + id
       });
     });
-};   
+};
 
 const findAllPublished = (req, res) => {
   Sliders.find({ published: true })
@@ -104,9 +113,9 @@ const findAllPublished = (req, res) => {
           err.message || "Some error occurred while retrieving bayis."
       });
     });
-};  
+};
 const deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  Sliders.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} bayis were deleted successfully!`
@@ -118,90 +127,117 @@ const deleteAll = (req, res) => {
           err.message || "Some error occurred while removing all bayis."
       });
     });
-}; 
-const upload = async (req, res) => { 
-  const sliders = new Sliders({
+};
 
-    /* Yil: req.body.Yil,
-    icerik: req.body.icerik,
-    Resimbaslik: req.body.Resimbaslik,
-    Resim: req.body.Resim, */
 
-    published: req.body.published ? req.body.published : false
-  });   
-  Sliders.save(sliders).then(data => {
-   
-      res.send(data); 
-      
 
+const upload = async (req, res, next) => {
+
+/*   req.checkBody('ResimBaslik', 'ResimBaslik is required').notEmpty()
+  req.checkBody('Resimpath', '  Resimpath is required').notEmpty()
+  req.checkBody('Resimicerik', 'Resimicerik is required').notEmpty()
+  req.checkBody('VideoBaslik', 'VideoBaslik email is required').notEmpty()
+  req.checkBody('Videopath', 'Videopath is required').notEmpty()
+  req.checkBody('Veritipi', 'Veritipi is required').notEmpty() */
+
+
+
+   //No errors were found.  Passed Validation!
+
+
+       const sliders = new Sliders({
+  
+      ResimBaslik: req.body.ResimBaslik,
+      Resimpath: req.body.Resimpath,
+      Resimicerik: req.body.Resimicerik,
+      VideoBaslik: req.body.VideoBaslik,
+      Videopath: req.body.Videopath,
+      Veritipi: req.body.Veritipi,
+      published: req.body.published ? req.body.published : false
+    });   
+
+    sliders.save(sliders)
+    .then(data => {
+      res.send(data);
     })
-      .catch(err => {
-        console.log(err);
-
-        if (err.code === "LIMIT_UNEXPECTED_FILE") {
-          return res.status(400).send({
-            message: "Too many files to upload.",
-          });
-        }
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Tarihce."
-        });
-      }) 
-
-  try {
-    await uploadFile(req, res);
-
-    if (req.file == undefined) {
-      return res.status(400).send({ message: "Please upload a file!" });
-    }
-
-    res.status(200).send({
-      message: "Uploaded the file successfully: " 
-    });
-  } catch (err) {
-    console.log(err);
-
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while creating the sliders."
       });
-    }
-
-    res.status(500).send({
-      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
     });
-  }
+  
+  
+
+  /*   try {
+      await uploadFile(req, res);
+  
+      if (req.file == undefined) {
+        return res.status(400).send({ message: "Please upload a file!" });
+      }
+  
+      res.status(200).send({
+        message: "Uploaded the file successfully: "
+      });
+    } catch (err) {
+      console.log(err);
+  
+      if (err.code == "LIMIT_FILE_SIZE") {
+        return res.status(500).send({
+          message: "File size cannot be larger than 2MB!",
+        });
+      }
+  
+      res.status(500).send({
+        message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+      });
+    } */
 };
 
 const getListFiles = (req, res) => {
   const directoryPath = __basedir + "/public/resources/static/assets/videos/";
   let JsonObject;
-  fs.readdir(directoryPath, function (err, files) {
-    if (err) {
-      res.status(500).send({
-        message: "Unable to scan files!",
+
+  const ResimBaslik = req.query.ResimBaslik;
+  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+
+  sliders.find(condition)
+    .then(data => {
+      res.send(data);
+
+      fs.readdir(directoryPath, function (err, files) {
+        if (err) {
+          res.status(500).send({
+            message: "Unable to scan files!",
+          });
+        }
+
+        let fileInfos = [];
+
+        files.forEach((file) => {
+          fileInfos.push({
+
+            src: baseUrl + file,
+            type: path.extname(baseUrl + file),
+          });
+        });
+
+        JsonObject = JSON.parse(JSON.stringify(fileInfos));
+        //console.log(JsonObject)
+
+        //  res.status(200).send();
       });
-    }
+    }).catch(err => {
+      JSON.stringify(JsonObject)
+      /* res.status(200).send({
+        message:
+          err.message || "Some error occurred while retrieving ignes."
+      }); */
+    })
 
-/*
 
 
-*/
-    let fileInfos = [];
 
-    files.forEach((file) => {
-      fileInfos.push({
-       
-        src: baseUrl + file,
-        type: path.extname(baseUrl + file),
-      });
-    });
-
-    JsonObject = JSON.parse(JSON.stringify(fileInfos));
-//console.log(JsonObject)
-    res.status(200).send(JSON.stringify(JsonObject));
-  });
 };
 
 const download = (req, res) => {
@@ -216,10 +252,6 @@ const download = (req, res) => {
     }
   });
 };
-
-
-
-
 
 module.exports = {
   findAllPublished,
