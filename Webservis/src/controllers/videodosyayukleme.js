@@ -187,7 +187,7 @@ const upload = async (req, res, next) => {
       Veritipi: req.body.Veritipi,
       published: req.body.published ? req.body.published : false
     })
-
+  }
 
     /*   const sliders = new Sliders({
    
