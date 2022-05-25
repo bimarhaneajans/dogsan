@@ -16,6 +16,11 @@ import "../assets/vendor/owl-carousel/owl-carousel/owl.carousel.css";
 import "../assets/vendor/owl-carousel/owl-carousel/owl.theme.css";
 import "../style.css";
 import "../responsive-styling.css";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+
 
 
 export default function BizeUlasin() {
@@ -374,24 +379,29 @@ export default function BizeUlasin() {
             <div className="footer2">
                 <img src={dogsanlogo} alt="" />
             </div>
-
-            <div className="footer2-bottom">
-                <div className="container">
-                    <div className="col-md-6">
-                    
-                    </div>
-                    <div className="col-md-6">
-                        <ul className="footer-social">
-                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <a href="javascript:void(0)" className="bttop"><img src={backtotop} alt="" /></a>
-                </div>
-            </div>
+            <ul class="fixed-social-menu list-inline-social mb-0" >
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
+          <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
+            <FaInstagram size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
+          <FaLinkedinIn size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
+            <FaYoutube size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+      </ul>
+            
         </div>
 
     )
