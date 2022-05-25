@@ -148,12 +148,17 @@ const upload = async (req, res, next) => {
   if (!errors) {   //No errors were found.  Passed Validation!
 
 
-    var userDetails = new userModel({
-      name: req.body.name,
-      email: req.body.email,
+    const sliders = new Sliders({
+      ResimBaslik: req.body.ResimBaslik,
+     Resimpath: req.body.Resimpath,
+     Resimicerik: req.body.Resimicerik,
+     VideoBaslik: req.body.VideoBaslik,
+     Videopath: req.body.Videopath,
+     Veritipi: req.body.Veritipi,
+     published: req.body.published ? req.body.published : false
     });
 
-    userDetails.save((err, doc) => {
+    sliders.save((err, doc) => {
       if (!err) {
         req.flash('success', 'User added successfully!')
         res.redirect('/')
@@ -174,9 +179,13 @@ const upload = async (req, res, next) => {
     req.flash('error', error_msg)
 
     res.render('/', {
-      title: 'Add New User',
-      name: req.body.name,
-      email: req.body.email
+      ResimBaslik: req.body.ResimBaslik,
+      Resimpath: req.body.Resimpath,
+      Resimicerik: req.body.Resimicerik,
+      VideoBaslik: req.body.VideoBaslik,
+      Videopath: req.body.Videopath,
+      Veritipi: req.body.Veritipi,
+      published: req.body.published ? req.body.published : false
     })
 
 
