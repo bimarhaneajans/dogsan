@@ -134,33 +134,67 @@ const deleteAll = (req, res) => {
 
 const upload = async (req, res, next) => {
 
-   req.checkBody('ResimBaslik', 'ResimBaslik is required').notEmpty()
+  req.checkBody('ResimBaslik', 'ResimBaslik is required').notEmpty()
   req.checkBody('Resimpath', '  Resimpath is required').notEmpty()
   req.checkBody('Resimicerik', 'Resimicerik is required').notEmpty()
   req.checkBody('VideoBaslik', 'VideoBaslik email is required').notEmpty()
   req.checkBody('Videopath', 'Videopath is required').notEmpty()
-  req.checkBody('Veritipi', 'Veritipi is required').notEmpty()  
+  req.checkBody('Veritipi', 'Veritipi is required').notEmpty()
 
 
 
   var errors = req.validationErrors()
 
-
-     /*   const sliders = new Sliders({
-  
-      ResimBaslik: req.body.ResimBaslik,
-      Resimpath: req.body.Resimpath,
-      Resimicerik: req.body.Resimicerik,
-      VideoBaslik: req.body.VideoBaslik,
-      Videopath: req.body.Videopath,
-      Veritipi: req.body.Veritipi,
-      published: req.body.published ? req.body.published : false
-    });   */
- 
+  if (!errors) {   //No errors were found.  Passed Validation!
 
 
+    var userDetails = new userModel({
+      name: req.body.name,
+      email: req.body.email,
+    });
 
-    
+    userDetails.save((err, doc) => {
+      if (!err) {
+        req.flash('success', 'User added successfully!')
+        res.redirect('/')
+      }
+
+      else {
+        console.log('Error during record insertion : ' + err)
+
+      }
+    })
+
+  }
+  else {   //Display errors to user
+    var error_msg = ''
+    errors.forEach(function (error) {
+      error_msg += error.msg + '<br>'
+    })
+    req.flash('error', error_msg)
+
+    res.render('/', {
+      title: 'Add New User',
+      name: req.body.name,
+      email: req.body.email
+    })
+
+
+    /*   const sliders = new Sliders({
+   
+     ResimBaslik: req.body.ResimBaslik,
+     Resimpath: req.body.Resimpath,
+     Resimicerik: req.body.Resimicerik,
+     VideoBaslik: req.body.VideoBaslik,
+     Videopath: req.body.Videopath,
+     Veritipi: req.body.Veritipi,
+     published: req.body.published ? req.body.published : false
+   });   */
+
+
+
+
+
 
     /* sliders.save(sliders)
     .then(data => {
@@ -172,100 +206,100 @@ const upload = async (req, res, next) => {
           err.message || "Some error occurred while creating the sliders."
       });
     }); */
-  
-  
 
-  /*   try {
-      await uploadFile(req, res);
-  
-      if (req.file == undefined) {
-        return res.status(400).send({ message: "Please upload a file!" });
-      }
-  
-      res.status(200).send({
-        message: "Uploaded the file successfully: "
-      });
-    } catch (err) {
-      console.log(err);
-  
-      if (err.code == "LIMIT_FILE_SIZE") {
-        return res.status(500).send({
-          message: "File size cannot be larger than 2MB!",
+
+
+    /*   try {
+        await uploadFile(req, res);
+    
+        if (req.file == undefined) {
+          return res.status(400).send({ message: "Please upload a file!" });
+        }
+    
+        res.status(200).send({
+          message: "Uploaded the file successfully: "
         });
-      }
-  
-      res.status(500).send({
-        message: `Could not upload the file: ${req.file.originalname}. ${err}`,
-      });
-    } */
-};
-
-const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/public/resources/static/assets/videos/";
-  let JsonObject;
-
-  const ResimBaslik = req.query.ResimBaslik;
-  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
-
-  sliders.find(condition)
-    .then(data => {
-      res.send(data);
-
-      fs.readdir(directoryPath, function (err, files) {
-        if (err) {
-          res.status(500).send({
-            message: "Unable to scan files!",
+      } catch (err) {
+        console.log(err);
+    
+        if (err.code == "LIMIT_FILE_SIZE") {
+          return res.status(500).send({
+            message: "File size cannot be larger than 2MB!",
           });
         }
-
-        let fileInfos = [];
-
-        files.forEach((file) => {
-          fileInfos.push({
-
-            src: baseUrl + file,
-            type: path.extname(baseUrl + file),
-          });
+    
+        res.status(500).send({
+          message: `Could not upload the file: ${req.file.originalname}. ${err}`,
         });
+      } */
+  };
 
-        JsonObject = JSON.parse(JSON.stringify(fileInfos));
-        //console.log(JsonObject)
+  const getListFiles = (req, res) => {
+    const directoryPath = __basedir + "/public/resources/static/assets/videos/";
+    let JsonObject;
 
-        //  res.status(200).send();
-      });
-    }).catch(err => {
-      JSON.stringify(JsonObject)
-      /* res.status(200).send({
-        message:
-          err.message || "Some error occurred while retrieving ignes."
-      }); */
-    })
+    const ResimBaslik = req.query.ResimBaslik;
+    var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+
+    sliders.find(condition)
+      .then(data => {
+        res.send(data);
+
+        fs.readdir(directoryPath, function (err, files) {
+          if (err) {
+            res.status(500).send({
+              message: "Unable to scan files!",
+            });
+          }
+
+          let fileInfos = [];
+
+          files.forEach((file) => {
+            fileInfos.push({
+
+              src: baseUrl + file,
+              type: path.extname(baseUrl + file),
+            });
+          });
+
+          JsonObject = JSON.parse(JSON.stringify(fileInfos));
+          //console.log(JsonObject)
+
+          //  res.status(200).send();
+        });
+      }).catch(err => {
+        JSON.stringify(JsonObject)
+        /* res.status(200).send({
+          message:
+            err.message || "Some error occurred while retrieving ignes."
+        }); */
+      })
 
 
 
 
-};
+  };
 
-const download = (req, res) => {
-  const fileName = req.params.name;
-  const directoryPath = __basedir + "/public/resources/static/assets/videos/";
+  const download = (req, res) => {
+    const fileName = req.params.name;
+    const directoryPath = __basedir + "/public/resources/static/assets/videos/";
 
-  res.download(directoryPath + fileName, fileName, (err) => {
-    if (err) {
-      res.status(500).send({
-        message: "Could not download the file. " + err,
-      });
-    }
-  });
-};
+    res.download(directoryPath + fileName, fileName, (err) => {
+      if (err) {
+        res.status(500).send({
+          message: "Could not download the file. " + err,
+        });
+      }
+    });
+  };
 
-module.exports = {
-  findAllPublished,
-  findOne,
-  update,
-  deleteAll,
-  findAll,
-  upload,
-  getListFiles,
-  download,
-};
+  module.exports = {
+    findAllPublished,
+    findOne,
+    update,
+    deleteAll,
+    findAll,
+    upload,
+    getListFiles,
+    download,
+  };
