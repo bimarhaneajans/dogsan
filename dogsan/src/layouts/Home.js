@@ -40,6 +40,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import { FaGooglePlusG } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
@@ -289,7 +291,7 @@ export default function Home() {
                   <ul className="top-nav list-unstyled list-inline">
                     <li><Link to={"/Hakkimizda"} className="nav-link">Kurumsal</Link></li>
                     <li><Link to={"/Kataloglar"} className="nav-link">Kataloglar</Link></li>
-                    <li><Link to={"/Igneler"} className="nav-link">Ürünlerimiz</Link></li>
+                    <li><Link to={"/Urunler"} className="nav-link">Ürünlerimiz</Link></li>
                     <li className="logo"><Link to={"/home"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                     <li><Link to={"/Duyurular"} className="nav-link">Duyurular</Link></li>
                     <li><Link to={"/Bloglar"} className="nav-link">Blog</Link></li>
@@ -673,22 +675,17 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-                      <h6>{item.pozizyon}</h6>
-                        <h4> {item.yoneticiadi}{item.yoneticisoyadi}</h4>
-                        <p>{item.kariyer} </p>
-                  {/*     <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div>
-                        <br />
-                        <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }}  > <br /></div>
-                        <div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }}  ></div>
-                        <div dangerouslySetInnerHTML={{ __html: item.kariyer }}  ></div>
- */}
+                      <h6> <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div></h6>
+                        <h4> <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }} /><div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }} /></h4>
+                        <p><div dangerouslySetInnerHTML={{ __html: item.kariyer }} /> </p>
+       
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
                           <ul class="list-inline list-unstyled pull-right social">
-                            <li><a href="#"><i class="fa fa-twitter"></i>{item.twitter}</a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i>{item.facebook}</a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i>{item.linkedin}</a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i>{item.googleplus}</a></li>
+                            <li><a href="#"><FaTwitter size={15} />{item.twitter}</a></li>
+                            <li><a href="#"><FaFacebookF size={15} />{item.facebook}</a></li>
+                            <li><a href="#"><FaLinkedinIn size={15} />{item.linkedin}</a></li>
+                            <li><a href="#"><FaGooglePlusG size={22}/>{item.googleplus}</a></li>
                           </ul>
                         </div>
                       </div>
@@ -825,7 +822,7 @@ export default function Home() {
 
                 <div className="col-xs-4">
                   <div ><Link to={"/Kataloglar"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Kataloglar</Link></div>
-                  <div ><Link to={"/Igneler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">İğneler</Link></div>
+                  <div ><Link to={"/Urunler"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Ürünler</Link></div>
                   <div ><Link to={"/Duyurular"} style={{ color: "rgb(250, 250, 250)" }} className="nav-link">Duyurular</Link></div>
 
 
@@ -852,7 +849,7 @@ export default function Home() {
       </div>
 
 
-      <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
+    {/*   <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
@@ -893,7 +890,7 @@ export default function Home() {
           </div>
         </div>
 
-      </div>
+      </div> */}
       <ul class="fixed-social-menu list-inline-social mb-0" >
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">

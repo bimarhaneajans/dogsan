@@ -81,9 +81,9 @@ export default function kataloglar() {
     //       <span>KURUMSAL</span>
     //     </div>
     //     </a>
-    //     <a href="igneler.html">
+    //     <a href="Urunler.html">
     //     <div id="NELER">
-    //       <span>İĞNELER</span>
+    //       <span>Ürünler</span>
     //     </div>
     //     </a>
     //     <a href="duyurular.html">

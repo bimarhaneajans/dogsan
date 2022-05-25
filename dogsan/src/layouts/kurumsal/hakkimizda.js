@@ -25,7 +25,8 @@ import { FaYoutube } from "react-icons/fa";
 
 
 
-export default function Tarihce() {
+
+export default function Hakkimizda() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [hakkimizda, setHakkimizda] = useState([]);
@@ -75,7 +76,7 @@ export default function Tarihce() {
                                         <ul className="top-nav list-unstyled list-inline" >
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
                                             <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
-                                            <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
+                                            <li><Link to={"/Urunler"} style={{ color: "#fafafa" }} className="nav-link">Ürünler</Link></li>
                                             <li className="logo"><Link to={"/"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                                             <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
                                             <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
@@ -118,15 +119,24 @@ export default function Tarihce() {
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                 <div dangerouslySetInnerHTML={{ __html: item.AnaIcerik }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html: item.AnaBaslik }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                 <div dangerouslySetInnerHTML={{ __html: item.BelgeselIcerigi }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html: item.AnaIcerik }}  ></div>
+                                <div className="bottom-space-30"></div>
+                                <div className="clearfix"></div>
+                                <div dangerouslySetInnerHTML={{ __html: item.BelgeselBaslik }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="reactPly" >
                                 <ReactPlayer url={item.BelgeselVideoUrl} /> 
                                 </div>
+                                <div className="bottom-space-30"></div>
+                                <div className="clearfix"></div>
+                                <div dangerouslySetInnerHTML={{ __html: item.BelgeselIcerigi }}  ></div>
+                                <div className="bottom-space-30"></div>
+                                <div className="clearfix"></div>
+                                
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>

@@ -19,7 +19,7 @@ export default function header() {
 
 										<li><Link to={"/hakkimizda"} className="nav-link">Kurumsal</Link></li>
 										<li><Link to={"/kataloglar"} className="nav-link">Kataloglar</Link></li>
-										<li><Link to={"/igneler"} className="nav-link">İğneler</Link></li>
+										<li><Link to={"/Urunler"} className="nav-link">Ürünler</Link></li>
 										<li><Link to={"/Home"} className="nav-link"><img src={Logo} alt="Heartify" /></Link></li>
 										<li><Link to={"/duyurular"} className="nav-link">Duyurular</Link></li>
 										<li><Link to={"/blog"} className="nav-link">Blog</Link></li>
