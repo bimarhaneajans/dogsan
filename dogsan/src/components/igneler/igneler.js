@@ -6,7 +6,7 @@ import ickeskin from "./ic_keskin_1f8f558118.jpg";
 import kd from "./kd_4669ca9edc.jpg";
 
 
-export default function igneler() {
+export default function Urunler() {
   return (
     
     <div style={{ paddingTop: "10px" }} class="main-wrapper">

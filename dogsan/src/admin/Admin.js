@@ -70,11 +70,11 @@ import SosyalSorumluluk from "../layouts/kurumsal/SosyalSorumluluk";
 import Kataloglar from "layouts/kataloglar/Kataloglar";
 import Duyuru from "layouts/Duyurular/Duyuru";
 import Duyurular from "layouts/Duyurular/Duyurular";
-import Igneler from "layouts/İgneler/Igneler";
+import Urunler from "layouts/Urunler/Urunler";
 import Bloglar from "layouts/Bloglar/Bloglar";
 import BizeUlasin from "layouts/İletisimler/BizeUlasin";
 import Bayiler from "layouts/İletisimler/Bayiler";
-import KatalogDetay from "layouts/kataloglar/Kataloglar";
+import KatalogDetay from "layouts/kataloglar/KatalogDetay";
 import Blog from "layouts/Bloglar/Blog";
   
 
@@ -207,7 +207,7 @@ export default function App() {
         <Route path="/Kataloglar" element={<Kataloglar />} />
         <Route path="/Duyurular" element={<Duyurular />} />
         <Route path="/Duyuru/:id" element={<Duyuru />} />
-        <Route path="/Igneler" element={<Igneler />} />
+        <Route path="/Urunler" element={<Urunler />} />
         <Route path="/Bloglar" element={<Bloglar />} />
         <Route path="/BizeUlasin" element={<BizeUlasin />} />
         <Route path="/Bayiler" element={<Bayiler />} />

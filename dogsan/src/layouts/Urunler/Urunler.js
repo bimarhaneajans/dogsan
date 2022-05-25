@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import typography from "../../assets/theme/base/typography";
-import IgnelerDataService from "../../services/IgneService";
+import UrunlerDataService from "../../services/IgneService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
@@ -22,10 +22,10 @@ import { FaYoutube } from "react-icons/fa";
 
 
 
-export default function Igneler() {
+export default function Urunler() {
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-    const [igneler, setIgneler] = useState([]);
+    const [Urunler, setUrunler] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -37,15 +37,15 @@ export default function Igneler() {
 
     useEffect(() => {
 
-        retrieveIgneler();
+        retrieveUrunler();
     }, []);
 
 
 
-    const retrieveIgneler = () => {
-        IgnelerDataService.getAll()
+    const retrieveUrunler = () => {
+        UrunlerDataService.getAll()
             .then(response => {
-                setIgneler(response.data);
+                setUrunler(response.data);
                 console.log(response.data);
             })
             .catch(e => {
@@ -70,7 +70,7 @@ export default function Igneler() {
                                         <ul className="top-nav list-unstyled list-inline" >
                                             <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
                                             <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
-                                            <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
+                                            <li><Link to={"/Urunler"} style={{ color: "#fafafa" }} className="nav-link">Ürünler</Link></li>
                                             <li className="logo"><Link to={"/"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
                                             <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
                                             <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
@@ -102,7 +102,7 @@ export default function Igneler() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>İĞNELER</h1>
+                <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>Ürünler</h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
@@ -110,7 +110,7 @@ export default function Igneler() {
                     <div className="col-md-12">
                         <article>
                             <div className="row">
-                                {igneler.map(item => (
+                                {Urunler.map(item => (
                                     <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4 text-center " style={{ height: "400px" }}>
 
                                         <div className="clearfix"></div>

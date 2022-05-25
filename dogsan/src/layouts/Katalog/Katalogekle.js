@@ -112,7 +112,7 @@ const KatalogEkle = () => {
         // return KatalogUploadService.getFiles();
       })
       .then((files) => {
-       setfileInfos({
+        setfileInfos({
           fileInfos: files.data,
         });
       })
@@ -153,10 +153,10 @@ const KatalogEkle = () => {
       });
   };
 
-  /*   const handleInputChange = event => {
-      const { name, value } = event.target;
-      setTutorial({ ...tutorial, [name]: value });
-    }; */
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    setTutorial({ ...tutorial, [name]: value });
+  };
 
   const saveTutorial = () => {
     var data = {
@@ -213,8 +213,8 @@ const KatalogEkle = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="katalogadi">Katalog Adı</label>
-                              <RichTextEditor name="katalogadi" id="katalogadi" type="text" style={{ width: "600px" }} value={katalogadi} onChange={Changekatalogadi} />
-             </div>
+                <RichTextEditor name="katalogadi" id="katalogadi" type="text" style={{ width: "600px" }} value={katalogadi} onChange={Changekatalogadi} />
+              </div>
 
               {currentFile && (
                 <div className="progress">
@@ -232,42 +232,36 @@ const KatalogEkle = () => {
               )}
               <div className="form-group">
                 <label htmlFor="kariyer">Katalog Yükle</label>
-                <>
-                  {/*  <select
+                {/* <>
+                  <select
                     type="text"
                     id="katalogurl"
                     name="katalogurl"
                     value={tutorial.katalogurl}
                     onChange={handleInputChange}
                   >
-                    {katalogurl.map((file,index) => <option key={index} value={file.url}>{file.name}</option>)
+                    {katalogurl.map((file, index) => <option key={index} value={file.url}>{file.name}</option>)
 
                     }
 
-                  </select> */}
-                </>
-                <label className="btn btn-default">
-                  <input type="file" onChange={selectFile} />
-                </label>
+                  </select>
+                </> */}
+                {/* <>
+                  <select
+                    type="text"
+                    id="katalogurl"
+                    name="katalogurl"
+                    value={tutorial.katalogurl}
+                    onChange={handleInputChange}
+                  >
+                    {katalogurl.map(options => <option key={options.katalogurl} value={options.katalogurl}>{options.katalogurl}</option>)
 
-                <button
-                  className="btn btn-success"
-                  disabled={!selectedFiles}
-                  onClick={upload}
-                >
-                  Upload
-                </button>
+                    }
 
-                <div className="alert alert-light" role="alert">
-                  {message}
-                </div>
+                  </select>
+                </> */}
               </div>
-           {/*        <div>
-                  <KatalogYukleme/>
-                  </div> */}
-
-
-
+       
               <FileBase64
                 type="file"
                 multiple={false}
