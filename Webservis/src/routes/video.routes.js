@@ -22,7 +22,5 @@ module.exports = app => {
     router.post("/", controller.upload);
     router.get("/files", controller.getListFiles);
     router.get("/files/:name", controller.download);
-    
-  
-    app.use("/video", router);
+     app.use("/video", router);
   };

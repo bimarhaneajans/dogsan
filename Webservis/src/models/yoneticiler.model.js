@@ -10,6 +10,7 @@ module.exports = mongoose => {
       facebook:String,
       linkedin:String,
       googleplus:String,
+      kisaozgecmis:String,
       Resim:String,
    /*     /*    img:
       {
