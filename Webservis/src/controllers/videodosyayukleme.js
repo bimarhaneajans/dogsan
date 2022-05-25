@@ -21,8 +21,12 @@ var fs = require('fs');
 var dbConn = mongodb.MongoClient.connect("mongodb://37.77.4.139:27017/dogsandb");
 //console.log(dbConn.state);
 
+const { check, validationResult } = require('express-validator');
+
+
 
 const Sliders = db.sliders;
+
 
 
 
@@ -134,26 +138,31 @@ const deleteAll = (req, res) => {
 
 const upload = async (req, res, next) => {
 
-  req.checkBody('ResimBaslik', 'ResimBaslik is required').notEmpty()
-  req.checkBody('Resimpath', '  Resimpath is required').notEmpty()
-  req.checkBody('Resimicerik', 'Resimicerik is required').notEmpty()
-  req.checkBody('VideoBaslik', 'VideoBaslik email is required').notEmpty()
-  req.checkBody('Videopath', 'Videopath is required').notEmpty()
-  req.checkBody('Veritipi', 'Veritipi is required').notEmpty()
+  req.check('ResimBaslik', 'ResimBaslik is required').not().isEmpty(),
+  req.check('Resimpath', '  Resimpath is required').not().isEmpty(),
+  req.check('Resimicerik', 'Resimicerik is required').not().isEmpty(),
+  req.check('VideoBaslik', 'VideoBaslik email is required').not().isEmpty(),
+  req.check('Videopath', 'Videopath is required').not().isEmpty(),
+  req.check('Veritipi', 'Veritipi is required').not().isEmpty()
 
 
 
-  var errors = req.validationErrors()
+  //const errors = validationResult(req);
 
-  if (!errors) {   //No errors were found.  Passed Validation!
+ /*  if (!errors) {   //No errors were found.  Passed Validation!
 
 
-    var userDetails = new userModel({
-      name: req.body.name,
-      email: req.body.email,
+    const sliders = new Sliders({
+      ResimBaslik: req.body.ResimBaslik,
+     Resimpath: req.body.Resimpath,
+     Resimicerik: req.body.Resimicerik,
+     VideoBaslik: req.body.VideoBaslik,
+     Videopath: req.body.Videopath,
+     Veritipi: req.body.Veritipi,
+     published: req.body.published ? req.body.published : false
     });
 
-    userDetails.save((err, doc) => {
+    sliders.save((err, doc) => {
       if (!err) {
         req.flash('success', 'User added successfully!')
         res.redirect('/')
@@ -173,13 +182,17 @@ const upload = async (req, res, next) => {
     })
     req.flash('error', error_msg)
 
-    res.render('/', {
-      title: 'Add New User',
-      name: req.body.name,
-      email: req.body.email
+    res.render('/video', {
+      ResimBaslik: req.body.ResimBaslik,
+      Resimpath: req.body.Resimpath,
+      Resimicerik: req.body.Resimicerik,
+      VideoBaslik: req.body.VideoBaslik,
+      Videopath: req.body.Videopath,
+      Veritipi: req.body.Veritipi,
+      published: req.body.published ? req.body.published : false
     })
-
-
+  }
+ */
     /*   const sliders = new Sliders({
    
      ResimBaslik: req.body.ResimBaslik,
