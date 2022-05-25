@@ -23,6 +23,7 @@ exports.create = (req, res) => {
     facebook:req.body.facebook,
     linkedin:req.body.linkedin,
     googleplus:req.body.googleplus,
+    kisaozgecmis:req.body.kisaozgecmis,
     Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false,
 

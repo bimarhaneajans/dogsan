@@ -13,7 +13,8 @@ var mongodb = require('mongodb');
 var mongoose = require('mongoose');
 const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
 var mongoose = require('mongoose');
-
+var FormData = require('form-data');
+var fs = require('fs');
 //const GridFSBucket = require("mongodb").GridFSBucket;
 //const url = dbConfig.url;
 //const mongoClient = new MongoClient(url);
@@ -133,19 +134,19 @@ const deleteAll = (req, res) => {
 
 const upload = async (req, res, next) => {
 
-/*   req.checkBody('ResimBaslik', 'ResimBaslik is required').notEmpty()
+   req.checkBody('ResimBaslik', 'ResimBaslik is required').notEmpty()
   req.checkBody('Resimpath', '  Resimpath is required').notEmpty()
   req.checkBody('Resimicerik', 'Resimicerik is required').notEmpty()
   req.checkBody('VideoBaslik', 'VideoBaslik email is required').notEmpty()
   req.checkBody('Videopath', 'Videopath is required').notEmpty()
-  req.checkBody('Veritipi', 'Veritipi is required').notEmpty() */
+  req.checkBody('Veritipi', 'Veritipi is required').notEmpty()  
 
 
 
-   //No errors were found.  Passed Validation!
+  var errors = req.validationErrors()
 
 
-       const sliders = new Sliders({
+     /*   const sliders = new Sliders({
   
       ResimBaslik: req.body.ResimBaslik,
       Resimpath: req.body.Resimpath,
@@ -154,9 +155,14 @@ const upload = async (req, res, next) => {
       Videopath: req.body.Videopath,
       Veritipi: req.body.Veritipi,
       published: req.body.published ? req.body.published : false
-    });   
+    });   */
+ 
 
-    sliders.save(sliders)
+
+
+    
+
+    /* sliders.save(sliders)
     .then(data => {
       res.send(data);
     })
@@ -165,7 +171,7 @@ const upload = async (req, res, next) => {
         message:
           err.message || "Some error occurred while creating the sliders."
       });
-    });
+    }); */
   
   
 
