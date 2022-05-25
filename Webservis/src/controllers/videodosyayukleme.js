@@ -20,7 +20,9 @@ var fs = require('fs');
 //const mongoClient = new MongoClient(url);
 var dbConn = mongodb.MongoClient.connect("mongodb://37.77.4.139:27017/dogsandb");
 //console.log(dbConn.state);
-var validator = require('validator');
+
+const { check, validationResult } = require('express-validator');
+
 
 
 const Sliders = db.sliders;
@@ -136,16 +138,16 @@ const deleteAll = (req, res) => {
 
 const upload = async (req, res, next) => {
 
-  req.assert('ResimBaslik', 'ResimBaslik is required').notEmpty()
-  req.assert('Resimpath', '  Resimpath is required').notEmpty()
-  req.assert('Resimicerik', 'Resimicerik is required').notEmpty()
-  req.assert('VideoBaslik', 'VideoBaslik email is required').notEmpty()
-  req.assert('Videopath', 'Videopath is required').notEmpty()
-  req.assert('Veritipi', 'Veritipi is required').notEmpty()
+  req.check('ResimBaslik', 'ResimBaslik is required').not().isEmpty(),
+  req.check('Resimpath', '  Resimpath is required').not().isEmpty(),
+  req.check('Resimicerik', 'Resimicerik is required').not().isEmpty(),
+  req.check('VideoBaslik', 'VideoBaslik email is required').not().isEmpty(),
+  req.check('Videopath', 'Videopath is required').not().isEmpty(),
+  req.check('Veritipi', 'Veritipi is required').not().isEmpty()
 
 
 
-  var errors = req.validationErrors()
+  const errors = validationResult(req);
 
   if (!errors) {   //No errors were found.  Passed Validation!
 
@@ -180,7 +182,7 @@ const upload = async (req, res, next) => {
     })
     req.flash('error', error_msg)
 
-    res.render('/', {
+    res.render('/video', {
       ResimBaslik: req.body.ResimBaslik,
       Resimpath: req.body.Resimpath,
       Resimicerik: req.body.Resimicerik,

@@ -16,6 +16,9 @@ var corsOptions = {
  
 };
 */
+const expressValidator = require('express-validator'); 
+app.use(expressValidator)
+
  global.__basedir = __dirname;
 var corsOptions = {
   origin: "*"
