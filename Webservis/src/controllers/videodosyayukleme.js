@@ -147,11 +147,7 @@ const upload = async (req, res, next) => {
 
 
 
-<<<<<<< HEAD
   //const errors = validationResult(req);
-=======
-  const errors = validationResult(req);
->>>>>>> e84b248cd400886e31d72aaf84da705429265b5b
 
  /*  if (!errors) {   //No errors were found.  Passed Validation!
 
@@ -196,11 +192,7 @@ const upload = async (req, res, next) => {
       published: req.body.published ? req.body.published : false
     })
   }
-<<<<<<< HEAD
  */
-=======
-
->>>>>>> e84b248cd400886e31d72aaf84da705429265b5b
     /*   const sliders = new Sliders({
    
      ResimBaslik: req.body.ResimBaslik,
