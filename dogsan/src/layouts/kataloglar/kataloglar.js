@@ -95,17 +95,7 @@ export default function Kataloglar() {
 
             </div>
             <div className="page-head">
-                {/*  <div className="container">
-                    <div className="col-md-9">
-                        <h3>Standard Post Format with preview picture</h3>
-                        <span className="post-meta">Posted 22.06.2014 at 18:00h in Healthy lifestyle by <a href="#">The Ronins</a>   /   68 Likes   /   <a href="#">2 Comments</a></span>
-                    </div>
-                    <div className="col-md-3">
-                        <form className="search">
-                            <input type="search" placeholder="Search..." />
-                        </form>
-                    </div>
-                </div> */}
+
             </div>
             <div className="blog-content">
                 <div className="container">
@@ -116,33 +106,33 @@ export default function Kataloglar() {
                     <div className="clearfix"></div>
                     <div className="col-xs-12">
 
-<div className="row">
-                        {katalog.map(item => (
-                            <div key={item.id}  >
-                            
-                                <div className="clearfix"></div>
-                                <div className="clearfix"></div>
-                                <div class="information-box__grid col-xs-4" >
-                                    <Link to={"/KatalogDetay/" + item.id} class="information-box__grid-item" >
+                        <div className="row">
+                            {katalog.map(item => (
+                                <div className="col-xs-6" key={item.id} style={{textAlign:"center"}} >
 
-                                        <div class="information-box__grid-image" >
+                                    <div className="clearfix"></div>
+                                    <div className="clearfix"></div>
+                                    <div class="information-box__grid col-xs-4" >
+                                        <Link to={"/KatalogDetay/" + item.id} class="information-box__grid-item" >
 
-                                            <img src={item.Resim} style={{ objectFit: "cover", height: "350px", width: "450px" }} />
-                                            <img class="information-box__grid-icon" src={svgpdf} alt="pdf" />
-                                        </div>
-                                        <div dangerouslySetInnerHTML={{ __html: item.katalogadi }}  ></div>
+                                            <div class="information-box__grid-image" >
 
-                                    </Link>
+                                                <center><img src={item.Resim} style={{ objectFit: "cover", height: "300px", width: "300px" }} /></center>
+                                                <center><img class="information-box__grid-icon" src={svgpdf} alt="pdf" /></center>
+                                            </div>
+                                            <div dangerouslySetInnerHTML={{ __html: item.katalogadi }}  ></div>
+
+                                        </Link>
+
+
+                                    </div>
+
 
 
                                 </div>
+                            ))}
 
-
-
-                            </div>
-                        ))}
-
-</div>
+                        </div>
 
 
 
@@ -155,23 +145,28 @@ export default function Kataloglar() {
                 <img src={dogsanlogo} alt="" />
             </div>
 
-            <div className="footer2-bottom">
-                <div className="container">
-                    <div className="col-md-6">
-
-                    </div>
-                    <div className="col-md-6">
-                        <ul className="footer-social">
-                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <a href="javascript:void(0)" className="bttop"><img src={backtotop} alt="" /></a>
-                </div>
-            </div>
+            <ul class="fixed-social-menu list-inline-social mb-0" >
+                <li>
+                    <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
+                        <FaFacebookF size={23} style={{ marginLeft: "-3px" }} />
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
+                        <FaInstagram size={23} style={{ marginLeft: "-3px" }} />
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
+                        <FaLinkedinIn size={23} style={{ marginLeft: "-3px" }} />
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
+                        <FaYoutube size={23} style={{ marginLeft: "-3px" }} />
+                    </a>
+                </li>
+            </ul>
         </div>
 
     )
