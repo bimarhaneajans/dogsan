@@ -130,150 +130,10 @@ export default function Tarihce() {
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                {/* <div className="row">
-                        <div className="col-md-7">
-                            <p className="bold">Caveats worth mentioning</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum.</p>
-                        </div>
-                        <div className="col-md-5">
-                            <div className="post-quote">
-                                <h4>"You can design and create, and build the most wonderful place in the world. But it takes people to make the dream a reality."</h4>
-                            </div>
-                        </div>
-                    </div> 
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum. Curabitur scelerisque tincidunt metus, non rutrum sem egestas et. Quisque hendrerit nec arcu sed pharetra. Duis nec aliquet massa, sed dapibus mauris. Nulla vehicula nisl non enim sodales fermentum. Morbi in diam elementum, egestas magna et, interdum</p>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam. Mauris hendrerit, diam non commodo laoreet, est elit volutpat mauris, vel vehicula nisl orci id nibh. Pellentesque mollis convallis condimentum. Curabitur scelerisque tincidunt metus, non rutrum sem egestas et. Quisque hendrerit nec arcu sed pharetra. Duis nec aliquet massa, sed dapibus mauris. Nulla vehicula nisl non enim sodales fermentum. Morbi in diam elementum, egestas magna et, interdum</p>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                     <ul className="tags-list">
-                        <li><a href="#">Ronin</a></li>
-                        <li><a href="#">Clinic</a></li>
-                        <li><a href="#">Informations</a></li>
-                        <li><a href="#">Doctors</a></li>
-                        <li><a href="#">Disease</a></li>
-                    </ul> */}
-                                {/*  <div className="sharepost">
-                        <div className="row">
-                            <div className="col-md-6">
-                                <h4>Share this Post</h4>
-                            </div>
-                            <div className="col-md-6">
-                                <ul>
-                                    <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                                    <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> */}
-                                {/* <div className="author-info">
-                        <img src={author} alt="" className="img-responsive"/>
-                        <h5><em>Author:</em> The Ronins</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus. Phasellus ante lectus, tincidunt tincidunt dui a, rhoncus interdum est. Sed molestie quis augue ac pulvinar. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                    </div>
-                    <div className="related-posts">
-                        <h5>Related Posts</h5>
-                        <div className="row">
-                            <ul>
-                                <li>
-                                    <img src={xtra1} className="img-responsive" alt=""/>
-                                    <h4><a href="#">Standard Post format with Picture slider</a></h4>
-                                    <span className="post-meta">Posted 22.06.2014 at 18:00h by <a href="#">The Ronins</a></span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus.</p>
-                                </li>
-                                <li>
-                                    <img src={xtra2} className="img-responsive" alt=""/>
-                                    <h4><a href="#">Standard Post format with Picture slider</a></h4>
-                                    <span className="post-meta">Posted 22.06.2014 at 18:00h by <a href="#">The Ronins</a></span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus.</p>
-                                </li>
-                                <li>
-                                    <img src={xtra3} className="img-responsive" alt=""/>
-                                    <h4><a href="#">Standard Post format with Picture slider</a></h4>
-                                    <span className="post-meta">Posted 22.06.2014 at 18:00h by <a href="#">The Ronins</a></span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl convallis tempus.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> */}
                             </article>
-                            {/*     <div className="comments">
-                    <h4>Post has 3 comments</h4>
-                    <ul>
-                        <li>
-                            <img src={avatar} alt=""/>
-                            <div className="comments-info">
-                                <h6>Bob Marley <span>/ Posted 22.06.2014 in 18:00h</span> <em><a href="#">Reply</a></em></h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl conva llis tempus. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src={avatar} alt=""/>
-                            <div className="comments-info">
-                                <h6>Michael <span>/ Posted 22.06.2014 in 18:00h</span> <em><a href="#">Reply</a></em></h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl conva llis tempus. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src={avatar} alt=""/>
-                            <div className="comments-info">
-                                <h6>Victor <span>/ Posted 22.06.2014 in 18:00h</span> <em><a href="#">Reply</a></em></h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu ante eget nisl conva llis tempus. Pellentesque egoists sed tortor egestas pretium. Nam eget fermentum tellus, et fermentum diam.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div> */}
-                            {/* <div className="comment-form">
-                    <h4>Leave a comment</h4>
-                    <form id="comment-form">
-                        <div className="row">
-                            <div className="col-md-4">
-                                <input type="text" placeholder="Name*"/>
-                            </div>
-                            <div className="col-md-4">
-                                <input type="text" placeholder="Surname*"/>
-                            </div>
-                            <div className="col-md-4">
-                                <input type="email" placeholder="Email address"/>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <textarea rows="5" placeholder="Your comment*"></textarea>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-7">
-                                <p>Your email address will not be published. Required fields are marked *</p>
-                            </div>
-                            <div className="col-md-5">
-                                <button type="submit">Submit Comment</button>
-                            </div>
-                        </div>
-                    </form>
-                </div> */}
+                 
                         </div>))}
                     <aside className="col-md-3">
-                        {/*   <div className="side-content">
-                    <h5>Main Categories</h5>
-                    <ul className="cat">
-                        <li>
-                            <h4>TARİHÇE</h4>
-                        </li>
-                        <li>
-                            <h4>DEĞERLER</h4>
-                        </li>
-                        <li>
-                            <h4>SOSYAL SORUMLULUK</h4>
-                        </li>
-                    </ul>
-                </div> */}
                         <div className="side-content">
                             <h5>KURUMSAL</h5>
                             <ul className="list1">
@@ -283,46 +143,7 @@ export default function Tarihce() {
                                 <li><Link to={"/SosyalSorumluluk"} className="nav-link">SOSYAL SORUMLULUK</Link></li>
                             </ul>
                         </div>
-                        {/* <div className="side-content">
-                    <h5>Join the newsletter</h5>
-                    <p>Join the 1000+ others and subscribe. We promise You won't recive any spam from us!</p>
-                    <form className="side-newsletter">
-                        <input type="text" placeholder="Type your email address"/>
-                    </form>
-                </div>
-                <div className="side-content">
-                    <h5>Recent Posts</h5>
-                    <ul className="rposts">
-                        <li>
-                            <img src={rposts1} alt=""/>
-                            <h6><a href="#">This is standard post with slider</a></h6>
-                            <span>22.06.2014 at 18:00h</span>
-                        </li>
-                        <li>
-                            <img src={rposts2} alt=""/>
-                            <h6><a href="#">This is standard post with slider</a></h6>
-                            <span>22.06.2014 at 18:00h</span>
-                        </li>
-                        <li>
-                            <img src={rposts3} alt=""/>
-                            <h6><a href="#">This is standard post with slider</a></h6>
-                            <span>22.06.2014 at 18:00h</span>
-                        </li>
-                    </ul>
-                </div>
-                <div className="side-content">
-                    <h5>Tags</h5>
-                    <ul className="tags-list">
-                        <li><a href="#">Ronin</a></li>
-                        <li><a href="#">Clinic</a></li>
-                        <li><a href="#">Informations</a></li>
-                        <li><a href="#">Doctors</a></li>
-                        <li><a href="#">Disease</a></li>
-                        <li><a href="#">Treatment</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Schedule</a></li>
-                    </ul>
-                </div> */}
+            
                     </aside>
                 </div>
             </div>
@@ -330,7 +151,28 @@ export default function Tarihce() {
             <div className="footer2">
                 <img src={dogsanlogo} alt="" />
             </div>
-
+            <ul class="fixed-social-menu list-inline-social mb-0" >
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
+          <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
+            <FaInstagram size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
+          <FaLinkedinIn size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
+            <FaYoutube size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+      </ul>
         
         </div>
 

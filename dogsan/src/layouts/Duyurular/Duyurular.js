@@ -66,93 +66,85 @@ export default function Duyurular() {
         setCurrentIndex(index);
     };
 
-
     return (
-        <div>
-            <div className="main-wrapper">
-                <div id="home">
-                    <div id="bg-slider-home" className="bsh">
-                    </div>
-                    <div className="container bs-main">
-                        <div className="row">
-                            <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                                <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
+    <div>
+        <div className="main-wrapper">
+            <div id="home">
+                <div id="bg-slider-home" className="bsh">
+                </div>
+                <div className="container bs-main">
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+                            <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
 
-                                <div className="top-header hidden-xs">
-                                    <div className="top-navigation">
-                                        <ul className="top-nav list-unstyled list-inline" >
-                                            <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
-                                            <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
-                                            <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
-                                            <li className="logo"><Link to={"/"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
-                                            <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
-                                            <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
-                                            <li><Link to={"/BizeUlasin"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
-                                        </ul>
-                                    </div>
-
+                            <div className="top-header hidden-xs">
+                                <div className="top-navigation">
+                                    <ul className="top-nav list-unstyled list-inline" >
+                                        <li><Link to={"/Hakkimizda"} style={{ color: "#fafafa" }} className="nav-link">Kurumsal</Link></li>
+                                        <li><Link to={"/Kataloglar"} style={{ color: "#fafafa" }} className="nav-link">Kataloglar</Link></li>
+                                        <li><Link to={"/Igneler"} style={{ color: "#fafafa" }} className="nav-link">İğneler</Link></li>
+                                        <li className="logo"><Link to={"/"} className="nav-link"><img src={dogsanlogo} alt="Heartify" /></Link></li>
+                                        <li><Link to={"/Duyurular"} style={{ color: "#fafafa" }} className="nav-link">Duyurular</Link></li>
+                                        <li><Link to={"/Bloglar"} style={{ color: "#fafafa" }} className="nav-link">Blog</Link></li>
+                                        <li><Link to={"/BizeUlasin"} style={{ color: "#fafafa" }} className="nav-link">İletişim</Link></li>
+                                    </ul>
                                 </div>
 
                             </div>
 
                         </div>
+
                     </div>
                 </div>
+            </div>
 
-            </div>
-            <div className="page-head">
-                {/*  <div className="container">
-                    <div className="col-md-9">
-                        <h3>Standard Post Format with preview picture</h3>
-                        <span className="post-meta">Posted 22.06.2014 at 18:00h in Healthy lifestyle by <a href="#">The Ronins</a>   /   68 Likes   /   <a href="#">2 Comments</a></span>
-                    </div>
-                    <div className="col-md-3">
-                        <form className="search">
-                            <input type="search" placeholder="Search..." />
-                        </form>
-                    </div>
-                </div> */}
-            </div>
-            <div className="blog-content">
-                <div className="container">
+        </div>
+        <div className="page-head">
+
+        </div>
+        <div className="blog-content">
+            <div className="container">
                 <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>DUYURULAR</h1>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    <div className="bottom-space-30"></div>
-                    <div className="clearfix"></div>
-                    {duyuru.map(item => (
-                        <div key={item.id} className="col-md-9">
-                            <article>
-                                <center><img  src={item.Resim} className="img-responsive" alt="" /></center>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
+                <div className="bottom-space-30"></div>
+                <div className="clearfix"></div>
+                <div className="bottom-space-30"></div>
+                <div className="clearfix"></div>
+                {duyuru.map(item => (
+                    <div key={item.id} className="col-md-7">
+                        <article>
+                            <center><img src={item.Resim} style={{width:"150px",height:"150px"}}className="img-responsive" alt="" /></center>
+                            <div className="bottom-space-30"></div>
+                            <div className="clearfix"></div>
 
-                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
-                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi :  <div dangerouslySetInnerHTML={{ __html: item.tarih }}  ></div></p></div>
+                            <div className="col-xs-12"><p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
+                            <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi :  <div dangerouslySetInnerHTML={{ __html: item.Tarih }}  ></div></p></div>
 
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                                <p style={{ textAlign: "center" }} >  <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div></p>
+                            <div className="bottom-space-30"></div>
+                            <div className="clearfix"></div>
+                            <div className="bottom-space-30"></div>
+                            <div className="clearfix"></div>
+                            <p style={{ textAlign: "center" }} >  <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div></p>
 
-                                <div className="bottom-space-30"></div>
-                                <div className="clearfix"></div>
-                         
-                            </article>
-                   
-                        </div>))}
-                    <aside className="col-md-3">
+                            <div className="bottom-space-30"></div>
+                            <div className="clearfix"></div>
+
+                        </article>
+
+                    </div>))}
+                <aside className="col-md-5">
+
+                    <div className="side-content" style={{marginLeft:"-81px",marginTop:"-1770px"}}>
                         <DuyuruTimeline/>
-                    </aside>
-                </div>
-            </div>
+                    </div>
 
-            <div className="footer2">
-                <img src={dogsanlogo} alt="" />
+                </aside>
             </div>
+        </div>
 
-            <ul class="fixed-social-menu list-inline-social mb-0" >
+        <div className="footer2">
+            <img src={dogsanlogo} alt="" />
+        </div>
+        <ul class="fixed-social-menu list-inline-social mb-0" >
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
           <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
@@ -174,8 +166,9 @@ export default function Duyurular() {
           </a>
         </li>
       </ul>
-        </div>
 
-    )
+    </div>
+
+)
 
 }

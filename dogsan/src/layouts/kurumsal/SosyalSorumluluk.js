@@ -319,23 +319,28 @@ export default function SosyalSorumluluk() {
                 <img src={dogsanlogo} alt="" />
             </div>
 
-            <div className="footer2-bottom">
-                <div className="container">
-                    <div className="col-md-6">
-                    
-                    </div>
-                    <div className="col-md-6">
-                        <ul className="footer-social">
-                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i className="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <a href="javascript:void(0)" className="bttop"><img src={backtotop} alt="" /></a>
-                </div>
-            </div>
+            <ul class="fixed-social-menu list-inline-social mb-0" >
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
+          <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
+            <FaInstagram size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
+          <FaLinkedinIn size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
+            <FaYoutube size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+      </ul>
         </div>
 
     )
