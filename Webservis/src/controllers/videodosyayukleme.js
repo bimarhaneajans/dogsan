@@ -11,7 +11,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
-const baseUrl = "https://bavrim.madilink.net/resources/static/assets/videos/";
+const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
 var mongoose = require('mongoose');
 var FormData = require('form-data');
 var fs = require('fs');
@@ -132,18 +132,19 @@ const deleteAll = (req, res) => {
           err.message || "Some error occurred while removing all bayis."
       });
     });
-};
-
-
-
+}; 
 const upload = async (req, res, next) => {
 
-  req.check('ResimBaslik', 'ResimBaslik is required').not().isEmpty(),
+/*   req.check('ResimBaslik', 'ResimBaslik is required').not().isEmpty(),
   req.check('Resimpath', '  Resimpath is required').not().isEmpty(),
   req.check('Resimicerik', 'Resimicerik is required').not().isEmpty(),
   req.check('VideoBaslik', 'VideoBaslik email is required').not().isEmpty(),
   req.check('Videopath', 'Videopath is required').not().isEmpty(),
-  req.check('Veritipi', 'Veritipi is required').not().isEmpty()
+  req.check('Veritipi', 'Veritipi is required').not().isEmpty() */
+
+
+
+console.log(req.body);
 
 
 
