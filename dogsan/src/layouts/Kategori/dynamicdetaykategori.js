@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import Logo from "layouts/navbar/Group_2.png";
+import dogsanlogo from "../assets/img/logo/Group_2.png";
 
 
 const Dynamicdetaykategori = (props) => {
@@ -62,7 +63,7 @@ const Dynamicdetaykategori = (props) => {
             <div className="row">
               <div class="col-xs-4 pull-left">
                 <div class="main-logo">
-                  <a href="/home"><img src={Logo} /></a>
+                  <a href="/home"><img src={dogsanlogo} /></a>
                 </div>
               </div>
               <div className="pull-right navbarDgsn" >

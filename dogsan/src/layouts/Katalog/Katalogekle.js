@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KatalogDataService from "../../services/KatalogService";
 import KatalogUploadService from "../../services/KatalogUploadService";
-import KatalogYukleme from "./KatalogYukleme"
+import KatalogPdfYukle from "./KatalogPdfYukle"
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -56,15 +56,13 @@ const KatalogEkle = () => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
-
+  
   const [katalogadi, Changekatalogadi] = useState(initialValue)
   const [katalogurl, setKatalogurl] = useState();
   const [selectedFiles, setselectedFiles] = useState();
   const [currentFile, setselectedcurrentFile] = useState();
   const [progress, setprogress] = useState();
   const [message, setmessage] = useState();
-
-
   const [Resim, ChangeResim] = useState(initialValue)
 
   useEffect(() => {
@@ -230,8 +228,9 @@ const KatalogEkle = () => {
                   </div>
                 </div>
               )}
-              <div className="form-group">
+              <div className="form-group" >
                 <label htmlFor="kariyer">Katalog Yükle</label>
+                <KatalogPdfYukle style={{ width: "300px", marginLeft: "100px" }}/>
                 {/* <>
                   <select
                     type="text"

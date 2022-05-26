@@ -678,6 +678,7 @@ export default function Home() {
                       <h6> <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div></h6>
                         <h4> <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }} /><div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }} /></h4>
                         <p><div dangerouslySetInnerHTML={{ __html: item.kariyer }} /> </p>
+                        <p><div dangerouslySetInnerHTML={{ __html: item.kisaozgecmis }} /> </p>
        
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>

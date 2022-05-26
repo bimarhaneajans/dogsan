@@ -69,7 +69,7 @@ export default function Subdynamicdetaykategori() {
                     <div className="container bs-main">
                         <div className="row">
                             <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
-                                <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={logo} alt="Heartify" /></a></div>
+                                <div className="logo hidden-sm hidden-md hidden-lg"><a href="index.html"><img src={dogsanlogo} alt="Heartify" /></a></div>
 
                                 <div className="top-header hidden-xs">
                                     <div className="top-navigation">
