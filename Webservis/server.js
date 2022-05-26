@@ -108,7 +108,16 @@ require("./src/routes/slider.routes")(app);
 require("./src/routes/sosyalsorumluluk.routes")(app);
 require("./src/routes/Tarihce.routes")(app);
 require("./src/routes/TarihceGarleri.routes")(app);
-require("./src/routes/urun.routes")(app); 
+require("./src/routes/urun.routes")(app);
+require("./src/routes/yoneticiler.routes")(app); 
+require("./src/routes/subkategori.routes")(app); 
+require("./src/routes/kariyer.routes")(app); 
+
+
+require("./src/routes/video.routes")(app); 
+require("./src/routes/dosyayukle.routes.js")(app); 
+require("./src/routes/katalogyukle.routes")(app); 
+require("./src/routes/bizeyazinyukle.routes")(app); 
 
  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
