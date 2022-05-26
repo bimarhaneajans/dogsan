@@ -3,7 +3,7 @@ const cors = require("cors");
 const dbConfig = require("./src/config/db.config");
 const app = express();
 const path = require("path");
-//https://bavrim.madilink.net/resources/static/assets/slidervideos/
+//http://localhost:3000/resources/static/assets/slidervideos/
  
 
 //8080 dedigi webservis 

@@ -26,6 +26,7 @@ const YoneticiEkle = () => {
     id: null,
     yoneticiadi: "",
     yoneticisoyadi: "",
+    kisaozgecmis:"",
     kariyer: "",
     pozizyon: "",
     twitter: "",
@@ -59,6 +60,7 @@ const YoneticiEkle = () => {
   }, []);
   const [yoneticiadi, Changeyoneticiadi] = useState(initialValue)
   const [yoneticisoyadi, Changeyoneticisoyadi] = useState(initialValue)
+  const [kisaozgecmis, Changekisaozgecmis] = useState(initialValue)
   const [pozizyon, Changepozizyon] = useState(initialValue)
   const [Resim, ChangeResim] = useState(initialValue)
 
@@ -74,6 +76,7 @@ const YoneticiEkle = () => {
       yoneticisoyadi: JSON.stringify(yoneticisoyadi),
       kariyer: tutorial.kariyer,
       pozizyon:JSON.stringify(pozizyon),
+      kisaozgecmis:JSON.stringify(kisaozgecmis),
       twitter: tutorial.twitter,
       facebook: tutorial.facebook,
       linkedin: tutorial.linkedin,
@@ -198,6 +201,10 @@ const YoneticiEkle = () => {
               <div className="form-group">
                 <label htmlFor="yoneticisoyadi">Yönetici Soyadı</label>
                 <RichTextEditor name="yoneticisoyadi" id="yoneticisoyadi" type="text" style={{ width: "600px" }} value={yoneticisoyadi} onChange={Changeyoneticisoyadi} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="kisaozgecmis">Kısa Özgeçmiş</label>
+                <RichTextEditor name="kisaozgecmis" id="kisaozgecmis" type="text" style={{ width: "600px" }} value={kisaozgecmis} onChange={Changekisaozgecmis} />
               </div>
               <div className="form-group">
                 <label htmlFor="kariyer">Kariyer</label>

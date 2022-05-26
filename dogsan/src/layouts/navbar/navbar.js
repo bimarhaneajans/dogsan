@@ -9,7 +9,7 @@ export default function navbar() {
                     <div className="row">
                         <div class="col-xs-4 pull-left">
                             <div class="main-logo">
-                                <a href="/home"><img src={Logo} alt="Heartify" /></a>
+                                <a href="/home"><img src={dogsanlogo} alt="Heartify" /></a>
                             </div>
                         </div>
                         <div className="pull-right navbarDgsn" >

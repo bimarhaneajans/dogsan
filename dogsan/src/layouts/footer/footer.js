@@ -3,7 +3,7 @@ import Logo from  "./Group_2.png";
 export default function footer() {
   return (
     <div><div className="footer2">
-    <img src={Logo} alt="" />
+    <img src={dogsanlogo} alt="" />
   </div>
 
 
