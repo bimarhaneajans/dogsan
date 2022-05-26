@@ -13,9 +13,9 @@ var csrf = require('csurf')
 var csrfProtection = csrf({ cookie: true })
 const mongodb = require ('mongodb');
 const app = express();
+const path = require("path");
 
-
-
+global.__basedir = __dirname;
   var corsOptions = {
   origin: "*"
 };
