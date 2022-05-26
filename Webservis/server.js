@@ -3,7 +3,7 @@ const cors = require("cors");
 const cookieSession = require("cookie-session");
 const session = require('express-session');
 const bodyParser = require("body-parser");
-
+const db = require("./src/models");
 const xXssProtection = require("x-xss-protection");
 const helmet = require("helmet");
 const hpp = require("xss-clean");
@@ -12,72 +12,22 @@ var xssFilters = require('xss-filters');
 var csrf = require('csurf')
 var csrfProtection = csrf({ cookie: true })
 const mongodb = require ('mongodb');
-const dbConfig = require("./src/config/db.config");
-
 const app = express();
 
-var corsOptions = {
-  origin: "http://localhost:3000"
+
+
+  var corsOptions = {
+  origin: "http:localhost:3000"
 };
+ 
+app.use(cors(corsOptions));    
 
-app.use(cors(corsOptions));
+/*    app.use(
+  cors({
+     origin:"https:dogsan.madilink.net/", corsOptions)),
+      })
+);  */
 app.use(bodyParser.json());
-
-var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
-app.use(express.urlencoded({ extended: true }));
-
-// parse requests of content-type - application/json
-app.use(express.json());
-
-// parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
-
-  app.use(
-  cookieSession({
-    name: "dogsan-session",
-    secret: "dogsanwebsite", // should use as secret environment variable
-    httpOnly: true
-  })
-); 
-const db = require("./src/models");
-
-console.log(db.url);
-
-db.mongoose
-  .connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("Connected to the database!");
-  })
-  .catch(err => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-  });
-const Role = db.role;
-
-
-//const MongoClient = mongodb.MongoClient;
-
- 
- 
-/* var url = "mongodb://37.77.4.139:27017/dogsandb?replicaSet=myRepl&w=majority&wtimeoutMS=5000";
- 
-// A Client to MongoDB
-var MongoClient = require('mongodb').MongoClient;
- 
-// Make a connection to MongoDB Service
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  console.log("Connected to MongoDB!");
-  db.close();
-}); */
- 
-
- app.get("/", (req, res) => {
-  res.json({ message: "Dogsan" });
-});
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the reques>
@@ -90,10 +40,55 @@ app.use(function (req, res, next) {
   }
 });
 
+var expiryDate = new Date(Date.now() + 60 * 60 * 1000)
+app.use(express.urlencoded({ extended: false })); 
+
+
+app.use(express.static('public'));
+
+
+/*   app.use(
+  cookieSession({
+    name: "dogsan-session",
+    secret: "dogsanwebsite",  should use as secret environment variable
+    httpOnly: true
+  })
+);  */
+
+
+console.log(db.url);
+
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Connected to the database!");
+      //  initial();
+
+  })
+  .catch(err => {
+    console.log("Cannot connect to the database!", err);
+    process.exit();
+  });
+const Role = db.role;
+
+
+
+
+
+ app.get("/", (req, res) => {
+  res.json({ message: "Dogsan Server is Working ! " });
+});
+
+
+
 app.use(helmet.hidePoweredBy());
 app.use(hpp());
 app.use(xXssProtection());
 app.disable('x-powered-by');
+app.use(cors());
 
 require("./src/routes/auth.routes")(app);
 require("./src/routes/user.routes")(app);
@@ -109,23 +104,11 @@ require("./src/routes/katalog.routes")(app);
 require("./src/routes/kategori.routes")(app);
 require("./src/routes/mesaj.routes")(app);
 require("./src/routes/sehir.routes")(app);
-
 require("./src/routes/slider.routes")(app);
-
 require("./src/routes/sosyalsorumluluk.routes")(app);
 require("./src/routes/Tarihce.routes")(app);
 require("./src/routes/TarihceGarleri.routes")(app);
 require("./src/routes/urun.routes")(app); 
-require("./src/routes/yoneticiler.routes")(app); 
-require("./src/routes/subkategori.routes")(app); 
-require("./src/routes/kariyer.routes")(app); 
-
-
-require("./src/routes/video.routes")(app); 
-require("./src/routes/dosyayukle.routes.js")(app); 
-require("./src/routes/katalogyukle.routes")(app); 
-require("./src/routes/bizeyazinyukle.routes")(app); 
-
 
  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
