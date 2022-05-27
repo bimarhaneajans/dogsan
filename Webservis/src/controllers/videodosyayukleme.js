@@ -25,12 +25,7 @@ const { check, validationResult } = require('express-validator');
 
 
 
-const Sliders = db.sliders;
-const app = express();
-app.use(express.urlencoded({ extended: false })); 
-app.use(bodyParser.json());
-
-
+const Sliders = db.sliders; 
 
 const findAll = (req, res) => {
 
@@ -136,7 +131,9 @@ const deleteAll = (req, res) => {
     });
 }; 
 const upload = async (req, res, next) => {
-  
+
+
+
     try {
         await uploadFile(req, res);
     
@@ -157,7 +154,7 @@ const upload = async (req, res, next) => {
         }
     
         res.status(500).send({
-          message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+          message: `Could not upload the file:. ${err}`,
         });
       }  
   };
