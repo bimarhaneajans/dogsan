@@ -15,10 +15,15 @@ const mongoClient = new MongoClient(url);
 const path = require("path");
 const Tarihce = db.sliders;
 
-const upload = async (req, res) => {
- 
+const upload = async (req, res) => { 
 
-  try {
+  console.log(JSON.stringify(req.body));
+
+  console.log('req.body.ResimBaslik', req.body['ResimBaslik']);
+
+
+
+ /*  try {
     await uploadFile(req, res);
 
     if (req.file == undefined) {
@@ -40,7 +45,7 @@ const upload = async (req, res) => {
     res.status(500).send({
       message: `Could not upload the file:  . ${err}`,
     });
-  }
+  } */
 };
 
 const getListFiles = (req, res) => {

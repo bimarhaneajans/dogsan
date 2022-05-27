@@ -26,7 +26,9 @@ const { check, validationResult } = require('express-validator');
 
 
 const Sliders = db.sliders;
-
+const app = express();
+app.use(express.urlencoded({ extended: false })); 
+app.use(bodyParser.json());
 
 
 
