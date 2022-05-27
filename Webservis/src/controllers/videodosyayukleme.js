@@ -14,21 +14,13 @@ var mongoose = require('mongoose');
 const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
 var mongoose = require('mongoose');
 var FormData = require('form-data');
-var fs = require('fs');
-//const GridFSBucket = require("mongodb").GridFSBucket;
-//const url = dbConfig.url;
-//const mongoClient = new MongoClient(url);
-var dbConn = mongodb.MongoClient.connect("mongodb://37.77.4.139:27017/dogsandb");
-//console.log(dbConn.state);
+var fs = require('fs'); 
 
 const { check, validationResult } = require('express-validator');
 
 
 
-const Sliders = db.sliders;
-
-
-
+const Sliders = db.sliders; 
 
 const findAll = (req, res) => {
 
@@ -135,95 +127,9 @@ const deleteAll = (req, res) => {
 }; 
 const upload = async (req, res, next) => {
 
-/*   req.check('ResimBaslik', 'ResimBaslik is required').not().isEmpty(),
-  req.check('Resimpath', '  Resimpath is required').not().isEmpty(),
-  req.check('Resimicerik', 'Resimicerik is required').not().isEmpty(),
-  req.check('VideoBaslik', 'VideoBaslik email is required').not().isEmpty(),
-  req.check('Videopath', 'Videopath is required').not().isEmpty(),
-  req.check('Veritipi', 'Veritipi is required').not().isEmpty() */
 
 
-
-console.log(req.body);
-
-
-
-  //const errors = validationResult(req);
-
- /*  if (!errors) {   //No errors were found.  Passed Validation!
-
-
-    const sliders = new Sliders({
-      ResimBaslik: req.body.ResimBaslik,
-     Resimpath: req.body.Resimpath,
-     Resimicerik: req.body.Resimicerik,
-     VideoBaslik: req.body.VideoBaslik,
-     Videopath: req.body.Videopath,
-     Veritipi: req.body.Veritipi,
-     published: req.body.published ? req.body.published : false
-    });
-
-    sliders.save((err, doc) => {
-      if (!err) {
-        req.flash('success', 'User added successfully!')
-        res.redirect('/')
-      }
-
-      else {
-        console.log('Error during record insertion : ' + err)
-
-      }
-    })
-
-  }
-  else {   //Display errors to user
-    var error_msg = ''
-    errors.forEach(function (error) {
-      error_msg += error.msg + '<br>'
-    })
-    req.flash('error', error_msg)
-
-    res.render('/video', {
-      ResimBaslik: req.body.ResimBaslik,
-      Resimpath: req.body.Resimpath,
-      Resimicerik: req.body.Resimicerik,
-      VideoBaslik: req.body.VideoBaslik,
-      Videopath: req.body.Videopath,
-      Veritipi: req.body.Veritipi,
-      published: req.body.published ? req.body.published : false
-    })
-  }
- */
-    /*   const sliders = new Sliders({
-   
-     ResimBaslik: req.body.ResimBaslik,
-     Resimpath: req.body.Resimpath,
-     Resimicerik: req.body.Resimicerik,
-     VideoBaslik: req.body.VideoBaslik,
-     Videopath: req.body.Videopath,
-     Veritipi: req.body.Veritipi,
-     published: req.body.published ? req.body.published : false
-   });   */
-
-
-
-
-
-
-    /* sliders.save(sliders)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the sliders."
-      });
-    }); */
-
-
-
-    /*   try {
+    try {
         await uploadFile(req, res);
     
         if (req.file == undefined) {
@@ -243,9 +149,9 @@ console.log(req.body);
         }
     
         res.status(500).send({
-          message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+          message: `Could not upload the file:. ${err}`,
         });
-      } */
+      }  
   };
 
   const getListFiles = (req, res) => {

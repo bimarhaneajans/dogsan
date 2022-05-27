@@ -21,10 +21,6 @@ module.exports = app => {
 
   router.post("/", controller.upload);
   router.get("/files", controller.getListFiles);
-  router.get("/files/:name", controller.download);
-  app.use(express.json({ limit: "5000mb", extended: false }));
-
-  // parse requests of content-type - application/x-www-form-urlencoded
-  app.use(express.urlencoded({ extended: false }));
+  router.get("/files/:name", controller.download);  
   app.use("/video", router);
 };
