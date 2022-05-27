@@ -152,27 +152,27 @@ const upload = async (req, res, next) => {
 
 
 
-  try {
-    await uploadFile(req, res); 
-    
+  try { 
+
     sliders.save(sliders)
       .then(data => {
+        uploadFile(req, res);
         res.send(data);
       })
-      .catch(err => {
+     /*  .catch(err => {
         res.status(500).send({
           message:
             err.message || "Some error occurred while creating the bayi."
         });
-      });
+      }) */
 
-    if (req.file == undefined) {
-      return res.status(400).send({ message: "Please upload a file!" });
-    }
+    /*     if (req.file == undefined) {
+          return res.status(400).send({ message: "Please upload a file!" });
+        } */
 
-    res.status(200).send({
-      message: "Uploaded the file successfully: "
-    });
+    /*   res.status(200).send({
+        message: "Uploaded the file successfully: "
+      }); */
   } catch (err) {
     console.log(err);
 
