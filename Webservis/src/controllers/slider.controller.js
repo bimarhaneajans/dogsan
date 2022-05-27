@@ -1,22 +1,23 @@
 const db = require("../models");
  const dbConfig = require("../config/db.config");
 var multer = require('multer');
+const uploadFile = require("../middlewares/slideruploadfile");
 var fs = require('fs');
 var path = require('path');
 var mime = require('mime');
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
-const Tarihce = db.sliders;
+const Sliders = db.sliders;
 const mongoClient = new MongoClient(url); 
 
 exports.create = async (req, res) => {
-/*   if (!req.body.Yil) {
+   if (!req.body.ResimBaslik) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
-  } */
+  } 
 
-  const tarihce = new Tarihce({
+  const slider = new Sliders({
 
     ResimBaslik:req.body.ResimBaslik , 
     Resimpath:req.body.Resimpath ,
@@ -28,35 +29,9 @@ exports.create = async (req, res) => {
    
     //published: req.body.published ? req.body.published : false
   });  
-   //console.log(req.files);
-
-   /* Object.entries(req.files).forEach(entry => { 
-
-    tarihce.Resimcoklu = [key, value]= entry 
     
-  }); */
-  /*  */
-// console.log(tarihce.Resimcoklu);
-
-  /* if (req.files.length <= 0) {
-    return res
-      .status(400)
-      .send({ message: "You must select at least 1 file." });
-  }
-
-  return res.status(200).send({
-    message: "Files have been uploaded.",
-  }),  */
-    tarihce.save(tarihce).then(data => {
-      /*  Object.entries(req.files).forEach(entry => { 
-
-        tarihce.Resimcoklu = [key, value]= entry 
-        
-      }); */
-
-      res.send(data); 
-      
-
+  slider.save(slider).then(data => { 
+      res.send(data);  
     })
       .catch(err => {
         console.log(err);
@@ -68,15 +43,15 @@ exports.create = async (req, res) => {
         }
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the Tarihce."
+            err.message || "Some error occurred while creating the Sliders."
         });
       });
 }; 
 exports.findAll = (req, res) => {
-  const Yil = req.query.Yil;
-  var condition = Yil ? { Yil: { $regex: new RegExp(Yil), $options: "i" } } : {};
+  const ResimBaslik = req.query.ResimBaslik;
+  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
-  Tarihce.find(condition)
+  Sliders.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -90,7 +65,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Tarihce.findById(id)
+  Sliders.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found bayi with id " + id });
@@ -111,7 +86,7 @@ exports.update = (req, res) => {
 
   const id = req.params.id;
 
-  Tarihce.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Sliders.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -128,7 +103,7 @@ exports.update = (req, res) => {
  exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Tarihce.findByIdAndRemove(id, { useFindAndModify: false })
+  Sliders.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -147,7 +122,7 @@ exports.update = (req, res) => {
     });
 };  
 exports.findAllPublished = (req, res) => {
-  Tarihce.find({ published: true })
+  Sliders.find({ published: true })
     .then(data => {
       res.send(data);
     })
@@ -159,7 +134,7 @@ exports.findAllPublished = (req, res) => {
     });
 }; 
 exports.deleteAll = (req, res) => {
-  Bayi.deleteMany({})
+  Sliders.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} bayis were deleted successfully!`
