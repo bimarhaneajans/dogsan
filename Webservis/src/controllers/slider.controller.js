@@ -1,6 +1,5 @@
 const db = require("../models");
-const upload = require("../middlewares/tarihceupload");
-const dbConfig = require("../config/db.config");
+ const dbConfig = require("../config/db.config");
 var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
@@ -8,7 +7,7 @@ var mime = require('mime');
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;
 const url = dbConfig.url;
-const Tarihce = db.Tarihces;
+const Tarihce = db.sliders;
 const mongoClient = new MongoClient(url); 
 
 exports.create = async (req, res) => {
@@ -18,11 +17,16 @@ exports.create = async (req, res) => {
   } */
 
   const tarihce = new Tarihce({
-    Yil: req.body.Yil,
-    icerik: req.body.icerik,
-    Resimbaslik: req.body.Resimbaslik,
-    Resim: req.body.Resim,
-    published: req.body.published ? req.body.published : false
+
+    ResimBaslik:req.body.ResimBaslik , 
+    Resimpath:req.body.Resimpath ,
+    Resimicerik:req.body.Resimicerik ,
+    VideoBaslik:req.body.VideoBaslik ,
+    Videopath:req.body.Videopath,
+    Veritipi:req.body.Veritipi,
+    //published: 
+   
+    //published: req.body.published ? req.body.published : false
   });  
    //console.log(req.files);
 
