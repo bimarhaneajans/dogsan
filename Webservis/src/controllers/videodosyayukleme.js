@@ -14,12 +14,7 @@ var mongoose = require('mongoose');
 const baseUrl = "https://bavrim.madilink.net/resources/static/assets/videos/";
 var mongoose = require('mongoose');
 var FormData = require('form-data');
-var fs = require('fs');
-//const GridFSBucket = require("mongodb").GridFSBucket;
-//const url = dbConfig.url;
-//const mongoClient = new MongoClient(url);
-var dbConn = mongodb.MongoClient.connect("mongodb://37.77.4.139:27017/dogsandb");
-//console.log(dbConn.state);
+var fs = require('fs'); 
 
 const { check, validationResult } = require('express-validator');
 
