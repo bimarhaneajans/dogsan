@@ -11,7 +11,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
-const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
+const baseUrl = "https://bavrim.madilink.net/resources/static/assets/videos/";
 var mongoose = require('mongoose');
 var FormData = require('form-data');
 var fs = require('fs');
@@ -132,128 +132,100 @@ const deleteAll = (req, res) => {
           err.message || "Some error occurred while removing all bayis."
       });
     });
-};
-
-
-
+}; 
 const upload = async (req, res, next) => {
-
-
-
-  const sliders = new Sliders({
-    ResimBaslik: req.body.ResimBaslik,
-    Resimpath: req.body.Resimpath,
-    Resimicerik: req.body.Resimicerik,
-    VideoBaslik: req.body.VideoBaslik,
-    Videopath: req.body.Videopath,
-    Veritipi: req.body.Veritipi,
-    published: req.body.published ? req.body.published : false
-  });
-
-
-
-  try { 
-
-    sliders.save(sliders)
-      .then(data => {
-        uploadFile(req, res);
-        res.send(data);
-      })
-     /*  .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the bayi."
-        });
-      }) */
-
-    /*     if (req.file == undefined) {
+  
+    try {
+        await uploadFile(req, res);
+    
+        if (req.file == undefined) {
           return res.status(400).send({ message: "Please upload a file!" });
-        } */
-
-    /*   res.status(200).send({
-        message: "Uploaded the file successfully: "
-      }); */
-  } catch (err) {
-    console.log(err);
-
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
-      });
-    }
-
-    res.status(500).send({
-      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
-    });
-  }
-};
-
-const getListFiles = (req, res) => {
-  const directoryPath = __basedir + "/public/resources/static/assets/videos/";
-  let JsonObject;
-
-  const ResimBaslik = req.query.ResimBaslik;
-  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
-
-  sliders.find(condition)
-    .then(data => {
-      res.send(data);
-
-      fs.readdir(directoryPath, function (err, files) {
-        if (err) {
-          res.status(500).send({
-            message: "Unable to scan files!",
+        }
+    
+        res.status(200).send({
+          message: "Uploaded the file successfully: "
+        });
+      } catch (err) {
+        console.log(err);
+    
+        if (err.code == "LIMIT_FILE_SIZE") {
+          return res.status(500).send({
+            message: "File size cannot be larger than 2MB!",
           });
         }
-
-        let fileInfos = [];
-
-        files.forEach((file) => {
-          fileInfos.push({
-
-            src: baseUrl + file,
-            type: path.extname(baseUrl + file),
-          });
+    
+        res.status(500).send({
+          message: `Could not upload the file: ${req.file.originalname}. ${err}`,
         });
+      }  
+  };
 
-        JsonObject = JSON.parse(JSON.stringify(fileInfos));
-        //console.log(JsonObject)
+  const getListFiles = (req, res) => {
+    const directoryPath = __basedir + "/public/resources/static/assets/videos/";
+    let JsonObject;
 
-        //  res.status(200).send();
-      });
-    }).catch(err => {
-      JSON.stringify(JsonObject)
-      /* res.status(200).send({
-        message:
-          err.message || "Some error occurred while retrieving ignes."
-      }); */
-    })
+    const ResimBaslik = req.query.ResimBaslik;
+    var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+
+    sliders.find(condition)
+      .then(data => {
+        res.send(data);
+
+        fs.readdir(directoryPath, function (err, files) {
+          if (err) {
+            res.status(500).send({
+              message: "Unable to scan files!",
+            });
+          }
+
+          let fileInfos = [];
+
+          files.forEach((file) => {
+            fileInfos.push({
+
+              src: baseUrl + file,
+              type: path.extname(baseUrl + file),
+            });
+          });
+
+          JsonObject = JSON.parse(JSON.stringify(fileInfos));
+          //console.log(JsonObject)
+
+          //  res.status(200).send();
+        });
+      }).catch(err => {
+        JSON.stringify(JsonObject)
+        /* res.status(200).send({
+          message:
+            err.message || "Some error occurred while retrieving ignes."
+        }); */
+      })
 
 
 
 
-};
+  };
 
-const download = (req, res) => {
-  const fileName = req.params.name;
-  const directoryPath = __basedir + "/public/resources/static/assets/videos/";
+  const download = (req, res) => {
+    const fileName = req.params.name;
+    const directoryPath = __basedir + "/public/resources/static/assets/videos/";
 
-  res.download(directoryPath + fileName, fileName, (err) => {
-    if (err) {
-      res.status(500).send({
-        message: "Could not download the file. " + err,
-      });
-    }
-  });
-};
+    res.download(directoryPath + fileName, fileName, (err) => {
+      if (err) {
+        res.status(500).send({
+          message: "Could not download the file. " + err,
+        });
+      }
+    });
+  };
 
-module.exports = {
-  findAllPublished,
-  findOne,
-  update,
-  deleteAll,
-  findAll,
-  upload,
-  getListFiles,
-  download,
-};
+  module.exports = {
+    findAllPublished,
+    findOne,
+    update,
+    deleteAll,
+    findAll,
+    upload,
+    getListFiles,
+    download,
+  };
