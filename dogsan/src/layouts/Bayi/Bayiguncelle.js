@@ -10,7 +10,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 const Bayiguncelle = props => {
   const { id }= useParams();
   let navigate = useNavigate();
@@ -32,7 +33,8 @@ const Bayiguncelle = props => {
   
    const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
- 
+  const [value, onChange] = useState();
+
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
@@ -146,6 +148,8 @@ const Bayiguncelle = props => {
                 onChange={handleInputChange}
                 name="baslik"
               />
+                <RichTextEditor value={value} onChange={handleInputChange} />
+
             </div>
 
             <div className="form-group">

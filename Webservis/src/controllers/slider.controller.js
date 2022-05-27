@@ -48,8 +48,8 @@ exports.create = async (req, res) => {
       });
 }; 
 exports.findAll = (req, res) => {
-  const ResimBaslik = req.query.ResimBaslik;
-  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+  const Veritipi = req.query.Veritipi;
+  var condition = Veritipi ? { Veritipi: { $regex: new RegExp(Veritipi), $options: "i" } } : {};
 
   Sliders.find(condition)
     .then(data => {
