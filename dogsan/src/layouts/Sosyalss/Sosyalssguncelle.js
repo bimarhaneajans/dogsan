@@ -10,7 +10,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
@@ -111,8 +112,11 @@ const Overview = props => {
             routes={routes} 
           />
 
-    <Header />
-    <br />
+<div style={{ marginLeft: "100px" }}> 
+      <Header />
+    </div>
+
+    <div style={{ width: "300px", marginLeft: "100px" }}>
     <div>
       {currentTutorial ? (
         <div className="edit-form">
@@ -120,58 +124,66 @@ const Overview = props => {
           <form>
             <div className="form-group">
             <label htmlFor="title">Başlık </label>
-                <input
+               {/*  <input
                   type="text"
                   className="form-control"
                   id="baslik"
                   name="baslik"
                   value={currentTutorial.baslik}
                   onChange={handleInputChange}  
-                />
+                /> */}
+ <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} onChange={(baslik) => handleInputChange({ target: { value: baslik, name: 'baslik' } })} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="description">icerik </label>
-                <input
+                {/* <input
                   type="text"
                   className="form-control"
                   id="icerik"
                   name="icerik"
                   value={currentTutorial.icerik}
                  onChange={handleInputChange}  
-                />
+                /> */}
+<RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={currentTutorial.icerik} onChange={(icerik) => handleInputChange({ target: { value: icerik, name: 'icerik' } })} />
+
               </div>
                <div className="form-group">
                 <label htmlFor="description">Telefon </label>
-                <input
+               {/*  <input
                   type="text"
                   className="form-control"
                   id="telefon"
                   name="telefon"
                   value={currentTutorial.telefon}
                  onChange={handleInputChange}  
-                />
+                /> */}
+<RichTextEditor name="telefon" id="telefon" type="text" style={{ width: "600px" }} value={currentTutorial.telefon} onChange={(telefon) => handleInputChange({ target: { value: telefon, name: 'telefon' } })} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="description">Enlem </label>
-                <input
+                {/* <input
                   type="text"
                   className="form-control"
                   id="enlem"
                   name="enlem"
                   value={currentTutorial.enlem}
                onChange={handleInputChange}  
-                />
+                /> */}
+<RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={currentTutorial.enlem} onChange={(enlem) => handleInputChange({ target: { value: enlem, name: 'enlem' } })} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="description">Boylam </label>
-                <input
+                {/* <input
                   type="text"
                   className="form-control"
                   id="boylam"
                   name="boylam"
                   value={currentTutorial.boylam}
                onChange={handleInputChange} 
-                />
+                /> */}
             </div>
 
               <FileBase64
@@ -217,12 +229,14 @@ const Overview = props => {
           </button>
           <p>{message}</p>
         </div>
+        
       ) : (
         <div>
           <br />
         
         </div>
       )}
+    </div>
     </div>
   
 

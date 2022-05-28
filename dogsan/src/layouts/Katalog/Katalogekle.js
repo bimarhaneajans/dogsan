@@ -57,13 +57,13 @@ const KatalogEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
   
-  const [katalogadi, Changekatalogadi] = useState(initialValue)
+  const [katalogadi, Changekatalogadi] = useState()
   const [katalogurl, setKatalogurl] = useState();
   const [selectedFiles, setselectedFiles] = useState();
   const [currentFile, setselectedcurrentFile] = useState();
   const [progress, setprogress] = useState();
   const [message, setmessage] = useState();
-  const [Resim, ChangeResim] = useState(initialValue)
+  const [Resim, ChangeResim] = useState()
 
   useEffect(() => {
 

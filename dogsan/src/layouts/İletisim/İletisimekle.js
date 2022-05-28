@@ -145,10 +145,10 @@ const IletisimEkle = () => {
                 <RichTextEditor name="haritaurl" id="haritaurl" type="text" style={{ width: "600px" }} value={haritaurl} onChange={Changeharitaurl} />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="siralama">Sıralama</label>
                 <RichTextEditor name="siralama" id="siralama" type="text" style={{ width: "600px" }} value={baslik} onChange={Changesiralama} />
-              </div>
+              </div> */}
               <FileBase64
                 type="file"
                 multiple={false}

@@ -12,7 +12,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
@@ -141,49 +142,56 @@ const Overview = props => {
           <form>
             <div className="form-group">
             <label htmlFor="title">Başlık </label>
-                <input
+               {/*  <input
                   type="text"
                   className="form-control"
                   id="baslik"
                   name="baslik"
                   value={currentTutorial.baslik}
                   onChange={handleInputChange}  
-                />
+                /> */}
+
               </div>
               <div className="form-group">
                 <label htmlFor="description">Adres </label>
-                <input
+                {/* <input
                   type="text"
                   className="form-control"
                   id="adres"
                   name="adres"
                   value={currentTutorial.adres}
                  onChange={handleInputChange}  
-                />
+                /> */}
+ <RichTextEditor name="adres" id="adres" type="text" style={{ width: "600px" }} value={currentTutorial.adres} onChange={(adres) => handleInputChange({ target: { value: adres, name: 'adres' } })} />
+
               </div>
                <div className="form-group">
                 <label htmlFor="description">Telefon </label>
-                <input
+              {/*   <input
                   type="text"
                   className="form-control"
                   id="telefon"
                   name="telefon"
                   value={currentTutorial.telefon}
                  onChange={handleInputChange}  
-                />
+                /> */}
+ <RichTextEditor name="telefon" id="telefon" type="text" style={{ width: "600px" }} value={currentTutorial.telefon} onChange={(telefon) => handleInputChange({ target: { value: telefon, name: 'telefon' } })} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="description">haritaurl </label>
-                <input
+                {/* <input
                   type="text"
                   className="form-control"
                   id="haritaurl"
                   name="haritaurl"
                   value={currentTutorial.haritaurl}
                onChange={handleInputChange}  
-                />
+                /> */}
+ <RichTextEditor name="haritaurl" id="haritaurl" type="text" style={{ width: "600px" }} value={currentTutorial.haritaurl} onChange={(haritaurl) => handleInputChange({ target: { value: haritaurl, name: 'haritaurl' } })} />
+
               </div>
-              <div className="form-group">
+             {/*  <div className="form-group">
                 <label htmlFor="description">siralama </label>
                 <input
                   type="text"
@@ -193,7 +201,7 @@ const Overview = props => {
                   value={currentTutorial.siralama}
                onChange={handleInputChange} 
                 />
-            </div>
+            </div> */}
 
               <FileBase64
                 type="file"

@@ -257,7 +257,7 @@ const routes = [
   {
     type: "collapse",
     name: "Igne liste",
-    key: "Igneliste",
+    key: "Igneliste Listele",
     route: "/Igneliste",
     icon: <CustomerSupport size="12px" />,
     component: <Igneliste />,
@@ -274,7 +274,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "İletişim",
+    name: "İletişim Ekle",
     key: "iletimekle",
     route: "/iletimekle",
     icon: <CustomerSupport size="12px" />,
@@ -284,7 +284,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "İletişim",
+    name: "İletişim Listele",
     key: "Iletisimliste",
     route: "/Iletisimliste",
     icon: <CustomerSupport size="12px" />,
@@ -302,7 +302,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Katalogekle",
+    name: "Katalog Ekle",
     key: "Katalogekle",
     route: "/Katalogekle",
     icon: <CustomerSupport size="12px" />,
@@ -312,7 +312,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "KatalogPdfYukleme",
+    name: "Katalog Pdf Yükleme",
     key: "KatalogPdfYukleme",
     route: "/KatalogPdfYukleme",
     icon: <CustomerSupport size="12px" />,
@@ -322,7 +322,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Katalogliste",
+    name: "Katalog Listele",
     key: "Katalogliste",
     route: "/Katalogliste",
     icon: <CustomerSupport size="12px" />,
@@ -340,7 +340,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Kategori",
+    name: "Kategori Ekle",
     key: "Kategori",
     route: "/Kategoriekle",
     icon: <CustomerSupport size="12px" />,
@@ -350,7 +350,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Kategori liste",
+    name: "Kategori Listele",
     key: "Kategoriliste",
     route: "/Kategoriliste",
     icon: <CustomerSupport size="12px" />,
@@ -367,7 +367,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "SubKategoriekle",
+    name: "SubKategori Ekle",
     key: "SubKategoriekle",
     route: "/Subkategoriekle",
     icon: <CustomerSupport size="12px" />,
@@ -377,7 +377,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Sub Kategori liste",
+    name: "Sub Kategori Liste",
     key: "Subategoriliste",
     route: "/Subkategoriliste",
     icon: <CustomerSupport size="12px" />,
@@ -405,7 +405,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Mesajlar Liste",
+    name: "Mesajlar Listele",
     key: "Mesajlarliste",
     route: "/Mesajlarliste",
     icon: <CustomerSupport size="12px" />,
@@ -423,7 +423,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Şehir",
+    name: "Şehir Ekle",
     key: "sehir",
     route: "/sehirekle",
     icon: <CustomerSupport size="12px" />,
@@ -433,7 +433,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Sehir liste",
+    name: "Sehir Listele",
     key: "Sehirliste",
     route: "/Sehirliste",
     icon: <CustomerSupport size="12px" />,
@@ -451,7 +451,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Slider ekle",
+    name: "Slider Ekle",
     key: "Sliderekle",
     route: "/Slider",
     icon: <CustomerSupport size="12px" />,
@@ -461,7 +461,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Slider Liste",
+    name: "Slider Listele",
     key: "Sliderliste",
     route: "/Sliderliste",
     icon: <CustomerSupport size="12px" />,
@@ -489,7 +489,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Sosyal Sorumluluk  liste",
+    name: "Sosyal Sorumluluk Listele",
     key: "Sosyalssliste",
     route: "/Sosyalssliste",
     icon: <CustomerSupport size="12px" />,
@@ -517,7 +517,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tarihçe  liste",
+    name: "Tarihçe Liste",
     key: "Tarihceliste",
     route: "/Tarihceliste",
     icon: <CustomerSupport size="12px" />,
@@ -545,7 +545,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tarihi Galeri Liste",
+    name: "Tarihi Galeri Listele",
     key: "TarihiGaleriliste",
     route: "/TarihiGaleriliste",
     icon: <CustomerSupport size="12px" />,
@@ -563,7 +563,7 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Urun ekle",
+    name: "Urun Ekle",
     key: "Urunekle",
     route: "/Urunekle",
     icon: <CustomerSupport size="12px" />,
@@ -589,7 +589,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Yonetici ekle",
+    name: "Yonetici Ekle",
     key: "Yoneticiekle",
     route: "/Yoneticiekle",
     icon: <CustomerSupport size="12px" />,
@@ -599,7 +599,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Yonetici liste",
+    name: "Yonetici Listele",
     key: "Yoneticiliste",
     route: "/Yoneticiliste",
     icon: <CustomerSupport size="12px" />,
@@ -615,7 +615,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Kariyer ekle",
+    name: "Kariyer Ekle",
     key: "Kariyerekle",
     route: "/Kariyerekle",
     icon: <CustomerSupport size="12px" />,
@@ -625,7 +625,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Kariyer liste",
+    name: "Kariyer Listele",
     key: "Kariyerliste",
     route: "/Kariyerliste",
     icon: <CustomerSupport size="12px" />,

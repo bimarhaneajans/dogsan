@@ -38,7 +38,7 @@ const KatagoriEkle = () => {
   };
 
   const initialValue = 'Alana verileri doldurun';
-  const [tutorial, setTutorial] = useState(initialTutorialState);
+  const [tutorial, setTutorial] = useState();
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
