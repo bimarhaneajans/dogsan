@@ -34,13 +34,13 @@ const Overview = props => {
 
 
 
-  const [BelgeselBaslik, ChangeBelgeselBaslik] = useState(initialValue)
+/*   const [BelgeselBaslik, ChangeBelgeselBaslik] = useState(initialValue)
   const [AnaBaslik, ChangeAnaBaslik] = useState(initialValue)
   const [AnaIcerik,ChangeAnaIcerik] = useState(initialValue) 
   const [BelgeselIcerigi,ChangeBelgeselIcerigi] = useState(initialValue) 
   const [baslangicTarihi,ChangebaslangicTarihi] = useState(initialValue) 
   const [BelgeselVideoUrl,ChangebitisTarihi] = useState(initialValue)
-  const [Resim,ChangeResim] = useState(initialValue)
+  const [Resim,ChangeResim] = useState(initialValue) */
 
 
   const [controller, dispatch] = useSoftUIController();
