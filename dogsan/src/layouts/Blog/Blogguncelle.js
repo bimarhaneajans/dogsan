@@ -11,7 +11,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const Overview = props => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const Overview = props => {
     icerik: "",
     published: false
   };
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  const [currentTutorial, setCurrentTutorial] = useState();
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -54,8 +55,6 @@ const Overview = props => {
     if (id)
       getTutorial(id);
   }, [id]);
-
-  
   const handleInputChange = event => {
     const { name, value } = event.target;
     setCurrentTutorial({ ...currentTutorial, [name]: value });
@@ -92,8 +91,6 @@ const Overview = props => {
         console.log(e);
       });
   };
-
-
 
   const deleteTutorial = () => {
     BlogDataService.remove(currentTutorial.id)
@@ -133,47 +130,56 @@ const Overview = props => {
               <form>
                 <div className="form-group">
                   <label htmlFor="baslik">Başlık </label>
-                  <input
+                 {/*  <input
                     type="text"
                     className="form-control"
                     id="baslik"
                     name="baslik"
                     value={currentTutorial.baslik}
                     onChange={handleInputChange}
-                  />
+                  /> */}
+           <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }}   value={currentTutorial.baslik}  onChange={(baslik) => handleInputChange({ target: { value: baslik, name: 'baslik' } })}/>
+     
                 </div>
                 <div className="form-group">
                   <label htmlFor="seolink">seolink </label>
-                  <input
+                 {/*  <input
                     type="text"
                     className="form-control"
                     id="seolink"
                     name="seolink"
                     value={currentTutorial.seolink}
                     onChange={handleInputChange}
-                  />
+                  /> */}
+                             <RichTextEditor name="seolink" id="seolink" type="text" style={{ width: "600px" }}   value={currentTutorial.seolink}  onChange={(seolink) => handleInputChange({ target: { value: seolink, name: 'seolink' } })}/>
+
                 </div>
                 <div className="form-group">
                   <label htmlFor="Ozet">Ozet </label>
-                  <input
+                 {/*  <input
                     type="text"
                     className="form-control"
                     id="Ozet"
                     name="Ozet"
                     value={currentTutorial.Ozet}
                     onChange={handleInputChange}
-                  />
+                  /> */}
+          <RichTextEditor name="Ozet" id="Ozet" type="text" style={{ width: "600px" }}   value={currentTutorial.Ozet}  onChange={(Ozet) => handleInputChange({ target: { value: Ozet, name: 'Ozet' } })}/>
+
                 </div>
                 <div className="form-group">
                   <label htmlFor="icerik">icerik </label>
-                  <input
+                {/*   <input
                     type="text"
                     className="form-control"
                     id="icerik"
                     name="icerik"
                     value={currentTutorial.icerik}
                     onChange={handleInputChange}
-                  />
+                  /> */}
+
+<RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }}   value={currentTutorial.icerik}  onChange={(icerik) => handleInputChange({ target: { value: icerik, name: 'icerik' } })}/>
+
                 </div>
 
 

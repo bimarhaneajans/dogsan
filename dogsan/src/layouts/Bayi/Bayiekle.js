@@ -31,7 +31,7 @@ function BayiEkle() {
     published: false
   };
 
- 
+
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -122,12 +122,12 @@ function BayiEkle() {
             </div>
           ) : (
             <div>
-             
+
               <div className="form-group">
 
                 <label htmlFor="bayi">Başlık</label>
 
-               
+
 
 
                 <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />

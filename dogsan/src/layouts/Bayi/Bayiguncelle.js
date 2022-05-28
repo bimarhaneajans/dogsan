@@ -81,7 +81,7 @@ const Bayiguncelle = props => {
       sehir: currentTutorial.sehir,
       enlem: currentTutorial.enlem,
       boylam: currentTutorial.boylam,
-      Resim: tutorial.Resim,
+     // Resim: currentTutorial.Resim,
       published: status
     };
 
