@@ -54,6 +54,8 @@ const Overview = props => {
     if (id)
       getTutorial(id);
   }, [id]);
+
+  
   const handleInputChange = event => {
     const { name, value } = event.target;
     setCurrentTutorial({ ...currentTutorial, [name]: value });
@@ -90,6 +92,8 @@ const Overview = props => {
         console.log(e);
       });
   };
+
+
 
   const deleteTutorial = () => {
     BlogDataService.remove(currentTutorial.id)

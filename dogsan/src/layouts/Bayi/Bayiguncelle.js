@@ -14,8 +14,7 @@ import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
 
 const Bayiguncelle = props => {
-  console.log("params"+JSON.stringify(props))
-  const { id}= useParams();
+   const { id}= useParams();
   let navigate = useNavigate();
 
  /*  const initialTutorialState = {
@@ -36,13 +35,13 @@ const Bayiguncelle = props => {
   const [tutorial, setTutorial] = useState();
   const [submitted, setSubmitted] = useState(false);
 
-  const [baslik, Changebaslik] = useState(initialValue)
-  const [adres, Changeadres] = useState(initialValue)
-  const [telefon, Changetelefon] = useState(initialValue)
-  const [enlem, Changeenlem] = useState(initialValue)
-  const [sehir, Changesehir] = useState(initialValue)
-  const [boylam, Changeboylam] = useState(initialValue)
-  const [Resimbaslik, ChangeResimbaslik] = useState(initialValue)
+  const [baslik, Changebaslik] = useState()
+  const [adres, Changeadres] = useState()
+  const [telefon, Changetelefon] = useState()
+  const [enlem, Changeenlem] = useState()
+  const [sehir, Changesehir] = useState()
+  const [boylam, Changeboylam] = useState()
+  const [Resimbaslik, ChangeResimbaslik] = useState()
   
    const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
@@ -160,12 +159,15 @@ const Bayiguncelle = props => {
                 onChange={handleInputChange}
                 name="baslik"
               /> */}
-               <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} onChange={Changebaslik} />
-            </div>
+               <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} 
+                 onChange={(baslik) => handleInputChange({ target: { value: baslik, name: 'baslik' } })}/>
+
+{/*               // onChange={handleInputChange} 
+ */}            </div>
 
             <div className="form-group">
               <label htmlFor="adres">adres</label>
-              <input
+             <input
                 type="text"
                 className="form-control"
                 id="adres"
@@ -173,9 +175,8 @@ const Bayiguncelle = props => {
                 value={currentTutorial.adres}
                 onChange={handleInputChange}
                 name="adres"
-              />
-               <RichTextEditor name="adres" id="adres" type="adres" style={{ width: "600px" }} value={currentTutorial.adres} onChange={Changeadres} />
-            </div>
+              />  
+             </div>
             <div className="form-group">
               <label htmlFor="Telefon">Telefon</label>
               <input
@@ -225,6 +226,7 @@ const Bayiguncelle = props => {
                 name="boylam"
               />
             </div>
+
             <FileBase64
                 type="file"
                 multiple={false}
