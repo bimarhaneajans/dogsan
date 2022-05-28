@@ -10,25 +10,39 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const Bayiguncelle = props => {
-  const { id }= useParams();
+  console.log("params"+JSON.stringify(props))
+  const { id}= useParams();
   let navigate = useNavigate();
 
-  const initialTutorialState = {
+ /*  const initialTutorialState = {
     id: null,
     baslik: "",
-    adres: "",
-    sehir: "",
+    adres:  "",
+    sehir:  "",
     telefon: "",
-    enlem: "",
+    enlem:  "",
     boylam: "",
     published: false
-  };
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  }; */
+  const initialValue = 'Alana verilerisssssssssss doldurun';
+ 
+
+  const [currentTutorial, setCurrentTutorial] = useState();
   const [message, setMessage] = useState("");
-  const [tutorial, setTutorial] = useState(initialTutorialState);
+  const [tutorial, setTutorial] = useState();
   const [submitted, setSubmitted] = useState(false);
+
+  const [baslik, Changebaslik] = useState(initialValue)
+  const [adres, Changeadres] = useState(initialValue)
+  const [telefon, Changetelefon] = useState(initialValue)
+  const [enlem, Changeenlem] = useState(initialValue)
+  const [sehir, Changesehir] = useState(initialValue)
+  const [boylam, Changeboylam] = useState(initialValue)
+  const [Resimbaslik, ChangeResimbaslik] = useState(initialValue)
   
    const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
@@ -137,7 +151,7 @@ const Bayiguncelle = props => {
 
           <div className="form-group">
               <label htmlFor="bayi">Başlık</label>
-              <input
+              {/* <input
                 type="text"
                 className="form-control"
                 id="baslik"
@@ -145,7 +159,8 @@ const Bayiguncelle = props => {
                 value={currentTutorial.baslik}
                 onChange={handleInputChange}
                 name="baslik"
-              />
+              /> */}
+               <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} onChange={Changebaslik} />
             </div>
 
             <div className="form-group">
@@ -159,6 +174,7 @@ const Bayiguncelle = props => {
                 onChange={handleInputChange}
                 name="adres"
               />
+               <RichTextEditor name="adres" id="adres" type="adres" style={{ width: "600px" }} value={currentTutorial.adres} onChange={Changeadres} />
             </div>
             <div className="form-group">
               <label htmlFor="Telefon">Telefon</label>

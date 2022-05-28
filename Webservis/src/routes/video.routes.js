@@ -20,6 +20,7 @@ module.exports = app => {
   // var upload = multer({ storage: storage }); 
 
   router.post("/", controller.upload);
+ 
   router.get("/files", controller.getListFiles);
   router.get("/files/:name", controller.download);  
   app.use("/video", router);

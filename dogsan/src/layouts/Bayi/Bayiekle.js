@@ -31,9 +31,7 @@ function BayiEkle() {
     published: false
   };
 
-
-
-
+ 
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -44,6 +42,7 @@ function BayiEkle() {
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
+
   const [baslik, Changebaslik] = useState(initialValue)
   const [adres, Changeadres] = useState(initialValue)
   const [telefon, Changetelefon] = useState(initialValue)
