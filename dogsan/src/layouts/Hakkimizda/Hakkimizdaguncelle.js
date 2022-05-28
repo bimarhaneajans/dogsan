@@ -10,7 +10,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const initialValue = 'Alana verileri doldurun';
 
@@ -144,7 +145,7 @@ const Overview = props => {
 
               <div className="form-group">
                 <label htmlFor="bayi">Ana Icerik</label>
-                <input
+          {/*       <input
                   type="text"
                   className="form-control"
                   id="AnaIcerik"
@@ -152,12 +153,14 @@ const Overview = props => {
                   value={currentTutorial.AnaIcerik}
                   onChange={handleInputChange}
                   name="AnaIcerik"
-                />
+                /> */}
+ <RichTextEditor name="AnaIcerik" id="AnaIcerik" type="text" style={{ width: "600px" }} value={currentTutorial.AnaIcerik} onChange={(AnaIcerik) => handleInputChange({ target: { value: AnaIcerik, name: 'AnaIcerik' } })} />
+
               </div>
 
               <div className="form-group">
                 <label htmlFor="BelgeselIcerigi">BelgeselIcerigi</label>
-                <input
+               {/*  <input
                   type="text"
                   className="form-control"
                   id="BelgeselIcerigi"
@@ -165,14 +168,16 @@ const Overview = props => {
                   value={currentTutorial.BelgeselIcerigi}
                   onChange={handleInputChange}
                   name="BelgeselIcerigi"
-                />
+                /> */}
+ <RichTextEditor name="BelgeselIcerigi" id="BelgeselIcerigi" type="text" style={{ width: "600px" }} value={currentTutorial.BelgeselIcerigi} onChange={(BelgeselIcerigi) => handleInputChange({ target: { value: BelgeselIcerigi, name: 'BelgeselIcerigi' } })} />
+
               </div>
 
 
 
               <div className="form-group">
                 <label htmlFor="BelgeselVideoUrl">BelgeselVideoUrl</label>
-                <input
+           {/*      <input
                   type="text"
                   className="form-control"
                   id="BelgeselVideoUrl"
@@ -180,7 +185,9 @@ const Overview = props => {
                   value={currentTutorial.BelgeselVideoUrl}
                   onChange={handleInputChange}
                   name="BelgeselVideoUrl"
-                />
+                /> */}
+ <RichTextEditor name="BelgeselVideoUrl" id="BelgeselVideoUrl" type="text" style={{ width: "600px" }} value={currentTutorial.BelgeselVideoUrl} onChange={(BelgeselIcerigi) => handleInputChange({ target: { value: BelgeselIcerigi, name: 'BelgeselVideoUrl' } })} />
+
               </div>
 
               <FileBase64
