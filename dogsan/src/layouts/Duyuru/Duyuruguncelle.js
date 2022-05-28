@@ -172,14 +172,14 @@ const Overview = props => {
 
                 <div className="form-group">
                   <label htmlFor="YoutubeVideoURL">YoutubeVideoURL </label>
-                  <input
+             {/*      <input
                     type="text"
                     className="form-control"
                     id="YoutubeVideoURL"
                     name="YoutubeVideoURL"
                     value={currentTutorial.YoutubeVideoURL}
                     onChange={handleInputChange}
-                  />
+                  /> */}
       <RichTextEditor name="YoutubeVideoURL" id="YoutubeVideoURL" type="text" style={{ width: "600px" }} value={currentTutorial.YoutubeVideoURL} onChange={(YoutubeVideoURL) => handleInputChange({ target: { value: YoutubeVideoURL, name: 'YoutubeVideoURL' } })} />
 
                 </div>
@@ -194,7 +194,7 @@ const Overview = props => {
                     value={currentTutorial.Tarih}
                     onChange={handleInputChange}
                   /> */}
- <RichTextEditor name="Tarih" id="Tarih" type="text" style={{ width: "600px" }} value={currentTutorial.Tarih} onChange={(Tarih) => handleInputChange({ target: { value: Tarih, name: 'Tarih' } })} />
+            <RichTextEditor name="Tarih" id="Tarih" type="text" style={{ width: "600px" }} value={currentTutorial.Tarih} onChange={(Tarih) => handleInputChange({ target: { value: Tarih, name: 'Tarih' } })} />
 
                 </div>
 

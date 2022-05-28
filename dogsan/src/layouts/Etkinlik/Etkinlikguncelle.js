@@ -11,7 +11,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
@@ -129,69 +130,81 @@ const Overview = props => {
           <form>
             <div className="form-group">
             <label htmlFor="title">Başlık </label>
-                <input
+             {/*    <input
                   type="text"
                   className="form-control"
                   id="baslik"
                   name="baslik"
                   value={currentTutorial.baslik}
                   onChange={handleInputChange}  
-                />
+                /> */}
+     <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} onChange={(baslik) => handleInputChange({ target: { value: baslik, name: 'baslik' } })} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="icerik">icerik </label>
-                <input
+             {/*    <input
                   type="text"
                   className="form-control"
                   id="icerik"
                   name="icerik"
                   value={currentTutorial.icerik}
                  onChange={handleInputChange}  
-                />
+                /> */}
+  <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} onChange={(icerik) => handleInputChange({ target: { value: icerik, name: 'icerik' } })} />
+
               </div>
                <div className="form-group">
                 <label htmlFor="konumlinki">konumlinki </label>
-                <input
+               {/*  <input
                   type="text"
                   className="form-control"
                   id="konumlinki"
                   name="konumlinki"
                   value={currentTutorial.konumlinki}
                  onChange={handleInputChange}  
-                />
+                /> */}
+  <RichTextEditor name="konumlinki" id="konumlinki" type="text" style={{ width: "600px" }} value={currentTutorial.konumlinki} onChange={(konumlinki) => handleInputChange({ target: { value: konumlinki, name: 'konumlinki' } })} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="konum">konum </label>
-                <input
+               {/*  <input
                   type="text"
                   className="form-control"
                   id="konum"
                   name="konum"
                   value={currentTutorial.konum}
                onChange={handleInputChange}  
-                />
+                /> */}
+ <RichTextEditor name="konum" id="konum" type="text" style={{ width: "600px" }} value={currentTutorial.konum} onChange={(konum) => handleInputChange({ target: { value: konum, name: 'konum' } })} />
+
               </div>
               <div className="form-group">
                 <label htmlFor="baslangicTarihi">baslangicTarihi </label>
-                <input
+                {/* <input
                   type="text"
                   className="form-control"
                   id="baslangicTarihi"
                   name="baslangicTarihi"
                   value={currentTutorial.baslangicTarihi}
                onChange={handleInputChange} 
-                />
+                /> */}
+   <RichTextEditor name="baslangicTarihi" id="baslangicTarihi" type="text" style={{ width: "600px" }} value={currentTutorial.baslangicTarihi} onChange={(baslangicTarihi) => handleInputChange({ target: { value: baslangicTarihi, name: 'baslangicTarihi' } })} />
+
             </div>
             <div className="form-group">
                 <label htmlFor="bitisTarihi">bitisTarihi </label>
-                <input
+               {/*  <input
                   type="text"
                   className="form-control"
                   id="bitisTarihi"
                   name="bitisTarihi"
                   value={currentTutorial.bitisTarihi}
                onChange={handleInputChange} 
-                />
+                /> */}
+ <RichTextEditor name="bitisTarihi" id="bitisTarihi" type="text" style={{ width: "600px" }} value={currentTutorial.bitisTarihi} onChange={(bitisTarihi) => handleInputChange({ target: { value: bitisTarihi, name: 'bitisTarihi' } })} />
+
             </div>
              
               <FileBase64
