@@ -21,7 +21,7 @@ const Overview = props => {
     siralama: "", 
      published:false
   };
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  const [currentTutorial, setCurrentTutorial] = useState();
   const [message, setMessage] = useState("");
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
