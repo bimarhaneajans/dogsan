@@ -4,6 +4,7 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import BayiDataService from "../../services/BayiService";
+import SehirDataService from "../../services/SehirService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -16,6 +17,7 @@ import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
+import Select from 'react-select';
 
 const initialValue = 'Alana verileri doldurun';
 
@@ -47,7 +49,7 @@ function BayiEkle() {
   const [adres, Changeadres] = useState(initialValue)
   const [telefon, Changetelefon] = useState(initialValue)
   const [enlem, Changeenlem] = useState(initialValue)
-  const [sehir, Changesehir] = useState(initialValue)
+  const [sehir, setSehir] = useState([])
   const [boylam, Changeboylam] = useState(initialValue)
   const [Resimbaslik, ChangeResimbaslik] = useState(initialValue)
   const [Resim, ChangeResim] = useState(initialValue)
@@ -66,7 +68,7 @@ function BayiEkle() {
       adres: JSON.stringify(adres),
       telefon: JSON.stringify(telefon),
       enlem: JSON.stringify(enlem),
-      sehir: JSON.stringify(sehir),
+      sehir: tutorial.sehir,
       boylam: JSON.stringify(boylam),
       Resim: tutorial.Resim,
     };
@@ -97,6 +99,30 @@ function BayiEkle() {
   const newTutorial = () => {
     setTutorial(initialTutorialState);
     setSubmitted(false);
+  };
+  useEffect(() => {
+    retrieveSehir();
+  }, []);
+  
+  const retrieveSehir = () => {
+    let options = [];
+    SehirDataService.getAll()
+      .then(response => {
+        const sehir = response.data;
+
+        /*   kariyer.map((kariyers) =>
+              options = [{ "value":kariyers.kariyeradi, "label": kariyers.kariyeradi },  ],
+              setKariyer([...options],options),
+              console.log(options)
+              );  */
+
+        setSehir(sehir);
+        console.log(sehir)
+
+      })
+      .catch(e => {
+        console.log(e);
+      });
   };
 
   return (
@@ -138,7 +164,21 @@ function BayiEkle() {
               </div>
               <div className="form-group">
                 <label htmlFor="Telefon">Şehir</label>
-                <RichTextEditor name="sehir" id="sehir" type="text" style={{ width: "600px" }} value={sehir} onChange={Changesehir} />
+                {/* <RichTextEditor name="sehir" id="sehir" type="text" style={{ width: "600px" }} value={sehir} onChange={Changesehir} /> */}
+                <>
+                  <select
+                    type="text"
+                    id="sehir"
+                    name="sehir"
+                    value={tutorial.sehir}
+                    onChange={handleInputChange}
+                  >
+                    {sehir.map(options => <option key={options.sehirAdi} value={options.sehirAdi}>{options.sehirAdi}</option>)
+
+                    }
+
+                  </select>
+                </>
               </div>
               <div className="form-group">
                 <label htmlFor="Telefon">Telefon</label>

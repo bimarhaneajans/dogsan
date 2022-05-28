@@ -116,9 +116,6 @@ const Bayiguncelle = props => {
         console.log(e);
       });
   };
-
- 
-
   return (
     <DashboardLayout> 
         <Sidenav
@@ -135,9 +132,7 @@ const Bayiguncelle = props => {
     <div>
       {currentTutorial ? (
         <div className="edit-form">
-         
           <form>
-
           <div className="card">
                   <br/>
                     <div className="card-image waves-effect waves-block waves-light">
@@ -145,9 +140,6 @@ const Bayiguncelle = props => {
                     </div>
                     <br/>
                 </div>
-
-
-
           <div className="form-group">
               <label htmlFor="bayi">Başlık</label>
               {/* <input

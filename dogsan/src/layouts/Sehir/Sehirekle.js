@@ -16,17 +16,14 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-import 'draft-js/dist/Draft.css';
-import { RichTextEditor } from '@mantine/rte';
-
-const SehirEkle = () => {
+const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
     sehirAdi: "",
     published: false
   };
 
-  const initialValue = 'Alana verileri doldurun';
+
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -40,9 +37,6 @@ const SehirEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
-  const [sehirAdi, ChangesehirAdi] = useState(initialValue)
-
-
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
@@ -50,7 +44,7 @@ const SehirEkle = () => {
 
   const saveTutorial = () => {
     var data = {
-      sehirAdi: JSON.stringify(sehirAdi),
+      sehirAdi: tutorial.sehirAdi,
       
       Resim: tutorial.Resim,
     };
@@ -102,8 +96,16 @@ const SehirEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="sehirAdi">Şehir Adı</label>
-                <RichTextEditor name="sehirAdi" id="sehirAdi" type="text" style={{ width: "600px" }} value={sehirAdi} onChange={ChangesehirAdi} />
+                <label htmlFor="sehirAdi">sehir Adi</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="sehirAdi"
+                  required
+                  value={tutorial.sehirAdi}
+                  onChange={handleInputChange}
+                  name="sehirAdi"
+                />
               </div>
 
           
@@ -125,4 +127,4 @@ const SehirEkle = () => {
   );
 };
 
-export default SehirEkle;
+export default BayiEkle;
