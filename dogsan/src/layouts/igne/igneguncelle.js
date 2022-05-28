@@ -11,6 +11,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const Overview = props => {
   const { id }= useParams();
@@ -123,26 +125,29 @@ const Overview = props => {
           <form>
             <div className="form-group">
             <label htmlFor="igneadi">igneadi </label>
-                <input
+           {/*      <input
                   type="text"
                   className="form-control"
                   id="igneadi"
                   name="igneadi"
                   value={currentTutorial.igneadi}
                   onChange={handleInputChange}  
-                />
+                /> */}
+ <RichTextEditor name="igneadi" id="igneadi" type="text" style={{ width: "600px" }} value={currentTutorial.igneadi} onChange={(igneadi) => handleInputChange({ target: { value: igneadi, name: 'igneadi' } })} />
+
               </div>
-              <div className="form-group">
-                <label htmlFor="description">siralama </label>
-                <input
+               {/*  <div className="form-group">
+                 <label htmlFor="description">siralama </label>
+             <input
                   type="text"
                   className="form-control"
                   id="siralama"
                   name="siralama"
                   value={currentTutorial.siralama}
                  onChange={handleInputChange}  
-                />
-              </div>
+                /> 
+
+              </div>*/}
                
 
               <FileBase64
