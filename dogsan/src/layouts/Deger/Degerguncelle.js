@@ -157,14 +157,16 @@ const Overview = props => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="kisaaciklama">Kısa Açıklama </label>
-                  <input
+                {/*   <input
                     type="text"
                     className="form-control"
                     id="kisaaciklama"
                     name="kisaaciklama"
                     value={currentTutorial.kisaaciklama}
                     onChange={handleInputChange}
-                  />
+                  /> */}
+                  <RichTextEditor name="kisaaciklama" id="kisaaciklama" type="text" style={{ width: "600px" }} value={currentTutorial.kisaaciklama} onChange={(Content) => handleInputChange({ target: { value: Content, name: 'kisaaciklama' } })} />
+
                 </div>
 
 
