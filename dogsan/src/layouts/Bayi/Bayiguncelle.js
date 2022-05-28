@@ -159,15 +159,12 @@ const Bayiguncelle = props => {
                 onChange={handleInputChange}
                 name="baslik"
               /> */}
-               <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} 
-                 onChange={(baslik) => handleInputChange({ target: { value: baslik, name: 'baslik' } })}/>
-
-{/*               // onChange={handleInputChange} 
- */}            </div>
+    <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }}   value={currentTutorial.baslik}  onChange={(baslik) => handleInputChange({ target: { value: baslik, name: 'baslik' } })}/>
+          </div>
 
             <div className="form-group">
               <label htmlFor="adres">adres</label>
-             <input
+            {/*  <input
                 type="text"
                 className="form-control"
                 id="adres"
@@ -175,11 +172,15 @@ const Bayiguncelle = props => {
                 value={currentTutorial.adres}
                 onChange={handleInputChange}
                 name="adres"
-              />  
+              />   */}
+              <RichTextEditor name="adres" id="adres" type="text" style={{ width: "600px" }} 
+               value={currentTutorial.adres} 
+                 onChange={(adres) => handleInputChange({ target: { value: adres, name: 'adres' } })}/>
+              
              </div>
             <div className="form-group">
               <label htmlFor="Telefon">Telefon</label>
-              <input
+            {/*   <input
                 type="text"
                 className="form-control"
                 id="telefon"
@@ -187,11 +188,14 @@ const Bayiguncelle = props => {
                 value={currentTutorial.telefon}
                 onChange={handleInputChange}
                 name="telefon"
-              />
+              /> */}
+               <RichTextEditor name="telefon" id="telefon" type="text" style={{ width: "600px" }} 
+               value={currentTutorial.telefon} 
+                 onChange={(telefon) => handleInputChange({ target: { value: telefon, name: 'telefon' } })}/>
             </div>
             <div className="form-group">
               <label htmlFor="Enlem">Şehir</label>
-              <input
+           {/*    <input
                 type="text"
                 className="form-control"
                 id="sehir"
@@ -199,11 +203,15 @@ const Bayiguncelle = props => {
                 value={currentTutorial.sehir}
                 onChange={handleInputChange}
                 name="sehir"
-              />
+              /> */}
+              <RichTextEditor name="sehir" id="sehir" type="text" style={{ width: "600px" }} 
+               value={currentTutorial.sehir} 
+                 onChange={(sehir) => handleInputChange({ target: { value: sehir, name: 'sehir' } })}/>
+              
             </div>
             <div className="form-group">
               <label htmlFor="Enlem">Enlem</label>
-              <input
+              {/* <input
                 type="text"
                 className="form-control"
                 id="enlem"
@@ -211,12 +219,15 @@ const Bayiguncelle = props => {
                 value={currentTutorial.enlem}
                 onChange={handleInputChange}
                 name="enlem"
-              />
+              /> */}
+              <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} 
+               value={currentTutorial.enlem} 
+                 onChange={(enlem) => handleInputChange({ target: { value: enlem, name: 'enlem' } })}/>
             </div>
 
             <div className="form-group">
               <label htmlFor="boylam">boylam</label>
-              <input
+           {/*    <input
                 type="text"
                 className="form-control"
                 id="boylam"
@@ -224,7 +235,10 @@ const Bayiguncelle = props => {
                 value={currentTutorial.boylam}
                 onChange={handleInputChange}
                 name="boylam"
-              />
+              /> */}
+               <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }} 
+               value={currentTutorial.boylam} 
+                 onChange={(boylam) => handleInputChange({ target: { value: boylam, name: 'boylam' } })}/>
             </div>
 
             <FileBase64
