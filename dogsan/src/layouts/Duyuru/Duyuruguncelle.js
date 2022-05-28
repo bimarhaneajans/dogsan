@@ -1,5 +1,5 @@
 
-import React, {useState,useEffect,useMemo, useRef  } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -12,9 +12,11 @@ import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const Overview = props => {
-  const { id }= useParams();
+  const { id } = useParams();
   let navigate = useNavigate();
   const initialTutorialState = {
     id: null,
@@ -22,23 +24,23 @@ const Overview = props => {
     Ozet: "",
     seolink: "",
     icerik: "",
-    published:false
+    published: false
   };
   const [currentTutorial, setCurrentTutorial] = useState();
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
-  
-   const [controller, dispatch] = useSoftUIController();
+
+  const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
- 
+
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
-  
 
- 
+
+
   const getTutorial = id => {
     DuyuruDataService.get(id)
       .then(response => {
@@ -61,12 +63,12 @@ const Overview = props => {
 
   const updatePublished = status => {
     var data = {
-        id:currentTutorial.id,
-        icerik:currentTutorial.icerik, 
-        kisaaciklama:currentTutorial.kisaaciklama,
-        YoutubeVideoURL:currentTutorial.YoutubeVideoURL,
-        Tarih:currentTutorial.Tarih,
-        published: status
+      id: currentTutorial.id,
+      icerik: currentTutorial.icerik,
+      kisaaciklama: currentTutorial.kisaaciklama,
+      YoutubeVideoURL: currentTutorial.YoutubeVideoURL,
+      Tarih: currentTutorial.Tarih,
+      published: status
     };
 
     DuyuruDataService.update(currentTutorial.id, data)
@@ -103,142 +105,153 @@ const Overview = props => {
   };
 
   return (
-    <DashboardLayout> 
+    <DashboardLayout>
       <Sidenav
-            color={sidenavColor}
-            brand={brand}
-            brandName=" DOĞSAN PANEL "
-            routes={routes} 
-          />
-    <div style={{ marginLeft: "100px" }}> 
-      <Header />
-    </div>
+        color={sidenavColor}
+        brand={brand}
+        brandName=" DOĞSAN PANEL "
+        routes={routes}
+      />
+      <div style={{ marginLeft: "100px" }}>
+        <Header />
+      </div>
 
-    <div style={{ width: "300px", marginLeft: "100px" }}>
-    <br />
-    <div>
-      {currentTutorial ? (
-        <div className="edit-form">
-      <div className="card">
+      <div style={{ width: "300px", marginLeft: "100px" }}>
+        <br />
+        <div>
+          {currentTutorial ? (
+            <div className="edit-form">
+              <div className="card">
                 <br />
                 <div className="card-image waves-effect waves-block waves-light">
                   <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
                 </div>
                 <br />
               </div>
-          <form>
-            <div className="form-group">
-            <label htmlFor="baslik">Başlık </label>
-                <input
+              <form>
+                <div className="form-group">
+                  <label htmlFor="baslik">Başlık </label>
+                  {/*    <input
                   type="text"
                   className="form-control"
                   id="baslik"
                   name="baslik"
                   value={currentTutorial.baslik}
                   onChange={handleInputChange}  
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="Content">icerik </label>
-                <input
+                /> */}
+                  <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={currentTutorial.baslik} onChange={(baslik) => handleInputChange({ target: { value: baslik, name: 'baslik' } })} />
+
+                </div>
+                <div className="form-group">
+                  <label htmlFor="Content">icerik </label>
+                  {/* <input
                   type="text"
                   className="form-control"
                   id="icerik"
                   name="icerik"
                   value={currentTutorial.icerik}
                  onChange={handleInputChange}  
-                />
-              </div>
-               <div className="form-group">
-                <label htmlFor="kisaaciklama">Kısa Açıklama </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kisaaciklama"
-                  name="kisaaciklama"
-                  value={currentTutorial.kisaaciklama}
-                 onChange={handleInputChange}  
-                />
-              </div>
+                /> */}
 
-              <div className="form-group">
-                <label htmlFor="YoutubeVideoURL">YoutubeVideoURL </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="kisaaciklama"
-                  name="YoutubeVideoURL"
-                  value={currentTutorial.YoutubeVideoURL}
-                 onChange={handleInputChange}  
-                />
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="Tarih">Tarih </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Tarih"
-                  name="Tarih"
-                  value={currentTutorial.Tarih}
-                 onChange={handleInputChange}  
-                />
-              </div>
+                  <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={currentTutorial.icerik} onChange={(icerik) => handleInputChange({ target: { value: icerik, name: 'icerik' } })} />
 
-              <FileBase64
-                type="file"
-                multiple={false}
-                onDone={({ base64 }) => setCurrentTutorial({ ...currentTutorial, Resim: base64 })}
-              />  
+                </div>
+                <div className="form-group">
+                  <label htmlFor="kisaaciklama">Kısa Açıklama </label>
+               {/*    <input
+                    type="text"
+                    className="form-control"
+                    id="kisaaciklama"
+                    name="kisaaciklama"
+                    value={currentTutorial.kisaaciklama}
+                    onChange={handleInputChange}
+                  /> */}
+      <RichTextEditor name="kisaaciklama" id="kisaaciklama" type="text" style={{ width: "600px" }} value={currentTutorial.kisaaciklama} onChange={(kisaaciklama) => handleInputChange({ target: { value: kisaaciklama, name: 'kisaaciklama' } })} />
 
-            <div className="form-group">
-              <label>
-                <strong>Status:</strong>
-              </label>
-              {currentTutorial.published ? "Published" : "Pending"}
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="YoutubeVideoURL">YoutubeVideoURL </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="YoutubeVideoURL"
+                    name="YoutubeVideoURL"
+                    value={currentTutorial.YoutubeVideoURL}
+                    onChange={handleInputChange}
+                  />
+      <RichTextEditor name="YoutubeVideoURL" id="YoutubeVideoURL" type="text" style={{ width: "600px" }} value={currentTutorial.YoutubeVideoURL} onChange={(YoutubeVideoURL) => handleInputChange({ target: { value: YoutubeVideoURL, name: 'YoutubeVideoURL' } })} />
+
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="Tarih">Tarih </label>
+              {/*     <input
+                    type="text"
+                    className="form-control"
+                    id="Tarih"
+                    name="Tarih"
+                    value={currentTutorial.Tarih}
+                    onChange={handleInputChange}
+                  /> */}
+ <RichTextEditor name="Tarih" id="Tarih" type="text" style={{ width: "600px" }} value={currentTutorial.Tarih} onChange={(Tarih) => handleInputChange({ target: { value: Tarih, name: 'Tarih' } })} />
+
+                </div>
+
+                <FileBase64
+                  type="file"
+                  multiple={false}
+                  onDone={({ base64 }) => setCurrentTutorial({ ...currentTutorial, Resim: base64 })}
+                />
+
+                <div className="form-group">
+                  <label>
+                    <strong>Status:</strong>
+                  </label>
+                  {currentTutorial.published ? "Published" : "Pending"}
+                </div>
+              </form>
+
+              {currentTutorial.published ? (
+                <button
+                  className="badge badge-primary mr-2"
+                  onClick={() => updatePublished(false)}
+                >
+                  UnPublish
+                </button>
+              ) : (
+                <button
+                  className="badge badge-primary mr-2"
+                  onClick={() => updatePublished(true)}
+                >
+                  Publish
+                </button>
+              )}
+
+              <button className="badge badge-danger mr-2" onClick={deleteTutorial}>
+                Delete
+              </button>
+
+              <button
+                type="submit"
+                className="badge badge-success"
+                onClick={updateTutorial}
+              >
+                Update
+              </button>
+              <p>{message}</p>
             </div>
-          </form>
-
-          {currentTutorial.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(false)}
-            >
-              UnPublish
-            </button>
           ) : (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(true)}
-            >
-              Publish
-            </button>
+            <div>
+              <br />
+
+            </div>
           )}
-
-          <button className="badge badge-danger mr-2" onClick={deleteTutorial}>
-            Delete
-          </button>
-
-          <button
-            type="submit"
-            className="badge badge-success"
-            onClick={updateTutorial}
-          >
-            Update
-          </button>
-          <p>{message}</p>
         </div>
-      ) : (
-        <div>
-          <br />
-         
-        </div>
-      )}
-    </div>
-  
-    </div>
-</DashboardLayout>
-);
+
+      </div>
+    </DashboardLayout>
+  );
 }
 
 export default Overview;
