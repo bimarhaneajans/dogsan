@@ -10,6 +10,8 @@ import Sidenav from "examples/Sidenav";
 import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import 'draft-js/dist/Draft.css';
+import { RichTextEditor } from '@mantine/rte';
 
 const Bayiguncelle = props => {
   const { id }= useParams();
@@ -20,6 +22,7 @@ const Bayiguncelle = props => {
     yoneticiadi:"",
       yoneticisoyadi: "",
       kariyer: "",
+      kisaozgecmis:"",
       pozizyon: "",
       twitter: "",
       facebook: "",
@@ -69,6 +72,7 @@ const Bayiguncelle = props => {
       yoneticisoyadi: currentTutorial.yoneticisoyadi,
       kariyer: currentTutorial.kariyer,
       pozizyon: currentTutorial.pozizyon,
+      kisaozgecmis:currentTutorial.kisaozgecmis,
       twitter: currentTutorial.twitter,
       facebook: currentTutorial.facebook,
       linkedin:currentTutorial.linkedin,
@@ -131,7 +135,6 @@ const Bayiguncelle = props => {
           <form>
 
           <div className="card">
-                  <br/>
                     <div className="card-image waves-effect waves-block waves-light">
                         <img className="activator" style={{ width: '100%', height: 150 }} src={currentTutorial.Resim} />
                     </div>
@@ -190,6 +193,23 @@ const Bayiguncelle = props => {
                   value={currentTutorial.pozizyon}
                   onChange={handleInputChange}
                   name="pozizyon"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="kisaozgecmis">kisaozgecmis</label>
+                <textarea
+                style={{resize:"none"}}
+                  type="text"
+                  multiple
+                  maxLength={100}
+                  height={250}
+                  
+                  className="form-control"
+                  id="kisaozgecmis"
+                  required
+                  value={currentTutorial.kisaozgecmis}
+                  onChange={handleInputChange}
+                  name="kisaozgecmis"
                 />
               </div>
 

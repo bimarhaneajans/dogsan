@@ -27,7 +27,7 @@ const Bayiguncelle = props => {
     boylam: "",
     published: false
   }; */
-  const initialValue = 'Alana verilerisssssssssss doldurun';
+ 
  
 
   const [currentTutorial, setCurrentTutorial] = useState();
