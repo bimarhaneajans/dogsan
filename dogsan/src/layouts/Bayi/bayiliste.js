@@ -12,8 +12,6 @@ import routes from "../../routes";
 import { Link } from "react-router-dom";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
-import 'draft-js/dist/Draft.css';
-import { RichTextEditor } from '@mantine/rte';
 
 const Overview = (props) => {
   const [tutorials, setTutorials] = useState([]);

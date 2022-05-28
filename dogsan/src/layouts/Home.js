@@ -77,10 +77,10 @@ export default function Home() {
 
   // state for storing the filter keyword, with an initial value of *, which matches everything
   const [filterKey, setFilterKey] = React.useState('*');
-
+  
   //const images = [  { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
-  const images = [{ source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
-
+  const images = [  { source: 'https://i.pinimg.com/originals/1f/d9/a2/1fd9a2c9f6574e126c275055060fb659.jpg' }]
+  
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [blog, setBlog] = useState([]);
   const [duyuru, setDuyuru] = useState([]);
@@ -192,7 +192,7 @@ export default function Home() {
   const retrieveYoneticiler = () => {
     YoneticiDataService.getAll()
       .then(response => {
-
+        
         setKariyerr(response.data)
       })
       .catch(e => {
@@ -203,7 +203,7 @@ export default function Home() {
     YoneticiDataService.getAll()
       .then(response => {
         setFiltered(response.data)
-
+        
       })
       .catch(e => {
         console.log(e);
@@ -269,13 +269,13 @@ export default function Home() {
         console.log(e);
       });
   };
-
+    
   return (
 
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-          <Slider />
+        <Slider/>
 
           <div id="slider-wrapper">
           </div>
@@ -652,19 +652,12 @@ export default function Home() {
                   <h2>AİLEMİZLE TANIŞIN</h2>
                   <h5>EKİBİMİZLE BÜYÜK BİR AİLEYİZ</h5>
                   <p class="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız</p>
-                  <div  class="team-filter-nav text-center">
-                  <ul id="filters" class="filter-nav list-inline list-unstyled">
-                    <li style={{ float: "center" }}><a onClick={() => setactive("")} >TÜM BİRİMLER</a></li>
-                  </ul>
                 </div>
-                </div>
-                
                 {kariyer.map(item => (
-                 
                   <div key={item.id} class="team-filter-nav text-center">
                     <ul id="filters" class="filter-nav list-inline list-unstyled">
                       <li style={{ float: "left" }}><a name={item.kariyeradi.toString()} value={item.kariyeradi.toString()} onClick={() => setactive(item.kariyeradi)} class={actuve === item.kariyeradi.toString().type ? "active" : ""}>{item.kariyeradi}</a></li>
-                      
+
                     </ul>
                   </div>
                 ))}
@@ -682,18 +675,18 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-                        <h6> <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div></h6>
+                      <h6> <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div></h6>
                         <h4> <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }} /><div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }} /></h4>
                         <p><div dangerouslySetInnerHTML={{ __html: item.kariyer }} /> </p>
                         <p><div dangerouslySetInnerHTML={{ __html: item.kisaozgecmis }} /> </p>
-
+       
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
                           <ul class="list-inline list-unstyled pull-right social">
                             <li><a href="#"><FaTwitter size={15} />{item.twitter}</a></li>
                             <li><a href="#"><FaFacebookF size={15} />{item.facebook}</a></li>
                             <li><a href="#"><FaLinkedinIn size={15} />{item.linkedin}</a></li>
-                            <li><a href="#"><FaGooglePlusG size={22} />{item.googleplus}</a></li>
+                            <li><a href="#"><FaGooglePlusG size={22}/>{item.googleplus}</a></li>
                           </ul>
                         </div>
                       </div>
@@ -729,12 +722,12 @@ export default function Home() {
                     <div key={item.id} className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                       <div className="blog-post" >
                         <div className="post-img">
-                          <img src={item.Resim} style={{ height: "350px", width: "480px" }} className="img-responsive" alt="" />
+                          <img src={item.Resim} style={{ height: "350px",width: "480px" }} className="img-responsive" alt="" />
                           <img className="ab-icon" src={posticon} alt="" />
                         </div>
                         <div className="info-col">
 
-                          <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
+                        <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
                           <div dangerouslySetInnerHTML={{ __html: item.Ozet }}  ></div>
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
@@ -857,7 +850,7 @@ export default function Home() {
       </div>
 
 
-      {/*   <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
+    {/*   <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
@@ -902,22 +895,22 @@ export default function Home() {
       <ul class="fixed-social-menu list-inline-social mb-0" >
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
-            <FaFacebookF size={23} style={{ marginLeft: "-3px" }} />
+          <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
-            <FaInstagram size={23} style={{ marginLeft: "-3px" }} />
+            <FaInstagram size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
-            <FaLinkedinIn size={23} style={{ marginLeft: "-3px" }} />
+          <FaLinkedinIn size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
-            <FaYoutube size={23} style={{ marginLeft: "-3px" }} />
+            <FaYoutube size={23} style={{marginLeft: "-3px"}}/>
           </a>
         </li>
       </ul>

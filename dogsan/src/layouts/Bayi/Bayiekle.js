@@ -122,9 +122,8 @@ function BayiEkle() {
             </div>
           ) : (
             <div>
-
+ 
               <div className="form-group">
-
                 <label htmlFor="bayi">Başlık</label>
 
 

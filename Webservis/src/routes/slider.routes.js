@@ -20,18 +20,16 @@ module.exports = app => {
   */
    // var upload = multer({ storage: storage }); 
 
-
     router.post("/", controller.upload);
     router.get("/files", controller.getListFiles);
     router.get("/files/:name", controller.download);
-
-    router.post("/veri", controllers.create);   
-    router.get("/veri/", controllers.findAll);
-    router.get("/veri/published", controllers.findAllPublished);
-    router.get("/veri/:id", controllers.findOne);
-    router.put("/veri/:id", controllers.update);
-    router.delete("/veri/:id", controllers.delete);
-    router.delete("/veri", controllers.deleteAll);
+    router.post("/", controllers.create);  /* upload.single('file'), */
+    router.get("/", controllers.findAll);
+    router.get("/published", controllers.findAllPublished);
+    router.get("/:id", controllers.findOne);
+    router.put("/:id", controllers.update);
+    router.delete("/:id", controllers.delete);
+    router.delete("/", controllers.deleteAll);
   
     app.use("/slider", router);
   };
