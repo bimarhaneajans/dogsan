@@ -126,87 +126,110 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload = async (req, res) => {  
-  
-    try { 
+const upload = async (req, res) => {
+
+  try {
     if (req.method === 'POST') {
-    const bb = busboy({ headers: req.headers }); 
-     // bb.on('file', (name, file, info) => {
-     
-       // const { filename, encoding, mimeType } = info;
-     
+      const bb = busboy({ headers: req.headers })  
+
+
+      // bb.on('file', (name, file, info) => {
+
+      // const { filename, encoding, mimeType } = info;
+
       //console.log(  `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,  filename,  encoding,  mimeType  )
-     
-     
-     // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
-   // }) 
+
+
+      // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
+      // }) 
+
+        bb.on('field', (name, val) => 
+
+        {  
+          
+        console.log(name, val)
+        }
+          
+          )   
+        console.log("--")
+      
+
+     /* bb.on("field", ( fieldname, name, val, fieldnameTruncated, valTruncated,  encoding,  mimetype  )=>
+        {
+     //  const body[fieldname] = val;  
+     console.log(`${name} %j`, val)
+        }
+      );   */
+
+      req.pipe(bb) 
+
+
+
+    }
+      /*  sliders.save(sliders)
+       /* .then(data => {
+         res.send(data)
+       })  
+       .catch(err => {
+         res.status(500).send({
+           message:
+             err.message || "Some error occurred while creating the bayi."
+         });
+       }
+       ); */
+      /* 
+          sliders.save(sliders)
+           .then(data => {
+            res.send(data);
+          })  */
+
+
+      // console.log(sliders);
+
+      /*  let sliders = new Sliders({
+         name: val,  
+       })
  
-    const data = bb.on('field', (name, val, info) => {  
+ 
+ 
+       sliders.save(sliders)
+       .then(data => {
+         res.send(data);
+       }) */
 
 
-    console.log(`${name} %j`, val ) 
+      /*  .catch(err => {
+         res.status(500).send({
+           message:
+             err.message || "Some error occurred while creating the bayi."
+         });
+       }); */
+
+
 
    
-    
-  let sliders = new Sliders({
-      name: val,  
-    });  
+    await uploadFile(req, res)
 
-    sliders.save(sliders)
-    /* .then(data => {
-      res.send(data);
-    })  */ 
-      
-       
-     // console.log(bb.field.fileName);
-      
-     /*  let sliders = new Sliders({
-        name: val,  
-      })
+    if (req.file == undefined) {
+      return res.status(400).send({ message: "Please upload a file!" });
+    }
 
+    res.status(200).send({
+      message: "Uploaded the file successfully: "
+    });
+  } catch (err) {
+    console.log(err);
 
+    if (err.code == "LIMIT_FILE_SIZE") {
+      return res.status(500).send({
+        message: "File size cannot be larger than 2MB!",
+      });
+    }
 
-      sliders.save(sliders)
-      .then(data => {
-        res.send(data);
-      }) */
-
-
-     /*  .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the bayi."
-        });
-      }); */
-      
-   
-    
-    })
-
-     req.pipe(bb)
-  }   
-        await uploadFile(req, res)
-       
-        if (req.file == undefined) {
-          return res.status(400).send({ message: "Please upload a file!" });
-        }
-    
-        res.status(200).send({
-          message: "Uploaded the file successfully: "
-        });
-      } catch (err) {
-        console.log(err);
-    
-        if (err.code == "LIMIT_FILE_SIZE") {
-          return res.status(500).send({
-            message: "File size cannot be larger than 2MB!",
-          });
-        }
-    
-        res.status(500).send({
-          message: `Could not upload the file:. ${err}`,
-        });
-      }   
+    res.status(500).send({
+      message: `Could not upload the file:. ${err}`,
+    });
+  }
 };
 
 const getListFiles = (req, res) => {
@@ -240,14 +263,14 @@ const getListFiles = (req, res) => {
         JsonObject = JSON.parse(JSON.stringify(fileInfos));
         //console.log(JsonObject)
 
-          res.status(200).send();
+        res.status(200).send();
       });
     }).catch(err => {
       JSON.stringify(JsonObject)
-       res.status(200).send({
+      res.status(200).send({
         message:
           err.message || "Some error occurred while retrieving ignes."
-      });  
+      });
     })
 
 
