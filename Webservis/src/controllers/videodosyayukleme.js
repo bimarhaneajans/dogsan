@@ -126,13 +126,9 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload = async (req, res) => { 
-
- 
+const upload = async (req, res) => {  
   
-    try {
-
-
+    try { 
     if (req.method === 'POST') {
     const bb = busboy({ headers: req.headers }); 
      // bb.on('file', (name, file, info) => {
@@ -185,7 +181,7 @@ const getListFiles = (req, res) => {
   const ResimBaslik = req.query.ResimBaslik;
   var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
-  sliders.find(condition)
+  /* sliders.find(condition)
     .then(data => {
       res.send(data);
 
@@ -216,8 +212,8 @@ const getListFiles = (req, res) => {
       /* res.status(200).send({
         message:
           err.message || "Some error occurred while retrieving ignes."
-      }); */
-    })
+      });  
+    }) */
 
 
 
