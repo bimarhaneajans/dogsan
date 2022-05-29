@@ -128,10 +128,19 @@ const deleteAll = (req, res) => {
 };
 const upload = async (req, res) => {
 let key,value=[];
+const body = {}
   try {
     if (req.method === 'POST') {
       const bb = busboy({ headers: req.headers })   
-        bb.on('field', (name, val) => 
+        bb.on('field', (
+          fieldname,
+          val,
+          name,
+         fieldnameTruncated,
+         valTruncated,
+       encoding,
+         mimetype
+        ) => 
 
         {  
           
@@ -143,8 +152,10 @@ let key,value=[];
         console.log(key)
         console.log("--")
         console.log(value)
-
-        }
+    
+        
+      
+      }
           
           )   
        
