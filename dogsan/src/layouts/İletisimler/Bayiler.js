@@ -9,7 +9,7 @@ import SehirDataService from "../../services/SehirService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+ import { GoogleMap, LoadScript, Marker, useJsApiLoader  } from '@react-google-maps/api';
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -28,14 +28,52 @@ import Select from 'react-select';
 
 
 const containerStyle = {
-    width: '400px',
+    width: window.innerWidth-250,
     height: '400px'
   };
   
   const center = {
-    lat: -3.745,
-    lng: -38.523
+    lat: 39.0014629,
+    lng: 30.6871553
   };
+
+  const locations = [
+    {
+      name: "Location 1",
+      location: { 
+        lat: 41.3954,
+        lng: 2.162 
+      },
+    },
+    {
+      name: "Location 2",
+      location: { 
+        lat: 41.3917,
+        lng: 2.1649
+      },
+    },
+    {
+      name: "Location 3",
+      location: { 
+        lat: 41.3773,
+        lng: 2.1585
+      },
+    },
+    {
+      name: "Location 4",
+      location: { 
+        lat: 41.3797,
+        lng: 2.1682
+      },
+    },
+    {
+      name: "Location 5",
+      location: { 
+        lat: 41.4055,
+        lng: 2.1915
+      },
+    }
+  ];
 
 export default function Bayiler() {
     const [tutorials, setTutorials] = useState([]);
@@ -112,9 +150,10 @@ export default function Bayiler() {
         setFiltered(filtered)
 
     }, [actuve]);
+
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "YOUR_API_KEY"
+        googleMapsApiKey: "AIzaSyC1FGocZ7AfTxDhQvlQ2qdnyXrmeEe-Oms"
       })
     
       const [map, setMap] = React.useState(null)
@@ -171,12 +210,19 @@ export default function Bayiler() {
                 <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={3}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
+
+{
+            locations.map(item => {
+              return (
+              <Marker key={item.name} position={item.location}/>
+              )
+            })
+         }
+   
       </GoogleMap>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
