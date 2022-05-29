@@ -128,39 +128,29 @@ const deleteAll = (req, res) => {
 };
 const upload = async (req, res) => { 
 
-  if (req.method === 'POST') {
-    const bb = busboy({ headers: req.headers }); 
-      bb.on('file', (name, file, info) => {
-      const { filename, encoding, mimeType } = info;
-      console.log(
-        `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,
-        filename,
-        encoding,
-        mimeType
-      )
-     
-      file.on('data', (data) => {
-        console.log(`File [${name}] got ${data.length} bytes`);
-      }).on('close', () => {
-        console.log(`File [${name}] done`);
-      })
-    }) 
  
-    bb.on('field', (name, val, info) => {
-      console.log(`${name} %j`, val ) 
-    })
-
-    return req.pipe(bb)
-  }
-
-
- /*    bb.on('close', () => {
-      console.log('Done parsing form!');
-      res.writeHead(303, { Connection: 'close', Location: '/' });
-      res.end();
-    }) */
   
-  /*   try {
+    try {
+
+
+    if (req.method === 'POST') {
+    const bb = busboy({ headers: req.headers }); 
+     // bb.on('file', (name, file, info) => {
+     
+       // const { filename, encoding, mimeType } = info;
+     
+      //console.log(  `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,  filename,  encoding,  mimeType  )
+     
+     
+     // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
+   // }) 
+ 
+    bb.on('field', (name, val, info) => {  console.log(`${name} %j`, val )  })
+
+     req.pipe(bb)
+  }  
+
+
         await uploadFile(req, res)
        
         if (req.file == undefined) {
@@ -182,7 +172,7 @@ const upload = async (req, res) => {
         res.status(500).send({
           message: `Could not upload the file:. ${err}`,
         });
-      }  */
+      }   
 };
 
 const getListFiles = (req, res) => {
