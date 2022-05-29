@@ -127,39 +127,27 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
-
+let key,value=[];
   try {
     if (req.method === 'POST') {
-      const bb = busboy({ headers: req.headers })  
-
-
-      // bb.on('file', (name, file, info) => {
-
-      // const { filename, encoding, mimeType } = info;
-
-      //console.log(  `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,  filename,  encoding,  mimeType  )
-
-
-      // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
-      // }) 
-
+      const bb = busboy({ headers: req.headers })   
         bb.on('field', (name, val) => 
 
         {  
           
-        console.log(name, val)
+       // console.log(name, val)
+        
+         key = name;
+         value = val;
+   
+        console.log(key)
+        console.log("--")
+        console.log(value)
+
         }
           
           )   
-        console.log("--")
-      
-
-     /* bb.on("field", ( fieldname, name, val, fieldnameTruncated, valTruncated,  encoding,  mimetype  )=>
-        {
-     //  const body[fieldname] = val;  
-     console.log(`${name} %j`, val)
-        }
-      );   */
+       
 
       req.pipe(bb) 
 
@@ -177,6 +165,7 @@ const upload = async (req, res) => {
          });
        }
        ); */
+
       /* 
           sliders.save(sliders)
            .then(data => {
@@ -195,15 +184,7 @@ const upload = async (req, res) => {
        sliders.save(sliders)
        .then(data => {
          res.send(data);
-       }) */
-
-
-      /*  .catch(err => {
-         res.status(500).send({
-           message:
-             err.message || "Some error occurred while creating the bayi."
-         });
-       }); */
+       }) */ 
 
 
 
