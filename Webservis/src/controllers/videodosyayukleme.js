@@ -145,12 +145,15 @@ const upload = async (req, res) => {
      // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
    // }) 
  
-    bb.on('field', (name, val, info) => {  console.log(`${name} %j`, val )  })
+    bb.on('field', (name, val, info) => {  
+      
+      
+      console.log(`${name} %j`, val )  
+    
+    })
 
      req.pipe(bb)
-  }  
-
-
+  }   
         await uploadFile(req, res)
        
         if (req.file == undefined) {
