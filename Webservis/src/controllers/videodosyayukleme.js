@@ -126,16 +126,11 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload = async (req, res, next) => {
-
-
-  next()
-
+const upload = async (req, res) => { 
 
   if (req.method === 'POST') {
-    console.log('POST request');
-    const bb = busboy({ headers: req.headers });
-    bb.on('file', (name, file, info) => {
+    const bb = busboy({ headers: req.headers }); 
+      bb.on('file', (name, file, info) => {
       const { filename, encoding, mimeType } = info;
       console.log(
         `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,
@@ -149,18 +144,22 @@ const upload = async (req, res, next) => {
       }).on('close', () => {
         console.log(`File [${name}] done`);
       })
-    })
+    }) 
+ 
     bb.on('field', (name, val, info) => {
-      console.log(`Field [${name}]: value: %j`, val);
+      console.log(`${name} %j`, val ) 
     })
-    bb.on('close', () => {
+
+    return req.pipe(bb)
+  }
+
+
+ /*    bb.on('close', () => {
       console.log('Done parsing form!');
       res.writeHead(303, { Connection: 'close', Location: '/' });
       res.end();
-    })
-    req.pipe(bb)
-  }
-
+    }) */
+  
   /*   try {
         await uploadFile(req, res)
        

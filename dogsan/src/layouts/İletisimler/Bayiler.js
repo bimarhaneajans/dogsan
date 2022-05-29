@@ -23,8 +23,8 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import Select from 'react-select';
-import DropdownWrapper from "react-dropdown-wrapper";
-
+/* import DropdownWrapper from "react-dropdown-wrapper";
+ */
 
 export default function Bayiler() {
 
@@ -222,7 +222,7 @@ export default function Bayiler() {
 
                 </DropdownWrapper> */}
 
-                <DropdownWrapper
+               {/*  <DropdownWrapper
         closeOnEsc
         onStateChange={console.log}
         wrapperProps={{
@@ -246,7 +246,7 @@ export default function Bayiler() {
             )}
           </>
         )}
-      </DropdownWrapper>
+      </DropdownWrapper> */}
                 {sehir.map(item => (
                     <div key={item.id} class="team-filter-nav text-center">
                         <ul id="filters" class="filter-nav list-inline list-unstyled">
