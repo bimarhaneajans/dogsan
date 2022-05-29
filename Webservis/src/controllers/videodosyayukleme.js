@@ -17,6 +17,14 @@ var FormData = require('form-data');
 var fs = require('fs');
 const busboy = require('busboy');
 
+
+mongoose.connect(dbConfig.url);
+var dbs=mongoose.connection;
+dbs.on('error', console.log.bind(console, "connection error"));
+dbs.once('open', function(callback){
+   console.log("connection basarili");
+})
+
 const { check, validationResult } = require('express-validator');
 
 
@@ -127,6 +135,8 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
+  MongoClient.connect(dbConfig.url, function(err, db) {
+    if (err) throw err;
   const body = {}
   try {
     if (req.method === 'POST') {
@@ -140,82 +150,53 @@ const upload = async (req, res) => {
         // console.log(value)  
         body[name] = name;
         body[val] = val;
-        const data = body[name]+":"+body[val];
-        console.log(JSON.stringify(data)) 
+        const data = body[name]+":"+body[val]; 
 
 
 
-         
-        let newData = [];
-
-     /*    for (var i in body[fieldname]) {
-        // console.log(JSON.stringify([i])) 
-            /* newdata.push(
-              {
-                src: i.src,
-                caption: '',
-                width: 1024,
-                height: 'auto'
-              }, 
-            ); 
-          } */
-          
-        
+      // console.log(JSON.stringify(data))   
 
 
-        /*   let txt = "";
-          for (let x in body) {
-            txt += JSON.stringify(body[x]);
-          }
-          console.log(JSON.stringify(txt)) */
-      }
-
-      )
+      }) 
 
 
+      
 
-
-      req.pipe(bb)
-
-
-
-    }
-    /*  sliders.save(sliders)
-     /* .then(data => {
-       res.send(data)
-     })  
-     .catch(err => {
-       res.status(500).send({
-         message:
-           err.message || "Some error occurred while creating the bayi."
-       });
-     }
-     ); */
-
-    /* 
-        sliders.save(sliders)
-         .then(data => {
-          res.send(data);
-        })  */
-
-
-    // console.log(sliders);
-
-    /*  let sliders = new Sliders({
-       name: val,  
-     })
+           
+              var dbo = db.db("mydb");
+              var myobj = [
+                { name: 'John', address: 'Highway 71'},
+                { name: 'Peter', address: 'Lowstreet 4'},
+                { name: 'Amy', address: 'Apple st 652'},
+                { name: 'Hannah', address: 'Mountain 21'},
+                { name: 'Michael', address: 'Valley 345'},
+                { name: 'Sandy', address: 'Ocean blvd 2'},
+                { name: 'Betty', address: 'Green Grass 1'},
+                { name: 'Richard', address: 'Sky st 331'},
+                { name: 'Susan', address: 'One way 98'},
+                { name: 'Vicky', address: 'Yellow Garden 2'},
+                { name: 'Ben', address: 'Park Lane 38'},
+                { name: 'William', address: 'Central st 954'},
+                { name: 'Chuck', address: 'Main Road 989'},
+                { name: 'Viola', address: 'Sideway 1633'}
+              ];
+              dbo.collection("customers").insertMany(myobj, function(err, res) {
+                if (err) throw err;
+                console.log("Number of documents inserted: " + res.insertedCount);
+                db.close();
+              });
+           
  
+      req.pipe(bb) 
+
+    } 
+
  
- 
-     sliders.save(sliders)
-     .then(data => {
-       res.send(data);
-     }) */
 
 
 
 
-    await uploadFile(req, res)
+    uploadFile(req, res)
 
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
@@ -237,6 +218,8 @@ const upload = async (req, res) => {
       message: `Could not upload the file:. ${err}`,
     });
   }
+
+});
 };
 
 const getListFiles = (req, res) => {
