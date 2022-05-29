@@ -141,27 +141,21 @@ const upload = async (req, res) => {
      // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
    // }) 
  
-    bb.on('field', (name, val, info) => {  
+    const data = bb.on('field', (name, val, info) => {  
 
 
     console.log(`${name} %j`, val ) 
 
-    for (var i = 0; i < bb.on.length; i++) {
-
-      
-      console.log(i+`${name} %j`, val ) 
-    }
+   
     
-   /*  let sliders = new Sliders({
-      name: val, 
-     // published: req.body.published ? req.body.published : false,  
-  
-    });  */
+  let sliders = new Sliders({
+      name: val,  
+    });  
 
-    /* sliders.save(sliders)
-    .then(data => {
+    sliders.save(sliders)
+    /* .then(data => {
       res.send(data);
-    })  */
+    })  */ 
       
        
      // console.log(bb.field.fileName);
