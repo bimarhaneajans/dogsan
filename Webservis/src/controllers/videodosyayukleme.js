@@ -127,41 +127,27 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
-let key,value=[];
 const body = {}
   try {
     if (req.method === 'POST') {
       const bb = busboy({ headers: req.headers })   
-        bb.on('field', (
-          fieldname,
-          val,
-          name,
-         fieldnameTruncated,
-         valTruncated,
-       encoding,
-         mimetype
-        ) => 
-
-        {  
-          
-       // console.log(name, val)
+        bb.on('field', (fieldname,name, val,mimetype ) =>  
+        {   
         
-         key = name;
-         value = val;
-   
-        console.log(key)
-        console.log("--")
-        console.log(value)
-    
-        
-      
+        // key = name;
+         //value = val;  
+         /* console.log(fieldname)*/ 
+        //console.log(key) 
+       // console.log(value)  
+        body[fieldname] = val;
+      console.log(JSON.stringify(body)) 
       }
-          
-          )   
+      
+      )   
        
-
+    
       req.pipe(bb) 
-
+  
 
 
     }
