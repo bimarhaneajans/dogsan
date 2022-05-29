@@ -22,8 +22,9 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-import Select from 'react-select';
-import DropdownWrapper from "react-dropdown-wrapper";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Dropdown, DropdownButton, Button } from 'react-bootstrap';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 
 export default function Bayiler() {
@@ -44,6 +45,11 @@ export default function Bayiler() {
     const [sehir, setSehir] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [actuve, setactive] = useState("");
+
+    const handleInputChange = event => {
+        const { name, value } = event.target;
+        setCurrentTutorial({ ...currentTutorial, [name]: value });
+    };
     /*  const { isLoaded } =  */
     /*  useJsApiLoader({
           id: 'google-map-script',
@@ -87,7 +93,6 @@ export default function Bayiler() {
         retrievefiltered();
     }, []);
 
-
     const retrievefiltered = () => {
         BayiDataService.getAll()
             .then(response => {
@@ -128,6 +133,9 @@ export default function Bayiler() {
         setFiltered(filtered)
 
     }, [actuve]);
+    const render = (status: Status) => {
+        return <h1>{status}</h1>;
+      };
 
     return (<div className="main-wrapper">
         {/*  burada <GoogleMap
@@ -178,76 +186,35 @@ export default function Bayiler() {
                 <div className="clearfix"></div>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
-                <div class="team-filter-nav text-center">
-                    <ul id="filters" class="filter-nav list-inline list-unstyled">
-                        <li style={{ float: "center" }}><a onClick={() => setactive("")} >TÜM BİRİMLER</a></li>
-                    </ul>
+
+                <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}>
+
+
+                    <Container className='p-4'>
+
+                        <Button size='lg' variant="primary" id="dropdown-basic-button">
+                            <a onClick={() => setactive("")} ></a>TÜM BAYİLER
+                        </Button>
+
+                    </Container>
+
                 </div>
-                {/* <select
-                    type="text"
-                    id="sehir"
-                    name="sehir"
-                    value={bayi.sehir}
-                    onChange={() => setactive(sehir.sehirAdi)}
-                    class={actuve === sehir.sehirAdi.toString().type ? "active" : ""}
-                  >
-                    {sehir.map(options => <option key={options.sehirAdi} value={options.sehirAdi}  
-                    >{options.sehirAdi}</option>)
-                    }
+                <div class="col-md-5" style={{ fontWeight: "bold", textAlign: "center" }}>
 
-                  </select> */}
-{/*                 <DropdownWrapper
-                    closeOnEsc
-                    onStateChange={console.log}
-                    wrapperProps={{
-                        className: "dropdown-wrapper"
-                    }}
-                >
-                    {({ changeStatus, isShow }) => (
-                        <>
-                            <button
-                                className="dropdown-toggle"
-                                onClick={() => changeStatus(!isShow)}
-                            >
-                                Dropdown Toggle Button
-                            </button>
-                            {isShow && (
-                                sehir.map(item => (
-                                <div key={item.id} className="dropdown">
-                                    <div className="dropdown-item"><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></div>
-                                </div>))
-                            )}
-                        </>
-                    )}
 
-                </DropdownWrapper> */}
+                    <Container className='p-4'>
 
-                <DropdownWrapper
-        closeOnEsc
-        onStateChange={console.log}
-        wrapperProps={{
-          className: "dropdown-wrapper"
-        }}
-      >
-        {({ changeStatus, isShow }) => (
-          <>
-            <button
-              className="dropdown-toggle"
-              onClick={() => changeStatus(!isShow)}
-            >
-              Dropdown Toggle Button
-            </button>
-            {isShow && (
-              <div className="dropdown">
-                <div className="dropdown-item">Dropdown Item 1</div>
-                <div className="dropdown-item">Dropdown Item 2</div>
-                <div className="dropdown-item">Dropdown Item 3</div>
-              </div>
-            )}
-          </>
-        )}
-      </DropdownWrapper>
-                {sehir.map(item => (
+
+                        <DropdownButton size='lg' variant="primary" id="dropdown-basic-button" title="ŞEHİR SEÇİMİ">
+                            {sehir.map(item => (
+                                <div key={item.id}>
+                                    <Dropdown.Item href="#/action-1"><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></Dropdown.Item></div>))}
+                        </DropdownButton>
+                    </Container>
+
+                </div>
+
+                {/* {sehir.map(item => (
                     <div key={item.id} class="team-filter-nav text-center">
                         <ul id="filters" class="filter-nav list-inline list-unstyled">
                             <li style={{ float: "left" }}><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></li>
@@ -255,17 +222,15 @@ export default function Bayiler() {
                         </ul>
                     </div>
                 ))}
-
+ */}
                 {filtered.map(item => (
                     <div key={item.id} className="col-md-9">
                         <article>
-                            <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.sehir }}  ></div></p>
-                            <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p>
-                            <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.telefon }}  ></div></p>
+                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.sehir }}  ></div></p></div>
+                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
+                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.telefon }}  ></div></p></div>
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
-
-
                         </article>
 
                     </div>))}
