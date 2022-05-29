@@ -17,6 +17,14 @@ var FormData = require('form-data');
 var fs = require('fs');
 const busboy = require('busboy');
 
+
+mongoose.connect(dbConfig.url);
+var dbs=mongoose.connection;
+dbs.on('error', console.log.bind(console, "connection error"));
+dbs.once('open', function(callback){
+   console.log("connection basarili");
+})
+
 const { check, validationResult } = require('express-validator');
 
 
@@ -126,52 +134,92 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload = async (req, res) => {  
-  
-    try { 
+const upload = async (req, res) => {
+  MongoClient.connect(dbConfig.url, function(err, db) {
+    if (err) throw err;
+  const body = {}
+  try {
     if (req.method === 'POST') {
-    const bb = busboy({ headers: req.headers }); 
-     // bb.on('file', (name, file, info) => {
-     
-       // const { filename, encoding, mimeType } = info;
-     
-      //console.log(  `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,  filename,  encoding,  mimeType  )
-     
-     
-     // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
-   // }) 
- 
-    bb.on('field', (name, val, info) => {  
-      
-      
-      console.log(`${name} %j`, val )  
-    
-    })
+      const bb = busboy({ headers: req.headers })
+      bb.on('field', (name, val, mimetype) => {
 
-     req.pipe(bb)
-  }   
-        await uploadFile(req, res)
-       
-        if (req.file == undefined) {
-          return res.status(400).send({ message: "Please upload a file!" });
-        }
-    
-        res.status(200).send({
-          message: "Uploaded the file successfully: "
-        });
-      } catch (err) {
-        console.log(err);
-    
-        if (err.code == "LIMIT_FILE_SIZE") {
-          return res.status(500).send({
-            message: "File size cannot be larger than 2MB!",
-          });
-        }
-    
-        res.status(500).send({
-          message: `Could not upload the file:. ${err}`,
-        });
-      }   
+        // key = name;
+        //value = val;  
+        /* console.log(fieldname)*/
+        //console.log(key) 
+        // console.log(value)  
+        body[name] = name;
+        body[val] = val;
+        const data = body[name]+":"+body[val]; 
+
+
+
+      // console.log(JSON.stringify(data))   
+
+
+      }) 
+
+
+      
+
+           
+              var dbo = db.db("mydb");
+              var myobj = [
+                { name: 'John', address: 'Highway 71'},
+                { name: 'Peter', address: 'Lowstreet 4'},
+                { name: 'Amy', address: 'Apple st 652'},
+                { name: 'Hannah', address: 'Mountain 21'},
+                { name: 'Michael', address: 'Valley 345'},
+                { name: 'Sandy', address: 'Ocean blvd 2'},
+                { name: 'Betty', address: 'Green Grass 1'},
+                { name: 'Richard', address: 'Sky st 331'},
+                { name: 'Susan', address: 'One way 98'},
+                { name: 'Vicky', address: 'Yellow Garden 2'},
+                { name: 'Ben', address: 'Park Lane 38'},
+                { name: 'William', address: 'Central st 954'},
+                { name: 'Chuck', address: 'Main Road 989'},
+                { name: 'Viola', address: 'Sideway 1633'}
+              ];
+              dbo.collection("customers").insertMany(myobj, function(err, res) {
+                if (err) throw err;
+                console.log("Number of documents inserted: " + res.insertedCount);
+                db.close();
+              });
+           
+ 
+      req.pipe(bb) 
+
+    } 
+
+ 
+
+
+
+
+    uploadFile(req, res)
+
+    if (req.file == undefined) {
+      return res.status(400).send({ message: "Please upload a file!" });
+    }
+
+    res.status(200).send({
+      message: "Uploaded the file successfully: "
+    });
+  } catch (err) {
+    console.log(err);
+
+    if (err.code == "LIMIT_FILE_SIZE") {
+      return res.status(500).send({
+        message: "File size cannot be larger than 2MB!",
+      });
+    }
+
+    res.status(500).send({
+      message: `Could not upload the file:. ${err}`,
+    });
+  }
+
+});
 };
 
 const getListFiles = (req, res) => {
@@ -181,7 +229,7 @@ const getListFiles = (req, res) => {
   const ResimBaslik = req.query.ResimBaslik;
   var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
-  /* sliders.find(condition)
+  Sliders.find(condition)
     .then(data => {
       res.send(data);
 
@@ -205,15 +253,15 @@ const getListFiles = (req, res) => {
         JsonObject = JSON.parse(JSON.stringify(fileInfos));
         //console.log(JsonObject)
 
-        //  res.status(200).send();
+        res.status(200).send();
       });
     }).catch(err => {
       JSON.stringify(JsonObject)
-      /* res.status(200).send({
+      res.status(200).send({
         message:
           err.message || "Some error occurred while retrieving ignes."
-      });  
-    }) */
+      });
+    })
 
 
 

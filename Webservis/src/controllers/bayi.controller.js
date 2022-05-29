@@ -27,16 +27,7 @@ exports.create = (req, res) => {
     Resim: req.body.Resim,
     published: req.body.published ? req.body.published : false,
 
-  }); 
- 
-  /*   var file = fs.readFileSync(path.normalize(req.file.path));
-    var contenttype=mime.getType(path.normalize(req.file.path));
-    
-    bayi.img = {
-      data: file,
-      contentType: contenttype     
-    } */
-  
+  });  
 
   bayi.save(bayi)
     .then(data => {
