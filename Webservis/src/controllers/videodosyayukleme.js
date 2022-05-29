@@ -126,42 +126,30 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload = async (req, res, next) => {
-
-
-  next()
-
-
-  if (req.method === 'POST') {
-    console.log('POST request');
-    const bb = busboy({ headers: req.headers });
-    bb.on('file', (name, file, info) => {
-      const { filename, encoding, mimeType } = info;
-      console.log(
-        `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,
-        filename,
-        encoding,
-        mimeType
-      )
+const upload = async (req, res) => {  
+  
+    try { 
+    if (req.method === 'POST') {
+    const bb = busboy({ headers: req.headers }); 
+     // bb.on('file', (name, file, info) => {
      
-      file.on('data', (data) => {
-        console.log(`File [${name}] got ${data.length} bytes`);
-      }).on('close', () => {
-        console.log(`File [${name}] done`);
-      })
+       // const { filename, encoding, mimeType } = info;
+     
+      //console.log(  `File [${name}]: filename: %j, encoding: %j, mimeType: %j`,  filename,  encoding,  mimeType  )
+     
+     
+     // file.on('data', (data) => { }).on('close', () => { console.log(`File [${name}] done`); })
+   // }) 
+ 
+    bb.on('field', (name, val, info) => {  
+      
+      
+      console.log(`${name} %j`, val )  
+    
     })
-    bb.on('field', (name, val, info) => {
-      console.log(`Field [${name}]: value: %j`, val);
-    })
-    bb.on('close', () => {
-      console.log('Done parsing form!');
-      res.writeHead(303, { Connection: 'close', Location: '/' });
-      res.end();
-    })
-    req.pipe(bb)
-  }
 
-  /*   try {
+     req.pipe(bb)
+  }   
         await uploadFile(req, res)
        
         if (req.file == undefined) {
@@ -183,7 +171,7 @@ const upload = async (req, res, next) => {
         res.status(500).send({
           message: `Could not upload the file:. ${err}`,
         });
-      }  */
+      }   
 };
 
 const getListFiles = (req, res) => {
@@ -193,7 +181,7 @@ const getListFiles = (req, res) => {
   const ResimBaslik = req.query.ResimBaslik;
   var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
-  sliders.find(condition)
+  /* sliders.find(condition)
     .then(data => {
       res.send(data);
 
@@ -224,8 +212,8 @@ const getListFiles = (req, res) => {
       /* res.status(200).send({
         message:
           err.message || "Some error occurred while retrieving ignes."
-      }); */
-    })
+      });  
+    }) */
 
 
 

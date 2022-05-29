@@ -10,7 +10,6 @@ import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
-
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -22,17 +21,25 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Container, Dropdown, DropdownButton, Button } from 'react-bootstrap';
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import Select from 'react-select';
 
+
+const containerStyle = {
+    width: '400px',
+    height: '400px'
+  };
+  
+  const center = {
+    lat: -3.745,
+    lng: -38.523
+  };
 
 export default function Bayiler() {
-
-
     const [tutorials, setTutorials] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
-
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
     const [controller, dispatch] = useSoftUIController();
@@ -50,35 +57,7 @@ export default function Bayiler() {
         const { name, value } = event.target;
         setCurrentTutorial({ ...currentTutorial, [name]: value });
     };
-    /*  const { isLoaded } =  */
-    /*  useJsApiLoader({
-          id: 'google-map-script',
-          googleMapsApiKey: "AIzaSyC1FGocZ7AfTxDhQvlQ2qdnyXrmeEe-Oms"
-        })
-  
-  
-        const [map, setMap] = React.useState(null)
-  
-    const onLoad = React.useCallback(function callback(map) {
-      const bounds = new window.google.maps.LatLngBounds(center);
-      map.fitBounds(bounds);
-      setMap(map)
-    }, [])
-  
-    const onUnmount = React.useCallback(function callback(map) {
-      setMap(null)
-    }, [])
-  
-  
-      const containerStyle = {
-          width: '400px',
-          height: '400px'
-        };
-        
-        const center = {
-          lat: -3.745,
-          lng: -38.523
-        }; */
+
     useEffect(() => {
 
         retrieveBayi();
@@ -133,18 +112,25 @@ export default function Bayiler() {
         setFiltered(filtered)
 
     }, [actuve]);
-    const render = (status: Status) => {
-        return <h1>{status}</h1>;
-      };
-
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: "YOUR_API_KEY"
+      })
+    
+      const [map, setMap] = React.useState(null)
+    
+      const onLoad = React.useCallback(function callback(map) {
+        const bounds = new window.google.maps.LatLngBounds(center);
+        map.fitBounds(bounds);
+        setMap(map)
+      }, [])
+    
+      const onUnmount = React.useCallback(function callback(map) {
+        setMap(null)
+      }, [])
+    
     return (<div className="main-wrapper">
-        {/*  burada <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      ></GoogleMap>, */}
+ 
         <div>
             <div id="home">
                 <div id="bg-slider-home" className="bsh">
@@ -182,47 +168,51 @@ export default function Bayiler() {
         <div className="blog-content">
             <div className="container">
                 <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BAYİLER</h1>
+                <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        { /* Child components, such as markers, info windows, etc. */ }
+        <></>
+      </GoogleMap>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
-
-                <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}>
-
-
-                    <Container className='p-4'>
-
-                        <Button size='lg' variant="primary" id="dropdown-basic-button">
-                            <a onClick={() => setactive("")} ></a>TÜM BAYİLER
+      {/*           <div  class="team-filter-nav text-center">
+                  <ul id="filters" class="filter-nav list-inline list-unstyled">
+                    <li style={{ float: "center" }}><a onClick={() => setactive("")} >TÜM BİRİMLER</a></li>
+                  </ul>
+                </div> */}
+                <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center",color: "rgb(250, 250, 250)"  }}>
+           
+                        <Button size='lg' variant="primary" id="dropdown-basic-button" title="TÜM BAYİLER">
+                        <a style={{ textAlign: "center",color: "rgb(250, 250, 250)"  }} onClick={() => setactive("")} >TÜM BAYİLER</a>
                         </Button>
-
-                    </Container>
-
+          
                 </div>
+          
                 <div class="col-md-5" style={{ fontWeight: "bold", textAlign: "center" }}>
-
-
-                    <Container className='p-4'>
-
-
+                 
                         <DropdownButton size='lg' variant="primary" id="dropdown-basic-button" title="ŞEHİR SEÇİMİ">
                             {sehir.map(item => (
                                 <div key={item.id}>
-                                    <Dropdown.Item href="#/action-1"><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></Dropdown.Item></div>))}
+                                    <Dropdown.Item ><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></Dropdown.Item></div>))}
                         </DropdownButton>
-                    </Container>
-
+              
                 </div>
-
                 {/* {sehir.map(item => (
+
                     <div key={item.id} class="team-filter-nav text-center">
                         <ul id="filters" class="filter-nav list-inline list-unstyled">
                             <li style={{ float: "left" }}><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></li>
 
                         </ul>
                     </div>
-                ))}
- */}
+                ))} */}
                 {filtered.map(item => (
                     <div key={item.id} className="col-md-9">
                         <article>
@@ -236,7 +226,7 @@ export default function Bayiler() {
                     </div>))}
                 <aside className="col-md-3">
 
-                    <div className="side-content">
+                    <div className="side-content" >
                         <h5>İLETİŞİM</h5>
                         <ul className="list1">
                             <li><Link to={"/BizeUlasin"} className="nav-link">Bize Ulaşın</Link></li>
