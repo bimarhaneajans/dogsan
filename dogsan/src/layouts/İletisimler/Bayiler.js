@@ -9,7 +9,7 @@ import SehirDataService from "../../services/SehirService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
- import { GoogleMap, LoadScript, Marker, useJsApiLoader  } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-maps/api';
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -23,60 +23,24 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 
 import { Container, Dropdown, DropdownButton, Button } from 'react-bootstrap';
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+
 import Select from 'react-select';
 
 
 const containerStyle = {
-    width: window.innerWidth-250,
+    width: window.innerWidth - 250,
     height: '400px'
-  };
-  
-  const center = {
+};
+
+const center = {
     lat: 39.0014629,
     lng: 30.6871553
-  };
-
-  const locations = [
-    {
-      name: "Location 1",
-      location: { 
-        lat: 41.3954,
-        lng: 2.162 
-      },
-    },
-    {
-      name: "Location 2",
-      location: { 
-        lat: 41.3917,
-        lng: 2.1649
-      },
-    },
-    {
-      name: "Location 3",
-      location: { 
-        lat: 41.3773,
-        lng: 2.1585
-      },
-    },
-    {
-      name: "Location 4",
-      location: { 
-        lat: 41.3797,
-        lng: 2.1682
-      },
-    },
-    {
-      name: "Location 5",
-      location: { 
-        lat: 41.4055,
-        lng: 2.1915
-      },
-    }
-  ];
-
+};
+let newData = [];
+ let locations = [];
 export default function Bayiler() {
     const [tutorials, setTutorials] = useState([]);
+    let [oldlocations, setoldlocations] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
@@ -104,28 +68,33 @@ export default function Bayiler() {
 
         retrieveSehir();
     }, []);
-
     useEffect(() => {
 
         retrievefiltered();
+    
     }, []);
-
     const retrievefiltered = () => {
         BayiDataService.getAll()
             .then(response => {
                 setFiltered(response.data);
-                console.log(response.data);
+                //console.log("filtered"+JSON.stringify(response.data))
+               
+
             })
             .catch(e => {
                 console.log(e);
             });
-    };
 
+          
+
+
+
+    };
     const retrieveBayi = () => {
         BayiDataService.getAll()
             .then(response => {
                 setBayi(response.data);
-                console.log(response.data);
+                // console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -135,7 +104,7 @@ export default function Bayiler() {
         SehirDataService.getAll()
             .then(response => {
                 setSehir(response.data);
-                console.log(response.data);
+                //console.log(response.data);
             })
             .catch(e => {
                 console.log(e);
@@ -154,22 +123,56 @@ export default function Bayiler() {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyC1FGocZ7AfTxDhQvlQ2qdnyXrmeEe-Oms"
-      })
-    
-      const [map, setMap] = React.useState(null)
-    
-      const onLoad = React.useCallback(function callback(map) {
+    })
+
+    const [map, setMap] = React.useState(null)
+
+    const onLoad = React.useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds(center);
         map.fitBounds(bounds);
         setMap(map)
-      }, [])
-    
-      const onUnmount = React.useCallback(function callback(map) {
+    }, [])
+
+    const onUnmount = React.useCallback(function callback(map) {
         setMap(null)
-      }, [])
-    
+    }, [])
+
+
+  /*   filtered.map(item => (
+            console.log(item.enlem+""+ item.boylam)
+         ))  */
+
+         //let filledData = [1, 2, 3].fill(4, 0 ,1);
+   /*    locations = [
+        {
+            name: "Location 1",
+            location: {
+                lat: 41.189837214878935,
+                lng: 28.607495369360134
+            },
+        },
+
+    ]; */
+
+    for(var i in filtered){
+       
+        locations.push(
+            {
+               // name: JSON.stringify(i.baslik),
+                location: {
+                    lat: i.boylam,
+                    lng: i.enlem
+                },
+            },
+        )
+         // locations.push(newData)
+         console.log(locations);
+        }
+        
+        
+
     return (<div className="main-wrapper">
- 
+
         <div>
             <div id="home">
                 <div id="bg-slider-home" className="bsh">
@@ -208,47 +211,49 @@ export default function Bayiler() {
             <div className="container">
                 <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BAYİLER</h1>
                 <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={3}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
+                    mapContainerStyle={containerStyle}
+                    center={center}
+                    streetView
+                    zoom={5}
+                    onLoad={onLoad}
+                    onUnmount={onUnmount}
+                //onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}
+                >  {filtered.map(item => (
+                <Marker position={{ lat: item.enlem, lng: item.boylam }} />))}
+                   {/*  {
+                        locations.map(item => {
+                            return (
+                                <Marker key={item.name} position={item.location} />
+                            )
+                        })
+                    } */}
 
-{
-            locations.map(item => {
-              return (
-              <Marker key={item.name} position={item.location}/>
-              )
-            })
-         }
-   
-      </GoogleMap>
+                </GoogleMap>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
-      {/*           <div  class="team-filter-nav text-center">
+                {/*           <div  class="team-filter-nav text-center">
                   <ul id="filters" class="filter-nav list-inline list-unstyled">
                     <li style={{ float: "center" }}><a onClick={() => setactive("")} >TÜM BİRİMLER</a></li>
                   </ul>
                 </div> */}
-                <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center",color: "rgb(250, 250, 250)"  }}>
-           
-                        <Button size='lg' variant="primary" id="dropdown-basic-button" title="TÜM BAYİLER">
-                        <a style={{ textAlign: "center",color: "rgb(250, 250, 250)"  }} onClick={() => setactive("")} >TÜM BAYİLER</a>
-                        </Button>
-          
+                <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center", color: "rgb(250, 250, 250)" }}>
+
+                    <Button size='lg' variant="primary" id="dropdown-basic-button" title="TÜM BAYİLER">
+                        <a style={{ textAlign: "center", color: "rgb(250, 250, 250)" }} onClick={() => setactive("")} >TÜM BAYİLER</a>
+                    </Button>
+
                 </div>
-          
+
                 <div class="col-md-5" style={{ fontWeight: "bold", textAlign: "center" }}>
-                 
-                        <DropdownButton size='lg' variant="primary" id="dropdown-basic-button" title="ŞEHİR SEÇİMİ">
-                            {sehir.map(item => (
-                                <div key={item.id}>
-                                    <Dropdown.Item ><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></Dropdown.Item></div>))}
-                        </DropdownButton>
-              
+
+                    <DropdownButton size='lg' variant="primary" id="dropdown-basic-button" title="ŞEHİR SEÇİMİ">
+                        {sehir.map(item => (
+                            <div key={item.id}>
+                                <Dropdown.Item ><a name={item.sehirAdi.toString()} value={item.sehirAdi.toString()} onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}>{item.sehirAdi}</a></Dropdown.Item></div>))}
+                    </DropdownButton>
+
                 </div>
                 {/* {sehir.map(item => (
 
