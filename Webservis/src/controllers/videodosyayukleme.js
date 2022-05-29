@@ -127,65 +127,94 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
-const body = {}
+  const body = {}
   try {
     if (req.method === 'POST') {
-      const bb = busboy({ headers: req.headers })   
-        bb.on('field', (fieldname,name, val,mimetype ) =>  
-        {   
-        
+      const bb = busboy({ headers: req.headers })
+      bb.on('field', (name, val, mimetype) => {
+
         // key = name;
-         //value = val;  
-         /* console.log(fieldname)*/ 
+        //value = val;  
+        /* console.log(fieldname)*/
         //console.log(key) 
-       // console.log(value)  
-        body[fieldname] = val;
-      console.log(JSON.stringify(body)) 
+        // console.log(value)  
+        body[name] = name;
+        body[val] = val;
+        const data = body[name]+":"+body[val];
+        console.log(JSON.stringify(data)) 
+
+
+
+         
+        let newData = [];
+
+     /*    for (var i in body[fieldname]) {
+        // console.log(JSON.stringify([i])) 
+            /* newdata.push(
+              {
+                src: i.src,
+                caption: '',
+                width: 1024,
+                height: 'auto'
+              }, 
+            ); 
+          } */
+          
+        
+
+
+        /*   let txt = "";
+          for (let x in body) {
+            txt += JSON.stringify(body[x]);
+          }
+          console.log(JSON.stringify(txt)) */
       }
-      
-      )   
-       
-    
-      req.pipe(bb) 
-  
+
+      )
+
+
+
+
+      req.pipe(bb)
+
 
 
     }
-      /*  sliders.save(sliders)
-       /* .then(data => {
-         res.send(data)
-       })  
-       .catch(err => {
-         res.status(500).send({
-           message:
-             err.message || "Some error occurred while creating the bayi."
-         });
-       }
-       ); */
+    /*  sliders.save(sliders)
+     /* .then(data => {
+       res.send(data)
+     })  
+     .catch(err => {
+       res.status(500).send({
+         message:
+           err.message || "Some error occurred while creating the bayi."
+       });
+     }
+     ); */
 
-      /* 
-          sliders.save(sliders)
-           .then(data => {
-            res.send(data);
-          })  */
+    /* 
+        sliders.save(sliders)
+         .then(data => {
+          res.send(data);
+        })  */
 
 
-      // console.log(sliders);
+    // console.log(sliders);
 
-      /*  let sliders = new Sliders({
-         name: val,  
-       })
+    /*  let sliders = new Sliders({
+       name: val,  
+     })
  
  
  
-       sliders.save(sliders)
-       .then(data => {
-         res.send(data);
-       }) */ 
+     sliders.save(sliders)
+     .then(data => {
+       res.send(data);
+     }) */
 
 
 
-   
+
     await uploadFile(req, res)
 
     if (req.file == undefined) {
