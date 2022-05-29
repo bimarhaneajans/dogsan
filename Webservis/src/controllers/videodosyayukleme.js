@@ -142,9 +142,50 @@ const upload = async (req, res) => {
    // }) 
  
     bb.on('field', (name, val, info) => {  
+
+
+    console.log(`${name} %j`, val ) 
+
+    for (var i = 0; i < bb.on.length; i++) {
+
       
+      console.log(i+`${name} %j`, val ) 
+    }
+    
+   /*  let sliders = new Sliders({
+      name: val, 
+     // published: req.body.published ? req.body.published : false,  
+  
+    });  */
+
+    /* sliders.save(sliders)
+    .then(data => {
+      res.send(data);
+    })  */
       
-      console.log(`${name} %j`, val )  
+       
+     // console.log(bb.field.fileName);
+      
+     /*  let sliders = new Sliders({
+        name: val,  
+      })
+
+
+
+      sliders.save(sliders)
+      .then(data => {
+        res.send(data);
+      }) */
+
+
+     /*  .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the bayi."
+        });
+      }); */
+      
+   
     
     })
 
@@ -181,7 +222,7 @@ const getListFiles = (req, res) => {
   const ResimBaslik = req.query.ResimBaslik;
   var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
-  /* sliders.find(condition)
+  Sliders.find(condition)
     .then(data => {
       res.send(data);
 
@@ -205,15 +246,15 @@ const getListFiles = (req, res) => {
         JsonObject = JSON.parse(JSON.stringify(fileInfos));
         //console.log(JsonObject)
 
-        //  res.status(200).send();
+          res.status(200).send();
       });
     }).catch(err => {
       JSON.stringify(JsonObject)
-      /* res.status(200).send({
+       res.status(200).send({
         message:
           err.message || "Some error occurred while retrieving ignes."
       });  
-    }) */
+    })
 
 
 
