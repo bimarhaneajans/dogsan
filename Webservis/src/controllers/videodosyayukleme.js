@@ -142,43 +142,51 @@ const upload = async (req, res) => {
       if (req.method === 'POST') {
 
         const bb = busboy({ headers: req.headers })
-        bb.on('field', (name,val) => { 
-         // let formData = new Map();
-         
-         // formData.set(name, val);
-        //   console.log(formData)
+        bb.on('field', (name, val) => {
+          // let formData = new Map();
+
+          // formData.set(name, val);
+          //   console.log(formData)
 
           // formData.set(val,name)
           //formData.set('Resimicerik',val) 
-      
-         //  console.log(formData)
-              //formData.get('ResimBaslik')
-        
+
+          //  console.log(formData)
+          //formData.get('ResimBaslik')
+
 
           var dbo = db.db("dogsandb");
 
           var formData = [name, val];
-          for (var i = 0; i < formData.length; i++) {
-            
-            formData[i] = val;
-          }
-          console.log(formData);
+          // const slider = [name, val];
+          /*  for (var i = 0; i < formData.length; i++) {
+             
+             formData[i] = val;
+             const slider = new Slider({
+ 
+               gorsel: [
+                 {
+                   ResimBaslik: i.formData,
+                   Resimpath:formData[i],
+                   Resimicerik: formData[i],
+                   VideoBaslik: formData[i],
+                   Videopath: formData[i],
+                   Veritipi: formData[i],
+                   published:formData[i]
+                 }
+               ]
+             })
+ 
+             console.log(slider);
+ 
+ 
+           } */
 
-          const slider = new Slider({
-
-            gorsel: [
-              {
-                ResimBaslik: "String",
-                Resimpath: "String",
-                Resimicerik: "String",
-                VideoBaslik: "String",
-                Videopath: "String",
-                Veritipi: "String",
-                published: "Boolean"
-              }
-            ]
-          })
-
+         /*  for (let i = 0; i < formData.val; i++) 
+          {
+          
+          } */
+         
 
           // body[name] = name;
           //body[val] = val;
@@ -194,7 +202,7 @@ const upload = async (req, res) => {
             console.log(data)   */
 
 
-          
+
 
           //  console.log(slider) 
 
@@ -215,10 +223,10 @@ const upload = async (req, res) => {
 
 
 
-          /* dbo.collection("slider").insertMany(slider, function(err, res) {
+           dbo.collection("slider").insertMany((formData), function(err, res) {
            if (err) throw err;
          //   db.close();
-         });  */
+         }); 
 
           /* datalarim = JSON.parse(newData);
             dbo.collection("slider").insertMany(newData, function (err, res) {
@@ -255,7 +263,7 @@ const upload = async (req, res) => {
 
 
 
-        
+
 
 
         });
