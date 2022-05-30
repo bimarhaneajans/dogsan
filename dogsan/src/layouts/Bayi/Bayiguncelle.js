@@ -222,34 +222,34 @@ const Bayiguncelle = props => {
 
                 <div className="form-group">
                   <label htmlFor="Enlem">Enlem</label>
-                <input
-                type="number"
+                  {/* <input
+                type="text"
                 className="form-control"
                 id="enlem"
                 required
                 value={currentTutorial.enlem}
                 onChange={handleInputChange}
                 name="enlem"
-              />  
-                {/*   <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }}
+              /> */}
+                  <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }}
                     value={currentTutorial.enlem}
-                    onChange={(enlem) => handleInputChange({ target: { value: enlem, name: 'enlem' } })} /> */}
+                    onChange={(enlem) => handleInputChange({ target: { value: enlem, name: 'enlem' } })} />
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="boylam">boylam</label>
-              <input
-                type="number"
+                  {/*    <input
+                type="text"
                 className="form-control"
                 id="boylam"
                 required
                 value={currentTutorial.boylam}
                 onChange={handleInputChange}
                 name="boylam"
-              />  
-                 {/*  <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }}
+              /> */}
+                  <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }}
                     value={currentTutorial.boylam}
-                    onChange={(boylam) => handleInputChange({ target: { value: boylam, name: 'boylam' } })} /> */}
+                    onChange={(boylam) => handleInputChange({ target: { value: boylam, name: 'boylam' } })} />
                 </div>
 
                 <FileBase64

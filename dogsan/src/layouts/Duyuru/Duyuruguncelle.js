@@ -26,7 +26,7 @@ const Overview = props => {
     icerik: "",
     published: false
   };
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  const [currentTutorial, setCurrentTutorial] = useState();
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
