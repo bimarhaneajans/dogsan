@@ -142,21 +142,42 @@ const upload = async (req, res) => {
       if (req.method === 'POST') {
 
         const bb = busboy({ headers: req.headers })
-        bb.on('field', (fieldname, name, val, mimetype) => { 
-          let formData = new Map();
+        bb.on('field', (name,val) => { 
+         // let formData = new Map();
          
-            //formData.set(fieldname, val);
-             //console.log(formData)
+         // formData.set(name, val);
+        //   console.log(formData)
 
-             formData.set(fieldname,name, val)
-             //formData.set('Resimicerik',val)
-
-               console.log(formData);
+          // formData.set(val,name)
+          //formData.set('Resimicerik',val) 
       
-
+         //  console.log(formData)
+              //formData.get('ResimBaslik')
         
 
           var dbo = db.db("dogsandb");
+
+          var formData = [name, val];
+          for (var i = 0; i < formData.length; i++) {
+            
+            formData[i] = val;
+          }
+          console.log(formData);
+
+          const slider = new Slider({
+
+            gorsel: [
+              {
+                ResimBaslik: "String",
+                Resimpath: "String",
+                Resimicerik: "String",
+                VideoBaslik: "String",
+                Videopath: "String",
+                Veritipi: "String",
+                published: "Boolean"
+              }
+            ]
+          })
 
 
           // body[name] = name;
@@ -173,20 +194,7 @@ const upload = async (req, res) => {
             console.log(data)   */
 
 
-          const slider = new Slider({
-
-            gorsel: [
-              {
-                ResimBaslik: "String",
-                Resimpath: "String",
-                Resimicerik: "String",
-                VideoBaslik: "String",
-                Videopath: "String",
-                Veritipi: "String",
-                published: "Boolean"
-              }
-            ]
-          })
+          
 
           //  console.log(slider) 
 
@@ -242,6 +250,14 @@ const upload = async (req, res) => {
         bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
           res.end("Başarılı sistem kapatıldı");
+
+
+
+
+
+        
+
+
         });
 
         //console.log(bb)
