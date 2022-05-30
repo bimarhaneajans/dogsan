@@ -149,11 +149,16 @@ const upload = async (req, res) => {
           //  console.log(`${name} %j`, val); 
 
          
-          const slider = new Slider(
+          /* const slider = new Slider(
           { 
             [name]:name,[val]:val,
           });
-          console.log(slider)
+            console.log(slider) */
+
+            const slider = new Slider({
+              
+            })
+
 
           //console.log(JSON.stringify(newData))
           //slider.save(slider)
