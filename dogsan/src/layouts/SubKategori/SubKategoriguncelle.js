@@ -29,7 +29,7 @@ const Bayiguncelle = props => {
     videourl: "",
     published: false
   };
-  const [currentTutorial, setCurrentTutorial] = useState();
+  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -224,7 +224,7 @@ const Bayiguncelle = props => {
               <div className="form-group">
                 <label htmlFor="kategoriid">kategoriid</label>
                 <input
-                  type="number"
+                  type="Number"
                   className="form-control"
                   id="kategoriid"
                   required

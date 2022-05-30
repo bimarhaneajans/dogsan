@@ -57,7 +57,7 @@ const IgneEkle = () => {
       
       igneadi: JSON.stringify(igneadi),
       siralama:  JSON.stringify(siralama),
-      Resim:  JSON.stringify(Resim),
+      Resim:  tutorial.Resim,
     };
 
     IgneDataService.create(data)
@@ -106,7 +106,7 @@ const IgneEkle = () => {
           ) : (
             <div>
               <div className="form-group">
-                <label htmlFor="igneadi">İğne Adı</label>
+                <label htmlFor="igneadi">Ürün Adı</label>
                 <RichTextEditor name="igneadi" id="igneadi" type="text" style={{ width: "600px" }} value={igneadi} onChange={Changeigneadi} />
               </div>
 

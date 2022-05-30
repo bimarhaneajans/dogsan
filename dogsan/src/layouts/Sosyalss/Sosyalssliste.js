@@ -146,49 +146,6 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>yoneticiadi:</strong>
-                <div>
-                  <label>
-
-                  </label>{" "}
-                  {currentTutorial.yoneticiadi}
-                </div>
-                <div>
-                  <label>
-                    <strong>yoneticisoyadi:</strong>
-                  </label>{" "}
-                  {currentTutorial.yoneticisoyadi}
-                </div>
-                <div>
-                  <label>
-                    <strong>kariyer:</strong>
-                  </label>{" "}
-                  {currentTutorial.kariyer}
-                </div>
-                <div>
-                  <label>
-                    <strong>pozizyon:</strong>
-                  </label>{" "}
-                  {currentTutorial.pozizyon}
-                </div>
-                <div>
-                  <label>
-                    <strong>twitter:</strong>
-                  </label>{" "}
-                  {currentTutorial.twitter}
-                </div>
-                <div>
-                  <label>
-                    <strong>linkedin:</strong>
-                  </label>{" "}
-                  {currentTutorial.linkedin}
-                </div>
-                <div>
-                  <label>
-                    <strong>googleplus:</strong>
-                  </label>{" "}
-                  {currentTutorial.googleplus}
-                </div>
                 <div>
                   <label>
                     <strong>Durum:</strong>

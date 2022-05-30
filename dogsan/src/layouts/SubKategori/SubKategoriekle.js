@@ -74,7 +74,7 @@ const SubKategoriEkle = () => {
       performansozellikleri: JSON.stringify(performansozellikleri),
       fayda:JSON.stringify(fayda),
       path:JSON.stringify(path),
-      kategoriid: JSON.stringify(kategoriid),
+      kategoriid: tutorial.kategoriid,
       kategoriadi: JSON.stringify(kategoriadi),
       videourl: JSON.stringify(videourl),
       Resim: tutorial.Resim,
@@ -164,7 +164,16 @@ const SubKategoriEkle = () => {
 
               <div className="form-group">
                 <label htmlFor="kategoriid">Kategori İd</label>
-                <RichTextEditor name="kategoriid" id="kategoriid" type="text" style={{ width: "600px" }} value={kategoriid} onChange={Changekategoriid} />
+                <input
+                  type="number"
+                  className="form-control"
+                  id="kategoriid"
+                  required
+                  value={tutorial.kategoriid}
+                  onChange={handleInputChange}
+                  name="kategoriid"
+                />
+              {/*   <RichTextEditor name="kategoriid" id="kategoriid" type="text" style={{ width: "600px" }} value={kategoriid} onChange={Changekategoriid} /> */}
               </div>
 
               <div className="form-group">
