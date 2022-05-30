@@ -9,7 +9,7 @@ import SehirDataService from "../../services/SehirService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
-import { GoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap,withGoogleMap, LoadScript, Marker, useJsApiLoader } from '@react-google-maps/api';
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -22,23 +22,26 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 
-import { Container, Dropdown, DropdownButton, Button } from 'react-bootstrap';
+import { Dropdown, DropdownButton, Button } from 'react-bootstrap';
 
 import Select from 'react-select';
 
 
 const containerStyle = {
-    width: window.innerWidth - 250,
+    width: '1100px',
     height: '400px'
 };
 
 const center = {
-    lat: 39.0014629,
-    lng: 30.6871553
+    //39.5027413,34.6714539,6
+    lat: 39.5027413,
+    lng: 34.6714539
 };
-let newData = [];
- let locations = [];
+
+
+
 export default function Bayiler() {
+    const [zoom,setZoom]=useState(1)
     const [tutorials, setTutorials] = useState([]);
     let [oldlocations, setoldlocations] = useState([]);
     const [currentTutorial, setCurrentTutorial] = useState(null);
@@ -131,47 +134,18 @@ export default function Bayiler() {
         const bounds = new window.google.maps.LatLngBounds(center);
         map.fitBounds(bounds);
         setMap(map)
+       
+        setZoom(-16)
     }, [])
 
     const onUnmount = React.useCallback(function callback(map) {
         setMap(null)
     }, [])
 
+   
 
-  /*   filtered.map(item => (
-            console.log(item.enlem+""+ item.boylam)
-         ))  */
-
-         //let filledData = [1, 2, 3].fill(4, 0 ,1);
-   /*    locations = [
-        {
-            name: "Location 1",
-            location: {
-                lat: 41.189837214878935,
-                lng: 28.607495369360134
-            },
-        },
-
-    ]; */
-
-    for(var i in filtered){
-       
-        locations.push(
-            {
-               // name: JSON.stringify(i.baslik),
-                location: {
-                    lat: i.boylam,
-                    lng: i.enlem
-                },
-            },
-        )
-         // locations.push(newData)
-         console.log(locations);
-        }
-        
-        
-
-    return (<div className="main-wrapper">
+    return (
+    <div className="main-wrapper">
 
         <div>
             <div id="home">
@@ -209,17 +183,21 @@ export default function Bayiler() {
         </div>
         <div className="blog-content">
             <div className="container">
-                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BAYİLER</h1>
+                <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>BAYİLER</h1>
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
                     streetView
-                    zoom={5}
                     onLoad={onLoad}
                     onUnmount={onUnmount}
-                //onClick={() => setactive(item.sehirAdi)} class={actuve === item.sehirAdi.toString().type ? "active" : ""}
+                    zoom={-10}
                 >  {filtered.map(item => (
-                <Marker position={{ lat: item.enlem, lng: item.boylam }} />))}
+                <Marker  
+                title={item.baslik}  
+                
+                position={{ lat: item.enlem, lng: item.boylam }}  />
+               
+                ))}
                    {/*  {
                         locations.map(item => {
                             return (
@@ -246,7 +224,7 @@ export default function Bayiler() {
 
                 </div>
 
-                <div class="col-md-5" style={{ fontWeight: "bold", textAlign: "center" }}>
+                <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}>
 
                     <DropdownButton size='lg' variant="primary" id="dropdown-basic-button" title="ŞEHİR SEÇİMİ">
                         {sehir.map(item => (
@@ -255,6 +233,12 @@ export default function Bayiler() {
                     </DropdownButton>
 
                 </div>
+                <div className="col-md-4 side-content" >
+                        <h5>İLETİŞİM</h5>
+                        <ul className="list1">
+                            <li><Link to={"/BizeUlasin"} className="nav-link">Bize Ulaşın</Link></li>
+                        </ul>
+                    </div>
                 {/* {sehir.map(item => (
 
                     <div key={item.id} class="team-filter-nav text-center">
@@ -265,33 +249,45 @@ export default function Bayiler() {
                     </div>
                 ))} */}
                 {filtered.map(item => (
-                    <div key={item.id} className="col-md-9">
+                    <div key={item.id} className="col-md-12">
                         <article>
-                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.sehir }}  ></div></p></div>
-                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
-                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.telefon }}  ></div></p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.sehir }}  ></div></p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.telefon }}  ></div></p></div>
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
                         </article>
 
                     </div>))}
-                <aside className="col-md-3">
-
-                    <div className="side-content" >
-                        <h5>İLETİŞİM</h5>
-                        <ul className="list1">
-                            <li><Link to={"/BizeUlasin"} className="nav-link">Bize Ulaşın</Link></li>
-                        </ul>
-                    </div>
-
-                </aside>
+                
             </div>
         </div>
 
         <div className="footer2">
             <img src={dogsanlogo} alt="" />
         </div>
-
+        <ul class="fixed-social-menu list-inline-social mb-0" >
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
+          <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
+            <FaInstagram size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
+          <FaLinkedinIn size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
+            <FaYoutube size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+      </ul>         
 
     </div>
 
