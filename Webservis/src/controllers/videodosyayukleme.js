@@ -150,15 +150,25 @@ const upload = async (req, res) => {
         // console.log(value)  
         //body[name] = name;
         //body[val] = val;
+
        const data = body[name]+":"+''+body[val]; 
        console.log(data)   
-     /*   var dbo = db.db("dogsandb");
+       var dbo = db.db("dogsandb");
          dbo.collection("slider").insertMany(data, function(err, res) {
           if (err) throw err;
          // console.log("Number of documents inserted: " + res.insertedCount);
           db.close();
-        });   */
-      
+        });  
+        
+        // baslik: req.body.baslik,
+        var myobj = [
+          { name: 'John'},
+        ];
+       // console.log(myobj)  
+        var myobjs = [
+          { name: 'John'},
+        ];
+        // console.log(myobjs)  
         
  
 
