@@ -148,16 +148,24 @@ const upload = async (req, res) => {
 
           //  console.log(`${name} %j`, val); 
 
-         
+
           /* const slider = new Slider(
           { 
             [name]:name,[val]:val,
           });
             console.log(slider) */
 
-            const slider = new Slider({
-              
-            })
+          const slider = new Slider({
+            gorsel: [
+              { ResimBaslik: "String" },
+              { Resimpath: "String" },
+              { Resimicerik: "String" },
+              { VideoBaslik: "String" },
+              { Videopath: "String" },
+              { Veritipi: "String" },
+              { published: "Boolean" }
+            ]
+          })
 
 
           //console.log(JSON.stringify(newData))
@@ -171,10 +179,10 @@ const upload = async (req, res) => {
 
 
 
-           /* dbo.collection("slider").insertMany(slider, function(err, res) {
-            if (err) throw err;
-          //   db.close();
-          });  */  
+          /* dbo.collection("slider").insertMany(slider, function(err, res) {
+           if (err) throw err;
+         //   db.close();
+         });  */
 
           /*
           [ { ResimBaslik: 'ResimBaslikvalue' } ]
