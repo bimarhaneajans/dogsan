@@ -142,72 +142,66 @@ const upload = async (req, res) => {
       if (req.method === 'POST') {
         const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val, mimetype) => {
-          //  console.log(`${name} %j`, val);
+         
           body[name] = name;
           body[val] = val;
-
-          let newData=[];
-
-           
-          newData.push(
-            body[val] = val 
-            );
-            console.log(newData);
-         
-
-
-
-          //var data = body[name]
-        //  var dataiki = body[val]
+ 
+          //console.log(`${name} %j`, val); 
+          let newData = [];
         
-        //  let datalarim = [data, dataiki];
-         // console.log(JSON.parse(datalarim));
+          
+          
+            newData.push({[name] : val}, 
+           
+          )
 
+      console.log(newData)   
+
+        
+
+        /*   var dbo = db.db("dogsandb");
+          datalarim = JSON.parse(datalarim);
+          dbo.collection("slider").insertMany(datalarim, function (err, res) {
+            if (err) throw err;
+            db.close();
+          }); */
+
+
+
+
+
+          // key = name;
+          //value = val;  
+          /* console.log(fieldname)*/
+          //console.log(key) 
+          // console.log(value)  
+          //body[name] = name;
+          //body[val] = val;
+
+          /*   const data = body[name]+":"+''+body[val]; 
+            console.log(data)   
             
-
-            /*   var dbo = db.db("dogsandb");
-              datalarim = JSON.parse(datalarim);
-              dbo.collection("slider").insertMany(datalarim, function (err, res) {
-                if (err) throw err;
+            
+            var dbo = db.db("dogsandb");
+              dbo.collection("slider").insertMany(data, function(err, res) {
+               if (err) throw err;
                 db.close();
-              }); */
+             });   */
+
+          // baslik: req.body.baslik,
+          var myobj = [
+            { name: 'John' },
+          ];
+          // console.log(myobj)  
+          var myobjs = [
+            { name: 'John' },
+          ];
+          // console.log(myobjs)  
 
 
 
 
-
-            // key = name;
-            //value = val;  
-            /* console.log(fieldname)*/
-            //console.log(key) 
-            // console.log(value)  
-            //body[name] = name;
-            //body[val] = val;
-
-            /*   const data = body[name]+":"+''+body[val]; 
-              console.log(data)   
-              
-              
-              var dbo = db.db("dogsandb");
-                dbo.collection("slider").insertMany(data, function(err, res) {
-                 if (err) throw err;
-                  db.close();
-               });   */
-
-            // baslik: req.body.baslik,
-            var myobj = [
-              { name: 'John' },
-            ];
-            // console.log(myobj)  
-            var myobjs = [
-              { name: 'John' },
-            ];
-            // console.log(myobjs)  
-
-
-
-
-          })
+        })
 
 
 
