@@ -140,16 +140,41 @@ const upload = async (req, res) => {
     const body = {}
     try {
       if (req.method === 'POST') {
+
         const bb = busboy({ headers: req.headers })
-        bb.on('field', (name, val, mimetype) => {
+        bb.on('field', (field, name, val, mimetype) => {
+
+
+          let formData = new Map();
+          bb.on('field', function (fieldname, val) {
+            //formData.set(fieldname, val);
+             //console.log(formData)
+
+             formData.set(fieldname, {val})
+             //formData.set('Resimicerik',val)
+
+               console.log(formData);
+          })
+
+        
+
           var dbo = db.db("dogsandb");
-          body[name] = name;
-          body[val] = val;
 
-          //  console.log(`${name} %j`, val)
 
-          /*  const data = body[name]+":"+''+body[val]; 
-           console.log(data)   */
+          // body[name] = name;
+          //body[val] = val;
+
+          // console.log( body[val])
+
+
+
+          /*
+          console.log(`${name} %j`, val)
+ 
+            const data = body[name]+":"+''+body[val]; 
+            console.log(data)   */
+
+
           const slider = new Slider({
 
             gorsel: [
@@ -165,7 +190,7 @@ const upload = async (req, res) => {
             ]
           })
 
-          console.log(slider) 
+          //  console.log(slider) 
 
           /* const slider = new Slider(
           { 
@@ -193,7 +218,7 @@ const upload = async (req, res) => {
             dbo.collection("slider").insertMany(newData, function (err, res) {
               if (err) throw err;
               db.close();
-            });  */ 
+            });  */
 
           // key = name;
           //value = val;  
@@ -211,16 +236,19 @@ const upload = async (req, res) => {
               dbo.collection("slider").insertMany(data, function(err, res) {
                if (err) throw err;
                 db.close();
-             });   */ 
+             });   */
         })
+
+
 
         bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
           res.end("Başarılı sistem kapatıldı");
         });
-        
+
         //console.log(bb)
-        return req.pipe(bb);    
+        return req.pipe(bb);
+
       }
 
 
@@ -232,7 +260,7 @@ const upload = async (req, res) => {
 
       res.status(200).send({
         message: "Uploaded the file successfully: "
-      });
+      })
     } catch (err) {
       console.log(err);
 
@@ -245,6 +273,10 @@ const upload = async (req, res) => {
       res.status(500).send({
         message: `Could not upload the file:. ${err}`,
       });
+
+
+
+
     }
 
   });
