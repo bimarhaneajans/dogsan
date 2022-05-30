@@ -158,8 +158,28 @@ const upload = async (req, res) => {
           var dbo = db.db("dogsandb");
 
           var formData = [name, val];
+
+      /*     const slider = new Slider({
+ 
+            gorsel: [
+              {
+                ResimBaslik: "i.formData",
+                Resimpath:"formData[i]",
+                Resimicerik: "formData[i]",
+                VideoBaslik: "formData[i]",
+                Videopath: "formData[i]",
+                Veritipi: "formData[i]",
+                published:"formData[i]",
+              }
+            ]
+          })
+
+          console.log(slider); */
+
+
           // const slider = [name, val];
-          /*  for (var i = 0; i < formData.length; i++) {
+        
+           for (var i = 0; i < formData.length; i++) {
              
              formData[i] = val;
              const slider = new Slider({
@@ -178,79 +198,17 @@ const upload = async (req, res) => {
              })
  
              console.log(slider);
- 
- 
-           } */
-
-         /*  for (let i = 0; i < formData.val; i++) 
-          {
-          
-          } */
-         
-
-          // body[name] = name;
-          //body[val] = val;
-
-          // console.log( body[val])
-
-
-
-          /*
-          console.log(`${name} %j`, val)
- 
-            const data = body[name]+":"+''+body[val]; 
-            console.log(data)   */
-
-
-
-
-          //  console.log(slider) 
-
-          /* const slider = new Slider(
-          { 
-            [name]:name,[val]:val,
-          });
-            console.log(slider) */
-
-
-
-          //console.log(JSON.stringify(newData))
-          //slider.save(slider) 
-
-          // newData.push({[name] : val})
-
-          // console.log(newData)   
-
-
-
-           dbo.collection("slider").insertMany((formData), function(err, res) {
-           if (err) throw err;
-         //   db.close();
-         }); 
-
-          /* datalarim = JSON.parse(newData);
-            dbo.collection("slider").insertMany(newData, function (err, res) {
+            // body = JSON.parse(slider);
+             dbo.collection("slider").insertMany(slider.gorsel, function(err, res) {
               if (err) throw err;
-              db.close();
-            });  */
+            //   db.close();
+            });  
+ 
+           }    
+           
 
-          // key = name;
-          //value = val;  
-          /* console.log(fieldname)*/
-          //console.log(key) 
-          // console.log(value)  
-          //body[name] = name;
-          //body[val] = val;
-
-          /*   const data = body[name]+":"+''+body[val]; 
-            console.log(data)   
-            
-            
-            var dbo = db.db("dogsandb");
-              dbo.collection("slider").insertMany(data, function(err, res) {
-               if (err) throw err;
-                db.close();
-             });   */
+          
+ 
         })
 
 
