@@ -19,24 +19,24 @@ const busboy = require('busboy');
 
 
 mongoose.connect(dbConfig.url);
-var dbs=mongoose.connection;
+var dbs = mongoose.connection;
 dbs.on('error', console.log.bind(console, "connection error"));
-dbs.once('open', function(callback){
-   console.log("connection basarili");
+dbs.once('open', function (callback) {
+  console.log("connection basarili");
 })
 
 const { check, validationResult } = require('express-validator');
 
 
 
-const Sliders = db.sliders;
+const Slider = db.slide;
 
 const findAll = (req, res) => {
 
   const ResimBaslik = req.query.ResimBaslik;
   var condition = ResimBaslik ? { Yil: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
-  Sliders.find(condition)
+  Slider.find(condition)
     .then(data => {
       res.send(data);
     })
@@ -50,7 +50,7 @@ const findAll = (req, res) => {
 const findOne = (req, res) => {
   const id = req.params.id;
 
-  Sliders.findById(id)
+  Slider.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found bayi with id " + id });
@@ -71,7 +71,7 @@ const update = (req, res) => {
 
   const id = req.params.id;
 
-  Sliders.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Slider.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -89,7 +89,7 @@ const update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  Sliders.findByIdAndRemove(id, { useFindAndModify: false })
+  Slider.findByIdAndRemove(id, { useFindAndModify: false })
     .then(data => {
       if (!data) {
         res.status(404).send({
@@ -109,7 +109,7 @@ exports.delete = (req, res) => {
 };
 
 const findAllPublished = (req, res) => {
-  Sliders.find({ published: true })
+  Slider.find({ published: true })
     .then(data => {
       res.send(data);
     })
@@ -121,7 +121,7 @@ const findAllPublished = (req, res) => {
     });
 };
 const deleteAll = (req, res) => {
-  Sliders.deleteMany({})
+  Slider.deleteMany({})
     .then(data => {
       res.send({
         message: `${data.deletedCount} bayis were deleted successfully!`
@@ -135,91 +135,151 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
-  MongoClient.connect(dbConfig.url, function(err, db) {
+  MongoClient.connect(dbConfig.url, function (err, db) {
     if (err) throw err;
-  const body = {}
-  try {
-    if (req.method === 'POST') {
-      const bb = busboy({ headers: req.headers })
-      bb.on('field', (name, val, mimetype) => {
+    const body = {}
+    try {
+      if (req.method === 'POST') {
 
-        // key = name;
-        //value = val;  
-        /* console.log(fieldname)*/
-        //console.log(key) 
-        // console.log(value)  
-        body[name] = name;
-        body[val] = val;
-        const data = body[name]+":"+body[val]; 
+        const bb = busboy({ headers: req.headers })
+        bb.on('field', (field, name, val, mimetype) => {
 
 
+          let formData = new Map();
+          bb.on('field', function (fieldname, val) {
+            //formData.set(fieldname, val);
+             //console.log(formData)
 
-      // console.log(JSON.stringify(data))   
+             formData.set(fieldname, val)
+             //formData.set('Resimicerik',val)
+
+               console.log(formData);
+          })
+
+        
+
+          var dbo = db.db("dogsandb");
 
 
-      }) 
+          // body[name] = name;
+          //body[val] = val;
+
+          // console.log( body[val])
 
 
-      
 
-           
-              var dbo = db.db("mydb");
-              var myobj = [
-                { name: 'John', address: 'Highway 71'},
-                { name: 'Peter', address: 'Lowstreet 4'},
-                { name: 'Amy', address: 'Apple st 652'},
-                { name: 'Hannah', address: 'Mountain 21'},
-                { name: 'Michael', address: 'Valley 345'},
-                { name: 'Sandy', address: 'Ocean blvd 2'},
-                { name: 'Betty', address: 'Green Grass 1'},
-                { name: 'Richard', address: 'Sky st 331'},
-                { name: 'Susan', address: 'One way 98'},
-                { name: 'Vicky', address: 'Yellow Garden 2'},
-                { name: 'Ben', address: 'Park Lane 38'},
-                { name: 'William', address: 'Central st 954'},
-                { name: 'Chuck', address: 'Main Road 989'},
-                { name: 'Viola', address: 'Sideway 1633'}
-              ];
-              dbo.collection("customers").insertMany(myobj, function(err, res) {
-                if (err) throw err;
-                console.log("Number of documents inserted: " + res.insertedCount);
+          /*
+          console.log(`${name} %j`, val)
+ 
+            const data = body[name]+":"+''+body[val]; 
+            console.log(data)   */
+
+
+          const slider = new Slider({
+
+            gorsel: [
+              {
+                ResimBaslik: "String",
+                Resimpath: "String",
+                Resimicerik: "String",
+                VideoBaslik: "String",
+                Videopath: "String",
+                Veritipi: "String",
+                published: "Boolean"
+              }
+            ]
+          })
+
+          //  console.log(slider) 
+
+          /* const slider = new Slider(
+          { 
+            [name]:name,[val]:val,
+          });
+            console.log(slider) */
+
+
+
+          //console.log(JSON.stringify(newData))
+          //slider.save(slider) 
+
+          // newData.push({[name] : val})
+
+          // console.log(newData)   
+
+
+
+          /* dbo.collection("slider").insertMany(slider, function(err, res) {
+           if (err) throw err;
+         //   db.close();
+         });  */
+
+          /* datalarim = JSON.parse(newData);
+            dbo.collection("slider").insertMany(newData, function (err, res) {
+              if (err) throw err;
+              db.close();
+            });  */
+
+          // key = name;
+          //value = val;  
+          /* console.log(fieldname)*/
+          //console.log(key) 
+          // console.log(value)  
+          //body[name] = name;
+          //body[val] = val;
+
+          /*   const data = body[name]+":"+''+body[val]; 
+            console.log(data)   
+            
+            
+            var dbo = db.db("dogsandb");
+              dbo.collection("slider").insertMany(data, function(err, res) {
+               if (err) throw err;
                 db.close();
-              });
-           
- 
-      req.pipe(bb) 
-
-    } 
-
- 
+             });   */
+        })
 
 
 
+        bb.on('finish', function () {
+          res.writeHead(200, { 'Connection': 'close' });
+          res.end("Başarılı sistem kapatıldı");
+        });
 
-    uploadFile(req, res)
+        //console.log(bb)
+        return req.pipe(bb);
 
-    if (req.file == undefined) {
-      return res.status(400).send({ message: "Please upload a file!" });
-    }
+      }
 
-    res.status(200).send({
-      message: "Uploaded the file successfully: "
-    });
-  } catch (err) {
-    console.log(err);
 
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
+      uploadFile(req, res)
+
+      if (req.file == undefined) {
+        return res.status(400).send({ message: "Please upload a file!" });
+      }
+
+      res.status(200).send({
+        message: "Uploaded the file successfully: "
+      })
+    } catch (err) {
+      console.log(err);
+
+      if (err.code == "LIMIT_FILE_SIZE") {
+        return res.status(500).send({
+          message: "File size cannot be larger than 2MB!",
+        });
+      }
+
+      res.status(500).send({
+        message: `Could not upload the file:. ${err}`,
       });
+
+
+
+
     }
 
-    res.status(500).send({
-      message: `Could not upload the file:. ${err}`,
-    });
-  }
-
-});
+  });
 };
 
 const getListFiles = (req, res) => {
@@ -229,7 +289,7 @@ const getListFiles = (req, res) => {
   const ResimBaslik = req.query.ResimBaslik;
   var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
 
-  Sliders.find(condition)
+  Slider.find(condition)
     .then(data => {
       res.send(data);
 

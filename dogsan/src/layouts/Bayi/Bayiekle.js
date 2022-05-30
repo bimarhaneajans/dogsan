@@ -67,9 +67,9 @@ function BayiEkle() {
       baslik: JSON.stringify(baslik),
       adres: JSON.stringify(adres),
       telefon: JSON.stringify(telefon),
-      enlem: tutorial.enlem,
+      enlem: JSON.stringify(enlem),
       sehir: tutorial.sehir,
-      boylam: tutorial.boylam,
+      boylam: JSON.stringify(boylam),
       Resim: tutorial.Resim,
     };
 
@@ -188,32 +188,14 @@ function BayiEkle() {
               <div className="form-group">
                 <label htmlFor="Enlem">Enlem</label>
 
-                <input
-                    type="number"
-                    className="form-control"
-                    id="enlem"
-                    name="enlem"
-                    value={tutorial.enlem}
-                    onChange={handleInputChange}
-                  /> 
-
-{/*                 <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={enlem} onChange={Changeenlem} />
- */}              </div>
+                <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={enlem} onChange={Changeenlem} />
+              </div>
 
               <div className="form-group">
                 <label htmlFor="boylam">boylam</label>
 
-{/*                 <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }} value={boylam} onChange={Changeboylam} />
- */}              <input
-                    type="number"
-                    className="form-control"
-                    id="boylam"
-                    name="boylam"
-                    value={tutorial.boylam}
-                    onChange={handleInputChange}
-                  /> 
- 
-   </div>
+                <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }} value={boylam} onChange={Changeboylam} />
+              </div>
 
               <FileBase64
                 type="file"
