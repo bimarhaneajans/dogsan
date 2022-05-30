@@ -17,13 +17,14 @@ import FileBase64 from 'react-file-base64';
 const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
+
   const initialTutorialState = {
     id: null,
     adi: "", 
     uzunisim: "",
     siralama: "",
     seourl: "",
-   Resimbaslik: "",
+    Resimbaslik: "",
     path: "",
     kategoriid: null,
     subkategori: "",
@@ -37,10 +38,8 @@ const Overview = props => {
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
-  
-   const [controller, dispatch] = useSoftUIController();
+  const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
- 
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
@@ -77,6 +76,7 @@ const Overview = props => {
     if (id)
       getTutorial(id);
   }, [id]);
+  
   const handleInputChange = event => {
     const { name, value } = event.target;
     setCurrentTutorial({ ...currentTutorial, [name]: value });

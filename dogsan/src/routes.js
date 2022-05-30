@@ -12,8 +12,8 @@ import Degerekle from "./layouts/Deger/Degerekle"
 import Degerliste from "./layouts/Deger/Degerliste" 
 import Duyuruekle from "./layouts/Duyuru/Duyuruekle"
 import Duyuruliste from "./layouts/Duyuru/Duyuruliste" 
-import Etkinlikekle from "./layouts/Etkinlik/Etkinlikekle"
-import Etkinlikliste from "./layouts/Etkinlik/Etkinlikliste" 
+/* import Etkinlikekle from "./layouts/Etkinlik/Etkinlikekle"
+import Etkinlikliste from "./layouts/Etkinlik/Etkinlikliste"  */
 import Hakkimizdaekle from "./layouts/Hakkimizda/Hakkimizdaekle"
 import Hakkimizdaliste from "./layouts/Hakkimizda/Hakkimizdaliste"  
 import Iletisimekle from "./layouts/İletisim/İletisimekle"
@@ -39,9 +39,9 @@ import Tarihceekle from "./layouts/Tarihce/Tarihceekle"
 import Tarihceliste from "./layouts/Tarihce/Tarihceliste" 
 import TarihiGaleriekle from "./layouts/TarihiGaleri/TarihiGaleriekle"
 import TarihiGaleriliste from "./layouts/TarihiGaleri/TarihiGaleriiste" 
-import Urunekle from "./layouts/Urun/Urunekle"
+/* import Urunekle from "./layouts/Urun/Urunekle"
 import Urunliste from "./layouts/Urun/Urunliste"
-
+ */
 import SubKategoriekle from "./layouts/SubKategori/SubKategoriekle" 
 import SubKategoriliste from "./layouts/SubKategori/SubKategoriliste" 
 
@@ -181,7 +181,7 @@ const routes = [
     isPrivate: true,
   },
  
-  {
+  /* {
     type: "title",
     title: "Etkinlik İşlemleri",
     key: "6",
@@ -207,7 +207,7 @@ const routes = [
     component: <Etkinlikliste />,
     noCollapse: true,
     isPrivate: true,
-  },
+  }, */
  
   {
     type: "title",
@@ -239,14 +239,14 @@ const routes = [
   
   {
     type: "title",
-    title: "İğne İşlemleri",
+    title: "Ürün İşlemleri",
     key: "8",
     isPrivate: true
   },
 
   {
     type: "collapse",
-    name: "İğne Ekle",
+    name: "Ürün Ekle",
     key: "igneekle",
     route: "/igneekle",
     icon: <CustomerSupport size="12px" />,
@@ -256,7 +256,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Igne liste",
+    name: "Ürün liste",
     key: "Igneliste Listele",
     route: "/Igneliste",
     icon: <CustomerSupport size="12px" />,
@@ -554,7 +554,7 @@ const routes = [
     isPrivate: true,
   },
  
-  {
+  /* {
     type: "title",
     title: "Ürün İşlemleri",
     key: "18",
@@ -580,7 +580,7 @@ const routes = [
     component: <Urunliste />,
     noCollapse: true,
     isPrivate: true,
-  },
+  }, */
   {
     type: "title",
     title: "Yönetici İşlemleri",

@@ -4,7 +4,6 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import KategoriDataService from "../../services/KategoriService";
-
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -26,7 +25,7 @@ const KatagoriEkle = () => {
     uzunisim: "",
     siralama: "",
     seourl: "",
-   Resimbaslik: "",
+    Resimbaslik: "",
     path: "",
     kategoriid:null,
     subkategori: "",
@@ -38,7 +37,7 @@ const KatagoriEkle = () => {
   };
 
   const initialValue = 'Alana verileri doldurun';
-  const [tutorial, setTutorial] = useState();
+  const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -78,7 +77,7 @@ const KatagoriEkle = () => {
       seourl: JSON.stringify(seourl),
       Resimbaslik: JSON.stringify(Resimbaslik),
       path: JSON.stringify(path),
-      kategoriid: JSON.stringify(kategoriid),
+      kategoriid:tutorial.kategoriid,
       subkategori: JSON.stringify(subkategori),
       videourl: JSON.stringify(videourl),
       icerik: JSON.stringify(icerik),
@@ -174,15 +173,17 @@ const KatagoriEkle = () => {
               
               <div className="form-group">
                 <label htmlFor="kategoriid">Kategori İd</label>
-                <RichTextEditor name="kategoriid" id="kategoriid" type="text" style={{ width: "600px" }} value={kategoriid} onChange={Changekategoriid} />
+                <input
+                  type="number"
+                  className="form-control"
+                  id="kategoriid"
+                  required
+                  value={tutorial.kategoriid}
+                  onChange={handleInputChange}
+                  name="kategoriid"
+                />
+                {/* <RichTextEditor name="kategoriid" id="kategoriid" type="" style={{ width: "600px" }} value={kategoriid} onChange={Changekategoriid} /> */}
               </div>
-
-              {/* <div className="form-group">
-                <label htmlFor="subkategori">Sub Kategori</label>
-                <RichTextEditor name="subkategori" id="subkategori" type="text" style={{ width: "600px" }} value={subkategori} onChange={Changesubkategori} />
-              </div>
-  */}
-
             <FileBase64
                 type="file"
                 multiple={false}

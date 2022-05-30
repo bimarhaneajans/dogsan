@@ -146,7 +146,7 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>igne adi:</strong>
+                <strong>Ürün adi:</strong>
                 <div>
                   <label>
 
