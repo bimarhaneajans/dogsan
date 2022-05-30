@@ -155,17 +155,6 @@ const upload = async (req, res) => {
           });
             console.log(slider) */
 
-          const slider = new Slider({
-            gorsel: [
-              { ResimBaslik: "String" },
-              { Resimpath: "String" },
-              { Resimicerik: "String" },
-              { VideoBaslik: "String" },
-              { Videopath: "String" },
-              { Veritipi: "String" },
-              { published: "Boolean" }
-            ]
-          })
 
 
           //console.log(JSON.stringify(newData))
@@ -227,7 +216,20 @@ const upload = async (req, res) => {
         })
 
 
-
+        const slider = new Slider({
+          gorsel: [
+            {
+              ResimBaslik: "String",
+              Resimpath: "String",
+              Resimicerik: "String",
+              VideoBaslik: "String",
+              Videopath: "String",
+              Veritipi: "String",
+              published: "Boolean"
+            }
+          ]
+        })
+        console.log(slider)
 
         req.pipe(bb)
 
