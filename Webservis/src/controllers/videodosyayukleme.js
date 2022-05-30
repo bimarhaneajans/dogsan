@@ -146,8 +146,26 @@ const upload = async (req, res) => {
           body[name] = name;
           body[val] = val;
 
-          //  console.log(`${name} %j`, val); 
+          //  console.log(`${name} %j`, val)
 
+          /*  const data = body[name]+":"+''+body[val]; 
+           console.log(data)   */
+          const slider = new Slider({
+
+            gorsel: [
+              {
+                ResimBaslik: "String",
+                Resimpath: "String",
+                Resimicerik: "String",
+                VideoBaslik: "String",
+                Videopath: "String",
+                Veritipi: "String",
+                published: "Boolean"
+              }
+            ]
+          })
+
+          console.log(slider) 
 
           /* const slider = new Slider(
           { 
@@ -158,9 +176,7 @@ const upload = async (req, res) => {
 
 
           //console.log(JSON.stringify(newData))
-          //slider.save(slider)
-
-
+          //slider.save(slider) 
 
           // newData.push({[name] : val})
 
@@ -173,24 +189,11 @@ const upload = async (req, res) => {
          //   db.close();
          });  */
 
-          /*
-          [ { ResimBaslik: 'ResimBaslikvalue' } ]
-[ { Resimicerik: 'Resimicerikvalue' } ]
-[ { VideoBaslik: 'VideoBaslikvalue' } ]
-[ { Videopath: 'Videopathvalue' } ]
-[ { Veritipi: 'asdasdasdasdasdvalue' } ]
-          */
-
-
           /* datalarim = JSON.parse(newData);
             dbo.collection("slider").insertMany(newData, function (err, res) {
               if (err) throw err;
               db.close();
-            });  */
-
-
-
-
+            });  */ 
 
           // key = name;
           //value = val;  
@@ -208,36 +211,17 @@ const upload = async (req, res) => {
               dbo.collection("slider").insertMany(data, function(err, res) {
                if (err) throw err;
                 db.close();
-             });   */
-
-
-
-
+             });   */ 
         })
 
-
-        const slider = new Slider({
-          gorsel: [
-            {
-              ResimBaslik: "String",
-              Resimpath: "String",
-              Resimicerik: "String",
-              VideoBaslik: "String",
-              Videopath: "String",
-              Veritipi: "String",
-              published: "Boolean"
-            }
-          ]
-        })
-        console.log(slider)
-
-        req.pipe(bb)
-
+        bb.on('finish', function () {
+          res.writeHead(200, { 'Connection': 'close' });
+          res.end("Başarılı sistem kapatıldı");
+        });
+        
+        //console.log(bb)
+        return req.pipe(bb);    
       }
-
-
-
-
 
 
       uploadFile(req, res)
