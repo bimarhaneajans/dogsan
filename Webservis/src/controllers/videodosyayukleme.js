@@ -142,19 +142,17 @@ const upload = async (req, res) => {
       if (req.method === 'POST') {
 
         const bb = busboy({ headers: req.headers })
-        bb.on('field', (field, name, val, mimetype) => {
-
-
+        bb.on('field', (fieldname, name, val, mimetype) => { 
           let formData = new Map();
-          bb.on('field', function (fieldname, val) {
+         
             //formData.set(fieldname, val);
              //console.log(formData)
 
-             formData.set(fieldname, val)
+             formData.set(fieldname,name, val)
              //formData.set('Resimicerik',val)
 
                console.log(formData);
-          })
+      
 
         
 
