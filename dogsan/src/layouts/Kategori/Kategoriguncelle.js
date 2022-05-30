@@ -33,7 +33,7 @@ const Overview = props => {
     Resim: "",  
     published: false
   };
-  const [currentTutorial, setCurrentTutorial] = useState();
+  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);

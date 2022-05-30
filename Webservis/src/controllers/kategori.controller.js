@@ -12,9 +12,6 @@ exports.create = (req, res) => {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
-
-  
-
   const kategori = new Kategori({
     adi: req.body.adi,
     uzunisim: req.body.uzunisim,
