@@ -150,7 +150,7 @@ const upload = async (req, res) => {
             //formData.set(fieldname, val);
              //console.log(formData)
 
-             formData.set(fieldname, {val})
+             formData.set(fieldname, val)
              //formData.set('Resimicerik',val)
 
                console.log(formData);
