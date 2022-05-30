@@ -19,10 +19,10 @@ const busboy = require('busboy');
 
 
 mongoose.connect(dbConfig.url);
-var dbs=mongoose.connection;
+var dbs = mongoose.connection;
 dbs.on('error', console.log.bind(console, "connection error"));
-dbs.once('open', function(callback){
-   console.log("connection basarili");
+dbs.once('open', function (callback) {
+  console.log("connection basarili");
 })
 
 const { check, validationResult } = require('express-validator');
@@ -135,82 +135,117 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
-  MongoClient.connect(dbConfig.url, function(err, db) {
+  MongoClient.connect(dbConfig.url, function (err, db) {
     if (err) throw err;
-  const body = {}
-  try {
-    if (req.method === 'POST') {
-      const bb = busboy({ headers: req.headers })
-      bb.on('field', (name, val, mimetype) => {
+    const body = {}
+    try {
+      if (req.method === 'POST') {
+        const bb = busboy({ headers: req.headers })
+        bb.on('field', (name, val, mimetype) => {
+          //  console.log(`${name} %j`, val);
+          body[name] = name;
+          body[val] = val;
 
-        // key = name;
-        //value = val;  
-        /* console.log(fieldname)*/
-        //console.log(key) 
-        // console.log(value)  
-        //body[name] = name;
-        //body[val] = val;
+          let newData=[];
 
-       const data = body[name]+":"+''+body[val]; 
-       console.log(data)   
-       var dbo = db.db("dogsandb");
-         dbo.collection("slider").insertMany(data, function(err, res) {
-          if (err) throw err;
-         // console.log("Number of documents inserted: " + res.insertedCount);
-          db.close();
-        });  
-        
-        // baslik: req.body.baslik,
-        var myobj = [
-          { name: 'John'},
-        ];
-       // console.log(myobj)  
-        var myobjs = [
-          { name: 'John'},
-        ];
-        // console.log(myobjs)  
-        
- 
-
-
-      })  
-            
-             
            
- 
-      req.pipe(bb) 
-
-    } 
-
- 
-
-
+          newData.push(
+            body[name] = name,
+            body[val] = val 
+            );
+            console.log(newData);
+         
 
 
-    uploadFile(req, res)
 
-    if (req.file == undefined) {
-      return res.status(400).send({ message: "Please upload a file!" });
-    }
+          //var data = body[name]
+        //  var dataiki = body[val]
+        
+        //  let datalarim = [data, dataiki];
+         // console.log(JSON.parse(datalarim));
 
-    res.status(200).send({
-      message: "Uploaded the file successfully: "
-    });
-  } catch (err) {
-    console.log(err);
+            
 
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
+            /*   var dbo = db.db("dogsandb");
+              datalarim = JSON.parse(datalarim);
+              dbo.collection("slider").insertMany(datalarim, function (err, res) {
+                if (err) throw err;
+                db.close();
+              }); */
+
+
+
+
+
+            // key = name;
+            //value = val;  
+            /* console.log(fieldname)*/
+            //console.log(key) 
+            // console.log(value)  
+            //body[name] = name;
+            //body[val] = val;
+
+            /*   const data = body[name]+":"+''+body[val]; 
+              console.log(data)   
+              
+              
+              var dbo = db.db("dogsandb");
+                dbo.collection("slider").insertMany(data, function(err, res) {
+                 if (err) throw err;
+                  db.close();
+               });   */
+
+            // baslik: req.body.baslik,
+            var myobj = [
+              { name: 'John' },
+            ];
+            // console.log(myobj)  
+            var myobjs = [
+              { name: 'John' },
+            ];
+            // console.log(myobjs)  
+
+
+
+
+          })
+
+
+
+
+        req.pipe(bb)
+
+      }
+
+
+
+
+
+
+      uploadFile(req, res)
+
+      if (req.file == undefined) {
+        return res.status(400).send({ message: "Please upload a file!" });
+      }
+
+      res.status(200).send({
+        message: "Uploaded the file successfully: "
+      });
+    } catch (err) {
+      console.log(err);
+
+      if (err.code == "LIMIT_FILE_SIZE") {
+        return res.status(500).send({
+          message: "File size cannot be larger than 2MB!",
+        });
+      }
+
+      res.status(500).send({
+        message: `Could not upload the file:. ${err}`,
       });
     }
 
-    res.status(500).send({
-      message: `Could not upload the file:. ${err}`,
-    });
-  }
-
-});
+  });
 };
 
 const getListFiles = (req, res) => {
