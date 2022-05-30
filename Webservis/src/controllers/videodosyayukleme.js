@@ -142,29 +142,39 @@ const upload = async (req, res) => {
       if (req.method === 'POST') {
         const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val, mimetype) => {
-         
+          var dbo = db.db("dogsandb");
           body[name] = name;
           body[val] = val;
- 
+
           //console.log(`${name} %j`, val); 
           let newData = [];
-        
-          
-          
-            newData.push({[name] : val}, 
-           
+          newData.push({ [name]: val },
+
           )
 
-      console.log(newData)   
+          console.log(newData)
 
-        
 
-        /*   var dbo = db.db("dogsandb");
-          datalarim = JSON.parse(datalarim);
-          dbo.collection("slider").insertMany(datalarim, function (err, res) {
+          var dbo = db.db("dogsandb");
+          dbo.collection("slider").insertMany(newData, function (err, res) {
             if (err) throw err;
-            db.close();
-          }); */
+           // db.close();
+          });
+
+          /*
+          [ { ResimBaslik: 'ResimBaslikvalue' } ]
+[ { Resimicerik: 'Resimicerikvalue' } ]
+[ { VideoBaslik: 'VideoBaslikvalue' } ]
+[ { Videopath: 'Videopathvalue' } ]
+[ { Veritipi: 'asdasdasdasdasdvalue' } ]
+          */
+
+
+          /* datalarim = JSON.parse(newData);
+            dbo.collection("slider").insertMany(newData, function (err, res) {
+              if (err) throw err;
+              db.close();
+            });  */
 
 
 
@@ -187,16 +197,6 @@ const upload = async (req, res) => {
                if (err) throw err;
                 db.close();
              });   */
-
-          // baslik: req.body.baslik,
-          var myobj = [
-            { name: 'John' },
-          ];
-          // console.log(myobj)  
-          var myobjs = [
-            { name: 'John' },
-          ];
-          // console.log(myobjs)  
 
 
 
