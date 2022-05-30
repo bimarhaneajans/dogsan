@@ -138,43 +138,60 @@ const upload = async (req, res) => {
   MongoClient.connect(dbConfig.url, function (err, db) {
     if (err) throw err;
     const body = {}
-    try {
+     try {
       if (req.method === 'POST') {
         const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val, mimetype) => {
           var dbo = db.db("dogsandb");
           body[name] = name;
           body[val] = val;
-
+ 
           //console.log(`${name} %j`, val); 
-          let newData = [];
-          newData.push({ [name]: val },
+         
+          let newData = []; 
 
-          )
+          for(var i in  body){
+            
+            newData.push(
+             {
+              ResimBaslik:  body[i],
+              /* Resimicerik: body[i],
+              VideoBaslik: body[i],
+              Videopath: body[i],
+              Veritipi: body[i] */
+              },
 
-          console.log(newData)
 
+            ); 
+            }
+           // console.log(newData)
+          
+            
+         // newData.push({[name] : val})
 
-          var dbo = db.db("dogsandb");
-          dbo.collection("slider").insertMany(newData, function (err, res) {
-            if (err) throw err;
-           // db.close();
-          });
+          // console.log(newData)   
 
-          /*
-          [ { ResimBaslik: 'ResimBaslikvalue' } ]
+        
+            
+             /*  dbo.collection("slider").insertMany(newData, function(err, res) {
+               if (err) throw err;
+             //   db.close();
+             }); */
+
+              /*
+              [ { ResimBaslik: 'ResimBaslikvalue' } ]
 [ { Resimicerik: 'Resimicerikvalue' } ]
 [ { VideoBaslik: 'VideoBaslikvalue' } ]
 [ { Videopath: 'Videopathvalue' } ]
 [ { Veritipi: 'asdasdasdasdasdvalue' } ]
-          */
+              */
 
-
-          /* datalarim = JSON.parse(newData);
-            dbo.collection("slider").insertMany(newData, function (err, res) {
-              if (err) throw err;
-              db.close();
-            });  */
+    
+        /* datalarim = JSON.parse(newData);
+          dbo.collection("slider").insertMany(newData, function (err, res) {
+            if (err) throw err;
+            db.close();
+          });  */
 
 
 
@@ -196,7 +213,7 @@ const upload = async (req, res) => {
               dbo.collection("slider").insertMany(data, function(err, res) {
                if (err) throw err;
                 db.close();
-             });   */
+             });   */ 
 
 
 
