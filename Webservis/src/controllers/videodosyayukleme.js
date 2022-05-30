@@ -150,7 +150,6 @@ const upload = async (req, res) => {
 
            
           newData.push(
-            body[name] = name,
             body[val] = val 
             );
             console.log(newData);
