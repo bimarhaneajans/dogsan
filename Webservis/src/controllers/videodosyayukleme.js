@@ -135,9 +135,8 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
+ 
     try {
-       uploadFile(req, res)
-
       MongoClient.connect(dbConfig.url, function (err, db) {
         if (err) throw err;
         const body = {}
@@ -164,47 +163,13 @@ const upload = async (req, res) => {
                 } 
               
             }) 
-           }  
-        
-         // body = JSON.parse(slider); //gerek yok 
-         /*  var dbo = db.db("dogsandb");
-          dbo.collection("slider").insertMany(slider, function (err, res) {
-            if (err) throw err;
-              db.close();
+           }   
           }); */
           console.log(JSON.stringify(slider));
           slider.save(slider) 
-        }) 
-        
-          /* var saveTo = path.join(__dirname, 'uploads/' + filename);
-          file.pipe(fs.createWriteStream(saveTo)); */
-       // });
-
-     /*  bb.on('file', (name, file, info) => {
-        let fstream;
-        req.pipe(req.busboy);
-        req.busboy.on('file', (fieldname, file, filename) => {
-         fstream = fs.createWriteStream(config.base_dir + '/public/resources/static/assets/videos/' + filename);
-         file.pipe(fstream);
-         /* fstream.on('close', () => {
-           res.send('/images/' + filename);
-         });  
-        });
-      }); */
-
-  
-      
-     
+        })  
  
-        bb.on('finish', function () {
-          res.writeHead(200, { 'Connection': 'close' });
-          res.end("Başarılı sistem kapatıldı");  
-        });  
-
-        
-
- 
-         return req.pipe(bb);
+         req.pipe(bb);
 
       }   
     });
