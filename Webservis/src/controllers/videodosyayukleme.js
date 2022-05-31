@@ -157,60 +157,53 @@ const upload = async (req, res) => {
 
           var dbo = db.db("dogsandb");
 
-          var formData = [name, val];
+          //var formData = [name, val];
 
-      /*     const slider = new Slider({
- 
-            gorsel: [
+          let users = [{ [name]: val },];
+          let newData = [];
+          //console.log(users)
+
+
+         /*  for (var i in users) {
+
+            newData.push(
               {
-                ResimBaslik: "i.formData",
-                Resimpath:"formData[i]",
-                Resimicerik: "formData[i]",
-                VideoBaslik: "formData[i]",
-                Videopath: "formData[i]",
-                Veritipi: "formData[i]",
-                published:"formData[i]",
-              }
-            ]
-          })
+                //previous_data[0].data
+                Resimpath: users[i].Resimpath,
+                Resimicerik: users[i].Resimicerik,
+                VideoBaslik: users[i].VideoBaslik,
+                Videopath: users[i].Videopath,
+                Veritipi: users[i].Veritipi,
+                published: users[i].published,
+              },
+            );
 
-          console.log(slider); */
+          } */
 
+          for (var i in users) {
+            const slider = new Slider({
 
-          // const slider = [name, val];
-        
-           for (var i = 0; i < formData.length; i++) {
-             
-             formData[i] = val;
-             const slider = new Slider({
- 
-               gorsel: [
-                 {
-                   ResimBaslik: i.formData,
-                   Resimpath:formData[i],
-                   Resimicerik: formData[i],
-                   VideoBaslik: formData[i],
-                   Videopath: formData[i],
-                   Veritipi: formData[i],
-                   published:formData[i]
-                 }
-               ]
-             })
- 
-             console.log(slider);
-            // body = JSON.parse(slider);
-             dbo.collection("slider").insertMany(slider.gorsel, function(err, res) {
-              if (err) throw err;
-              db.close();
-            });  
- 
-           }    
-           
+              gorsel: [
+                {
 
-          
- 
+                  Resimpath: users[i].Resimpath,
+                  Resimicerik: users[i].Resimicerik,
+                  VideoBaslik: users[i].VideoBaslik,
+                  Videopath: users[i].Videopath,
+                  Veritipi: users[i].Veritipi,
+                  published: users[i].published,
+                }
+              ]
+            })
+            console.log(slider);
+          } 
+          //   // body = JSON.parse(slider); //gerek yok 
+
         })
-
+        dbo.collection("slider").insertMany(slider, function (err, res) {
+          if (err) throw err;
+          //  db.close();
+        });
 
 
         bb.on('finish', function () {
