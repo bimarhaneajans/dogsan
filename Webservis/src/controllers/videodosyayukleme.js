@@ -134,9 +134,48 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
-
+ 
   try {
     await uploadFile(req, res);
+    const bb = busboy({ headers: req.headers })
+    MongoClient.connect(dbConfig.url, function (err, db) {
+      if (err) throw err;
+      const body = {}
+      let slider=[null];
+  
+        
+      if (req.method === 'POST') {
+     
+       
+        bb.on('field', (name, val) => {
+  
+          let users = [{ [name]: val },]; 
+         
+           for (var i in users) {
+           slider = new Slider({ 
+              gorsel:  
+                { 
+                  Resimpath:  users[i].Resimpath ,
+                  Resimicerik:  users[i].Resimicerik ,
+                  VideoBaslik:  users[i].VideoBaslik ,
+                  Videopath:  users[i].Videopath ,
+                  Veritipi:   users[i].Veritipi ,
+                  published:  users[i].published ,
+                } 
+              
+            }) 
+           }   
+          console.log(JSON.stringify(slider));
+          slider.save(slider) 
+        })  
+   
+           req.pipe(bb);
+  
+        }   
+       
+      
+  
+    });
 
     if (req.file == undefined) {
       return res.status(400).send({ message: "Please upload a file!" });
@@ -159,68 +198,7 @@ const upload = async (req, res) => {
     });
   }
   
-  MongoClient.connect(dbConfig.url, function (err, db) {
-    if (err) throw err;
-    const body = {}
-    let slider=[null];
-    
-      
-      if (req.method === 'POST') { 
-      
-        
-        const bb = busboy({ headers: req.headers })
-        bb.on('field', (name, val) => {
-
-          let users = [{ [name]: val },];
-          //let newData = [];
-        
-         
-           for (var i in users) {
-           slider = new Slider({ 
-              gorsel:  
-                { 
-                  Resimpath:  users[i].Resimpath ,
-                  Resimicerik:  users[i].Resimicerik ,
-                  VideoBaslik:  users[i].VideoBaslik ,
-                  Videopath:  users[i].Videopath ,
-                  Veritipi:   users[i].Veritipi ,
-                  published:  users[i].published ,
-                } 
-              
-            }) 
-           }  
-        
-         // body = JSON.parse(slider); //gerek yok 
-         /*  var dbo = db.db("dogsandb");
-          dbo.collection("slider").insertMany(slider, function (err, res) {
-            if (err) throw err;
-              db.close();
-          }); */
-          console.log(JSON.stringify(slider));
-          slider.save(slider) 
-        })
-
-       
-       
-        
-          /* var saveTo = path.join(__dirname, 'uploads/' + filename);
-          file.pipe(fs.createWriteStream(saveTo)); */
-           
-     
-
-       /*  bb.on('finish', function () {
-          res.writeHead(200, { 'Connection': 'close' });
-          res.end("Başarılı sistem kapatıldı"); 
-        }); */
-
-        //console.log(bb)
-         req.pipe(bb);
-
-      }   
-     
-    
-
-  });
+ 
 };
 
 const getListFiles = (req, res) => {
