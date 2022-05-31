@@ -185,17 +185,14 @@ const upload = async (req, res) => {
           file.pipe(fs.createWriteStream(saveTo)); */
        // });
      
-
-       /*  bb.on('finish', function () {
+ 
+        bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
-          res.end("Başarılı sistem kapatıldı"); 
+          res.end("Başarılı sistem kapatıldı");  
+        });  
 
-
-
-        }); */
-
-        //console.log(bb)
-         req.pipe(bb);
+ 
+         return req.pipe(bb);
 
       }   
     });
