@@ -168,9 +168,19 @@ const upload = async (req, res) => {
       })  
 
       bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
+
+        const directoryPath = __basedir + "/public/resources/static/assets/videos/";
+    
  
-        var saveTo = path.join('http://localhost:3000/public/resources/static/assets/videos/' + filename);
+         var saveTo = JSON.stringify(directoryPath +filename.filename+ path.extname(filename.filename));
+        
+        
+        
         file.pipe(fs.createWriteStream(saveTo));
+
+        console.log(saveTo)
+      
+      
       });
    
       bb.on('finish', function() {
