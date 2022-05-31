@@ -104,7 +104,7 @@ export default function Duyurular() {
         </div>
         <div className="blog-content">
             <div className="container">
-                <h1 className="col-md-9" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>DUYURULAR</h1>
+                <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>DUYURULAR</h1>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
                 <div className="bottom-space-30"></div>
