@@ -135,9 +135,9 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
- 
     try {
-      
+       uploadFile(req, res)
+
       MongoClient.connect(dbConfig.url, function (err, db) {
         if (err) throw err;
         const body = {}
