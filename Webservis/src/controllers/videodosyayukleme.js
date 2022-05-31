@@ -201,7 +201,7 @@ const upload = async (req, res) => {
             // body = JSON.parse(slider);
              dbo.collection("slider").insertMany(slider.gorsel, function(err, res) {
               if (err) throw err;
-            //   db.close();
+              db.close();
             });  
  
            }    
