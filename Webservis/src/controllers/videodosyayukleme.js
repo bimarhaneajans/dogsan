@@ -142,101 +142,73 @@ const upload = async (req, res) => {
       if (req.method === 'POST') {
 
         const bb = busboy({ headers: req.headers })
-        bb.on('field', (field, name, val, mimetype) => {
+        bb.on('field', (name, val) => {
+          // let formData = new Map();
 
+          // formData.set(name, val);
+          //   console.log(formData)
 
-          let formData = new Map();
-          bb.on('field', function (fieldname, val) {
-            //formData.set(fieldname, val);
-             //console.log(formData)
+          // formData.set(val,name)
+          //formData.set('Resimicerik',val) 
 
-             formData.set(fieldname, val)
-             //formData.set('Resimicerik',val)
+          //  console.log(formData)
+          //formData.get('ResimBaslik')
 
-               console.log(formData);
-          })
-
-        
 
           var dbo = db.db("dogsandb");
 
+          var formData = [name, val];
 
-          // body[name] = name;
-          //body[val] = val;
-
-          // console.log( body[val])
-
-
-
-          /*
-          console.log(`${name} %j`, val)
+      /*     const slider = new Slider({
  
-            const data = body[name]+":"+''+body[val]; 
-            console.log(data)   */
-
-
-          const slider = new Slider({
-
             gorsel: [
               {
-                ResimBaslik: "String",
-                Resimpath: "String",
-                Resimicerik: "String",
-                VideoBaslik: "String",
-                Videopath: "String",
-                Veritipi: "String",
-                published: "Boolean"
+                ResimBaslik: "i.formData",
+                Resimpath:"formData[i]",
+                Resimicerik: "formData[i]",
+                VideoBaslik: "formData[i]",
+                Videopath: "formData[i]",
+                Veritipi: "formData[i]",
+                published:"formData[i]",
               }
             ]
           })
 
-          //  console.log(slider) 
-
-          /* const slider = new Slider(
-          { 
-            [name]:name,[val]:val,
-          });
-            console.log(slider) */
+          console.log(slider); */
 
 
-
-          //console.log(JSON.stringify(newData))
-          //slider.save(slider) 
-
-          // newData.push({[name] : val})
-
-          // console.log(newData)   
-
-
-
-          /* dbo.collection("slider").insertMany(slider, function(err, res) {
-           if (err) throw err;
-         //   db.close();
-         });  */
-
-          /* datalarim = JSON.parse(newData);
-            dbo.collection("slider").insertMany(newData, function (err, res) {
+          // const slider = [name, val];
+        
+           for (var i = 0; i < formData.length; i++) {
+             
+             formData[i] = val;
+             const slider = new Slider({
+ 
+               gorsel: [
+                 {
+                   ResimBaslik: i.formData,
+                   Resimpath:formData[i],
+                   Resimicerik: formData[i],
+                   VideoBaslik: formData[i],
+                   Videopath: formData[i],
+                   Veritipi: formData[i],
+                   published:formData[i]
+                 }
+               ]
+             })
+ 
+             console.log(slider);
+            // body = JSON.parse(slider);
+             dbo.collection("slider").insertMany(slider.gorsel, function(err, res) {
               if (err) throw err;
               db.close();
-            });  */
+            });  
+ 
+           }    
+           
 
-          // key = name;
-          //value = val;  
-          /* console.log(fieldname)*/
-          //console.log(key) 
-          // console.log(value)  
-          //body[name] = name;
-          //body[val] = val;
-
-          /*   const data = body[name]+":"+''+body[val]; 
-            console.log(data)   
-            
-            
-            var dbo = db.db("dogsandb");
-              dbo.collection("slider").insertMany(data, function(err, res) {
-               if (err) throw err;
-                db.close();
-             });   */
+          
+ 
         })
 
 
@@ -244,6 +216,14 @@ const upload = async (req, res) => {
         bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
           res.end("Başarılı sistem kapatıldı");
+
+
+
+
+
+
+
+
         });
 
         //console.log(bb)
