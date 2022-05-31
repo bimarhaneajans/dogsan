@@ -146,10 +146,7 @@ const upload = async (req, res) => {
         const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val) => {
 
-          let users = [{ [name]: val },];
-          //let newData = [];
-        
-         
+          let users = [{ [name]: val },]; 
            for (var i in users) {
            slider = new Slider({ 
               gorsel:  
