@@ -137,6 +137,7 @@ const deleteAll = (req, res) => {
 const upload = async (req, res) => {
  
     try {
+      
       MongoClient.connect(dbConfig.url, function (err, db) {
         if (err) throw err;
         const body = {}
@@ -179,17 +180,17 @@ const upload = async (req, res) => {
           file.pipe(fs.createWriteStream(saveTo)); */
        // });
 
-      bb.on('file', (name, file, info) => {
+     /*  bb.on('file', (name, file, info) => {
         let fstream;
         req.pipe(req.busboy);
         req.busboy.on('file', (fieldname, file, filename) => {
          fstream = fs.createWriteStream(config.base_dir + '/public/resources/static/assets/videos/' + filename);
          file.pipe(fstream);
-         fstream.on('close', () => {
+         /* fstream.on('close', () => {
            res.send('/images/' + filename);
-         });
+         });  
         });
-      });
+      }); */
 
   
       
