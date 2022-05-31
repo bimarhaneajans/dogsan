@@ -2,6 +2,7 @@ module.exports = mongoose => {
   var schema = mongoose.Schema(
    {
     gorsel:{
+      Baslik: String, 
       ResimBaslik: String, 
       Resimpath:String,
       Resimicerik:String,

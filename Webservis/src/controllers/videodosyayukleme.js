@@ -35,8 +35,8 @@ const Slider = db.slide;
  
 const findAll = (req, res) => {
 
-  const ResimBaslik = req.query.ResimBaslik;
-  var condition = ResimBaslik ? { Yil: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+  const Baslik = req.query.Baslik;
+  var condition = Baslik ? { Yil: { $regex: new RegExp(Baslik), $options: "i" } } : {};
 
   Slider.find(condition)
     .then(data => {
@@ -154,6 +154,7 @@ const upload = async (req, res) => {
          slider = new Slider({ 
             gorsel:  
               { 
+                Baslik: users[i].Baslik ,
                 Resimpath:  saveTo ,
                 Resimicerik:  users[i].Resimicerik ,
                 VideoBaslik:  users[i].VideoBaslik ,

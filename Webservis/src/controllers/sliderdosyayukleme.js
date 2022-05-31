@@ -44,28 +44,47 @@ const upload = async (req, res) => {
 const getListFiles = (req, res) => {
   const directoryPath = __basedir + "/public/resources/static/assets/slidervideos/";
   let JsonObject;
-  fs.readdir(directoryPath, function (err, files) {
-    if (err) {
-      res.status(500).send({
-        message: "Unable to scan files!",
+
+  const ResimBaslik = req.query.ResimBaslik;
+  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+
+  Slider.find(condition)
+    .then(data => {
+      res.send(data);
+
+      fs.readdir(directoryPath, function (err, files) {
+        if (err) {
+          res.status(500).send({
+            message: "Unable to scan files!",
+          });
+        }
+
+        let fileInfos = [];
+
+        files.forEach((file) => {
+          fileInfos.push({
+
+            src: baseUrl + file,
+            type: path.extname(baseUrl + file),
+          });
+        });
+
+        JsonObject = JSON.parse(JSON.stringify(fileInfos));
+        //console.log(JsonObject)
+
+        res.status(200).send();
       });
-    }
-
-
-    let fileInfos = [];
-
-    files.forEach((file) => {
-      fileInfos.push({
-        name: file,
-        url: baseUrl + file,
-        type: path.extname(baseUrl + file),
+    }).catch(err => {
+      JSON.stringify(JsonObject)
+      res.status(200).send({
+        message:
+          err.message || "Some error occurred while retrieving ignes."
       });
-    });
+    })
 
-    JsonObject = JSON.parse(JSON.stringify(fileInfos));
-//console.log(JsonObject)
-    res.status(200).send(JSON.stringify(JsonObject));
-  });
+
+
+
 };
 
 const download = (req, res) => {

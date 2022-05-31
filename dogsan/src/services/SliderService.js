@@ -9,23 +9,23 @@ const get = id => {
 };
 
 const create = data => {
-  return http.post("/slider", data);
+  return http.post("/video", data);
 };
 
 const update = (id, data) => {
-  return http.put(`/slider/${id}`, data);
+  return http.put(`/video/${id}`, data);
 };
 
 const remove = id => {
-  return http.delete(`/slider/${id}`);
+  return http.delete(`/video/${id}`);
 };
 
 const removeAll = () => {
-  return http.delete(`/slider`);
+  return http.delete(`/video`);
 };
 
-const findByTitle = ismi => {
-  return http.get(`/slider?ismi=${ismi}`);
+const findByTitle = Baslik => {
+  return http.get(`/video?Baslik=${Baslik}`);
 };
 
 const SliderService = {
