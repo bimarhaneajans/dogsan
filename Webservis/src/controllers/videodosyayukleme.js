@@ -30,7 +30,7 @@ const { check, validationResult } = require('express-validator');
 
 
 const Slider = db.slide;
-
+ 
 const findAll = (req, res) => {
 
   const ResimBaslik = req.query.ResimBaslik;
@@ -135,34 +135,13 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
-  try {
-    await uploadFile(req, res);
+    try {
+       uploadFile(req, res)
 
-    if (req.file == undefined) {
-      return res.status(400).send({ message: "Please upload a file!" });
-    }
-
-    res.status(200).send({
-      message: "Uploaded the file successfully: " ,
-    });
-  } catch (err) {
-    console.log(err);
-
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
-      });
-    }
-
-    res.status(500).send({
-      message: `Could not upload the file:  `,
-    });
-  }
-  try {
-    MongoClient.connect(dbConfig.url, function (err, db) {
-      if (err) throw err;
-      const body = {}
-      let slider = [null];
+      MongoClient.connect(dbConfig.url, function (err, db) {
+        if (err) throw err;
+        const body = {}
+        let slider=[null];
       if (req.method === 'POST') {
 
         const bb = busboy({ headers: req.headers })
@@ -170,72 +149,70 @@ const upload = async (req, res) => {
 
           let users = [{ [name]: val },];
           //let newData = [];
-
-
-          for (var i in users) {
-            slider = new Slider({
-              gorsel:
-              {
-                Resimpath: users[i].Resimpath,
-                Resimicerik: users[i].Resimicerik,
-                VideoBaslik: users[i].VideoBaslik,
-                Videopath: users[i].Videopath,
-                Veritipi: users[i].Veritipi,
-                published: users[i].published,
-              }
-
-            })
-          }
-
-          // body = JSON.parse(slider); //gerek yok 
-          /*  var dbo = db.db("dogsandb");
-           dbo.collection("slider").insertMany(slider, function (err, res) {
-             if (err) throw err;
-               db.close();
-           }); */
+        
+         
+           for (var i in users) {
+           slider = new Slider({ 
+              gorsel:  
+                { 
+                  Resimpath:  users[i].Resimpath ,
+                  Resimicerik:  users[i].Resimicerik ,
+                  VideoBaslik:  users[i].VideoBaslik ,
+                  Videopath:  users[i].Videopath ,
+                  Veritipi:   users[i].Veritipi ,
+                  published:  users[i].published ,
+                } 
+              
+            }) 
+           }  
+        
+         // body = JSON.parse(slider); //gerek yok 
+         /*  var dbo = db.db("dogsandb");
+          dbo.collection("slider").insertMany(slider, function (err, res) {
+            if (err) throw err;
+              db.close();
+          }); */
           console.log(JSON.stringify(slider));
-          slider.save(slider)
-        })
+          slider.save(slider) 
+        }) 
+        
+          /* var saveTo = path.join(__dirname, 'uploads/' + filename);
+          file.pipe(fs.createWriteStream(saveTo)); */
+       // });
 
-        /* var saveTo = path.join(__dirname, 'uploads/' + filename);
-        file.pipe(fs.createWriteStream(saveTo)); */
-        // });
-
-        /*  bb.on('file', (name, file, info) => {
-           let fstream;
-           req.pipe(req.busboy);
-           req.busboy.on('file', (fieldname, file, filename) => {
-            fstream = fs.createWriteStream(config.base_dir + '/public/resources/static/assets/videos/' + filename);
-            file.pipe(fstream);
-            /* fstream.on('close', () => {
-              res.send('/images/' + filename);
-            });  
-           });
-         }); */
-
-
-        bb.on("error", function (err) {
-          console.log("Busboy error catching......>>>>>>>>>>>>>>", err);
+     /*  bb.on('file', (name, file, info) => {
+        let fstream;
+        req.pipe(req.busboy);
+        req.busboy.on('file', (fieldname, file, filename) => {
+         fstream = fs.createWriteStream(config.base_dir + '/public/resources/static/assets/videos/' + filename);
+         file.pipe(fstream);
+         /* fstream.on('close', () => {
+           res.send('/images/' + filename);
+         });  
         });
+      }); */
 
-
+  
+      
+     
+ 
         bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
-          res.end("Başarılı sistem kapatıldı");
-        });
+          res.end("Başarılı sistem kapatıldı");  
+        });  
 
+        
 
+ 
+         return req.pipe(bb);
 
-
-        return req.pipe(bb);
-
-      }
+      }   
     });
-  } catch (err) {
-    console.log(err)
-  }
+    } catch (err) {
+      console.log(err) 
+    }
 
-
+  
 };
 
 const getListFiles = (req, res) => {
