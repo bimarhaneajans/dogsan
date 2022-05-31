@@ -347,6 +347,9 @@ body {
 
 .main-header .main-logo img {
 	margin-right: 14px;
+	margin-top: -32px;
+	width: 120px;
+	height: 80px;
 }
 
 .main-header .main-logo {
@@ -371,8 +374,12 @@ body {
 
 .main-navigation .main-nav li {
 	height: 80px;
-	padding-top: 30px;
-	border-right: 2px solid #e6e6e6;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-right: 1px solid #e6e6e6;
+	border-left: 1px solid #e6e6e6;
+	border-top: 1px solid #e6e6e6;
 	margin-right: 0px;
 }
 
