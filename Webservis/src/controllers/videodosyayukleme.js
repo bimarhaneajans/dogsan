@@ -16,7 +16,7 @@ var mongoose = require('mongoose');
 var FormData = require('form-data');
 var fs = require('fs');
 const Busboy = require('busboy');
-
+const cBusboy = require('connect-busboy');
 
 mongoose.connect(dbConfig.url);
 var dbs = mongoose.connection;
@@ -176,21 +176,23 @@ const upload = async (req, res) => {
         })
         // /public/resources/static/assets/videos/
         
-        var busboys = new Busboy({ headers: req.headers });
-        busboys.on('file', function(fieldname, file, filename, encoding, mimetype) {
+       // var busboys = new Busboy({ headers: req.headers });
+         cBusboy({ headers: req.headers })
+         cBusboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
           var saveTo = path.join('/public/resources/static/assets/videos/', filename);
           console.log('Uploading: ' + saveTo);
           file.pipe(fs.createWriteStream(saveTo));
         });
-        busboys.on('finish', function() {
+        cBusboy.on('finish', function() {
           console.log('Upload complete');
           res.writeHead(200, { 'Connection': 'close' });
           res.end("That's all folks!");
         });
-        return req.pipe(busboy);
+        //return req.pipe(busboy);
      
- 
-        bb.on('finish', function () {
+   
+
+        cBusboy.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
           res.end("Başarılı sistem kapatıldı");  
         }) 
