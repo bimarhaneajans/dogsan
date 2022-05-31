@@ -1,4 +1,3 @@
-
 const MongoClient = require("mongodb").MongoClient;
 const dbConfig = require("../config/db.config");
 const uploadFile = require("../middlewares/videouploadfile");
@@ -135,18 +134,47 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
- 
-    try {
-      MongoClient.connect(dbConfig.url, function (err, db) {
-        if (err) throw err;
-        const body = {}
-        let slider=[null];
-      if (req.method === 'POST') {
 
+  try {
+    await uploadFile(req, res);
+
+    if (req.file == undefined) {
+      return res.status(400).send({ message: "Please upload a file!" });
+    }
+
+    res.status(200).send({
+      message: "Uploaded the file successfully: " + req.file.originalname,
+    });
+  } catch (err) {
+    console.log(err);
+
+    if (err.code == "LIMIT_FILE_SIZE") {
+      return res.status(500).send({
+        message: "File size cannot be larger than 2MB!",
+      });
+    }
+
+    res.status(500).send({
+      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+    });
+  }
+  
+  MongoClient.connect(dbConfig.url, function (err, db) {
+    if (err) throw err;
+    const body = {}
+    let slider=[null];
+    
+      
+      if (req.method === 'POST') { 
+      
+        
         const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val) => {
 
-          let users = [{ [name]: val },]; 
+          let users = [{ [name]: val },];
+          //let newData = [];
+        
+         
            for (var i in users) {
            slider = new Slider({ 
               gorsel:  
@@ -161,20 +189,38 @@ const upload = async (req, res) => {
               
             }) 
            }  
-      
+        
+         // body = JSON.parse(slider); //gerek yok 
+         /*  var dbo = db.db("dogsandb");
+          dbo.collection("slider").insertMany(slider, function (err, res) {
+            if (err) throw err;
+              db.close();
+          }); */
           console.log(JSON.stringify(slider));
           slider.save(slider) 
-        })  
- 
+        })
+
+       
+       
+        
+          /* var saveTo = path.join(__dirname, 'uploads/' + filename);
+          file.pipe(fs.createWriteStream(saveTo)); */
+           
+     
+
+       /*  bb.on('finish', function () {
+          res.writeHead(200, { 'Connection': 'close' });
+          res.end("Başarılı sistem kapatıldı"); 
+        }); */
+
+        //console.log(bb)
          req.pipe(bb);
 
       }   
-    });
-    } catch (err) {
-      console.log(err) 
-    }
+     
+    
 
-  
+  });
 };
 
 const getListFiles = (req, res) => {
