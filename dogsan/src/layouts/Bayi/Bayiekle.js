@@ -24,12 +24,12 @@ const initialValue = undefined;
 function BayiEkle() {
   const initialTutorialState = {
     id: null,
-    baslik: null,
-    adres: null,
-    telefon: null,
-    enlem: null,
-    boylam: null,
-    sehir: null,
+    baslik: "",
+    adres: "",
+    telefon: "",
+    enlem: "",
+    boylam: "",
+    sehir: "",
     published: false
   };
 
@@ -72,6 +72,7 @@ function BayiEkle() {
       boylam: tutorial.boylam,
       Resim: tutorial.Resim,
     };
+    
  console.log(data)
     BayiDataService.create(data)
       .then(response => {
@@ -187,14 +188,30 @@ function BayiEkle() {
               </div>
               <div className="form-group">
                 <label htmlFor="Enlem">Enlem</label>
-
-                <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={enlem} onChange={Changeenlem} />
+                <input
+                type="number"
+                className="form-control"
+                id="enlem"
+                required
+                value={tutorial.enlem}
+                onChange={handleInputChange}
+                name="enlem"
+              /> 
+               {/*  <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }} value={enlem} onChange={Changeenlem} /> */}
               </div>
 
               <div className="form-group">
                 <label htmlFor="boylam">boylam</label>
-
-                <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }} value={boylam} onChange={Changeboylam} />
+                <input
+                type="number"
+                className="form-control"
+                id="boylam"
+                required
+                value={tutorial.boylam}
+                onChange={handleInputChange}
+                name="boylam"
+              /> 
+                {/* <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }} value={boylam} onChange={Changeboylam} /> */}
               </div>
 
               <FileBase64

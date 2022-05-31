@@ -214,7 +214,7 @@ const KatalogEkle = () => {
                 <RichTextEditor name="katalogadi" id="katalogadi" type="text" style={{ width: "600px" }} value={katalogadi} onChange={Changekatalogadi} />
               </div>
 
-              {currentFile && (
+             {/*  {currentFile && (
                 <div className="progress">
                   <div
                     className="progress-bar progress-bar-info progress-bar-striped"
@@ -227,10 +227,10 @@ const KatalogEkle = () => {
                     {progress}%
                   </div>
                 </div>
-              )}
-              <div className="form-group" >
+              )} */}
+              {/* <div className="form-group" >
                 <label htmlFor="kariyer">Katalog Yükle</label>
-                <KatalogPdfYukle style={{ width: "300px", marginLeft: "100px" }}/>
+                <KatalogPdfYukle style={{ width: "300px", marginLeft: "100px" }}/> */}
                 {/* <>
                   <select
                     type="text"
@@ -258,8 +258,8 @@ const KatalogEkle = () => {
                     }
 
                   </select>
-                </> */}
-              </div>
+                </>
+              </div> */}
        
               <FileBase64
                 type="file"

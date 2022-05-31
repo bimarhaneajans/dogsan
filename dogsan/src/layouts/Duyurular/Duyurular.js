@@ -133,7 +133,8 @@ export default function Duyurular() {
                     </div>))}
                 <aside className="col-md-5">
 
-                    <div className="side-content" style={{marginLeft:"-81px",marginTop:"-1202px"}}>
+                    {/* <div className="side-content" style={{marginLeft:"-81px",marginTop:"-1202px"}}> */}
+                    <div className="side-content" > 
                         <DuyuruTimeline/>
                     </div>
 

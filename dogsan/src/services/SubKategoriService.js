@@ -4,8 +4,8 @@ const getAll = () => {
   return http.get("/subkategori");
 };
 
-const get = kategoriid => {
-  return http.get(`/subkategori/${kategoriid}`);
+const get = id => {
+  return http.get(`/subkategori/${id}`);
 };
 
 const create = data => {

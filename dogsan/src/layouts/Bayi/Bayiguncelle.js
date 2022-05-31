@@ -27,7 +27,7 @@ const Bayiguncelle = props => {
      boylam: "",
      published: false
    }; */
-  const initialValue = 'Alana verilerisssssssssss doldurun';
+  const initialValue = 'Alana verileri doldurun';
 
 
   const [currentTutorial, setCurrentTutorial] = useState();
@@ -187,69 +187,48 @@ const Bayiguncelle = props => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="Enlem">Şehir</label>
-                  {/*    <input
-                type="text"
-                className="form-control"
-                id="sehir"
-                required
-                value={currentTutorial.sehir}
-                onChange={handleInputChange}
-                name="sehir"
-              /> */}
-                  {/* <RichTextEditor name="sehir" id="sehir" type="text" style={{ width: "600px" }} 
-               value={currentTutorial.sehir} 
-                 onChange={(sehir) => handleInputChange({ target: { value: sehir, name: 'sehir' } })}/>
-               */}
-
-                  <select
+                  <input
                     type="text"
+                    className="form-control"
                     id="sehir"
+                    required
+                    value={currentTutorial.sehir}
+                    onChange={handleInputChange}
                     name="sehir"
-                  // value={currentTutorial.sehir}
-                    onChange={(sehir) => handleInputChange({ target: { value: sehir, name: 'sehir' } })}
-                  >
-                    {/*  {sehir.map(options =>
-                     <option key={options.sehirAdi} 
-                     value={options.sehirAdi}>
-                     {options.sehirAdi}</option>)
-
-                    } */}
-
-                    <option value="sehir">{currentTutorial.telefon} </option> 
-                  </select>
+                  />
                 </div>
 
 
                 <div className="form-group">
                   <label htmlFor="Enlem">Enlem</label>
-                  {/* <input
-                type="text"
+                <input
+                type="number"
                 className="form-control"
                 id="enlem"
                 required
                 value={currentTutorial.enlem}
                 onChange={handleInputChange}
                 name="enlem"
-              /> */}
-                  <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }}
+              /> 
+                {/*   <RichTextEditor name="enlem" id="enlem" type="text" style={{ width: "600px" }}
                     value={currentTutorial.enlem}
-                    onChange={(enlem) => handleInputChange({ target: { value: enlem, name: 'enlem' } })} />
+                    onChange={(enlem) => handleInputChange({ target: { value: enlem, name: 'enlem' } })} /> */}
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="boylam">boylam</label>
-                  {/*    <input
-                type="text"
+                  <input
+                type="number"
                 className="form-control"
                 id="boylam"
                 required
                 value={currentTutorial.boylam}
                 onChange={handleInputChange}
                 name="boylam"
-              /> */}
-                  <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }}
+              /> 
+                 {/*  <RichTextEditor name="boylam" id="boylam" type="text" style={{ width: "600px" }}
                     value={currentTutorial.boylam}
-                    onChange={(boylam) => handleInputChange({ target: { value: boylam, name: 'boylam' } })} />
+                    onChange={(boylam) => handleInputChange({ target: { value: boylam, name: 'boylam' } })} /> */}
                 </div>
 
                 <FileBase64
