@@ -135,13 +135,40 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
+
+  try {
+    await uploadFile(req, res);
+
+    if (req.file == undefined) {
+      return res.status(400).send({ message: "Please upload a file!" });
+    }
+
+    res.status(200).send({
+      message: "Uploaded the file successfully: " + req.file.originalname,
+    });
+  } catch (err) {
+    console.log(err);
+
+    if (err.code == "LIMIT_FILE_SIZE") {
+      return res.status(500).send({
+        message: "File size cannot be larger than 2MB!",
+      });
+    }
+
+    res.status(500).send({
+      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
+    });
+  }
+  
   MongoClient.connect(dbConfig.url, function (err, db) {
     if (err) throw err;
     const body = {}
     let slider=[null];
-    try {
-      if (req.method === 'POST') {
-
+    
+      
+      if (req.method === 'POST') { 
+      
+        
         const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val) => {
 
@@ -173,54 +200,29 @@ const upload = async (req, res) => {
           console.log(JSON.stringify(slider));
           slider.save(slider) 
         })
-        
+
        
+       
+        
+          /* var saveTo = path.join(__dirname, 'uploads/' + filename);
+          file.pipe(fs.createWriteStream(saveTo)); */
+           
+     
 
-        bb.on('finish', function () {
+       /*  bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
-          res.end("Başarılı sistem kapatıldı");
+          res.end("Başarılı sistem kapatıldı"); 
 
 
 
-
-
-
-
-
-        });
+        }); */
 
         //console.log(bb)
-        return req.pipe(bb);
+         req.pipe(bb);
 
-      }
-
-
-      uploadFile(req, res)
-
-      if (req.file == undefined) {
-        return res.status(400).send({ message: "Please upload a file!" });
-      }
-
-      res.status(200).send({
-        message: "Uploaded the file successfully: "
-      })
-    } catch (err) {
-      console.log(err);
-
-      if (err.code == "LIMIT_FILE_SIZE") {
-        return res.status(500).send({
-          message: "File size cannot be larger than 2MB!",
-        });
-      }
-
-      res.status(500).send({
-        message: `Could not upload the file:. ${err}`,
-      });
-
-
-
-
-    }
+      }   
+     
+    
 
   });
 };
