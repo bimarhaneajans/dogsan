@@ -133,10 +133,10 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload = async (req, res) => {
+const upload =  (req, res) => {
  
   try {
-    await uploadFile(req, res);
+     uploadFile(req, res)
     const bb = busboy({ headers: req.headers })
     MongoClient.connect(dbConfig.url, function (err, db) {
       if (err) throw err;
