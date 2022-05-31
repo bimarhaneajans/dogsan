@@ -29,7 +29,8 @@ dbs.once('open', function (callback) {
 const { check, validationResult } = require('express-validator');
 
 global.__basedir = __dirname;
-
+var saveTo;
+var tipi;
 const Slider = db.slide;
  
 const findAll = (req, res) => {
@@ -153,11 +154,11 @@ const upload = async (req, res) => {
          slider = new Slider({ 
             gorsel:  
               { 
-                Resimpath:  users[i].Resimpath ,
+                Resimpath:  saveTo ,
                 Resimicerik:  users[i].Resimicerik ,
                 VideoBaslik:  users[i].VideoBaslik ,
-                Videopath:  users[i].Videopath ,
-                Veritipi:   users[i].Veritipi ,
+                Videopath:  saveTo ,
+                Veritipi:   tipi ,
                 published:  users[i].published ,
               } 
             
@@ -168,14 +169,10 @@ const upload = async (req, res) => {
       })  
 
       bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
-
-        const directoryPath = __basedir + "/public/resources/static/assets/videos/";
-    
- 
        
-         var saveTo = path.join( 'public/resources/static/assets/videos/' + filename.filename);
-         console.log(saveTo)
-       file.pipe(fs.createWriteStream(saveTo));
+         saveTo = path.join( 'public/resources/static/assets/videos/' + filename.filename);
+         tipi= JSON.stringify(filename.mimeType);  
+         file.pipe(fs.createWriteStream(saveTo));
 
 
       
