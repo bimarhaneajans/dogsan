@@ -22,8 +22,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-
-
+import "../social.css";
+import DOMPurify from "dompurify";
 
 
 
@@ -116,14 +116,14 @@ export default function Duyurular() {
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
 
-                            <div className="col-xs-12"><p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
-                            <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi :  <div dangerouslySetInnerHTML={{ __html: item.Tarih }}  ></div></p></div>
+                            <div className="col-xs-12"><p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.baslik)}}  ></div></p></div>
+                            <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi :  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.Tarih) }}  ></div></p></div>
 
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
-                            <p style={{ textAlign: "center" }} >  <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div></p>
+                            <p style={{ textAlign: "center" }} >  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.icerik )}}  ></div></p>
 
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>

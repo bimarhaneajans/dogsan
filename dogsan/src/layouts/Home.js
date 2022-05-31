@@ -52,6 +52,7 @@ import "./style.css"
 import "./responsive-styling.css"
 import "./social.css"
 import Slider from "../sliders/yedeksliders";
+import DOMPurify from "dompurify";
 const customStyles = {
   content: {
     top: '50%',
@@ -318,7 +319,7 @@ export default function Home() {
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link">{tutorial.kategoriadi}</Link></li>))}
+                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link"><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(tutorial.kategoriadi)  }}  /></Link></li>))}
                     </ul>
                   </div>
 
@@ -338,7 +339,7 @@ export default function Home() {
                         <ul className="nav navbar-nav">
                           {tutorials && tutorials.map((tutorial, index) => (
                             <li onClick={() => setActiveTutorial(tutorial, index)}
-                              key={index}><a href={"#" + tutorial.path}>{tutorial.kategoriadi}</a></li>))}
+                              key={index}><a href={"#" + tutorial.path}> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(tutorial.kategoriadi)  }}  /></a></li>))}
                         </ul>
                       </div>
 
@@ -495,8 +496,8 @@ export default function Home() {
 
                   <div className="info-col">
                     <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
-                    <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
-                    <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.baslik)  }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.icerik)  }}  ></div>
                   </div>
                   <Link to={"/Duyuru/" + item.id} className="nav-link">Göster</Link>
                 </div>
@@ -681,10 +682,10 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-                        <h6> <div dangerouslySetInnerHTML={{ __html: item.pozizyon }}  ></div></h6>
-                        <h4> <div dangerouslySetInnerHTML={{ __html: item.yoneticiadi }} /><div dangerouslySetInnerHTML={{ __html: item.yoneticisoyadi }} /></h4>
-                        <p><div dangerouslySetInnerHTML={{ __html: item.kariyer }} /> </p>
-                        <p><div dangerouslySetInnerHTML={{ __html: item.kisaozgecmis }} /> </p>
+                        <h6>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.pozizyon)  }}  ></div></h6>
+                        <h4> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.yoneticiadi)  }} /> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.yoneticisoyadi)  }}  /></h4>
+                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kariyer)  }}  /></p>
+                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kisaozgecmis)  }}  /></p>
 
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
@@ -733,8 +734,8 @@ export default function Home() {
                         </div>
                         <div className="info-col">
 
-                          <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div>
-                          <div dangerouslySetInnerHTML={{ __html: item.Ozet }}  ></div>
+                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.baslik)  }}  />
+                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.Ozet)  }}  /> 
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare
@@ -854,49 +855,7 @@ export default function Home() {
 
         </div>
       </div>
-
-
-      {/*   <div className="modal fade" id="myModal" role="dialog" aria-hidden="true">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-body">
-              <div className="row">
-                <div className="col-md-12">
-                  <div className="col-md-6 no-padding">
-                    <img src="assets/img/team/1.png" className="img-responsive" alt="" />
-                  </div>
-                  <div className="col-md-6 team-pop-info">
-                    <button data-dismiss="modal" className="m-close"></button>
-                    <h4><span>Clinic manager</span> Frank Rooney</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  Lorem ipsum dolor sit amet, consectetur adi pisicing elit, sed do eiusmod. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <ul className="tp-meta">
-                      <li><span>Phone Number</span> <em>+40 987 654 321</em></li>
-                      <li><span>Email Address</span> <em>contact@theronins.com</em></li>
-                      <li><span>Place of work</span> <em>Heartify Clinic in Chicago</em></li>
-                      <li><span>Responsibilities</span> <em>Head of orthopedics</em></li>
-                    </ul>
-                    <div className="row">
-                      <div className="tp-social">
-                        <div className="col-md-6 no-padding">
-                          <span>Social Profiles</span>
-                        </div>
-                        <div className="col-md-6 no-padding">
-                          <ul>
-                            <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                            <li><a href="#"><i className="fa fa-skype"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
+     
       <ul class="fixed-social-menu list-inline-social mb-0" >
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">

@@ -19,7 +19,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-
+import DOMPurify from "dompurify";
+import "../social.css";
 
 export default function Blog() {
     let { id } = useParams();
@@ -102,10 +103,10 @@ export default function Blog() {
                                 <img src={blog.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <div dangerouslySetInnerHTML={{ __html: blog.baslik }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( blog.baslik) }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <div dangerouslySetInnerHTML={{ __html: blog.icerik }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( blog.icerik) }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                

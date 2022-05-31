@@ -11,7 +11,7 @@ import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const Bayiguncelle = props => {
+const Overview = props => {
   const { id }= useParams();
   let navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const Bayiguncelle = props => {
     videourl: "",
     published: false
   };
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  const [currentTutorial, setCurrentTutorial] = useState();
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -41,22 +41,26 @@ const Bayiguncelle = props => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+  useEffect(() => {
+    if (id)
+      getTutorial(id);
+     
+  }, [id]);
 
   const getTutorial = id => {
     SubKategoriDataService.get(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
+      
+       
       })
       .catch(e => {
         console.log(e);
       });
   };
 
-  useEffect(() => {
-    if (id)
-      getTutorial(id);
-  }, [id]);
+
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -83,6 +87,7 @@ const Bayiguncelle = props => {
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
+        setMessage("Başarılı bir şekilde güncellendi");
       })
       .catch(e => {
         console.log(e);
@@ -224,7 +229,7 @@ const Bayiguncelle = props => {
               <div className="form-group">
                 <label htmlFor="kategoriid">kategoriid</label>
                 <input
-                  type="Number"
+                  type="number"
                   className="form-control"
                   id="kategoriid"
                   required
@@ -316,4 +321,4 @@ const Bayiguncelle = props => {
 );
 }
 
-export default Bayiguncelle;
+export default Overview;

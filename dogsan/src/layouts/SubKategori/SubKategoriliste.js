@@ -148,46 +148,12 @@ const Overview = (props) => {
           <div className="col-md-6">
             {currentTutorial ? (
               <div>
-                <strong>Başlık:</strong>
-                <div>
-                  <label>
-
-                  </label>{" "}
-                  {currentTutorial.baslik}
-                </div>
-                <div>
-                  <label>
-                    <strong>Adres:</strong>
-                  </label>{" "}
-                  {currentTutorial.adres}
-                </div>
-                <div>
-                  <label>
-                    <strong>Enlem:</strong>
-                  </label>{" "}
-                  {currentTutorial.enlem}
-                </div>
-                <div>
-                  <label>
-                    <strong>Telefon:</strong>
-                  </label>{" "}
-                  {currentTutorial.telefon}
-                </div>
-                <div>
-                  <label>
-                    <strong>Boylam:</strong>
-                  </label>{" "}
-                  {currentTutorial.boylam}
-                </div>
                 <div>
                   <label>
                     <strong>Durum:</strong>
                   </label>{" "}
                   {currentTutorial.published ? "Published" : "Pending"}
                 </div>
-
-
-            
                 <Link
                   to={"/SubKategoriguncelle/" + currentTutorial.id}
                   className="m-6 btn btn-lm btn-warning"

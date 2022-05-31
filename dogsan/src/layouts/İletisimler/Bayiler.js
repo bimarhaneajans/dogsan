@@ -25,6 +25,10 @@ import { FaYoutube } from "react-icons/fa";
 import { Container, Dropdown, DropdownButton, Button } from 'react-bootstrap';
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import Select from 'react-select';
+import DOMPurify from "dompurify";
+import "../social.css"
+
+
 
 
 const containerStyle = {
@@ -167,7 +171,7 @@ export default function Bayiler() {
       const onUnmount = React.useCallback(function callback(map) {
         setMap(null)
       }, [])
-    
+
     return (<div className="main-wrapper">
  
         <div>
@@ -262,9 +266,9 @@ export default function Bayiler() {
                 {filtered.map(item => (
                     <div key={item.id} className="col-md-9">
                         <article>
-                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.sehir }}  ></div></p></div>
-                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
-                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.telefon }}  ></div></p></div>
+                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>   <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.sehir)  }}  ></div></p></div>
+                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.baslik)  }}  ></div></p></div>
+                            <div class="col-md-3" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.telefon)  }}  ></div></p></div>
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
                         </article>
@@ -286,7 +290,28 @@ export default function Bayiler() {
         <div className="footer2">
             <img src={dogsanlogo} alt="" />
         </div>
-
+        <ul class="fixed-social-menu list-inline-social mb-0" >
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">
+          <FaFacebookF size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.instagram.com/dogsansurgicalsutures/">
+            <FaInstagram size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://tr.linkedin.com/company/dogsan-surgical-sutures">
+          <FaLinkedinIn size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.youtube.com/channel/UChIvINCYAyWJP9-4JOv-vXg">
+            <FaYoutube size={23} style={{marginLeft: "-3px"}}/>
+          </a>
+        </li>
+      </ul>           
 
     </div>
 

@@ -1,10 +1,8 @@
-
 import React, {useState,useEffect,useMemo, useRef  } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
- import KategoriDataService from "../../services/KategoriService";
-
+import KategoriDataService from "../../services/KategoriService";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 import Header from "layouts/profile/components/Header";
 import typography from "assets/theme/base/typography";
@@ -46,21 +44,7 @@ const Overview = props => {
   const { size } = typography;
   
 
-/*   const getTutorial = id => {
-    KategoriDataService.get(id)
-      .then(response => {
-        setCurrentTutorial(response.data);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
 
-  useEffect(() => {
-    getTutorial(props.match.params.id);
-  }, [props.match.params.id]);
- */
   const getTutorial = id => {
     KategoriDataService.get(id)
       .then(response => {
@@ -76,7 +60,7 @@ const Overview = props => {
     if (id)
       getTutorial(id);
   }, [id]);
-  
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setCurrentTutorial({ ...currentTutorial, [name]: value });

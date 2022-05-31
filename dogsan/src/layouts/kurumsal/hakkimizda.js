@@ -8,7 +8,7 @@ import HakkimizdaDataService from "../../services/HakkimizdaService";
 import logo from "../assets/img/logo/heartify-logo.png";
 import logo2 from "../assets/img/logo/heartify-logo-lite.png";
 import dogsanlogo from "../assets/img/logo/Group_2.png";
-
+import "../social.css"
 import backtotop from "../assets/img/backtotop.jpg"
 import "../assets/vendor/bootstrap/css/bootstrap.min.css";
 import "../assets/css/style.css"; // burasi
@@ -22,6 +22,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import DOMPurify from "dompurify";
 
 
 
@@ -119,13 +120,13 @@ export default function Hakkimizda() {
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <div dangerouslySetInnerHTML={{ __html: item.AnaBaslik }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.AnaBaslik) }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <div dangerouslySetInnerHTML={{ __html: item.AnaIcerik }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.AnaIcerik )}}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <div dangerouslySetInnerHTML={{ __html: item.BelgeselBaslik }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.BelgeselBaslik )}}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="reactPly" >
@@ -133,7 +134,7 @@ export default function Hakkimizda() {
                                 </div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <div dangerouslySetInnerHTML={{ __html: item.BelgeselIcerigi }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.BelgeselIcerigi) }}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 

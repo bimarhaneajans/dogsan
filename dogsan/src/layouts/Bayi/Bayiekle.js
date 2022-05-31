@@ -19,17 +19,17 @@ import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
 import Select from 'react-select';
 
-const initialValue = 'Alana verileri doldurun';
+const initialValue = undefined;
 
 function BayiEkle() {
   const initialTutorialState = {
     id: null,
-    baslik: "",
-    adres: "",
-    telefon: "",
-    enlem: "",
-    boylam: "",
-    sehir: "",
+    baslik: null,
+    adres: null,
+    telefon: null,
+    enlem: null,
+    boylam: null,
+    sehir: null,
     published: false
   };
 
@@ -67,12 +67,12 @@ function BayiEkle() {
       baslik: JSON.stringify(baslik),
       adres: JSON.stringify(adres),
       telefon: JSON.stringify(telefon),
-      enlem: JSON.stringify(enlem),
+      enlem: tutorial.enlem,
       sehir: tutorial.sehir,
-      boylam: JSON.stringify(boylam),
+      boylam: tutorial.boylam,
       Resim: tutorial.Resim,
     };
-
+ console.log(data)
     BayiDataService.create(data)
       .then(response => {
         setTutorial({
@@ -93,7 +93,7 @@ function BayiEkle() {
       })
       .catch(e => {
         console.log(e);
-      });
+      }); 
   };
 
   const newTutorial = () => {

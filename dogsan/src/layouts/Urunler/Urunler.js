@@ -19,6 +19,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import DOMPurify from "dompurify";
+import "../social.css"
 
 
 
@@ -119,7 +121,7 @@ export default function Urunler() {
 
                                         <div className="clearfix"></div>
                                         
-                                          <div dangerouslySetInnerHTML={{ __html: item.igneadi }}  ></div>
+                                          <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.igneadi) }}  ></div>
                                         <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
 
 

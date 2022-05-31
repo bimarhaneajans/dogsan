@@ -21,9 +21,9 @@ import { RichTextEditor } from '@mantine/rte';
 const SubKategoriEkle = () => {
   const initialTutorialState = {
     id: null,
-    subkategoriadi: "",
-    Resim: "",
-    tanim: "",
+    subkategoriadi:null,
+    Resim: null,
+    tanim: null,
     kullanimamaci: "",
     performansozellikleri: "",
     fayda: "",

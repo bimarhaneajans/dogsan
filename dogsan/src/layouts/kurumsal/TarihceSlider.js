@@ -3,6 +3,7 @@ import { Carousel } from "react-bootstrap";
 import ReactPlayer from "react-player";
 import "../../sliders/bootstrap.slider.css";
 import SliderService from "../../services/TarihiGaleriService"; 
+import "../social.css";
 
 var classNames = require('classnames');
 const TarihceSlider = () => {

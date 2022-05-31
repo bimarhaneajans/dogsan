@@ -23,6 +23,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import DOMPurify from "dompurify";
+import "../social.css";
 
 let slides = [];
 
@@ -117,12 +119,12 @@ export default function Tarihce() {
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <div dangerouslySetInnerHTML={{ __html: item.Yil }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.Yil) }}  ></div>
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <div dangerouslySetInnerHTML={{ __html: item.icerik }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.icerik )}}  ></div>
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>

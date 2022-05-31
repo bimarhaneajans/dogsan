@@ -20,6 +20,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
+import DOMPurify from "dompurify";
+import "../social.css"
 
 /* import SVG, { Props as SVGProps } from 'react-inlinesvg';  */
 
@@ -120,7 +122,7 @@ export default function Kataloglar() {
                                                 <center><img src={item.Resim} style={{ objectFit: "cover", height: "300px", width: "300px" }} /></center>
                                                 <center><img class="information-box__grid-icon" src={svgpdf} alt="pdf" /></center>
                                             </div>
-                                            <div dangerouslySetInnerHTML={{ __html: item.katalogadi }}  ></div>
+                                            <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.katalogadi) }}  ></div>
 
                                         </Link>
 
