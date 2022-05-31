@@ -171,9 +171,11 @@ const upload = async (req, res) => {
       bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
        
          saveTo = path.join( 'public/resources/static/assets/videos/' + filename.filename);
-         tipi= JSON.stringify(filename.mimeType);  
+         tipi= filename.mimeType;  
+        
          file.pipe(fs.createWriteStream(saveTo));
 
+         
 
       
       
