@@ -149,22 +149,20 @@ const upload = async (req, res) => {
           //let newData = [];
         
          
-         // for (var i in users) {
+           for (var i in users) {
            slider = new Slider({ 
-              gorsel: [
+              gorsel:  
                 { 
-                  Resimpath:" users[i].Resimpath",
-                  Resimicerik: "users[i].Resimicerik",
-                  VideoBaslik: "users[i].VideoBaslik",
-                  Videopath:" users[i].Videopath",
-                  Veritipi: "users[i].Veritipi",
-                  published: "users[i].published",
-                }
-              ]
-
+                  Resimpath:  users[i].Resimpath ,
+                  Resimicerik:  users[i].Resimicerik ,
+                  VideoBaslik:  users[i].VideoBaslik ,
+                  Videopath:  users[i].Videopath ,
+                  Veritipi:   users[i].Veritipi ,
+                  published:  users[i].published ,
+                } 
               
             }) 
-        //  }  
+           }  
         
          // body = JSON.parse(slider); //gerek yok 
          /*  var dbo = db.db("dogsandb");
