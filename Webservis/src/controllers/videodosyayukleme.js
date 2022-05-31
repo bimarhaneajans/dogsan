@@ -10,13 +10,15 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
-const baseUrl = "https://bavrim.madilink.net/resources/static/assets/videos/";
+const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
 var mongoose = require('mongoose');
 var FormData = require('form-data');
 var fs = require('fs');
 const busboy = require('busboy');
 
-
+//postman ekle
+//'Accept': 'application/json',
+//'Content-Type': 'multipart/form-data'
 mongoose.connect(dbConfig.url);
 var dbs = mongoose.connection;
 dbs.on('error', console.log.bind(console, "connection error"));
@@ -26,7 +28,7 @@ dbs.once('open', function (callback) {
 
 const { check, validationResult } = require('express-validator');
 
-
+global.__basedir = __dirname;
 
 const Slider = db.slide;
  
@@ -133,72 +135,60 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload =  (req, res) => {
- 
+const upload = async (req, res) => {
+  //var busboy = new Busboy({ headers: req.headers });
   try {
-     uploadFile(req, res)
-    const bb = busboy({ headers: req.headers })
     MongoClient.connect(dbConfig.url, function (err, db) {
       if (err) throw err;
       const body = {}
       let slider=[null];
-  
-        
-      if (req.method === 'POST') {
-     
+    if (req.method === 'POST') {
+
+      const bb = busboy({ headers: req.headers })
+      bb.on('field', (name, val) => {
+
+        let users = [{ [name]: val },]; 
        
-        bb.on('field', (name, val) => {
-  
-          let users = [{ [name]: val },]; 
-         
-           for (var i in users) {
-           slider = new Slider({ 
-              gorsel:  
-                { 
-                  Resimpath:  users[i].Resimpath ,
-                  Resimicerik:  users[i].Resimicerik ,
-                  VideoBaslik:  users[i].VideoBaslik ,
-                  Videopath:  users[i].Videopath ,
-                  Veritipi:   users[i].Veritipi ,
-                  published:  users[i].published ,
-                } 
-              
-            }) 
-           }   
-          console.log(JSON.stringify(slider));
-          slider.save(slider) 
-        })  
-   
-           req.pipe(bb);
-  
-        }   
-       
-      
-  
-    });
+         for (var i in users) {
+         slider = new Slider({ 
+            gorsel:  
+              { 
+                Resimpath:  users[i].Resimpath ,
+                Resimicerik:  users[i].Resimicerik ,
+                VideoBaslik:  users[i].VideoBaslik ,
+                Videopath:  users[i].Videopath ,
+                Veritipi:   users[i].Veritipi ,
+                published:  users[i].published ,
+              } 
+            
+          }) 
+         }   
+        console.log(JSON.stringify(slider));
+        slider.save(slider) 
+      })  
 
-    if (req.file == undefined) {
-      return res.status(400).send({ message: "Please upload a file!" });
-    }
-
-    res.status(200).send({
-      message: "Uploaded the file successfully: " + req.file.originalname,
-    });
-  } catch (err) {
-    console.log(err);
-
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
-      });
-    }
-
-    res.status(500).send({
-      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
-    });
-  }
-  
+      bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
  
+        var saveTo = path.join('http://localhost:3000/public/resources/static/assets/videos/' + filename);
+        file.pipe(fs.createWriteStream(saveTo));
+      });
+   
+      bb.on('finish', function() {
+        res.writeHead(200, { 'Connection': 'close' });
+        res.end("That's all folks!");
+      });
+      
+
+
+       return req.pipe(bb);
+
+    }   
+  });
+  } catch (err) {
+    console.log(err) 
+  }
+
+
 };
 
 const getListFiles = (req, res) => {
