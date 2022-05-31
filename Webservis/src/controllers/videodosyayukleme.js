@@ -155,7 +155,7 @@ const upload = async (req, res) => {
           //formData.get('ResimBaslik')
 
 
-          var dbo = db.db("dogsandb");
+        
 
           //var formData = [name, val];
 
@@ -196,14 +196,17 @@ const upload = async (req, res) => {
               ]
             })
             console.log(slider);
+            var dbo = db.db("dogsandb");
+            body = JSON.parse(slider);
+            dbo.collection("slider").insertMany({body}, function (err, res) {
+              if (err) throw err;
+                db.close();
+            });
           } 
           //   // body = JSON.parse(slider); //gerek yok 
-
+         
         })
-        dbo.collection("slider").insertMany(slider, function (err, res) {
-          if (err) throw err;
-          //  db.close();
-        });
+        
 
 
         bb.on('finish', function () {
