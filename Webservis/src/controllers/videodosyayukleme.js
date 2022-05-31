@@ -30,7 +30,7 @@ const { check, validationResult } = require('express-validator');
 
 
 const Slider = db.slide;
-
+ 
 const findAll = (req, res) => {
 
   const ResimBaslik = req.query.ResimBaslik;
@@ -138,76 +138,45 @@ const upload = async (req, res) => {
   MongoClient.connect(dbConfig.url, function (err, db) {
     if (err) throw err;
     const body = {}
+    let slider=[null];
     try {
       if (req.method === 'POST') {
 
         const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val) => {
-          // let formData = new Map();
-
-          // formData.set(name, val);
-          //   console.log(formData)
-
-          // formData.set(val,name)
-          //formData.set('Resimicerik',val) 
-
-          //  console.log(formData)
-          //formData.get('ResimBaslik')
-
-
-        
-
-          //var formData = [name, val];
 
           let users = [{ [name]: val },];
-          let newData = [];
-          //console.log(users)
-
-
-         /*  for (var i in users) {
-
-            newData.push(
-              {
-                //previous_data[0].data
-                Resimpath: users[i].Resimpath,
-                Resimicerik: users[i].Resimicerik,
-                VideoBaslik: users[i].VideoBaslik,
-                Videopath: users[i].Videopath,
-                Veritipi: users[i].Veritipi,
-                published: users[i].published,
-              },
-            );
-
-          } */
-
-          for (var i in users) {
-            const slider = new Slider({
-
+          //let newData = [];
+        
+         
+         // for (var i in users) {
+           slider = new Slider({ 
               gorsel: [
-                {
-
-                  Resimpath: users[i].Resimpath,
-                  Resimicerik: users[i].Resimicerik,
-                  VideoBaslik: users[i].VideoBaslik,
-                  Videopath: users[i].Videopath,
-                  Veritipi: users[i].Veritipi,
-                  published: users[i].published,
+                { 
+                  Resimpath:" users[i].Resimpath",
+                  Resimicerik: "users[i].Resimicerik",
+                  VideoBaslik: "users[i].VideoBaslik",
+                  Videopath:" users[i].Videopath",
+                  Veritipi: "users[i].Veritipi",
+                  published: "users[i].published",
                 }
               ]
-            })
-            console.log(slider);
-            var dbo = db.db("dogsandb");
-            body = JSON.parse(slider);
-            dbo.collection("slider").insertMany({body}, function (err, res) {
-              if (err) throw err;
-                db.close();
-            });
-          } 
-          //   // body = JSON.parse(slider); //gerek yok 
-         
+
+              
+            }) 
+        //  }  
+        
+         // body = JSON.parse(slider); //gerek yok 
+         /*  var dbo = db.db("dogsandb");
+          dbo.collection("slider").insertMany(slider, function (err, res) {
+            if (err) throw err;
+              db.close();
+          }); */
+          console.log(JSON.stringify(slider));
+          slider.save(slider) 
         })
         
-
+       
 
         bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
