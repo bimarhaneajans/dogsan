@@ -163,8 +163,8 @@ const upload = async (req, res) => {
                 } 
               
             }) 
-           }   
-          }); */
+           }  
+      
           console.log(JSON.stringify(slider));
           slider.save(slider) 
         })  
