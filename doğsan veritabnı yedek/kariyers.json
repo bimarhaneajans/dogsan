@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "628cb6c8bc6beec10a7739d0"
+  },
+  "kariyeradi": "İDARİ EKİBİMİZ",
+  "createdAt": {
+    "$date": "2022-05-24T10:43:20.508Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T10:43:20.508Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cb6d2bc6beec10a7739d2"
+  },
+  "kariyeradi": "PAZARLAMA BİRİMİ",
+  "createdAt": {
+    "$date": "2022-05-24T10:43:30.236Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T10:43:30.236Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cb6dcbc6beec10a7739d4"
+  },
+  "kariyeradi": "ÜRETİM DEPARTMANI",
+  "createdAt": {
+    "$date": "2022-05-24T10:43:40.624Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T10:43:40.624Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cb6e9bc6beec10a7739d6"
+  },
+  "kariyeradi": "SAHA EKİBİMİZ",
+  "createdAt": {
+    "$date": "2022-05-24T10:43:53.369Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T10:43:53.369Z"
+  },
+  "__v": 0
+}]

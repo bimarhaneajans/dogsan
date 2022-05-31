@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "628cd9b1bc6beec10a773ba0"
+  },
+  "adi": "EMİLEBİLİR SÜTURLER",
+  "kategoriid": 1,
+  "kategoriadi": "EMİLEBİLİR SÜTURLER",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T13:12:17.873Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T13:12:17.873Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cda2bbc6beec10a773baf"
+  },
+  "adi": "EMİLMEYEN SÜTURLER",
+  "kategoriid": 2,
+  "kategoriadi": "EMİLMEYEN SÜTURLER",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T13:14:19.070Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T13:14:19.070Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cda5cbc6beec10a773bb7"
+  },
+  "adi": "KVC",
+  "kategoriid": 3,
+  "kategoriadi": "KVC",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T13:15:08.072Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T13:15:08.072Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cda83bc6beec10a773bbf"
+  },
+  "adi": "EMİLEBİLİR HEMOSTAT",
+  "kategoriid": 4,
+  "kategoriadi": "EMİLEBİLİR HEMOSTAT",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T13:15:47.448Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T13:15:47.448Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cda9ebc6beec10a773bc1"
+  },
+  "adi": "DENTAL SÜTURLER",
+  "kategoriid": 5,
+  "kategoriadi": "DENTAL SÜTURLER",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T13:16:14.202Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T13:16:14.202Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cdab4bc6beec10a773bc3"
+  },
+  "adi": "VETERİNERLİK",
+  "kategoriid": 6,
+  "kategoriadi": "VETERİNERLİK",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T13:16:36.636Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T13:16:36.636Z"
+  },
+  "__v": 0
+}]

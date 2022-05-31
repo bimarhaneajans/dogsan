@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "628ce0d7bc6beec10a773bfe"
+  },
+  "subkategoriadi": "PEDESENTE",
+  "tanim": " PEDESENTE steril, emilebilir monofilaman cerrahi ameliyat ipliğidir. Sütür polidioksanon'dan mamuldür ve ampirik formülü (-O-CH2-CH2-OCH2-CO-)n. Polidioksanon polimeri antijen ve pirojen değildir, emilim sırasında sadece hafif doku reaksiyonu ortaya çıkar. PEDESENTE sütürler dokuda görüşü sağlamak için polimerizasyon sırasında mor renge (D&C Violet No.2 (C.l. # 60725)) boyanır. Ayrıca, boyanmamış (bej) olarak da mevcuttur.PEDESENTE Avrupa Farmakopesi (EP) ve Amerika Birleşik Devletleri Farmakopesi'nde (USP) emilebilir sentetik sütürler için tanımlanmış gerekliliklerin tümünü karşılar.",
+  "kullanimamaci": "PEDESENTE sütürler genel olarak yumuşak doku yaklaştırması ve/veya bağlanmasında, büyümenin beklendiği pediatrik kardiyovasküler dokularda ve göz cerrahisinde (oftalmoloji) ve emilebilir sütür ve uzun süreli (6 haftaya kadar) yara desteği gereken dokularda kullanılır.Sadece tek kullanımlıktır.",
+  "performansozellikleri": "req.body.performansozellikleri",
+  "fayda": "EDESENTE minimum doku reaksiyonu ve lifli bağlantı dokularının içten büyümesine sebep olur.PEDESENTE sütürlerde mukavemet kaybı ve emilim aşamalı hidrolizle olur. Polimer monomerlerine ayrışır, sonunda emilir ve vücut tarafından atılır. Emilim prosesi kopma mukavemetinin azalması ile başlar ve kütle kaybı ile devam eder. Çalışmalar PEDESENTE'nin dokuya implante edildikten 2 hafta sonra orijinal kopma mukavemetinin yaklaşık %75'ini muhafaza ettiğini gösterir. lmplantasyon sonrası 4.haftada orijinal kopma mukavemetinin yaklaşık % 60'ını korur. Farelerde emilim testeri ve in vitro hidroliz çalışmaları PEDESENTE'nin implantasyon sonrası 90. günde emilimin minimal olduğunu ve tamamen emilimin 180 ile 210 gün arasında tamamlandığını gösterir.",
+  "kategoriid": 1,
+  "kategoriadi": "EMİLEBİLİR SÜTÜRLER",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T13:42:47.726Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T13:42:47.726Z"
+  },
+  "__v": 0
+}]

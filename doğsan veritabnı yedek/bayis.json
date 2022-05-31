@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "628cc487bc6beec10a773ae5"
+  },
+  "baslik": "<p><strong>Yeldan Tıbbi Malz. Tic. Ltd. Şti.</strong></p>",
+  "adres": "",
+  "telefon": "<p><strong>0322 328 01 06</strong></p>",
+  "enlem": "",
+  "boylam": "",
+  "sehir": "",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:41:59.760Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:43:22.969Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cc499bc6beec10a773ae7"
+  },
+  "baslik": "<p><strong>Adıyaman Alfa Medikal</strong></p>",
+  "adres": "",
+  "telefon": "<p><strong>0416 213 35 58</strong></p>",
+  "enlem": "",
+  "boylam": "",
+  "sehir": "",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:42:17.710Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:43:48.714Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cc4b0bc6beec10a773ae9"
+  },
+  "baslik": "<p><strong>Orkamed Tıbbi Malz. Med. İnş. San. Tic. ve Ltd. Şti.</strong></p>",
+  "adres": "",
+  "telefon": "<p><strong>0224 220 44 06</strong></p>",
+  "enlem": "",
+  "boylam": "",
+  "sehir": "",
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:42:40.456Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:44:19.878Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,97 @@
+[{
+  "_id": {
+    "$oid": "628cbec7bc6beec10a773a65"
+  },
+  "Yil": "<p><strong>1950</strong></p>",
+  "icerik": "<p><span style=\\\"background-color: rgb(3, 9, 16); color: rgb(255, 255, 255);\\\">Trabzon Uzun sokaktaki Şifa Eczanesi, M. Kamil Saruhan tarafından işletilmektedir. Oğlu Salim Saruhan, baba mesleğini sürdürmek hedefiyle Tıp Fakültesi'ni yarım bırakarak Eczacılık Fakültesi'nde eğitim görmeye başlar ve mezun olur olmaz eczanenin işletmesini üstlenir.</span></p>",
+  "Resim": "",
+  "Resimcoklu": [],
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:17:27.482Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:20:36.925Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cbf2cbc6beec10a773a70"
+  },
+  "Yil": "<p><strong>1959</strong></p>",
+  "icerik": "<p><span style=\\\"background-color: rgb(3, 9, 16); color: rgb(255, 255, 255);\\\">Salim Saruhan Trabzon'da Doğu Ecza Deposu'nu kurarak Karadeniz Bölgesi'nde ilaç dağıtımına başlanır.</span></p>",
+  "Resim": "",
+  "Resimcoklu": [],
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:19:08.586Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:20:57.030Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cbf3dbc6beec10a773a72"
+  },
+  "Yil": "<p><strong>1965</strong></p>",
+  "icerik": "<p><span style=\\\"color: rgb(255, 255, 255); background-color: rgb(3, 9, 16);\\\">Saba İlaç'ın kurulması ile insan sağlığı alanında verilen hizmetler tam bir aile geleneğine dönüşür</span></p>",
+  "Resim": "",
+  "Resimcoklu": [],
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:19:25.276Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:21:13.174Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cbf4fbc6beec10a773a74"
+  },
+  "Yil": "<p><strong>1969</strong></p>",
+  "icerik": "<p><span style=\\\"background-color: rgb(3, 9, 16); color: rgb(255, 255, 255);\\\">Saruhan ailesinin yenilikçi ruhu bu kez ülkenin sağlık sektöründe bir ilki gerçekleştirmeyi planlarını yapmaktadır. Doğsan'ın oluşumuna giden en önemli adımlar bu yıl atılır. Bir yıl içinde yatırımlar ve gereken hazırlıklar tamamlanır.</span></p>",
+  "Resim": "",
+  "Resimcoklu": [],
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:19:43.876Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:21:26.429Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cbf5dbc6beec10a773a76"
+  },
+  "Yil": "<p><strong>2004</strong></p>",
+  "icerik": "<p><span style=\\\"color: rgb(255, 255, 255); background-color: rgb(3, 9, 16);\\\">Propilen,&nbsp;Trofilen&nbsp;ve&nbsp;Politer Class 3&nbsp;ürünlerine&nbsp;93/42/EEC&nbsp;uygunluk belgesi alınır.</span></p>",
+  "Resim": "",
+  "Resimcoklu": [],
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:19:57.346Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:21:42.347Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628cbf68bc6beec10a773a78"
+  },
+  "Yil": "<p><strong>2006</strong></p>",
+  "icerik": "<p><span style=\\\"background-color: rgb(3, 9, 16); color: rgb(255, 255, 255);\\\">Sentetik emilebilir sütürler;&nbsp;Pegesorb,&nbsp;Pegesorb rapid,&nbsp;Pegelak,&nbsp;Pegelak rapid,&nbsp;Tekmon&nbsp;ve&nbsp;Pedesente&nbsp;ürünlerin üretimine başlanır ve&nbsp;93/42/EEC&nbsp;uygunluk belgeri alınır.</span></p>",
+  "Resim": "",
+  "Resimcoklu": [],
+  "published": false,
+  "createdAt": {
+    "$date": "2022-05-24T11:20:08.296Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-24T11:22:06.807Z"
+  },
+  "__v": 0
+}]
