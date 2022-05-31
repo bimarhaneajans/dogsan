@@ -15,8 +15,8 @@ const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
 var mongoose = require('mongoose');
 var FormData = require('form-data');
 var fs = require('fs');
-const Busboy = require('busboy');
-const cBusboy = require('connect-busboy');
+const busboy = require('busboy');
+
 
 mongoose.connect(dbConfig.url);
 var dbs = mongoose.connection;
@@ -143,7 +143,7 @@ const upload = async (req, res) => {
         let slider=[null];
       if (req.method === 'POST') {
 
-        const bb = Busboy({ headers: req.headers })
+        const bb = busboy({ headers: req.headers })
         bb.on('field', (name, val) => {
 
           let users = [{ [name]: val },];
@@ -173,29 +173,34 @@ const upload = async (req, res) => {
           }); */
           console.log(JSON.stringify(slider));
           slider.save(slider) 
-        })
-        // /public/resources/static/assets/videos/
+        }) 
         
-       // var busboys = new Busboy({ headers: req.headers });
-         cBusboy({ headers: req.headers })
-         cBusboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-          var saveTo = path.join('/public/resources/static/assets/videos/', filename);
-          console.log('Uploading: ' + saveTo);
-          file.pipe(fs.createWriteStream(saveTo));
-        });
-        cBusboy.on('finish', function() {
-          console.log('Upload complete');
-          res.writeHead(200, { 'Connection': 'close' });
-          res.end("That's all folks!");
-        });
-        //return req.pipe(busboy);
-     
-   
+          /* var saveTo = path.join(__dirname, 'uploads/' + filename);
+          file.pipe(fs.createWriteStream(saveTo)); */
+       // });
 
-        cBusboy.on('finish', function () {
+      bb.on('file', (name, file, info) => {
+        let fstream;
+        req.pipe(req.busboy);
+        req.busboy.on('file', (fieldname, file, filename) => {
+         fstream = fs.createWriteStream(config.base_dir + '/public/resources/static/assets/videos/' + filename);
+         file.pipe(fstream);
+         fstream.on('close', () => {
+           res.send('/images/' + filename);
+         });
+        });
+      });
+
+  
+      
+     
+ 
+        bb.on('finish', function () {
           res.writeHead(200, { 'Connection': 'close' });
           res.end("Başarılı sistem kapatıldı");  
-        }) 
+        });  
+
+        
 
  
          return req.pipe(bb);
