@@ -172,13 +172,12 @@ const upload = async (req, res) => {
         const directoryPath = __basedir + "/public/resources/static/assets/videos/";
     
  
-         var saveTo = JSON.stringify(directoryPath +filename.filename+ path.extname(filename.filename));
-        
-        
-        
-        file.pipe(fs.createWriteStream(saveTo));
+       
+         var saveTo = path.join( 'public/resources/static/assets/videos/' + filename.filename);
+         console.log(saveTo)
+       file.pipe(fs.createWriteStream(saveTo));
 
-        console.log(saveTo)
+
       
       
       });
