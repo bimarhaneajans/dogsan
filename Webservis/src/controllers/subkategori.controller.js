@@ -81,6 +81,22 @@ exports.findOne = (req, res) => {
     });
 };
 
+exports.SubfindOne = (req, res) => {
+  const id = req.params.id;
+
+  SubKategori.findById(id)
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found mesaj with id " + id });
+      else res.send(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving mesaj with id=" + id });
+    });
+};
+
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({

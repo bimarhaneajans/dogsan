@@ -20,6 +20,7 @@ module.exports = app => {
   router.get("/", subkategori.findAll);
   router.get("/published", subkategori.findAllPublished);
   router.get("/:kategoriid", subkategori.findOne);
+  router.get("/findone/:id", subkategori.SubfindOne);
   router.put("/:id", subkategori.update);
   router.delete("/:id", subkategori.delete);
   router.delete("/", subkategori.deleteAll);

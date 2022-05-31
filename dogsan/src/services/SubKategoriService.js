@@ -7,6 +7,9 @@ const getAll = () => {
 const get = id => {
   return http.get(`/subkategori/${id}`);
 };
+const getSubone = id => {
+  return http.get(`/subkategori/findone/${id}`);
+};
 
 const create = data => {
   return http.post("/subkategori", data);
@@ -30,6 +33,7 @@ const findByTitle = subkategoriadi => {
 
 const subkategoriService = {
   getAll,
+  getSubone,
   get,
   create,
   update,

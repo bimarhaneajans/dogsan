@@ -11,7 +11,7 @@ import routes from "../../routes";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
-const Overview = props => {
+const Bayiguncelle = props => {
   const { id }= useParams();
   let navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const Overview = props => {
     videourl: "",
     published: false
   };
-  const [currentTutorial, setCurrentTutorial] = useState(initialTutorialState);
+  const [currentTutorial, setCurrentTutorial] = useState();
   const [message, setMessage] = useState("");
   const [tutorial, setTutorial] = useState(initialTutorialState);
   const [submitted, setSubmitted] = useState(false);
@@ -41,26 +41,22 @@ const Overview = props => {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
-  useEffect(() => {
-    if (id)
-      getTutorial(id);
-     
-  }, [id]);
 
   const getTutorial = id => {
-    SubKategoriDataService.get(id)
+    SubKategoriDataService.getSubone(id)
       .then(response => {
         setCurrentTutorial(response.data);
         console.log(response.data);
-      
-       
       })
       .catch(e => {
         console.log(e);
       });
   };
 
-
+  useEffect(() => {
+    if (id)
+      getTutorial(id);
+  }, [id]);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
@@ -87,7 +83,6 @@ const Overview = props => {
       .then(response => {
         setCurrentTutorial({ ...currentTutorial, published: status });
         console.log(response.data);
-        setMessage("Başarılı bir şekilde güncellendi");
       })
       .catch(e => {
         console.log(e);
@@ -321,4 +316,4 @@ const Overview = props => {
 );
 }
 
-export default Overview;
+export default Bayiguncelle;
