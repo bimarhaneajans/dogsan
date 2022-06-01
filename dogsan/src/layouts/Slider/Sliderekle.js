@@ -70,6 +70,10 @@ export default function Form() {
   const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
+  const [Baslik, setBaslik] = React.useState(initialTutorialState);
+  const [Veritipi, setVeritipi] = React.useState(initialTutorialState);
+  const [Resimicerik, setResimicerik] = React.useState(initialTutorialState);
+  const [VideoBaslik, setVideoBaslik] = React.useState(initialTutorialState);
 
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
@@ -79,7 +83,7 @@ export default function Form() {
 
 
 
-  const handleInputChange = event => {
+/*   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
   };
@@ -99,37 +103,43 @@ export default function Form() {
 
     console.log(data)
 
-    /*   SliderDataService.create(data)
-        .then(response => {
-          setTutorial({
-            id: response.data.id,
-            Baslik: response.data.Baslik,
-            Veritipi: response.data.Veritipi,
-            Resimicerik: response.data.Resimicerik,
-            VideoBaslik: response.data.VideoBaslik,
-            url: response.data.url,
-            src: response.data.src,
-            published: response.data.published
-          });
-          setSubmitted(true);
-          console.log(response.data);
-        })
-        .catch(e => {
-          console.log(e);
-        }); */
+    SliderDataService.create(data)
+      .then(response => {
+        setTutorial({
+          id: response.data.id,
+          Baslik: response.data.Baslik,
+          Veritipi: response.data.Veritipi,
+          Resimicerik: response.data.Resimicerik,
+          VideoBaslik: response.data.VideoBaslik,
+          url: response.data.url,
+          src: response.data.src,
+          published: response.data.published
+        });
+        setSubmitted(true);
+        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
   };
 
   const newTutorial = () => {
     setTutorial(initialTutorialState);
     setSubmitted(false);
-  };
+  }; */
 
 
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     const formData = new FormData();
-    formData.append("selectedFile", selectedFile);
+
+    for(let [name, value] of formData) {
+      formData.append(name, value);
+   //  alert(`${name} = ${value}`); // key1 = value1, then key2 = value2
+}
+  /*   formData.append("selectedFile", selectedFile); */
+
 
     try {
       const response = await axios({
@@ -159,21 +169,22 @@ export default function Form() {
         <Header />
       </div>
       <div style={{ width: "300px", marginLeft: "100px" }}>
-        <form onSubmit={handleSubmit} 
+        <form onSubmit={handleSubmit}
         >
 
 
           <div className="submit-form">
-         
+
             <div className="form-group">
-              <label htmlFor="bayi">Başlık</label>
+              <label htmlFor="Başlık">Başlık</label>
               <input
                 type="text"
                 className="form-control"
                 id="Baslik"
-                required
-                value={tutorial.Baslik}
-                onChange={handleInputChange}
+
+                value={Baslik}
+                
+                onChange={e => setBaslik(e.target.value)}  
                 name="Baslik"
               />
             </div>
@@ -183,9 +194,10 @@ export default function Form() {
                 type="radio"
                 className="form-control"
                 id="Veritipi"
-                required
-                value={tutorial.Veritipi}
-                onChange={handleInputChange}
+
+                value={Veritipi}
+               
+                onChange={e => setVeritipi(e.target.value)}  
                 name="Veritipi"
               />
             </div>
@@ -195,9 +207,9 @@ export default function Form() {
                 type="text"
                 className="form-control"
                 id="Resimicerik"
-                required
-                value={tutorial.Resimicerik}
-                onChange={handleInputChange}
+
+                value={Resimicerik}
+                 onChange={e => setResimicerik(e.target.value)}  
                 name="Resimicerik"
               />
             </div>
@@ -207,13 +219,14 @@ export default function Form() {
                 type="text"
                 className="form-control"
                 id="VideoBaslik"
-                required
-                value={tutorial.VideoBaslik}
-                onChange={handleInputChange}
+
+                value={VideoBaslik}
+                onChange={e => setVideoBaslik(e.target.value)}  
+            
                 name="VideoBaslik"
               />
             </div>
-        {/*     <div className="form-group">
+            {/*     <div className="form-group">
               <label htmlFor="VideoBaslik">Video url</label>
               <input
                 type="text"
@@ -240,7 +253,7 @@ export default function Form() {
 
 
 
-            <input type="file" required onChange={handleFileSelect} />
+            <input type="file" onChange={handleFileSelect} />
             <input type="submit" value="Kaydet" />
 
           </div>
