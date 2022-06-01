@@ -159,14 +159,12 @@ export default function Form() {
         <Header />
       </div>
       <div style={{ width: "300px", marginLeft: "100px" }}>
-        <form onSubmit={handleSubmit}
-
-
+        <form onSubmit={handleSubmit} 
         >
 
 
           <div className="submit-form">
-            <input type="file" onChange={handleFileSelect} />
+         
             <div className="form-group">
               <label htmlFor="bayi">Başlık</label>
               <input
@@ -233,7 +231,7 @@ export default function Form() {
                 type="text"
                 className="form-control"
                 id="src"
-
+               
                 value={tutorial.src}
                 onChange={handleInputChange}
                 name="src"
@@ -242,8 +240,8 @@ export default function Form() {
 
 
 
-
-            <input type="submit" value="Upload File" />
+            <input required type="file" onChange={handleFileSelect} />
+            <input type="submit" value="Kaydet" />
 
           </div>
         </form>
