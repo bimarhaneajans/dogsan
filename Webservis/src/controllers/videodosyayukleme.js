@@ -174,10 +174,10 @@ const upload = async (req, res) => {
         
          tipi= filename.mimeType;  
          
-         saveTo = path.basename( './public/resources/static/assets/videos' + filename.filename);
+         saveTo = path.basename( 'public/resources/static/assets/videos/' + filename.filename);
          console.log(saveTo)
 
-         saveTodiks = path.basename( './public/resources/static/assets/videos' + filename.filename);
+         saveTodiks = path.basename( 'public/resources/static/assets/videos/' + filename.filename);
          file.pipe(fs.createWriteStream(saveTodiks));
 
          
