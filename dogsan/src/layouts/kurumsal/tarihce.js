@@ -119,12 +119,12 @@ export default function Tarihce() {
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.Yil) }}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( JSON.parse(item.Yil)) }}  ></div>
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.icerik )}}  ></div>
+                                <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( item.icerik))}}  ></div>
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>

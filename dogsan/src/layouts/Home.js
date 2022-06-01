@@ -41,6 +41,8 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaGooglePlusG } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import HTMLRenderer from 'react-html-renderer'
+import JSONViewer from 'react-json-viewer';
 
 
 /* import "../layouts/assets/vendor/bootstrap/css/bootstrap.min.css";
@@ -275,7 +277,7 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-          <Slider />
+       {/*    <Slider /> */}
 
           <div id="slider-wrapper">
           </div>
@@ -319,7 +321,7 @@ export default function Home() {
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link"><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(tutorial.kategoriadi)  }}  /></Link></li>))}
+                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link"><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(tutorial.kategoriadi))  }}  /></Link></li>))}
                     </ul>
                   </div>
 
@@ -339,7 +341,7 @@ export default function Home() {
                         <ul className="nav navbar-nav">
                           {tutorials && tutorials.map((tutorial, index) => (
                             <li onClick={() => setActiveTutorial(tutorial, index)}
-                              key={index}><a href={"#" + tutorial.path}> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(tutorial.kategoriadi)  }}  /></a></li>))}
+                              key={index}><a href={"#" + tutorial.path}> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(tutorial.kategoriadi))  }}  /></a></li>))}
                         </ul>
                       </div>
 
@@ -496,8 +498,8 @@ export default function Home() {
 
                   <div className="info-col">
                     <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
-                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.baslik)  }}  ></div>
-                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.icerik)  }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik))  }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.icerik))  }}  ></div>
                   </div>
                   <Link to={"/Duyuru/" + item.id} className="nav-link">Göster</Link>
                 </div>
@@ -682,11 +684,14 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-                        <h6>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.pozizyon)  }}  ></div></h6>
-                        <h4> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.yoneticiadi)  }} /> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.yoneticisoyadi)  }}  /></h4>
-                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kariyer)  }}  /></p>
-                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kisaozgecmis)  }}  /></p>
 
+                      
+                        <h6>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.pozizyon))  }}  ></div></h6>
+                        <h4> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.yoneticiadi))  }} /> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.yoneticisoyadi))  }}  /></h4>
+                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kariyer)  }}  /></p>
+                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.kisaozgecmis))  }}  /></p>
+                       
+                       
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
                           <ul class="list-inline list-unstyled pull-right social">
@@ -734,8 +739,8 @@ export default function Home() {
                         </div>
                         <div className="info-col">
 
-                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.baslik)  }}  />
-                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.Ozet)  }}  /> 
+                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik))  }}  />
+                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.Ozet))  }}  /> 
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare

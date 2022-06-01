@@ -124,28 +124,28 @@ export default function Subdynamicdetaykategori() {
                                         <div className="clearfix"></div>
                                         <h1>
                                        
-                                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.subkategoriadi )}}  ></div></h1>
+                                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( item.subkategoriadi ))}}  ></div></h1>
 
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Tanım</h1>
                                        
-                                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.tanim )}}  ></div>
+                                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( item.tanim ))}}  ></div>
 
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Kullanım Amacı</h1>
-                                         <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.kullanimamaci )}}  ></div>
+                                         <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( item.kullanimamaci))}}  ></div>
 
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Klinik Performans Özellikleri</h1>
-                                         <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.performansozellikleri) }}  ></div>
+                                         <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( item.performansozellikleri)) }}  ></div>
 
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
                                         <h1>Klinik Fayda</h1>
-                                         <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( item.fayda) }}  ></div>
+                                         <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( item.fayda)) }}  ></div>
 
                                         <div className="bottom-space-30"></div>
                                         <div className="clearfix"></div>
