@@ -19,11 +19,25 @@ import FileBase64 from 'react-file-base64';
 const BayiEkle = () => {
   const initialTutorialState = {
     id: null,
-    ismi: "",
-    slidetipi: "",
-    siralama: "", 
+    Baslik: "",
+    Resimicerik:"",
+    VideoBaslik:"",
+     Veritipi:false ,
+    url:  "",
+    src:"" ,
+    VideoBaslik: "",
     published: false
   };
+  /*
+                 Resimpath:  saveTo ,
+                Resimicerik:  users[i].Resimicerik ,
+                VideoBaslik:  users[i].VideoBaslik ,
+                Veritipi:  users[i].slidetipi ,
+                url:  saveTo ,
+                Veritipi:   tipi ,
+                published:  users[i].published ,
+  
+  */
 
 
   const [tutorial, setTutorial] = useState(initialTutorialState);
@@ -44,24 +58,41 @@ const BayiEkle = () => {
     setTutorial({ ...tutorial, [name]: value });
   };
 
+
+  /*
+              id: null,
+    Baslik: "",
+    Resimicerik:"",
+    VideoBaslik:"",
+    Veritipi:false ,
+    url:  "",
+    src:"" ,
+    VideoBaslik: "",
+    published: false
+  */
   const saveTutorial = () => {
     var data = {
       id: tutorial.id,
-      ismi: tutorial.ismi,
-      slidetipi: tutorial.slidetipi,
-      siralama: tutorial.siralama, 
-      Resim: tutorial.Resim,
+      Baslik: tutorial.Baslik,
+      Veritipi: tutorial.Veritipi,
+      Resimicerik: tutorial.Resimicerik, 
+      src: tutorial.src,
+      VideoBaslik: tutorial.VideoBaslik, 
+      url:tutorial.url, 
+      //Resim: tutorial.Resim,
     };
 
     SliderDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
-          ismi: response.data.ismi,
-          slidetipi: response.data.slidetipi,
-          siralama: response.data.siralama, 
-          Resim: response.data.Resim,
-          published: response.data.published
+          Baslik: response.data.Baslik,
+          Veritipi: response.data.Veritipi,
+          Resimicerik: response.data.Resimicerik, 
+          VideoBaslik: response.data.VideoBaslik, 
+          url:response.data.url, 
+          src: response.data.src, 
+          published:response.data.published
         });
         setSubmitted(true);
         console.log(response.data);
@@ -104,47 +135,93 @@ const BayiEkle = () => {
                 <input
                   type="text"
                   className="form-control"
-                  id="ismi"
+                  id="Baslik"
                   required
-                  value={tutorial.ismi}
+                  value={tutorial.Baslik}
                   onChange={handleInputChange}
-                  name="ismi"
+                  name="Baslik"
                 />
               </div>
-
+           
+             
+        
         
 
               <div className="form-group">
-                <label htmlFor="slidetipi">slide tipi</label>
+                <label htmlFor="Veritipi">Veri tipi</label>
                 <input
-                  type="text"
+                  type="radio"
                   className="form-control"
-                  id="slidetipi"
+                  id="Veritipi"
                   required
-                  value={tutorial.slidetipi}
+                  value={tutorial.Veritipi}
                   onChange={handleInputChange}
-                  name="slidetipi"
+                  name="Veritipi"
                 />
               </div>
+
+              
+         
               <div className="form-group">
-                <label htmlFor="siralama">siralama</label>
+                <label htmlFor="Resimicerik">Resim  icerik</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="siralama"
+                  id="Resimicerik"
                   required
-                  value={tutorial.siralama}
+                  value={tutorial.Resimicerik}
                   onChange={handleInputChange}
-                  name="siralama"
+                  name="Resimicerik"
+                />
+              </div>
+
+              
+        
+              <div className="form-group">
+                <label htmlFor="VideoBaslik">Video Başlık</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="VideoBaslik"
+                  required
+                  value={tutorial.VideoBaslik}
+                  onChange={handleInputChange}
+                  name="VideoBaslik"
+                />
+              </div>
+           
+              <div className="form-group">
+                <label htmlFor="VideoBaslik">Video url</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="url"
+                  required
+                  value={tutorial.url}
+                  onChange={handleInputChange}
+                  name="url"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="VideoBaslik">Resim src</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="src"
+                  required
+                  value={tutorial.src}
+                  onChange={handleInputChange}
+                  name="src"
                 />
               </div>
               
 
-            <FileBase64
+            {/* <FileBase64
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />  
+              />   */}
 
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit

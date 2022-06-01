@@ -155,12 +155,14 @@ const upload = async (req, res) => {
             gorsel:  
               { 
                 Baslik: users[i].Baslik ,
-                Resimpath:  saveTo ,
+                
                 Resimicerik:  users[i].Resimicerik ,
                 VideoBaslik:  users[i].VideoBaslik ,
-                Videopath:  saveTo ,
-                Veritipi:   tipi ,
+                slidetipi:  users[i].slidetipi ,
                 published:  users[i].published ,
+                url:  saveTo ,
+                Veritipi:   tipi ,
+                src:  saveTo ,
               } 
             
           }) 
@@ -171,7 +173,7 @@ const upload = async (req, res) => {
 
       bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
        
-         saveTo = path.resolve( baseUrl + filename.filename);
+         saveTo = path.resolve( 'public/resources/static/assets/videos/' + filename.filename);
          tipi= filename.mimeType;  
 
           saveTodisk = path.resolve( 'public/resources/static/assets/videos/' + filename.filename);

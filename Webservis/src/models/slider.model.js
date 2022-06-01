@@ -4,11 +4,12 @@ module.exports = mongoose => {
     gorsel:{
       Baslik: String, 
       ResimBaslik: String, 
-      Resimpath:String,
+      src:String,
       Resimicerik:String,
       VideoBaslik:String,
-      Videopath:String,
+      url:String,
       Veritipi:String,
+      slidetipi:Boolean,
       published: Boolean
     }
    },

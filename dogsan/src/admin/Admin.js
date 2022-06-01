@@ -76,7 +76,7 @@ import BizeUlasin from "layouts/İletisimler/BizeUlasin";
 import Bayiler from "layouts/İletisimler/Bayiler";
 import KatalogDetay from "layouts/kataloglar/KatalogDetay";
 import Blog from "layouts/Bloglar/Blog";
-  
+   
 
 export default function App() {
   const [controller, dispatch] = useSoftUIController();
@@ -187,7 +187,9 @@ export default function App() {
         <Route path="/Kategoriguncelle/:id" element={<Kategoriguncelle />} />
         <Route path="/Mesajlarguncelle/:id" element={<Mesajlarguncelle />} />
         <Route path="/Sehirguncelle/:id" element={<Sehirguncelle />} />
+
         <Route path="/Sliderguncelle/:id" element={<Sliderguncelle />} />
+        
         <Route path="/Sosyalssguncelle/:id" element={<Sosyalssguncelle />} />
         <Route path="/Tarihceguncelle/:id" element={<Tarihceguncelle />} />
         <Route path="/TarihiGaleriguncelle/:id" element={<TarihiGaleriguncelle />} />
@@ -199,6 +201,7 @@ export default function App() {
         <Route path="/Subdynamicdetaykategori/:kategoriid" element={<Subdynamicdetaykategori />} />
         <Route path="/yoneticiguncelle/:id" element={<Yoneticinguncelle />} />
         <Route path="/kariyerguncelle/:id" element={<Kariyerguncelle />} />
+       
 
         <Route path="/Hakkimizda" element={<Hakkimizda />} />
         <Route path="/Tarihce" element={<Tarihce />} />

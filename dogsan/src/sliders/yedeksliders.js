@@ -31,22 +31,22 @@ const VideoCarousel = () => {
   return (
     <div className="App">
       <Carousel>
-        {slaty.map((slider) => {
+        {slaty.map((slider) => { 
           return (
             <Carousel.Item key={slider.id}>
-              {slider.Veritipi == ".jpg" ?
+              {slider.Veritipi == "image/jpeg" ?
                 ( 
-                  <img src={slider.url}  width={"100%"} height={"100%"}/>
+                  <img src={slider.gorsel.Resimpath}  width={"100%"} height={"100%"}/>
                    
                 )
                 :
                 (
                   <ReactPlayer
-                    url={slider.Resimpath}
-                    pip={true}
-                    controls={true}
-                    playing={false}
-                    width={"100%"} height={"100%"}
+                  url={slider.gorsel.url}
+                  pip={false}
+                  controls={false}
+                  playing={true}
+                  width={"100%"} height={"100%"}
                   />
                 )
               } 
