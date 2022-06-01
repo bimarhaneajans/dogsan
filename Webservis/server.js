@@ -16,17 +16,20 @@ const app = express();
 const path = require("path");
 
 global.__basedir = __dirname;
+
+
   var corsOptions = {
-  origin: "*"
+  origin: "https://dogsan.madilink.net"
 };
  
-app.use(cors(corsOptions));    
-
 /*    app.use(
   cors({
-     origin:"https:dogsan.madilink.net/", corsOptions)),
+     origin:"https://dogsan.madilink.net/", corsOptions)),
       })
 );  */
+app.use(cors(corsOptions));    
+
+
 app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
