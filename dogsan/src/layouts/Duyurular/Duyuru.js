@@ -117,15 +117,15 @@ export default function Duyuru() {
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
-                                <div className="col-xs-12"><p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( duyuru.baslik) }} /></p></div>
-                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi : <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( duyuru.Tarih) }} /></p></div>
+                                <div className="col-xs-12"><p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( duyuru.baslik)) }} /></p></div>
+                                <div className="col-xs-12"><p style={{ textAlign: "center" }}>Başlangıç Tarihi : <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( duyuru.Tarih)) }} /></p></div>
 
 
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( duyuru.icerik) }} /></p>
+                                <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( duyuru.icerik)) }} /></p>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                            

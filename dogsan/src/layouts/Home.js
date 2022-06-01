@@ -319,7 +319,10 @@ export default function Home() {
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link"><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(tutorial.kategoriadi)  }}  /></Link></li>))}
+                          key={index}>
+                          <Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link">
+                            {tutorial.kategoriadi}
+                               </Link></li>))}
                     </ul>
                   </div>
 
@@ -339,7 +342,10 @@ export default function Home() {
                         <ul className="nav navbar-nav">
                           {tutorials && tutorials.map((tutorial, index) => (
                             <li onClick={() => setActiveTutorial(tutorial, index)}
-                              key={index}><a href={"#" + tutorial.path}> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(tutorial.kategoriadi)  }}  /></a></li>))}
+                              key={index}><a href={"#" + tutorial.path}>
+                                {tutorial.kategoriadi}
+             
+                              </a></li>))}
                         </ul>
                       </div>
 
@@ -496,8 +502,8 @@ export default function Home() {
 
                   <div className="info-col">
                     <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
-                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.baslik)  }}  ></div>
-                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.icerik)  }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(JSON.parse(item.baslik)) }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(JSON.parse(item.icerik)) }}  ></div>
                   </div>
                   <Link to={"/Duyuru/" + item.id} className="nav-link">Göster</Link>
                 </div>
@@ -652,19 +658,19 @@ export default function Home() {
                   <h2>AİLEMİZLE TANIŞIN</h2>
                   <h5>EKİBİMİZLE BÜYÜK BİR AİLEYİZ</h5>
                   <p class="lead"> Üretim, pazarlama, satış ve yönetim süreçlerinin her kademesindeki deneyimli kadromuz ile uzmanlık isteyen tüm konularda yanınızdayız</p>
-                  <div  class="team-filter-nav text-center">
-                  <ul id="filters" class="filter-nav list-inline list-unstyled">
-                    <li style={{ float: "center" }}><a onClick={() => setactive("")} >TÜM BİRİMLER</a></li>
-                  </ul>
+                  <div class="team-filter-nav text-center">
+                    <ul id="filters" class="filter-nav list-inline list-unstyled">
+                      <li style={{ float: "center" }}><a onClick={() => setactive("")} >TÜM BİRİMLER</a></li>
+                    </ul>
+                  </div>
                 </div>
-                </div>
-                
+
                 {kariyer.map(item => (
-                 
+
                   <div key={item.id} class="team-filter-nav text-center">
                     <ul id="filters" class="filter-nav list-inline list-unstyled">
                       <li style={{ float: "left" }}><a name={item.kariyeradi.toString()} value={item.kariyeradi.toString()} onClick={() => setactive(item.kariyeradi)} class={actuve === item.kariyeradi.toString().type ? "active" : ""}>{item.kariyeradi}</a></li>
-                      
+
                     </ul>
                   </div>
                 ))}
@@ -682,10 +688,22 @@ export default function Home() {
                         </div>
                       </a>
                       <div className="member-details" >
-                        <h6>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.pozizyon)  }}  ></div></h6>
-                        <h4> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.yoneticiadi)  }} /> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.yoneticisoyadi)  }}  /></h4>
-                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kariyer)  }}  /></p>
-                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kisaozgecmis)  }}  /></p>
+                        <h6>
+                          {item.kategoriadi} {/* burasi */}
+
+                          {item.pozizyon}
+                        </h6>
+                        <h4>
+
+                          {item.yoneticiadi}
+                          {item.yoneticisoyadi}
+                        </h4>
+                        <p>
+                          {item.kariyer}
+                        </p>
+                        <p>
+                          {item.kisaozgecmis}
+                        </p>
 
                         <div class="member-social">
                           <h6>Sosyal Profiller</h6>
@@ -734,8 +752,9 @@ export default function Home() {
                         </div>
                         <div className="info-col">
 
-                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.baslik)  }}  />
-                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.Ozet)  }}  /> 
+                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik))  }}  />
+                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.Ozet))  }}  />  
+
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare
@@ -855,7 +874,7 @@ export default function Home() {
 
         </div>
       </div>
-     
+
       <ul class="fixed-social-menu list-inline-social mb-0" >
         <li>
           <a target="_blank" class="btn btn-sm btn-icon text-white" href="https://www.facebook.com/dogsansurgical/">

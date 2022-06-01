@@ -19,9 +19,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
-
+import DOMPurify from "dompurify";
 import { Dropdown, DropdownButton, Button } from 'react-bootstrap';
-
 import Select from 'react-select';
 
 
@@ -55,7 +54,7 @@ export default function Bayiler() {
     const [sehir, setSehir] = useState([]);
     const [filtered, setFiltered] = useState([]);
     const [actuve, setactive] = useState("");
-
+    
     const handleInputChange = event => {
         const { name, value } = event.target;
         setCurrentTutorial({ ...currentTutorial, [name]: value });
@@ -247,9 +246,9 @@ export default function Bayiler() {
                 {filtered.map(item => (
                     <div key={item.id} className="col-md-12">
                         <article>
-                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.sehir }}  ></div></p></div>
-                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.baslik }}  ></div></p></div>
-                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}>  <div dangerouslySetInnerHTML={{ __html: item.telefon }}  ></div></p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize((JSON.parse(item.sehir)))  }}  /></p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize((JSON.parse(item.baslik )))  }}  /> </p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize((JSON.parse(item.telefon)))  }}  /> </p></div>
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
                         </article>
