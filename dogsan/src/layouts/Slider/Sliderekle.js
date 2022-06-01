@@ -75,6 +75,7 @@ export default function Form() {
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
   const { size } = typography;
+  const [selectedFile, setSelectedFile] = React.useState(null);
 
 
 
@@ -96,7 +97,9 @@ export default function Form() {
       //Resim: tutorial.Resim,
     };
 
-    SliderDataService.create(data)
+    console.log(data)
+
+  /*   SliderDataService.create(data)
       .then(response => {
         setTutorial({
           id: response.data.id,
@@ -113,7 +116,7 @@ export default function Form() {
       })
       .catch(e => {
         console.log(e);
-      });
+      }); */
   };
 
   const newTutorial = () => {
@@ -130,7 +133,26 @@ export default function Form() {
     } */
   );
 
+  const handleSubmit  = async (event) => {
+    event.preventDefault()
+    const formData = new FormData();
+    formData.append("selectedFile", selectedFile);
 
+    try {
+      const response = await  axios({
+        method: "post",
+        url: "http://localhost:3000/video",
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  const handleFileSelect = (event) => {
+    setSelectedFile(event.target.files[0])
+  }
 
   return (<DashboardLayout>
     <Sidenav
@@ -144,20 +166,18 @@ export default function Form() {
         <Header />
       </div>
       <div style={{ width: "300px", marginLeft: "100px" }}>
-        <form  method="POST" encType="multipart/form-data; boundary=MyBoundary"
+     <form  onSubmit={handleSubmit}
+   
         //  onSubmit={(event) => {  
         //   event.preventDefault();
         //     setUrl(`http://localhost:3000/video/files?Baslik=${query}`);
         //   }}
         >
-
-          {/*  <input
-          type="text"
-          value={query}
-          //onChange={(event) => setQuery(event.target.value)}
-        /> */}
+ 
+        
          <div className="submit-form">
-          <div className="form-group">
+         <input type="file" onChange={handleFileSelect}/>
+        {/*   <div className="form-group">
             <label htmlFor="bayi">Başlık</label>
             <input
               type="text"
@@ -180,10 +200,7 @@ export default function Form() {
               onChange={handleInputChange}
               name="Veritipi"
             />
-          </div>
-
-
-
+          </div> 
           <div className="form-group">
             <label htmlFor="Resimicerik">Resim  icerik</label>
             <input
@@ -195,10 +212,7 @@ export default function Form() {
               onChange={handleInputChange}
               name="Resimicerik"
             />
-          </div>
-
-
-
+          </div> 
           <div className="form-group">
             <label htmlFor="VideoBaslik">Video Başlık</label>
             <input
@@ -210,8 +224,7 @@ export default function Form() {
               onChange={handleInputChange}
               name="VideoBaslik"
             />
-          </div>
-
+          </div> 
           <div className="form-group">
             <label htmlFor="VideoBaslik">Video url</label>
             <input
@@ -223,8 +236,7 @@ export default function Form() {
               onChange={handleInputChange}
               name="url"
             />
-          </div>
-
+          </div> 
           <div className="form-group">
             <label htmlFor="VideoBaslik">Resim src</label>
             <input
@@ -236,14 +248,12 @@ export default function Form() {
               onChange={handleInputChange}
               name="src"
             />
-          </div>
+          </div> */}
 
 
 
         
-          <button type="submit" onClick={saveTutorial} className="btn btn-success">
-                Submit
-              </button>
+             <input type="submit" value="Upload File" />
           
           </div>
         </form>
