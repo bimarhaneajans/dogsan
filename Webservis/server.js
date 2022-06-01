@@ -17,7 +17,7 @@ const path = require("path");
 
 global.__basedir = __dirname;
   var corsOptions = {
-  origin: "https://dogsan.madilink.net/"
+  origin: "*"
 };
  
 app.use(cors(corsOptions));    

@@ -1,4 +1,4 @@
-import http from "../http-common";
+import http from "../http-common-file";
 
 const getAll = () => {
   return http.get("/video/files");
