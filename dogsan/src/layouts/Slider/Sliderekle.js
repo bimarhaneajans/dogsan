@@ -161,14 +161,7 @@ export default function Form() {
       <div style={{ width: "300px", marginLeft: "100px" }}>
         <form onSubmit={handleSubmit} 
         >
- {submitted ? (
-            <div>
-              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
-              <button className="btn btn-success" onClick={newTutorial}>
-                Ekle
-              </button>
-            </div>
-          ) : (
+
 
           <div className="submit-form">
          
@@ -247,11 +240,10 @@ export default function Form() {
 
 
 
-            <input type="file" required onChange={handleFileSelect} />
+            <input type="file" onChange={handleFileSelect} />
             <input type="submit" value="Kaydet" />
-        
+
           </div>
-             )}  
         </form>
 
       </div>
@@ -284,7 +276,14 @@ const BayiEkle = () => {
      
          
       
-     
+      {submitted ? (
+            <div>
+              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
+              <button className="btn btn-success" onClick={newTutorial}>
+                Ekle
+              </button>
+            </div>
+          ) : (
             <div>
              
               </div>
@@ -299,7 +298,7 @@ const BayiEkle = () => {
            
           
             </div>
-        
+          )}
 
 
         </div>
