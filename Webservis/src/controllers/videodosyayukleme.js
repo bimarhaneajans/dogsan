@@ -16,7 +16,9 @@ var FormData = require('form-data');
 var fs = require('fs');
 const busboy = require('busboy');
 
-
+//postman ekle
+//'Accept': 'application/json',
+//'Content-Type': 'multipart/form-data'
 mongoose.connect(dbConfig.url);
 var dbs = mongoose.connection;
 dbs.on('error', console.log.bind(console, "connection error"));
@@ -26,14 +28,15 @@ dbs.once('open', function (callback) {
 
 const { check, validationResult } = require('express-validator');
 
-
-
+global.__basedir = __dirname;
+var saveTo;
+var tipi;
 const Slider = db.slide;
  
 const findAll = (req, res) => {
 
-  const ResimBaslik = req.query.ResimBaslik;
-  var condition = ResimBaslik ? { Yil: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+  const Baslik = req.query.Baslik;
+  var condition = Baslik ? { Yil: { $regex: new RegExp(Baslik), $options: "i" } } : {};
 
   Slider.find(condition)
     .then(data => {
@@ -133,92 +136,88 @@ const deleteAll = (req, res) => {
       });
     });
 };
-const upload =  (req, res) => {
- 
+const upload = async (req, res) => {
+  //var busboy = new Busboy({ headers: req.headers });
   try {
-     uploadFile(req, res)
-    const bb = busboy({ headers: req.headers })
     MongoClient.connect(dbConfig.url, function (err, db) {
       if (err) throw err;
       const body = {}
       let slider=[null];
-  
+    if (req.method === 'POST') {
+
+      const bb = busboy({ headers: req.headers })
+      bb.on('field', (name, val) => {
+
+        let users = [{ [name]: val },]; 
+       
+         for (var i in users) {
+         slider = new Slider({ 
+            gorsel:  
+              { 
+                Baslik: users[i].Baslik ,
+                
+                Resimicerik:  users[i].Resimicerik ,
+                VideoBaslik:  users[i].VideoBaslik ,
+                slidetipi:  users[i].slidetipi ,
+                published:  users[i].published ,
+                url:  saveTo ,
+                Veritipi:   tipi ,
+                src:  saveTo ,
+              } 
+            
+          }) 
+         }   
+        console.log(JSON.stringify(slider));
+        slider.save(slider) 
+      })  
+
+      bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
+       
+         saveTo = path.resolve( 'public/resources/static/assets/videos/' + filename.filename);
+         tipi= filename.mimeType;  
+
+          saveTodisk = path.resolve( 'public/resources/static/assets/videos/' + filename.filename);
+         console.log(saveTodisk)
         
-      if (req.method === 'POST') {
-     
-       
-        bb.on('field', (name, val) => {
-  
-          let users = [{ [name]: val },]; 
+         file.pipe(fs.createWriteStream(saveTodisk));
+
          
-           for (var i in users) {
-           slider = new Slider({ 
-              gorsel:  
-                { 
-                  Resimpath:  users[i].Resimpath ,
-                  Resimicerik:  users[i].Resimicerik ,
-                  VideoBaslik:  users[i].VideoBaslik ,
-                  Videopath:  users[i].Videopath ,
-                  Veritipi:   users[i].Veritipi ,
-                  published:  users[i].published ,
-                } 
-              
-            }) 
-           }   
-          console.log(JSON.stringify(slider));
-          slider.save(slider) 
-        })  
-   
-           req.pipe(bb);
-  
-        }   
-       
+
       
-  
-    });
-
-    if (req.file == undefined) {
-      return res.status(400).send({ message: "Please upload a file!" });
-    }
-
-    res.status(200).send({
-      message: "Uploaded the file successfully: " + req.file.originalname,
-    });
-  } catch (err) {
-    console.log(err);
-
-    if (err.code == "LIMIT_FILE_SIZE") {
-      return res.status(500).send({
-        message: "File size cannot be larger than 2MB!",
+      
       });
-    }
+   
+      bb.on('finish', function() {
+        res.writeHead(200, { 'Connection': 'close' });
+        res.end("That's all folks!");
+      });
+      
 
-    res.status(500).send({
-      message: `Could not upload the file: ${req.file.originalname}. ${err}`,
-    });
+
+       return req.pipe(bb);
+
+    }   
+  });
+  } catch (err) {
+    console.log(err) 
   }
-  
- 
+
+
 };
 
-const getListFiles = (req, res) => {
+/* const getListFiles = (req, res) => {
   const directoryPath = __basedir + "/public/resources/static/assets/videos/";
   let JsonObject;
 
-  const ResimBaslik = req.query.ResimBaslik;
-  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+  const Baslik = req.query.ResimBaslik;
+  var condition =  Baslik ? { ResimBaslik: { $regex: new RegExp(Baslik), $options: "i" } } : {};
 
-  Slider.find(condition)
+  Slider.findOne(condition)
     .then(data => {
       res.send(data);
 
       fs.readdir(directoryPath, function (err, files) {
-        if (err) {
-          res.status(500).send({
-            message: "Unable to scan files!",
-          });
-        }
-
+    
         let fileInfos = [];
 
         files.forEach((file) => {
@@ -240,11 +239,33 @@ const getListFiles = (req, res) => {
         message:
           err.message || "Some error occurred while retrieving ignes."
       });
+
+      if (err) {
+        res.status(500).send({
+          message: "Unable to scan files!",
+        });
+      } 
     })
 
 
 
 
+}; */
+
+const getListFiles = (req, res) => {
+  //const id = req.params.id;
+  const Baslik = req.query.Baslik;
+  var condition = Baslik ? { Baslik: { $regex: new RegExp(Baslik), $options: "i" } } : {};
+  Slider.find(condition)
+  .then(data => {
+    res.send(data);
+  })
+  .catch(err => {
+    res.status(500).send({
+      message:
+        err.message || "Some error occurred while retrieving tutorials."
+    });
+  });
 };
 
 const download = (req, res) => {
