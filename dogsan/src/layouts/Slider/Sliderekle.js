@@ -144,7 +144,7 @@ export default function Form() {
         <Header />
       </div>
       <div style={{ width: "300px", marginLeft: "100px" }}>
-        <form method="POST" encType="multipart/form-data; boundary=MyBoundary"
+        <form  method="POST" encType="multipart/form-data; boundary=MyBoundary"
         //  onSubmit={(event) => {  
         //   event.preventDefault();
         //     setUrl(`http://localhost:3000/video/files?Baslik=${query}`);
@@ -156,7 +156,19 @@ export default function Form() {
           value={query}
           //onChange={(event) => setQuery(event.target.value)}
         /> */}
+         <div className="submit-form">
+          <div className="form-group">
+            <label htmlFor="bayi">Başlık</label>
+            <input
+              type="text"
+              className="form-control"
+              id="Baslik"
 
+              value={tutorial.Baslik}
+              onChange={handleInputChange}
+              name="Baslik"
+            />
+          </div>
           <div className="form-group">
             <label htmlFor="Veritipi">Veri tipi</label>
             <input
@@ -228,8 +240,14 @@ export default function Form() {
 
 
 
-          <button type="submit">Search</button>
+        
+          <button type="submit" onClick={saveTutorial} className="btn btn-success">
+                Submit
+              </button>
+          
+          </div>
         </form>
+        
       </div>
 
     </div>
@@ -257,7 +275,7 @@ const BayiEkle = () => {
       <form >
        
       
-      <div className="submit-form">
+     
          
       
       {submitted ? (
@@ -269,17 +287,7 @@ const BayiEkle = () => {
             </div>
           ) : (
             <div>
-              <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Baslik"
-                 
-                  value={tutorial.Baslik}
-                  onChange={handleInputChange}
-                  name="Baslik"
-                />
+             
               </div>
            
              
@@ -297,6 +305,8 @@ const BayiEkle = () => {
 
         </div>
         </form>
+
+        
       </div>
      
 
