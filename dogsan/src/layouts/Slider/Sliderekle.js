@@ -148,7 +148,7 @@ export default function Form() {
     try {
       const response = await axios({
         method: "post",
-        url: "http://localhost:3000/video",
+        url: "https://bavrim.madilink.net/video",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
