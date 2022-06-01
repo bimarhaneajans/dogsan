@@ -122,11 +122,10 @@ export default function Form() {
         console.log(e);
       });
   };
-
-  const newTutorial = () => {
-    setTutorial(initialTutorialState);
+ */
+  const newTutorial = () => { 
     setSubmitted(false);
-  }; */
+  };
 
 
 
@@ -138,6 +137,7 @@ export default function Form() {
     formData.append("Veritipi", Veritipi);
     formData.append("Resimicerik", Resimicerik);
     formData.append("VideoBaslik", VideoBaslik);
+    setSubmitted(true);
    // for(let [name, value] of formData) {
      
    //  alert(`${name} = ${value}`); // key1 = value1, then key2 = value2
@@ -173,8 +173,15 @@ export default function Form() {
         <Header />
       </div>
       <div style={{ width: "300px", marginLeft: "100px" }}>
-        <form onSubmit={handleSubmit}
-        >
+      {submitted ? (
+            <div>
+              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
+              <button className="btn btn-success" onClick={newTutorial}>
+                Ekle
+              </button>
+            </div>
+          ) : (
+        <form onSubmit={handleSubmit}>
 
 
           <div className="submit-form">
@@ -229,42 +236,19 @@ export default function Form() {
             
                 name="VideoBaslik"
               />
-            </div>
-            {/*     <div className="form-group">
-              <label htmlFor="VideoBaslik">Video url</label>
-              <input
-                type="text"
-                className="form-control"
-                id="url"
-
-                value={tutorial.url}
-                onChange={handleInputChange}
-                name="url"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="VideoBaslik">Resim src</label>
-              <input
-                type="text"
-                className="form-control"
-                id="src"
-
-                value={tutorial.src}
-                onChange={handleInputChange}
-                name="src"
-              />
-            </div> */}
+            </div> 
 
 
 
             <input type="file" onChange={handleFileSelect} />
             <input type="submit" value="Kaydet" />
 
-          </div>
+          </div>  
+         
         </form>
-
+            )}
       </div>
-
+    
     </div>
   </DashboardLayout>
   );
@@ -293,14 +277,7 @@ const BayiEkle = () => {
      
          
       
-      {submitted ? (
-            <div>
-              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
-              <button className="btn btn-success" onClick={newTutorial}>
-                Ekle
-              </button>
-            </div>
-          ) : (
+      
             <div>
              
               </div>
@@ -315,7 +292,7 @@ const BayiEkle = () => {
            
           
             </div>
-          )}
+        
 
 
         </div>

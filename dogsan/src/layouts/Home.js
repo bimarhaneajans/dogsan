@@ -277,8 +277,7 @@ export default function Home() {
     <div className="main-wrapper" >
       <div id="home">
         <div id="bg-slider-home">
-       {/*    <Slider /> */}
-
+    <Slider />  
           <div id="slider-wrapper">
           </div>
         </div>
