@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -15,8 +14,40 @@ import { convertFromRaw } from 'draft-js';
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
+import axios from "axios";
 
-const BayiEkle = () => {
+const useDataApi = (initialUrl, initialData) => {
+
+  const [data, setData] = useState(initialData);
+  const [url, setUrl] = useState(initialUrl);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
+
+      try {
+        const result = await axios(url);
+
+        setData(result.data);
+      } catch (error) {
+        setIsError(true);
+      }
+
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, [url]);
+
+  return [{ data, isLoading, isError }, setUrl];
+};
+
+export default function Form() {
+
   const initialTutorialState = {
     id: null,
     Baslik: "",
@@ -28,19 +59,11 @@ const BayiEkle = () => {
     VideoBaslik: "",
     published: false
   };
-  /*
-                 Resimpath:  saveTo ,
-                Resimicerik:  users[i].Resimicerik ,
-                VideoBaslik:  users[i].VideoBaslik ,
-                Veritipi:  users[i].slidetipi ,
-                url:  saveTo ,
-                Veritipi:   tipi ,
-                published:  users[i].published ,
-  
-  */
 
 
-  const [tutorial, setTutorial] = useState(initialTutorialState);
+
+  const [query, setQuery] = useState("");
+  const [tutorial, setTutorial] = useState(initialTutorialState) 
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -53,23 +76,14 @@ const BayiEkle = () => {
   const { pathname } = useLocation();
   const { size } = typography;
 
+
+
   const handleInputChange = event => {
     const { name, value } = event.target;
     setTutorial({ ...tutorial, [name]: value });
   };
 
-
-  /*
-              id: null,
-    Baslik: "",
-    Resimicerik:"",
-    VideoBaslik:"",
-    Veritipi:false ,
-    url:  "",
-    src:"" ,
-    VideoBaslik: "",
-    published: false
-  */
+ 
   const saveTutorial = () => {
     var data = {
       id: tutorial.id,
@@ -107,47 +121,35 @@ const BayiEkle = () => {
     setSubmitted(false);
   };
 
+  
+
+  const [{ data, isLoading, isError }, setUrl] = useDataApi(
+    "http://localhost:3000/video/files"/* ,
+    {
+      gorsel: []
+    } */
+  );
+
+
+
   return (
-    <DashboardLayout>
-      <Sidenav
-        color={sidenavColor}
-        brand={brand}
-        brandName=" DOĞSAN PANEL "
-        routes={routes}
-      />
-      <div style={{ marginLeft: "100px" }}>
-        <Header />
-      </div>
+    <div>
 
-      <div style={{ width: "300px", marginLeft: "100px" }}>
-        <div className="submit-form">
-          {submitted ? (
-            <div>
-              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
-              <button className="btn btn-success" onClick={newTutorial}>
-                Ekle
-              </button>
-            </div>
-          ) : (
-            <div>
-              <div className="form-group">
-                <label htmlFor="bayi">Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Baslik"
-                  required
-                  value={tutorial.Baslik}
-                  onChange={handleInputChange}
-                  name="Baslik"
-                />
-              </div>
-           
-             
-        
-        
 
-              <div className="form-group">
+      <form 
+      //  onSubmit={(event) => {  
+      //   event.preventDefault();
+      //     setUrl(`http://localhost:3000/video/files?Baslik=${query}`);
+      //   }}
+      >
+
+        <input
+          type="text"
+          value={query}
+          //onChange={(event) => setQuery(event.target.value)}
+        />
+
+<div className="form-group">
                 <label htmlFor="Veritipi">Veri tipi</label>
                 <input
                   type="radio"
@@ -215,23 +217,93 @@ const BayiEkle = () => {
                   name="src"
                 />
               </div>
+
+
+
+        <button type="submit">Search</button> 
+
+
+      </form> 
+
+        {/*  {isError && <div>Something went wrong ...</div>}
+
+   <div>
+        {data.map((item) => (
+          <li key={item._id}>
+            {item._id}
+             <a href={item.url}>{item.title}</a> 
+          </li>
+        ))}
+      </div> */}
+    </div>
+  );
+}
+
+/* 
+
+
+const BayiEkle = () => {
+ 
+   
+ 
+
+  
+
+  return (
+    <DashboardLayout>
+      <Sidenav
+        color={sidenavColor}
+        brand={brand}
+        brandName=" DOĞSAN PANEL "
+        routes={routes}
+      />
+      <div style={{ marginLeft: "100px" }}>
+        <Header />
+      </div>
+
+      <div style={{ width: "300px", marginLeft: "100px" }}>
+      <form  method="POST" encType="multipart/form-data; boundary=MyBoundary">
+        <div className="submit-form">
+          {submitted ? (
+            <div>
+              <h4>Başarılı! Yeni eklemek istermisin ?</h4>
+              <button className="btn btn-success" onClick={newTutorial}>
+                Ekle
+              </button>
+            </div>
+          ) : (
+            <div>
+              <div className="form-group">
+                <label htmlFor="bayi">Başlık</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="Baslik"
+                  required
+                  value={tutorial.Baslik}
+                  onChange={handleInputChange}
+                  name="Baslik"
+                />
+              </div>
+           
+             
+        
+        
+
+             
               
 
-            {/* <FileBase64
-                type="file"
-                multiple={false}
-                onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
-              />   */}
-
-              <button onClick={saveTutorial} className="btn btn-success">
-                Submit
-              </button>
+           
+          
             </div>
           )}
         </div>
+        </form>
       </div>
+     
+
     </DashboardLayout>
   );
 };
 
-export default BayiEkle;
+export default BayiEkle; */

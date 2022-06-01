@@ -1,7 +1,7 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/video/files");
+  return http.get('/video/files');
 };
 
 const get = id => {
@@ -24,8 +24,8 @@ const removeAll = () => {
   return http.delete(`/video`);
 };
 
-const findByTitle = ismi => {
-  return http.get(`/video?ismi=${ismi}`);
+const findByTitle = Baslik => {
+  return http.get(`/video?Baslik=${Baslik}`);
 };
 
 const SliderService = {
