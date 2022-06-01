@@ -213,7 +213,7 @@ export default function Form() {
                 name="VideoBaslik"
               />
             </div>
-            <div className="form-group">
+           {/*  <div className="form-group">
               <label htmlFor="VideoBaslik">Video url</label>
               <input
                 type="text"
@@ -231,16 +231,16 @@ export default function Form() {
                 type="text"
                 className="form-control"
                 id="src"
-               
+
                 value={tutorial.src}
                 onChange={handleInputChange}
                 name="src"
               />
-            </div>
+            </div> */}
 
 
 
-            <input required type="file" onChange={handleFileSelect} />
+            <input type="file" onChange={handleFileSelect} />
             <input type="submit" value="Kaydet" />
 
           </div>
