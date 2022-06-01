@@ -171,7 +171,7 @@ export default function Form() {
                 type="text"
                 className="form-control"
                 id="Baslik"
-
+                required
                 value={tutorial.Baslik}
                 onChange={handleInputChange}
                 name="Baslik"
@@ -183,7 +183,7 @@ export default function Form() {
                 type="radio"
                 className="form-control"
                 id="Veritipi"
-
+                required
                 value={tutorial.Veritipi}
                 onChange={handleInputChange}
                 name="Veritipi"
@@ -195,7 +195,7 @@ export default function Form() {
                 type="text"
                 className="form-control"
                 id="Resimicerik"
-
+                required
                 value={tutorial.Resimicerik}
                 onChange={handleInputChange}
                 name="Resimicerik"
@@ -207,7 +207,7 @@ export default function Form() {
                 type="text"
                 className="form-control"
                 id="VideoBaslik"
-
+                required
                 value={tutorial.VideoBaslik}
                 onChange={handleInputChange}
                 name="VideoBaslik"
@@ -240,7 +240,7 @@ export default function Form() {
 
 
 
-            <input type="file" onChange={handleFileSelect} />
+            <input type="file" required onChange={handleFileSelect} />
             <input type="submit" value="Kaydet" />
 
           </div>
