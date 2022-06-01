@@ -22,7 +22,7 @@ const useDataApi = (initialUrl, initialData) => {
   const [url, setUrl] = useState(initialUrl);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,11 +51,11 @@ export default function Form() {
   const initialTutorialState = {
     id: null,
     Baslik: "",
-    Resimicerik:"",
-    VideoBaslik:"",
-     Veritipi:false ,
-    url:  "",
-    src:"" ,
+    Resimicerik: "",
+    VideoBaslik: "",
+    Veritipi: false,
+    url: "",
+    src: "",
     VideoBaslik: "",
     published: false
   };
@@ -63,7 +63,7 @@ export default function Form() {
 
 
   const [query, setQuery] = useState("");
-  const [tutorial, setTutorial] = useState(initialTutorialState) 
+  const [tutorial, setTutorial] = useState(initialTutorialState)
   const [submitted, setSubmitted] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
@@ -83,16 +83,16 @@ export default function Form() {
     setTutorial({ ...tutorial, [name]: value });
   };
 
- 
+
   const saveTutorial = () => {
     var data = {
       id: tutorial.id,
       Baslik: tutorial.Baslik,
       Veritipi: tutorial.Veritipi,
-      Resimicerik: tutorial.Resimicerik, 
+      Resimicerik: tutorial.Resimicerik,
       src: tutorial.src,
-      VideoBaslik: tutorial.VideoBaslik, 
-      url:tutorial.url, 
+      VideoBaslik: tutorial.VideoBaslik,
+      url: tutorial.url,
       //Resim: tutorial.Resim,
     };
 
@@ -102,11 +102,11 @@ export default function Form() {
           id: response.data.id,
           Baslik: response.data.Baslik,
           Veritipi: response.data.Veritipi,
-          Resimicerik: response.data.Resimicerik, 
-          VideoBaslik: response.data.VideoBaslik, 
-          url:response.data.url, 
-          src: response.data.src, 
-          published:response.data.published
+          Resimicerik: response.data.Resimicerik,
+          VideoBaslik: response.data.VideoBaslik,
+          url: response.data.url,
+          src: response.data.src,
+          published: response.data.published
         });
         setSubmitted(true);
         console.log(response.data);
@@ -121,7 +121,7 @@ export default function Form() {
     setSubmitted(false);
   };
 
-  
+
 
   const [{ data, isLoading, isError }, setUrl] = useDataApi(
     "http://localhost:3000/video/files"/* ,
@@ -132,110 +132,108 @@ export default function Form() {
 
 
 
-  return (
+  return (<DashboardLayout>
+    <Sidenav
+      color={sidenavColor}
+      brand={brand}
+      brandName=" DOĞSAN PANEL "
+      routes={routes}
+    />
     <div>
+      <div style={{ marginLeft: "100px" }}>
+        <Header />
+      </div>
+      <div style={{ width: "300px", marginLeft: "100px" }}>
+        <form method="POST" encType="multipart/form-data; boundary=MyBoundary"
+        //  onSubmit={(event) => {  
+        //   event.preventDefault();
+        //     setUrl(`http://localhost:3000/video/files?Baslik=${query}`);
+        //   }}
+        >
 
-
-      <form 
-      //  onSubmit={(event) => {  
-      //   event.preventDefault();
-      //     setUrl(`http://localhost:3000/video/files?Baslik=${query}`);
-      //   }}
-      >
-
-        <input
+          {/*  <input
           type="text"
           value={query}
           //onChange={(event) => setQuery(event.target.value)}
-        />
+        /> */}
 
-<div className="form-group">
-                <label htmlFor="Veritipi">Veri tipi</label>
-                <input
-                  type="radio"
-                  className="form-control"
-                  id="Veritipi"
-                  required
-                  value={tutorial.Veritipi}
-                  onChange={handleInputChange}
-                  name="Veritipi"
-                />
-              </div>
+          <div className="form-group">
+            <label htmlFor="Veritipi">Veri tipi</label>
+            <input
+              type="radio"
+              className="form-control"
+              id="Veritipi"
 
-              
-         
-              <div className="form-group">
-                <label htmlFor="Resimicerik">Resim  icerik</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Resimicerik"
-                  required
-                  value={tutorial.Resimicerik}
-                  onChange={handleInputChange}
-                  name="Resimicerik"
-                />
-              </div>
-
-              
-        
-              <div className="form-group">
-                <label htmlFor="VideoBaslik">Video Başlık</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="VideoBaslik"
-                  required
-                  value={tutorial.VideoBaslik}
-                  onChange={handleInputChange}
-                  name="VideoBaslik"
-                />
-              </div>
-           
-              <div className="form-group">
-                <label htmlFor="VideoBaslik">Video url</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="url"
-                  required
-                  value={tutorial.url}
-                  onChange={handleInputChange}
-                  name="url"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="VideoBaslik">Resim src</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="src"
-                  required
-                  value={tutorial.src}
-                  onChange={handleInputChange}
-                  name="src"
-                />
-              </div>
+              value={tutorial.Veritipi}
+              onChange={handleInputChange}
+              name="Veritipi"
+            />
+          </div>
 
 
 
-        <button type="submit">Search</button> 
+          <div className="form-group">
+            <label htmlFor="Resimicerik">Resim  icerik</label>
+            <input
+              type="text"
+              className="form-control"
+              id="Resimicerik"
+
+              value={tutorial.Resimicerik}
+              onChange={handleInputChange}
+              name="Resimicerik"
+            />
+          </div>
 
 
-      </form> 
 
-        {/*  {isError && <div>Something went wrong ...</div>}
+          <div className="form-group">
+            <label htmlFor="VideoBaslik">Video Başlık</label>
+            <input
+              type="text"
+              className="form-control"
+              id="VideoBaslik"
 
-   <div>
-        {data.map((item) => (
-          <li key={item._id}>
-            {item._id}
-             <a href={item.url}>{item.title}</a> 
-          </li>
-        ))}
-      </div> */}
+              value={tutorial.VideoBaslik}
+              onChange={handleInputChange}
+              name="VideoBaslik"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="VideoBaslik">Video url</label>
+            <input
+              type="text"
+              className="form-control"
+              id="url"
+
+              value={tutorial.url}
+              onChange={handleInputChange}
+              name="url"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="VideoBaslik">Resim src</label>
+            <input
+              type="text"
+              className="form-control"
+              id="src"
+
+              value={tutorial.src}
+              onChange={handleInputChange}
+              name="src"
+            />
+          </div>
+
+
+
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
     </div>
+  </DashboardLayout>
   );
 }
 
@@ -250,21 +248,19 @@ const BayiEkle = () => {
   
 
   return (
-    <DashboardLayout>
-      <Sidenav
-        color={sidenavColor}
-        brand={brand}
-        brandName=" DOĞSAN PANEL "
-        routes={routes}
-      />
-      <div style={{ marginLeft: "100px" }}>
-        <Header />
-      </div>
+    
+      
 
-      <div style={{ width: "300px", marginLeft: "100px" }}>
-      <form  method="POST" encType="multipart/form-data; boundary=MyBoundary">
-        <div className="submit-form">
-          {submitted ? (
+     
+      
+      
+      <form >
+       
+      
+      <div className="submit-form">
+         
+      
+      {submitted ? (
             <div>
               <h4>Başarılı! Yeni eklemek istermisin ?</h4>
               <button className="btn btn-success" onClick={newTutorial}>
@@ -279,7 +275,7 @@ const BayiEkle = () => {
                   type="text"
                   className="form-control"
                   id="Baslik"
-                  required
+                 
                   value={tutorial.Baslik}
                   onChange={handleInputChange}
                   name="Baslik"
@@ -297,12 +293,14 @@ const BayiEkle = () => {
           
             </div>
           )}
+
+
         </div>
         </form>
       </div>
      
 
-    </DashboardLayout>
+   
   );
 };
 
