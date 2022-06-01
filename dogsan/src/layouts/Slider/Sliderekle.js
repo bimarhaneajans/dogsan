@@ -99,24 +99,24 @@ export default function Form() {
 
     console.log(data)
 
-  /*   SliderDataService.create(data)
-      .then(response => {
-        setTutorial({
-          id: response.data.id,
-          Baslik: response.data.Baslik,
-          Veritipi: response.data.Veritipi,
-          Resimicerik: response.data.Resimicerik,
-          VideoBaslik: response.data.VideoBaslik,
-          url: response.data.url,
-          src: response.data.src,
-          published: response.data.published
-        });
-        setSubmitted(true);
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      }); */
+    /*   SliderDataService.create(data)
+        .then(response => {
+          setTutorial({
+            id: response.data.id,
+            Baslik: response.data.Baslik,
+            Veritipi: response.data.Veritipi,
+            Resimicerik: response.data.Resimicerik,
+            VideoBaslik: response.data.VideoBaslik,
+            url: response.data.url,
+            src: response.data.src,
+            published: response.data.published
+          });
+          setSubmitted(true);
+          console.log(response.data);
+        })
+        .catch(e => {
+          console.log(e);
+        }); */
   };
 
   const newTutorial = () => {
@@ -126,26 +126,19 @@ export default function Form() {
 
 
 
-  const [{ data, isLoading, isError }, setUrl] = useDataApi(
-    "http://localhost:3000/video/files"/* ,
-    {
-      gorsel: []
-    } */
-  );
-
-  const handleSubmit  = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const formData = new FormData();
     formData.append("selectedFile", selectedFile);
 
     try {
-      const response = await  axios({
+      const response = await axios({
         method: "post",
         url: "http://localhost:3000/video",
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
-    } catch(error) {
+    } catch (error) {
       console.log(error)
     }
   }
@@ -166,98 +159,95 @@ export default function Form() {
         <Header />
       </div>
       <div style={{ width: "300px", marginLeft: "100px" }}>
-     <form  onSubmit={handleSubmit}
-   
-        //  onSubmit={(event) => {  
-        //   event.preventDefault();
-        //     setUrl(`http://localhost:3000/video/files?Baslik=${query}`);
-        //   }}
+        <form onSubmit={handleSubmit}
+
+
         >
- 
-        
-         <div className="submit-form">
-         <input type="file" onChange={handleFileSelect}/>
-        {/*   <div className="form-group">
-            <label htmlFor="bayi">Başlık</label>
-            <input
-              type="text"
-              className="form-control"
-              id="Baslik"
-
-              value={tutorial.Baslik}
-              onChange={handleInputChange}
-              name="Baslik"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="Veritipi">Veri tipi</label>
-            <input
-              type="radio"
-              className="form-control"
-              id="Veritipi"
-
-              value={tutorial.Veritipi}
-              onChange={handleInputChange}
-              name="Veritipi"
-            />
-          </div> 
-          <div className="form-group">
-            <label htmlFor="Resimicerik">Resim  icerik</label>
-            <input
-              type="text"
-              className="form-control"
-              id="Resimicerik"
-
-              value={tutorial.Resimicerik}
-              onChange={handleInputChange}
-              name="Resimicerik"
-            />
-          </div> 
-          <div className="form-group">
-            <label htmlFor="VideoBaslik">Video Başlık</label>
-            <input
-              type="text"
-              className="form-control"
-              id="VideoBaslik"
-
-              value={tutorial.VideoBaslik}
-              onChange={handleInputChange}
-              name="VideoBaslik"
-            />
-          </div> 
-          <div className="form-group">
-            <label htmlFor="VideoBaslik">Video url</label>
-            <input
-              type="text"
-              className="form-control"
-              id="url"
-
-              value={tutorial.url}
-              onChange={handleInputChange}
-              name="url"
-            />
-          </div> 
-          <div className="form-group">
-            <label htmlFor="VideoBaslik">Resim src</label>
-            <input
-              type="text"
-              className="form-control"
-              id="src"
-
-              value={tutorial.src}
-              onChange={handleInputChange}
-              name="src"
-            />
-          </div> */}
 
 
+          <div className="submit-form">
+            <input type="file" onChange={handleFileSelect} />
+            <div className="form-group">
+              <label htmlFor="bayi">Başlık</label>
+              <input
+                type="text"
+                className="form-control"
+                id="Baslik"
 
-        
-             <input type="submit" value="Upload File" />
-          
+                value={tutorial.Baslik}
+                onChange={handleInputChange}
+                name="Baslik"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="Veritipi">Veri tipi</label>
+              <input
+                type="radio"
+                className="form-control"
+                id="Veritipi"
+
+                value={tutorial.Veritipi}
+                onChange={handleInputChange}
+                name="Veritipi"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="Resimicerik">Resim  icerik</label>
+              <input
+                type="text"
+                className="form-control"
+                id="Resimicerik"
+
+                value={tutorial.Resimicerik}
+                onChange={handleInputChange}
+                name="Resimicerik"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="VideoBaslik">Video Başlık</label>
+              <input
+                type="text"
+                className="form-control"
+                id="VideoBaslik"
+
+                value={tutorial.VideoBaslik}
+                onChange={handleInputChange}
+                name="VideoBaslik"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="VideoBaslik">Video url</label>
+              <input
+                type="text"
+                className="form-control"
+                id="url"
+
+                value={tutorial.url}
+                onChange={handleInputChange}
+                name="url"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="VideoBaslik">Resim src</label>
+              <input
+                type="text"
+                className="form-control"
+                id="src"
+
+                value={tutorial.src}
+                onChange={handleInputChange}
+                name="src"
+              />
+            </div>
+
+
+
+
+            <input type="submit" value="Upload File" />
+
           </div>
         </form>
-        
+
       </div>
 
     </div>
