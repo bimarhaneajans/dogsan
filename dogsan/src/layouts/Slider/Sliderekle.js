@@ -70,10 +70,10 @@ export default function Form() {
   const [searchTitle, setSearchTitle] = useState("");
   const [controller, dispatch] = useSoftUIController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor } = controller;
-  const [Baslik, setBaslik] = React.useState(initialTutorialState);
-  const [Veritipi, setVeritipi] = React.useState(initialTutorialState);
-  const [Resimicerik, setResimicerik] = React.useState(initialTutorialState);
-  const [VideoBaslik, setVideoBaslik] = React.useState(initialTutorialState);
+  const [Baslik, setBaslik] = React.useState("");
+  const [Veritipi, setVeritipi] = React.useState("");
+  const [Resimicerik, setResimicerik] = React.useState("");
+  const [VideoBaslik, setVideoBaslik] = React.useState("");
 
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
@@ -133,11 +133,15 @@ export default function Form() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     const formData = new FormData();
-
-    for(let [name, value] of formData) {
-      formData.append(name, value);
+    formData.append("selectedFile", selectedFile);
+    formData.append("Baslik", Baslik);
+    formData.append("Veritipi", Veritipi);
+    formData.append("Resimicerik", Resimicerik);
+    formData.append("VideoBaslik", VideoBaslik);
+   // for(let [name, value] of formData) {
+     
    //  alert(`${name} = ${value}`); // key1 = value1, then key2 = value2
-}
+//}
   /*   formData.append("selectedFile", selectedFile); */
 
 
