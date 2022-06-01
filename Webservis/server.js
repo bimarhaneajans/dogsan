@@ -27,6 +27,8 @@ global.__basedir = __dirname;
      origin:"https://dogsan.madilink.net/", corsOptions)),
       })
 );  */
+
+
 app.use(cors(corsOptions));    
 
 
