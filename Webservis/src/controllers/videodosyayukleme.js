@@ -171,10 +171,14 @@ const upload = async (req, res) => {
 
       bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
        
-         saveTo = path.join( 'public/resources/static/assets/videos/' + filename.filename);
-         tipi= filename.mimeType;  
         
-         file.pipe(fs.createWriteStream(saveTo));
+         tipi= filename.mimeType;  
+         
+         saveTo = path.basename( './public/resources/static/assets/videos' + filename.filename);
+         console.log(saveTo)
+
+         saveTodiks = path.basename( './public/resources/static/assets/videos' + filename.filename);
+         file.pipe(fs.createWriteStream(saveTodiks));
 
          
 
@@ -200,24 +204,19 @@ const upload = async (req, res) => {
 
 };
 
-const getListFiles = (req, res) => {
+/* const getListFiles = (req, res) => {
   const directoryPath = __basedir + "/public/resources/static/assets/videos/";
   let JsonObject;
 
-  const ResimBaslik = req.query.ResimBaslik;
-  var condition = ResimBaslik ? { ResimBaslik: { $regex: new RegExp(ResimBaslik), $options: "i" } } : {};
+  const Baslik = req.query.ResimBaslik;
+  var condition =  Baslik ? { ResimBaslik: { $regex: new RegExp(Baslik), $options: "i" } } : {};
 
-  Slider.find(condition)
+  Slider.findOne(condition)
     .then(data => {
       res.send(data);
 
       fs.readdir(directoryPath, function (err, files) {
-        if (err) {
-          res.status(500).send({
-            message: "Unable to scan files!",
-          });
-        }
-
+    
         let fileInfos = [];
 
         files.forEach((file) => {
@@ -239,11 +238,33 @@ const getListFiles = (req, res) => {
         message:
           err.message || "Some error occurred while retrieving ignes."
       });
+
+      if (err) {
+        res.status(500).send({
+          message: "Unable to scan files!",
+        });
+      } 
     })
 
 
 
 
+}; */
+
+const getListFiles = (req, res) => {
+  //const id = req.params.id;
+  const Baslik = req.query.Baslik;
+  var condition = Baslik ? { Baslik: { $regex: new RegExp(Baslik), $options: "i" } } : {};
+  Slider.find(condition)
+  .then(data => {
+    res.send(data);
+  })
+  .catch(err => {
+    res.status(500).send({
+      message:
+        err.message || "Some error occurred while retrieving tutorials."
+    });
+  });
 };
 
 const download = (req, res) => {

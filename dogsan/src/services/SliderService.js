@@ -1,11 +1,11 @@
 import http from "../http-common";
 
 const getAll = () => {
-  return http.get("/slider/files");
+  return http.get("/video/files");
 };
 
 const get = id => {
-  return http.get(`/slider/${id}`);
+  return http.get(`/video/${id}`);
 };
 
 const create = data => {

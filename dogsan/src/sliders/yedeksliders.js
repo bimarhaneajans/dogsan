@@ -34,7 +34,7 @@ const VideoCarousel = () => {
         {slaty.map((slider) => {
           return (
             <Carousel.Item key={slider.id}>
-              {slider.type == ".jpg" ?
+              {slider.Veritipi == ".jpg" ?
                 ( 
                   <img src={slider.url}  width={"100%"} height={"100%"}/>
                    
@@ -42,7 +42,7 @@ const VideoCarousel = () => {
                 :
                 (
                   <ReactPlayer
-                    url={slider.url}
+                    url={slider.Resimpath}
                     pip={true}
                     controls={true}
                     playing={false}

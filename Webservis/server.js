@@ -104,7 +104,7 @@ require("./src/routes/katalog.routes")(app);
 require("./src/routes/kategori.routes")(app);
 require("./src/routes/mesaj.routes")(app);
 require("./src/routes/sehir.routes")(app);
-require("./src/routes/slider.routes")(app);
+/* require("./src/routes/slider.routes")(app); */
 require("./src/routes/sosyalsorumluluk.routes")(app);
 require("./src/routes/Tarihce.routes")(app);
 require("./src/routes/TarihceGarleri.routes")(app);
