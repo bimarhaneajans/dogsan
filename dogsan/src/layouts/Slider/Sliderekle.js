@@ -150,7 +150,11 @@ export default function Form() {
         method: "post",
         url: "https://bavrim.madilink.net/video",
         data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, OPTIONS",
+          "Content-Type": "multipart/form-data"
+        },
       });
     } catch (error) {
       console.log(error)
