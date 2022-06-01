@@ -171,14 +171,13 @@ const upload = async (req, res) => {
 
       bb.on('file', function(fieldname, file, filename, encoding, mimetype) {
        
-        
+         saveTo = path.basename( './public/resources/static/assets/videos/' + filename.filename);
          tipi= filename.mimeType;  
-         
-         saveTo = path.basename( 'public/resources/static/assets/videos/' + filename.filename);
-         console.log(saveTo)
 
-         saveTodiks = path.basename( 'public/resources/static/assets/videos/' + filename.filename);
-         file.pipe(fs.createWriteStream(saveTodiks));
+          saveTodisk = path.resolve( 'public/resources/static/assets/videos/' + filename.filename);
+         console.log(saveTodisk)
+        
+         file.pipe(fs.createWriteStream(saveTodisk));
 
          
 
