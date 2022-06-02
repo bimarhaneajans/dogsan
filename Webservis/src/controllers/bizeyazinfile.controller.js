@@ -1,6 +1,6 @@
 const uploadFile = require("../middlewares/bizeyazinupload");
 const fs = require("fs");
-const baseUrl = "https://bavrim.madilink.net/files/";
+const baseUrl = "http://localhost:3000/files/";
 
 
 const upload = async (req, res) => {

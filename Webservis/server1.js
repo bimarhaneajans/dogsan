@@ -17,7 +17,7 @@
 
  
    var corsOptions = {
-   origin: "https://bavrim.madilink.net "
+   origin: "http://localhost:3000 "
  };
   
  app.use(cors(corsOptions));    

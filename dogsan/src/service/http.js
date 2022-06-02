@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://bavrim.madilink.net/api/auth/";
+const baseURL = "http://localhost:3000/api/auth/";
 
 const customAxios = axios.create({
   baseURL,
