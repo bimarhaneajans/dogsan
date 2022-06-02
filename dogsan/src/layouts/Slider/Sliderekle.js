@@ -144,12 +144,27 @@ export default function Form() {
 //}
   /*   formData.append("selectedFile", selectedFile); */
 
+  /*
+  
+  , {
+      method: 'GET',
+      mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+      credentials: 'same-origin',
+  
+  */
+
 
     try {
       const response = await axios({
         method: "post",
-        url: "http://localhost:3000/video",
+        url: "https://lbavrim.madilink.netvideo",
         data: formData,
+        mode: 'no-cors',
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, OPTIONS",

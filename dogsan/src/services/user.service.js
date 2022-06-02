@@ -1,14 +1,14 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:3000/api/test/";
+const API_URL = "https://bavrim.madilink.net/api/test/";
 
 class UserService {
 /*   getPublicContent() {
     const axios = require('axios');
     let config = {
       method: 'get',
-      url: 'http://localhost:3000/api/test/all',
+      url: 'https://lbavrim.madilink.netapi/test/all',
       headers: {"Access-Control-Allow-Origin": "*"}
     };
     return axios(config);

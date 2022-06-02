@@ -5,13 +5,13 @@
   app.use(
     '/api/auth',
     createProxyMiddleware({
-      target: 'http://localhost:3000',
+      target: 'https://bavrim.madilink.net',
       changeOrigin: true,
     })
   );
 };  
 
 /* module.exports = function(app) {
-  app.use(proxy('/api/auth', { target: 'http://localhost:3000/' }));
+  app.use(proxy('/api/auth', { target: 'https://bavrim.madilink.net' }));
 };
   */

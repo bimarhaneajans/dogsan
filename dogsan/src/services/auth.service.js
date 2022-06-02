@@ -1,6 +1,6 @@
 import axios from "axios";
 //const API_URL = "https://46.4.116.218:3000/api/auth/";
-const API_URL = "http://localhost:3000/api/auth/";
+const API_URL = "https://lbavrim.madilink.netapi/auth/";
 
 //https://46.4.116.218:3000/api/test/
 
