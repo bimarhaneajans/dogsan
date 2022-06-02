@@ -8,7 +8,7 @@ class UserService {
     const axios = require('axios');
     let config = {
       method: 'get',
-      url: 'https://lbavrim.madilink.netapi/test/all',
+      url: 'https://bavrim.madilink.net/api/test/all',
       headers: {"Access-Control-Allow-Origin": "*"}
     };
     return axios(config);

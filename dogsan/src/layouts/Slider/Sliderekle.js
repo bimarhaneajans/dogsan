@@ -162,7 +162,7 @@ export default function Form() {
     try {
       const response = await axios({
         method: "post",
-        url: "https://lbavrim.madilink.netvideo",
+        url: "https://bavrim.madilink.net/video",
         data: formData,
         mode: 'no-cors',
         headers: {

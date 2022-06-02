@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://lbavrim.madilink.netapi/auth/";
+const API_URL = "https://bavrim.madilink.net/api/auth/";
 
 const register = (username, email, password) => {
   return axios.post(API_URL + "signup", {
