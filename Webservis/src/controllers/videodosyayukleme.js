@@ -10,7 +10,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
-const baseUrl = "https://lbavrim.madilink.net/resources/static/assets/videos/";
+const baseUrl = "http://localhost:3000/resources/static/assets/videos/";
 var mongoose = require('mongoose');
 var FormData = require('form-data');
 var fs = require('fs');
@@ -137,7 +137,7 @@ const deleteAll = (req, res) => {
     });
 };
 const upload = async (req, res) => {
- 
+  //var busboy = new Busboy({ headers: req.headers });
   try {
     MongoClient.connect(dbConfig.url, function (err, db) {
       if (err) throw err;
