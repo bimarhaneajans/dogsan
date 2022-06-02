@@ -138,7 +138,7 @@ export default function Bayiler() {
     const onUnmount = React.useCallback(function callback(map) {
         setMap(null)
     }, [])
-
+   
    
 
     return (
@@ -194,7 +194,10 @@ export default function Bayiler() {
                 
                 position={{ lat: item.enlem, lng: item.boylam }}  />
                
-                ))}
+                ))
+              
+                }
+
                    {/*  {
                         locations.map(item => {
                             return (
@@ -208,6 +211,8 @@ export default function Bayiler() {
                 <div className="clearfix"></div>
                 <div className="bottom-space-30"></div>
                 <div className="clearfix"></div>
+     
+             
                 {/*           <div  class="team-filter-nav text-center">
                   <ul id="filters" class="filter-nav list-inline list-unstyled">
                     <li style={{ float: "center" }}><a onClick={() => setactive("")} >TÜM BİRİMLER</a></li>
@@ -246,6 +251,8 @@ export default function Bayiler() {
                 {filtered.map(item => (
                     <div key={item.id} className="col-md-12">
                         <article>
+                 
+                     
                             <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.sehir) }}  /></p></div>
                             <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik ))  }}  /> </p></div>
                             <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.telefon))  }}  /> </p></div>
