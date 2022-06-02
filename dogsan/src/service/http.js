@@ -4,8 +4,7 @@ const baseURL = "http://localhost:3000/api/auth/";
 
 const customAxios = axios.create({
   baseURL,
-  headers: {
-    "Content-Type": "application/json",
+  headers: {  "Content-Type": "application/json",
     Accept: "application/json",
   },
 });
