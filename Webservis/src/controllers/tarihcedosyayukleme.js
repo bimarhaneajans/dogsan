@@ -4,7 +4,7 @@ const db = require("../models");
 
 const uploadFile = require("../middlewares/tarihceupload");
 const fs = require("fs");
- const baseUrl = "http://localhost:3000/resources/static/assets/tarihce";
+ const baseUrl = "https://lbavrim.madilink.net/resources/static/assets/tarihce";
  
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;

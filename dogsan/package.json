@@ -4,7 +4,7 @@
   "author": "Creative Tim",
   "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
   "description": "ReactJS version of DOGSAN by Creative Tim",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://bavrim.madilink.net",
   "engines": {
     "node": "14 || 15 || 16npm ",
     "npm": ">=6"

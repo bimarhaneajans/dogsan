@@ -1,12 +1,12 @@
  
-// const baseUrl = "http://localhost:3000/resources/static/assets/katalogs/";
+// const baseUrl = "https://lbavrim.madilink.net/resources/static/assets/katalogs/";
  
 const dbConfig = require("../config/db.config");
 const db = require("../models");
 
 const uploadFile = require("../middlewares/katalogupload");
 const fs = require("fs");
- const baseUrl = "http://localhost:3000/resources/static/assets/katalogs/";
+ const baseUrl = "https://lbavrim.madilink.net/resources/static/assets/katalogs/";
  
 const MongoClient = require("mongodb").MongoClient;
 const GridFSBucket = require("mongodb").GridFSBucket;

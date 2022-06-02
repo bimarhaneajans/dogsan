@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://bavrim.madilink.net",
   headers: {
     "Accept":"multipart/form-data; boundary=MyBoundary",
   }
