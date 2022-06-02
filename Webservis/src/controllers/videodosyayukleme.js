@@ -153,8 +153,7 @@ const upload = async (req, res) => {
        
          for (var i in users) {
          slider = new Slider({ 
-            gorsel:  
-              { 
+          //  gorsel:  { 
                 Baslik: users[i].Baslik ,
                 
                 Resimicerik:  users[i].Resimicerik ,
@@ -164,7 +163,7 @@ const upload = async (req, res) => {
                 url:  saveTo ,
                 Veritipi:   tipi ,
                 src:  saveTo ,
-              } 
+             // } 
             
           }) 
          }   

@@ -1,7 +1,7 @@
 module.exports = mongoose => {
   var schema = mongoose.Schema(
    {
-    gorsel:{
+   // gorsel:{
       Baslik: String, 
       ResimBaslik: String, 
       src:String,
@@ -11,8 +11,8 @@ module.exports = mongoose => {
       Veritipi:String,
       slidetipi:Boolean,
       published: Boolean
-    }
-   },
+    },
+  // },
  
     { timestamps: true }
   );
