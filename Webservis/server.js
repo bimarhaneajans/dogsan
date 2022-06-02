@@ -19,7 +19,7 @@ global.__basedir = __dirname;
 
 
   var corsOptions = {
-  origin: "https://dogsan.madilink.net/"
+  origin: "*"
 };
  /*
    app.use(

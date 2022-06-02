@@ -33,7 +33,7 @@ const VideoCarousel = () => {
       <Carousel>
         {slaty.map((slider) => { 
            return (
-           <Carousel.Item key={slider.id}>
+           <Carousel.Item key={slider.gorsel.id}>
               {slider.Veritipi == "image/jpeg" ?
                 ( 
                   <img src={slider.gorsel.src}  width={"100%"} height={"100%"}/>

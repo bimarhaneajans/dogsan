@@ -148,7 +148,7 @@ export default function Form() {
     try {
       const response = await axios({
         method: "post",
-        url: "https://bavrim.madilink.net/video",
+        url: "http://localhost:3000/video",
         data: formData,
         headers: {
           "Access-Control-Allow-Origin": "*",
