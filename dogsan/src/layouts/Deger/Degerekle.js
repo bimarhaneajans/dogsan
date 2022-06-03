@@ -52,6 +52,9 @@ const DegerEkle = () => {
           baslik:JSON.stringify(baslik),
           Content:  JSON.stringify(Content),
           kisaaciklama:JSON.stringify(kisaaciklama),
+  /*         baslik:tutorial.baslik,
+          Content:tutorial.Content,
+          kisaaciklama:tutorial.kisaaciklama, */
           Resim: tutorial.Resim,
           
     };

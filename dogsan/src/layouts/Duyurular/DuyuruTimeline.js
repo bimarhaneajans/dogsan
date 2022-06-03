@@ -3,7 +3,7 @@ import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } fr
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
 import DuyuruDataService from "../../services/DuyuruService";
-
+import DOMPurify from "dompurify";
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
@@ -49,7 +49,7 @@ export default function DuyuruTimeline() {
                                 variant="body2"
                                 color="text.secondary"
                             >
-                                <div style={{color:"rgb(230 7 86)"}} dangerouslySetInnerHTML={{ __html: item.Tarih }}  ></div>
+                                <div style={{color:"rgb(230 7 86)"}} dangerouslySetInnerHTML={{ __html:item.Tarih }}  ></div>
                             </TimelineOppositeContent>
                             <TimelineSeparator>
                                 <TimelineConnector />
@@ -60,7 +60,7 @@ export default function DuyuruTimeline() {
                             </TimelineSeparator>
                             <TimelineContent sx={{ py: '5px', px: 2 }}>
                                 <Typography variant="h6" component="span">
-                                <div style={{color:"#428bca"}} dangerouslySetInnerHTML={{ __html: item.baslik }}  />
+                                <div style={{color:"#428bca"}} dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik)) }}  />
                                 </Typography>
                                  <Typography><div  style={{color:"#292929"}} dangerouslySetInnerHTML={{ __html: item.kisaaciklama }}  /></Typography>
                             </TimelineContent>

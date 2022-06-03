@@ -16,10 +16,12 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import brand from "assets/images/logo-ct.png";
 import FileBase64 from 'react-file-base64';
 
+
 import 'draft-js/dist/Draft.css';
 import { RichTextEditor } from '@mantine/rte';
 
-const Duyuruekle = () => {
+
+const Duyuruekle = ({ values, setValues }) => {
   const initialTutorialState = {
     id: null,
     baslik: "",
@@ -51,20 +53,27 @@ const Duyuruekle = () => {
   const [YoutubeVideoURL, ChangeYoutubeVideoURL] = useState(initialValue)
   const [Tarih, ChangeTarih] = useState(initialValue)
   const [Resim, ChangeResim] = useState(initialValue)
+  const value = ""; /* RichTextEditor.createEmptyValue(); */
+
 
   const handleInputChange = event => {
-    const { name, value } = event.target;
+    const { name, value } = event.target.value;
     setTutorial({ ...tutorial, [name]: value });
+    value.toString("html");
   };
-
   const saveTutorial = () => {
     var data = {
-      baslik:JSON.stringify(baslik),
-      icerik:JSON.stringify(icerik),
-      kisaaciklama:JSON.stringify(kisaaciklama),
-      YoutubeVideoURL:JSON.stringify(YoutubeVideoURL),
-      Tarih:JSON.stringify(Tarih),
-      Resim: tutorial.Resim,
+       baslik:JSON.stringify(baslik),
+       icerik:JSON.stringify(icerik),
+       kisaaciklama:JSON.stringify(kisaaciklama),
+       YoutubeVideoURL:JSON.stringify(YoutubeVideoURL),
+       Tarih:JSON.stringify(Tarih),  
+      /* Resim: tutorial.Resim,
+      baslik:tutorial.baslik,
+      icerik: tutorial.icerik,
+      YoutubeVideoURL: tutorial.YoutubeVideoURL,
+      kisaaciklama: tutorial.kisaaciklama,
+      Tarih: tutorial.Tarih, */
     };
 
     DuyuruDataService.create(data)
@@ -117,11 +126,17 @@ const Duyuruekle = () => {
             <div>
               <div className="form-group">
                 <label htmlFor="bayi">Başlık</label>
-                <RichTextEditor name="baslik" id="baslik" type="text" style={{ width: "600px" }} value={baslik} onChange={Changebaslik} />
+                <RichTextEditor 
+                  name="baslik" 
+                  id="baslik" 
+                  type="string" 
+                  style={{ width: "600px" }} 
+                  value={baslik.toString("html")} 
+                  onChange={Changebaslik} />
               </div>
-        
 
-              <div className="form-group">
+
+              {/*       <div className="form-group">
                 <label htmlFor="kisaaciklama">kisaaciklama</label>
                 <RichTextEditor name="kisaaciklama" id="kisaaciklama" type="text" style={{ width: "600px" }} value={kisaaciklama} onChange={Changekisaaciklama} />
 
@@ -135,7 +150,7 @@ const Duyuruekle = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="icerik">icerik</label>
-                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={Changeicerik} />
+                <RichTextEditor name="icerik" id="icerik" type="text" style={{ width: "600px" }} value={icerik} onChange={handleInputChange} />
 
               </div>
               <div className="form-group">
@@ -149,7 +164,7 @@ const Duyuruekle = () => {
                 multiple={false}
                 onDone={({ base64 }) => setTutorial({ ...tutorial, Resim: base64 })}
               />  
-
+ */}
               <button onClick={saveTutorial} className="btn btn-success">
                 Submit
               </button>

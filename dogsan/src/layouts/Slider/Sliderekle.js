@@ -162,7 +162,7 @@ export default function Form() {
     try {
       const response = await axios({
         method: "post",
-        url: "https://cors-anywhere.herokuapp.com/https://bavrim.madilink.net/video",
+        url: "https://cors-anywhere.herokuapp.com/http://localhost:3000/video",
         data: formData,
         mode: 'no-cors',
         headers: {
