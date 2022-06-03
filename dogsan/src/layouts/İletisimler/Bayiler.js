@@ -253,9 +253,9 @@ export default function Bayiler() {
                         <article>
                  
                      
-                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.sehir) }}  /></p></div>
-                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik ))  }}  /> </p></div>
-                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.telefon))  }}  /> </p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:item.sehir }}  /></p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:item.baslik   }}  /> </p></div>
+                            <div class="col-md-4" style={{ fontWeight: "bold", textAlign: "center" }}> <p style={{ textAlign: "center" }}><div dangerouslySetInnerHTML={{ __html:item.telefon }}  /> </p></div>
                             <div className="bottom-space-30"></div>
                             <div className="clearfix"></div>
                         </article>

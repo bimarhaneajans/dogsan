@@ -320,7 +320,7 @@ export default function Home() {
                     <ul className="main-nav  list-unstyledd list-inline pull-right">
                       {tutorials && tutorials.map((tutorial, index) => (
                         <li onClick={() => setActiveTutorial(tutorial, index)}
-                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link"><div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(tutorial.kategoriadi))  }}  /></Link></li>))}
+                          key={index}><Link to={"/Subdynamicdetaykategori/" + tutorial.kategoriid} className="nav-link"><div dangerouslySetInnerHTML={{ __html:tutorial.kategoriadi }}  /></Link></li>))}
                     </ul>
                   </div>
 
@@ -340,7 +340,7 @@ export default function Home() {
                         <ul className="nav navbar-nav">
                           {tutorials && tutorials.map((tutorial, index) => (
                             <li onClick={() => setActiveTutorial(tutorial, index)}
-                              key={index}><a href={"#" + tutorial.path}> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(tutorial.kategoriadi))  }}  /></a></li>))}
+                              key={index}><a href={"#" + tutorial.path}> <div dangerouslySetInnerHTML={{ __html:tutorial.kategoriadi }}  /></a></li>))}
                         </ul>
                       </div>
 
@@ -497,8 +497,8 @@ export default function Home() {
 
                   <div className="info-col">
                     <img style={{ width: "350px", height: "250px" }} src={item.Resim} />
-                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik))  }}  ></div>
-                    <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.icerik))  }}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html:item.baslik}}  ></div>
+                    <div dangerouslySetInnerHTML={{ __html:item.icerik }}  ></div>
                   </div>
                   <Link to={"/Duyuru/" + item.id} className="nav-link">Göster</Link>
                 </div>
@@ -685,10 +685,10 @@ export default function Home() {
                       <div className="member-details" >
 
                       
-                        <h6>  <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.pozizyon))  }}  ></div></h6>
-                        <h4> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.yoneticiadi))  }} /> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.yoneticisoyadi))  }}  /></h4>
-                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(item.kariyer)  }}  /></p>
-                        <p> <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.kisaozgecmis))  }}  /></p>
+                        <h6>  <div dangerouslySetInnerHTML={{ __html:item.pozizyon}}  ></div></h6>
+                        <h4> <div dangerouslySetInnerHTML={{ __html:item.yoneticiadi }} /> <div dangerouslySetInnerHTML={{ __html:item.yoneticisoyadi}}  /></h4>
+                        <p> <div dangerouslySetInnerHTML={{ __html:item.kariyer}}  /></p>
+                        <p> <div dangerouslySetInnerHTML={{ __html:item.kisaozgecmis }}  /></p>
                        
                        
                         <div class="member-social">
@@ -738,8 +738,8 @@ export default function Home() {
                         </div>
                         <div className="info-col">
 
-                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.baslik))  }}  />
-                        <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse(item.Ozet))  }}  /> 
+                        <div dangerouslySetInnerHTML={{ __html:item.baslik }}  />
+                        <div dangerouslySetInnerHTML={{ __html:item.Ozet}}  /> 
                         </div>
                         <ul className="list-inline list-unstyled post-nav">
                           <li className="post-links"><a href=""><i className="icon-user"></i><RWebShare

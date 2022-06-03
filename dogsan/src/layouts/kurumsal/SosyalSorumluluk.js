@@ -104,10 +104,10 @@ export default function SosyalSorumluluk() {
                                 <img src={item.Resim} className="img-responsive" alt="" />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                 <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( JSON.parse(item.baslik))}}  ></div>
+                                 <div dangerouslySetInnerHTML={{ __html:item.baslik}}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
-                                 <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize( JSON.parse(item.icerik)) }}  ></div>
+                                 <div dangerouslySetInnerHTML={{ __html:item.icerik}}  ></div>
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
                    

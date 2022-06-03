@@ -122,7 +122,7 @@ export default function Kataloglar() {
                                                 <center><img src={item.Resim} style={{ objectFit: "cover", height: "300px", width: "300px" }} /></center>
                                                 <center><img class="information-box__grid-icon" src={svgpdf} alt="pdf" /></center>
                                             </div>
-                                            <div dangerouslySetInnerHTML={{ __html:DOMPurify.sanitize(JSON.parse( item.katalogadi)) }}  ></div>
+                                            <div dangerouslySetInnerHTML={{ __html:item.katalogadi}}  ></div>
 
                                         </Link>
 
