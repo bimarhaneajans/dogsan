@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Link, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
-import Login from "./components/Login";
+//npm tamircisi
+/* SET PATH=C:\Program Files\Nodejs;%PATH%
+ */import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
@@ -25,14 +26,14 @@ import DentalSuturler2 from "./components/DentalSuturler/DentalSuturler2";
 import Veterinerlik from "./components/Veterinerlik/Veterinerlik";
 import Veterinerlik2 from "./components/Veterinerlik/Veterinerlik2";
 import HeaderKurumsal from "./components/kurumsal/header/HeaderKurumsal";
-import Kurumsal from "./components/kurumsal/kurumsal";
-import Hakkimizda from  "./components/kurumsal/hakkimizda";
-import Degerler from  "./components/kurumsal/degerler";
+import Kurumsal from "./components/kurumsal/Kurumsal";
+import Hakkimizda from  "./components/kurumsal/Hakkimizda";
+import Degerler from  "./components/kurumsal/Degerler";
 import SosyalSorumluluk from  "./components/kurumsal/SosyalSorumluluk";
-import Tarihce from "./components/kurumsal/tarihce";
+import Tarihce from "./components/kurumsal/Tarihce";
 import Urunler from  "./components/Urunler/Urunler";
 import Admin from  "./admin/App";
-
+import { Interweave } from 'interweave';
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";
