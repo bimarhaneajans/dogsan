@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useMemo, useRef,Fragment } from "react";
 import { Routes, Route, Navigate, useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { useSoftUIController, setMiniSidenav, setOpenConfigurator } from "context";
 
@@ -24,7 +24,9 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import "../social.css";
 import DOMPurify from "dompurify";
+import { Interweave } from 'interweave';
 
+let code = `<b>Will This Work? ${state}</b>`;
 
 export default function Duyurular() {
     const [tutorials, setTutorials] = useState([]);
@@ -103,7 +105,7 @@ export default function Duyurular() {
             </div>
             <div className="blog-content">
                 <div className="container">
-                    <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>DUYURULAR</h1>
+                    <h1 className="col-md-12" style={{ fontWeight: "bold", color: "rgb(0 129 195)", textAlign: "center" }}>DUYURULAR </h1>
                     <div className="bottom-space-30"></div>
                     <div className="clearfix"></div>
                     <div className="bottom-space-30"></div>
@@ -124,8 +126,13 @@ export default function Duyurular() {
                                 <div className="clearfix"></div>
                                 <p style={{ textAlign: "center" }} >  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(JSON.parse(item.icerik)) }}  ></div></p>
                                 
-                                {/*  <div>{ convertHtmlToReact (` <div>This wil be </div>`+JSON.parse(item.Tarih)  +`<h1>nur</h1>`, true) }</div> */}
-
+                                
+                                <React.Fragment>
+    <button onClick={()=>{setState("<div style=\"background-color: red; width:50px; height:50px;\"><div>")}}>Click to change state from pure text to an html element</button>
+    <div dangerouslySetInnerHTML={ {__html: code} }>
+    </div>
+    </React.Fragment>
+                                <div dangerouslySetInnerHTML={{ __html: item.icerik }} />
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 
