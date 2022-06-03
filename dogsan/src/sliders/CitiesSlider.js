@@ -52,16 +52,16 @@ export default class CitiesSlider extends React.Component {
         <div className={classNames('slider', { 's--ready': sliderReady })}>
           <p className="slider__top-heading">Travelers</p>
           <div className="slider__slides">
-            {this.props.slider.map((slide, index) => (
+            {this.props.slider.gorsel.map((slide, index) => (
               <div
                 className={classNames('slider__slide', { 's--active': activeSlide === index, 's--prev': prevSlide === index  })} key={slide.id}
                 >
                 <div className="slider__slide-content">
-                  <h3 className="slider__slide-subheading">{/* {slide.country || slide.city} */}</h3>
+                  <h3 className="slider__slide-subheading">  {slide.ResimBaslik || slide.VideoBaslik} </h3>
                   <h2 className="slider__slide-heading">
-                    {slide.city.split('').map(l => <span>{l}</span>)}
+                    {slide.ResimBaslik.split('').map(l => <span>{l}</span>)}
                   </h2>
-              {/*     <p className="slider__slide-readmore">read more</p> */}
+             
                 </div>
                 <div className="slider__slide-parts">
                   {[...Array(this.IMAGE_PARTS).fill()].map((x, i) => (
@@ -79,33 +79,6 @@ export default class CitiesSlider extends React.Component {
       );
     }
   }
-  
-  const slides = [
-    {
-      city: 'Paris',
-      country: 'France',
-      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/paris.jpg',
-    },
-    {
-      city: 'Singapore',
-      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/singapore.jpg',
-    },
-    {
-      city: 'Prague',
-      country: 'Czech Republic',
-      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/prague.jpg',
-    },
-    {
-      city: 'Amsterdam',
-      country: 'Netherlands',
-      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/amsterdam.jpg',
-    },
-    {
-      city: 'Moscow',
-      country: 'Russia',
-      img: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/moscow.jpg',
-    },
-  ];
   
  
   
