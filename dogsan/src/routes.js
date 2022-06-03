@@ -23,7 +23,7 @@ import Igneekle from "./layouts/igne/igneekle"
 import Igneliste from "./layouts/igne/igneliste"
 
 import Katalogekle from "./layouts/Katalog/Katalogekle"
-import KatalogPdfYukleme from "./layouts/Katalog/KatalogPdfYukle"
+/* import KatalogPdfYukleme from "./layouts/Katalog/KatalogPdfYukle" */
 import Katalogliste from "./layouts/Katalog/Katalogliste"
 import Kategoriekle from "./layouts/Kategori/Kategoriekle"
 import Kategoriliste from "./layouts/Kategori/Kategoriliste"
@@ -310,7 +310,7 @@ const routes = [
     noCollapse: true,
     isPrivate: true,
   },
-  {
+  /* {
     type: "collapse",
     name: "Katalog Pdf Yükleme",
     key: "KatalogPdfYukleme",
@@ -319,7 +319,7 @@ const routes = [
     component: <KatalogPdfYukleme />,
     noCollapse: true,
     isPrivate: true,
-  },
+  }, */
   {
     type: "collapse",
     name: "Katalog Listele",

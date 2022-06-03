@@ -1,4 +1,4 @@
-
+/* 
 import React, { useState, useEffect, useMemo, useRef, Component } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
@@ -155,3 +155,4 @@ export default class UploadImages extends Component {
     }
 }
 
+ */
