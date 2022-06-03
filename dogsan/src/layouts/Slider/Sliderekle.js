@@ -218,7 +218,7 @@ export default function Form() {
                 name="Baslik"
               />
             </div>
-            <div className="form-group">
+       {/*      <div className="form-group">
               <label htmlFor="Veritipi">Veri tipi</label>
               <input
                 type="radio"
@@ -230,7 +230,7 @@ export default function Form() {
                 onChange={e => setVeritipi(e.target.value)}  
                 name="Veritipi"
               />
-            </div>
+            </div> */}
             <div className="form-group">
               <label htmlFor="Resimicerik">Resim  icerik</label>
               <input

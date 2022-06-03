@@ -24,9 +24,9 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import "../social.css";
 import DOMPurify from "dompurify";
-import { Interweave } from 'interweave';
+/* import { Interweave } from 'interweave';
 
-let code = `<b>Will This Work? ${state}</b>`;
+let code = `<b>Will This Work? ${state}</b>`; */
 
 export default function Duyurular() {
     const [tutorials, setTutorials] = useState([]);
@@ -127,12 +127,12 @@ export default function Duyurular() {
                                 <p style={{ textAlign: "center" }} >  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(JSON.parse(item.icerik)) }}  ></div></p>
                                 
                                 
-                                <React.Fragment>
+                               {/*  <React.Fragment>
     <button onClick={()=>{setState("<div style=\"background-color: red; width:50px; height:50px;\"><div>")}}>Click to change state from pure text to an html element</button>
     <div dangerouslySetInnerHTML={ {__html: code} }>
     </div>
-    </React.Fragment>
-                                <div dangerouslySetInnerHTML={{ __html: item.icerik }} />
+    </React.Fragment> */}
+                             {/*    <div dangerouslySetInnerHTML={{ __html: item.icerik }} /> */}
                                 <div className="bottom-space-30"></div>
                                 <div className="clearfix"></div>
 

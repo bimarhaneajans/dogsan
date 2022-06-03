@@ -36,13 +36,12 @@ const VideoCarousel = () => {
            <Carousel.Item key={slider._id}>
               {slider.Veritipi == "image/jpeg" ?
                 ( 
-                  <img src={slider.src}  width={"100%"} height={"100%"}/>
-                   
+                  <img src={"/public/resimler/slide-b-bg.jpg"}  width={"100%"} height={"100%"}/>
                 )
                 :
                 (
                   <ReactPlayer
-                  url={slider.url}
+                  url={"/public/resimler/WhatsApp Video 2022-05-14 at 22.32.25.mp4"}
                   pip={false}
                   controls={false}
                   playing={true}
