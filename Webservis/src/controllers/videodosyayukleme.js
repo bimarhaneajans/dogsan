@@ -179,17 +179,18 @@ const upload = async (req, res) => {
           saveTodisk = path.resolve( 'public/resources/static/assets/videos/' + filename.filename);
          console.log(saveTodisk)
         
-         file.pipe(fs.createWriteStream(saveTodisk));
-
-         
-
+         file.pipe(fs.createWriteStream(saveTodisk)); 
       
-      
+      });
+
+      bb.on('close', () => {
+        res.writeHead(200, { 'Connection': 'close' });
+        res.end(`bağlantı kapatıldı!`);
       });
    
       bb.on('finish', function() {
         res.writeHead(200, { 'Connection': 'close' });
-        res.end("That's all folks!");
+        res.end("işlem tamam!");
       });
       
 
